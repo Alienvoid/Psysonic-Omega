@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<Tags />
+	<Includes />
+
+	<UnitTypeIcon id="RiflemenIcon" Image="UnitTypeIcon_RiflemenNew">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="AttackDogIcon" Image="UnitTypeIcon_AttackDog">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="SpyIcon" Image="UnitTypeIcon_Spy">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="JavelinIcon" Image="UnitTypeIcon_JavelinSoldier">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+
+	<UnitTypeIcon id="EngineerIcon" Image="UnitTypeIcon_EngineerNew">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+
+	<UnitTypeIcon id="CommandoIcon" Image="UnitTypeIcon_CommandoNew">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="TankBusterIcon" Image="UnitTypeIcon_TankBuster">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="RocketAngelIcon" Image="UnitTypeIcon_RocketAngel">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="ShinobiIcon" Image="UnitTypeIcon_Shinobi">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="BurstDroneIcon" Image="UnitTypeIcon_BurstDrone">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="FlakTrooperIcon" Image="UnitTypeIcon_FlakTrooper">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="BearIcon" Image="UnitTypeIcon_Bear">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="TeslaTrooperIcon" Image="UnitTypeIcon_TeslaTrooper">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="TerrorDroneIcon" Image="UnitTypeIcon_TerrorDrone">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="CryoIcon" Image="UnitTypeIcon_CryoTrooper">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="SniperIcon" Image="UnitTypeIcon_Sniper">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	
+	<UnitTypeIcon id="BuzzersIcon" Image="UnitTypeIcon_Buzzers">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="ExecuterIcon" Image="UnitTypeIcon_executer">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="RangerIcon" Image="UnitTypeIcon_Ranger">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="RazorIcon" Image="UnitTypeIcon_Razor">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="FlamethrowerIcon" Image="UnitTypeIcon_Flamethrower">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="RioterIcon" Image="UnitTypeIcon_Rioter">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="PsychicAngelIcon" Image="UnitTypeIcon_PsychicAngel">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="PsychicCommandoIcon" Image="UnitTypeIcon_PsychicCommandoIcon">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="NationalPoliceIcon" Image="UnitTypeIcon_NationalPolice">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="DreamflyIcon" Image="UnitTypeIcon_Dreamfly">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+	<UnitTypeIcon id="RiderIcon" Image="UnitTypeIcon_Rider">
+		<Offset x="0" y="0"/>
+	</UnitTypeIcon>
+
+</AssetDeclaration>

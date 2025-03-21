@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<FXList id="FX_GDISniperBulletHit">
+		<NuggetList>
+			<ParticleSystem
+				Particle="BulletHitGDIFlash"
+				Ricochet="true" />
+			<ParticleSystem
+				Particle="BulletHitGDISpark"
+				Ricochet="true" />
+			<ParticleSystem
+				Particle="GDISniperFireDistort"
+				OrientToObject="true"/>
+			<Sound Value="Impact_Bullet" />
+		</NuggetList>
+	</FXList>
+
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<FXList id="FX_GDISniperBulletHitHeroic">
+		<NuggetList>
+			<ParticleSystem
+				Particle="BulletHitGDIFlashHeroic"
+				Ricochet="true" />
+			<ParticleSystem
+				Particle="BulletHitGDISparkHeroic"
+				Ricochet="true" />
+			<ParticleSystem
+				Particle="GDISniperFireDistort"
+				OrientToObject="true"/>
+			<Sound Value="Impact_Bullet" />
+		</NuggetList>
+	</FXList>
+</AssetDeclaration>

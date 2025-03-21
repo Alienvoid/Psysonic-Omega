@@ -1,0 +1,6343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+
+	<Includes />
+  
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="ATTACK_MOVE"
+		id="Command_AttackMove" />
+	<LogicCommand
+		Type="STOP"
+		id="Command_Stop" />
+	<LogicCommand
+		Type="CANCEL_UNIT_BUILD"
+		id="Command_CancelUnitCreate" />
+	<LogicCommand
+		Type="CANCEL_UPGRADE"
+		id="Command_CancelUpgradeCreate" />
+	<LogicCommand
+		Type="HORDE_TOGGLE_FORMATION"
+		id="Command_ToggleFormation" />
+	<LogicCommand
+		Type="SET_STANCE"
+		id="Command_SetStanceGuard" />
+	<LogicCommand
+		Type="SET_STANCE"
+		id="Command_SetStanceAggressive" />
+	<LogicCommand
+		Type="SET_STANCE"
+		id="Command_SetStanceHoldPosition" />
+	<LogicCommand
+		Type="SET_STANCE"
+		id="Command_SetStanceHoldFire" />
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_MoveToPositionAndEvacuate">
+		<SpecialPower>SpecialPowerMoveToPositionAndEvacuate</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="COLLECT"
+		id="Command_MoveToPositionAndCollect">
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleAlliedEngineerHeal">
+		<SpecialPower>SpecialPower_ToggleAlliedEngineerHeal</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_RepairVehicle">
+		<SpecialPower>SpecialPower_TargetedRepairVehicle</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_ALLY_OBJECT"
+		Type="SPECIAL_POWER"
+		id="Command_ChargeDefenses">
+		<SpecialPower>SpecialPower_ChargeDefensesTrigger</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="GARRISON_BUILDING"
+		id="Command_CaptureBuilding"
+		Options="NEED_TARGET_ENEMY_OBJECT">
+		<SpecialPower>SpecialPowerCaptureControlPoint</SpecialPower>
+		<AISpecialPowerInfo Heuristic="CAPTURE" Manager="TACTIC">
+			<ObjectFilter Rule="ANY" Relationship="NEUTRAL ENEMIES" Include="HUSK STRUCTURE" Exclude="CIVILIAN_BUILDING"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ReturnToAirfield">
+		<SpecialPower>SpecialPowerReturnToProducer</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_AlliedFighterAircraftReturnToAirfield">
+		<SpecialPower>SpecialPowerReturnToProducer</SpecialPower>
+		<AISpecialPowerInfo Heuristic="SPEED_BOOST" Manager="MICRO_MANAGER"
+			UseInMicroManagerState="RETREAT"
+			UseWhenOutOfAmmo="true"
+		/>
+  </LogicCommand>
+
+  <LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_AlliedAntiGroundAircraftReturnToAirfield">
+    <SpecialPower>SpecialPowerReturnToProducer</SpecialPower>
+    <AISpecialPowerInfo Heuristic="SPEED_BOOST" Manager="MICRO_MANAGER"
+      UseInMicroManagerState="RETREAT"
+      UseWhenOutOfAmmo="true"
+      />
+  </LogicCommand>
+
+  <LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_SovietFighterAircraftReturnToAirfield">
+    <SpecialPower>SpecialPowerReturnToProducer</SpecialPower>
+    <AISpecialPowerInfo Heuristic="SPEED_BOOST" Manager="MICRO_MANAGER"
+      UseInMicroManagerState="RETREAT"
+      UseWhenOutOfAmmo="true"
+      />
+	</LogicCommand>
+
+  <LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_UnPackJapanRefineryEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanBarracksEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanPowerPlantEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanWarFactoryEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanNavalYardEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanTechStructureEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+  
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanSuperWeaponEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanSuperWeaponAdvancedEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanBaseDefenseEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+  
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanVIPBunkerEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+  <ButtonSingleStateData
+    id="ButtonStateAbilityUnPackJapanVIPBunkerEgg">
+    <State
+			Image="JUA_Egg_Unfurl"
+			Title="NAME:AbilityUnPackJapanVIPBunkerEgg"
+			Description="DESC:AbilityUnPackJapanVIPBunkerEgg" />
+  </ButtonSingleStateData>
+  <UnitAbilityButtonTemplate
+    id="ButtonUnPackJapanVIPBunkerEgg"
+    LogicCommand="Command_UnPackJapanVIPBunkerEgg">
+    <Data>
+      <Unpack
+				StateData="ButtonStateAbilityUnPackJapanVIPBunkerEgg"/>
+    </Data>
+  </UnitAbilityButtonTemplate>
+  
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackPsychicPartisanVIPBunkerEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+  <ButtonSingleStateData
+    id="ButtonStateAbilityUnPackPsychicPartisanVIPBunkerEgg">
+    <State
+			Image="JUA_Egg_Unfurl"
+			Title="NAME:AbilityUnPackPsychicPartisanVIPBunkerEgg"
+			Description="DESC:AbilityUnPackPsychicPartisanVIPBunkerEgg" />
+  </ButtonSingleStateData>
+  <UnitAbilityButtonTemplate
+    id="ButtonUnPackPsychicPartisanVIPBunkerEgg"
+    LogicCommand="Command_UnPackPsychicPartisanVIPBunkerEgg">
+    <Data>
+      <Unpack
+				StateData="ButtonStateAbilityUnPackPsychicPartisanVIPBunkerEgg"/>
+    </Data>
+  </UnitAbilityButtonTemplate>
+  
+  
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanBaseDefenseAdvancedEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanConstructionYardEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+  
+	<LogicCommand
+		Type="EVACUATE"
+		id="Command_Evacuate" >
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="EVACUATE"
+		id="Command_SovietBattleBunkerEvacuate" >
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="EVACUATE"
+		id="Command_CivilianStructureEvacuate" >
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<!-- Allied Special Powers -->
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_AlliedRecallAllAircraft">
+		<SpecialPower>SpecialPower_RecallAllAircraft</SpecialPower>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseAlliedTech2">
+		<Upgrade>Upgrade_AlliedTech2</Upgrade>
+		<AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseAlliedTech3">
+		<Upgrade>Upgrade_AlliedTech3</Upgrade>
+		<AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_HighTechnology">
+		<SpecialPower>SpecialPowerHighTechnology</SpecialPower>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_AirPower">
+		<SpecialPower>SpecialPowerAirPower</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+	Type="PLAYER_UPGRADE"
+	id="Command_AlliedFreeTrade">
+		<SpecialPower>SpecialPowerAlliedFreeTrade</SpecialPower>
+	</LogicCommand>
+
+	<!-- Allied Buildings -->
+
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedCrane">
+		<Object>AlliedCrane</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedWall">
+		<Object>AlliedWallPiece</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedPowerPlant">
+		<Object>AlliedPowerPlant</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedRefinery">
+		<Object>AlliedRefinery</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedBarracks">
+		<Object>AlliedBarracks</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedWarFactory">
+		<Object>AlliedWarFactory</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedAirfield">
+		<Object>AlliedAirfield</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedTechStructure">
+		<Object>AlliedTechStructure</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedEconomyStructure">
+		<Object>AlliedEconomyStructure</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedNavalYard">
+		<Object>AlliedNavalYard</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedBaseDefense">
+		<Object>AlliedBaseDefense</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedBaseDefenseAdvanced">
+		<Object>AlliedBaseDefenseAdvanced</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedSuperWeapon">
+		<Object>AlliedSuperWeapon</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedSuperWeaponAdvanced">
+		<Object>AlliedSuperWeaponAdvanced</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeAlliedCrane">
+		<Upgrade>Upgrade_AlliedCrane</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedOutpost">
+		<Object>AlliedRadarDish</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeAlliedRadarDish">
+		<Upgrade>Upgrade_AlliedRadarDish</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeAlliedConstructionYardRepairBay">
+		<Upgrade>Upgrade_AlliedConstructionYardRepairBay</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeAlliedPowerPlantTurbine">
+		<Upgrade>Upgrade_AlliedPowerPlantTurbine</Upgrade>
+		<AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeAlliedNavalYardRepairBay">
+		<Upgrade>Upgrade_AlliedNavalYardRepairBay</Upgrade>
+	</LogicCommand>
+		
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeAlliedWarFactoryRepairBay">
+		<Upgrade>Upgrade_AlliedWarFactoryRepairBay</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructAlliedWormHole">
+		<Object>AlliedWormHole</Object>
+	</LogicCommand>
+  <LogicCommand
+    Type="EVACUATE"
+    id="Command_DisguisedEvacuate" >
+    <AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+  </LogicCommand>
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructCivilianTank">
+		<Object>CivilianTank</Object>
+	</LogicCommand>
+	
+	<!-- Allied Units -->
+
+	<LogicCommand
+		Type="EVACUATE"
+		id="Command_AlliedBaseDefenseEvacuate">
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PackAlliedMCV">
+		<SpecialPower>SpecialPower_PackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="PACK" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiGroundAircraft">
+		<Object>AlliedAntiGroundAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedFighterAircraft">
+		<Object>AlliedFighterAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedBomberAircraft">
+		<Object>AlliedBomberAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAirBattleShip">
+		<Object>AlliedAirBattleShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedMotherShip">
+		<Object>AlliedMotherShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedSupportAircraft">
+		<Object>AlliedSupportAircraft</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiInfantryInfantry">
+		<Object>AlliedAntiInfantryInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiVehicleInfantry">
+		<Object>AlliedAntiVehicleInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedEngineer">
+		<Object>AlliedEngineer</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedScoutInfantry">
+		<Object>AlliedScoutInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedInfiltrationInfantry">
+		<Object>AlliedInfiltrationInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedSniper">
+		<Object>AlliedSniper</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedLegionnaireInfantry">
+		<Object>AlliedLegionnaireInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedCommandoTech1">
+		<Object>AlliedCommandoTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiNavalScout">
+		<Object>AlliedAntiNavalScout</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiNavyShipTech1">
+		<Object>AlliedAntiNavyShipTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiStructureShip">
+		<Object>AlliedAntiStructureShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiAirShip">
+		<Object>AlliedAntiAirShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiAirShip_Ground">
+		<Object>AlliedAntiAirShip_Ground</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiAirVehicleTech1">
+		<Object>AlliedAntiAirVehicleTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiVehicleVehicleTech1">
+		<Object>AlliedAntiVehicleVehicleTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiVehicleVehicleTech3">
+		<Object>AlliedAntiVehicleVehicleTech3</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiStructureVehicle">
+		<Object>AlliedAntiStructureVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedMiner">
+		<Object>AlliedMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedMiner_Naval">
+		<Object>AlliedMiner_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedMinerFromRefinery">
+		<Object>AlliedMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedMCV">
+		<Object>AlliedMCV</Object>
+	</LogicCommand>
+		<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedMCV_Naval">
+		<Object>AlliedMCV_Naval</Object>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAttackDrone">
+		<Object>AlliedAttackDrone</Object>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiInfantryVehicle">
+		<Object>AlliedAntiInfantryVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedAntiInfantryVehicle_Ground">
+		<Object>AlliedAntiInfantryVehicle_Ground</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_UnPackAlliedMCV">
+		<SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_UnPackAlliedMiner">
+		<SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleMirageField">
+		<SpecialPower>SpecialPower_ToggleMirageField</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleTargetPainter">
+		<SpecialPower>SpecialPower_ToggleTargetPainter</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleWeaponScrambler">
+		<SpecialPower>SpecialPower_ToggleWeaponScrambler</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleMagneticArmor">
+		<SpecialPower>SpecialPower_ToggleMagneticArmor</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleShortCircuit">
+		<SpecialPower>SpecialPower_ToggleShortCircuit</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleShortCircuitTank">
+		<SpecialPower>SpecialPower_ToggleShortCircuit</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateTeslaNova">
+		<SpecialPower>SpecialPower_TeslaNova</SpecialPower>
+		<AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+			<SpecialPowerWeapon
+				Weapon="SovietAntiNavyShipTech1TeslaNovaImpact"
+				AffectsFriendlies="false"
+  			AffectsSelf="false"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+    Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ActivateEjectPassengersSpecialPower">
+		<SpecialPower>SpecialPower_EjectPassengers</SpecialPower>
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+			Type="SPECIAL_POWER"
+			id="Command_ActivateEjectPassengersSpecialPowerUntargeted">
+		<SpecialPower>SpecialPower_EjectPassengersUntargeted</SpecialPower>
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivatePilotSnipeSpecialPower">
+		<SpecialPower>SpecialPower_PilotSnipe</SpecialPower>
+		<AISpecialPowerInfo Heuristic="INSTAKILL"	Manager="MICRO_MANAGER" />
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateLeapSpecialPower">
+		<SpecialPower>SpecialPower_TriggerLeap</SpecialPower>
+		<AISpecialPowerInfo Heuristic="AOE_ATTACK"
+												Manager="MICRO_MANAGER"
+												NeverUseWhileRetreating="true"
+												NeverUseWhilePullingBack="true">
+			<SpecialPowerWeapon
+				Weapon="SovietAntiInfantryVehicleLandWeapon"
+				AoeAttackPowerBlockAreaAfterActivationTime="1s"
+				AoeAttackPowerLocationPreference="PREFER_CENTER_OF_ENEMIES" />
+			<!-- PREFER_CENTER_OF_ENEMIES because the 3 guns of the sickle work best when surrounded by enemies -->
+		</AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateEMPCruiseMissleSpecialPower">
+		<SpecialPower>SpecialPower_TriggerEMPCruiseMissle</SpecialPower>
+		<AISpecialPowerInfo Heuristic="AOE_ATTACK"
+												Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="AlliedAntiStructureShipEMPCruiseMissleWarhead"
+				IsDisablingAttack="true" 
+				AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"
+				TotalValueGreaterThan="949"
+				AoeAttackPowerBlockAreaAfterActivationTime="3s"
+				AffectsFriendlies="true"
+				AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateJumpSpecialPower">
+		<SpecialPower>SpecialPower_TriggerJump</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="INVULNERABILITY"
+				Manager="MICRO_MANAGER"
+				InvulnerabilityDamageLookAheadTime="2s"
+				InvulnerabilityDamageLookBehindTime="0s"
+				InvulnerabilityDamageFractionWhenOutOfRangeOfTarget=".75"
+				InvulnerabilityDamageFractionWhenInRangeOfTarget=".75"/>
+  </LogicCommand>
+
+    <LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateBarkSpecialPower">
+		<SpecialPower>SpecialPower_Bark</SpecialPower>
+		<AISpecialPowerInfo Heuristic="AOE_ATTACK"
+												Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="AlliedScoutInfantryBark"
+				IsDisablingAttack="true" />
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateBribeSpecialPower">
+		<SpecialPower>SpecialPower_Bribe</SpecialPower>
+    <AISpecialPowerInfo Heuristic="DOMINATE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_TimeBeltSpecialPower">
+		<SpecialPower>SpecialPower_TimeBelt</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TIME_WARP" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateDisguiseSpecialPower">
+		<SpecialPower>SpecialPower_InfantryDisguise</SpecialPower>
+		<AISpecialPowerInfo Heuristic="DISGUISE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleRiotShieldSpecialPower">
+		<SpecialPower>SpecialPower_ToggleRiotShield</SpecialPower>
+		<AISpecialPowerInfo 
+			Heuristic="TOGGLE" 
+			UseToCounterGarrison="true"
+			Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleLeechBeam">
+		<SpecialPower>SpecialPower_ToggleLeechBeam</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateSuperSonicSpecialPower">
+		<SpecialPower>SpecialPower_ActivateSuperSonic</SpecialPower>
+		<AISpecialPowerInfo
+				Heuristic="INVULNERABILITY"
+				Manager="MICRO_MANAGER"
+				InvulnerabilityDamageLookAheadTime="1s"
+				InvulnerabilityDamageLookBehindTime="1s"
+				InvulnerabilityDamageFractionWhenOutOfRangeOfTarget=".3"
+				InvulnerabilityDamageFractionWhenInRangeOfTarget=".6"
+				InvulnerabilityAvoidUseIfAngleToNextPathNodeIsMoreThan="30d" />
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ParticleCannonSuperWeapon">
+		<SpecialPower>SpecialPowerParticleCannon</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="STRUCTURE" 
+      TargetObjectExclude="CONSTRUCTION_YARD SUPER_WEAPON" 
+      MaxTargetSpeed="0.0"
+      MinTargetsHit="4" 
+      RequireKillTargets="false">
+      <SpecialPowerWeapon Weapon="ParticleCannonWeapon"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+  
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_PrecisionStrike">
+    <SpecialPower>SpecialPowerPrecisionStrike</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT SUBMARINE TRANSFORMER" 
+      MaxTargetSpeed="0.0"
+      MinKillValue="1000">
+      <SpecialPowerWeapon Weapon="AlliedPrecisionBomb"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="EVACUATE"
+		id="Command_AlliedAntiInfantryVehicleEvacuate" >
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_DesolatorAirstrikeLvl1">
+		<SpecialPower>SpecialPower_DesolatorBomb_Level1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="STRUCTURE AIRCRAFT TRANSFORMER SUBMARINE" 
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="5">
+      <SpecialPowerWeapon Weapon="SovietDesolatorBombWeapon"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_DesolatorAirstrikeLvl2">
+    <SpecialPower>SpecialPower_DesolatorBomb_Level2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="STRUCTURE AIRCRAFT TRANSFORMER SUBMARINE"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="7">
+      <SpecialPowerWeapon Weapon="SovietDesolatorBombWeapon"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_DesolatorAirstrikeLvl3">
+    <SpecialPower>SpecialPower_DesolatorBomb_Level3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="STRUCTURE AIRCRAFT TRANSFORMER SUBMARINE" 
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="9">
+      <SpecialPowerWeapon Weapon="SovietDesolatorBombWeapon"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+
+
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ProductionKickbacks">
+		<SpecialPower>SpecialPower_ProductionKickbacks</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      MinTargetsHit="5">
+      <SpecialPowerWeapon Weapon="PlayerPowerProductionKickbacksWeapon"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_PointDefenseDrones">
+		<SpecialPower>SpecialPower_PointDefenseDrones</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_BUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="STRUCTURE"
+      MinTargetsHit="5"
+      MinEnemiesNearby="5">
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_SatelliteSweep">
+		<SpecialPower>SpecialPowerSatelliteSweep</SpecialPower>
+		<AISpecialPowerInfo 
+		  Heuristic="PLAYER_AOE_SHROUD_CLEAR" 
+		  Manager="SKIRMISH_AI">
+	</AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_OrbitalRefuse_Rank1">
+		<SpecialPower>SpecialPowerOrbitalRefuse_Rank1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT SUBMARINE TRANSFORMER"
+      MaxTargetSpeed="0.0"
+      MinKillValue="500">
+      <SpecialPowerWeapon Weapon="SovietOrbitalRefuse_Level1_WarHead"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+  
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_OrbitalRefuse_Rank2">
+    <SpecialPower>SpecialPowerOrbitalRefuse_Rank2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT SUBMARINE TRANSFORMER"
+      MaxTargetSpeed="0.0"
+      MinKillValue="1000">
+      <SpecialPowerWeapon Weapon="SovietOrbitalRefuse_Level2_WarHead"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_OrbitalRefuse_Rank3">
+		<SpecialPower>SpecialPowerOrbitalRefuse_Rank3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT SUBMARINE TRANSFORMER"
+      MaxTargetSpeed="0.0"
+      MinKillValue="2000">
+      <SpecialPowerWeapon Weapon="SovietOrbitalRefuse_Level3_WarHead"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+
+  
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoRiftSelectLvl1">
+		<SpecialPower>SpecialPowerChronoRiftSelectLvl1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="AIRCRAFT"
+      MinTargetsHit="1"
+      SearchRadius="150">
+      <!-- Using a dummy weapon because Chrono Rift doesn't actually have a weapon but we want to hook it up this way -->
+      <SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl1"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoRiftSelectLvl2">
+    <SpecialPower>SpecialPowerChronoRiftSelectLvl2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="AIRCRAFT"
+      MinTargetsHit="1"
+      SearchRadius="200">
+      <!-- Using a dummy weapon because Chrono Rift doesn't actually have a weapon but we want to hook it up this way -->
+      <SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl2"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>	
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoRiftSelectLVl3">
+		<SpecialPower>SpecialPowerChronoRiftSelectLvl3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="AIRCRAFT"
+      MinTargetsHit="7"
+      SearchRadius="250">
+      <!-- Using a dummy weapon because Chrono Rift doesn't actually have a weapon but we want to hook it up this way -->
+      <SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl3"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoSwapSelect">
+		<SpecialPower>SpecialPowerChronoSwapSelect</SpecialPower>
+    <AISpecialPowerInfo
+      	Heuristic="PLAYER_POSITION_SWAP"
+      	Manager="SKIRMISH_AI"
+      	MinKillValue="500"
+      	NextLogicCommand="Command_ChronoSwapTeleport">
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_ENEMY_OBJECT"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoSwapTeleport">
+		<SpecialPower>SpecialPowerChronoSwapTeleport</SpecialPower>
+	</LogicCommand>
+	
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_TimeBombLvl1">
+		<SpecialPower>SpecialPowerTimeBombLvl1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT TRANSFORMER"
+      MaxTargetSpeed="0.0"
+      MinKillValue="500">
+      <SpecialPowerWeapon Weapon="AlliedTimeBomb_Level1"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_TimeBombLvl2">
+		<SpecialPower>SpecialPowerTimeBombLvl2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT TRANSFORMER"
+      MaxTargetSpeed="0.0"
+      MinKillValue="1000">
+      <SpecialPowerWeapon Weapon="AlliedTimeBomb_Level2"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_TimeBombLvl3">
+		<SpecialPower>SpecialPowerTimeBombLvl3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT TRANSFORMER"
+      MaxTargetSpeed="0.0"
+      MinKillValue="2000">
+      <SpecialPowerWeapon Weapon="AlliedTimeBomb_Level3"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+  
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_CryoSatelliteLvl1">
+		<SpecialPower>SpecialPowerCryoSatelliteLvl1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK" 
+      TargetObjectExclude="AIRCRAFT"
+      MinTargetsHit="2">
+      <SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl1"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_CryoSatelliteLvl2">
+		<SpecialPower>SpecialPowerCryoSatelliteLvl2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="AIRCRAFT"
+      MinTargetsHit="4">
+      <SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl2"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_CryoSatelliteLvl3">
+		<SpecialPower>SpecialPowerCryoSatelliteLvl3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="AIRCRAFT"
+      MinTargetsHit="7">
+      <SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl3"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_SelectObjectsForChrono">
+		<SpecialPower>SpecialPowerChronosphereObjectSelect</SpecialPower>
+	</LogicCommand>
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_SpawnObjectsForChrono">
+		<SpecialPower>SpecialPowerChronosphereObjectSpawn</SpecialPower>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleRadarLockSpecialPower">
+		<SpecialPower>SpecialPower_RadarLock</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_SovietAntiGroundAircraftEvacuate" >
+		<SpecialPower>SpecialPower_EjectPassengersUntargeted</SpecialPower>
+		<AISpecialPowerInfo Heuristic="DEPLOY" Manager="TACTIC"/>
+	</LogicCommand>
+	
+	<!-- Soviet Buildings -->
+
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietWall">
+		<Object>SovietWallPiece</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietPowerPlant">
+		<Object>SovietPowerPlant</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietPowerPlantAdvanced">
+		<Object>SovietPowerPlantAdvanced</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietRefinery">
+		<Object>SovietRefinery</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietBarracks">
+		<Object>SovietBarracks</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietWarFactory">
+		<Object>SovietWarFactory</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietAirfield">
+		<Object>SovietAirfield</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietTechStructure">
+		<Object>SovietTechStructure</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietStatue">
+		<Object>SovietStatue</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietNavalYard">
+		<Object>SovietNavalYard</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietBaseDefenseGround">
+		<Object>SovietBaseDefenseGround</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietBaseDefenseAir">
+		<Object>SovietBaseDefenseAir</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietBaseDefenseAdvanced">
+		<Object>SovietBaseDefenseAdvanced</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietSuperWeapon">
+		<Object>SovietSuperWeapon</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietSuperWeaponAdvanced">
+		<Object>SovietSuperWeaponAdvanced</Object>
+	</LogicCommand>			
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietCrane">
+		<Object>SovietCrane</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietDetentionCamp">
+		<Object>SovietDetentionCamp</Object>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeSovietCrane">
+		<Upgrade>Upgrade_SovietCrane</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeSovietRadarDish">
+		<Upgrade>Upgrade_SovietRadarDish</Upgrade>
+	</LogicCommand>	
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeSovietConstructionYardSalvageYard">
+		<Upgrade>Upgrade_SovietConstructionYardSalvageYard</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeSovietWarFactorySalvageYard">
+		<Upgrade>Upgrade_SovietWarFactorySalvageYard</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeSovietNavalYardSalvageYard">
+		<Upgrade>Upgrade_SovietNavalYardSalvageYard</Upgrade>
+	</LogicCommand>
+	
+<!-- Soviet Units -->
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiInfantryVehicle">
+		<Object>SovietAntiInfantryVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiNavyShipTech2">
+		<Object>SovietAntiNavyShipTech2</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietHeavyAntiVehicleInfantry">
+		<Object>SovietHeavyAntiVehicleInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietScoutVehicle">
+		<Object>SovietScoutVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiGroundAircraft">
+		<Object>SovietAntiGroundAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietFrogtieAircraft">
+		<Object>SovietFrogtieAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietFighterAircraft">
+		<Object>SovietFighterAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietBomberAircraft">
+		<Object>SovietBomberAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiInfantryInfantry">
+		<Object>SovietAntiInfantryInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiVehicleInfantry">
+		<Object>SovietAntiVehicleInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiAirVehicleTech1">
+		<Object>SovietAntiAirVehicleTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietEngineer">
+		<Object>SovietEngineer</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietScoutInfantry">
+		<Object>SovietScoutInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietCommandoTech1">
+		<Object>SovietCommandoTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiNavyShipTech1">
+		<Object>SovietAntiNavyShipTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiStructureShip">
+		<Object>SovietAntiStructureShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiAirShip">
+		<Object>SovietAntiAirShip</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiAirShip_Ground">
+		<Object>SovietAntiAirShip_Ground</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiVehicleVehicleTech1">
+		<Object>SovietAntiVehicleVehicleTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiVehicleVehicleTech3">
+		<Object>SovietAntiVehicleVehicleTech3</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMARV">
+		<Object>SovietMARV</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiStructureVehicle">
+		<Object>SovietAntiStructureVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietSurveyor">
+		<Object>SovietSurveyor</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietSurveyor_Naval">
+		<Object>SovietSurveyor_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMiner">
+		<Object>SovietMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMiner_Naval">
+		<Object>SovietMiner_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMinerFromRefinery">
+		<Object>SovietMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMCV">
+		<Object>SovietMCV</Object>
+	</LogicCommand>	
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMCV_Naval">
+		<Object>SovietMCV_Naval</Object>
+	</LogicCommand>	
+
+<!-- Soviet Special Powers -->
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_IronCurtain">
+		<SpecialPower>SpecialPowerIronCurtain</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_BUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK VEHICLE"
+      TargetObjectExclude="STRUCTURE AIRCRAFT"
+      MinTargetsHit="5"
+      MinEnemiesNearby="5">
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_VacuumBomb">
+		<SpecialPower>SpecialPowerVacuumBomb</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="10" >
+      <SpecialPowerWeapon Weapon="VacuumBombIncrementalWeapon"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_MagneticSingularity">
+		<SpecialPower>SpecialPowerMagneticSingularity</SpecialPower>
+    	<AISpecialPowerInfo
+      		Heuristic="PLAYER_AOE_DEBUFF"
+      		Manager="SKIRMISH_AI"
+      		TargetObjectInclude="CAN_ATTACK"
+      		TargetObjectExclude="STRUCTURE AIRCRAFT"
+      		MinTargetsHit="5">
+        <SpecialPowerWeapon Weapon="MagneticSingularityWeapon"/>
+    	</AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_MagneticSatelliteLvl1">
+		<SpecialPower>SpecialPowerMagneticSatelliteLvl1</SpecialPower>
+    	<AISpecialPowerInfo
+      		Heuristic="PLAYER_POWER_MAGNETIC_SATELLITE"
+			UpdateObject="MagneticSatelliteEffectLvl1"
+      		SearchRadius="150.0"
+      		Manager="SKIRMISH_AI"
+      		MinKillValue="500"
+			MaxUpdatables="1"
+			TargetObjectInclude="VEHICLE"
+			TargetObjectExclude="STRUCTURE AIRCRAFT WALL_SEGMENT WALL_HUB WALL_PIECE T2_UNIT T3_UNIT COMMANDO">
+      		<SpecialPowerWeapon Weapon="MagneticSatelliteWeaponLvl1"/>
+    	</AISpecialPowerInfo>
+	</LogicCommand>
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_MagneticSatelliteLvl2">
+		<SpecialPower>SpecialPowerMagneticSatelliteLvl2</SpecialPower>
+    	<AISpecialPowerInfo
+      		Heuristic="PLAYER_POWER_MAGNETIC_SATELLITE"
+			UpdateObject="MagneticSatelliteEffectLvl2"
+      		SearchRadius="200.0"
+      		Manager="SKIRMISH_AI"
+      		MinKillValue="1000"
+			MaxUpdatables="1"
+			TargetObjectInclude="VEHICLE"
+			TargetObjectExclude="STRUCTURE AIRCRAFT WALL_SEGMENT WALL_HUB WALL_PIECE T3_UNIT COMMANDO">
+      		<SpecialPowerWeapon Weapon="MagneticSatelliteWeaponLvl2"/>
+    	</AISpecialPowerInfo>
+	</LogicCommand>
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_MagneticSatelliteLvl3">
+		<SpecialPower>SpecialPowerMagneticSatelliteLvl3</SpecialPower>
+    	<AISpecialPowerInfo
+      		Heuristic="PLAYER_POWER_MAGNETIC_SATELLITE"
+			UpdateObject="MagneticSatelliteEffectLvl3"
+      		SearchRadius="250.0"
+      		Manager="SKIRMISH_AI"
+      		MinKillValue="2000"
+			MaxUpdatables="1"
+			TargetObjectInclude="VEHICLE"
+			TargetObjectExclude="STRUCTURE AIRCRAFT WALL_SEGMENT WALL_HUB WALL_PIECE COMMANDO">
+      		<SpecialPowerWeapon Weapon="MagneticSatelliteWeaponLvl3"/>
+    	</AISpecialPowerInfo>
+	</LogicCommand>
+
+
+
+
+	
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_SovietMassProduction">
+		<SpecialPower>SpecialPowerSovietMassProduction</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_TerrorDroneEggs">
+		<SpecialPower>SpecialPowerTerrorDroneEggs</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_CrushPuppiesPower">
+		<SpecialPower>SpecialPowerCrushPuppies</SpecialPower>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleMIRVSpecialPower">
+		<SpecialPower>SpecialPower_MIRV</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ConstructSovietBunker">
+		<SpecialPower>SpecialPower_ConstructSovietBunker</SpecialPower>
+	</LogicCommand>	
+		
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleMolotovCocktailSpecialPower">
+		<SpecialPower>SpecialPower_MolotovCocktail</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleMagneticBombSpecialPower">
+		<SpecialPower>SpecialPower_MagneticBomb</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleRapidLaunchSpecialPower">
+		<SpecialPower>SpecialPower_ToggleRapidLaunch</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateSuperTorpedos">
+		<SpecialPower>SpecialPower_SuperTorpedos</SpecialPower>
+    <AISpecialPowerInfo 
+    	Heuristic="DUMB_FIRE" 
+    	Manager="MICRO_MANAGER"
+		TargetObjectInclude="VEHICLE"
+		TargetObjectExclude="AIRCRAFT TRANSFORMER"
+        Distance="250"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_SovietRecallAllAircraft">
+		<SpecialPower>SpecialPower_RecallAllAircraft</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleBinaryWeapon">
+		<SpecialPower>SpecialPower_ToggleBinaryWeapons</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleArmorUp">
+		<SpecialPower>SpecialPower_ToggleArmorUp</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleAfterburners">
+		<SpecialPower>SpecialPower_ToggleAfterburners</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleShieldSphere">
+		<SpecialPower>SpecialPower_ToggleShieldSphere</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+	Type="SPECIAL_POWER"
+	id="Command_ActivateRoarSpecialPower">
+		<SpecialPower>SpecialPower_Roar</SpecialPower>
+		<AISpecialPowerInfo Heuristic="AOE_ATTACK"
+												Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="SovietScoutInfantryRoar"
+				IsDisablingAttack="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PackSovietMCV">
+		<SpecialPower>SpecialPower_PackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="PACK" Manager="TACTIC"/>
+	</LogicCommand>
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_UnPackSovietMCV">
+		<SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+	</LogicCommand>
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_UnPackSovietSurveyor">
+		<SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleHarpoonSpecialPower">
+		<SpecialPower>SpecialPower_Harpoon</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_ENEMY_OBJECT"
+		Type="SPECIAL_POWER"
+		id="Command_IrradiateTarget">
+		<SpecialPower>SpecialPower_IrradiateTarget</SpecialPower>
+        <AISpecialPowerInfo
+      		Heuristic="PLAYER_AOE_ATTACK"
+			Manager="SKIRMISH_AI"
+      		TargetObjectExclude="STRUCTURE AIRCRAFT INFANTRY"
+      		TargetObjectInclude="VEHICLE"
+      		MaxTargetSpeed="0.0"
+      		RequireKillTargets="false">
+      		<SpecialPowerWeapon Weapon="PlayerPowerIrradiateTargetWeapon"/>
+    	</AISpecialPowerInfo>
+    </LogicCommand>
+
+
+	<!-- Japan Buildings -->
+
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanWall">
+		<Object>JapanWallPiece</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanPowerPlant">
+		<Object>JapanPowerPlant</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanRefinery">
+		<Object>JapanRefinery</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanBarracks">
+		<Object>JapanBarracks</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanWarFactory">
+		<Object>JapanWarFactory</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanNavalYard">
+		<Object>JapanNavalYard</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanBaseDefense">
+		<Object>JapanBaseDefense</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanBaseDefenseAdvanced">
+		<Object>JapanBaseDefenseAdvanced</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanSuperWeapon">
+		<Object>JapanSuperWeapon</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanSuperWeaponAdvanced">
+		<Object>JapanSuperWeaponAdvanced</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeJapanRadarDish">
+		<Upgrade>Upgrade_JapanRadarDish</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeJapanRepairBay">
+		<Upgrade>Upgrade_JapanRepairBay</Upgrade>
+	</LogicCommand>
+
+<!-- Japan Units -->
+
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JapanScoutInfantryBomb">
+		<SpecialPower>SpecialPower_JapanScoutInfantryBomb</SpecialPower>
+    <AISpecialPowerInfo Heuristic="ATTACHED_BOMB" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JapanEngineerSprint">
+		<SpecialPower>SpecialPower_JapanEngineerSprint</SpecialPower>
+    <AISpecialPowerInfo Heuristic="SPEED_BOOST" Manager="MICRO_MANAGER"
+      UseInMicroManagerState="RETREAT COMBAT CLEANUP"
+      UseNearTacticalTarget="true"
+      />
+  </LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JapanAntiInfantryInfantryBonzai">
+		<SpecialPower>SpecialPower_JapanAntiInfantryInfantryBonzai</SpecialPower>
+		<AISpecialPowerInfo 
+			Heuristic="TOGGLE" 
+			UseToCounterGarrison="true"
+			HealthFraction="0.8"
+			Distance="100"
+			Manager="MICRO_MANAGER"/>
+    <!--<AISpecialPowerInfo 
+      Heuristic="RUSH_ATTACK" 
+      Manager="MICRO_MANAGER"
+      TargetObjectInclude="INFANTRY"
+      HealthFraction="0.8"
+      Distance="100"
+	  UseToCounterGarrison="true"
+     />-->
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityJapanAntiInfantryInfantryCarbine">
+		<State
+			Image="JUA_Carbine"
+			Title="NAME:AbilityJapanAntiInfantryInfantryCarbine"
+			Description="DESC:AbilityAntiInfantryInfantryCarbine" />
+	</ButtonSingleStateData>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_UnPackJapanMCV">
+		<SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+	</LogicCommand>
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PackJapanMCV">
+		<SpecialPower>SpecialPower_PackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="PACK" Manager="TACTIC"/>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiInfantryInfantry">
+		<Object>JapanAntiInfantryInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanRioter">
+		<Object>JapanRioter</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanRazorDrone">
+		<Object>JapanRazorDrone</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiVehicleInfantry">
+		<Object>JapanAntiVehicleInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiVehicleInfantryTech3">
+		<Object>JapanAntiVehicleInfantryTech3</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiVehicleInfantryTech3_Air">
+		<Object>JapanAntiVehicleInfantryTech3_Air</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanEngineer">
+		<Object>JapanEngineer</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanScoutInfantry">
+		<Object>JapanScoutInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanInfiltrationInfantry">
+		<Object>JapanInfiltrationInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanSpitter">
+		<Object>JapanSpitter</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanCommandoTech1">
+		<Object>JapanCommandoTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanBetaYuriko">
+		<Object>JapanBetaYuriko</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanNavyScoutShip">
+		<Object>JapanNavyScoutShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiStructureShip">
+		<Object>JapanAntiStructureShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiVehicleShip">
+		<Object>JapanAntiVehicleShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanRadarBoat">
+		<Object>JapanRadarBoat</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiAirShip">
+		<Object>JapanAntiAirShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiAirShip_Air">
+		<Object>JapanAntiAirShip_Air</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanChinook">
+		<Object>JapanChinook</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanArcherInfantry">
+		<Object>JapanArcherInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiAirVehicleTech1">
+		<Object>JapanAntiAirVehicleTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiAirVehicleTech1_Air">
+		<Object>JapanAntiAirVehicleTech1_Air</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiInfantryVehicle">
+		<Object>JapanAntiInfantryVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiInfantryVehicle_Air">
+		<Object>JapanAntiInfantryVehicle_Air</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiInfantryVehicle_Naval">
+		<Object>JapanAntiInfantryVehicle_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanLightTransportVehicle">
+		<Object>JapanLightTransportVehicle</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanTransportVehicle2">
+		<Object>JapanTransportVehicle2</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiVehicleVehicleTech1">
+		<Object>JapanAntiVehicleVehicleTech1</Object>
+	</LogicCommand>
+		<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiVehicleVehicleTech1_Naval">
+		<Object>JapanAntiVehicleVehicleTech1_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiVehicleVehicleTech3">
+		<Object>JapanAntiVehicleVehicleTech3</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAntiStructureVehicle">
+		<Object>JapanAntiStructureVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanMiner">
+		<Object>JapanMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanMiner_Naval">
+		<Object>JapanMiner_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanMinerFromRefinery">
+		<Object>JapanMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanMCV">
+		<Object>JapanMCV</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanMCV_Naval">
+		<Object>JapanMCV_Naval</Object>
+	</LogicCommand>
+
+
+<!-- Japan Eggs -->
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanPowerPlantEgg">
+		<Object>JapanPowerPlantEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanRefineryEgg">
+		<Object>JapanRefineryEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanBarracksEgg">
+		<Object>JapanBarracksEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanVIPBunkerEgg">
+		<Object>JapanVIPBunkerEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanPlasmaDefenderEgg">
+		<Object>JapanPlasmaDefenderEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanWarFactoryEgg">
+		<Object>JapanWarFactoryEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanNavalYardEgg">
+		<Object>JapanNavalYardEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanTechStructureEgg">
+		<Object>JapanTechStructureEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanBaseDefenseEgg">
+		<Object>JapanBaseDefenseEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanBaseDefenseAdvancedEgg">
+		<Object>JapanBaseDefenseAdvancedEgg</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanSuperWeaponEgg">
+		<Object>JapanSuperWeaponEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanSuperWeaponAdvancedEgg">
+		<Object>JapanSuperWeaponAdvancedEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanAirportEgg">
+		<Object>JapanAirportEgg</Object>
+	</LogicCommand>
+
+	
+<!-- Japan Special Powers -->
+
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_JapanEnhancedKamikaze">
+		<SpecialPower>SpecialPowerJapanEnhancedKamikaze</SpecialPower>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_JapanNavalPower">
+		<SpecialPower>SpecialPowerJapanNavalPower</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_JapanAdvancedMissilePacks">
+		<SpecialPower>SpecialPowerJapanAdvancedMissilePacks</SpecialPower>
+	</LogicCommand>
+
+  <LogicCommand
+    Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_JapanBalloonAttack_L1">
+    <SpecialPower>SpecialPowerJapanBalloonAttack_L1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT SUBMARINE"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="3"
+      SearchRadius="200">
+      <SpecialPowerWeapon Weapon="JapanBalloonBombDropWeapon"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+
+  <LogicCommand
+    Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_JapanBalloonAttack_L2">
+    <SpecialPower>SpecialPowerJapanBalloonAttack_L2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT SUBMARINE"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="5"
+      SearchRadius="250">
+      <SpecialPowerWeapon Weapon="JapanBalloonBombDropWeapon"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+
+  <LogicCommand
+    Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_JapanBalloonAttack_L3">
+		<SpecialPower>SpecialPowerJapanBalloonAttack_L3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT SUBMARINE"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="7"
+      SearchRadius="300">
+      <SpecialPowerWeapon Weapon="JapanBalloonBombDropWeapon"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_JapanRoboticAssembly">
+		<SpecialPower>SpecialPowerJapanRoboticAssembly</SpecialPower>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_JapanAmbush">
+		<SpecialPower>SpecialPowerJapanAmbush</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_BUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      MinTargetsHit="1"
+      MinEnemiesNearby="5">
+    </AISpecialPowerInfo>
+  </LogicCommand>
+
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_JapanEmperorsResolve_L1">
+    <SpecialPower>SpecialPowerJapanEmperorsResolve_L1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_BUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="STRUCTURE"
+      MinTargetsHit="3"
+      MinEnemiesNearby="3">
+    </AISpecialPowerInfo>
+  </LogicCommand>
+
+  <LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_JapanEmperorsResolve_L2">
+    <SpecialPower>SpecialPowerJapanEmperorsResolve_L2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_BUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="STRUCTURE"
+      MinTargetsHit="5"
+      MinEnemiesNearby="5">
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_JapanEmperorsResolve_L3">
+		<SpecialPower>SpecialPowerJapanEmperorsResolve_L3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_BUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="STRUCTURE"
+      MinTargetsHit="7"
+      MinEnemiesNearby="7">
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_NanoSwarmHive">
+		<SpecialPower>SpecialPowerNanoSwarmHive</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_ATTACK"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="VEHICLE INFANTRY" 
+			TargetObjectExclude="CONSTRUCTION_YARD SUPER_WEAPON" 
+			MaxTargetSpeed="0.0"
+			MinTargetsHit="4" 
+			RequireKillTargets="false">
+		<SpecialPowerWeapon Weapon="ParticleCannonWeapon"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_TelekineticProjectorDevice">
+		<SpecialPower>SpecialPowerTelekineticProjectorDevice</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      MaxTargetSpeed="0.0"
+      MinKillValue="5000">
+      <SpecialPowerWeapon Weapon="TelekineticExplosion"/>
+    </AISpecialPowerInfo>
+  </LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PsyonicBlastSpecialPower">
+		<SpecialPower>SpecialPower_PsyonicBlast</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+      <SpecialPowerWeapon
+				Weapon="JapanCommandoTech1PsyonicBlast"
+				AffectsFriendlies="false"
+  			AffectsSelf="false"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleLockDownGunSpecialPower">
+		<SpecialPower>SpecialPower_ToggleLockDownGun</SpecialPower>
+    <AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_SmokeBombSpecialPower">
+		<SpecialPower>SpecialPower_SmokeBomb</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="INVULNERABILITY"
+				Manager="MICRO_MANAGER"
+				InvulnerabilityDamageLookAheadTime="1s"
+				InvulnerabilityDamageLookBehindTime="1s"
+				InvulnerabilityDamageFractionWhenOutOfRangeOfTarget=".5"
+				InvulnerabilityDamageFractionWhenInRangeOfTarget=".5"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleKamikazeAttackSpecialPower">
+		<SpecialPower>SpecialPower_KamikazeAttack</SpecialPower>
+    <AISpecialPowerInfo Heuristic="RUSH_ATTACK" Manager="MICRO_MANAGER"
+      HealthFraction="0.8"
+      Distance="100"
+     />
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JAAS_Transform">
+		<SpecialPower>SpecialPower_JAAS_Transform</SpecialPower>
+    <AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"		
+		id="Command_JAIV_Transform">
+		<SpecialPower>SpecialPower_JAIV_Transform</SpecialPower>
+    <AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanBarracksTech2">
+		<Upgrade>Upgrade_JapanBarracksTech2</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+  </LogicCommand>
+
+  <LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanBarracksTech3">
+    <Upgrade>Upgrade_JapanBarracksTech3</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>	
+
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanNavalYardTech2">
+		<Upgrade>Upgrade_JapanNavalYardTech2</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+  </LogicCommand>
+
+  <LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanNavalYardTech3">
+    <Upgrade>Upgrade_JapanNavalYardTech3</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>		
+
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanWarFactoryTech2">
+		<Upgrade>Upgrade_JapanWarFactoryTech2</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+  </LogicCommand>
+
+  <LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanWarFactoryTech3">
+    <Upgrade>Upgrade_JapanWarFactoryTech3</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>	
+
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanAirPortTech2">
+		<Upgrade>Upgrade_JapanAirPortTech2</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+  </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateUpgradeJapanAirPortTech2">
+		<State
+			Image="JUA_Nanotech_Upgrade1"
+			Title="NAME:UpgradeJapanAirPortTech2"
+			Description="DESC:UpgradeJapanAirPortTech2" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonUpgradeJapanAirPortTech2"
+		LogicCommand="Command_PurchaseJapanAirPortTech2">
+		<Data>
+			<ObjectUpgrade
+				StateData="ButtonStateUpgradeJapanAirPortTech2"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+  <LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchaseJapanAirPortTech3">
+    <Upgrade>Upgrade_JapanAirPortTech3</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>	
+	<ButtonSingleStateData
+		id="ButtonStateUpgradeJapanAirPortTech3">
+		<State
+			Image="JUA_Nanotech_Upgrade2"
+			Title="NAME:UpgradeJapanAirPortTech3"
+			Description="DESC:UpgradeJapanAirPortTech3" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonUpgradeJapanAirPortTech3"
+		LogicCommand="Command_PurchaseJapanAirPortTech3">
+		<Data>
+			<ObjectUpgrade
+				StateData="ButtonStateUpgradeJapanAirPortTech3"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_UnPackPsychicPartisanMCV">
+		<SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateUnPackPsychicPartisanMCV">
+		<State
+			Image="JUA_Unpack"
+			Title="NAME:AbilityUnPackJapanMCV"
+			Description="DESC:AbilityUnPackJapanMCV" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonUnPackPsychicPartisanMCV"
+		LogicCommand="Command_UnPackPsychicPartisanMCV">
+		<Data>
+			<Unpack
+				StateData="ButtonStateUnPackPsychicPartisanMCV"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchasePsychicPartisanTech2">
+		<Upgrade>Upgrade_PsychicPartisanTech2</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+  </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateUpgradePsychicPartisanTech2">
+		<State
+			Image="JUA_Nanotech_Upgrade1"
+			Title="NAME:UpgradePsychicPartisanTech2"
+			Description="DESC:UpgradePsychicPartisanTech2" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonUpgradePsychicPartisanTech2"
+		LogicCommand="Command_PurchasePsychicPartisanTech2">
+		<Data>
+			<ObjectUpgrade
+				StateData="ButtonStateUpgradePsychicPartisanTech2"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+  <LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_PurchasePsychicPartisanTech3">
+    <Upgrade>Upgrade_PsychicPartisanTech3</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>	
+	<ButtonSingleStateData
+		id="ButtonStateUpgradePsychicPartisanTech3">
+		<State
+			Image="JUA_Nanotech_Upgrade2"
+			Title="NAME:UpgradePsychicPartisanTech3"
+			Description="DESC:UpgradePsychicPartisanTech3" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonUpgradePsychicPartisanTech3"
+		LogicCommand="Command_PurchasePsychicPartisanTech3">
+		<Data>
+			<ObjectUpgrade
+				StateData="ButtonStateUpgradePsychicPartisanTech3"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	<LogicCommand
+		id="Command_AlliedSupportAircraftShrinkRay"
+		Options="NEED_TARGET_ENEMY_OBJECT NEED_TARGET_NEUTRAL_OBJECT"
+		Type="SPECIAL_POWER">
+		<SpecialPower>SpecialPower_ShrinkRay</SpecialPower>
+    <AISpecialPowerInfo Heuristic="INSTAKILL"	Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+		
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_UpgradeJapanPowerPlantTurbine">
+		<Upgrade>Upgrade_JapanPowerPlantTurbine</Upgrade>
+	</LogicCommand>
+		
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JAAVT1_Transform">
+		<SpecialPower>SpecialPower_JAAVT1_Transform</SpecialPower>
+    <AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JASV_FireKiCannon">
+		<SpecialPower>SpecialPower_JASV_FireKiCannon</SpecialPower>
+    <AISpecialPowerInfo Heuristic="DISCHARGE" Manager="MICRO_MANAGER"
+      HealthFraction="0.2"
+     />
+  </LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JapanBaseDefenseAdvanced_FireKiCannon">
+		<SpecialPower>SpecialPower_JapanBaseDefenseAdvanced_FireKiCannon</SpecialPower>
+    <AISpecialPowerInfo Heuristic="DISCHARGE" Manager="MICRO_MANAGER"
+      HealthFraction="0.2"
+     />
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateTorpedoSpread">
+		<SpecialPower>SpecialPower_TorpedoSpread</SpecialPower>
+		<AISpecialPowerInfo 
+			Heuristic="DUMB_FIRE" 
+			Manager="MICRO_MANAGER"
+			Location="Water"
+			TargetObjectInclude="VEHICLE"
+		    TargetObjectExclude="AIRCRAFT TRANSFORMER"
+            Distance="250"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleSpiderHole">
+		<SpecialPower>SpecialPower_ToggleSpiderHole</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleEnergizedArmorSpecialPower">
+		<SpecialPower>SpecialPower_ToggleEnergizedArmor</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_TriggerRushAttackSpecialPower">
+		<SpecialPower>SpecialPower_TriggerRushAttack</SpecialPower>
+    <AISpecialPowerInfo Heuristic="RUSH_ATTACK" Manager="MICRO_MANAGER"
+      TargetObjectInclude="VEHICLE"
+      HealthFraction="1.0"
+      Distance="9999.0"
+     />
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_RammingSpeed">
+		<SpecialPower>SpecialPower_RammingSpeed</SpecialPower>
+    <AISpecialPowerInfo Heuristic="RUSH_ATTACK" Manager="MICRO_MANAGER"
+      TargetObjectInclude="VEHICLE"
+      HealthFraction="1.0"
+      Distance="200.0"
+     />
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleDeployWeapon">
+		<SpecialPower>SpecialPower_ToggleDeployWeapon</SpecialPower>
+    <AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_JapanBaseDefenseToggleBinaryWeapon">
+    <SpecialPower>SpecialPower_JapanBaseDefenseTransform</SpecialPower>
+    <AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+  </LogicCommand>
+  
+  
+
+	<!-- Final Squadron -->
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_FinalSquadron_L1">
+		<SpecialPower>SpecialPowerFinalSquadron_L1</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT TRANSFORMER SUBMARINE"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="3">
+      <SpecialPowerWeapon Weapon="JapanFinalSquadronAircraftKamikazeWarhead"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_FinalSquadron_L2">
+		<SpecialPower>SpecialPowerFinalSquadron_L2</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT TRANSFORMER SUBMARINE"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="5">
+      <SpecialPowerWeapon Weapon="JapanFinalSquadronAircraftKamikazeWarhead"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_FinalSquadron_L3">
+		<SpecialPower>SpecialPowerFinalSquadron_L3</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_ATTACK"
+      Manager="SKIRMISH_AI"
+      TargetObjectExclude="AIRCRAFT TRANSFORMER SUBMARINE"
+      MaxTargetSpeed="0.0"
+      RequireKillTargets="false"
+      MinTargetsHit="7">
+      <SpecialPowerWeapon Weapon="JapanFinalSquadronAircraftKamikazeWarhead"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	<!-- -->
+
+  <!-- Start Campaign Powers -->
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_CAMPAlliedBomberDrop1">
+    <SpecialPower>SpecialPowerCAMPAlliedBomberDrop1</SpecialPower>
+  </LogicCommand>
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_CAMPAlliedBomberDrop2">
+    <SpecialPower>SpecialPowerCAMPAlliedBomberDrop2</SpecialPower>
+  </LogicCommand>
+
+  <LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_TriggerEmperorRushAttackSpecialPower">
+		<SpecialPower>SpecialPower_TriggerEmperorRushAttack</SpecialPower>
+		<AISpecialPowerInfo 
+			Heuristic="RUSH_ATTACK" 
+			Manager="MICRO_MANAGER"
+			TargetObjectInclude="VEHICLE"
+			HealthFraction="1.0"
+			Distance="9999.0"
+     />
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateMechaKingShockwave">
+		<SpecialPower>SpecialPower_MechaKingShockwave</SpecialPower>
+		<AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+			<SpecialPowerWeapon
+				Weapon="JapanMechaKingOmegaShockwave"
+				AffectsFriendlies="false"
+  			AffectsSelf="false"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>	
+	<!-- End Campaign Powers -->
+
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietAntiVehicleVehicleTech2">
+		<Object>SovietAntiVehicleVehicleTech2</Object>
+	</LogicCommand>
+
+    <!-- Allied Gunship Weapon Toggle Logic Command -->
+ 
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedSubmarine">
+		<Object>AlliedSubmarine</Object>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedArcAngelAircraft">
+		<Object>AlliedArcAngelAircraft</Object>
+	</LogicCommand>
+
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateTeleportSpecialPower">
+		<SpecialPower>SpecialPower_TriggerTeleport</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="INVULNERABILITY"
+			Manager="MICRO_MANAGER"
+			InvulnerabilityDamageLookAheadTime="1.25s"
+			InvulnerabilityDamageLookBehindTime="1.25s"
+			InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+			InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateTeleportSpecialPower_ShortEarly">
+		<SpecialPower>SpecialPower_TriggerTeleport_ShortEarly</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="INVULNERABILITY"
+			Manager="MICRO_MANAGER"
+			InvulnerabilityDamageLookAheadTime="1.25s"
+			InvulnerabilityDamageLookBehindTime="1.25s"
+			InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+			InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+
+	<!-- Button state data -->
+	<ButtonSingleStateData
+		id="ButtonStateAbilityTeleport">
+		<State
+			Image="AUA_TacticalTeleport"
+			Title="NAME:ChronoLeap"
+			Description="DESC:ChronoLeap" />
+	</ButtonSingleStateData>
+
+	<!-- Unit ability button templates -->
+	<UnitAbilityButtonTemplate
+		id="ButtonTeleport"
+		LogicCommand="Command_ActivateTeleportSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityTeleport"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityTeleport_ShortEarly">
+		<State
+			Image="AUA_TacticalTeleport"
+			Title="NAME:ChronoAlienTeleport"
+			Description="DESC:ChronoAlienTeleport" />
+	</ButtonSingleStateData>
+
+	<!-- Unit ability button templates -->
+	<UnitAbilityButtonTemplate
+		id="ButtonTeleport_ShortEarly"
+		LogicCommand="Command_ActivateTeleportSpecialPower_ShortEarly">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityTeleport_ShortEarly"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+
+    <LogicCommand
+        Type="SPECIAL_POWER"
+        id="Command_ActivateCryoLeapSpecialPower">
+        <SpecialPower>SpecialPower_TriggerCryoLeap</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="true"
+            NeverUseWhilePullingBack="true">
+            <SpecialPowerWeapon
+                Weapon="AlliedLegionnaireLeapWeapon"
+                AoeAttackPowerLocationPreference="PREFER_NEAREST"/>
+        </AISpecialPowerInfo>
+    </LogicCommand>
+
+	<UnitAbilityButtonTemplate
+		id="MouseButtonCryoLeap"
+		LogicCommand="Command_ActivateCryoLeapSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityCryoLeap"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityCryoLeap">
+		<State
+			Image="AUA_CryoTrooper_BoostKick"
+			Title="NAME:CryoLeapSpecialPower"
+			Description="DESC:CryoLeapSpecialPower" />
+	</ButtonSingleStateData>
+
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAlliedArtillerySiegeWeapon">
+		<State
+			Image="AUA_Pacifier_Artillery"
+			Title="NAME:ToggleAlliedArtillerySiegeWeapon"
+			Description="DESC:ToggleAlliedArtillerySiegeWeapon" />
+	</ButtonSingleStateData>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAlliedArtilleryAutoCannon">
+		<State
+			Image="AUA_Pacifier_Machineguns"
+			Title="NAME:ToggleAlliedArtilleryAutoCannon"
+			Description="DESC:ToggleAlliedArtilleryAutoCannon" />
+	</ButtonSingleStateData>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleDefenceModeSpecialPower">
+		<SpecialPower>SpecialPower_ToggleDefenceMode</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleCrazyAttackSpecialPower">
+		<SpecialPower>SpecialPower_CrazyAttack</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+
+	<LogicCommand
+		Options="NEED_TARGET_ALLY_OBJECT"
+		Type="SPECIAL_POWER"
+		id="Command_SpotTargetBombard">
+		<SpecialPower>SpecialPower_SpotTargetBombard</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_DEBUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="AIRCRAFT"
+      MinTargetsHit="7"
+      SearchRadius="375">
+      <!-- Using a dummy weapon because Chrono Rift doesn't actually have a weapon but we want to hook it up this way -->
+      <SpecialPowerWeapon Weapon="AlliedCryoSatelliteLvl1"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAlliedSpotTargetBombard">
+		<State
+			Image="Button_AUASpottarget"
+			Title="NAME:ToggleAlliedSpotTargetBombard"
+			Description="DESC:ToggleAlliedSpotTargetBombard" />
+	</ButtonSingleStateData>
+
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleEagleEyesSpecialPower">
+		<SpecialPower>SpecialPower_ToggleEagleEyes</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleLaserPainterSpecialPower">
+		<SpecialPower>SpecialPower_ToggleLaserPainter</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoReinforcement">
+		<SpecialPower>SpecialPowerChronoReinforcement</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_ATTACK"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="STRUCTURE VEHICLE INFANTRY" 
+			TargetObjectExclude="AIRCRAFT" 
+			MaxTargetSpeed="0.0"
+			MinTargetsHit="4" 
+			RequireKillTargets="false">
+		<SpecialPowerWeapon Weapon="ParticleCannonWeapon"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ChronoReinforcement_UnitInterface">
+		<SpecialPower>SpecialPowerChronoReinforcement</SpecialPower>
+    	<AISpecialPowerInfo
+      		Heuristic="PLAYER_POWER_MAGNETIC_SATELLITE"
+			UpdateObject="MagneticSatelliteEffectLvl1"
+      		SearchRadius="150.0"
+      		Manager="SKIRMISH_AI"
+      		MinKillValue="500"
+			MaxUpdatables="1"
+			TargetObjectInclude="VEHICLE"
+			TargetObjectExclude="STRUCTURE SUBMARINE AIRCRAFT WALL_SEGMENT WALL_HUB WALL_PIECE T2_UNIT T3_UNIT">
+      		<SpecialPowerWeapon Weapon="MagneticSatelliteWeaponLvl1"/>
+    	</AISpecialPowerInfo>
+	</LogicCommand>
+	
+	<UnitAbilityButtonTemplate
+		id="MouseButtonChronoReinforcement_UnitInterface"
+		LogicCommand="Command_ChronoReinforcement_UnitInterface">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Allied_ChronoRift3"
+				StateData="ButtonStateAbilityChronoReinforcement"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityChronoReinforcement">
+		<State
+			Image="Button_PlayerPower_ChronoReinforcement"
+			Title="NAME:ChronoReinforcement"
+			TypeDescription="TYPE:ChronoReinforcement"
+			Description="DESC:ChronoReinforcement" />
+	</ButtonSingleStateData>
+  
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerChronoReinforcement">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityChronoReinforcement"
+				SpecialPower="SpecialPowerChronoReinforcement"
+				RadiusCursor="Target_Allied_ChronoRift3"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+  
+	<LogicCommand
+		id="Command_SelectLocationForWormHole"
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER">
+		<SpecialPower>SpecialPowerWormHole</SpecialPower>
+		<AISpecialPowerInfo 
+		  Heuristic="PLAYER_AOE_SHROUD_CLEAR" 
+		  Manager="SKIRMISH_AI">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityWormHole">
+		<State
+			Image="AUA_AlliedWormHole"
+			Title="NAME:WormHoleSpecialPower"
+			Description="DESC:WormHoleSpecialPower" />
+	</ButtonSingleStateData>
+
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerWormHole">
+		<Data>
+			<PlayerMultipleTargetsTargetedPower
+				StateData="ButtonStateAbilityWormHole"
+				SpecialPower="SpecialPowerWormHole"
+				RadiusCursor="Target_Allied_Chronosphere_1"
+				TargetMarkerTemplate="PlayerPowerTargetMarker"
+				TargetMarkerFXList="FX_ALL_SurveillanceSweepCursor1"
+				TargetCount="2">
+				<AdditionalRadiusCursor>Target_Allied_Chronosphere_1</AdditionalRadiusCursor>
+				<AdditionalRadiusCursor>Target_Allied_Chronosphere_2</AdditionalRadiusCursor>
+			</PlayerMultipleTargetsTargetedPower>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateTorpedoBreaker">
+		<SpecialPower>SpecialPower_TorpedoBreaker</SpecialPower>
+    <AISpecialPowerInfo 
+    	Heuristic="DUMB_FIRE" 
+    	Manager="MICRO_MANAGER"
+		TargetObjectInclude="VEHICLE"
+		TargetObjectExclude="AIRCRAFT TRANSFORMER"
+        Distance="250"/>
+	</LogicCommand>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityActivateTorpedoBreaker">
+		<State
+			Image="AUA_GYM_Torpedo"
+			Title="NAME:TorpedoBreaker"
+			Description="DESC:TorpedoBreaker" />
+	</ButtonSingleStateData>
+
+
+    <LogicCommand
+       	 Type="SPECIAL_POWER"
+       	 id="Command_ToggleAlliedSubmarineLift">
+       	 <SpecialPower>SpecialPower_ToggleSubmarineLift</SpecialPower>
+       	 <AISpecialPowerInfo 
+      		  	Heuristic="TOGGLE"
+			Manager="MICRO_MANAGER">
+       	 </AISpecialPowerInfo>
+   	 </LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleAlliedSubmarineLift"
+		LogicCommand="Command_ToggleAlliedSubmarineLift">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleAlliedSubmarineLift</StateData>
+				<StateData>ButtonStateAbilityToggleAlliedSubmarineDown</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAlliedSubmarineLift">
+		<State
+			Image="AUA_SubMarine_Lift"
+			Title="NAME:ToggleAlliedSubmarineLift"
+			Description="DESC:ToggleAlliedSubmarineLift" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAlliedSubmarineDown">
+		<State
+			Image="AUA_SubMarine_Down"
+			Title="NAME:ToggleAlliedSubmarineDown"
+			Description="DESC:ToggleAlliedSubmarineDown" />
+	</ButtonSingleStateData>
+	
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleCryoWarheadSpecialPower">
+		<SpecialPower>SpecialPower_CryoMissile</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityCryoMissile">
+		<State
+			Image="AUA_CryoWarHead"
+			Title="NAME:CryoWarHeadSpecialPower"
+			Description="DESC:CryoWarHeadSpecialPower" />
+	</ButtonSingleStateData>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityCryoMissileOff">
+		<State
+			Image="AUA_MIRVHead"
+			Title="NAME:CryoWarHeadSpecialPowerOff"
+			Description="DESC:CryoWarHeadSpecialPowerOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonCryoMissile"
+		LogicCommand="Command_ToggleCryoWarheadSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityCryoMissile</StateData>
+				<StateData>ButtonStateAbilityCryoMissileOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonActivateTorpedoBreaker"
+		LogicCommand="Command_ActivateTorpedoBreaker">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityActivateTorpedoBreaker</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonSelectLocationForEagleEyes"
+		LogicCommand="Command_ToggleEagleEyesSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityEagleEyes"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleAlliedSpotTargetBombard"
+		LogicCommand="Command_SpotTargetBombard">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleAlliedSpotTargetBombard</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonSelectLocationForDefenceMode"
+		LogicCommand="Command_ToggleDefenceModeSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityDefenceMode"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_AlliedStormRiderEvadeSpecialPower">
+		<SpecialPower>SpecialPower_AlliedStormRiderEvade</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="INVULNERABILITY"
+			Manager="MICRO_MANAGER"
+			InvulnerabilityDamageLookAheadTime="1.25s"
+			InvulnerabilityDamageLookBehindTime="1.25s"
+			InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+			InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="ButtonAlliedStormRiderEvade"
+		LogicCommand="Command_AlliedStormRiderEvadeSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAlliedStormRiderEvade"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAlliedStormRiderEvade">
+		<State
+			Image="AUA_AlliedStormRiderEvade"
+			Title="NAME:AlliedStormRiderEvade"
+			Description="DESC:AlliedStormRiderEvade" />
+	</ButtonSingleStateData>
+	
+	
+	
+    <LogicCommand
+       	 Type="SPECIAL_POWER"
+       	 id="Command_ToggleAlliedAmilyLift">
+       	 <SpecialPower>SpecialPower_AlliedAmily_Transform</SpecialPower>
+       	 <AISpecialPowerInfo 
+      		  	Heuristic="TOGGLE"
+			Manager="MICRO_MANAGER">
+       	 </AISpecialPowerInfo>
+   	 </LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleAlliedAmilyLift"
+		LogicCommand="Command_ToggleAlliedAmilyLift">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleAlliedAmilyDown</StateData>
+				<StateData>ButtonStateAbilityToggleAlliedAmilyLift</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAlliedAmilyDown">
+		<State
+			Image="AUA_CryoTrooper_BoostKick"
+			Title="NAME:ToggleAlliedAmilyDown"
+			Description="DESC:ToggleAlliedAmilyDown" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAlliedAmilyLift">
+		<State
+			Image="AUA_Dolphin_Jump"
+			Title="NAME:ToggleAlliedAmilyLift"
+			Description="DESC:ToggleAlliedAmilyLift" />
+	</ButtonSingleStateData>
+	
+	
+    <LogicCommand
+        Type="SPECIAL_POWER"
+        id="Command_ActivateAmilyLeapSpecialPower">
+        <SpecialPower>SpecialPower_TriggerAmilyLeap</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="TIME_WARP"
+            Manager="MICRO_MANAGER"
+			UseInMicroManagerState="RETREAT CLEANUP"
+            NeverUseWhileRetreating="false"
+            NeverUseWhilePullingBack="false">
+        </AISpecialPowerInfo>
+    </LogicCommand>
+
+	<UnitAbilityButtonTemplate
+		id="MouseButtonAmilyLeap"
+		LogicCommand="Command_ActivateAmilyLeapSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityAmilyLeap"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityAmilyLeap">
+		<State
+			Image="AUA_Timebelt"
+			Title="NAME:ToggleAlliedAmilyLift"
+			Description="DESC:ToggleAlliedAmilyLift" />
+	</ButtonSingleStateData>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateSniperToxicSnipeSpecialPower">
+		<SpecialPower>SpecialPower_ToxicSnipe</SpecialPower>
+		<AISpecialPowerInfo Heuristic="INSTAKILL"	Manager="MICRO_MANAGER" />
+	</LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonSniperToxicSnipe"
+		LogicCommand="Command_ActivateSniperToxicSnipeSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				ValidTargetCursor="TargetAbility"
+				StateData="ButtonStateAbilityToxicSnipe"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToxicSnipe">
+		<State
+			Image="AUA_ToxicSnipe"
+			Title="NAME:ToggleToxicSnipe"
+			Description="DESC:ToggleToxicSnipe" />
+	</ButtonSingleStateData>
+	
+	
+    <LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateBuzzersEMPShockSpecialPower">
+		<SpecialPower>SpecialPower_BuzzersEMPShock</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="AOE_ATTACK"
+			Manager="MICRO_MANAGER"
+      TargetObjectInclude="VEHICLE" 
+      TargetObjectExclude="INFANTRY" >
+			<SpecialPowerWeapon
+				Weapon="AlliedBuzzersEMPPulse"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityBuzzersEMPShock">
+		<State
+			Image="AUA_BuzzersEMPShock"
+			Title="NAME:BuzzersEMPShock"
+			Description="DESC:BuzzersEMPShock" />
+	</ButtonSingleStateData>
+
+	<!-- Unit ability button templates -->
+	<UnitAbilityButtonTemplate
+		id="ButtonBuzzersEMPShock"
+		LogicCommand="Command_ActivateBuzzersEMPShockSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityBuzzersEMPShock"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleFrogtieKamikazeAttackSpecialPower">
+		<SpecialPower>SpecialPower_FrogtieKamikazeAttack</SpecialPower>
+		<AISpecialPowerInfo Heuristic="RUSH_ATTACK" Manager="MICRO_MANAGER"
+			HealthFraction="0.8"
+			Distance="100"
+		/>
+	</LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleFrogtieKamikazeAttack"
+		LogicCommand="Command_ToggleFrogtieKamikazeAttackSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				ValidTargetCursor="TargetAbility"
+				StateData="ButtonStateAbilityFrogtieKamikazeAttack"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityFrogtieKamikazeAttack">
+		<State
+			Image="AUA_FrogtieKamikazeAttack"
+			Title="NAME:ToggleFrogtieKamikazeAttack"
+			Description="DESC:ToggleFrogtieKamikazeAttack" />
+	</ButtonSingleStateData>
+	
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_SelectLoadout_01">
+		<Upgrade>Upgrade_SelectLoad_01</Upgrade>
+	</LogicCommand>
+	<LogicCommand
+		Type="OBJECT_UPGRADE"
+		id="Command_SelectLoadout_02">
+		<Upgrade>Upgrade_SelectLoad_02</Upgrade>
+	</LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="ButtonSelectLoadout_01"
+		LogicCommand="Command_SelectLoadout_01">
+		<Data>
+			<ObjectUpgrade
+				StateData="ButtonStateSelectLoadout_01"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateSelectLoadout_01">
+		<State
+			Image="AUA_SelectLoadout_01"
+			Title="UPGRADE:SelectLoadOut01"
+			Description="UPGRADE:SelectLoadOut01Description" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonSelectLoadout_02"
+		LogicCommand="Command_SelectLoadout_02">
+		<Data>
+			<ObjectUpgrade
+				StateData="ButtonStateSelectLoadout_02"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateSelectLoadout_02">
+		<State
+			Image="AUA_SelectLoadout_02"
+			Title="UPGRADE:SelectLoadOut02"
+			Description="UPGRADE:SelectLoadOut02Description" />
+	</ButtonSingleStateData>
+	
+	
+	<LogicCommand
+		Options="NEED_TARGET_ENEMY_OBJECT"
+		Type="SPECIAL_POWER"
+		id="Command_JapanBetaYurikoManipulatorDevice">
+		<SpecialPower>SpecialPower_ManipulateObject</SpecialPower>
+	</LogicCommand>
+	
+    <LogicCommand
+        Options="NEED_TARGET_POS"
+        Type="SPECIAL_POWER"
+        id="Command_TenhoSmokeGrenadeSpecialPower">
+        <SpecialPower>SpecialPower_TenhoSmokeGrenade</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="true"
+            NeverUseWhilePullingBack="true">
+            <SpecialPowerWeapon
+                Weapon="SovietTenhoSmokeGrenadeLauncher"
+                AoeAttackPowerLocationPreference="PREFER_CENTER_OF_ENEMIES"/>
+        </AISpecialPowerInfo>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityTenhoSmokeGrenade">
+		<State
+			Image="SUA_Tenho_Smoke"
+			Title="NAME:TenhoSmokeGrenadeSpecialPower"
+			Description="DESC:TenhoSmokeGrenadeSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonTenhoSmokeGrenade"
+		LogicCommand="Command_TenhoSmokeGrenadeSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Soviet_OrbitalDump3"
+				StateData="ButtonStateAbilityTenhoSmokeGrenade"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<!--<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_PurchaseSovietTenhoArmor">
+		<Upgrade>Upgrade_SovietTenhoArmor</Upgrade>
+		<AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateUpgradeSovietTenhoArmor">
+		<State
+			Image="SUA_Harvester_Armor"
+			Title="UpgradeName:SovietTenhoArmor"
+			Description="UpgradeDesc:SovietTenhoArmor" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonUpgradeSovietTenhoArmor"
+		LogicCommand="Command_PurchaseSovietTenhoArmor">
+		<Data>
+			<PlayerUpgrade
+				StateData="ButtonStateUpgradeSovietTenhoArmor"/>
+		</Data>
+	</UnitAbilityButtonTemplate>-->
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_EnhanceDrugSpecialPower">
+		<SpecialPower>SpecialPower_EnhanceDrug</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="INVULNERABILITY"
+			Manager="MICRO_MANAGER" >
+			<SpecialPowerWeapon
+				Weapon="AlliedEnhanceDrugWeapon"
+				AffectsFriendlies="false"
+  			AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateEnhanceDrug">
+		<State
+			Image="Button_PlayerPower_Yuriko_PsychicTransport"
+			Title="Name:AlliedEnhanceDrug"
+			Description="Desc:AlliedEnhanceDrug" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonEnhanceDrug"
+		LogicCommand="Command_EnhanceDrugSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateEnhanceDrug"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietExecuter">
+		<Object>SovietExecuter</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietCarryall">
+		<Object>SovietCarryall</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMLRS">
+		<Object>SovietMLRS</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietHammerTank">
+		<Object>SovietAntiVehicleVehicleTech1</Object>
+	</LogicCommand>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleExecutionSpecialPower">
+		<SpecialPower>SpecialPower_SovietExecution</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_BUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="CAN_ATTACK"
+			TargetObjectExclude="STRUCTURE"
+			MinTargetsHit="5"
+			MinEnemiesNearby="5">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleExecution"
+		LogicCommand="Command_ToggleExecutionSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityExecution"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityExecution">
+		<State
+			Image="SUA_Execution"
+			Title="NAME:ToggleExecution"
+			Description="DESC:ToggleExecution" />
+	</ButtonSingleStateData>
+	   <LogicCommand
+        Options="NEED_TARGET_POS"
+        Type="SPECIAL_POWER"
+        id="Command_MLRSBombardSpecialPower">
+        <SpecialPower>SpecialPower_SpotTargetBombard</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="true"
+            NeverUseWhilePullingBack="true">
+            <SpecialPowerWeapon
+                Weapon="SovietMLRSBombardWeapon"
+                AoeAttackPowerLocationPreference="PREFER_CENTER_OF_ENEMIES"/>
+        </AISpecialPowerInfo>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityMLRSBombard">
+		<State
+			Image="SUA_SovietMLRSBombard"
+			Title="NAME:MLRSBombardSpecialPower"
+			Description="DESC:MLRSBombardSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonMLRSBombard"
+		LogicCommand="Command_MLRSBombardSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Japan_ArcherBarrage"
+				StateData="ButtonStateAbilityMLRSBombard"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanMagnetron">
+		<Object>JapanMagnetron</Object>
+	</LogicCommand>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleMentalSuppressionSpecialPower">
+		<SpecialPower>SpecialPower_ToggleMentalSuppression</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityMentalSuppression">
+		<State
+			Image="JUA_MentalSuppression"
+			Title="NAME:MentalSuppressionSpecialPower"
+			Description="DESC:MentalSuppressionSpecialPower" />
+	</ButtonSingleStateData>
+
+	<ButtonSingleStateData
+		id="ButtonStateAbilityMentalSuppressionOff">
+		<State
+			Image="JUA_MentalSuppressionOff"
+			Title="NAME:MentalSuppressionSpecialPowerOff"
+			Description="DESC:MentalSuppressionSpecialPowerOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonMentalSuppression"
+		LogicCommand="Command_ToggleMentalSuppressionSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityMentalSuppression</StateData>
+				<StateData>ButtonStateAbilityMentalSuppressionOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ThermobaricRockets">
+		<SpecialPower>SpecialPower_ThermobaricRockets</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="false"
+            NeverUseWhilePullingBack="false">
+            <SpecialPowerWeapon
+                Weapon="SovietThermobaricRocketsWeapon"
+                AoeAttackPowerLocationPreference="PREFER_CENTER_OF_ENEMIES"/>
+        </AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityThermobaricRockets">
+		<State
+			Image="SUA_Blade_Sensor"
+			Title="NAME:BladeSensorPodSpecialPower"
+			Description="DESC:BladeSensorPodSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonThermobaricRockets"
+		LogicCommand="Command_ThermobaricRockets">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Soviet_OrbitalDump3"
+				StateData="ButtonStateAbilityThermobaricRockets"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		id="Command_JapanRazorDroneReproduction"
+		Options="NEED_TARGET_ENEMY_OBJECT NEED_TARGET_NEUTRAL_OBJECT"
+		Type="SPECIAL_POWER">
+		<SpecialPower>SpecialPower_Reproduction</SpecialPower>
+    <AISpecialPowerInfo Heuristic="INSTAKILL"	Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityRazorDroneReproduction">
+		<State
+			Image="JUA_RazorDroneReproduction"
+			Title="NAME:RazorDroneReproductionSpecialPower"
+			Description="DESC:RazorDroneReproductionSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonRazorDroneReproduction"
+		LogicCommand="Command_JapanRazorDroneReproduction">
+		<Data>
+			<TargetedSpecialPower
+				ValidTargetCursor="TargetAbility"
+				StateData="ButtonStateAbilityRazorDroneReproduction"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ParadropReinforcement_UnitInterface">
+		<SpecialPower>SpecialPowerParadropReinforcement</SpecialPower>
+    	<AISpecialPowerInfo
+      		Heuristic="PLAYER_POWER_MAGNETIC_SATELLITE"
+			UpdateObject="MagneticSatelliteEffectLvl1"
+      		SearchRadius="10.0"
+      		Manager="SKIRMISH_AI"
+      		MinKillValue="500"
+			MaxUpdatables="1"
+			TargetObjectInclude="VEHICLE"
+			TargetObjectExclude="STRUCTURE SUBMARINE AIRCRAFT WALL_SEGMENT WALL_HUB WALL_PIECE T2_UNIT T3_UNIT">
+      		<SpecialPowerWeapon Weapon="MagneticSatelliteWeaponLvl1"/>
+    	</AISpecialPowerInfo>
+	</LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonParadropReinforcement_UnitInterface"
+		LogicCommand="Command_ParadropReinforcement_UnitInterface">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Allied_ChronoRift3"
+				StateData="ButtonStateAbilityParadropReinforcement"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_ParadropReinforcement">
+		<SpecialPower>SpecialPowerParadropReinforcement</SpecialPower>
+    	<AISpecialPowerInfo
+      		Heuristic="PLAYER_POWER_MAGNETIC_SATELLITE"
+			UpdateObject="MagneticSatelliteEffectLvl1"
+      		SearchRadius="10.0"
+      		Manager="SKIRMISH_AI"
+      		MinKillValue="500"
+			MaxUpdatables="1"
+			TargetObjectInclude="VEHICLE"
+			TargetObjectExclude="STRUCTURE SUBMARINE AIRCRAFT WALL_SEGMENT WALL_HUB WALL_PIECE T2_UNIT T3_UNIT">
+      		<SpecialPowerWeapon Weapon="MagneticSatelliteWeaponLvl1"/>
+    	</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityParadropReinforcement">
+		<State
+			Image="SUA_ParadropReinforcement"
+			Title="NAME:ParadropReinforcement"
+			TypeDescription="TYPE:ParadropReinforcement"
+			Description="DESC:ParadropReinforcement" />
+	</ButtonSingleStateData>
+  
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerParadropReinforcement">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityParadropReinforcement"
+				SpecialPower="SpecialPowerParadropReinforcement"
+				RadiusCursor="Target_Allied_ChronoRift3"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMissileman">
+		<Object>SovietMissileman</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS NEED_TARGET_ENEMY_OBJECT"
+		Type="SPECIAL_POWER"
+		id="Command_EMPMissile">
+		<SpecialPower>SpecialPower_EMPMissile</SpecialPower>
+    <AISpecialPowerInfo Heuristic="INSTAKILL"	Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityEMPMissile">
+		<State
+			Image="SUA_EMPMissile"
+			Title="NAME:EMPMissileSpecialPower"
+			Description="DESC:EMPMissileSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonEMPMissile"
+		LogicCommand="Command_EMPMissile">
+		<Data>
+			<TargetedSpecialPower
+				ValidTargetCursor="TargetAbility"
+				StateData="ButtonStateAbilityEMPMissile"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+    <LogicCommand
+        Options="NEED_TARGET_POS"
+        Type="SPECIAL_POWER"
+        id="Command_IllusionSpecialPower">
+        <SpecialPower>SpecialPower_PsychicPartisanCommandoTech1AOEHallucinate</SpecialPower>
+        <!--<SpecialPower>SpecialPower_Illusion</SpecialPower>-->
+    <AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+      <SpecialPowerWeapon
+				Weapon="PsychicPartisanCommandoTech1AOEHallucinateWeapon"
+				AffectsFriendlies="false"
+  			AffectsSelf="false"/>
+    </AISpecialPowerInfo>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityIllusion">
+		<State
+			Image="JUA_Illusion"
+			Title="NAME:IllusionSpecialPower"
+			Description="DESC:IllusionSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonIllusion"
+		LogicCommand="Command_IllusionSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Soviet_OrbitalDump3"
+				StateData="ButtonStateAbilityIllusion"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<LogicCommand
+		Type="SPECIAL_POWER"
+    id="Command_TimeStopSpecialPower">
+		<SpecialPower>SpecialPower_TimeStop</SpecialPower>
+			<AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+			<SpecialPowerWeapon
+				Weapon="AlliedMotherShipTimeStop"
+				AffectsFriendlies="false"
+				AffectsSelf="false"/>
+			</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityTimeStop">
+		<State
+			Image="AUA_TimeStop"
+			Title="NAME:TimeStopSpecialPower"
+			Description="DESC:TimeStopSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonTimeStop"
+		LogicCommand="Command_TimeStopSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityTimeStop"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+    id="Command_MARVTeslaNovaSpecialPower">
+		<SpecialPower>SpecialPower_MARVTeslaNova</SpecialPower>
+			<AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+			<SpecialPowerWeapon
+				Weapon="SovietMARVTeslaNova"
+				AffectsFriendlies="false"
+				AffectsSelf="false"/>
+			</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityMARVTeslaNova">
+		<State
+			Image="SUA_Stingray_TeslaSurge"
+			Title="NAME:MARVTeslaNovaSpecialPower"
+			Description="DESC:MARVTeslaNovaSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonMARVTeslaNova"
+		LogicCommand="Command_MARVTeslaNovaSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityMARVTeslaNova"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanMastermind">
+		<Object>JapanMastermind</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMastermind">
+		<Object>PsychicPartisanMastermind</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanBerserker">
+		<Object>PsychicPartisanBerserker</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiVehicleVehicleTech3">
+		<Object>PsychicPartisanAntiVehicleVehicleTech3</Object>
+	</LogicCommand>
+	
+    <LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JapanMastermindAOEMindControl">
+		<SpecialPower>SpecialPower_TriggerAOEMindControl</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="DOMINATE"
+			Manager="MICRO_MANAGER" >
+		</AISpecialPowerInfo>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityMastermindAOEMindControl">
+		<State
+			Image="JUA_JapanMastermindAOEMindControl"
+			Title="NAME:MastermindAOEMindControlSpecialPower"
+			Description="DESC:MastermindAOEMindControlSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonMastermindAOEMindControl"
+		LogicCommand="Command_JapanMastermindAOEMindControl">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Allied_ChronoRift3"
+				StateData="ButtonStateAbilityMastermindAOEMindControl"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<!--<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietMedic">
+		<Object>SovietMedic</Object>
+	</LogicCommand>-->
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietSpectreGunship">
+		<Object>SovietSpectreGunship</Object>
+	</LogicCommand>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_GunshipAfterburnerSpecialPower">
+		<SpecialPower>SpecialPower_SovietSpectreGunshipAfterburner</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateGunshipAfterburner">
+		<State
+			Image="SUA_Gunship_Afterburner"
+			Title="Name:SovietGunshipAfterburner"
+			Description="Desc:SovietGunshipAfterburner" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonGunshipAfterburner"
+		LogicCommand="Command_GunshipAfterburnerSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateGunshipAfterburner"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+    <LogicCommand
+        Type="SPECIAL_POWER"
+        id="Command_ActivateRangerLeapSpecialPower">
+        <SpecialPower>SpecialPower_TriggerRangerLeap</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="true"
+            NeverUseWhilePullingBack="true">
+            <SpecialPowerWeapon
+                Weapon="AlliedLegionnaireLeapWeapon"
+                AoeAttackPowerLocationPreference="PREFER_NEAREST"/>
+        </AISpecialPowerInfo>
+    </LogicCommand>
+
+	<UnitAbilityButtonTemplate
+		id="MouseButtonRangerLeap"
+		LogicCommand="Command_ActivateRangerLeapSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityRangerLeap"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityRangerLeap">
+		<State
+			Image="AUA_CryoTrooper_BoostKick"
+			Title="NAME:CryoLeapSpecialPower"
+			Description="DESC:CryoLeapSpecialPower" />
+	</ButtonSingleStateData>
+
+	
+    <LogicCommand
+       	 Type="SPECIAL_POWER"
+       	 id="Command_ToggleJapanRadarBoatSwitchMode">
+       	 <SpecialPower>SpecialPower_ToggleRadarBoatSwitchMode</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+      <SpecialPowerWeapon
+				Weapon="JapanCommandoTech1PsyonicBlast"
+				AffectsFriendlies="false"
+  			AffectsSelf="false"/>
+    </AISpecialPowerInfo>
+   	 </LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleRadarBoatSwitchMode"
+		LogicCommand="Command_ToggleJapanRadarBoatSwitchMode">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityToggleRadarBoatRadarMode"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleRadarBoatRadarMode">
+		<State
+			Image="JUA_PsychicInterfere"
+			Title="NAME:ToggleRadarBoatRadarMode"
+			Description="DESC:ToggleRadarBoatRadarMode" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleRadarBoatCruiseMissileMode">
+		<State
+			Image="JUA_CruiseMissile"
+			Title="NAME:ToggleRadarBoatCruiseMissileMode"
+			Description="DESC:ToggleRadarBoatCruiseMissileMode" />
+	</ButtonSingleStateData>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PsychicScan">
+		<SpecialPower>SpecialPower_PsychicScan</SpecialPower>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsychicScan">
+		<State
+			Image="Button_PlayerPowerPsychicScan"
+			Title="NAME:PlayerPowerPsychicScan"
+			TypeDescription="TYPE:PlayerPowerPsychicScan"
+			Description="DESC:PlayerPowerPsychicScan" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerPsychicScan">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityPsychicScan"
+				SpecialPower="SpecialPower_PsychicScan"
+				RadiusCursor="Target_Allied_ChronoRift3"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PsychicScan_Interface">
+		<SpecialPower>SpecialPower_PsychicScan</SpecialPower>
+	</LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="ButtonPsychicScan"
+		LogicCommand="Command_PsychicScan_Interface">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityPsychicScan"
+       			RadiusCursor="Target_Allied_ChronoRift3"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietDestroyer">
+		<Object>SovietDestroyer</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiAirMissileVehicle">
+		<Object>SACOMAntiAirMissileVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMscud">
+		<Object>SACOMscud</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMMedic">
+		<Object>SACOMMedic</Object>
+	</LogicCommand>
+	
+	   <LogicCommand
+        Options="NEED_TARGET_POS"
+        Type="SPECIAL_POWER"
+        id="Command_DestroyerRocketBarragesSpecialPower">
+        <SpecialPower>SpecialPower_RocketBarrages</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityDestroyerRocketBarrages">
+		<State
+			Image="SUA_Tenho_Smoke"
+			Title="NAME:DestroyerRocketBarrages"
+			Description="DESC:DestroyerRocketBarrages" />
+		<!--<State
+			Image="SUA_SovietDestroyerRocketBarrages"
+			Title="NAME:DestroyerRocketBarrages"
+			Description="DESC:DestroyerRocketBarrages" />-->
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonDestroyerRocketBarrages"
+		LogicCommand="Command_DestroyerRocketBarragesSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityDestroyerRocketBarrages"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+  <LogicCommand
+    Type="SPECIAL_POWER"
+    id="Command_UnPackJapanPlasmaDefenderEgg">
+    <SpecialPower>SpecialPower_UnpackReplaceSelf</SpecialPower>
+    <AISpecialPowerInfo Heuristic="UNPACK" Manager="TACTIC"/>
+  </LogicCommand>
+  <UnitAbilityButtonTemplate
+    id="ButtonUnPackJapanPlasmaDefenderEgg"
+    LogicCommand="Command_UnPackJapanPlasmaDefenderEgg">
+    <Data>
+      <Unpack
+				StateData="ButtonStateAbilityUnPackJapanPlasmaDefenderEgg"/>
+    </Data>
+  </UnitAbilityButtonTemplate>
+  <ButtonSingleStateData
+    id="ButtonStateAbilityUnPackJapanPlasmaDefenderEgg">
+    <State
+			Image="JUA_Egg_Unfurl"
+			Title="NAME:AbilityUnPackJapanPlasmaDefenderEgg"
+			Description="DESC:AbilityUnPackJapanPlasmaDefenderEgg" />
+  </ButtonSingleStateData>
+  
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateAOEMindControlSpecialPower">
+		<SpecialPower>SpecialPower_AOEMindControl</SpecialPower>
+		<AISpecialPowerInfo Heuristic="AOE_ATTACK"
+												Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="AlliedAntiStructureShipEMPCruiseMissleWarhead"
+				IsDisablingAttack="true" 
+				AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"
+				TotalValueGreaterThan="949"
+				AoeAttackPowerBlockAreaAfterActivationTime="3s"
+				AffectsFriendlies="true"
+				AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityAOEMindControl">
+		<State
+			Image="AUA_Bribe"
+			Title="NAME:BribeSpecialPower"
+			Description="DESC:BribeSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonAOEMindControl"
+		LogicCommand="Command_ActivateAOEMindControlSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityAOEMindControl"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_LaunchNeutronMissileSpecialPower">
+		<SpecialPower>SpecialPowerFireMissile</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="AOE_ATTACK"
+			Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="AlliedAntiStructureShipEMPCruiseMissleWarhead"
+				IsDisablingAttack="true" 
+				AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"
+				TotalValueGreaterThan="949"
+				AoeAttackPowerBlockAreaAfterActivationTime="3s"
+				AffectsFriendlies="true"
+				AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityLaunchNeutronMissile">
+		<State
+			Image="SUA_NeutronMissile"
+			Title="NAME:NeutronMissileSpecialPower"
+			Description="DESC:NeutronMissileSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonLaunchNeutronMissile"
+		LogicCommand="Command_LaunchNeutronMissileSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Soviet_OrbitalDump3"
+				StateData="ButtonStateAbilityLaunchNeutronMissile"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_AlliedArchAngelDeployIonStormStart">
+		<SpecialPower>SpecialPower_DeployIonStormStart</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="DEPLOY"
+			Manager="TACTIC">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityDeployIonStormStart">
+		<State
+			Image="AUA_IonStorm"
+			Title="NAME:IonStormSpecialPower"
+			Description="DESC:IonStormSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonDeployIonStormStart"
+		LogicCommand="Command_AlliedArchAngelDeployIonStormStart">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityDeployIonStormStart"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_AlliedArchAngelDeployIonStorm">
+		<SpecialPower>SpecialPower_DeployIonStorm</SpecialPower>
+	</LogicCommand>
+	
+	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSovietGaussCannon">
+		<Object>SovietGaussCannon</Object>
+	</LogicCommand>	
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructAlliedHypersonicBomber">
+		<Object>AlliedHypersonicBomber</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_AOEShieldSpecialPower">
+		<SpecialPower>SpecialPower_AOEShield</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="AOE_ATTACK"
+			Manager="MICRO_MANAGER" >
+			<SpecialPowerWeapon
+				Weapon="SovietMARVTeslaNova"
+				AffectsFriendlies="false"
+				AffectsSelf="false"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAOEShield">
+		<State
+			Image="SUA_AOEShield"
+			Title="NAME:AOEShield"
+			Description="DESC:AOEShield" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonAOEShield"
+		LogicCommand="Command_AOEShieldSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAOEShield"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructJapanLiberator">
+		<Object>JapanLiberator</Object>
+	</LogicCommand>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleLiberatorShieldSpecialPower">
+		<SpecialPower>SpecialPower_ToggleNanoArmor</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateSpecialPowerToggleLiberatorShield">
+		<State
+			Image="Button_PlayerPower_Nanoswarm"
+			Title="NAME:JapanLiberatorShield"
+			Description="DESC:JapanLiberatorShield" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonToggleLiberatorShield"
+		LogicCommand="Command_ToggleLiberatorShieldSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateSpecialPowerToggleLiberatorShield"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_SpyPlane">
+		<SpecialPower>SpecialPowerSpyPlane</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_ATTACK"
+			Manager="SKIRMISH_AI"
+			TargetObjectExclude="AIRCRAFT TRANSFORMER SUBMARINE"
+			MaxTargetSpeed="0.0"
+			RequireKillTargets="false"
+			MinTargetsHit="3">
+			<SpecialPowerWeapon Weapon="JapanFinalSquadronAircraftKamikazeWarhead"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilitySpyPlane">
+		<State
+			Image="Button_PlayerPowerSpyPlane"
+			Title="NAME:PlayerPowerSpyPlane"
+			TypeDescription="TYPE:PlayerPowerSpyPlane"
+			Description="DESC:PlayerPowerSpyPlane" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerSpyPlane">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilitySpyPlane"
+				SpecialPower="SpecialPowerSpyPlane"
+				RadiusCursor="Target_Soviet_MagneticSingularity"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<!--JAPAN AIRPORT RECALL AIRCRAFT-->
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_JapanRecallAllAircraft">
+		<SpecialPower>SpecialPower_RecallAllAircraft</SpecialPower>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityJapanRecallAllAircraft">
+		<State
+			Image="JUA_ReturnToBase"
+			Title="NAME:AlliedAirfieldReturnToBase"
+			Description="DESC:AlliedAirfieldReturnToBase" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonJapanRecallAllAircraft"
+		LogicCommand="Command_JapanRecallAllAircraft">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityJapanRecallAllAircraft"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<!--JAPAN EMERGENCY REPAIR-->
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_EmergencyRepair">
+		<SpecialPower>SpecialPowerEmergencyRepair</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="PLAYER_AOE_BUFF"
+      Manager="SKIRMISH_AI"
+      TargetObjectInclude="CAN_ATTACK"
+      TargetObjectExclude="STRUCTURE"
+      MinTargetsHit="3"
+      MinEnemiesNearby="3">
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityEmergencyRepair">
+		<State
+			Image="JUA_EmergencyRepair"
+			Title="NAME:EmergencyRepair"
+			TypeDescription="TYPE:EmergencyRepair"
+			Description="DESC:EmergencyRepair" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerEmergencyRepair">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityEmergencyRepair"
+				SpecialPower="SpecialPowerEmergencyRepair"
+				RadiusCursor="Target_Allied_ChronoRift3"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_Uprising">
+		<SpecialPower>SpecialPower_Uprising</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_BUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="CAN_ATTACK"
+			MinTargetsHit="1"
+			MinEnemiesNearby="5">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityUprising">
+		<State
+			Image="Button_PlayerPowerUprising"
+			Title="NAME:PlayerPowerUprising"
+			TypeDescription="TYPE:PlayerPowerUprising"
+			Description="DESC:PlayerPowerUprising" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerUprising">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityUprising"
+				SpecialPower="SpecialPower_Uprising"
+				RadiusCursor="Target_Japan_SleeperAmbush"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructJapanTankBunker">
+		<Object>JapanTankBunker</Object>
+	</LogicCommand>	
+	
+	
+	<LogicCommand
+	Type="SPECIAL_POWER"
+	id="Command_ActivateWarWolfShieldSpecialPower">
+		<SpecialPower>SpecialPower_WarwolfShield</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="AOE_ATTACK"
+			Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="SovietScoutInfantryRoar"
+				IsDisablingAttack="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityWarWolfShield">
+		<State
+			Image="SUA_WarWolfShield"
+			Title="NAME:WarWolfShieldSpecialPower"
+			Description="DESC:WarWolfShieldSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonWarwolfShield"
+		LogicCommand="Command_ActivateWarWolfShieldSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityWarWolfShield"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<!--SACOM-->
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMGhostBomberAircraft">
+		<Object>SACOMGhostBomberAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMHumvee">
+		<Object>SACOMHumvee</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiInfantryVehicle">
+		<Object>SACOMAntiInfantryVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiNavyShipTech2">
+		<Object>SACOMAntiNavyShipTech2</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMScoutVehicle">
+		<Object>SACOMScoutVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiSubmarineAircraft">
+		<Object>SACOMAntiSubmarineAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMStealthBomber">
+		<Object>SACOMStealthBomber</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMFighterAircraft">
+		<Object>SACOMFighterAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMSpectreGunship">
+		<Object>SACOMSpectreGunship</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAerialCommandCruiser">
+		<Object>SACOMAerialCommandCruiser</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiInfantryInfantry">
+		<Object>SACOMAntiInfantryInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiVehicleInfantry">
+		<Object>SACOMAntiVehicleInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMEngineer">
+		<Object>SACOMEngineer</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMScoutInfantry">
+		<Object>SACOMScoutInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMCommandoTech1">
+		<Object>SACOMCommandoTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiNavyShipTech1">
+		<Object>SACOMAntiNavyShipTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiStructureShip">
+		<Object>SACOMAntiStructureShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiAirShip">
+		<Object>SACOMAntiAirShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMDestroyer">
+		<Object>SACOMDestroyer</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiAirVehicle">
+		<Object>SACOMAntiAirVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiAirShip_Ground">
+		<Object>SACOMAntiAirShip_Ground</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiStructureVehicle">
+		<Object>SACOMAntiStructureVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMSurveyor">
+		<Object>SACOMSurveyor</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMMCV">
+		<Object>SACOMMCV</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiVehicleVehicleTech2">
+		<Object>SACOMAntiVehicleVehicleTech2</Object>
+	</LogicCommand>	
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMMCV_Naval">
+		<Object>SACOMMCV_Naval</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMCarryall">
+		<Object>SACOMCarryall</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMMLRS">
+		<Object>SACOMMLRS</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMListener">
+		<Object>SACOMListener</Object>
+	</LogicCommand>
+	
+	<!-- SACOM Buildings -->
+
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMPowerPlant">
+		<Object>SACOMPowerPlant</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMAerialCommandCenter">
+		<Object>SACOMAerialCommandCenter</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMRefinery">
+		<Object>SACOMRefinery</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMBarracks">
+		<Object>SACOMBarracks</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMWarFactory">
+		<Object>SACOMWarFactory</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMAirfield">
+		<Object>SACOMAirfield</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMTechStructure">
+		<Object>SACOMTechStructure</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMSupplyZone">
+		<Object>SACOMSupplyZone</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMNavalYard">
+		<Object>SACOMNavalYard</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMBaseDefenseGround">
+		<Object>SACOMBaseDefenseGround</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMMortar">
+		<Object>SACOMMortar</Object>
+	</LogicCommand>	
+	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMBaseDefenseAir">
+		<Object>SACOMBaseDefenseAir</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMBaseDefenseAdvanced">
+		<Object>SACOMBaseDefenseAdvanced</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMSuperWeapon">
+		<Object>SACOMSuperWeapon</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMSuperWeaponAdvanced">
+		<Object>SACOMSuperWeaponAdvanced</Object>
+	</LogicCommand>			
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMCrane">
+		<Object>SACOMCrane</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructSACOMGaussCannon">
+		<Object>SACOMGaussCannon</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleToxicGrenadeSpecialPower">
+		<SpecialPower>SpecialPower_ToxicGrenade</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToxicGrenade">
+		<State
+			Image="SUA_Toxic_Grenade"
+			Title="NAME:ToxicGrenadeSpecialPower"
+			Description="DESC:ToxicGrenadeSpecialPower" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilitToxicGrenadeOff">
+		<State
+			Image="SUA_Conscript_Rifle"
+			Title="NAME:ToxicGrenadeSpecialPowerOff"
+			Description="DESC:ToxicGrenadeSpecialPowerOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonToxicGrenade"
+		LogicCommand="Command_ToggleToxicGrenadeSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToxicGrenade</StateData>
+				<StateData>ButtonStateAbilitToxicGrenadeOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+	Type="SPECIAL_POWER"
+	id="Command_ActivateListenSpecialPower">
+		<SpecialPower>SpecialPower_Listen</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="AOE_ATTACK"
+			Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="SACOMListenerListenWeapon"
+				IsDisablingAttack="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityListen">
+		<State
+			Image="SUA_Listen"
+			Title="NAME:ListenSpecialPower"
+			Description="DESC:ListenSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonListen"
+		LogicCommand="Command_ActivateListenSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityListen"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+	Type="SPECIAL_POWER"
+	id="Command_ActivateStealthBomberEvadeSpecialPower">
+		<SpecialPower>SpecialPower_StealthBomberEvade</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityStealthBomberEvade">
+		<State
+			Image="SUA_StealthBomberEvade"
+			Title="NAME:StealthBomberEvadeSpecialPower"
+			Description="DESC:StealthBomberEvadeSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonStealthBomberEvade"
+		LogicCommand="Command_ActivateStealthBomberEvadeSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityStealthBomberEvade"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+	Type="SPECIAL_POWER"
+	id="Command_ActivateStealthFighterEvadeSpecialPower">
+		<SpecialPower>SpecialPower_StealthFighterEvade</SpecialPower>
+    <AISpecialPowerInfo
+      Heuristic="INVULNERABILITY"
+      Manager="MICRO_MANAGER"
+      InvulnerabilityDamageLookAheadTime="1.25s"
+      InvulnerabilityDamageLookBehindTime="1.25s"
+      InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+      InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityStealthFighterEvade">
+		<State
+			Image="SUA_StealthFighterEvade"
+			Title="NAME:StealthFighterEvadeSpecialPower"
+			Description="DESC:StealthFighterEvadeSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonStealthFighterEvade"
+		LogicCommand="Command_ActivateStealthFighterEvadeSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityStealthFighterEvade"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+	Type="SPECIAL_POWER"
+	id="Command_ActivateAntiSubmarineSonarSpecialPower">
+		<SpecialPower>SpecialPower_AntiSubmarineSonar</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="AOE_ATTACK"
+			Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="SACOMCormorantAntiSubmarineSonic"
+				IsDisablingAttack="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityAntiSubmarineSonar">
+		<State
+			Image="SUA_AntiSubmarineSonar"
+			Title="NAME:AntiSubmarineSonarSpecialPower"
+			Description="DESC:AntiSubmarineSonarSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonAntiSubmarineSonar"
+		LogicCommand="Command_ActivateAntiSubmarineSonarSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityAntiSubmarineSonar"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<!--Call Hunter-->
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_CallSupportHunterKillerTeam">
+		<SpecialPower>SpecialPowerCallSupportHunterKillerTeam</SpecialPower>
+		<AISpecialPowerInfo Heuristic="AOE_ATTACK"
+												Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="AlliedAntiStructureShipEMPCruiseMissleWarhead"
+				IsDisablingAttack="true" 
+				AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"
+				TotalValueGreaterThan="949"
+				AoeAttackPowerBlockAreaAfterActivationTime="3s"
+				AffectsFriendlies="true"
+				AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityCallSupportHunterKillerTeam">
+		<State
+			Image="Button_PlayerPowerCallSupportHunterKillerTeam"
+			Title="NAME:PlayerPowerCallSupportHunterKillerTeam"
+			TypeDescription="TYPE:PlayerPowerCallSupportHunterKillerTeam"
+			Description="DESC:PlayerPowerCallSupportHunterKillerTeam" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerCallSupportHunterKillerTeam">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityCallSupportHunterKillerTeam"
+				SpecialPower="SpecialPowerCallSupportHunterKillerTeam"
+				RadiusCursor="Target_Allied_Paradrop"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<!--People Vanguard-->
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PeopleVanguard">
+		<SpecialPower>SpecialPower_PeopleVanguard</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_BUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="CAN_ATTACK"
+			MinTargetsHit="1"
+			MinEnemiesNearby="5">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPeopleVanguard">
+		<State
+			Image="SUA_PeopleVanguard"
+			Title="NAME:PlayerPowerPeopleVanguard"
+			TypeDescription="TYPE:PlayerPowerPeopleVanguard"
+			Description="DESC:PlayerPowerPeopleVanguard" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerPeopleVanguard">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityPeopleVanguard"
+				SpecialPower="SpecialPower_PeopleVanguard"
+				RadiusCursor="Target_Allied_Paradrop"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<!--Patriotic Propaganda-->
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PatrioticPropaganda">
+		<SpecialPower>SpecialPower_PatrioticPropaganda</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_DEBUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="CAN_ATTACK"
+			MinTargetsHit="1"
+			MinEnemiesNearby="5">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPatrioticPropaganda">
+		<State
+			Image="SUA_PatrioticPropaganda"
+			Title="NAME:PlayerPowerPatrioticPropaganda"
+			TypeDescription="TYPE:PlayerPowerPatrioticPropaganda"
+			Description="DESC:PlayerPowerPatrioticPropaganda" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerPatrioticPropaganda">
+		<Data>
+			<PlayerMultipleTargetsTargetedPower
+				StateData="ButtonStateAbilityPatrioticPropaganda"
+				SpecialPower="SpecialPower_PatrioticPropaganda"
+				RadiusCursor="Target_Allied_SurveillanceSweep_1"
+				TargetMarkerTemplate="PlayerPowerTargetMarker"
+				TargetMarkerFXList="FX_ALL_SurveillanceSweepCursor1"
+				TargetCount="2">
+				<AdditionalRadiusCursor>Target_Allied_SurveillanceSweep_1</AdditionalRadiusCursor>
+				<AdditionalRadiusCursor>Target_Allied_SurveillanceSweep_2</AdditionalRadiusCursor>
+			</PlayerMultipleTargetsTargetedPower>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSovietTeslaTank">
+		<Object>SovietTeslaTank</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMAntiVehicleVehicleTech3">
+		<Object>SACOMAntiVehicleVehicleTech3</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMSuperFighter">
+		<Object>SACOMSuperFighter</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructSACOMHunterAircraft">
+		<Object>SACOMHunterAircraft</Object>
+	</LogicCommand>
+	
+	
+    <LogicCommand
+        Options="NEED_TARGET_ENEMY_OBJECT NEED_TARGET_NEUTRAL_OBJECT"
+        Type="SPECIAL_POWER"
+        id="Command_RocketEnhancedShellGrenadeSpecialPower">
+        <SpecialPower>SpecialPower_RocketEnhancedShell</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="true"
+            NeverUseWhilePullingBack="true">
+            <SpecialPowerWeapon
+                Weapon="SACOMRocketEnhancedShellLauncher"
+                AoeAttackPowerLocationPreference="PREFER_CENTER_OF_ENEMIES"/>
+        </AISpecialPowerInfo>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityRocketEnhancedShellGrenade">
+		<State
+			Image="SUA_RocketEnhancedShell"
+			Title="NAME:RocketEnhancedShellGrenadeSpecialPower"
+			Description="DESC:RocketEnhancedShellGrenadeSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonRocketEnhancedShellGrenade"
+		LogicCommand="Command_RocketEnhancedShellGrenadeSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				ValidTargetCursor="TargetAbility"
+				StateData="ButtonStateAbilityRocketEnhancedShellGrenade"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_LaputaAirship_Transform">
+		<SpecialPower>SpecialPower_LaputaAirship_Transform</SpecialPower>
+    <AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateSpecialPowerLaputaAirshipTransform">
+		<State
+			Image="JUA_Seawing_AirMode"
+			Title="NAME:SovietLaputaAirshipTransform"
+			Description="DESC:SovietLaputaAirshipTransform" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateSpecialPowerLaputaAirshipTransformOff">
+		<State
+			Image="JUA_Seawing_SeaMode"
+			Title="NAME:SovietLaputaAirshipTransformOff"
+			Description="DESC:SovietLaputaAirshipTransformOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="Button_LaputaAirship_Transform"
+		LogicCommand="Command_LaputaAirship_Transform">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateSpecialPowerLaputaAirshipTransform</StateData>
+				<StateData>ButtonStateSpecialPowerLaputaAirshipTransformOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<!-- Build Psychic Partisan Buildings -->
+	
+	<!-- Japan Buildings -->
+
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanPowerPlant">
+		<Object>PsychicPartisanPowerPlant</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanRefinery">
+		<Object>PsychicPartisanRefinery</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanBarracks">
+		<Object>PsychicPartisanBarracks</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanWarFactory">
+		<Object>PsychicPartisanWarFactory</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanNavalYard">
+		<Object>PsychicPartisanNavalYard</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanBaseDefense">
+		<Object>PsychicPartisanBaseDefense</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanBaseDefenseAdvanced">
+		<Object>PsychicPartisanBaseDefenseAdvanced</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanSuperWeapon">
+		<Object>PsychicPartisanSuperWeapon</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanSuperWeaponAdvanced">
+		<Object>PsychicPartisanSuperWeaponAdvanced</Object>
+	</LogicCommand>		
+
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanPowerPlantEgg">
+		<Object>PsychicPartisanPowerPlantEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanRefineryEgg">
+		<Object>PsychicPartisanRefineryEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanBarracksEgg">
+		<Object>PsychicPartisanBarracksEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanVIPBunkerEgg">
+		<Object>PsychicPartisanVIPBunkerEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanPlasmaDefenderEgg">
+		<Object>PsychicPartisanPlasmaDefenderEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanWarFactoryEgg">
+		<Object>PsychicPartisanWarFactoryEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanNavalYardEgg">
+		<Object>PsychicPartisanNavalYardEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanTechStructureEgg">
+		<Object>PsychicPartisanTechStructureEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanBaseDefenseEgg">
+		<Object>PsychicPartisanBaseDefenseEgg</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanBaseDefenseAdvancedEgg">
+		<Object>PsychicPartisanBaseDefenseAdvancedEgg</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanSuperWeaponEgg">
+		<Object>PsychicPartisanSuperWeaponEgg</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanSuperWeaponAdvancedEgg">
+		<Object>PsychicPartisanSuperWeaponAdvancedEgg</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiInfantryInfantry">
+		<Object>PsychicPartisanAntiInfantryInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiVehicleInfantry">
+		<Object>PsychicPartisanAntiVehicleInfantry</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMechaKingEgg">
+		<Object>PsychicPartisanMechaKingEgg</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMagnetron">
+		<Object>PsychicPartisanMagnetron</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanInitiate">
+		<Object>PsychicPartisanInitiate</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanArcherInfantry">
+		<Object>PsychicPartisanArcherInfantry</Object>
+	</LogicCommand>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PsychicPartisanAntiVehicleInfantrySprint">
+		<SpecialPower>SpecialPower_PsychicPartisanAntiVehicleInfantrySprint</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="SPEED_BOOST"
+			Manager="MICRO_MANAGER"
+			UseInMicroManagerState="RETREAT COMBAT CLEANUP"
+			UseNearTacticalTarget="true"
+		/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsychicPartisanAntiVehicleInfantrySprint">
+		<State
+			Image="PUA_sprint"
+			Title="NAME:AbilityPsychicPartisanAntiVehicleInfantrySprint"
+			Description="DESC:AbilityPsychicPartisanAntiVehicleInfantrySprint" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonPsychicPartisanAntiVehicleInfantrySprint"
+		LogicCommand="Command_PsychicPartisanAntiVehicleInfantrySprint">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityPsychicPartisanAntiVehicleInfantrySprint"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanECTrooper">
+		<Object>PsychicPartisanECTrooper</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanCenturion">
+		<Object>PsychicPartisanCenturion</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanGattlingVehicle">
+		<Object>PsychicPartisanGattlingVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanPatmos">
+		<Object>PsychicPartisanPatmos</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanCombatFortress">
+		<Object>PsychicPartisanCombatFortress</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanCombatFortress_Naval">
+		<Object>PsychicPartisanCombatFortress_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanFortressShipEgg">
+		<Object>PsychicPartisanFortressShipEgg</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		id="Command_PsychicPartisanCenturionWaveforceCannon"
+		Options="NEED_TARGET_ENEMY_OBJECT NEED_TARGET_NEUTRAL_OBJECT"
+		Type="SPECIAL_POWER">
+		<SpecialPower>SpecialPower_WaveforceCannon</SpecialPower>
+    <AISpecialPowerInfo Heuristic="INSTAKILL"	Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateSpecialPowerCenturionWaveforceCannon">
+		<State
+			Image="JUA_Art_Discharge"
+			Title="NAME:SpecialPowerShrinkRay"
+			Description="DESCRIPTION:SpecialPowerShrinkRay" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonCenturionWaveforceCannon"
+		LogicCommand="Command_PsychicPartisanCenturionWaveforceCannon">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateSpecialPowerCenturionWaveforceCannon"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanBarricade">
+		<Object>PsychicPartisanBarricade</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_SupersonicAttack">
+		<SpecialPower>SpecialPowerSupersonicAttack</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_ATTACK"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="AIRCRAFT"
+			MaxTargetSpeed="300.0"
+			MinKillValue="1000">
+			<SpecialPowerWeapon Weapon="TelekineticExplosion"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilitySupersonicAttack">
+		<State
+			Image="JUA_SupersonicAttack"
+			Title="NAME:PlayerPowerSupersonicAttack"
+			TypeDescription="TYPE:PlayerPowerSupersonicAttack"
+			Description="DESC:PlayerPowerSupersonicAttack" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerSupersonicAttack">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilitySupersonicAttack"
+				SpecialPower="SpecialPowerSupersonicAttack"
+				RadiusCursor="Target_Soviet_MagneticSingularity"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PsychicPartisanGattlingOverheat">
+		<SpecialPower>SpecialPower_GattlingOverheat</SpecialPower>
+    <AISpecialPowerInfo 
+      Heuristic="RUSH_ATTACK" 
+      Manager="MICRO_MANAGER"
+      TargetObjectInclude="INFANTRY AIRCRAFT"
+      HealthFraction="0.8"
+      Distance="300"
+	  UseToCounterGarrison="false"
+     />
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsychicPartisanGattlingOverheat">
+		<State
+			Image="JUA_GattlingOverheat"
+			Title="NAME:AbilityPsychicPartisanGattlingOverheat"
+			Description="DESC:AbilityPsychicPartisanGattlingOverheat" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonPsychicPartisanGattlingOverheat"
+		LogicCommand="Command_PsychicPartisanGattlingOverheat">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityPsychicPartisanGattlingOverheat"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PsychicPartisanBattlecry">
+		<SpecialPower>SpecialPower_Battlecry</SpecialPower>
+    <AISpecialPowerInfo 
+      Heuristic="RUSH_ATTACK" 
+      Manager="MICRO_MANAGER"
+      TargetObjectInclude="INFANTRY"
+      HealthFraction="0.8"
+      Distance="300"
+	  UseToCounterGarrison="true"
+     />
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsychicPartisanBattlecry">
+		<State
+			Image="JUA_Battlecry"
+			Title="NAME:AbilityPsychicPartisanBattlecry"
+			Description="DESC:AbilityPsychicPartisanBattlecry" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonPsychicPartisanBattlecry"
+		LogicCommand="Command_PsychicPartisanBattlecry">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityPsychicPartisanBattlecry"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivatePsychicShieldSpecialPower">
+		<SpecialPower>SpecialPower_PsychicShield</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="INVULNERABILITY"
+				Manager="MICRO_MANAGER"
+				InvulnerabilityDamageLookAheadTime="1s"
+				InvulnerabilityDamageLookBehindTime="1s"
+				InvulnerabilityDamageFractionWhenOutOfRangeOfTarget=".5"
+				InvulnerabilityDamageFractionWhenInRangeOfTarget=".5"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityActivatePsychicShieldSpecialPower">
+		<State
+			Image="JUA_PsychicShield"
+			Title="NAME:AbilityPsychicShield"
+			Description="DESC:AbilityPsychicShield" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonActivatePsychicShieldSpecialPower"
+		LogicCommand="Command_ActivatePsychicShieldSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityActivatePsychicShieldSpecialPower"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivatePatmosIllusion">
+		<SpecialPower>SpecialPower_PatmosIllusion</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="INVULNERABILITY"
+				Manager="MICRO_MANAGER"
+				InvulnerabilityDamageLookAheadTime="1s"
+				InvulnerabilityDamageLookBehindTime="1s"
+				InvulnerabilityDamageFractionWhenOutOfRangeOfTarget=".5"
+				InvulnerabilityDamageFractionWhenInRangeOfTarget=".5"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityActivatePatmosIllusion">
+		<State
+			Image="JUA_PsychicPartisanPatmosIllusion"
+			Title="NAME:AbilityPsychicShield"
+			Description="DESC:AbilityPsychicShield" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonActivatePatmosIllusion"
+		LogicCommand="Command_ActivatePatmosIllusion">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityActivatePatmosIllusion"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructPsychicPartisanMagicBall">
+		<Object>PsychicPartisanMagicBall</Object>
+	</LogicCommand>	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_PsychicPartisanMagicBallDetonation">
+		<SpecialPower>SpecialPower_PsychicPartisanMagicBallDetonation</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="AOE_ATTACK"
+				Manager="MICRO_MANAGER" >
+      <SpecialPowerWeapon
+				Weapon="PsychicPartisanTerroristDeathWeapon"
+				AffectsFriendlies="true"
+  			AffectsSelf="true"/>
+    </AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsychicPartisanMagicBallDetonation">
+		<State
+			Image="JUA_MagicBallDetonation"
+			Title="NAME:AbilityPsychicPartisanMagicBallDetonation"
+			Description="DESC:AbilityPsychicPartisanMagicBallDetonation" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonPsychicPartisanMagicBallDetonation"
+		LogicCommand="Command_PsychicPartisanMagicBallDetonation">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityPsychicPartisanMagicBallDetonation"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanBetaYuriko">
+		<Object>PsychicPartisanBetaYuriko</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanInfiltrationInfantry">
+		<Object>PsychicPartisanInfiltrationInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiVehicleInfantryTech3">
+		<Object>PsychicPartisanAntiVehicleInfantryTech3</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanCommandoTech1">
+		<Object>PsychicPartisanCommandoTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMiner">
+		<Object>PsychicPartisanMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMiner_Naval">
+		<Object>PsychicPartisanMiner_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMinerFromRefinery">
+		<Object>PsychicPartisanMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMCV">
+		<Object>PsychicPartisanMCV</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanMCV_Air">
+		<Object>PsychicPartisanMCV_Air</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiAirShip">
+		<Object>PsychicPartisanAntiAirShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiStructureShip">
+		<Object>PsychicPartisanAntiStructureShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiStructureVehicle">
+		<Object>PsychicPartisanAntiStructureVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanScoutInfantry">
+		<Object>PsychicPartisanScoutInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanEngineer">
+		<Object>PsychicPartisanEngineer</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiVehicleShip">
+		<Object>PsychicPartisanAntiVehicleShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanNavyScoutShip">
+		<Object>PsychicPartisanNavyScoutShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiInfantryVehicle">
+		<Object>PsychicPartisanAntiInfantryVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiInfantryVehicle_Naval">
+		<Object>PsychicPartisanAntiInfantryVehicle_Naval</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleElectronicSuppressorSpecialPower">
+		<SpecialPower>SpecialPower_ToggleElectronicSuppressor</SpecialPower>
+		<AISpecialPowerInfo 
+			Heuristic="TOGGLE"
+			Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateToggleElectronicSuppressor">
+		<State
+			Image="SUA_TeslaTrooper_EMP"
+			Title="NAME:ToggleElectronicSuppressorUpgrade"
+			Description="DESC:ToggleElectronicSuppressorUpgrade" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateToggleElectronicSuppressorOff">
+		<State
+			Image="SUA_ShotgunMode"
+			Title="NAME:ToggleElectronicSuppressorOff"
+			Description="DESC:ToggleElectronicSuppressorOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+	id="ButtonToggleElectronicSuppressor"
+	LogicCommand="Command_ToggleElectronicSuppressorSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateToggleElectronicSuppressor</StateData>
+				<StateData>ButtonStateToggleElectronicSuppressorOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateInitiateDefensiveModeSpecialPower">
+		<SpecialPower>SpecialPower_InitiateDefensiveMode</SpecialPower>
+    <AISpecialPowerInfo
+				Heuristic="INVULNERABILITY"
+				Manager="MICRO_MANAGER"
+				InvulnerabilityDamageLookAheadTime="1s"
+				InvulnerabilityDamageLookBehindTime="1s"
+				InvulnerabilityDamageFractionWhenOutOfRangeOfTarget=".5"
+				InvulnerabilityDamageFractionWhenInRangeOfTarget=".5"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityActivateInitiateDefensiveModeSpecialPower">
+		<State
+			Image="JUA_PsychicShield"
+			Title="NAME:AbilityInitiateDefensiveMode"
+			Description="DESC:AbilityInitiateDefensiveMode" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonActivateInitiateDefensiveModeSpecialPower"
+		LogicCommand="Command_ActivateInitiateDefensiveModeSpecialPower">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilityActivateInitiateDefensiveModeSpecialPower"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+    <LogicCommand
+        Type="SPECIAL_POWER"
+        id="Command_PsychicStormSpecialPower">
+        <SpecialPower>SpecialPower_PsychicStorm</SpecialPower>
+        <AISpecialPowerInfo 
+        	Heuristic="TOGGLE"
+			Manager="MICRO_MANAGER">
+        </AISpecialPowerInfo>
+    </LogicCommand>
+	
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsychicStorm">
+		<State
+			Image="JUA_PsychicStorm"
+			Title="NAME:PsychicStormSpecialPower"
+			Description="DESC:PsychicStormSpecialPower" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsychicStormOff">
+		<State
+			Image="JUA_PsychicAttack"
+			Title="NAME:PsychicAttackSpecialPower"
+			Description="DESC:PsychicAttackSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonPsychicStorm"
+		LogicCommand="Command_PsychicStormSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityPsychicStorm</StateData>
+				<StateData>ButtonStateAbilityPsychicStormOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleAATankTargetPainter">
+		<SpecialPower>SpecialPower_ToggleTargetPainter</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+	</LogicCommand>
+
+	<ButtonSingleStateData
+		id="ButtonStateToggleAATankTargetPainter">
+		<State
+			Image="SUA_AATank_TargetPainter"
+			Title="NAME:ActivateAATankTargetPainter"
+			Description="DESC:ActivateAATankTargetPainter" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateToggleAATankTargetPainterOff">
+		<State
+			Image="SUA_AATank_GatlingGun"
+			Title="NAME:ActivateAATankTargetPainterOff"
+			Description="DESC:ActivateAATankTargetPainterOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonToggleAATankTargetPainter"
+		LogicCommand="Command_ToggleAATankTargetPainter">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateToggleAATankTargetPainter</StateData>
+				<StateData>ButtonStateToggleAATankTargetPainterOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ToggleCruiseMissileModeSpecialPower">
+		<SpecialPower>SpecialPower_RadarLock</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER" />
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateToggleCruiseMissileMode">
+		<State
+			Image="SUA_CruiseMissileMode"
+			Title="NAME:ActivateCruiseMissileMode"
+			Description="DESC:ActivateCruiseMissileMode" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateToggleCruiseMissileModeOff">
+		<State
+			Image="SUA_AccurateGuidanceMissileMode"
+			Title="NAME:ActivateCruiseMissileModeOff"
+			Description="DESC:ActivateCruiseMissileModeOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonToggleCruiseMissileMode"
+		LogicCommand="Command_ToggleCruiseMissileModeSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateToggleCruiseMissileMode</StateData>
+				<StateData>ButtonStateToggleCruiseMissileModeOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_BerserkerSwitchMode">
+		<SpecialPower>SpecialPower_ToggleCannonMode</SpecialPower>
+        <AISpecialPowerInfo 
+        	Heuristic="TOGGLE"
+			Manager="MICRO_MANAGER">
+        </AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityBerserkerSwitchToCannon">
+		<State
+			Image="PUA_Berserker_Cannon"
+			Title="NAME:BerserkerStrideBreakerSwitchToCannon"
+			Description="DESC:BerserkerStrideBreakerSwitchToCannon" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityBerserkerSwitchToMelee">
+		<State
+			Image="PUA_Berserker_Melee"
+			Title="NAME:BerserkerStrideBreakerSwitchToMelee"
+			Description="DESC:BerserkerStrideBreakerSwitchToMelee" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonBerserkerSwitchMode"
+		LogicCommand="Command_BerserkerSwitchMode">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityBerserkerSwitchToCannon</StateData>
+				<StateData>ButtonStateAbilityBerserkerSwitchToMelee</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+    <LogicCommand
+       	 Type="SPECIAL_POWER"
+       	 id="Command_ToggleAAMissileSpecialPower">
+       	 <SpecialPower>SpecialPower_MIRV</SpecialPower>
+       	 <AISpecialPowerInfo 
+      		  	Heuristic="TOGGLE"
+			Manager="MICRO_MANAGER">
+       	 </AISpecialPowerInfo>
+   	 </LogicCommand>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleAAMissile"
+		LogicCommand="Command_ToggleAAMissileSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleEMPAAMissile</StateData>
+				<StateData>ButtonStateAbilityToggleHEAAMissile</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleEMPAAMissile">
+		<State
+			Image="SUA_ToggleEMPAAMissile"
+			Title="NAME:ToggleEMPAAMissile"
+			Description="DESC:ToggleEMPAAMissile" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleHEAAMissile">
+		<State
+			Image="SUA_ToggleHEAAMissile"
+			Title="NAME:ToggleHEAAMissile"
+			Description="DESC:ToggleHEAAMissile" />
+	</ButtonSingleStateData>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ParticleUplinkCannon">
+		<SpecialPower>SpecialPowerParticleUplinkCannon</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_ATTACK"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="STRUCTURE VEHICLE INFANTRY" 
+			TargetObjectExclude="CONSTRUCTION_YARD SUPER_WEAPON" 
+			MaxTargetSpeed="0.0"
+			MinTargetsHit="1" 
+			RequireKillTargets="false">
+			<SpecialPowerWeapon
+				Weapon="AlliedAntiStructureShipEMPCruiseMissleWarhead"
+				IsDisablingAttack="true" 
+				AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"
+				TotalValueGreaterThan="949"
+				AoeAttackPowerBlockAreaAfterActivationTime="3s"
+				AffectsFriendlies="true"
+				AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityParticleUplinkCannon">
+		<State
+			Image="SUA_ParticleUplinkCannon"
+			Title="NAME:PlayerPowerParticleUplinkCannon"
+			TypeDescription="TYPE:PlayerPowerParticleUplinkCannon"
+			Description="DESC:PlayerPowerParticleUplinkCannon" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerParticleUplinkCannon">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityParticleUplinkCannon"
+				SpecialPower="SpecialPowerParticleUplinkCannon"
+				RadiusCursor="Target_Soviet_MagneticSingularity"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateCVMissleSpecialPower">
+		<SpecialPower>SpecialPower_TriggerEMPCruiseMissle</SpecialPower>
+		<AISpecialPowerInfo Heuristic="AOE_ATTACK"
+												Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="AlliedAntiStructureShipEMPCruiseMissleWarhead"
+				IsDisablingAttack="true" 
+				AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"
+				TotalValueGreaterThan="949"
+				AoeAttackPowerBlockAreaAfterActivationTime="3s"
+				AffectsFriendlies="true"
+				AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityCVMissle">
+		<State
+			Image="SUA_CVMissile"
+			Title="NAME:CVMissleSpecialPower"
+			Description="DESC:CVMissleSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonCVMissle"
+		LogicCommand="Command_ActivateCVMissleSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityCVMissle"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<!--Sacrifice-->
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_Sacrifice">
+		<SpecialPower>SpecialPower_Sacrifice</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_BUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="INFANTRY"
+			MinTargetsHit="1"
+			MinEnemiesNearby="5">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilitySacrifice">
+		<State
+			Image="JUA_Sacrifice"
+			Title="NAME:PlayerPowerSacrifice"
+			TypeDescription="TYPE:PlayerPowerSacrifice"
+			Description="DESC:PlayerPowerSacrifice" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerSacrifice">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilitySacrifice"
+				SpecialPower="SpecialPower_Sacrifice"
+				RadiusCursor="Target_Soviet_OrbitalDump3"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<LogicCommand
+		Options="NEED_TARGET_POS"
+		Type="SPECIAL_POWER"
+		id="Command_NanoStorm">
+		<SpecialPower>SpecialPowerNanoStorm</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="PLAYER_AOE_BUFF"
+			Manager="SKIRMISH_AI"
+			TargetObjectInclude="STRUCTURE" 
+			TargetObjectExclude="CASTLE_CENTER" 
+			MaxTargetSpeed="0.0"
+			MinTargetsHit="1" 
+			RequireKillTargets="false">
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityNanoStorm">
+		<State
+			Image="Button_PlayerPower_NanoStorm"
+			Title="NAME:PlayerPowerNanoStorm"
+			TypeDescription="TYPE:PlayerPowerNanoStorm"
+			Description="DESC:PlayerPowerNanoStorm" />
+	</ButtonSingleStateData>
+	<JoypadCommandBarButtonTemplate
+		id="ButtonPlayerPowerNanoStorm">
+		<Data>
+			<PlayerTargetedPower
+				StateData="ButtonStateAbilityNanoStorm"
+				SpecialPower="SpecialPowerNanoStorm"
+				RadiusCursor="Target_Japan_NanoswarmHive"/>
+		</Data>
+	</JoypadCommandBarButtonTemplate>
+	
+	<LogicCommand
+		Type="PLAYER_UPGRADE"
+		id="Command_PurchaseSovietNationalismPropaganda">
+		<Upgrade>Upgrade_SovietNationalismPropaganda</Upgrade>
+    <AISpecialPowerInfo Heuristic="UPGRADE" Manager="BUILDER"/>
+  </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateUpgradeSovietNationalismPropaganda">
+		<State
+			Image="Button_UpgradeSovietNationalismPropaganda"
+			Title="NAME:SovietNationalismPropaganda"
+			Description="DESCRIPTION:SovietNationalismPropaganda" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonUpgradeSovietNationalismPropaganda"
+		LogicCommand="Command_PurchaseSovietNationalismPropaganda">
+		<Data>
+			<PlayerUpgrade
+				StateData="ButtonStateUpgradeSovietNationalismPropaganda"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiInfantryVehicle_Air">
+		<Object>PsychicPartisanAntiInfantryVehicle_Air</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAntiVehicleInfantryTech3_Air">
+		<Object>PsychicPartisanAntiVehicleInfantryTech3_Air</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanCommandoTech1_Air">
+		<Object>PsychicPartisanCommandoTech1_Air</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanFighterAircraft">
+		<Object>PsychicPartisanFighterAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructPsychicPartisanAirportEgg">
+		<Object>PsychicPartisanAirportEgg</Object>
+	</LogicCommand>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivatePsionicLeapSpecialPower">
+		<SpecialPower>SpecialPower_PsionicLeap</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="INVULNERABILITY"
+			Manager="MICRO_MANAGER"
+			InvulnerabilityDamageLookAheadTime="1.25s"
+			InvulnerabilityDamageLookBehindTime="1.25s"
+			InvulnerabilityDamageFractionWhenOutOfRangeOfTarget="0.4"
+			InvulnerabilityDamageFractionWhenInRangeOfTarget="0.6"/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityPsionicLeap">
+		<State
+			Image="JUA_PsionicLeap"
+			Title="NAME:PsionicLeap"
+			Description="DESC:PsionicLeap" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonPsionicLeap"
+		LogicCommand="Command_ActivatePsionicLeapSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityPsionicLeap"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+
+
+
+<!--NRA-->
+
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRAPowerPlant">
+		<Object>NRAPowerPlant</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRARefinery">
+		<Object>NRARefinery</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRABarracks">
+		<Object>NRABarracks</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRAWarFactory">
+		<Object>NRAWarFactory</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRAAirfield">
+		<Object>NRAAirfield</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRATechStructure">
+		<Object>NRATechStructure</Object>
+	</LogicCommand>		
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRAEconomyStructure">
+		<Object>NRAEconomyStructure</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRANavalYard">
+		<Object>NRANavalYard</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRABaseDefense">
+		<Object>NRABaseDefense</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRABaseDefenseAir">
+		<Object>NRABaseDefenseAir</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRABaseDefenseAdvanced">
+		<Object>NRABaseDefenseAdvanced</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRASuperWeapon">
+		<Object>NRASuperWeapon</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="CONSTRUCTION_YARD_CONSTRUCT"
+		id="Command_ConstructNRASuperWeaponAdvanced">
+		<Object>NRASuperWeaponAdvanced</Object>
+	</LogicCommand>	
+	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiGroundAircraft">
+		<Object>NRAAntiGroundAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAFighterAircraft">
+		<Object>NRAFighterAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRABomberAircraft">
+		<Object>NRABomberAircraft</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRASupportAircraft">
+		<Object>NRASupportAircraft</Object>
+	</LogicCommand>	
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiInfantryInfantry">
+		<Object>NRAAntiInfantryInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiVehicleInfantry">
+		<Object>NRAAntiVehicleInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAEngineer">
+		<Object>NRAEngineer</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAScoutInfantry">
+		<Object>NRAScoutInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAInfiltrationInfantry">
+		<Object>NRAInfiltrationInfantry</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRACommandoTech1">
+		<Object>NRACommandoTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiNavalScout">
+		<Object>NRAAntiNavalScout</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiNavyShipTech1">
+		<Object>NRAAntiNavyShipTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiStructureShip">
+		<Object>NRAAntiStructureShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiAirShip">
+		<Object>NRAAntiAirShip</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiAirVehicleTech1">
+		<Object>NRAAntiAirVehicleTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiVehicleVehicleTech1">
+		<Object>NRAAntiVehicleVehicleTech1</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiVehicleVehicleTech3">
+		<Object>NRAAntiVehicleVehicleTech3</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiStructureVehicle">
+		<Object>NRAAntiStructureVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAMiner">
+		<Object>NRAMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAMiner_Naval">
+		<Object>NRAMiner_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAMinerFromRefinery">
+		<Object>NRAMiner</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAMCV">
+		<Object>NRAMCV</Object>
+	</LogicCommand>
+		<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAMCV_Naval">
+		<Object>NRAMCV_Naval</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiInfantryVehicle">
+		<Object>NRAAntiInfantryVehicle</Object>
+	</LogicCommand>
+	<LogicCommand
+		Type="UNIT_BUILD"
+		id="Command_ConstructNRAAntiInfantryVehicle_Ground">
+		<Object>NRAAntiInfantryVehicle_Ground</Object>
+	</LogicCommand>
+	
+    <LogicCommand
+        Options="NEED_TARGET_POS"
+        Type="SPECIAL_POWER"
+        id="Command_ShotgunCartridgeSpecialPower">
+        <SpecialPower>SpecialPower_ShotgunCartridge</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityShotgunCartridge">
+		<State
+			Image="CUA_ShotgunCartridge"
+			Title="NAME:ShotgunCartridgeSpecialPower"
+			Description="DESC:ShotgunCartridgeSpecialPower" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityShotgunCartridgeOff">
+		<State
+			Image="AUA_Tank_MainGun"
+			Title="NAME:ShotgunCartridgeSpecialPowerOff"
+			Description="DESC:ShotgunCartridgeSpecialPowerOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonShotgunCartridge"
+		LogicCommand="Command_ShotgunCartridgeSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityShotgunCartridge</StateData>
+				<StateData>ButtonStateAbilityShotgunCartridgeOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+    <LogicCommand
+        Options="NEED_TARGET_POS"
+        Type="SPECIAL_POWER"
+        id="Command_ToggleIonStreamSpecialPower">
+        <SpecialPower>SpecialPower_ToggleIonStream</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleIonStream">
+		<State
+			Image="CUA_IonStream"
+			Title="NAME:ToggleIonStreamSpecialPower"
+			Description="DESC:ToggleIonStreamSpecialPower" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleIonStreamOff">
+		<State
+			Image="CUA_IonCannon"
+			Title="NAME:ToggleIonStreamSpecialPowerOff"
+			Description="DESC:ToggleIonStreamSpecialPowerOff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleIonStream"
+		LogicCommand="Command_ToggleIonStreamSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleIonStream</StateData>
+				<StateData>ButtonStateAbilityToggleIonStreamOff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+
+	<LogicCommand
+        Options="NEED_TARGET_POS"
+		id="Command_NRASupportAircraftHypersonicMissile"
+		Type="SPECIAL_POWER">
+		<SpecialPower>SpecialPower_HypersonicMissile</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="true"
+            NeverUseWhilePullingBack="true">
+            <SpecialPowerWeapon
+                Weapon="NRASupportAircraftHypersonicMissile"
+                AoeAttackPowerLocationPreference="PREFER_CENTER_OF_ENEMIES"/>
+        </AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityHypersonicMissile">
+		<State
+			Image="CUA_HypersonicMissile"
+			Title="NAME:SpecialPowerHypersonicMissile"
+			Description="DESC:SpecialPowerHypersonicMissile" />
+	</ButtonSingleStateData>
+
+	<UnitAbilityButtonTemplate
+		id="ButtonHypersonicMissile"
+		LogicCommand="Command_NRASupportAircraftHypersonicMissile">
+		<Data>
+			<TargetedSpecialPower
+       			RadiusCursor="Target_Soviet_OrbitalDump3"
+				StateData="ButtonStateAbilityHypersonicMissile"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+    <LogicCommand
+        Type="SPECIAL_POWER"
+        id="Command_ToggleAntiMissileModeSpecialPower">
+        <SpecialPower>SpecialPower_ToggleAntiMissileMode</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAntiMissileMode">
+		<State
+			Image="CUA_AntiMissileMode"
+			Title="NAME:ToggleAntiMissileMode"
+			Description="DESC:ToggleAntiMissileMode" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleAntiMissileModeoff">
+		<State
+			Image="CUA_AntiAirMode"
+			Title="NAME:ToggleAntiMissileModeoff"
+			Description="DESC:ToggleAntiMissileModeoff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleAntimissilemode"
+		LogicCommand="Command_ToggleAntiMissileModeSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleAntiMissileMode</StateData>
+				<StateData>ButtonStateAbilityToggleAntiMissileModeoff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+    <LogicCommand
+        Type="SPECIAL_POWER"
+        id="Command_ToggleHarvesterStealthSpecialPower">
+        <SpecialPower>SpecialPower_ToggleDeployWeapon</SpecialPower>
+		<AISpecialPowerInfo Heuristic="TOGGLE" Manager="MICRO_MANAGER"/>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleHarvesterStealth">
+		<State
+			Image="PUA_HarvesterStealthOn"
+			Title="NAME:ToggleHarvesterStealth"
+			Description="DESC:ToggleHarvesterStealth" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleHarvesterStealthoff">
+		<State
+			Image="PUA_HarvesterStealthOff"
+			Title="NAME:ToggleHarvesterStealthoff"
+			Description="DESC:ToggleHarvesterStealthoff" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleHarvesterStealth"
+		LogicCommand="Command_ToggleHarvesterStealthSpecialPower">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleHarvesterStealth</StateData>
+				<StateData>ButtonStateAbilityToggleHarvesterStealthoff</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_SovietHarvesterDroneTeslaRing">
+		<SpecialPower>SpecialPower_SovietHarvesterDroneTeslaRing</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="SPEED_BOOST"
+			Manager="MICRO_MANAGER"
+			UseInMicroManagerState="RETREAT COMBAT CLEANUP"
+			UseNearTacticalTarget="true"
+		/>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilitySovietHarvesterDroneTeslaRing">
+		<State
+			Image="SUA_HarvesterDroneTeslaRing"
+			Title="NAME:AbilitySovietHarvesterDroneTeslaRing"
+			Description="DESC:AbilitySovietHarvesterDroneTeslaRing" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="ButtonSovietHarvesterDroneTeslaRing"
+		LogicCommand="Command_SovietHarvesterDroneTeslaRing">
+		<Data>
+			<SpecialPower
+				StateData="ButtonStateAbilitySovietHarvesterDroneTeslaRing"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+	<LogicCommand
+        Type="SPECIAL_POWER"
+        id="Command_ActivateResonateWaveSpecialPower">
+        <SpecialPower>SpecialPower_TriggerResonateWave</SpecialPower>
+        <AISpecialPowerInfo 
+            Heuristic="AOE_ATTACK"
+            Manager="MICRO_MANAGER"
+            NeverUseWhileRetreating="true"
+            NeverUseWhilePullingBack="true">
+            <SpecialPowerWeapon
+                Weapon="NRAResonateWaveWeapon"
+                AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"/>
+        </AISpecialPowerInfo>
+    </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityResonateWave">
+		<State
+			Image="CUA_Torch_ResonateWave"
+			Title="NAME:ResonateWaveSpecialPower"
+			Description="DESC:ResonateWaveSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonResonateWave"
+		LogicCommand="Command_ActivateResonateWaveSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityResonateWave"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	
+
+    <LogicCommand
+       	 Type="SPECIAL_POWER"
+       	 id="Command_ToggleNRAAntiStructureShipICBM">
+       	 <SpecialPower>SpecialPower_ToggleSubmarineLift</SpecialPower>
+       	 <AISpecialPowerInfo 
+      		  	Heuristic="TOGGLE"
+			Manager="MICRO_MANAGER">
+       	 </AISpecialPowerInfo>
+   	 </LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleNRAAntiStructureShipICBM">
+		<State
+			Image="CUA_ICBM"
+			Title="NAME:ToggleNRAAntiStructureShipICBM"
+			Description="DESC:ToggleNRAAntiStructureShipICBM" />
+	</ButtonSingleStateData>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityToggleNRAAntiStructureShipTorpedo">
+		<State
+			Image="CUA_Torpedo"
+			Title="NAME:ToggleNRAAntiStructureShipTorpedo"
+			Description="DESC:ToggleNRAAntiStructureShipTorpedo" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+		id="MouseButtonToggleNRAAntiStructureShipICBM"
+		LogicCommand="Command_ToggleNRAAntiStructureShipICBM">
+		<Data>
+			<ToggleSpecialPower>
+				<StateData>ButtonStateAbilityToggleNRAAntiStructureShipICBM</StateData>
+				<StateData>ButtonStateAbilityToggleNRAAntiStructureShipTorpedo</StateData>
+			</ToggleSpecialPower>
+		</Data>
+	</UnitAbilityButtonTemplate>
+	
+	<LogicCommand
+		Type="SPECIAL_POWER"
+		id="Command_ActivateReckonMissleSpecialPower">
+		<SpecialPower>SpecialPower_TriggerReckonMissle</SpecialPower>
+		<AISpecialPowerInfo
+			Heuristic="AOE_ATTACK"
+			Manager="MICRO_MANAGER">
+			<SpecialPowerWeapon
+				Weapon="AlliedAntiStructureShipEMPCruiseMissleWarhead"
+				IsDisablingAttack="true" 
+				AoeAttackPowerLocationPreference="PREFER_MAXIMUM_DAMAGE"
+				TotalValueGreaterThan="949"
+				AoeAttackPowerBlockAreaAfterActivationTime="3s"
+				AffectsFriendlies="true"
+				AffectsSelf="true"/>
+		</AISpecialPowerInfo>
+	</LogicCommand>
+	<ButtonSingleStateData
+		id="ButtonStateAbilityReckonMissle">
+		<State
+			Image="CUA_HypersonicMissile"
+			Title="NAME:ReckonMissleSpecialPower"
+			Description="DESC:ReckonMissleSpecialPower" />
+	</ButtonSingleStateData>
+	<UnitAbilityButtonTemplate
+	id="ButtonReckonMissle"
+	LogicCommand="Command_ActivateReckonMissleSpecialPower">
+		<Data>
+			<TargetedSpecialPower
+				StateData="ButtonStateAbilityReckonMissle"
+				ValidTargetCursor="TargetAbility"/>
+		</Data>
+	</UnitAbilityButtonTemplate>
+</AssetDeclaration>
+

@@ -1,0 +1,41 @@
+void DDALine(int x1, int x2, int y1, int y2){
+	float x, y, dx, dy;
+	x =x1+0.5;
+	y=y1+0.5;
+	int steps = max(abs(x1-x2)+1, abs(y1-y2)+1);
+	dx = (x2-x1)/steps;
+	dy = (y2-y1)/steps;
+	for(int i=0;i<steps;++i){
+		set((int)x, (int)y)
+		x+=dx;
+		y+=dy;
+	}
+}
+
+void BLine(int x1, int y1, int y2, int x2){
+	int x, y, dx, dy, interchange, x_sign, y_sign, temp, e;
+	x = x1;
+	y = y1;
+	dx = abs(x1-x2);
+	dy = abs(y1-y2);
+	if(dy>dx){
+		interchange = 1;
+		temp = dx;
+		dx = dy;
+		dy = temp;
+	}
+	x_sign = (x2-x1>0)?1:0;
+	y_sign = (y2-y1>0)?1:0;
+	e = 2*dy-dx;
+	for(int i=0;i<dx;++i){
+		setPixel(x, y);
+		if(e>0){
+			if(interchange){x+=x_sign;}
+			else{y+=y_sign;}
+			e-=2*dx;
+		}
+			if(interchange){y+=y_sign;}
+			else{x+=x_sign;}
+			e+=2*dy;
+	}
+}

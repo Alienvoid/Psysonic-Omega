@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<!-- Base Object -->
+		<Include
+			type="all"
+			source="ART:SUHypersonicBomber.w3x" />
+		<Include
+			type="instance"
+			source="DATA:Soviet/Units/BaseSovietSupportBomber.xml" />
+	</Includes>
+	<GameObject
+		id="Soviet_BombingRun"
+		inheritFrom="BaseSovietSupportBomber"
+    KindOf="+PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="Soviet_BombingRun"
+		EditorSorting="SYSTEM"
+		Description="Desc:SovietBombingRun">
+		<LocomotorSet
+			id="Locomotor_Normal"
+			Locomotor="Soviet_BombingRunLocomotor"
+			Condition="NORMAL"
+			Speed="300.0" />
+					<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="CHASSIS">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUHypersonicBomber" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="CHASSIS" />
+          <ParticleSysBone
+						BoneName="Box01"
+						FXParticleSystemTemplate="SUBomberConTrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="Box02"
+						FXParticleSystemTemplate="SUBomberConTrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="Box03"
+						FXParticleSystemTemplate="SUBomberConTrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="Box04"
+						FXParticleSystemTemplate="SUBomberConTrail"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+					<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="SUHypersonicBomber"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUHypersonicBomber" />
+					<ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUHypersonicBomber" />
+					<ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+		</Draws>
+		<Behaviors>
+
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietBombingRunWeapon" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<ParabolicCurveUpdate
+				id="ModuleTag_ParabolicCurve"/>
+
+			<OCLMonitorUpdate
+				id="ModuleTag_MonitorUpdate"				
+				/>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				xai:joinAction="Replace" 
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+	</GameObject>
+</AssetDeclaration>

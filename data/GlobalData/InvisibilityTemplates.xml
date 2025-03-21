@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+
+	<InvisibilityTemplate
+		id="DefaultInvisibilityTemplate"
+	/>
+
+	<InvisibilityTemplate
+		id="StealthGarrisonInvisibilityTemplate"
+		RequiredStatus="GARRISON_CAN_STEALTH"
+	/>
+
+	<InvisibilityTemplate
+		id="AlliedAntiVehicleVehicleTech3InvisibilityBroadcastTemplate"
+		EnteringStealthFX="FX_None"
+		LeavingStealthFX="FX_None"
+		ForbiddenStatus="IS_FIRING_WEAPON"
+	/>
+	
+	<InvisibilityTemplate
+		id="AlliedAntiVehicleVehicleTech3InvisibilityBroadcasttoShieldTemplate"
+		EnteringStealthFX="FX_None"
+		LeavingStealthFX="FX_None"
+		ForbiddenStatus="IS_FIRING_WEAPON"
+		ForbiddenConditions="MOVING"
+	/>
+
+	<InvisibilityTemplate
+		id="AlliedCryoShipInvisibilityBroadcastTemplate"
+		EnteringStealthFX="FX_AlliedStealthTransitionOn"
+		LeavingStealthFX="FX_AlliedStealthTransitionOff"
+		NoStealthForAttackWindow="3.5s"
+		ForbiddenStatus="IS_FIRING_WEAPON"
+		ForbiddenConditions="REALLYDAMAGED"
+	/>
+	
+	<InvisibilityTemplate
+		id="PsychicPartisanPatmosInvisibilityBroadcastTemplate"
+		EnteringStealthFX="FX_AlliedStealthTransitionOn"
+		LeavingStealthFX="FX_AlliedStealthTransitionOff"
+		NoStealthForAttackWindow="5.0s"
+		RequiredStatus="GENERIC_TOGGLE_STATE"
+		ForbiddenStatus="IS_FIRING_WEAPON IS_AIMING_WEAPON IS_RELOADING_WEAPON"
+	/>
+	
+	<InvisibilityTemplate
+		id="JapanRazorDroneInvisibilityBroadcastTemplate"
+		NoStealthForAttackWindow="5.0s"
+		EnteringStealthFX="FX_AlliedStealthTransitionOn"
+		LeavingStealthFX="FX_AlliedStealthTransitionOff"
+		ForbiddenStatus="IS_FIRING_WEAPON"
+		ForbiddenConditions="MOVING"
+	/>
+
+<!-- Campaign Specific Nuggets -->
+
+	<InvisibilityTemplate
+		id="A08_AlliedAntiVehicleVehicleTech3InvisibilityBroadcastTemplate"
+		EnteringStealthFX="FX_None"
+		LeavingStealthFX="FX_None"
+		ForbiddenStatus="IS_FIRING_WEAPON"
+
+	/>
+	<InvisibilityTemplate
+		id="SACOMListenerInvisibilityBroadcastTemplate"
+		EnteringStealthFX="FX_AlliedStealthTransitionOn"
+		LeavingStealthFX="FX_AlliedStealthTransitionOff"
+		ForbiddenStatus="GENERIC_TOGGLE_STATE"
+		ForbiddenConditions="USER_1"
+	/>
+	
+	<InvisibilityTemplate
+		id="SACOMStealthBomberInvisibilityBroadcastTemplate"
+		EnteringStealthFX="FX_AlliedStealthTransitionOn"
+		LeavingStealthFX="FX_AlliedStealthTransitionOff"
+		NoStealthForAttackWindow="5.0s"
+	/>
+	
+	<InvisibilityTemplate
+		id="PsychicShieldedTemplate"
+		NoStealthForAttackWindow="5.0s"
+		EnteringStealthFX="FX_AlliedStealthTransitionOn"
+		LeavingStealthFX="FX_AlliedStealthTransitionOff"
+		RequiredStatus="GENERIC_TOGGLE_STATE"
+		ForbiddenStatus="IS_FIRING_WEAPON"
+	/>
+
+	<!-- X-Level: took this out for the moment
+			ForbiddenConditions=""
+	-->
+
+</AssetDeclaration>
