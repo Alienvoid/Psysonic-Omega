@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<AssetDeclaration xmlns="uri:ea.com:eala:asset">
-	<Includes>
-		<Include type="all" source="Common/AIPersonalityDefinition.xml" />
-		<Include type="all" source="Common/HealthBarSettings.xml" />
-		<Include type="all" source="Common/HealthBarTemplate.xml" />
-	</Includes>
-</AssetDeclaration>
