@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:AUNiki_col.w3x" />
+    <Include
+		type="all"
+		source="ART:AUNiki_D.xml" />	
+    <Include
+		type="all"
+		source="ART:auniki_barrel_D.xml" />		
+    <Include
+		type="all"
+		source="ART:auniki_turret_D.xml" />		
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="CivilianTank_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="CivilianTank_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="15"
+			Explodiness="8" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUNiki_COL" />
+					<Texture
+						Original="AUNiki"
+						New="AUNiki_D" />
+					<Texture
+						Original="auniki_barrel"
+						New="auniki_barrel_D" />
+					<Texture
+						Original="auniki_turret"
+						New="auniki_turret_D" />
+											
+				</ModelConditionState>
+
+			<BoneVolumes>
+			
+			<BoneVolume BoneName="Bone_D_01" Mass="227" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="11.085" HalfSizeY="1.51993" HalfSizeZ="1.33649" >
+		<Translation x="30.7811" y="0.123313" z="13.1545" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="10" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.0466785" HalfSizeY="0.0417655" HalfSizeZ="7.425" >
+		<Translation x="-12.3518" y="5.68769" z="19.0367" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="116" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.95287" HalfSizeY="1.88681" HalfSizeZ="1.23167" >
+		<Translation x="0.970227" y="-5.08077" z="17.9868" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="125" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.32393" HalfSizeY="1.88681" HalfSizeZ="1.51993" >
+		<Translation x="14.1798" y="0.146877" z="13.0769" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="5906" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="14.1571" HalfSizeY="11.1181" HalfSizeZ="3.70604" >
+		<Translation x="-3.95184" y="0.344444" z="11.6214" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_Chassis" Mass="20361" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="24.3189" HalfSizeY="14.8848" HalfSizeZ="5.5556" >
+		<Translation x="-0.186731" y="-0.0138926" z="0.0854689" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	
+	<Behaviors>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="4s"
+			MaxLifetime="5s" />	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			DestructionDelay="8s">
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+		
+		<SubObjectsUpgrade
+			id="ModuleTag_AlliedAirPower_subobject">
+			<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+			<Nugget
+				ShowSubObjects="Upgrade_01"
+				Upgrade="Upgrade_AlliedAirPower">
+			</Nugget>
+			<CustomAnimAndDuration	AnimState="USER_2"/>	
+		</SubObjectsUpgrade>	
+	</Behaviors>
+	
+</GameObject>
+</AssetDeclaration>

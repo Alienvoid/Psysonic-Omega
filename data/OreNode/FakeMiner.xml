@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags>
+</Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include
+			type="instance"
+			source="ART:EXTireTrack2.xml" />
+    <Include
+			type="all"
+			source="ART:AUHarvester_D.xml" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_FX.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_FP.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_SKN.w3x" />
+		<Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_IDLA.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_MOVA.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_HOVER.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_AHFILL.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_AHIDL.w3x" />
+						
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseMiner.xml" />
+	</Includes>
+	<GameObject
+		id="FakeMiner"
+		inheritFrom="BaseMiner"
+		SelectPortrait="Portrait_AlliedHarvester"
+		ButtonImage="Button_AlliedHarvester_on"
+		Side="Allies"
+		SubGroupPriority="825"
+		EditorSorting="UNIT"
+		BuildTime="20"
+		CommandSet="EmptyCommandSet"
+		KindOf="RESIST_EMP UNATTACKABLE MACHINE IGNORE_CAN_NOT_BUILD IGNORE_IN_AI_HUNT_TACTIC PATH_THROUGH_INFANTRY PATH_THROUGH_EACH_OTHER NO_COLLIDE CAN_CAST_REFLECTIONS AMPHIBIOUS VEHICLE HARVESTER MOVE_FOR_NOONE IGNORES_SELECT_ALL"
+		ThreatLevel="1"
+		WeaponCategory="GUN"
+		VoicePriority="24"
+		EditorName="FakeMiner"
+		Description="Desc:FakeMiner"
+		TypeDescription="Type:FakeMiner">
+		<EquivalentTo>AlliedMiner</EquivalentTo>
+		<EquivalentTo>JapanMiner</EquivalentTo>
+		<EquivalentTo>SovietMiner</EquivalentTo>
+		<DisplayName
+			xai:joinAction="Replace">Name:FakeMiner</DisplayName>
+		<ObjectResourceInfo xai:joinAction="Replace">
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="TestGroundAirLocomotor"
+			Condition="NORMAL"
+			Speed="50.0" />
+		<!--<SkirmishAIInformation
+				BlockIfUnpackTargetBuildingCannotBeRebuilt="false" />-->
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="invisbone01 mesh">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXINVISBONE" />						
+				</ModelConditionState>
+			</ScriptedModelDraw>	
+					
+		</Draws>
+		<Behaviors>
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="false"/>
+			<Physics
+				id="ModuleTag_Physics" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<OreMinerBehavior
+				id="ModuleTag_OreMinerBehavior"
+					  xai:joinAction="Replace"
+				DeliveryCapacity="1"
+				DeliveryTime="999999s" />
+			<!-- No stances because there's no weapon -->
+			<StancesBehavior
+					  id="ModuleTag_Stance"
+					  xai:joinAction="Remove" />
+		</Behaviors>
+		<!-- AI is implemented in BaseMiner class, so none are needed here
+			<AI>
+				<AIUpdate
+				  id="ModuleTag_AI"
+				  AutoAcquireEnemiesWhenIdle="NO"></AIUpdate>
+			</AI>
+		-->
+		
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="999999" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MoveLoopWater">
+				<ModelConditionSound Sound="Ship_Small_MoveLoopWater" RequiredFlags="MOVING OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_Prospector_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_WaterMoveStart">
+				<Override RequiredFlags="OVER_WATER">
+					<AudioArraySound>
+						<AudioEntry Sound="ALL_OreCollector_MoveStartWater" AudioType="soundMoveStart" />
+						<AudioEntry Sound="" AudioType="soundMoveLoop" />
+					</AudioArraySound>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_Prospector_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_Prospector_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_Prospector_VoiceMoveOreNode" AudioType="voiceSupply" />
+			<AudioEntry Sound="ALL_Prospector_VoiceMoveRefinery" AudioType="voiceDock" />
+			<AudioEntry Sound="ALL_Prospector_VoiceMoveToLand" AudioType="voiceMoveWaterToLand" />
+			<AudioEntry Sound="ALL_Prospector_VoiceMoveToWater" AudioType="voiceMoveLandToWater" />
+			<AudioEntry Sound="ALL_Prospector_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_Prospector_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_Prospector_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> 
+			<NamedEntry Sound="ALL_Prospector_VoiceMove" Name="VoiceDeploy" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_OreCollector_MoveStart"
+				AudioType="soundMoveStart" />
+<!--
+			<AudioEntry
+				Sound="HarvesterAmbientLoopMS"
+				AudioType="soundAmbient" />
+-->
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="StructurePlacementFailed" EvaType="placementFailed" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="200"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+				id="id_CrusherInfo"
+				CrusherLevel="20"
+				CrushableLevel="80"
+				CrushDecelerationPercent="80%">
+		<ExtraCrushLevels CrusherLevel="1" CrushableLevel="80" ModelConditionMatch="OVER_WATER"/>	
+		 </CrusherInfo>
+	</GameObject>
+</AssetDeclaration>

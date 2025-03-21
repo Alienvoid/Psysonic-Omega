@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+
+		<!-- 日本矿场模型的dockstart骨骼，x=70，似乎太近了，改成75就不会卡住 -->
+		<Include type="all"	source="ART:FXINVISBONE.w3x" />
+
+
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all" source="ART:ABRefinery_FX.w3x" />
+		<Include type="all" source="ART:ABRefinery_SKN.w3x" />
+		<Include type="all" source="ART:ABRefinery_FX.w3x" />
+		<Include type="all" source="ART:ABRefinery_IDLA.w3x" />
+		<Include type="all" source="ART:ABRefinery_BLD_SKN.w3x" />
+		<Include type="all" source="ART:ABRefinery_BLD_BLD.w3x" />
+		<Include type="all" source="ART:ABRefinery_BLD_BLDW.w3x" />
+		<Include type="all" source="ART:ABRefinery_ARM_SKN.w3x" />
+		<Include type="all" source="ART:ABRefinery_ARM_IDLA.w3x" />
+		<Include type="all" source="ART:ABRefinery_ARM_UNLOAD.w3x" />
+		<Include type="all" source="ART:ABRefinery_ARM_EMPTY.w3x" />
+		<Include type="all" source="ART:ABRefinery_Platform.w3x" />
+		<Include type="all" source="ART:ABRefinery_Platform_BLD.w3x" />
+
+		<Include type="all" source="ART:Ore_Gold_SKN.w3x" />
+		<Include type="all" source="ART:Ore_Gold_ABRU.w3x" />
+		<Include type="all" source="ART:Ore_Gold_ABRE.w3x" />
+
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseStructure.xml" />
+
+	</Includes>
+	<GameObject
+		id="FakeRefinery"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_AlliedRefinery"
+		ButtonImage="Button_AlliedRefinery_on"
+		Side="Allies"
+		EditorSorting="STRUCTURE"
+		BuildTime="15"
+		RefundValue="1000"
+		CommandSet="EmptyCommandSet"
+		KindOf="+RESIST_EMP +UNATTACKABLE +MACHINE +IGNORE_CAN_NOT_BUILD +IGNORE_IN_AI_HUNT_TACTIC +PATH_THROUGH_INFANTRY +PATH_THROUGH_EACH_OTHER +NO_COLLIDE +SUPPLY_GATHERING_CENTER +FS_MONEY_STORAGE +REFINERY +AUTO_RALLYPOINT +SKIRMISH_AI_CAN_BUILD_DURING_EMERGENCY_NO_INCOME +IGNORES_SELECT_ALL -STRUCTURE -SELECTABLE -SCORE"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="315d"
+		ProductionQueueType="MAIN_STRUCTURE"
+		BuildPlacementTypeFlag="MAIN_STRUCTURE"
+		IsTrainable="false"
+		EditorName="FakeRefinery"
+		Description="Desc:FakeRefinery"
+		TypeDescription="Type:FakeRefinery">
+		<EquivalentTo>AlliedRefinery</EquivalentTo>
+		<EquivalentTo>JapanRefinery</EquivalentTo>
+		<EquivalentTo>PsychicPartisanRefinery</EquivalentTo>
+		<EquivalentTo>SACOMRefinery</EquivalentTo>
+		<EquivalentTo>SovietRefinery</EquivalentTo>
+		<DisplayName xai:joinAction="Replace"
+			xmlns:xai="uri:ea.com:eala:asset:instance">Name:FakeRefinery</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<!--<SkirmishAIInformation
+			BaseBuildingLocation="NEAR_RESOURCE_NODE"
+			NearResourceNodeType="ORE">
+			<ResourceNodeBaseClosenessTestSelectionCriteria
+				PreferredNotBaseTypes="CAPTURED"
+				SortOrder="PREFER_CLOSEST" />
+		</SkirmishAIInformation>-->
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="invisbone01 mesh">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXINVISBONE" />						
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOCKING_ACTIVE">					
+				</AnimationState>
+			</ScriptedModelDraw>	
+
+		</Draws>
+		<Behaviors>
+
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="false"/>
+				
+			<QueueDockBehavior
+				id="ModuleTag_QueueDockBehavior"
+				DockStartBoneName="invisbone01"
+				DockActionBoneName="invisbone01"
+				DockEndBoneName="invisbone01"
+				QueueBonePrefix="invisbone01"
+				DockingAnimation="DOCKING_ACTIVE"
+				TurnTableBoneName="invisbone01"/>
+
+
+			<QueueProductionExitUpdate id="ModuleTag_Exit">
+				<UnitCreatePoint x="37.5" />
+				<NaturalRallyPoint x="60.0" y="20.0"/>
+			</QueueProductionExitUpdate>
+			<SpawnBehavior
+				id="ModuleTag_Spawn"
+				SpawnNumberData="1"
+				SpawnReplaceDelayData="99999s"
+				IsOneShotData="true"
+				FadeInTime="1.0s"
+				SpawnOnUnpack="true"
+				CanReclaimOrphans="false"
+				SetPurchasePrice="true">
+				<SpawnTemplate>FakeMiner</SpawnTemplate>
+			</SpawnBehavior>
+
+			<Physics id="ModuleTag_Physics"/>
+			<FXListBehavior xai:joinAction="Replace"
+				xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData DeathTypes="ALL" DeathTypesForbidden="SUICIDED" />
+				<Event Index="onDeath" FX="FX_BuildDamaged_Large" />
+				<Event Index="onDeath" FX="FX_BuildDamaged_Large" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace"
+				xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData DeathTypes="ALL" DeathTypesForbidden="SUICIDED" />
+				<Event Index="onDeath" FX="FX_BuildDamaged_Large" />
+			</FXListBehavior>
+			<DestroyDie id="ModuleTag_Die">
+				<DieMuxData DeathTypes="ALL" DeathTypesForbidden="SUICIDED" />
+			</DestroyDie>
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="0s"/>
+
+			<!--<xi:include
+				href="DATA:Includes/GenericRefineryPlacementHint.xml" />
+			<xi:include
+				href="DATA:Includes/GenericRefineryStructurePlacementBehavior.xml" />-->
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="StructureAIStateMachine">
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="999999.0" />
+		</Body>
+
+		<ClientBehaviors>
+			<AnimationSoundClientBehavior id="ModuleTag_AnimationSound">
+				<Sound Sound="ALL_Refinery_LoadGrab" Animation="ABRefinery_ARM_UNLOAD" Frame="4" />
+				<Sound Sound="ALL_Refinery_CraneMoveCCW" Animation="ABRefinery_ARM_UNLOAD" Frame="15" />
+				<Sound Sound="ALL_Refinery_LoadDrop" Animation="ABRefinery_ARM_EMPTY" Frame="0" />
+				<Sound Sound="ALL_Refinery_CraneMoveCW" Animation="ABRefinery_ARM_EMPTY" Frame="33" />
+			</AnimationSoundClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_Platform_Turn">
+				<ModelConditionSound Sound="ALL_Refinery_Platform_Rotate" RequiredFlags="DOCKING_ACTIVE" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_RefinerySelect" AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_Refinery_Conveyor_Loop" AudioType="soundAmbient" />
+			<!-- this one works but plays right on plop instead of finished construction
+			<AudioEntry Sound="ALL_Prospector_VoiceCreateFromRefinery" AudioType="soundUnderConstruction" />
+-->
+			<!--
+			<AudioEntry Sound="ALL_Prospector_VoiceCreateFromRefinery" AudioType="soundPrepositioned" />
+-->
+			<!--
+			<AudioEntry Sound="HumanFaction_MediumBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_MediumBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo VisionRange="150" ShroudClearingRange="500" />
+	</GameObject>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</AssetDeclaration>

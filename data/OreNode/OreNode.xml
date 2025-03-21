@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseObject.xml" />
+
+		<Include
+			type="all"
+			source="ART:FXINVISBONE.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1W_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_VAL1.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_VAL2.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_VAL3.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_VAL4.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_GAG_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_GAGW_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_GAG_DROP.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_GAG_FILL.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_GAG_MOVEBACK.w3x" />
+		<Include
+			type="all"
+			source="ART:NBOreNode1_GAG_RETURN.w3x" />
+
+		<Include
+			type="all"
+			source="ART:Ore_Gold_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_N1DROP.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_N1IDLA.w3x" />			
+		<Include
+			type="all"
+			source="ART:Neutral_OreNode_Platform.w3x" />	
+			
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include type="instance" source="DATA:BaseObjects/BaseObject.xml" />
+
+		<Include type="all" source="ART:orenode_SKIN.w3x" />
+		<Include type="all" source="ART:orenode_gold.w3x" />
+		<Include type="all" source="ART:orenode_gold_worthy.w3x" />
+		<Include type="all" source="ART:orenode_WB_r110.w3x" />
+		<Include type="all" source="ART:orenode_WB_nogrowth_r60.w3x" />
+		<Include type="all" source="ART:orenode_WB_nogrowth_r90.w3x" />
+		<Include type="all" source="ART:orenode_WB_nogrowth_r130.w3x" />
+		<Include type="all" source="ART:orenode_WB_nogrowth_r60_W.w3x" />
+		<Include type="all" source="ART:orenode_WB_nogrowth_r90_W.w3x" />
+		<Include type="all" source="ART:orenode_WB_nogrowth_r130_W.w3x" />
+		<Include type="all" source="ART:orenode_water_SKIN.w3x" />
+		<Include type="all" source="ART:orenode_water_supplies.w3x" />
+
+
+	</Includes>
+
+
+	<GameObject
+		id="FakeOreNode"
+		inheritFrom="BaseObject"
+		SelectPortrait="Portrait_Neutral_OreNode"
+		ButtonImage="Button_Neutral_OreNode"
+		Side="Neutral"
+		BuildTime="15"
+		EditorSorting="STRUCTURE"
+		CommandSet="EmptyCommandSet"
+		KindOf="STRUCTURE UNATTACKABLE CAN_CAST_REFLECTIONS FS_TECHNOLOGY NOT_AUTOACQUIRABLE NOT_SELLABLE ORE_NODE CAN_BUILD_ON_WATER CAN_BUILD_ON_DEEP_WATER ALWAYS_VISIBLE_IN_RADAR IMMUNE_TO_CAPTURE"
+		RadarPriority="STRUCTURE"
+		ProductionQueueType="MAIN_STRUCTURE"
+		EditorName="BaseOreNode"
+		Description="Desc:TechBuildingOreNode">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:TechBuildingOreNode</DisplayName>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="invisbone01 mesh">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXINVISBONE" />		
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOCKING_ACTIVE">					
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOCKING_RETURN">					
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOCKING_EXTRACT">					
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOCKING_MOVEBACK">					
+				</AnimationState>
+			</ScriptedModelDraw>	
+
+		</Draws>
+
+		<Behaviors>
+			<AssistedPlacementInfoBehavior
+				id="AssistedPlacementInfoBehavior_ModuleData">
+				<HintObject
+					HintDisplayObject="NeutralRefineryPlacementHint"
+					HintOpacity="1.0">
+					<ObjectFilter
+						 Rule="ANY"
+						 Include="REFINERY" />
+				</HintObject>
+				<HintObject
+					HintDisplayObject="AlliedRefinery"
+					PlayerTemplate="Allies"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="SovietRefinery"
+					PlayerTemplate="Soviet"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="SACOMRefinery"
+					PlayerTemplate="SACOM"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="JapanRefinery"
+					PlayerTemplate="Japan"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="PsychicPartisanRefinery"
+					PlayerTemplate="PsychicPartisan"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="NRARefinery"
+					PlayerTemplate="NRA"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<PlacementRestriction
+					FilterRadius="5.0">
+					<RestrictedObjectFilter
+						 Rule="ANY"
+						 Include="REFINERY" 
+						 Relationship="ALLIES"/>				
+				</PlacementRestriction>
+				<SuggestedOffset
+					x = "180.0"
+					y = "0.0"
+					z = "0.0" />
+			</AssistedPlacementInfoBehavior>
+			<QueueDockBehavior
+				id="ModuleTag_QueueDockBehavior"
+				DockStartBoneName="invisbone01"
+				DockActionBoneName="invisbone01"
+				DockEndBoneName="invisbone01"
+				QueueBonePrefix="invisbone01"
+				TurnTableBoneName="invisbone01"/>
+			<!-- DeliveryAmount is likely to match the ore miner behavior DeliveryCapacity -->
+			<!-- MovetoExtractTime is the time on the node arm to get into position to pick up a new load. -->
+			<!-- ExtractTime is the time it takes the arm to pick up a new load -->
+			<!-- MoveToDeliverTime is the time on the arm from picking up more ore to be ready to dump ore -->
+			<!-- DeliveryTime is the time it takes to dump the ore into the miner -->
+			<OreNodeBehavior
+				id="ModuleTag_OreNodeBehavior" 
+				MoveToExtractTime="999999s" 
+				ExtractTime="999999s" 
+				MoveToDeliverTime="999999s"
+				DeliveryAmount="1"
+				DeliveryAmountWhenEmpty="1"
+				DeliveryTime="999999s"
+				DeliveryAnimation="DOCKING_ACTIVE"
+				ReturnAnimation="DOCKING_RETURN"
+				ExtractAnimation="DOCKING_EXTRACT"
+				MoveBackAnimation="DOCKING_MOVEBACK"
+				MaximumGatheredValue="999999"
+				LowNotificationPercentage="10%" 
+				LowNotificationEvaEventRef="OreMineLow" 
+				DepletedNotificationEvaEventRef="OreMineDepleted" 
+		        DepletedNotificationAudioEventInfoRef="OreNodeDepleted" />
+			<!-- Added to allow the Ore Nodes to be placed on water and function correctly -->
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="0.0s" />
+		</Behaviors>
+		<ClientBehaviors>
+			<AnimationSoundClientBehavior id="ModuleTag_AnimationSound">
+				<Sound Sound="NEU_OreNode_CraneMoveCCW" Animation="NBOreNode1_GAG_RETURN" RequiredMC="DOCKING_MOVEBACK" Frame="22" />
+				<Sound Sound="NEU_OreNode_CraneMoveCW" Animation="NBOreNode1_GAG_RETURN" RequiredMC="DOCKING_RETURN" Frame="51" />
+			</AnimationSoundClientBehavior>
+		<ModelConditionAudioLoopClientBehavior id="ModuleTag_OreLoad">
+				<ModelConditionSound Sound="NEU_OreNode_Load" RequiredFlags="DOCKING_ACTIVE" ExcludedFlags="DYING" />
+		</ModelConditionAudioLoopClientBehavior>
+		<ModelConditionAudioLoopClientBehavior id="ModuleTag_PlatformTurn">
+				<ModelConditionSound Sound="ALL_Refinery_Platform_Rotate" RequiredFlags="DOCKING_ACTIVE" ExcludedFlags="DYING" />
+		</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="10000.0" />
+		</Body>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				StateMachine="OreNodeStateMachine"/>
+		</AI>
+
+		<AudioArraySound>
+			<AudioEntry Sound="HumanFaction_MediumBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_MediumBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="100"
+			ShroudClearingRange="200" />
+		<Geometry
+			IsSmall="false">
+			<Shape Type="CYLINDER" MajorRadius="15.0" Height="25.0">
+				<Offset x="0.0" y="0.0" z="0.0"/>
+			</Shape>
+		</Geometry>
+	</GameObject>
+
+	<GameObject
+		id="BaseOreNode"
+		inheritFrom="BaseObject"
+		SelectPortrait="Portrait_Neutral_OreNode"
+		ButtonImage="Button_Neutral_OreNode"
+		Side="Neutral"
+		EditorSorting="STRUCTURE"
+		RadarPriority="STRUCTURE"
+		ProductionQueueType="MAIN_STRUCTURE"
+		KindOf="STRUCTURE FS_TECHNOLOGY NO_COLLIDE IMMOBILE UNATTACKABLE NOT_AUTOACQUIRABLE NOT_SELLABLE CAN_CAST_REFLECTIONS TIBERIUM_FIELD CAN_SEE_THROUGH_STRUCTURE CAN_BUILD_ON_DEEP_WATER CAN_BUILD_ON_WATER"
+		EditorName="BaseOreNode"
+		Description="Desc:TechBuildingOreNode">
+		<DisplayName>BaseOreNode</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" 
+		/>
+		<Draws>
+		</Draws>
+		<Behaviors>
+
+			<!-- CrystalGrowthRate: 越低涨的越快！ -->
+			<!-- FieldResolution：每次生成矿石的间距。生成满后便不再生成，即便价值不到指定的值.
+			初始金额~14000 -->
+			<TiberiumField
+				id="tib_field"
+				Radius="90"
+				FieldResolution="18"
+				MaxFieldMoney="60000"
+				StartingFieldMoney="40000"
+				ThingToSpawn="MineCrystal"
+				SpawnOffset="0.0"
+				ClusterScaleFactor="1.0"
+				ClusterPowerFactor="1.0"
+				CrystalGrowthRate="3"/>
+
+
+			<!--<AssistedPlacementInfoBehavior
+				id="AssistedPlacementInfoBehavior_ModuleData">
+				<HintObject HintDisplayObject="NeutralRefineryPlacementHint" HintOpacity="1.0">
+					<ObjectFilter Rule="ANY" Include="REFINERY OUTPOST" />
+				</HintObject>
+				<HintObject
+					HintDisplayObject="AlliedRefinery"
+					PlayerTemplate="Allies"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="SovietRefinery"
+					PlayerTemplate="Soviet"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="JapanRefinery"
+					PlayerTemplate="Japan"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="SACOMRefinery"
+					PlayerTemplate="SACOM"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<HintObject
+					HintDisplayObject="PsychicPartisanRefinery"
+					PlayerTemplate="PsychicPartisan"
+					HintOpacity="0.45"
+					HintUsesShaders="true"/>
+				<PlacementRestriction
+					FilterRadius="5.0">
+					<RestrictedObjectFilter
+						Rule="ANY"
+						Include="REFINERY OUTPOST"
+						Relationship="ALLIES"/>
+				</PlacementRestriction>
+				<SuggestedOffset
+                                        x = "180.0"
+                                        y = "0.0"
+                                        z = "0.0" />
+			</AssistedPlacementInfoBehavior> -->
+
+			<!-- 有了这个才能在地面和水域有不同的模型 -->
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="0.0s" />
+				
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate1"
+				FireInterval="0.01s">
+				<FireWeaponNugget
+					WeaponName="fake_ore_weapon"
+					FireDelay="0.0s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="StructureAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_02"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape Type="CYLINDER" MajorRadius="15.0" Height="25.0">
+				<Offset x="0.0" y="0.0" z="0.0"/>
+			</Shape>
+		</Geometry>
+		<VisionInfo VisionRange="0" />
+		<ProjectedBuildabilityInfo
+			Radius="15.0"
+			RadiusY="15.0"
+			BuildPlacementTypes="BLOCKED">
+			<AllowedObjectFilter
+				Rule="ALL">
+				<ExcludeThing>AlliedRefinery</ExcludeThing>
+				<ExcludeThing>SovietRefinery</ExcludeThing>
+				<ExcludeThing>JapanRefinery</ExcludeThing>
+				<ExcludeThing>SACOMRefinery</ExcludeThing>
+				<ExcludeThing>PsychicPartisanRefinery</ExcludeThing>
+			</AllowedObjectFilter>
+		</ProjectedBuildabilityInfo>
+	</GameObject>
+
+	<!-- 默认矿脉  -->
+	<GameObject
+	id="OreNode"
+	inheritFrom="BaseOreNode"
+	EditorName="OreNode">
+	<Draws>
+		<ScriptedModelDraw
+			id="ModuleTag_Draw">
+			<ModelConditionState
+				id="DefaultState"
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="orenode_SKIN" />
+			</ModelConditionState>
+
+			<!-- 在地编里同时显示矿脉和生成的矿石 -->
+			<ModelConditionState
+				id="WBState"
+				ParseCondStateType="PARSE_NORMAL"
+				ConditionsYes="WORLD_BUILDER">
+				<Model
+					Name="orenode_WB_r110" />
+			</ModelConditionState>
+
+			<!-- 在水里显示为打捞船 -->
+			<ModelConditionState
+				id="WaterState"
+				ParseCondStateType="PARSE_NORMAL"
+				ConditionsYes="OVER_WATER">
+				<Model
+					Name="orenode_water_SKIN" />
+			</ModelConditionState>
+		</ScriptedModelDraw>
+	</Draws>
+</GameObject>
+
+	<!-- 0初始的矿脉  -->
+	<GameObject
+		id="OreNode_0Initial"
+		inheritFrom="BaseOreNode"
+		EditorName="OreNode_0Initial">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					id="DefaultState"
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="orenode_SKIN" />
+				</ModelConditionState>
+
+				<!-- 在水里显示为打捞船 -->
+				<ModelConditionState
+					id="WaterState"
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="orenode_water_SKIN" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+
+		<Behaviors>
+			<TiberiumField
+				id="tib_field"
+				xai:joinAction="Replace"
+				Radius="110"
+				FieldResolution="16"
+				MaxFieldMoney="30000"
+				StartingFieldMoney="0"
+				ThingToSpawn="MineCrystal"
+				SpawnOffset="0.0"
+				ClusterScaleFactor="1.0"
+				ClusterPowerFactor="1.0"
+				CrystalGrowthRate="7"/>
+		</Behaviors>
+		<ProjectedBuildabilityInfo
+			Radius="45.0"
+			RadiusY="45.0"
+			BuildPlacementTypes="BLOCKED">
+			<AllowedObjectFilter
+				Rule="NONE">
+				<IncludeThing>PsychicPartisanConstructionYardDummy</IncludeThing>
+			</AllowedObjectFilter>
+		</ProjectedBuildabilityInfo>
+	</GameObject>
+
+	<!-- 不生长的矿脉  -->
+	<GameObject
+		id="OreNode_NoGrowth"
+		inheritFrom="BaseOreNode"
+		EditorName="OreNode_NoGrowth_Base"
+		KindOf="NO_COLLIDE IMMOBILE UNATTACKABLE NOT_AUTOACQUIRABLE CAN_CAST_REFLECTIONS TIBERIUM_FIELD CAN_SEE_THROUGH_STRUCTURE">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					id="DefaultState"
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<!-- <Behaviors>
+			<AssistedPlacementInfoBehavior
+				id="AssistedPlacementInfoBehavior_ModuleData"
+				xai:joinAction="Remove"/>
+		</Behaviors> -->
+	</GameObject>
+
+
+	<!-- 刚好9个残矿 -->
+	<!-- <GameObject id="OreNode_NoGrowth_Single" inheritFrom="OreNode_NoGrowth" EditorName="OreNode_NoGrowth_Single">
+		<Behaviors>
+			<TiberiumField id="tib_field" Radius="30" FieldResolution="20" MaxFieldMoney="100000" StartingFieldMoney="100000" ThingToSpawn="MineCrystal_ForSinglePiece" SpawnOffset="0.0" ClusterScaleFactor="1.0" ClusterPowerFactor="1.0" CrystalGrowthRate="1000000"/>
+		</Behaviors>
+	</GameObject> -->
+
+
+	<!-- 范围60，价值4000 -->
+	<GameObject id="OreNode_NoGrowth_Small" inheritFrom="OreNode_NoGrowth" EditorName="OreNode_NoGrowth_Small">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					id="WBState"
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WORLD_BUILDER">
+					<Model
+						Name="orenode_WB_nogrowth_r60" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+
+		<Behaviors>
+			<!-- FieldResolution：每次生成矿石的间距。生成满后便不再生成，即便价值不到指定的值 -->
+			<TiberiumField
+				id="tib_field"
+				Radius="60"
+				FieldResolution="20"
+				MaxFieldMoney="100000"
+				StartingFieldMoney="100000"
+				ThingToSpawn="MineCrystal"
+				SpawnOffset="0.0"
+				ClusterScaleFactor="1.0"
+				ClusterPowerFactor="1.0"
+				CrystalGrowthRate="1000000"/>
+		</Behaviors>
+	</GameObject>
+
+
+	<!-- 范围90，价值9500 -->
+	<GameObject id="OreNode_NoGrowth_Medium" inheritFrom="OreNode_NoGrowth" EditorName="OreNode_NoGrowth_Medium">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					id="WBState"
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WORLD_BUILDER">
+					<Model
+						Name="orenode_WB_nogrowth_r90" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+
+		<Behaviors>
+			<TiberiumField
+				id="tib_field"
+				Radius="90"
+				FieldResolution="20"
+				MaxFieldMoney="100000"
+				StartingFieldMoney="100000"
+				ThingToSpawn="MineCrystal"
+				SpawnOffset="0.0"
+				ClusterScaleFactor="1.0"
+				ClusterPowerFactor="1.0"
+				CrystalGrowthRate="1000000"/>
+		</Behaviors>
+	</GameObject>
+
+
+	<!-- 范围130，价值19800 -->
+	<GameObject
+		id="OreNode_NoGrowth_Large"
+		inheritFrom="OreNode_NoGrowth"
+		EditorName="OreNode_NoGrowth_Large">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					id="WBState"
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WORLD_BUILDER">
+					<Model
+						Name="orenode_WB_nogrowth_r130" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+
+		<Behaviors>
+			<TiberiumField
+				id="tib_field"
+				Radius="130"
+				FieldResolution="20"
+				MaxFieldMoney="100000"
+				StartingFieldMoney="100000"
+				ThingToSpawn="MineCrystal"
+				SpawnOffset="0.0"
+				ClusterScaleFactor="1.0"
+				ClusterPowerFactor="1.0"
+				CrystalGrowthRate="1000000"/>
+		</Behaviors>
+	</GameObject>
+
+
+	<!-- !!!!!!!!!!!    彩色矿    !!!!!!!!!!!  -->
+	<!-- 范围60，价值5600 -->
+	<GameObject
+		id="OreNodeWorthy_NoGrowth_Small"
+		inheritFrom="OreNode_NoGrowth"
+		EditorName="OreNodeWorthy_NoGrowth_Small">
+		<Draws>
+			<ScriptedModelDraw id="ModuleTag_Draw">
+				<ModelConditionState id="WBState"
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WORLD_BUILDER">
+					<Model Name="orenode_WB_nogrowth_r60_W" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+
+		<Behaviors>
+			<TiberiumField
+				id="tib_field"
+				Radius="60"
+				FieldResolution="22"
+				MaxFieldMoney="100000"
+				StartingFieldMoney="100000"
+				ThingToSpawn="MineCrystal_Worthy"
+				SpawnOffset="0.0"
+				ClusterScaleFactor="1.0"
+				ClusterPowerFactor="1.0"
+				CrystalGrowthRate="1000000"/>
+		</Behaviors>
+	</GameObject>
+
+
+	<!-- 范围90，价值10500 -->
+	<GameObject id="OreNodeWorthy_NoGrowth_Medium" inheritFrom="OreNode_NoGrowth" EditorName="OreNodeWorthy_NoGrowth_Medium">
+		<Draws>
+			<ScriptedModelDraw id="ModuleTag_Draw">
+				<ModelConditionState id="WBState" ParseCondStateType="PARSE_NORMAL" ConditionsYes="WORLD_BUILDER">
+					<Model Name="orenode_WB_nogrowth_r90_W" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+
+		<Behaviors>
+			<TiberiumField id="tib_field" Radius="90" FieldResolution="24" MaxFieldMoney="100000" StartingFieldMoney="100000" ThingToSpawn="MineCrystal_Worthy" SpawnOffset="0.0" ClusterScaleFactor="1.0" ClusterPowerFactor="1.0" CrystalGrowthRate="1000000"/>
+		</Behaviors>
+	</GameObject>
+
+
+	<!-- 范围130，价值20000 -->
+	<GameObject id="OreNodeWorthy_NoGrowth_Large" inheritFrom="OreNode_NoGrowth" EditorName="OreNodeWorthy_NoGrowth_Large">
+		<Draws>
+			<ScriptedModelDraw id="ModuleTag_Draw">
+				<ModelConditionState id="WBState" ParseCondStateType="PARSE_NORMAL" ConditionsYes="WORLD_BUILDER">
+					<Model Name="orenode_WB_nogrowth_r130_W" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+
+		<Behaviors>
+			<TiberiumField id="tib_field" Radius="130" FieldResolution="25" MaxFieldMoney="100000" StartingFieldMoney="100000" ThingToSpawn="MineCrystal_Worthy" SpawnOffset="0.0" ClusterScaleFactor="1.0" ClusterPowerFactor="1.0" CrystalGrowthRate="1000000"/>
+		</Behaviors>
+	</GameObject>
+	
+	<GameObject
+		id="MineCrystal"
+		Side="Neutral"
+		EditorSorting="MISC_NATURAL"
+		KindOf="AMPHIBIOUS SELECTABLE MINE MOVE_ONLY IGNORE_FOR_VICTORY TIBERIUM NOT_AUTOACQUIRABLE PATH_THROUGH_INFANTRY NO_COLLIDE SHADOW_ULTRA_HIGH_ONLY DO_NOT_CLASSIFY HARVESTABLE ALWAYS_VISIBLE_IN_RADAR"
+		IsHarvestable="true"
+		RadarPriority="UNIT"
+		EditorName="MineCrystal"
+		SelectPortrait="Portrait_Neutral_Crate_Shroud"
+		HealthBoxHeightOffset="5000"
+		ButtonImage="Button_Neutral_Crate_Shroud"
+		BuildTime="1"
+		Description="Desc:MineCrystal"
+		TypeDescription="Type:MineCrystal">
+		<DisplayName>Name:MineCrystal</DisplayName>
+		<ArmorSet
+			Armor="OreArmor"
+			DamageFX="VehicleDamageFX"/>
+		<LocomotorSet
+			Locomotor="MineCrystalLocomotor"
+			Condition="NORMAL"
+			Speed="1.0" />
+		<Draws>
+			<ScriptedModelDraw
+			id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="orenode_gold" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					id="WaterState"
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="orenode_gold" />
+					<!--<Model
+						Name="orenode_water_supplies" />-->
+				</ModelConditionState>
+
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<TiberiumCrystal
+				id="ModuleTag_TibCrystalBehavior"
+				NumBoxes="10"
+				ValuePerBox="12"
+				GrowthStages="0"
+				GrowthTimePerStage="0s"
+				TimeBetweenGrowthStages="0s">
+				<RadarColor R="255" G="167" B="0" />
+			</TiberiumCrystal>
+
+			<DestroyDie id="Crystal_Death">
+				<DieMuxData DeathTypes="ALL" />
+			</DestroyDie>
+			<AttributeModifierPoolUpdate id="DefaultAttributeModifierPoolUpdate"/>
+
+			<!-- 有了这个才能在地面和水域有不同的模型 -->
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="0.0s" />
+
+
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="MineCrystal_Functions" />
+		</Behaviors>
+		<AI>
+			<AIUpdate id="ModuleTag_AIUpdate" AutoAcquireEnemiesWhenIdle="NO" StateMachine="StructureAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody id="ModuleTag_02" MaxHealth="400.0" />
+		</Body>
+		<Geometry IsSmall="true">
+			<Shape Type="CYLINDER" MajorRadius="15.0" Height="6.0"/>
+		</Geometry>
+		<VisionInfo VisionRange="0" />
+		<ProjectedBuildabilityInfo Radius="15.0" RadiusY="15.0" BuildPlacementTypes="BLOCKED">
+			<AllowedObjectFilter Rule="NONE">
+				<IncludeThing>PsychicPartisanConstructionYardDummy</IncludeThing>
+			</AllowedObjectFilter>
+		</ProjectedBuildabilityInfo>
+	</GameObject>
+
+
+	<GameObject id="MineCrystal_Worthy" inheritFrom="MineCrystal" EditorName="MineCrystal_Worthy">
+		<Draws xai:joinAction="Replace">
+			<ScriptedModelDraw id="ModuleTag_Draw">
+				<ModelConditionState ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="orenode_gold_worthy" />
+				</ModelConditionState>
+
+				<ModelConditionState id="WaterState" ParseCondStateType="PARSE_NORMAL" ConditionsYes="OVER_WATER">
+					<Model Name="orenode_water_supplies" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<TiberiumCrystal
+				id="ModuleTag_TibCrystalBehavior"
+				xai:joinAction="Replace"
+				NumBoxes="10"
+				ValuePerBox="24"
+				GrowthStages="0"
+				GrowthTimePerStage="0s"
+				TimeBetweenGrowthStages="0s">
+				<RadarColor R="255" G="167" B="0" />
+			</TiberiumCrystal>
+
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				xai:joinAction="Replace"
+				EventListName="MineCrystalWorthy_Functions" />
+		</Behaviors>
+	</GameObject>
+
+	<GameObject
+		id="MineCrystal_ForSinglePiece"
+		inheritFrom="MineCrystal"
+		EditorName="MineCrystal_ForSinglePiece">
+		<Behaviors>
+			<TiberiumCrystal
+				id="ModuleTag_TibCrystalBehavior"
+				xai:joinAction="Replace" NumBoxes="7"
+				ValuePerBox="12"
+				GrowthStages="0"
+				GrowthTimePerStage="0s"
+				TimeBetweenGrowthStages="0s">
+				<RadarColor R="255" G="167" B="0" />
+			</TiberiumCrystal>
+		</Behaviors>
+	</GameObject>
+
+	<GameObject
+		id="MineCrystal_ForSinglePiece_Worthy"
+		inheritFrom="MineCrystal_Worthy"
+		EditorName="MineCrystal_ForSinglePiece">
+		<Behaviors>
+			<TiberiumCrystal
+				id="ModuleTag_TibCrystalBehavior"
+				xai:joinAction="Replace"
+				NumBoxes="7"
+				ValuePerBox="24"
+				GrowthStages="0"
+				GrowthTimePerStage="0s"
+				TimeBetweenGrowthStages="0s">
+				<RadarColor R="255" G="167" B="0" />
+			</TiberiumCrystal>
+		</Behaviors>
+	</GameObject>
+
+
+</AssetDeclaration>

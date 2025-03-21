@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all" source="DATA:GlobalData/SpecialPowerTemplates.xml" />
+	</Includes>
+	<GameObject
+		id="PlayerSpellBook_Nivilian"
+		Side="Neutral"
+		EditorSorting="SYSTEM"
+		KindOf="SPELL_BOOK IMMOBILE IGNORES_SELECT_ALL INERT"
+		RadarPriority="NOT_ON_RADAR"
+		CommandSet="PlayerSpellBookCommandSet_Nivilian" 
+		EditorName="PlayerSpellBook_Nivilian">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<!--Hack?-->
+			<RadarBehavior
+				id="ModuleTag_RadarBehavior" />
+			
+
+
+			<!-- Nivilian powers -->
+
+			<!-- MAGNETIC SINGULARITY -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_MagneticSingularity_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSingularity_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_OCL_SpecialPower_MagneticSingularity_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSingularity_Nivilian"
+				OCL="OCL_MagneticSingularitySpawner"
+				CreateLocation="CREATE_AT_LOCATION"
+				CanAffectObjectFilter="SovietMagneticSingularitySpecialPowerObjectFilter" />
+
+			<!-- MAGNETIC SATELLITE -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_MagneticSatelliteLvl1_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSatelliteLvl1_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_OCL_SpecialPower_MagneticSatellite_Rank1_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSatelliteLvl1_Nivilian"
+				OCL="OCL_MagneticSatelliteSpawnerLvl1"
+				CreateLocation="CREATE_AT_LOCATION"
+				CanAffectObjectFilter="SovietMagneticSatelliteSpecialPowerObjectFilter_LVL1"
+			/>
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_MagneticSatelliteLvl2_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSatelliteLvl2_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_OCL_SpecialPower_MagneticSatellite_Rank2_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSatelliteLvl2_Nivilian"
+				OCL="OCL_MagneticSatelliteSpawnerLvl2"
+				CreateLocation="CREATE_AT_LOCATION"
+				LeechRechargePercentPlayerTechTrigger="PlayerTech_Nivilian_MagneticSatellite_Rank_2"
+				LeechRechargePercentFromSpecialPower="SpecialPowerMagneticSatelliteLvl1_Nivilian"
+				CanAffectObjectFilter="SovietMagneticSatelliteSpecialPowerObjectFilter_LVL2"
+			/>
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_MagneticSatelliteLvl3_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSatelliteLvl3_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_OCL_SpecialPower_MagneticSatellite_Rank3_Nivilian"
+				SpecialPowerTemplate="SpecialPowerMagneticSatelliteLvl3_Nivilian"
+				OCL="OCL_MagneticSatelliteSpawnerLvl3"
+				CreateLocation="CREATE_AT_LOCATION"
+				LeechRechargePercentPlayerTechTrigger="PlayerTech_Nivilian_MagneticSatellite_Rank_3"
+				LeechRechargePercentFromSpecialPower="SpecialPowerMagneticSatelliteLvl2_Nivilian"
+				CanAffectObjectFilter="SovietMagneticSatelliteSpecialPowerObjectFilter_LVL3"
+			/>
+			<StoreTemplateIDBehavior
+				id="ModuleTag_MagneticSatelliteTemplateIDStore_Nivilian"/>
+
+			<!-- ORBITAL REFUSE -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_OrbitalRefuse_Rank1_Nivilian"
+				SpecialPowerTemplate="SpecialPowerOrbitalRefuse_Rank1_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_OCL_SpecialPower_OrbitalRefuse_Rank1_Nivilian"
+				SpecialPowerTemplate="SpecialPowerOrbitalRefuse_Rank1_Nivilian"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_OrbitalRefuseSpawnerLvl1"
+				CreateLocation="CREATE_AT_LOCATION"
+			/>
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_OrbitalRefuse_Rank2_Nivilian"
+				SpecialPowerTemplate="SpecialPowerOrbitalRefuse_Rank2_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_OCL_SpecialPower_OrbitalRefuse_Rank2_Nivilian"
+				SpecialPowerTemplate="SpecialPowerOrbitalRefuse_Rank2_Nivilian"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_OrbitalRefuseSpawnerLvl2"
+				CreateLocation="CREATE_AT_LOCATION"
+				LeechRechargePercentPlayerTechTrigger="PlayerTech_Nivilian_OrbitalRefuse_Rank2"
+				LeechRechargePercentFromSpecialPower="SpecialPowerOrbitalRefuse_Rank1_Nivilian"
+			/>
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_OrbitalRefuse_Rank3_Nivilian"
+				SpecialPowerTemplate="SpecialPowerOrbitalRefuse_Rank3_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_OCL_SpecialPower_OrbitalRefuse_Rank3_Nivilian"
+				SpecialPowerTemplate="SpecialPowerOrbitalRefuse_Rank3_Nivilian"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_OrbitalRefuseSpawnerLvl3"
+				CreateLocation="CREATE_AT_LOCATION"
+				LeechRechargePercentPlayerTechTrigger="PlayerTech_Nivilian_OrbitalRefuse_Rank3"
+				LeechRechargePercentFromSpecialPower="SpecialPowerOrbitalRefuse_Rank2_Nivilian"
+			/>
+
+
+			<!-- Desolator Bomb 3 Levels -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_DesolatorBomb_Level1_Nivilian"
+				SpecialPowerTemplate="SpecialPower_DesolatorBomb_Level1_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_SpecialPower_DesolatorBomb_Level1_Nivilian"
+				SpecialPowerTemplate="SpecialPower_DesolatorBomb_Level1_Nivilian"
+				OCL="OCL_SpecialPower_DesolatorBomb_Level1"
+				DestinationOCL="OCL_Generic5SecondBeacon"
+				CreateLocation="USE_SECONDARY_OBJECT_LOCATION"
+				CanAffectObjectFilter="GenericNoStructureSpecialPowerObjectFilter">
+				<NearestSecondaryObjectFilter
+					Relationship="SAME_PLAYER">
+					<IncludeThing>NivilianConstructionYard</IncludeThing>
+				</NearestSecondaryObjectFilter>
+			</OCLSpecialPower>
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_DesolatorBomb_Level2_Nivilian"
+				SpecialPowerTemplate="SpecialPower_DesolatorBomb_Level2_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_SpecialPower_DesolatorBomb_Level2_Nivilian"
+				SpecialPowerTemplate="SpecialPower_DesolatorBomb_Level2_Nivilian"
+				OCL="OCL_SpecialPower_DesolatorBomb_Level2"
+				DestinationOCL="OCL_Generic5SecondBeacon"
+				CreateLocation="USE_SECONDARY_OBJECT_LOCATION"
+				LeechRechargePercentPlayerTechTrigger="PlayerTech_Soviet_DesolatorBomb_Rank2_Nivilian"
+				LeechRechargePercentFromSpecialPower="SpecialPower_DesolatorBomb_Level1_Nivilian"
+				CanAffectObjectFilter="GenericNoStructureSpecialPowerObjectFilter">
+				<NearestSecondaryObjectFilter
+					Relationship="SAME_PLAYER">
+					<IncludeThing>NivilianConstructionYard</IncludeThing>
+				</NearestSecondaryObjectFilter>
+			</OCLSpecialPower>
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_DesolatorBomb_Level3_Nivilian"
+				SpecialPowerTemplate="SpecialPower_DesolatorBomb_Level3_Nivilian"
+			/>
+			<OCLSpecialPower
+				id="ModuleTag_SpecialPower_DesolatorBomb_Level3_Nivilian"
+				SpecialPowerTemplate="SpecialPower_DesolatorBomb_Level3_Nivilian"
+				OCL="OCL_SpecialPower_DesolatorBomb_Level3"
+				DestinationOCL="OCL_Generic5SecondBeacon"
+				CreateLocation="USE_SECONDARY_OBJECT_LOCATION"
+				LeechRechargePercentPlayerTechTrigger="PlayerTech_Nivilian_DesolatorBomb_Rank3"
+				LeechRechargePercentFromSpecialPower="SpecialPower_DesolatorBomb_Level2_Nivilian"
+				CanAffectObjectFilter="GenericNoStructureSpecialPowerObjectFilter">
+				<NearestSecondaryObjectFilter
+					Relationship="SAME_PLAYER">
+					<IncludeThing>NivilianConstructionYard</IncludeThing>
+				</NearestSecondaryObjectFilter>
+			</OCLSpecialPower>
+
+
+
+
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_ProductionKickbacks_Nivilian"
+				SpecialPowerTemplate="SpecialPower_ProductionKickbacks_Nivilian"
+			/>
+			<SpecialPower
+				id="ModuleTag_ProductionKickbacks_SpecialPower_Nivilian"
+				SpecialPowerTemplate="SpecialPower_ProductionKickbacks_Nivilian"
+				UpdateModuleStartsAttack="true"
+				CanAffectObjectFilter="SovietKickbacksSpecialPowerObjectFilter"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ProductionKickbacks_Update_Nivilian"
+				SpecialPowerTemplate="SpecialPower_ProductionKickbacks_Nivilian"
+				SpecialWeapon="PlayerPowerProductionKickbacksWeapon"
+			/>
+
+			<!-- TERROR DRONE EGGS -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_TerrorDroneEggs_Nivilian"
+				SpecialPowerTemplate="SpecialPowerTerrorDroneEggs_Nivilian"
+				OnAvailableEvaEvent="TerrorDroneSurpriseUpgradeComplete"
+			/>
+			<PlayerUpgradeSpecialPower
+				id="ModuleTag_SpecialPower_TerrorDroneEggs_Nivilian"
+				SpecialPowerTemplate="SpecialPowerTerrorDroneEggs_Nivilian"
+				AvailableAtStart="true">
+				<Upgrade>Upgrade_SovietTerrorDroneEggs</Upgrade>
+			</PlayerUpgradeSpecialPower>
+			
+			<!-- CRUSH PUPPIES PLAYER POWER -->
+				<!-- aka Grinder Treads -->
+			<PlayerPowerManager
+				id="ModuleTag_PlayerPowerManager_CrushPuppies_Nivilian"
+				SpecialPowerTemplate="SpecialPowerCrushPuppies_Nivilian"
+				OnAvailableEvaEvent="CrushTreadsUpgradeAuthorized"
+			/>			
+			<PlayerUpgradeSpecialPower
+				id="ModuleTag_SpecialPower_CrushPuppies_Nivilian"
+				SpecialPowerTemplate="SpecialPowerCrushPuppies_Nivilian"
+				AvailableAtStart="true">
+				<Upgrade>Upgrade_SovietCrushPuppiesPower</Upgrade>
+			</PlayerUpgradeSpecialPower>
+
+
+			<!-- Neutral powers -->		
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO">
+			</AIUpdate>
+		</AI>
+		
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<ClientUpdates>
+		</ClientUpdates>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="1.0"
+				Height="1.0"></Shape>
+		</Geometry>
+	</GameObject>
+</AssetDeclaration>
