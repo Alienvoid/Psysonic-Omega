@@ -10,34 +10,46 @@
 		<Include
 			type="all"
 			source="ART:JUEgg.w3x" />
+		<Include
+			type="all"
+			source="ART:JBBarracks_SKN.w3x" />	
+		<Include
+			type="all"
+			source="ART:JBBarracks_OPN.w3x" />	
+		<Include
+			type="all"
+			source="ART:JBBarracks_BLD.w3x" />				
+		<Include
+			type="all"
+			source="ART:JBBarracks_BLD2.w3x" />
+		<Include
+			type="all"	
+			source="ART:JUEgg_Unpack.w3x" />
 		<!-- Base Object -->
 		<Include
 			type="instance"
 			source="DATA:BaseObjects/BaseEgg.xml" />
 	</Includes>
 	<GameObject
-		id="JapanKingOfMechaEgg"
+		id="JapanBarracksEgg"
 		inheritFrom="BaseEgg"
-		SelectPortrait="Portrait_JapanMechaKing"
-		ButtonImage="Button_JapanMechaKing"
-		Side="Japan"	
-		SubGroupPriority="810"	
-		CommandSet="JapanTechStructureEggCommandSet"
+		SelectPortrait="Portrait_JapanBarracks"
+		ButtonImage="Button_JapanBarracks"
+		Side="Japan"		
+		SubGroupPriority="805"
+		CommandSet="JapanBarracksEggCommandSet"
 		KindOf="=$EGG_KINDOFS"
-		PlacementViewAngle="315d"
+		PlacementViewAngle="225d"
 		ProductionQueueType="MAIN_STRUCTURE"
-		EditorName="JapanKingOfMechaEgg"
-		Description="Desc:JapanKingOfMechaEgg"
-		TypeDescription="Type:JapanKingOfMechaEgg"
+		EditorName="JapanBarracksEgg"
+		Description="Desc:JapanBarracksEgg"
+		TypeDescription="Type:JapanBarracksEgg"
 		HealthBoxHeightOffset="60"
 		UnitIntro="Japan_Nanocore_UnitIntro">
 		<DisplayName
-			xai:joinAction="Replace">Name:JapanKingOfMechaEgg</DisplayName>
-		<GameDependency>
-			<RequiredObject>JapanRefinery</RequiredObject>
-		</GameDependency>				
+			xai:joinAction="Replace">Name:JapanBarracksEgg</DisplayName>
 		<ObjectResourceInfo>
-			<BuildCost Account="=$ACCOUNT_ORE" Amount="6500"/>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="500"/>
 		</ObjectResourceInfo>
 		<ArmorSet
 			Armor="JapanEggArmor"
@@ -85,9 +97,9 @@
         <ModelConditionState
 					ParseCondStateType="PARSE_NORMAL"
 					ConditionsYes="REALLYDAMAGED">
-          <Model
+					<Model
 						Name="JUEgg" />
-          <Texture
+					<Texture
 						Original="JUEgg"
 						New="JUEgg_D" />
           <ParticleSysBone
@@ -101,6 +113,22 @@
           <ParticleSysBone
 						BoneName="FXBone01"
 						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+				</ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+          <Model
+						Name="" />
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING OVER_WATER">
+          <Model
+						Name="" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="SVAntiAirShipWaterWake"
 						FollowBone="true" />
         </ModelConditionState>
         <ModelConditionState
@@ -118,7 +146,7 @@
 					Flags="START_FRAME_LAST">
 					<Script>
 						CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-						CurDrawableHideSubObjectPermanently("BarracksEgg")
+						CurDrawableShowSubObjectPermanently("BarracksEgg")
 						CurDrawableHideSubObjectPermanently("NavalYardEgg")
 						CurDrawableHideSubObjectPermanently("PowerPlantEgg")
 						CurDrawableHideSubObjectPermanently("RefineryEgg")
@@ -127,16 +155,15 @@
 						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-						CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
+						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
 					</Script>						
 				</AnimationState>
-
 				<AnimationState
 					ParseCondStateType="PARSE_NORMAL"
 					ConditionsYes="MOVING">
 					<Script>
 						CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-						CurDrawableHideSubObjectPermanently("BarracksEgg")
+						CurDrawableShowSubObjectPermanently("BarracksEgg")
 						CurDrawableHideSubObjectPermanently("NavalYardEgg")
 						CurDrawableHideSubObjectPermanently("PowerPlantEgg")
 						CurDrawableHideSubObjectPermanently("RefineryEgg")
@@ -145,16 +172,15 @@
 						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-						CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
+						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
 					</Script>							
 				</AnimationState>
-
         <AnimationState
           ParseCondStateType="PARSE_NORMAL"
           ConditionsYes="DAMAGED">
           <Script>
             CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-            CurDrawableHideSubObjectPermanently("BarracksEgg")
+            CurDrawableShowSubObjectPermanently("BarracksEgg")
             CurDrawableHideSubObjectPermanently("NavalYardEgg")
             CurDrawableHideSubObjectPermanently("PowerPlantEgg")
             CurDrawableHideSubObjectPermanently("RefineryEgg")
@@ -163,15 +189,15 @@
             CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-            CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
+            CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
           </Script>
         </AnimationState>
         <AnimationState
-					ParseCondStateType="PARSE_NORMAL"
-					ConditionsYes="REALLYDAMAGED">
+          ParseCondStateType="PARSE_NORMAL"
+          ConditionsYes="REALLYDAMAGED">
           <Script>
             CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-            CurDrawableHideSubObjectPermanently("BarracksEgg")
+            CurDrawableShowSubObjectPermanently("BarracksEgg")
             CurDrawableHideSubObjectPermanently("NavalYardEgg")
             CurDrawableHideSubObjectPermanently("PowerPlantEgg")
             CurDrawableHideSubObjectPermanently("RefineryEgg")
@@ -180,11 +206,165 @@
             CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-            CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
+            CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
           </Script>
         </AnimationState>
-
+		
+		
 			</TruckDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_UNPACKING"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Model
+						Name="JBBarracks_SKN" />
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBBarracks_BLD2"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="8s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("NewSkin_Fill")
+					</Script>						
+				</AnimationState>					
+			</ScriptedModelDraw>
+			
+<!-- DRAW BUILD UP -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Buildup"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Model
+						Name="JBBarracks_SKN" />
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBBarracks</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBBarracks_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBBarracks_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBBarracks_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="8s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("NewSkin_Fill")
+					</Script>						
+				</AnimationState>				
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_DrawEGGPACK"
+				OkToChangeModelColor="true"
+				StaticModelLODMode="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Model
+						Name="JUEgg_Unpack" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Animation
+						AnimationName="JUEgg_Unpack"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="8s" />
+				</AnimationState>
+			</ScriptedModelDraw>
 		</Draws>
 		<Behaviors>
 			<Physics
@@ -199,8 +379,8 @@ DeathTypesForbidden="ERASED"/>
 			<DestroyDie
 				id="ModuleTag_Die">
 				<DieMuxData
-					DeathTypes="ALL" 
-DeathTypesForbidden="ERASED"/>
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
 			</DestroyDie>
 			<FXListBehavior
 				id="ModuleTag_FXList">
@@ -222,7 +402,7 @@ DeathTypesForbidden="ERASED" />
 				PackTime="3.0s"
 				StartAbilityRange="2.0"
 				ReplaceOptions="CHECK_BUILD_ASSISTANT DISABLE_DURING_REPLACE CLEAR_LOCATION">
-				<ReplacementTemplate>JapanKingOfMecha</ReplacementTemplate>
+				<ReplacementTemplate>JapanBarracks</ReplacementTemplate>
 			</ReplaceSelfSpecialAbility>
 
 			<!-- Enhanced Kamikaze Player Power -->
@@ -231,7 +411,7 @@ DeathTypesForbidden="ERASED" />
 			<xi:include
 				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
 			<!-- -->
-
+			
 		</Behaviors>
 		<Body>
 			<ActiveBody
@@ -243,7 +423,8 @@ DeathTypesForbidden="ERASED" />
 				<ModelConditionSound Sound="JAP_Nanocore1_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
 			</ModelConditionAudioLoopClientBehavior>
 		</ClientBehaviors>
-		<Geometry>
+		<Geometry
+			IsSmall="true">
 			<Shape
 				Type="BOX"
 				MajorRadius="20.0"
@@ -252,10 +433,10 @@ DeathTypesForbidden="ERASED" />
 				ContactPointGeneration="VEHICLE" />
 		</Geometry>
 		<AudioArrayVoice>
-			<AudioEntry Sound="JAP_Nanocore1_VoiceCreateMainframe" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceCreateDojo" AudioType="voiceCreated" />
 			<AudioEntry Sound="JAP_Nanocore1_VoiceHelpMe" AudioType="voiceFear" />
 			<AudioEntry Sound="JAP_Nanocore1_VoiceMove" AudioType="voiceMove" />
-			<AudioEntry Sound="JAP_Nanocore1_VoiceSelectMainframeMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceSelectDojoMS" AudioType="voiceSelect" />
 			<NamedEntry Sound="JAP_Nanocore1_VoiceMoveSpecial" Name="VoiceDeploy" />
 		</AudioArrayVoice>
 		<VisionInfo

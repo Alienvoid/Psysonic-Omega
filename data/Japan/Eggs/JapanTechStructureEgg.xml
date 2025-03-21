@@ -10,34 +10,56 @@
 		<Include
 			type="all"
 			source="ART:JUEgg.w3x" />
+			
+			
+		<Include
+			type="all"
+			source="ART:JBTechStructure_SKN.w3x" />	
+		<Include
+			type="all"
+			source="ART:JBTechStructure_BLD.w3x" /> 
+		<Include
+			type="all"
+			source="ART:JBTechStructure_BLD2.w3x" /> 
+		<Include
+			type="all"
+			source="ART:JBTechStructure_Platform_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:JBTechStructure_Platform_BLD.w3x" />
+		<Include
+			type="all"	
+			source="ART:JUEgg_Unpack.w3x" />	
 		<!-- Base Object -->
 		<Include
 			type="instance"
 			source="DATA:BaseObjects/BaseEgg.xml" />
 	</Includes>
 	<GameObject
-		id="JapanKingOfMechaEgg"
+		id="JapanTechStructureEgg"
 		inheritFrom="BaseEgg"
-		SelectPortrait="Portrait_JapanMechaKing"
-		ButtonImage="Button_JapanMechaKing"
+		SelectPortrait="Portrait_JapanTechStructure"
+		ButtonImage="Button_JapanTechStructure"
 		Side="Japan"	
-		SubGroupPriority="810"	
+		SubGroupPriority="819"	
 		CommandSet="JapanTechStructureEggCommandSet"
-		KindOf="=$EGG_KINDOFS"
+		KindOf="=$EGG_KINDOFS+' FS_TECHNOLOGY'"
 		PlacementViewAngle="315d"
 		ProductionQueueType="MAIN_STRUCTURE"
-		EditorName="JapanKingOfMechaEgg"
-		Description="Desc:JapanKingOfMechaEgg"
-		TypeDescription="Type:JapanKingOfMechaEgg"
+		MaxSimultaneousOfType="1"
+		EditorName="JapanTechStructureEgg"
+		Description="Desc:JapanTechStructureEgg"
+		TypeDescription="Type:JapanTechStructureEgg"
 		HealthBoxHeightOffset="60"
 		UnitIntro="Japan_Nanocore_UnitIntro">
+		<EquivalentTo>JapanTechStructure</EquivalentTo>
 		<DisplayName
-			xai:joinAction="Replace">Name:JapanKingOfMechaEgg</DisplayName>
+			xai:joinAction="Replace">Name:JapanTechStructureEgg</DisplayName>
 		<GameDependency>
 			<RequiredObject>JapanRefinery</RequiredObject>
 		</GameDependency>				
 		<ObjectResourceInfo>
-			<BuildCost Account="=$ACCOUNT_ORE" Amount="6500"/>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2500"/>
 		</ObjectResourceInfo>
 		<ArmorSet
 			Armor="JapanEggArmor"
@@ -105,6 +127,16 @@
         </ModelConditionState>
         <ModelConditionState
 					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING OVER_WATER">
+          <Model
+						Name="" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="SVAntiAirShipWaterWake"
+						FollowBone="true" />
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
 					ConditionsYes="OVER_WATER">
           <Model
 						Name="JUEgg" />
@@ -112,6 +144,12 @@
 						BoneName="ROOTTRANSFORM"
 						FXParticleSystemTemplate="SVAntiAirShipWaterWake"
 						FollowBone="true" />
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+          <Model
+						Name="" />
         </ModelConditionState>
 				<AnimationState
 					ParseCondStateType="PARSE_DEFAULT"
@@ -185,6 +223,220 @@
         </AnimationState>
 
 			</TruckDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_PACKING"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Model
+						Name="JBTechStructure_SKN" />
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBTechStructure_BLD2"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="30s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("NewSkin_Fill")
+					</Script>						
+				</AnimationState>						
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>			
+			</ScriptedModelDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Buildup"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Model
+						Name="JBTechStructure_SKN" />
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBTechStructure</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBTechStructure_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBTechStructure_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>						
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBTechStructure_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="30s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("NewSkin_Fill")
+					</Script>						
+				</AnimationState>				
+			</ScriptedModelDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform_Buildup"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER UNPACKING">
+					<Model
+						Name="JBTechStructure_Platform_SKN" />
+<!-- particle system template not found							
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBTechStructureWakeSplash"
+						FollowBone="true" />
+-->						
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBPlatform</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBPlatform_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBPlatform_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>						          
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER UNPACKING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBTechStructure_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="30s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+				</AnimationState>					
+			</ScriptedModelDraw>	
+			
+			<ScriptedModelDraw
+				id="ModuleTag_DrawEGGPACK"
+				OkToChangeModelColor="true"
+				StaticModelLODMode="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Model
+						Name="JUEgg_Unpack" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Animation
+						AnimationName="JUEgg_Unpack"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="30s" />
+				</AnimationState>
+			</ScriptedModelDraw>
 		</Draws>
 		<Behaviors>
 			<Physics
@@ -222,7 +474,7 @@ DeathTypesForbidden="ERASED" />
 				PackTime="3.0s"
 				StartAbilityRange="2.0"
 				ReplaceOptions="CHECK_BUILD_ASSISTANT DISABLE_DURING_REPLACE CLEAR_LOCATION">
-				<ReplacementTemplate>JapanKingOfMecha</ReplacementTemplate>
+				<ReplacementTemplate>JapanTechStructure</ReplacementTemplate>
 			</ReplaceSelfSpecialAbility>
 
 			<!-- Enhanced Kamikaze Player Power -->

@@ -16,28 +16,27 @@
 			source="DATA:BaseObjects/BaseEgg.xml" />
 	</Includes>
 	<GameObject
-		id="JapanKingOfMechaEgg"
+		id="JapanBaseDefenseEgg"
 		inheritFrom="BaseEgg"
-		SelectPortrait="Portrait_JapanMechaKing"
-		ButtonImage="Button_JapanMechaKing"
-		Side="Japan"	
-		SubGroupPriority="810"	
-		CommandSet="JapanTechStructureEggCommandSet"
-		KindOf="=$EGG_KINDOFS"
-		PlacementViewAngle="315d"
-		ProductionQueueType="MAIN_STRUCTURE"
-		EditorName="JapanKingOfMechaEgg"
-		Description="Desc:JapanKingOfMechaEgg"
-		TypeDescription="Type:JapanKingOfMechaEgg"
+		SelectPortrait="Portrait_JapanGattlingTower"
+		ButtonImage="Button_JapanGattlingTower"
+		Side="Japan"
+		SubGroupPriority="819"
+		CommandSet="JapanBaseDefenseEggCommandSet"
+		KindOf="=$BASE_DEFENSE_EGG_KINDOFS"
+		PlacementViewAngle="225d"
+		EditorName="JapanBaseDefenseEgg"
+		Description="Desc:JapanGattlingTowerEgg"
+		TypeDescription="Type:JapanGattlingTowerEgg"
 		HealthBoxHeightOffset="60"
 		UnitIntro="Japan_Nanocore_UnitIntro">
 		<DisplayName
-			xai:joinAction="Replace">Name:JapanKingOfMechaEgg</DisplayName>
+			xai:joinAction="Replace">Name:JapanGattlingTowerEgg</DisplayName>
 		<GameDependency>
 			<RequiredObject>JapanRefinery</RequiredObject>
 		</GameDependency>				
 		<ObjectResourceInfo>
-			<BuildCost Account="=$ACCOUNT_ORE" Amount="6500"/>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="600"/>
 		</ObjectResourceInfo>
 		<ArmorSet
 			Armor="JapanEggArmor"
@@ -45,11 +44,18 @@
 		<LocomotorSet
 			Locomotor="JapanEggLocomotor"
 			Condition="NORMAL"
-			Speed="65.0" />
+			Speed="60.0" />
 		<LocomotorSet
 			Locomotor="JapanEggWaterLocomotor"
 			Condition="NORMAL"
-			Speed="65.0" />
+			Speed="60.0" />
+    <SkirmishAIInformation
+      BaseBuildingLocation="DEFENSE" >
+      <ConstructionBaseSelectionCriteria
+				ExcludedBaseTypes="NO_BUILD_RADIUS"
+				PreferredBaseTypes="ENEMIES_IN_BASE UNDER_ATTACK"
+				SortOrder="PREFER_MOST_RECENTLY_ATTACKED" />
+    </SkirmishAIInformation>
 		<Draws>
 			<TruckDraw
 				id="ModuleTag_Draw"
@@ -113,7 +119,8 @@
 						FXParticleSystemTemplate="SVAntiAirShipWaterWake"
 						FollowBone="true" />
         </ModelConditionState>
-				<AnimationState
+        
+        <AnimationState
 					ParseCondStateType="PARSE_DEFAULT"
 					Flags="START_FRAME_LAST">
 					<Script>
@@ -125,9 +132,9 @@
 						CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
 						CurDrawableHideSubObjectPermanently("WarFactoryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+						CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-						CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
+						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
 					</Script>						
 				</AnimationState>
 
@@ -143,10 +150,10 @@
 						CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
 						CurDrawableHideSubObjectPermanently("WarFactoryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+						CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-						CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
-					</Script>							
+						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
+					</Script>								
 				</AnimationState>
 
         <AnimationState
@@ -161,9 +168,9 @@
             CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
             CurDrawableHideSubObjectPermanently("WarFactoryEgg")
             CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+            CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-            CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
+            CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
           </Script>
         </AnimationState>
         <AnimationState
@@ -178,9 +185,9 @@
             CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
             CurDrawableHideSubObjectPermanently("WarFactoryEgg")
             CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+            CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-            CurDrawableShowSubObjectPermanently("EconomicStructureEgg")
+            CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
           </Script>
         </AnimationState>
 
@@ -205,8 +212,8 @@ DeathTypesForbidden="ERASED"/>
 			<FXListBehavior
 				id="ModuleTag_FXList">
 				<DieMuxData
-					DeathTypes="ALL"
-DeathTypesForbidden="ERASED" />
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
 				<Event
 					Index="onDeath"
 					FX="FX_JapanVehicleDie" />
@@ -222,7 +229,7 @@ DeathTypesForbidden="ERASED" />
 				PackTime="3.0s"
 				StartAbilityRange="2.0"
 				ReplaceOptions="CHECK_BUILD_ASSISTANT DISABLE_DURING_REPLACE CLEAR_LOCATION">
-				<ReplacementTemplate>JapanKingOfMecha</ReplacementTemplate>
+				<ReplacementTemplate>JapanBaseDefense</ReplacementTemplate>
 			</ReplaceSelfSpecialAbility>
 
 			<!-- Enhanced Kamikaze Player Power -->
@@ -236,14 +243,15 @@ DeathTypesForbidden="ERASED" />
 		<Body>
 			<ActiveBody
 				id="ModuleTag_Body"
-				MaxHealth="400.0" />
+				MaxHealth="200.0" />
 		</Body>
 		<ClientBehaviors>
 			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
 				<ModelConditionSound Sound="JAP_Nanocore1_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
 			</ModelConditionAudioLoopClientBehavior>
 		</ClientBehaviors>
-		<Geometry>
+		<Geometry
+			IsSmall="true">
 			<Shape
 				Type="BOX"
 				MajorRadius="20.0"
@@ -252,14 +260,39 @@ DeathTypesForbidden="ERASED" />
 				ContactPointGeneration="VEHICLE" />
 		</Geometry>
 		<AudioArrayVoice>
-			<AudioEntry Sound="JAP_Nanocore1_VoiceCreateMainframe" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceCreateDefender" AudioType="voiceCreated" />
 			<AudioEntry Sound="JAP_Nanocore1_VoiceHelpMe" AudioType="voiceFear" />
 			<AudioEntry Sound="JAP_Nanocore1_VoiceMove" AudioType="voiceMove" />
-			<AudioEntry Sound="JAP_Nanocore1_VoiceSelectMainframeMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceSelectDefenderMS" AudioType="voiceSelect" />
 			<NamedEntry Sound="JAP_Nanocore1_VoiceMoveSpecial" Name="VoiceDeploy" />
 		</AudioArrayVoice>
 		<VisionInfo
 			VisionRange="100"
 			ShroudClearingRange="200" />		
 	</GameObject>
+	
+	<GameObject
+		id="JapanBaseDefenseEgg_S07"
+		inheritFrom="JapanBaseDefenseEgg"
+		EditorName="JapanBaseDefenseEgg_S07"
+		EditorSorting="CAMPAIGN_UNITS">
+		
+		<Behaviors>
+		
+			<ReplaceSelfSpecialAbility
+				id="ModuleTag_ReplaceSelf"
+				xai:joinAction="Replace"
+				SpecialPowerTemplate="SpecialPower_UnpackReplaceSelf"
+				Options="IGNORE_FACING_CHECK USE_OBJECT_GEOMETRY_FOR_WITHIN_RANGE_CHECK"
+				PackTime="3.0s"
+				StartAbilityRange="2.0"
+				ReplaceOptions="CHECK_BUILD_ASSISTANT DISABLE_DURING_REPLACE CLEAR_LOCATION">
+				<ReplacementTemplate>JapanBaseDefense_S07</ReplacementTemplate>
+			</ReplaceSelfSpecialAbility>
+			
+		</Behaviors>
+		
+		
+	</GameObject>
+	
 </AssetDeclaration>
