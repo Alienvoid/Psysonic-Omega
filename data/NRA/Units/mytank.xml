@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:CUAntiAirVehicleTech1_IDLA.w3x" />	
+		<Include type="all"	source="ART:CUAntiAirVehicleTech1_SKN.w3x" />	
+		<Include type="all"	source="ART:CUAntiAirVehicleTech1_D.xml" />	
+		<Include type="all"	source="ART:CUAntiAirVehicleTech1_chassis_D.xml" />	
+	</Includes>
+	<!-- AKA Guardian Tank aka The Chieftain -->
+	<GameObject
+		id="mytank"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedAntiVehicleVehicleTech1"
+		ButtonImage="Button_AlliedAntiVehicleVehicleTech1_on"
+		Side="Allies"
+		SubGroupPriority="425"
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="25"
+		BuildTime="1"
+		CommandSet="emptyCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT T2_UNIT"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="mytank"
+		Description="Desc:mytank"
+		TypeDescription="Type:mytank"
+		UnitIntro="Allied_GuardianTank_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:mytank</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="9"/>
+		</ObjectResourceInfo>
+		
+		<!--<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech2</NeededUpgrade>
+		</GameDependency>-->
+		
+		<ArmorSet
+			Armor="AlliedAntiVehicleVehicleTech1Armor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorTANK"
+			Condition="NORMAL"
+			Speed="80.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+
+	  		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				
+				TireRotationMultiplier="0.0"		
+				InitialRecoilSpeed="0.5"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				
+				ExtraPublicBone="Bone_Tread_Front_Left Bone_Tread_Front_Right FXTracksL FXTracksR Bone_Turret bone_Turret_Pitch FX_WeaponA02 FX_WeaponA01 Bone_radar FX_Damage01 Bone_Barrel01 Bone_Barrel02"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="FXTracksL"
+				TrackMarksRightBone="FXTracksR">
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Front_Left"
+					RightTrack="Bone_Tread_Front_Right"
+					SpeedMultiplier="0.06"
+					TreadDriveSpeedFraction="10%"/>
+														
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUAntiAirVehicleTech1_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA"/>
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Bone_Barrel"/>
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<Turret
+						TurretNameKey="Bone_Turret"
+						TurretPitch="Bone_turret_pitch"
+						TurretID="1" />
+				</ModelConditionState>
+
+				
+        <!-- User_1 Laser -->
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 DAMAGED">
+          <Model
+              Name="CUAntiAirVehicleTech1_SKN" />
+          <ParticleSysBone
+              BoneName="FX_radar"
+              FXParticleSystemTemplate="Allied_Target_Laser"
+              FollowBone="true"/>
+          <ParticleSysBone
+              BoneName="FX_Damage01"
+              FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+              FollowBone="true"/>
+        </ModelConditionState>
+
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 REALLYDAMAGED">
+          <Model
+						Name="CUAntiAirVehicleTech1_SKN" />
+          <Texture
+						Original="CUAntiAirVehicleTech1"
+						New="CUAntiAirVehicleTech1_D" />
+			<Texture
+						Original="CUAntiAirVehicleTech1_chassis"
+						New="CUAntiAirVehicleTech1_chassis_D" />
+          <ParticleSysBone
+              BoneName="FX_radar"
+              FXParticleSystemTemplate="Allied_Target_Laser"
+              FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFire"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFireLight"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1">
+          <Model
+              Name="CUAntiAirVehicleTech1_SKN" />
+          <ParticleSysBone
+              BoneName="FX_Laser"
+              FXParticleSystemTemplate="Allied_Target_Laser"
+              FollowBone="true"/>
+
+        </ModelConditionState>
+
+        <!-- Damage States -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+				<Model
+						Name="CUAntiAirVehicleTech1_SKN" />
+				<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="CUAntiAirVehicleTech1_SKN" />
+					<Texture
+						Original="CUAntiAirVehicleTech1"
+						New="CUAntiAirVehicleTech1_D" />
+					<Texture
+						Original="CUAntiAirVehicleTech1_chassis"
+						New="CUAntiAirVehicleTech1_chassis_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFire"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFireLight"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>          
+				</ModelConditionState> 
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="CUAntiAirVehicleTech1_IDLA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("Skin_NormalLight")
+						CurDrawableHideSubObjectPermanently("Skin_ChargingLight")
+					</Script>	
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="RELOADING_A">
+					<Animation
+						AnimationName="CUAntiAirVehicleTech1_IDLA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("SKIN_CHARGINGLIGHT")
+						CurDrawableHideSubObjectPermanently("Skin_NormalLight")
+					</Script>	
+				</AnimationState>
+				
+			</TruckDraw>
+        
+			<LaserDraw
+				id="ModuleTag_LaserDraw1"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>3.000000</Value>
+              <Value>7.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+
+        
+			<LaserDraw
+				id="ModuleTag_LaserDraw2"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>3.000000</Value>
+              <Value>7.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+			
+        
+			<LaserDraw
+				id="ModuleTag_LaserDraw1_vet"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				LaserStateID="3">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>6.000000</Value>
+              <Value>3.000000</Value>
+              <Value>7.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+
+        
+			<LaserDraw
+				id="ModuleTag_LaserDraw2_vet"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				LaserStateID="4">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>6.000000</Value>
+              <Value>3.000000</Value>
+              <Value>7.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRAAntiAirVehicleTech1LaserCannon" />
+					<TurretSettings
+						TurretTurnRate="180"
+						TurretPitchRate="180"
+						AllowsPitch="true"
+						MinimumPitch="15d"
+						PitchHeight="82%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="360.0"
+						ComeToHaltJiggle="2d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+
+			<LaserState
+				id="ModuleTag_LaserState1"
+				LaserId="1"
+				OriginBoneName="FX_WeaponA01">
+				<LaserEndParticleSystem>NRAAntiAirLaserEnd</LaserEndParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState2"
+				LaserId="2" 
+				OriginBoneName="FX_WeaponA02">
+				<LaserEndParticleSystem>NRAAntiAirLaserEnd</LaserEndParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState1_vet"
+				LaserId="3"
+				OriginBoneName="FX_WeaponA01" >
+				<LaserEndParticleSystem>NRAAntiAirLaserEnd_Vet</LaserEndParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState2_vet"
+				LaserId="4"
+				OriginBoneName="FX_WeaponA02" >
+				<LaserEndParticleSystem>NRAAntiAirLaserEnd_Vet</LaserEndParticleSystem>
+			</LaserState>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUAntiAirVehicleTech1_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="TOPPLED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedChieftanDie" />
+			</FXListBehavior>
+				
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED NO_ATTACK"
+				ContainMax="1"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="true"
+				EnterSound="VehicleEnter"
+				ExitSound="AlliedMultigunnerIFVvehicleExitWithVoiceMS"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID"
+				ExtendedExitContainerChecks="true">
+				<PassengerFilter
+					Rule="ANY"
+					Include="INFANTRY" />
+				<DieMuxData
+					DeathTypes="ALL" />
+				<PassengerData
+					BonePrefix="BONE_chassis">
+					<Filter
+						Rule="NONE"
+						Include="INFANTRY" />
+				</PassengerData>
+			</TransportContain>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+					CanPickDynamicTargets="false">
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1000" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_GuardianTank_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_PaintTargetVoice">
+				<Override RequiredFlags="USER_1">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_Guardian_VoiceAttackPaintTarget" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_PaintLoop">
+				<ModelConditionSound Sound="ALL_Guardian_PainterWeaponLoop" RequiredFlags="USING_WEAPON_B" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_PaintStart">
+				<ModelConditionSound Sound="ALL_Guardian_PainterWeaponStart" RequiredFlags="USING_WEAPON_B" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="20.0"
+				MinorRadius="12.0"
+				Height="17.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_Guardian_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_Guardian_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_Guardian_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_Guardian_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_Guardian_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_Guardian_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_Guardian_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_Guardian_VoiceSelectBattleMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_Guardian_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="600"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	<CrusherInfo 
+			CrushableLevel="20" 
+			CrusherLevel="20" 
+			CrushDecelerationPercent="80%" />
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- The default tank projectile -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXSovietShell.w3x" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+	</Includes>
+	<GameObject
+		id="NRAAntiVehicleVehicleTech3Projectile"
+		EditorSorting="SYSTEM"
+		Side="NRA"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED PRELOAD"
+		EditorName="NRAAntiVehicleVehicleTech3Projectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRA_Electro_Permanent"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRAIonProjectileDispersedParticle"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRAIonProjectileLight"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+					<Event
+						Index="onTerrainCollision"
+						FX="FX_NRA_IonProjectileExplosion"/>
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="25"
+				SecondPercentIndent="66"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="0"
+				GroundHitFX="FX_NRA_IonProjectileExplosion"/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+	<GameObject
+		inheritFrom="NRAAntiVehicleVehicleTech3Projectile"
+		id="NRAAntiVehicleVehicleTech3Projectile_Veteran"
+		EditorName="NRAAntiVehicleVehicleTech3Projectile_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRA_Electro_Permanent"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRAIonProjectileDispersedParticle_Vet"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRAIonProjectileLight_Vet"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<BezierProjectile
+				xai:joinAction="Replace"
+				id="ModuleTag_BezierProjectileBehavior"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="25"
+				SecondPercentIndent="66"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="0"
+				GroundHitFX="FX_NRA_IonProjectileExplosion_Vet"/>
+			<FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_NRA_IonProjectileExplosion_Vet" />
+      </FXListBehavior>
+      
+		</Behaviors>
+	</GameObject>
+
+</AssetDeclaration>

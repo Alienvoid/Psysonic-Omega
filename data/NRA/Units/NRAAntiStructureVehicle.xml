@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:CUAntiStructureVehicle_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:AUAntiStructureVehicle_IDLA.w3x" />			
+		<Include
+			type="all"
+			source="ART:AUAntiStructureVehicle_MOVA.w3x" />
+		<Include
+			type="all"
+			source="ART:AUAntiStructureVehicle_TRNL.w3x" />
+		<Include
+			type="all"
+			source="ART:AUAntiStructureVehicle_TRNR.w3x" />
+		<Include
+			type="all"
+			source="ART:AUAntiStructureVehicle_SHLD.w3x" />
+		<Include
+			type="all"
+			source="ART:CUAntiStructureVehicle_D.xml" />	
+		<Include
+			type="all"
+			source="ART:CUAntiStructureVehicle_turret_D.xml" />
+		<Include
+			type="all"
+			source="ART:FXLaserOverlay.w3x" />					
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="all"
+			source="ART:FXRailGunCoreDistortion.xml" />
+		<Include
+			type="all"
+			source="ART:FXRailGunCoreMask.xml" />
+		<Include
+			type="all"
+			source="ART:FXLaserStandard.xml" />
+    <Include
+			type="all"
+			source="ART:EXAlliedTargetLaserGrad.xml" />
+		<Include
+			type="all"
+			source="ART:EXCrystalLaser.xml" />			
+		<Include
+			type="all"
+			source="ART:EXCrystalLaser_Vet.xml" />				
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- A.k.a. Athena Cannon -->
+	<GameObject
+		id="NRAAntiStructureVehicle"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_NRAAntiStructureVehicle"
+		ButtonImage="Button_NRAAntiStructureVehicle"
+		SubGroupPriority="415" 
+		Side="NRA"
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="30"
+		BuildTime="12"
+		CommandSet="NRAAntiStructureVehicleCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT SIEGE_WEAPON T2_UNIT"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="NRAAntiStructureVehicle"
+		Description="Desc:NRAAntiStructureVehicle"
+		TypeDescription="Type:NRAAntiStructureVehicle">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRAAntiStructureVehicle</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech2</NeededUpgrade>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1200"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedAntiStructureVehicleArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="NRAAntiStructureVehicleLocomotor"
+			Condition="NORMAL"
+			Speed="55.0" />
+		<LocomotorSet
+			Locomotor="NRAAntiStructureVehicleLocomotor"
+			Condition="NORMAL_UPGRADED"
+			Speed="55.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+      ConquerMetricsDpsBonusAgainstDefenses="5.0"
+      OutOfRangePenalty="3.0"/>
+		<Draws>
+
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				LeftFrontTireBone="Bone_Tracks_Front_Left"
+				RightFrontTireBone="Bone_Tracks_Front_Right"
+				
+				TireRotationMultiplier="0.0"		
+				InitialRecoilSpeed="0.5"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				
+				ExtraPublicBone="Bone_Tread_Front_Left Bone_Tread_Front_Right FXTracksL FXTracksR Bone_Turret Bone_Turret_Pitch FX_CrystalL FX_CrystalR FX_WeaponA FXHEADLIGHT_L FXHEADLIGHT_R"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="FXTracksL"
+				TrackMarksRightBone="FXTracksR">
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Front_Left"
+					RightTrack="Bone_Tread_Front_Right"
+					SpeedMultiplier="-0.2"
+					TreadDriveSpeedFraction="10%"/>
+														
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="CUAntiStructureVehicle_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA"/>
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponA"/>
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<Turret
+						TurretNameKey="Bone_Turret"
+						TurretPitch="Bone_turret_pitch"
+						TurretID="1" />
+				</ModelConditionState>
+
+        <!-- Damage States -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+				<Model
+						Name="CUAntiStructureVehicle_SKN" />
+				<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="CUAntiStructureVehicle_SKN" />
+					<Texture
+						Original="CUAntiStructureVehicle"
+						New="CUAntiStructureVehicle_D" />
+					<Texture
+						Original="CUAntiStructureVehicle_turret"
+						New="CUAntiStructureVehicle_turret_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFire"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFireLight"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>          
+				</ModelConditionState> 
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="FX_WeaponA"
+						FXParticleSystemTemplate="NRA_Crystal_Laser"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_WeaponA"
+						FXParticleSystemTemplate="NRA_Crystal_Light"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_CrystalL"
+						FXParticleSystemTemplate="NRA_Crystal_Laser_SmallGlow"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_CrystalR"
+						FXParticleSystemTemplate="NRA_Crystal_Laser_SmallGlow"
+						FollowBone="true"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("Skin_laser")
+					</Script>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACKING">
+					<ParticleSysBone
+						BoneName="FX_WeaponA"
+						FXParticleSystemTemplate="NRA_Crystal_Laser"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_WeaponA"
+						FXParticleSystemTemplate="NRA_Crystal_Light"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_CrystalL"
+						FXParticleSystemTemplate="NRA_Crystal_Laser_SmallGlow"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_CrystalR"
+						FXParticleSystemTemplate="NRA_Crystal_Laser_SmallGlow"
+						FollowBone="true"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("Skin_laser")
+					</Script>
+				</AnimationState>
+				
+			</TruckDraw>
+        
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0.2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="30"
+				
+				FadeInTime="0.4s"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>EXCrystalLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />
+			</LaserDraw>
+			
+        
+			<LaserDraw
+				id="ModuleTag_LaserDraw_Vet"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0.2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="30"
+				
+				FadeInTime="0.4s"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>EXCrystalLaser_Vet</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_02" />
+			</LaserDraw>
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRACrystalBeamWeapon"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="NRACrystalBeamWeapon_AntiAircraft"/>
+					<TurretSettings
+						TurretTurnRate="180"
+						TurretPitchRate="180"
+						AllowsPitch="true"
+						MinimumPitch="-45d"
+						PitchHeight="66%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="720.0">
+						<TurretAITargetChooserData
+							ActiveWhenPerformingSpecialAbility="true"
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true">
+							<ObjectVisionRange
+								id="ObjectVisionRange_Aircraft"
+								Range="116">
+								<Filter
+									Rule="ANY"
+									Include="INFANTRY VEHICLE AIRCRAFT"
+									StatusBitFlags="AIRBORNE_TARGET"/>
+							</ObjectVisionRange>	
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			
+			<LaserState
+				id="ModuleTag_LaserState01"
+				LaserId="1" >
+				<LaserEndParticleSystem>AllianceHydraDistortion</LaserEndParticleSystem>
+				<LaserEndParticleSystem>NRA_Crystal_Beam_End</LaserEndParticleSystem>
+				<LaserEndParticleSystem>NRA_Crystal_GlowLight</LaserEndParticleSystem>
+				<LaserEndParticleSystem>NRA_Crystal_Glow02</LaserEndParticleSystem>
+				
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState01_Vet"
+				LaserId="2" >
+				<LaserEndParticleSystem>AllianceHydraDistortion</LaserEndParticleSystem>
+				<LaserEndParticleSystem>NRA_Crystal_Beam_End_Vet</LaserEndParticleSystem>
+				<LaserEndParticleSystem>NRA_Crystal_GlowLight</LaserEndParticleSystem>
+				<LaserEndParticleSystem>NRA_Crystal_Glow02</LaserEndParticleSystem>
+			</LaserState>
+
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUAntiStructureVehicle_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="TOPPLED ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedChieftanDie" />
+			</FXListBehavior>
+		
+			<SpecialPower
+				id="ModuleTag_ResonateWave"
+				SpecialPowerTemplate="SpecialPower_TriggerResonateWave"
+				UpdateModuleStartsAttack="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ResonateWaveUpdate"
+				SpecialWeapon="NRAResonateWaveWeapon"
+				SpecialPowerTemplate="SpecialPower_TriggerResonateWave"
+				UnpackTime=".5s"
+				StartAbilityRange="600.0"
+				FaceTarget="true"
+				WhichSpecialWeapon="1"
+				Options="BUSY_DURING_UNPACK"/>
+
+			<LinearDamageUpdate
+				id="ModuleData_LinearDamageUpdate"
+				StartDistanceOffset="40"
+				Radius="20"
+				Length="625"
+				SweepFXList="FX_ResonateWave"
+				SweepWeapon="NRAResonateWaveSweepingWeapon"
+				Speed="20"
+				FollowTerrain="true">
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LinearDamageUpdate>
+			<LinearDamageUpdate
+				id="ModuleData_LinearDamageUpdate_Heroic"
+				StartDistanceOffset="40"
+				Radius="20"
+				Length="625"
+				SweepFXList="FX_ResonateWaveVet"
+				SweepWeapon="NRAResonateWaveSweepingWeapon"
+				Speed="20"
+				FollowTerrain="true">
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</LinearDamageUpdate>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade> 
+			
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="450" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_Athena_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_WeaponStartup">
+				<ModelConditionSound Sound="ALL_AthenaCannon_WeaponStartup" RequiredFlags="FIRING_OR_PREATTACK_A" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior id="ModuleTag_ASCB">
+				<Sound Sound="ALL_AthenaCannon_AegisShieldAnimationOpen" Animation="AUAntiStructureVehicle_SHLD" Frame="1" />
+				<Sound Sound="ALL_AthenaCannon_AegisShieldAnimationClose" Animation="AUAntiStructureVehicle_SHLD" Frame="10" />
+				<Sound Sound="ALL_AthenaCannon_AegisShieldOff" Animation="AUAntiStructureVehicle_SHLD" Frame="5" />
+			</AnimationSoundClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_ALL_AthenaCannon_VoiceCantMove">
+				<Override RequiredFlags="LOCOMOTOR_NORMAL_UPGRADED">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_AthenaCannon_VoiceCantMove" AudioType="voiceMove" />
+						<AudioEntry Sound="ALL_AthenaCannon_VoiceSelectSpecial" AudioType="voiceSelect" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_AegisShield">
+				<ModelConditionSound Sound="ALL_AthenaCannon_AegisShieldLoopMS" RequiredFlags="LOCOMOTOR_NORMAL_UPGRADED" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="28.0"
+				MinorRadius="15.0"
+				Height="32.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_AthenaCannon_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+<!-- ALL_AthenaCannon_VoiceCantMove 
+	no hook!!!! -->
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_AthenaCannon_MovStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="610"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+	<CrusherInfo 
+			CrushableLevel="20" 
+			CrusherLevel="20" 
+			CrushDecelerationPercent="80%"/>		
+	</GameObject>
+</AssetDeclaration>

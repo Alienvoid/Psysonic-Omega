@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:CUBomberAircraft_COL.w3x" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="NRABomberAircraft_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="NRABomberAircraft_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="6"
+			Explodiness="4" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUBomberAircraft_COL" />
+					<Texture
+						Original="CUBomberAircraft"
+						New="CUBomberAircraft_D" />
+
+				<xi:include
+					href="DATA:Includes/VehicleCollapseParticles/AlliedVehicleCollapseParticles.xml"
+					xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:AlliedVehicleCollapseParticles/child::*)" />
+		        </ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="CUBomberAircraft_COL" />
+					<Texture
+						Original="CUBomberAircraft"
+						New="CUBomberAircraft_02_D" />	
+				<xi:include
+					href="DATA:Includes/VehicleCollapseParticles/AlliedVehicleCollapseParticles.xml"
+					xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:AlliedVehicleCollapseParticles/child::*)" />						
+				</ModelConditionState>  
+
+				<BoneVolumes>
+<BoneVolume BoneName="Bone_D_01" Mass="150" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.68665" HalfSizeY="13.4666" HalfSizeZ="0.299836" >
+		<Translation x="-13.2025" y="-19.932" z="1.50418" />
+		<Rotation x="0.0" y="0.0" z="0.34202" w="0.939693" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="113" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.93988" HalfSizeY="0.681712" HalfSizeZ="5.58322" >
+		<Translation x="-8.41979" y="11.6363" z="2.51704" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="113" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.93988" HalfSizeY="0.681712" HalfSizeZ="5.58322" >
+		<Translation x="-8.41979" y="-11.636" z="2.51704" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="150" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.68665" HalfSizeY="13.4666" HalfSizeZ="0.299836" >
+		<Translation x="-13.2025" y="19.932" z="1.50418" />
+		<Rotation x="0.0" y="0.0" z="0.34202" w="0.939693" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="146" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="9.31473" HalfSizeY="2.32073" HalfSizeZ="0.667609" >
+		<Translation x="-5.63415" y="4.10764" z="1.93038" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="146" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="9.31473" HalfSizeY="2.32073" HalfSizeZ="0.667609" >
+		<Translation x="-5.63415" y="-4.108" z="1.93038" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="55" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.73402" HalfSizeY="1.83769" HalfSizeZ="1.09953" >
+		<Translation x="-7.38756" y="3.94467" z="0.820475" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="55" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.73402" HalfSizeY="1.83769" HalfSizeZ="1.09953" >
+		<Translation x="-7.38756" y="-3.945" z="0.820475" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_09" Mass="176" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="9.35149" HalfSizeY="1.59605" HalfSizeZ="1.16945" >
+		<Translation x="-5.80034" y="0.0" z="1.96803" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_10" Mass="1714" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="20.219" HalfSizeY="6.23101" HalfSizeZ="1.34416" >
+		<Translation x="-5.06832" y="6.15883" z="1.55388" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_11" Mass="1714" Spinniness="1" ContactTag="DEBRIS" >
+	<Box HalfSizeX="20.219" HalfSizeY="6.23101" HalfSizeZ="1.34416" >
+		<Translation x="-5.06832" y="-6.159" z="1.55388" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	
+	<Behaviors>
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>	
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="10s"
+			MaxLifetime="14s" />	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			DestructionDelay="8s">
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+	</Behaviors>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionLargeNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+</GameObject>
+</AssetDeclaration>

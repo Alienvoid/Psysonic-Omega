@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:CUICBM_SKN.w3x" />
+	</Includes>
+	<GameObject
+		id="NRAAntiStructureShipICBMProjectile"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE BALLISTIC_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED CAN_CAST_REFLECTIONS"
+		EditorName="NRAAntiStructureShipICBMProjectile">
+		<ArmorSet
+			Armor="ProjectileArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUICBM_SKN" />
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="NRAICBMTrailFire"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="NRAICBMTrailFireLight"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="NRAICBMTrailSmoke"
+						FollowBone="true"/>
+          
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<!--<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  MinLifetime="1.0s"
+			  MaxLifetime="1.0s" />
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanRazorDroneDeathWeapon"
+				DeathWeapon="NRAICBMWarhead"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED DETONATED" />
+			</FireWeaponWhenDead>-->
+      <FXListBehavior
+				id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_NRA_ICBMExplosion" />
+      </FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="1050"
+				FirstHeightMax="1200"
+				SecondHeightMin="1050"
+				SecondHeightMax="1200"
+				FirstPercentIndent="0"
+				SecondPercentIndent="30"
+				GroundHitFX="FX_NRA_ICBMExplosion"
+				FlightPathAdjustDistPerSecond="25.0"
+				Acceleration="0.55"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="500.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_V4MissileLauncher_MissileIncoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+  <!-- VETERAN -->
+
+  <GameObject
+    inheritFrom="NRAAntiStructureShipICBMProjectile"
+		id="NRAAntiStructureShipICBMProjectile_Veteran">
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+        xai:joinAction="Replace">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="CUICBM_SKN" />
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="NRAICBMTrailFire_Vet"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="NRAICBMTrailFireLight_Vet"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="NRAICBMTrailSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+      </ScriptedModelDraw>
+    </Draws>
+    <Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_NRA_ICBMExplosion_Vet" />
+      </FXListBehavior>
+		<BezierProjectile
+			id="ModuleTag_BezierProjectileBehavior"
+        xai:joinAction="Replace"
+			Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+			FirstHeightMin="1050"
+			FirstHeightMax="1200"
+			SecondHeightMin="1050"
+			SecondHeightMax="1200"
+			FirstPercentIndent="0"
+			SecondPercentIndent="30"
+			GroundHitFX="FX_NRA_ICBMExplosion_Vet"
+			FlightPathAdjustDistPerSecond="25.0"
+			Acceleration="0.55"
+			/>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

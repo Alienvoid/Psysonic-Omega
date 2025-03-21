@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags>
+	</Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include type="instance" source="ART:EXTireTrack2.xml" />
+		<Include type="instance" source="ART:EX_Headlights.w3x" />
+		
+    <Include
+			type="all"
+			source="ART:AUHarvester_D.xml" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_FX.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_FP.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_SKN.w3x" />
+		<Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_IDLA.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_MOVA.w3x" />
+		<Include
+			type="all"
+			source="ART:AUHarvester_HOVER.w3x" />
+		
+		<Include type="all" source="ART:Ore_Gold_SKN.w3x" />
+		<Include type="all" source="ART:Ore_Gold_AHFILL.w3x" />
+		<Include type="all" source="ART:Ore_Gold_AHIDL.w3x" />
+
+
+		<Include type="all" source="ART:oreharvest_gold.w3x" />
+		<Include type="all" source="ART:oreharvest_gold_worthy.w3x" />
+
+
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:OreNode/AlliedMiner.xml" />
+	</Includes>
+	<GameObject
+		id="NRAMiner"
+		inheritFrom="AlliedMiner"
+		Side="NRA">
+		<EquivalentTo>AlliedMiner</EquivalentTo>
+		<DisplayName xai:joinAction="Replace">Name:NRAMiner</DisplayName>
+		<GameDependency xai:joinAction="Replace">
+			<RequiredObject>NRARefinery</RequiredObject>
+		</GameDependency>
+	</GameObject>
+
+
+
+
+
+
+
+
+	<GameObject id="NRAMiner_Naval" inheritFrom="NRAMiner" EditorName="NRAMiner_Naval" ProductionQueueType="WATERCRAFT">
+		<EquivalentTo>AlliedMiner</EquivalentTo>
+	</GameObject>
+
+
+	<!-- <LocomotorTemplate id="MinerGroundLocomotor" Surfaces="GROUND CRUSHABLE_OBSTACLE" TurnTimeSeconds="1.0s" TurnTimeDamagedSeconds="2.0s" AccelerationSeconds="0.5s" MaxSpeedDamaged="75%" BrakingSeconds="0.5s" SlowTurnRadius="0.0" FastTurnRadius="50.0" BehaviorZ="NO_MOTIVE_FORCE" Appearance="TREADS" BackingUpSpeed="60%" BackingUpDistanceMin="0.0" BackingUpDistanceMax="0.0" UseTerrainSmoothing="true" AccelPitchLimit="2d" PitchStiffness="0.5" RollStiffness="0.5" PitchDamping="0.8" RollDamping="0.3" ForwardAccelerationPitchFactor="0.0" LateralAccelerationRollFactor="0.0" ClampOrientationToPathTangent="false" ReorientIfTurnTooSharp="true" /> -->
+
+
+</AssetDeclaration>

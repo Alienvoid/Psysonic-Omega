@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+<!-- aka Aircraft Carrier -->
+	<Includes>
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:Allied/Unit/AlliedAntiNavalScout.xml" />
+	</Includes>
+	<!-- A.k.a. Aircraft Carrier -->
+	<GameObject
+		id="NRAAntiNavalScout"
+		inheritFrom="AlliedAntiNavalScout">
+		<EquivalentTo>AlliedAntiNavalScout</EquivalentTo>
+	</GameObject>
+</AssetDeclaration>
+

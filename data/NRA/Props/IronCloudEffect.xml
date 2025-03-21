@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+	</Includes>
+	<GameObject
+		id="IronCloudEffect"
+		Side="Neutral"
+		KindOf="IMMOBILE CAN_ATTACK NOT_AUTOACQUIRABLE RESIST_EMP NO_COLLIDE UNATTACKABLE MACHINE"
+		EditorSorting="MISC_NATURAL"
+		EditorName="IronCloudEffect">
+		<DisplayName>Name:IronCloudEffect</DisplayName>
+		<ArmorSet
+			Armor="IonStormArmor" />		
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL">
+					<Model
+						Name="" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="IronCloud"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="10.0s"
+				MaxLifetime="10.0s" />
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeModifier_IronCloudEffect"
+				RefreshDelay="0.2s"
+				Range="100"
+				InitiallyActive="true">
+				<ObjectFilter
+					Rule="ANY"
+					Include="VEHICLE HUGE_VEHICLE INFANTRY STRUCTURE AIRCRAFT PROJECTILE SMALL_MISSILE VALID_TARGET_FOR_C4"
+					StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET UNDER_IRON_CURTAIN UNATTACKABLE IGNORING_POWER_DOWN">
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.2s">
+				<FireWeaponNugget
+					WeaponName="IronCloudEffectWeapon"
+					FireDelay="0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<DestroyDie
+				id="ModuleTag_DestroyDie">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES">
+				<UnitAITargetChooserData
+					CanAutoAcquireNonAutoAcquirable="true" 
+					SympathyRange="25.0" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="100.0"
+				Height="160.0"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="375"
+			ShroudClearingRange="500" />
+		<CrusherInfo
+			CrushableLevel="100" />
+	</GameObject>
+</AssetDeclaration>

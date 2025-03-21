@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:AUBomber_Bomb.w3x" />
+	</Includes>
+	<GameObject
+		id="NRABomberAircraftBombProjectile"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE INERT SMALL_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED PRELOAD PASS_EXPERIENCE_TO_PRODUCER PATH_THROUGH_INFANTRY"
+		EditorName="NRABomberAircraftBombProjectile">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUBomber_Bomb" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="0"
+				MaxYRotationVelocity="0"
+				MaxZRotationVelocity="0"
+				OrientToFlightPath="true"
+				KillWhenRestingOnGround="true"/>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_NRA_PhoenixBomber_BombExplosion" />
+			</FXListBehavior>
+			<FireWeaponWhenDead
+				id="ModuleTag_DeathWeapon"
+				DeathWeapon="NRABomberAircraftBombWarhead"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<!--<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="20"
+				SecondHeightMax="20"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				Acceleration="1.0"
+				FlightPathAdjustDistPerSecond="0"/>-->
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="500.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+  <GameObject
+		inheritFrom="NRABomberAircraftBombProjectile"
+		id="NRABomberAircraftBombProjectile_Vet">
+		<Draws>
+		</Draws>
+		<Behaviors>
+			<!--<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				xai:joinAction="Replace"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="20"
+				SecondHeightMax="20"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="0"
+				Acceleration="1.0"
+				GroundHitFX="FX_NRA_PhoenixBomber_BombExplosion"/>-->
+			<FXListBehavior
+				id="ModuleTag_FXLists"
+				xai:joinAction="Replace">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_NRA_PhoenixBomber_BombExplosion" />
+			</FXListBehavior>
+		</Behaviors>
+  </GameObject>
+
+</AssetDeclaration>

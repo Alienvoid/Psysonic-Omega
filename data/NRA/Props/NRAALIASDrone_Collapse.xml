@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:cualias_col.w3x" />
+    <Include
+		type="all"
+		source="ART:cualias_D.xml" />
+    <Include
+		type="all"
+		source="ART:cualias_02_D.xml" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="NRAALIASDrone_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="NRAALIASDrone_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="6"
+			Explodiness="4" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="cualias_col" />
+					<Texture
+						Original="cualias"
+						New="cualias_D" />
+        </ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="cualias_col" />
+					<Texture
+						Original="cualias"
+						New="cualias_02_D" />					
+				</ModelConditionState>
+				
+				<BoneVolumes>
+<BoneVolume BoneName="Bone_D_01" Mass="113" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="6.3485" HalfSizeY="0.879022" HalfSizeZ="2.0" >
+		<Translation x="-3.31571" y="-1.19209e-007" z="3.63333" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="19" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="6.67316" HalfSizeY="4.6297" HalfSizeZ="0.0638579" >
+		<Translation x="-5.11167" y="7.90706" z="1.37689" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="19" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="6.67316" HalfSizeY="4.6297" HalfSizeZ="0.0638579" >
+		<Translation x="-5.11167" y="-7.907" z="1.37689" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="30" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="1.85188" HalfSizeY="1.88381" HalfSizeZ="0.862082" >
+		<Translation x="-11.8475" y="-0.169806" z="1.3676" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="495" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="10.2739" HalfSizeY="3.39327" HalfSizeZ="1.40489" >
+		<Translation x="-1.8555" y="-0.0828203" z="1.40489" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="83" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.71396" HalfSizeY="2.17117" HalfSizeZ="1.40487" >
+		<Translation x="11.1491" y="0.0" z="1.40487" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	
+	<Behaviors>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="10s"
+			MaxLifetime="14s" />	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			DestructionDelay="8s">
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+		<SubObjectsUpgrade
+			id="ModuleTag_AlliedAirPower_subobject">
+			<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+			<Nugget
+				ShowSubObjects="Upgrade_01"
+				Upgrade="Upgrade_AlliedAirPower">
+			</Nugget>
+			<CustomAnimAndDuration	AnimState="USER_2"/>	
+		</SubObjectsUpgrade>	
+	</Behaviors>
+	
+</GameObject>
+</AssetDeclaration>

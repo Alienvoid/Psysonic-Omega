@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		
+		<Include
+			type="all"
+			source="ART:CUBomberAircraft_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:CUBomberAircraft_D.xml" />				
+	</Includes>
+	<GameObject
+		id="NRABomberAircraft_Dying"
+		EditorName="NRABomberAircraft_Dying"
+		Description="Desc:NRABomberAircraft_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUBomberAircraft_SKN" />
+					<Texture
+						Original="CUBomberAircraft"
+						New="CUBomberAircraft_D" />
+          
+          <!-- Bone_Engine_Right_01 -->          
+          <ParticleSysBone
+						BoneName="Bone_Wing_Right"
+						FXParticleSystemTemplate="AlliedBomberDyingFire"
+						FollowBone="true" />
+          <ParticleSysBone
+            BoneName="Bone_Wing_Right"
+            FXParticleSystemTemplate="AlliedBomberDyingFireLight"
+            FollowBone="true" />
+          <ParticleSysBone
+						BoneName="Bone_Wing_Right"
+						FXParticleSystemTemplate="AlliedBomberDyingSmoke"
+						FollowBone="true" />
+
+          <!-- Bone_Engine_Left_02 -->
+          <ParticleSysBone
+						BoneName="Bone_Wing_Left"
+						FXParticleSystemTemplate="AlliedBomberDyingFire"
+						FollowBone="true" />
+          <ParticleSysBone
+            BoneName="Bone_Engine_Left_02"
+            FXParticleSystemTemplate="AlliedBomberDyingFireLight"
+            FollowBone="true" />
+          <ParticleSysBone
+						BoneName="Bone_Wing_Left"
+						FXParticleSystemTemplate="AlliedBomberDyingSmoke"
+						FollowBone="true" />
+          
+          <!-- FX_Weapon_01 -->
+          <ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="AlliedBomberDyingFire"
+						FollowBone="true" />
+          <ParticleSysBone
+            BoneName="FX_Weapon_01"
+            FXParticleSystemTemplate="AlliedBomberDyingFireLight"
+            FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="AlliedBomberDyingSmoke"
+						FollowBone="true" />
+        </ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="CUBomberAircraft_SKN" />
+					<Texture
+						Original="CUBomberAircraft"
+						New="CUBomberAircraft_02_D" />	
+				</ModelConditionState>        
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="50"
+				MaxYRotationVelocity="50"
+				MaxZRotationVelocity="0"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUBomberAircraft_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_AlliedBomberDeathWeapon"
+				DeathWeapon="BomberAircraftDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+      <FXListBehavior
+				id="ModuleTag_FXList">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_AlliedBomberDie" />
+      </FXListBehavior>      
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+					<CustomAnimAndDuration	AnimState="USER_2"/>	
+				</Nugget>
+			</SubObjectsUpgrade>	
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100" />
+		</Body>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionLargeNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />		
+	</GameObject>
+</AssetDeclaration>

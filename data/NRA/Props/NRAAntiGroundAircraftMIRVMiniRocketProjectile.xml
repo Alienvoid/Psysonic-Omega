@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+			type="all"
+			source="ART:SUMirvRocket_MIRV.w3x" />
+  </Includes>
+  <GameObject
+		id="NRAAntiGroundAircraftMIRVMiniRocketProjectile"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUMirvRocket_MIRV" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRAWhitePhosphorusTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRAWhitePhosphorusGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="NRAWhitePhosphorusLight"
+						FollowBone="true" />
+						
+						
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_V4BitsExplosion" />
+			</FXListBehavior>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="PING_PONG_SIDEWAYS_DRIFT DETONATE_CALLS_KILL ORIENT_TO_FLIGHT_PATH"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="2"
+				SecondHeightMax="2"
+				FirstPercentIndent="33"
+				SecondPercentIndent="80"
+				GroundHitFX="FX_V4BitsExplosion"
+				SidewaysDrift="25"
+				FlightPathAdjustDistPerSecond="100.0"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_V4MissileLauncher_MIRVincoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+</AssetDeclaration>

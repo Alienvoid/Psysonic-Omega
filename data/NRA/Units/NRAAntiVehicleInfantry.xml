@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<!-- A.K.A. Javelin Soldier -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include type="all"	source="ART:AUAntiVehicleInfantry_SKN.w3x" />
+		<Include type="all"	source="ART:FXObeliskLaser.xml" />
+    <Include type="all"	source="ART:FXObeliskLaserHeroic.xml" />
+    <Include type="all"	source="ART:FXLaserOverlay.xml" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_AIMDOWN.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_AIMUP.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_DIEFALL.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_FALLEN.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_FLY.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_RECOILDOWN.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_RECOILUP.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_IDLE.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_A_SELECT.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_HRC.w3x" />
+		<Include type="all" source="ART:SU_ROCKETEER_FP.w3x" />
+		
+		<Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<!-- A.K.A. Javelin Soldier -->
+	<GameObject
+		id="NRAAntiVehicleInfantry"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_NRARocketeer"
+		ButtonImage="Button_NRARocketeer"
+		Side="NRA"
+		SubGroupPriority="420" 
+		EditorSorting="UNIT"	
+		BuildTime="5"
+		CommandSet="AlliedAntiVehicleInfantryCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE"
+		ThreatLevel="10"
+		WeaponCategory="MISSILE"
+		VoicePriority="100"
+		EditorName="NRAAntiVehicleInfantry"
+		Description="Desc:NRAAntiVehicleInfantry"
+		TypeDescription="Type:NRAAntiVehicleInfantry"
+		UnitTypeIcon="JavelinIcon"
+		HealthBoxHeightOffset="30">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRAAntiVehicleInfantry</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanAntiVehicleInfantryTech3Armor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="NRARocketeerLocomotor"
+			Condition="NORMAL"
+			Speed="100" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SU_ROCKETEER_HRC" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_FIRE" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_FIRE" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="B_FIRE" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="B_FIRE" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+          <Model
+						Name="SU_ROCKETEER_FP" />
+        </ModelConditionState>     
+
+				<!-- falling out of the sky -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="EXPLODED_FLAILING">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_DIEFALL"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<!-- hit the ground and dead -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_FALLEN"
+						AnimationMode="ONCE" />
+					<Script>
+						CurDrawablePlaySound("BodyfallGeneric")
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_FLY"
+						AnimationMode="LOOP"
+						AnimationBlendTime="5"/>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_AIMDOWN"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_B">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_AIMUP"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USING_WEAPON_A">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_RECOILDOWN"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USING_WEAPON_B">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_RECOILUP"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Selected">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_SELECT"
+						AnimationMode="ONCE"
+						AnimationPriority="80"
+						AnimationBlendTime="5" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_bored"
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="SU_ROCKETEER_A_IDLE"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5"
+						AnimationPriority="80" />
+				</AnimationState>
+
+			</ScriptedModelDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-.3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".5"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-.6"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="7"
+				WeaponSlotID="2" 
+				LaserStateID="1">
+					<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXBeam</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRARocketeerBlastGun" />
+                    <Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="NRARocketeerBlastGun_Aircraft"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			
+			<AimWeapon
+				id="ModuleTag_AimWeapon" />
+			
+      <LaserState
+				id="ModuleTag_LaserState"
+				LaserId="1"
+        OriginBoneName="FX_Laser" >
+        <LaserEndParticleSystem>Allied_Target_LaserEnd</LaserEndParticleSystem>
+      </LaserState>
+      <Physics
+				id="ModuleTag_Physics" />
+				
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4.5s">
+				<DieMuxData
+					DeathTypes="ALL" 
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED IRRADIATED"/>
+				<Sound
+					Type="INITIAL"
+					List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="LASERED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ELECTROCUTED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ELECTROCUTED LASERED STABBED IRRADIATED"/>
+                <Sound Type="INITIAL" List="ALL_Javelin_VoiceDieFire" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED IRRADIATED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+						
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+			<SpecialPower
+				id="ModuleTag_RadarLock"
+				SpecialPowerTemplate="SpecialPower_RadarLock"
+				UpdateModuleStartsAttack="true"
+				SetModelCondition="USER_7"
+				SetModelConditionTime="4.3s"/>
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleRadarLock"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				SpecialPowerTemplate="SpecialPower_RadarLock">
+				<ToggleState
+					GenericLuaEventParameter="laser_off">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT">
+						<StateWeapon
+							Weapon="AlliedAntiVehicleInfantryMissileLauncher" />
+					</SkirmishAiInfo>
+				</ToggleState>
+				<!-- NOTE: Use the ModelConditions attibute in the following Toggle state to put some animation on the Infantry during Radar Lock -->
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE"
+					ModelConditions="USER_6"
+					AttributeModifier="AttributeModifier_RadarLockVisionBonus"
+					GenericLuaEventParameter="laser_on"
+					EnterStateSound="ALL_JavelinSoldier_LaserGuideOnMS">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_WEAPON"
+            OnlyUseWhenHaveTarget="true">
+						<StateWeapon
+							Weapon="AlliedAntiVehicleInfantryMissileLauncher_RadarLock" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>
+
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_JapanFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>	
+
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="AlliedAntiVehicleInfantryFunctions" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+                    RotateToTargetWhenAiming="true">	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="300" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="ALL_Javelin_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="ALL_Javelin_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior
+				id="ModuleTag_ASCB">
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="AUAntiVehicleInfantry_MCNB" Frame="3" />
+				
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_CDTA" Frame="6" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_CDTB" Frame="7" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTBA" Frame="55" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTBB" Frame="33" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTFA" Frame="102" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTKA" Frame="50" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTKB" Frame="74" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTPA" Frame="82" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTPB" Frame="80" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTSA" Frame="38" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_LNDA" Frame="5" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_MCND" Frame="4" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_RNDA" Frame="37" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_RNDB" Frame="48" />
+			</AnimationSoundClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_LaserGuidedVoice">
+				<Override RequiredFlags="USER_6">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_Javelin_VoiceAttackLaserGuided" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LaserGuideOff">
+				<ModelConditionSound Sound="ALL_JavelinSoldier_LaserGuideOffMS" RequiredFlags="USER_7" ExcludedFlags="USER_6 DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_Javelin_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_Javelin_VoiceAttackAir" AudioType="voiceAttackAir" />
+			<AudioEntry Sound="ALL_Javelin_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_Javelin_VoiceGarrison" AudioType="voiceGarrison" />
+			<AudioEntry Sound="ALL_Javelin_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_Javelin_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_Javelin_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_Javelin_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<AudioEntry Sound="ALL_Javelin_VoiceSelectMS" AudioType="voiceSelect" />
+			<!-- <AudioEntry Sound="ALL_Javelin_VoiceUnderAttack" AudioType="voiceUnderAttack" /> -->
+		</AudioArrayVoice>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="410"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+</AssetDeclaration>

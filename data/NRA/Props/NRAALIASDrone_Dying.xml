@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xai="uri:ea.com:eala:asset:instance"  xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		
+		<Include
+			type="all"
+			source="ART:cualias_skn.w3x" />
+		<Include
+			type="all"
+			source="ART:cualias_d.xml" />			
+		<Include
+			type="all"
+			source="ART:cualias_02_d.xml" />		
+	</Includes>
+	<GameObject
+		id="NRAALIASDrone_Dying"
+		EditorName="NRAALIASDrone_Dying"
+		Description="Desc:NRAALIASDrone_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="cualias_skn" />
+					<Texture
+						Original="cualias"
+						New="cualias_d" />
+        </ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="cualias_skn" />
+					<Texture
+						Original="cualias"
+						New="cualias_02_D" />					
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+					<CustomAnimAndDuration	AnimState="USER_2"/>
+				</Nugget>	
+			</SubObjectsUpgrade>	
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="50"
+				MaxYRotationVelocity="50"
+				MaxZRotationVelocity="0"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUALIAS_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+      <FXListBehavior
+				id="ModuleTag_FXList">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_AlliedBomberDie" />
+      </FXListBehavior>      
+			
+			<xi:include
+				href="DATA:Includes/AlliedAirPowerUpgrade.xml" />
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100" />
+		</Body>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />		
+	</GameObject>
+</AssetDeclaration>

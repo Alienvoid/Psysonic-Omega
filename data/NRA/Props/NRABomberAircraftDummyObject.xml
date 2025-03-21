@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+	</Includes>
+	<GameObject
+		id="NRABomberAircraftDummyObject"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="NRABomberAircraftDummyObject">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="2.6s"
+				MaxLifetime="2.6s" />
+
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate1"
+				FireInterval="0.1s">
+				<FireWeaponNugget
+					WeaponName="NeutronBombIncrementalWeapon1"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate8"
+				FireInterval="0.1s">
+				<FireWeaponNugget
+					WeaponName="NeutronBombIncrementalWeapon2"
+					FireDelay="0.66s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>	
+
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body"/>
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="1.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

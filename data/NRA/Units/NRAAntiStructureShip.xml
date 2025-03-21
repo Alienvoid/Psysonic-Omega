@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags/>
+	<!-- Dreadnought -->
+	<Includes>
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include
+			type="all"
+			source="ART:CUAntiStructureShip_skn.w3x" />
+		<Include
+			type="all"
+			source="ART:CUAntiStructureShip_idla.w3x" />
+		<Include
+			type="all"
+			source="ART:CUAntiStructureShip_atka.w3x" />
+		<Include
+			type="all"
+			source="ART:CUAntiStructureShip_mova.w3x" />		
+    <Include
+		type="all"
+		source="ART:cuantistructureship_D.xml" />	
+    <Include
+		type="all"
+		source="ART:AUAntiNavyShipTech1_D.xml" />	
+    <Include
+		type="all"
+		source="ART:AUAntiAirShip_D.xml" />		
+    <Include
+		type="all"
+		source="ART:SUAntiStructureShip_D.xml" />		
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- A.k.a. Dreadnought Dreadnaught --> 
+	<GameObject
+		id="NRAAntiStructureShip"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_NRAAntiStructureShip"
+		SelectPortraitTransformed="Portrait_NRAAntiStructureShip_missile"
+		ButtonImage="Button_NRAAntiStructureShip"
+		ButtonImageTransformed="Button_NRAAntiStructureShip_missile" 
+		Side="NRA"
+		SubGroupPriority="525"
+		EditorSorting="UNIT"
+		BuildTime="60"
+		CommandSet="NRAAntiStructureShipCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT SUBMARINE SIEGE_WEAPON T3_UNIT HUGE_VEHICLE TRANSFORMER"
+		RadarPriority="UNIT"
+		ProductionQueueType="WATERCRAFT"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="NRAAntiStructureShip"
+		Description="Desc:NRAAntiStructureShip"
+		DescriptionTransformed="Desc:NRAAntiStructureShip" 
+		TypeDescription="Type:NRAAntiStructureShip"
+		TypeDescriptionTransformed="Type:NRAAntiStructureShip"
+		HealthBoxHeightOffset="40">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRAAntiStructureShip</DisplayName>
+		<DisplayNameTransformed
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRAAntiStructureShip</DisplayNameTransformed>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech3</NeededUpgrade>
+      		<RequiredObject>NRATechStructure</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="5000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="BaseAdvancedSurfaceShipArmor"
+			DamageFX="VehicleDamageFX" />
+		<ArmorSet
+			Armor="BaseSurfaceShipArmor"
+			DamageFX="VehicleDamageFX"
+			Conditions="PLAYER_UPGRADE" />
+			
+		<LocomotorSet
+			id="DefaultSubmarineLocomotor"
+			Locomotor="NRAAntiStructureShipLocomotor"
+			Condition="NORMAL"
+			Speed="80.0" />
+		<LocomotorSet
+			id="Attacking_SubmarineLocomotor"
+			Locomotor="NRAAntiStructureShipLocomotor_WaterSurface"
+			Condition="SUPERSONIC"
+			Speed="60.0" />
+			
+		<!--FORCE FLOATING WATER-->
+		<LocomotorSet
+			id="ForceFloatingLocomotor"
+			Locomotor="NRAAntiStructureShipLocomotor_WaterSurface"
+			Condition="NORMAL_UPGRADED"
+			Speed="60.0" />
+			
+		<LocomotorSet
+			Locomotor="SovietAntiNavyShipTech2Locomotor_LeavingFactory"
+			Condition="EXITING_PRODUCTION_STRUCTURE"
+			Speed="80.0" />
+			
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			CanFireUpCliffs="true"/>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="FX_Weapon_01 FX_WeaponB01 FX_WeaponB02 FX_Weapon_03 FX_DamageA01 FX_Damage02">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="CUAntiStructureShip_skn" />
+					<!-- Rocket Weapons Bone -->
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+						
+					<!-- Torpedo Weapons Bone -->
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="SUKrakenBubblesIdle"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX02"
+						FXParticleSystemTemplate="SUKrakenBubblesIdle"
+						FollowBone="true" />
+				</ModelConditionState>
+			
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="CUAntiStructureShip_skn" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED USER_6">
+					<Model
+						Name="CUAntiStructureShip_skn" />
+					<Texture
+						Original="CUAntiStructureShip"
+						New="CUAntiStructureShip_D" />		
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SUAntiStructureShipWake"
+						FollowBone="true" />			
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED USER_6">
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SUAntiStructureShipWake"
+						FollowBone="true" />
+					<Model
+						Name="CUAntiStructureShip_skn" />
+					<Texture
+						Original="CUAntiStructureShip"
+						New="CUAntiStructureShip_D" />	
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="USER_6">
+					<Model
+						Name="CUAntiStructureShip_skn" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SUAntiStructureShipWake"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="CUAntiStructureShip_skn" />
+					<Texture
+						Original="CUAntiStructureShip"
+						New="CUAntiStructureShip_D" />	
+					<ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireBubbles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireFlash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireSparks"
+						FollowBone="true" />
+					 <ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireOil"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX02"
+						FXParticleSystemTemplate="Underwater_FireBubbles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX02"
+						FXParticleSystemTemplate="Underwater_FireFlash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX02"
+						FXParticleSystemTemplate="Underwater_FireSparks"
+						FollowBone="true" />
+					<ParticleSysBone
+					   BoneName="IdleFX02"
+					   FXParticleSystemTemplate="Underwater_FireOil"
+					   FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="CUAntiStructureShip_skn" />
+					<Texture
+						Original="CUAntiStructureShip"
+						New="CUAntiStructureShip_D" />	
+					<ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireBubbles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireFlash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireSparks"
+						FollowBone="true" />
+					 <ParticleSysBone
+						BoneName="IdleFX01"
+						FXParticleSystemTemplate="Underwater_FireOil"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="CUAntiStructureShip_idla"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />         
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Animation
+						AnimationName="CUAntiStructureShip_idla"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+					<!-- no water FX -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USING_WEAPON_A"
+					FrameForPristineBonePositions="1"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="CUAntiStructureShip_atka"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="RELOADING_A"
+					FrameForPristineBonePositions="1"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="CUAntiStructureShip_atka"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+					<Animation
+						AnimationName="CUAntiStructureShip_mova"
+						AnimationMode="LOOP" />
+					<ParticleSysBone
+						BoneName="Propeller01"
+						FXParticleSystemTemplate="SUKrakenBubblesMoving"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Propeller02"
+						FXParticleSystemTemplate="SUKrakenBubblesMoving"
+						FollowBone="true" />
+				</AnimationState>
+			</ScriptedModelDraw>
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRAAntiStructureShipICBMMWeapon"
+						ObjectStatus="TRANSFORMATION_TOGGLE_STATE" />
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="NRAAntiStructureShipTorpedoLauncher"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"
+            			ConquerMetricsAlwaysCount="true"/>
+					<Weapon
+						Ordering="TERTIARY_WEAPON"
+						Template="NRAAntiStructureShipTorpedoLauncherForBridges"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"
+            			ConquerMetricsAlwaysCount="true"/>   
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUAntiStructureShip_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_DreadnoughtDie" />
+				<Event
+					Index="onDeath"
+					FX="FX_LargeBuildingDieExplosionRumble" />
+			</FXListBehavior>
+
+			<SpecialPower
+					id="ModuleTag_SpecialPower_ToggleAfterburners"
+					SpecialPowerTemplate="SpecialPower_ToggleSubmarineLift"/>
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleAfterburnersUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				SpecialPowerTemplate="SpecialPower_ToggleSubmarineLift">
+				<!-- Torpedo Weapon -->
+				<ToggleState
+					ObjectStatus="SUBMERGED"
+					LocomotorSet="NORMAL"
+					AIUpdateModuleId="ModuleTag_AI"
+					AttributeModifier="AttributeMod_NRAAntiStrcutureShip_UsingTorpedo">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_WEAPON">
+						<StateWeapon
+							Weapon="NRAAntiStructureShipTorpedoLauncher" />
+					</SkirmishAiInfo>
+				</ToggleState>
+				
+				<ToggleState
+					ObjectStatus="TRANSFORMATION_TOGGLE_STATE SURFACED"
+					LocomotorSet="SUPERSONIC"
+					ModelConditions="USER_6"
+					AIUpdateModuleId="ModuleTag_MissileAI">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_AOE_ATTACK">
+						<StateWeapon
+							Weapon="NRAAntiStructureShipICBMMWeapon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>
+
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<LocomotorSetUpgrade
+				id="ModuleTag_SubmareineLocomotorUpgrade">
+				<TriggeredBy>Upgrade_ForceFloating</TriggeredBy>
+			</LocomotorSetUpgrade>
+		<LUAEventList
+			id="ModuleTag_LUAEventList"
+			EventListName="SubmarineForceFloatingFunctions"
+		/>		
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanChaseAttack="false"/>
+			</AIUpdate>
+			<AIUpdate
+				id="ModuleTag_MissileAI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine"
+				DefaultLocomotorSet="SUPERSONIC">
+				<UnitAITargetChooserData
+					CanChaseAttack="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="4500" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_Dreadnought_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_MagneticSatelliteSuckedAway">
+				<ModelConditionSound Sound="SOV_MagneticSatellite_SuckedAwayWater" RequiredFlags="SUCKED_UP_HIGH" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="47.0"
+				MinorRadius="27.0"
+				Height="15.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceCreate"
+				AudioType="voiceCreated" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceMoveHelopad"
+				AudioType="voiceEnter" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceRetreat"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="ALL_Submarine_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_Submarine_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="SOV_Dreadnought_MoveLoopWaterMS"
+				AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="SOV_Dreadnought_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="SOV_Dreadnought_IdleLoop"
+				AudioType="soundAmbient" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+			<!-- <AudioEntry Sound="AudioEvent:MammothTankTurretMoveLoop" AudioType="soundTurretMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="1510"
+			ShroudClearingRange="500" />
+		<CrusherInfo
+			CrusherLevel="1"
+			CrushableLevel="30" />
+	</GameObject>
+</AssetDeclaration>

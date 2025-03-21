@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include
+			type="all"
+			source="ART:CUAntiAirShip_D.xml" />	
+		<Include
+			type="all"
+			source="ART:AUAntiNavyShipTech1_D.xml" />	
+			
+		<Include
+			type="all"
+			source="ART:CUAntiAirShip_idla.w3x" />	
+		<Include
+			type="all"
+			source="ART:CUAntiAirShip_atka.w3x" />	
+		<Include
+			type="all"
+			source="ART:CUAntiAirShip_skn.w3x" />			
+		<Include
+			type="all"
+			source="ART:FXGradient01.xml" />
+		<Include
+			type="all"
+			source="ART:FXLaserStandard.xml" />
+		<Include
+			type="all"
+			source="ART:FXJapanPearlLaser02.xml" />
+		<!-- needed for temp laserEndParticleSystemFX? -->
+		<Include
+			type="all"
+			source="ART:SUAntiVehicleVehicleTech3_FX.w3x" />
+		<Include
+		  type="instance"
+		  source="ART:FXGrid_3.xml" />
+		<Include
+			type="instance"
+			source="ART:FXHarpoonBeam.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka The Hydrofoil -->
+	<GameObject
+		id="NRAAntiAirShip"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_NRAAntiAirShip"
+		ButtonImage="Button_NRAAntiAirShip"
+		Side="NRA"
+		SubGroupPriority="440" 
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="30"
+		TransportSlotCount="10"
+		BuildTime="12"
+		CommandSet="NRAAntiAirShipCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE SHIP CAN_BE_FAVORITE_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="WATERCRAFT"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="NRAAntiAirShip"
+		Description="Desc:NRAAntiAirShip"
+		TypeDescription="Type:NRAAntiAirShip">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRAAntiAirShip</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1200"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedAntiAirShipArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="DefaultWaterLocomotorSet"
+			Locomotor="NRAAntiAirShipWaterLocomotor"
+			Condition="NORMAL"
+			Speed="85.0" />
+		<LocomotorSet
+			Locomotor="AlliedAntiAirShipWaterLocomotor_LeavingFactory"
+			Condition="EXITING_PRODUCTION_STRUCTURE"
+			Speed="85.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="FX_WeaponA FX_WeaponB01 FX_WeaponB02" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="CUAntiAirShip_skn" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponB" />
+					<Turret
+						TurretNameKey="Bone_turret"
+						TurretPitch="Bone_TurretPitch"
+						TurretID="1" />
+				</ModelConditionState>
+
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="CUAntiAirShip_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="CUAntiAirShip_skn" />
+					<Texture
+						Original="CUAntiAirShip"
+						New="CUAntiAirShip_D" />
+					<Texture
+						Original="AUAntiNavyShipTech1"
+						New="AUAntiNavyShipTech1_D" />
+					<ParticleSysBone
+						BoneName="Bone_Radar"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="CUAntiAirShip_skn" />
+					<Texture
+						Original="CUAntiAirShip"
+						New="CUAntiAirShip_D" />
+					<Texture
+						Original="AUAntiNavyShipTech1"
+						New="AUAntiNavyShipTech1_D" />
+					<ParticleSysBone
+						BoneName="Bone_Radar"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Radar"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Radar"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="CUAntiAirShip_idla"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="SmallShipWakeIdle"
+						FollowBone="false" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING USING_WEAPON_B"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="CUAntiAirShip_atka"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AUHydrofoilWaterWake"
+						FollowBone="false" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+					<Animation
+						AnimationName="CUAntiAirShip_idla"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AUHydrofoilWaterWake"
+						FollowBone="false" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USING_WEAPON_B">
+					<Animation
+						AnimationName="CUAntiAirShip_atka"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Animation
+						AnimationName="CUAntiAirShip_atka"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+				</AnimationState>
+			</ScriptedModelDraw>
+				
+      
+			<LaserDraw
+				id="ModuleTag_MicrowaveDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.0"
+				Texture1_VScrollRate=".3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0.0"
+				Texture2_VScrollRate="0.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				LaserWidth="15"
+				LaserStateID="2">
+				
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXJapanPearlLaser02</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>3.000000</Value>
+							<Value>1.500000</Value>
+							<Value>1.500000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+      
+			<LaserDraw
+				id="ModuleTag_MicrowaveDrawVeterancy"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.0"
+				Texture1_VScrollRate=".3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0.0"
+				Texture2_VScrollRate="0.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				LaserWidth="15"
+				LaserStateID="3">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXJapanPearlLaser02</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.200000</Value>
+							<Value>1.000000</Value>
+							<Value>2.500000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<!-- This weapon is always around, but the weapon template itself prevents it
+							 from being able to be fired once it's upgraded. -->
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRAAntiAirShipSpectrumGun"
+						/>
+					<TurretSettings
+						MaxDeflectionClockwise="135d"
+						MaxDeflectionAntiClockwise="135d"
+						TurretTurnRate="180"
+						MinimumPitch="0d"
+						AllowsPitch="true"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="10.0"
+						MaxIdleScanAngle="90.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<WeaponSlotHardpoint
+					ID="2"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="NRAAntiAirShipAAMissileWeapon"/>  
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LaserState
+				id="ModuleTag_LaserState2"
+				LaserId="2" 
+				OriginBoneName="FX_WeaponA">
+				<LaserEndParticleSystem>NRAAntiAirLaserEnd_Red</LaserEndParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState1_vet"
+				LaserId="3"
+				OriginBoneName="FX_WeaponA" >
+				<LaserEndParticleSystem>NRAAntiAirLaserEnd_Red_Vet</LaserEndParticleSystem>
+			</LaserState>
+			<SpecialPower
+				id="ModuleTag_EMPCruiseMissle"
+				SpecialPowerTemplate="SpecialPower_TriggerReckonMissle"
+				UpdateModuleStartsAttack="true"
+				CanAffectObjectFilter="AlliedAntiStructureShipEMPMissleSpecialPowerObjectFilter"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_EMPCruiseMissleUpdate"
+				SpecialWeapon="NRAAntiAirShipReckonCruiseMissle"
+				SpecialPowerTemplate="SpecialPower_TriggerReckonMissle"
+				UnpackTime="1s"
+				PackTime="1s"
+				FaceTarget="false"
+				StartAbilityRange="2000.0"
+				BusyForDuration="0.2s"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="2" />
+				
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUAntiAirShip_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="FLOODED ERASED"/>
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieWhole"
+				CreationList="CUAntiAirShip_Die_OCL">
+				<DieMuxData
+					DeathTypes="FLOODED" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_HydrofoilDie" />
+			</FXListBehavior>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_02"
+				MaxHealth="900" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_Hydrofoil_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_VoiceAttackWeaponJammer">
+				<Override RequiredFlags="WEAPONSTATE_TWO">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_Hydrofoil_VoiceAttackSpecial" AudioType="voiceAttack" />
+						<AudioEntry Sound="ALL_Hydrofoil_VoiceSelectMS" AudioType="voiceSelectBattle" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_MagneticSatelliteSuckedAway">
+				<ModelConditionSound Sound="SOV_MagneticSatellite_SuckedAwayWater" RequiredFlags="SUCKED_UP_HIGH" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="58.0"
+				MinorRadius="15.0"
+				Height="36.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_Hydrofoil_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<!-- <NamedEntry Sound="ALL_Hydrofoil_VoiceAttackSpecial" Name="VoiceWeaponScrambler" /> oops plays on toggle -->
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_Hydrofoil_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry 
+				Sound="Ship_Small_MoveLoopWater" 
+				AudioType="soundMoveLoop" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="585"
+			ShroudClearingRange="600" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="1"
+			CrushableLevel="20" />
+	</GameObject>
+</AssetDeclaration>

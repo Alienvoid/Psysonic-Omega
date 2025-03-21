@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:CUHypersonicMissile_SKN.w3x" />
+    <Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+  </Includes>
+	<GameObject
+		id="NRAAntiGroundAircraftMissileProjectile"
+		inheritFrom="BaseProjectile"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		KindOf="+DEFLECT_BY_SPECIAL_POWER">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUHypersonicMissile_SKN" />
+          <ParticleSysBone
+						BoneName="BONE_ENGINE"
+						FXParticleSystemTemplate="NRAFighterAircraftAAMissileSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="BONE_ENGINE"
+						FXParticleSystemTemplate="NRAFighterAircraftAAMissileFireLight"
+						FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<HeightDieUpdate
+				id="ModuleTag_HeightDieUpdate"
+				TargetHeight="150.0"
+				TargetHeightIncludesStructures="true"
+				OnlyWhenMovingDown="true"/>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_V4MissileLauncher_MIRVmissileSplit" />
+			</FXListBehavior>
+			<FireWeaponWhenDead
+				id="ModuleTag_FinalWeapon"
+				InitiallyActive="true"
+				ContinueToBezierDestination="true"
+				DeathWeapon="NRAAntiGroundAircraftMissilePodWeaponWarhead">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<CreateObjectDie
+				id="ModuleTag_CreateMirvBits"
+				CreationList="CUHypersonicMissile_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="-5"
+				FirstHeightMax="-5"
+				SecondHeightMin="1"
+				SecondHeightMax="1"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="50.0"
+				MaxDistanceToTravel="600.0"
+				SidewaysDrift="25"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_V4MissileLauncher_MIRVincoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+	<GameObject
+		inheritFrom="NRAAntiGroundAircraftMissileProjectile"
+		id="NRAAntiGroundAircraftMissileProjectile_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUHypersonicMissile_SKN" />
+          <ParticleSysBone
+						BoneName="BONE_ENGINE"
+						FXParticleSystemTemplate="NRAFighterAircraftAAMissileSmoke_Vet"/>
+          <ParticleSysBone
+						BoneName="BONE_ENGINE"
+						FXParticleSystemTemplate="NRAFighterAircraftAAMissileFireLight_Vet"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_BombExplosion_Vet" />
+			</FXListBehavior>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="-5"
+				FirstHeightMax="-5"
+				SecondHeightMin="1"
+				SecondHeightMax="1"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="50.0"
+				MaxDistanceToTravel="600.0"
+				SidewaysDrift="25"
+				/>
+		</Behaviors>
+	</GameObject>
+	
+	
+</AssetDeclaration>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+	</Includes>
+	<GameObject
+		id="NukeRadiationField"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE AMPHIBIOUS NO_COLLIDE INERT INERT_SHROUD_REVEALER SKIRMISH_AI_ATTEMPT_TO_DODGE PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="NukeRadiationField">
+		<DisplayName>NukeRadiationField</DisplayName>
+		<ArmorSet
+			Armor="InvulnerableArmor" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="1" />
+		<LocomotorSet
+			Locomotor="HumanWaterLocomotor"
+			Condition="NORMAL"
+			Speed="1" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="200.0">
+      <DodgeWithUnits
+			Rule="ALL"
+			Exclude="MACHINE EGG HARVESTER"
+			StatusBitFlagsExclude="AIRBORNE_TARGET UNDER_IRON_CURTAIN">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+					<ParticleSysBone
+						FXParticleSystemTemplate="NukeRadiationField" />
+					<ParticleSysBone
+						FXParticleSystemTemplate="NeutronRadiationField_Embers" />
+				</ModelConditionState>
+                
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="" />
+					<ParticleSysBone
+						FXParticleSystemTemplate="NukeRadiationField_Water" />
+					<ParticleSysBone
+						FXParticleSystemTemplate="NeutronRadiationField_Embers" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="Moduletag_LifetimeUpdate"
+				MinLifetime="30s"
+				MaxLifetime="30s" />
+      
+      <FXListBehavior
+        id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onCreate"
+					FX="FX_None" />
+      </FXListBehavior>
+      
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdateCLS"
+				FireInterval="0.2s">
+				<FireWeaponNugget
+					WeaponName="NukeRadiationFieldRadiationClearOverlapFieldWeapon" />
+			</FireWeaponUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.2s">
+				<FireWeaponNugget
+					WeaponName="NukeRadiationFieldRadiationWeapon" />
+			</FireWeaponUpdate>
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1000.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="1.0"
+				Height="1.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:CUHypersonicMissile_SKN.w3x" />
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />		
+	</Includes>
+	<GameObject
+		id="NRAHypersonicMissile"
+		inheritFrom="BaseVehicle"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT SMALL_MISSILE BALLISTIC_MISSILE VEHICLE PASS_EXPERIENCE_TO_PRODUCER PROJECTILE NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		EditorName="NRAHypersonicMissile"
+		Description="Desc:NRAHypersonicMissile">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:NRAHypersonicMissile</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			Locomotor="NRAHypersonicMissileLocomotor"
+			Condition="NORMAL"
+			Speed="1000.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUHypersonicMissile_SKN" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Bone_Chassis" />
+					<ParticleSysBone
+                      BoneName="BONE_ENGINE"
+                      FXParticleSystemTemplate="AlliedShipBlackoutSmoke"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN"/>
+					<ParticleSysBone
+						BoneName="BONE_ENGINE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN"/>
+					<ParticleSysBone
+						BoneName="BONE_ENGINE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN"/>
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>			
+			</ScriptedModelDraw>
+			
+	  </Draws>
+		<Behaviors>
+				
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="IGNORE_CONTACT_POINTS DONT_SET_NO_ATTACK_STATUS ORIENT_TO_FLIGHT_PATH PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="0"
+				FirstHeightMax="20"
+				SecondHeightMin="20"
+				SecondHeightMax="20"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				SidewaysDrift="100"
+				FlightPathAdjustDistPerSecond="100"
+				Acceleration="0.75"
+				GroundHitFX="FX_NRA_Hypersonic_Hit">
+			</BezierProjectile>
+			<SpecialPower
+				id="ModuleTag_SpecialPowerModule_Attach"
+				SpecialPowerTemplate="SpecialPower_JapanScoutInfantryAttachWeapon"
+				UpdateModuleStartsAttack="true"
+				IdleWhenStartingPower="true"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_SpecialAbilityUpdate_Attach"
+				SpecialPowerTemplate="SpecialPower_JapanScoutInfantryAttachWeapon"
+				SpecialWeapon="JapanScoutInfantryAttachWeapon"
+				Options="DO_NOT_DO_AI_SPECIAL_POWER RECONSTITUTE_STORED_COMMAND"
+				BusyForDuration="1.5s"
+			/>
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_NRA_Hypersonic_Hit" />
+			</FXListBehavior>
+
+			<StancesBehavior
+				id="ModuleTag_Stance"				
+				StanceTemplate="OnlyAggressive" />	
+		</Behaviors>		
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"				
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+					CanPickDynamicTargets="true"
+					CanOnlyAttackTargetsInFront="true"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="400.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="600"
+			ShroudClearingRange="20" />
+	</GameObject>
+</AssetDeclaration>

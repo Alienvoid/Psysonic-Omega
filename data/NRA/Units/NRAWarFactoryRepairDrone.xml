@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:AURepairDrone_SKN.w3x" />
+		<Include type="all"	source="ART:AURepairDrone_IDLA.w3x" />
+
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseRepairDrone.xml" />
+	</Includes>
+	<GameObject
+		id="NRAWarFactoryRepairDrone"
+		inheritFrom="BaseRepairDrone"
+		Side="NRA"
+		KindOf="=$FACTORY_REPAIR_DRONE_KINDOF"
+		EditorName="NRAWarFactoryRepairDrone"
+		Description="Desc:NRAWarFactoryRepairDrone">
+		<LocomotorSet
+			id="DefaultLocomotor"
+			Locomotor="AlliedWarfactoryRepairDroneLocomotor"
+			Condition="NORMAL"
+			Speed="75.0" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AURepairDrone_SKN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_bored">
+					<Animation
+						AnimationName="AURepairDrone_IDLA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<!--
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_Allied_RepairDrone_sparks_delayedLoop">
+				<ModelConditionSound Sound="GDI_RepairDrone_sparks_delayedLoop" RequiredFlags="ATTACHED" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+-->
+	</GameObject>
+	
+	<GameObject
+		id="NRANavalYardRepairDrone"
+		inheritFrom="NRAWarFactoryRepairDrone"
+		EditorName="NRANavalYardRepairDrone"
+		Description="Desc:NRANavalYardRepairDrone">
+		<Behaviors>
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				xai:joinAction="Append"
+				Range="=$REPAIR_DRONE_LEASH_DISTANCE"
+				InitialAttachDelay="2.0s">
+				<ObjectFilter
+					xai:joinAction="Replace"
+					Rule="ALL"
+					Include="SHIP"
+					Relationship="ALLIES" />
+			</AttachUpdate>
+		</Behaviors>
+	</GameObject>
+	<GameObject
+		id="NRAAirfieldRepairDrone"
+		inheritFrom="NRAWarFactoryRepairDrone"
+		EditorName="NRAAirfieldRepairDrone"
+		Description="Desc:NRAAirfieldRepairDrone">
+		<Behaviors>
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				xai:joinAction="Append"
+				Range="=$REPAIR_DRONE_LEASH_DISTANCE"
+				InitialAttachDelay="2.0s">
+			</AttachUpdate>
+		</Behaviors>
+	</GameObject>
+	
+</AssetDeclaration>

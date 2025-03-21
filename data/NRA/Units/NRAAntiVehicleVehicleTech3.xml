@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<!-- aka Mirage Tank -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:CUAntiVehicleVehicleTech3_D.xml" />		
+		<Include type="all"	source="ART:CUAntiVehicleVehicleTech3_Turret_D.xml" />					
+		<Include type="all"	source="ART:CUAntiVehicleVehicleTech3_SKN.w3x" />
+		<Include type="all"	source="ART:CUAntiVehicleVehicleTech3_IDLA.w3x" />
+		<Include type="all"	source="ART:CUAntiVehicleVehicleTech3_MOVA.w3x" />
+    <Include type="all" source="ART:FXAlliedPrismBeam.xml" />
+    <Include type="all" source="ART:FXAlliedPrismBeam_Vet.xml" />
+    <Include type="all"	source="ART:FXShldAbility.w3x" />
+    <Include type="all"	source="ART:EXCloakingField.w3x" />
+    <Include type="instance" source="ART:EXTireTrack2.xml" />	
+		<Include
+			type="all"
+			source="ART:FXFireStream_Blue.xml" />
+	
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka The Primage Tank -->
+	<GameObject
+		id="NRAAntiVehicleVehicleTech3"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_NRAAntiVehicleVehicleTech3"
+		SelectPortraitTransformed="Portrait_NRAAntiVehicleVehicleTech3_ion"
+		ButtonImage="Button_NRAAntiVehicleVehicleTech3"
+		ButtonImageTransformed="Button_NRAAntiVehicleVehicleTech3_ionstream" 
+		Side="NRA"
+		SubGroupPriority="535" 
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="25"
+		BuildTime="22"
+		CommandSet="NRAAntiVehicleVehicleTech3CommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT HUGE_VEHICLE T3_UNIT TRANSFORMER"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="NRAAntiVehicleVehicleTech3"
+		Description="Desc:NRAAntiVehicleVehicleTech3"
+		DescriptionTransformed="Desc:NRAAntiVehicleVehicleTech3" 
+		TypeDescription="Type:NRAAntiVehicleVehicleTech3"
+		TypeDescriptionTransformed="Type:NRAAntiVehicleVehicleTech3">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRAAntiVehicleVehicleTech3</DisplayName>
+		<DisplayNameTransformed
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRAAntiVehicleVehicleTech3</DisplayNameTransformed>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech3</NeededUpgrade>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2200"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="NRAAntiVehicleVehicleTech3Armor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="DefaultLocomotor"
+			Locomotor="NRAAntiVehicleVehicleTech3Locomotor"
+			Condition="NORMAL"
+			Speed="58.5" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+      OutOfRangePenalty="2.0"/>
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.75"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="1.5"
+				ExtraPublicBone="Bone_Tread_Back_Right Bone_Tread_Back_Left Bone_Tread_Front_Right Bone_Tread_Front_Left FXExhaust01 FXExhaust02 FX_MuzzleFlash FXTracksL FXTracksR B_BARREL fxheadlight_L fxheadlight_R"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="FXTracksL"
+				TrackMarksRightBone="FXTracksR">
+				<TreadTerrainParticles>SovietTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Front_Left"
+					RightTrack="Bone_Tread_Front_Right"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Back_Left"
+					RightTrack="Bone_Tread_Back_Right"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+														
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />		
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MUZZLEFLASH" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_BARREL" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MUZZLEFLASH" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_MUZZLEFLASH" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="B_BARREL" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_MUZZLEFLASH" />
+					<Turret
+						TurretNameKey="Turret"
+						TurretPitch="Turret_Pitch"
+						TurretID="1" />						
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A DAMAGED">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE02"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL01"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR01"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL02"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR02"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL03"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR03"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL04"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR04"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL01"
+						FXParticleSystemTemplate="NRA_Electro_Small01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR01"
+						FXParticleSystemTemplate="NRA_Electro_Small01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL02"
+						FXParticleSystemTemplate="NRA_Electro_Small02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR02"
+						FXParticleSystemTemplate="NRA_Electro_Small02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL03"
+						FXParticleSystemTemplate="NRA_Electro_Small03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR03"
+						FXParticleSystemTemplate="NRA_Electro_Small03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL04"
+						FXParticleSystemTemplate="NRA_Electro_Small04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR04"
+						FXParticleSystemTemplate="NRA_Electro_Small04"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A REALLYDAMAGED">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+					<Texture
+						Original="CUAntiVehicleVehicleTech3"
+						New="CUAntiVehicleVehicleTech3_D" />
+					<Texture
+						Original="CUAntiVehicleVehicleTech3_Turret"
+						New="CUAntiVehicleVehicleTech3_Turret_D" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL01"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR01"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL02"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR02"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL03"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR03"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL04"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR04"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge04"
+						FollowBone="true" />		
+		            <ParticleSysBone
+						BoneName="FX_BarrelL01"
+						FXParticleSystemTemplate="NRA_Electro_Small01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR01"
+						FXParticleSystemTemplate="NRA_Electro_Small01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL02"
+						FXParticleSystemTemplate="NRA_Electro_Small02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR02"
+						FXParticleSystemTemplate="NRA_Electro_Small02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL03"
+						FXParticleSystemTemplate="NRA_Electro_Small03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR03"
+						FXParticleSystemTemplate="NRA_Electro_Small03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL04"
+						FXParticleSystemTemplate="NRA_Electro_Small04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR04"
+						FXParticleSystemTemplate="NRA_Electro_Small04"
+						FollowBone="true" />			
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL01"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR01"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL02"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR02"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL03"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR03"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL04"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR04"
+						FXParticleSystemTemplate="NRASuperheavyTankCharge04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL01"
+						FXParticleSystemTemplate="NRA_Electro_Small01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR01"
+						FXParticleSystemTemplate="NRA_Electro_Small01"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL02"
+						FXParticleSystemTemplate="NRA_Electro_Small02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR02"
+						FXParticleSystemTemplate="NRA_Electro_Small02"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL03"
+						FXParticleSystemTemplate="NRA_Electro_Small03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR03"
+						FXParticleSystemTemplate="NRA_Electro_Small03"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelL04"
+						FXParticleSystemTemplate="NRA_Electro_Small04"
+						FollowBone="true" />
+		            <ParticleSysBone
+						BoneName="FX_BarrelR04"
+						FXParticleSystemTemplate="NRA_Electro_Small04"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+					<ParticleSysBone
+						BoneName="FX_MUZZLEFLASH"
+						FXParticleSystemTemplate="NRAIonStreamMote"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6 DAMAGED">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+					<ParticleSysBone
+						BoneName="FX_MUZZLEFLASH"
+						FXParticleSystemTemplate="NRAIonStreamMote"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE02"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6 REALLYDAMAGED">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+					<Texture
+						Original="CUAntiVehicleVehicleTech3"
+						New="CUAntiVehicleVehicleTech3_D" />
+					<Texture
+						Original="CUAntiVehicleVehicleTech3_Turret"
+						New="CUAntiVehicleVehicleTech3_Turret_D" />
+					<ParticleSysBone
+						BoneName="FX_MUZZLEFLASH"
+						FXParticleSystemTemplate="NRAIonStreamMote"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />					
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE02"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="CUAntiVehicleVehicleTech3_SKN" />
+					<Texture
+						Original="CUAntiVehicleVehicleTech3"
+						New="CUAntiVehicleVehicleTech3_D" />
+					<Texture
+						Original="CUAntiVehicleVehicleTech3_Turret"
+						New="CUAntiVehicleVehicleTech3_Turret_D" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />					
+				</ModelConditionState>
+				        
+        <AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_DoorClosed">
+					<Animation
+						AnimationName="CUAntiVehicleVehicleTech3_IDLA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+	<!-- Normal Mode -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ACCELERATE"
+					Flags="RANDOMSTART"
+					StateName="STATE_DoorClosed">
+					<Animation
+						AnimationName="CUAntiVehicleVehicleTech3_MOVA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="1"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+          <ParticleSysBone
+						BoneName="FXExhaust01"
+						FXParticleSystemTemplate="Soviet_Tank_Exhaust"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FXExhaust02"
+						FXParticleSystemTemplate="Soviet_Tank_Exhaust"
+						FollowBone="true" />	
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					Flags="RANDOMSTART"
+					StateName="STATE_DoorClosed">
+					<Animation
+						AnimationName="CUAntiVehicleVehicleTech3_MOVA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RANDOMSTART"
+					StateName="STATE_SelectedPose">
+					<Animation
+						AnimationName="CUAntiVehicleVehicleTech3_IDLA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2">
+					</Animation>
+				</AnimationState>
+				
+					
+				
+			</TruckDraw>
+
+      <!-- include Headlight draw module. -->
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_HeadLightL"
+				AttachToBoneInAnotherModule="fxheadlight_L"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="NIGHT">
+					<Model
+						Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_HeadLightR"
+				AttachToBoneInAnotherModule="fxheadlight_R"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="NIGHT">
+					<Model
+						Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+      					
+			<StreamDraw
+				id="ModuleTag_UpgradedStreamDraw"
+				UseDistortionShader="false"
+				Velocity="200.0"
+				ArcHeightFactor="0.0625"
+				UVWorldSize="100.0"
+				NumTubeSides="8"
+				TubeRadius="0.5"
+				HitFx="FX_None"
+				WeaponSlotID="1"
+				StreamStateID="0">
+				<!-- HitFx="FX_BulletHitGDI" -->
+				<!-- FX_NOD_BlackHandFlameWeaponHit = FX_BulletHitGDI - the bullet ricochet sounds! -->
+				<FXShader
+					ShaderName="Stream.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ParticleSystems>
+					<ParticleSys>NRAIonStreamDispersedParticle</ParticleSys>
+					<ParticleSys>NRAIonStreamGlow</ParticleSys>
+					<ParticleSys>NUBlkHndPurifyingStrmDistort</ParticleSys>
+				</ParticleSystems>
+			</StreamDraw>
+			
+			<StreamDraw
+				id="ModuleTag_UpgradedStreamDraw_Vet"
+				UseDistortionShader="false"
+				Velocity="200.0"
+				ArcHeightFactor="0.0625"
+				UVWorldSize="100.0"
+				NumTubeSides="8"
+				TubeRadius="0.5"
+				HitFx="FX_None"
+				WeaponSlotID="1"
+				StreamStateID="1">
+				<!-- HitFx="FX_BulletHitGDI" -->
+				<!-- FX_NOD_BlackHandFlameWeaponHit = FX_BulletHitGDI - the bullet ricochet sounds! -->
+				<FXShader
+					ShaderName="Stream.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ParticleSystems>
+					<ParticleSys>NRAIonStreamDispersedParticle_Vet</ParticleSys>
+					<ParticleSys>NRAIonStreamGlow_Vet</ParticleSys>
+					<ParticleSys>NUBlkHndPurifyingStrmDistort</ParticleSys>
+				</ParticleSystems>
+			</StreamDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRAAntiVehicleVehicleTech3Cannon"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>	
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="NRAAntiVehicleVehicleTech3IonStreamWeapon"
+						ObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>			
+					<TurretSettings
+						TurretTurnRate="90"
+						MinimumPitch="-14d"
+						AllowsPitch="true"
+						PitchHeight="55%"
+						TurretPitchRate="90"
+						IdleTurnRateModifier="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<StreamState
+				id="ModuleTag_StreamState"
+				StreamId="0" />	
+      
+      <!-- VETERAN -->
+
+			<StreamState
+				id="ModuleTag_StreamState_Vet"
+				StreamId="1" />	
+				
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUAntiVehicleVehicleTech3_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedChieftanDie" />
+			</FXListBehavior>
+
+			<SpecialPower
+				id="ModuleTag_ToggleMirageFieldTrigger"
+				SpecialPowerTemplate="SpecialPower_ToggleIonStream"
+				UpdateModuleStartsAttack="true" />
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleMirageFieldTriggerUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND" 
+				SpecialPowerTemplate="SpecialPower_ToggleIonStream">
+
+				<ToggleState
+					EnterStateSound="ALL_MirageField_StopMS">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT"
+						NeverUseInState="RETREAT GATHER">
+						<StateWeapon
+							Weapon="NRAAntiVehicleVehicleTech3Cannon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+				<ToggleState
+					ObjectStatus="TRANSFORMATION_TOGGLE_STATE"
+					ModelConditions="USER_6"
+					EnterStateSound="ALL_MirageField_StartMS"
+					AttributeModifier="AttributeModifier_IonStreamVision">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_SHORT_RANGE_WEAPON">
+						<StateWeapon
+							Weapon="NRAAntiVehicleVehicleTech3IonStreamWeapon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>
+
+			<ChargeWeaponUpdate
+				id="ModuleTag_ChargeWeapon"
+				ChargeTime="18.0s"
+				OverChargeTime="5.0s"
+				OverChargePercent="10%">
+				<ObjectStatusValidation
+					ForbiddenStatus="IS_FIRING_WEAPON IS_RELOADING_WEAPON"/>
+			</ChargeWeaponUpdate>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData 
+					CanPickDynamicTargets="false"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="4000" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_MirageTank_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MirageField">
+				<ModelConditionSound Sound="ALL_MirageField_StartAndEndLoop" RequiredFlags="USER_6" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_MirageFieldVoices">
+				<Override RequiredFlags="USER_6">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_MirageTank_VoiceMoveSpecial" AudioType="voiceMove" />
+						<AudioEntry Sound="ALL_MirageTank_VoiceSelectMirageMS" AudioType="voiceSelect" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="35.0"
+				MinorRadius="20.0"
+				Height="26.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_MirageTank_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_Mirage_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="410"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+			CrusherLevel="30"
+			CrushableLevel="31"
+			CrushWeapon="SovietCrushWeapon" 
+			CrushDecelerationPercent="80%"/>
+	</GameObject>
+</AssetDeclaration>

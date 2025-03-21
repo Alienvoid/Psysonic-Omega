@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:cualias_skn.w3x" />
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:cualias_02.xml" />				
+		<Include
+			type="all"
+			source="ART:cualias_02_d.xml" />		
+		<Include
+			type="all"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerHeroic.xml" />
+	</Includes>
+	<GameObject
+		id="NRAALIASDrone"
+		inheritFrom="BaseVehicle"
+		Side="NRA"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT VEHICLE PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		EditorName="NRAALIASDrone"
+		Description="Desc:NRAALIASDrone">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:NRAALIASDrone</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			Locomotor="NRAALIASDroneLocomotor"
+			Condition="NORMAL"
+			Speed="225.0" />
+		<LocomotorSet
+			id="AlliedBomberAircraftTaxiLocomotor"
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="30" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="cualias_skn" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_01" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+				</ModelConditionState>
+<!-- UPGRADED MODEL -->
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="cualias_skn" />
+					<Texture
+						Original="cualias"
+						New="cualias_02_D" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="cualias_skn" />
+					<Texture
+						Original="cualias"
+						New="cualias_02" />							
+				</ModelConditionState>						
+<!-- UPGRADED MODEL -->
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="cualias_skn" />
+					<Texture
+						Original="cualias"
+						New="cualias_D" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />          
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="fx_wingtip01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="fx_wingtip02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>
+				</AnimationState>			
+			</ScriptedModelDraw>
+			
+			<!-- Used for the Phalanx Gun -->
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="22"
+				MaxSpeed="32"
+				SweepSpeed="3.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame="0.4"
+				MaxTracersPerFrame="0.4"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracer"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="0.75"
+					b="0.65"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawVeterancy"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="0.5"
+				SpreadAngle="0.5"
+				MinTracersPerFrame="0.4"
+				MaxTracersPerFrame="0.4"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="0.75"
+					b="0.65"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</TracerModelDraw>
+	  </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRAALIASDroneCannon"/>
+        </WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="true"/>
+				
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="600"
+				GuardMaxRange="0"
+				GuardWanderRange="0"
+				AttackRange="375"
+				DieOnMastersDeath="true" />
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUALIAS_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>		
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>				
+		</Behaviors>		
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AI"
+				NeedsRunway="false"
+				KeepsParkingSpaceWhenAirborne="true"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="StrafingRunAIStateMachine"
+				CirclesForAttack="true"
+				OutOfAmmoDamagePerSecond="0.0">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="280.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="150"
+			ShroudClearingRange="20" />
+	</GameObject>
+</AssetDeclaration>

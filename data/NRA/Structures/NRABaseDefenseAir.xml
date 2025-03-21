@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:FXLaserOverlay.xml" />		
+		<Include type="all"	source="ART:FXLaserOverlay_Overshoot.xml" />				
+		<Include type="all"	source="ART:cbaliastower_skn.w3x" />				
+		<Include type="all"	source="ART:cbaliastower_bld_skn.w3x" />				
+		<Include type="all"	source="ART:cbaliastower_bld_bld.w3x" />			
+		<Include type="all"	source="ART:cbaliasTower_opn.w3x" />	
+		
+		<Include type="all"	source="ART:ABBaseDefense_FX.w3x" />
+		<Include type="all"	source="ART:AUOutPost_Platform.w3x" />
+		<Include type="all"	source="ART:AUOutPost_Platform_BLD.w3x" />						
+		<Include type="all"	source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="NRABaseDefenseAir"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_NRAALIASTower"
+		ButtonImage="Button_NRAALIASTower"
+		Side="NRA"
+		HealthBoxHeightOffset="20"
+		EditorSorting="STRUCTURE"		
+		BuildTime="15"
+		EnergyProduction="-25"
+		CommandSet="EmptyCommandSet"
+		KindOf="-NOT_AUTOACQUIRABLE +CAN_ATTACK +FS_BASE_DEFENSE +GARRISONABLE_UNTIL_DESTROYED +POWERED +AIRFIELD"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="225d"
+		CampnessValue="=$CAMPNESS_DEFENSIVE_STRUCTURE"
+		ProductionQueueType="OTHER_STRUCTURE"
+		BuildPlacementTypeFlag="OTHER_STRUCTURE"
+		EditorName="NRABaseDefenseAir"
+		WeaponCategory="GUN"
+		TypeDescription="Type:NRABaseDefenseAir"
+		Description="Desc:NRABaseDefenseAir">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:NRABaseDefenseAir</DisplayName>
+		<GameDependency>
+			<RequiredObject>NRAAirfield</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedPrimaryBaseDefenseArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="DEFENSE"
+			CanFireUpCliffs="true" >
+			<ConstructionBaseSelectionCriteria
+				ExcludedBaseTypes="NO_BUILD_RADIUS"
+				PreferredBaseTypes="ENEMIES_IN_BASE UNDER_ATTACK"
+				SortOrder="PREFER_MOST_RECENTLY_ATTACKED" />
+		</SkirmishAIInformation>
+		<Draws>
+			<!-- DRAW GUN -->
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Gun"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FXBone_01 Runway0Park0Han Runway0Park1Han Runway1Park0Han RunwayTakeOff Runway1Park1Han">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="cbaliastower_skn" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Runway0Park0Han" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Runway0Park0Han" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="cbaliastower_skn" />
+				</ModelConditionState>        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="cbaliastower_bld_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="cbaliastower_bld_skn" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="cbaliastower_skn" />
+					<ParticleSysBone 
+						BoneName="FX_bone01" 
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone 
+						BoneName="FX_bone01"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="cbaliastower_skn" />
+					<ParticleSysBone 
+						BoneName="FX_bone01" 
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone 
+						BoneName="FX_bone01"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+					<ParticleSysBone 
+						BoneName="FX_bone02" 
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone 
+						BoneName="FX_bone02"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+				</ModelConditionState>
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST"
+					StateName="STATE_Closed">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="MANUAL" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					Flags="START_FRAME_LAST"
+					ConditionsYes="PARKINGPLACE_1_DOOR_OPEN">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="MANUAL" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Closed" then
+						CurDrawableSetTransitionAnimState("TRANS_OpenDoor")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					Flags="START_FRAME_LAST"
+					ConditionsYes="PARKINGPLACE_2_DOOR_OPEN">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="MANUAL" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Closed" then
+						CurDrawableSetTransitionAnimState("TRANS_OpenDoor")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					Flags="START_FRAME_LAST"
+					ConditionsYes="PARKINGPLACE_3_DOOR_OPEN">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="MANUAL" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Closed" then
+						CurDrawableSetTransitionAnimState("TRANS_OpenDoor")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					Flags="START_FRAME_LAST"
+					ConditionsYes="PARKINGPLACE_4_DOOR_OPEN">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="MANUAL" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Closed" then
+						CurDrawableSetTransitionAnimState("TRANS_OpenDoor")
+						end
+					</Script>
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_OpenDoor">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PACKING">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="RELOADING_A">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_B">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="RELOADING_B">
+					<Animation
+						AnimationName="cbaliasTower_opn"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+				</AnimationState>									
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING ">
+					<Animation
+						AnimationName="cbaliastower_bld_bld"
+						AnimationBlendTime="0"
+						AnimationMode="ONCE"
+						AnimationAbsoluteTime="2s"/>
+				</AnimationState>									
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="cbaliastower_bld_bld"
+						AnimationBlendTime="0"
+						AnimationMode="ONCE"
+						AnimationAbsoluteTime="2s" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="cbaliastower_bld_bld"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+				</AnimationState>					
+			</ScriptedModelDraw>
+
+			<!-- DRAW PLATFORM -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUOutPost_Platform" />
+				</ModelConditionState>
+
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FROZEN">
+          <Model
+						Name="AUOutPost_Platform" />
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedCryoFrozenMistBuildingSmall"
+						FollowBone="true"/>          
+          <Material
+					  ShaderName="ObjectsFrozen.fx"
+					  TechniqueName="Default">
+            <Constants>
+              <Texture Name="DiffuseTexture">
+                <Value>ABPlatform</Value>
+              </Texture>
+              <Texture Name="NormalMap">
+                <Value>ABPlatform_NRM</Value>
+              </Texture>
+              <Texture Name="SpecMap">
+                <Value>ABPlatform_SPM</Value>
+              </Texture>
+              <Float Name="EnvMult">
+                <Value>1.000000</Value>
+              </Float>
+              <Bool Name="AlphaTestEnable">
+                <Value>false</Value>
+              </Bool>
+            </Constants>
+          </Material>
+        </ModelConditionState>        
+        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Model
+						Name="AUOutPost_Platform_BLD" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="ABPowerPlantWakeSplash"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Animation
+						AnimationName="AUOutPost_Platform_BLD"
+						AnimationMode="ONCE" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupFlashes"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupSparksSeed"
+						FollowBone="true" />          
+					</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+						CurDrawableHideSubObjectPermanently("Bib")
+					</Script>
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="NRABaseDefenseAirALIASDrones" />
+					<TurretSettings
+						TurretTurnRate="360"
+						TurretPitchRate="360"
+						AllowsPitch="true">
+						<TurretAITargetChooserData
+							ActiveWhenPerformingSpecialAbility="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<SlaughterHordeContain
+				id="ModuleTag_SlaughterHordeContain"
+				CashBackPercent="0"
+				ResetInitialTeamOnCapture="true">
+				<CanAlwaysEnterObjectFilter
+					Rule="NONE">
+					<IncludeThing>NRAALIASDrone</IncludeThing>
+				</CanAlwaysEnterObjectFilter>
+			</SlaughterHordeContain>
+			<ParkingPlaceBehavior
+				id="ModuleTag_ParkingPlaceBehavior"
+				NumRows="2"
+				NumCols="2"
+				ApproachHeight="10"
+				ParkInHangars="true"
+				DoorOpenTime="4.0s">
+				<CanParkHereFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+					<IncludeThing>NRAALIASDrone</IncludeThing>
+				</CanParkHereFilter>
+			</ParkingPlaceBehavior>
+			<Physics
+				id="ModuleTag_Physics"/>
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="SovietRefineryHit"
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_None" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData 
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event Index="onDeath" FX="FX_SmallBuildingDieExplosion" />
+			</FXListBehavior>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CBALIASTower_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</DestroyDie>	
+			
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpack"
+				UnpackTime="2.0s" />
+			<!-- Temp -->
+
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/GenericAlliedBuildingSuicideNoSpawn.xml" />
+			
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="AlliedBaseDefenseFunctions"
+			/>
+						
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="OffensiveStructureAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="2000" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<PlacementShape
+				Type= "BOX"
+				MajorRadius = "30.0"
+				MinorRadius = "30.0"
+				Height = "5.0" />
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "6.79338"
+				MinorRadius = "4.30892"
+				Height = "15.8247"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "21.9637"
+					y = "3.76694"
+					z = "0.0" />
+			</Shape>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "22.8"
+				MinorRadius = "14.7"
+				Height = "15.7"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "3.60325"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "4.27983"
+				MinorRadius = "3.14551"
+				Height = "15.6936"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "1.54112"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "15"
+				MinorRadius = "5"
+				Height = "10" >
+				<Offset
+					x = "0.0"
+					y = "20.0"
+					z = "0.0" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "15"
+				MinorRadius = "5"
+				Height = "10" >
+				<Offset
+					x = "0.0"
+					y = "-20.0"
+					z = "0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="AudioEvent:ALL_TurretSelect"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+<!--
+			<AudioEntry Sound="HumanFaction_SmallBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_SmallBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="1610"
+			ShroudClearingRange="500" />
+	</GameObject>
+</AssetDeclaration>

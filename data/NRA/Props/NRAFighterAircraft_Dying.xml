@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:CUFighterAircraft_SKN.w3x" />
+		<Include type="all" source="ART:CUFighterAircraft_D.xml" />
+		<Include type="all"	source="ART:CUFighterAircraft_02_D.xml" />
+		<Include type="all"	source="ART:CUFighterAircraft_02_SPM.xml" />
+	</Includes>
+	<GameObject
+		id="NRAFighterAircraft_Dying"
+		EditorName="NRAFighterAircraft_Dying"
+		Description="Desc:NRAFighterAircraft_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="CUFighterAircraft_SKN" />
+					<Texture
+						Original="CUFighterAircraft"
+						New="CUFighterAircraft_D" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="CUFighterAircraft_SKN" />
+					<Texture
+						Original="CUFighterAircraft"
+						New="CUFighterAircraft_02_D" />
+					<Texture
+						Original="CUFighterAircraft_SPM"
+						New="CUFighterAircraft_02_SPM" />	
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="200"
+				MaxYRotationVelocity="0"
+				MaxZRotationVelocity="0"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="CUFighterAircraft_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_AlliedBomberDeathWeapon"
+				DeathWeapon="NormalAircraftDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+					<CustomAnimAndDuration	AnimState="USER_2"/>	
+				</Nugget>
+			</SubObjectsUpgrade>	
+			<xi:include
+				href="DATA:Includes/AlliedAirPowerUpgrade.xml" />
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionMediumNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />		
+	</GameObject>
+</AssetDeclaration>
