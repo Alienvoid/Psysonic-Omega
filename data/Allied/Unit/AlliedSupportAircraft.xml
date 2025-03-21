@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+<!-- aka Cryocopter -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:aumirage_skn.w3x" />
+		<Include type="all"	source="ART:aumirage_d.xml" />
+		<Include type="all"	source="ART:aumirage_flyA.w3x" />
+		<Include type="all"	source="ART:aumirage_fp.w3x" />
+		<Include type="all" source="ART:aumirage_MOVA.w3x" />
+		<Include type="all"	source="ART:AUSupportAircraft_FP.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:FXCryoBeamLaser.xml" />
+		<Include type="all"	source="ART:FXShrinkRay.xml" />
+		<Include type="all"	source="ART:aumirage_02.xml" />
+		<Include type="all"	source="ART:aumirage_02_D.xml" />
+		<Include type="all" source="ART:FXObeliskLaser.xml" />
+    <Include type="instance" source="ART:FXBeam.xml" />
+    <Include type="instance" source="ART:FXAlliedLegionLaser.xml" />
+    <Include type="instance" source="ART:FXLaserOverlay.xml" />
+    <Include type="instance" source="ART:FXLaserStandard.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedSupportAircraft"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedMirage"
+		ButtonImage="Button_AlliedMirage"
+		Side="Allies"
+		SubGroupPriority="530"
+		EditorSorting="UNIT"
+		TransportSlotCount="20"
+		BuildTime="16"
+		CommandSet="AlliedSupportAircraftCommandSet"
+		KindOf="TRANSPORT PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT VEHICLE LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LEAVE_PARKING_ON_BUILD_COMPLETE PRODUCED_AT_HELIPAD"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="AlliedSupportAircraft"
+		Description="Desc:AlliedCryoAircraft"
+		TypeDescription="Type:AlliedCryoAircraft"
+		HealthBoxHeightOffset="20"
+		UnitIntro="Allied_Cryocopter_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedCryoAircraft</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1600"/>
+		</ObjectResourceInfo>
+		
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech2</NeededUpgrade>
+		</GameDependency>
+		
+		<ArmorSet
+			Armor="AlliedSupportAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />
+		<LocomotorSet
+			Locomotor="AlliedMirageLocomotor"
+			Condition="NORMAL"
+			Speed="150.0" />
+
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDPS="6"
+			ConquerMetricsOverrideDamageType="EXPLOSIVE"
+			ConquerMetricsOverrideAntiMask="ANTI_GROUND ANTI_WATER ANTI_STRUCTURE"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE"
+      DoesSecondaryDamage="true"/>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FXWeaponA01 laser01 laser02 laser03 laser04 MainTurret MainTurretPitch Laser_Turret_front_right Laser_Turret_front_left Laser_Turret_rear_right Laser_Turret_rear_left">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="aumirage_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXWeaponA01" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXWeaponA01" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FXWeaponA01" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FXWeaponA01" />
+					<WeaponFireFXBone
+						WeaponSlotID="8"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser02" />
+					<WeaponLaunchBone
+						WeaponSlotID="8"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser02" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser01" />
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser01" />
+					<WeaponFireFXBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser03" />
+					<WeaponLaunchBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser03" />
+					<WeaponFireFXBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser04" />
+					<WeaponLaunchBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="laser04" />
+					<!-- Main Gun -->
+					<Turret
+						TurretNameKey="MainTurret"
+						TurretID="1" />
+					<Turret
+						TurretNameKey="Laser_Turret_front_right"
+						TurretID="8" />
+					<Turret
+						TurretNameKey="Laser_Turret_front_left"
+						TurretID="3" />
+					<Turret
+						TurretNameKey="Laser_Turret_rear_right"
+						TurretID="4" />
+					<Turret
+						TurretNameKey="Laser_Turret_rear_left"
+						TurretID="5" />
+
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="3"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="4"
+						FXAction="SPAWN" />
+				</ModelConditionState>
+<!-- UPGRADED MODEL -->
+
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="aumirage_fp" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED USER_2">
+					<Texture
+						Original="aumirage"
+						New="aumirage_02_D" />						
+					<Model
+						Name="aumirage_SKN" />
+					<ParticleSysBone
+						BoneName="chassis"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+        </ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="aumirage_SKN" />
+					<Texture
+						Original="aumirage"
+						New="aumirage_02_D" />					
+					<ParticleSysBone
+						BoneName="Bone_Radar"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Radar"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Radar"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+						
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="3"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="4"
+						FXAction="SPAWN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="aumirage_SKN" />
+					<Texture
+						Original="aumirage"
+						New="aumirage_02" />		
+
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="3"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="4"
+						FXAction="SPAWN" />						
+				</ModelConditionState>		
+<!-- UPGRADED MODEL -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="aumirage_SKN" />
+					<ParticleSysBone
+						BoneName="Laser01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+						
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="3"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="4"
+						FXAction="SPAWN" />
+         
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="aumirage_SKN" />
+					<Texture
+						Original="aumirage"
+						New="aumirage_D" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+						
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="3"
+						FXAction="SPAWN" />
+          <ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="4"
+						FXAction="SPAWN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+					<Animation
+						AnimationName="aumirage_MOVA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING">
+					<Animation
+						AnimationName="aumirage_flyA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				
+
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_Particles">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					Skeleton="">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="" />
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="HelicopterMovingWaterWake"
+						FollowBone="false" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				FadeInTime="0.1s" 
+				FadeOutTime="0.1s" 
+				LaserWidth="15"
+				WeaponSlotID="1" 
+				LaserStateID="1">
+					<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXCryoBeamLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXLaserOverlay</Value>
+            </Texture>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+	 
+			<LaserDraw
+				id="ModuleTag_LaserDraw02"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="8"
+				LaserStateID="8">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>3.5000000</Value>
+							<Value>2.000000</Value>
+							<Value>10.00000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw03"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="3"
+				LaserStateID="3">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>3.5000000</Value>
+							<Value>2.000000</Value>
+							<Value>10.00000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw04"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="5"
+				LaserStateID="5">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>3.5000000</Value>
+							<Value>2.000000</Value>
+							<Value>10.00000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw05"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="4"
+				LaserStateID="4">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>3.5000000</Value>
+							<Value>2.000000</Value>
+							<Value>10.00000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+      </LaserDraw>
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw_ShrinkRay"
+				Texture1_UTile="1"
+				Texture1_VTile="5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="1"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				FadeInTime="0.2s"
+				FadeOutTime="0.2s"
+				LaserWidth="15"
+				WeaponSlotID="9"
+				LaserStateID="9">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXShrinkRay</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXShrinkRay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>3.000000</Value>
+              <Value>3.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSet">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedMirageCryoBeamWeapon" />
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="AlliedMirageCryoBeamWeaponAir" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0">
+						<TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<WeaponSlotTurret
+					ID="8">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="DummyWeaponWarhead" /><!--AlliedMirageTargetPainterTESTB-->
+					<TurretSettings
+						TurretTurnRate="720"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="30.0"
+						MaxDeflectionAntiClockwise="60d"
+						MaxDeflectionClockwise="60d"
+						NaturalTurretAngle="0d"
+						RecenterWhenOutOfTurnRange="true"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<WeaponSlotTurret
+					ID="3">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="DummyWeaponWarhead" /><!--AlliedMirageTargetPainterB-->
+					<TurretSettings
+						TurretTurnRate="720"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="30.0"
+						MaxDeflectionAntiClockwise="60d"
+						MaxDeflectionClockwise="60d"
+						NaturalTurretAngle="0d"
+						RecenterWhenOutOfTurnRange="true"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<WeaponSlotTurret
+					ID="4">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="DummyWeaponWarhead" /><!--AlliedMirageTargetPainterC-->
+					<TurretSettings
+						TurretTurnRate="720"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="30.0"
+						MaxDeflectionAntiClockwise="30d"
+						MaxDeflectionClockwise="90d"
+						NaturalTurretAngle="270d"
+						RecenterWhenOutOfTurnRange="true"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<WeaponSlotTurret
+					ID="5">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="DummyWeaponWarhead" /><!--AlliedMirageTargetPainterD-->
+					<TurretSettings
+						TurretTurnRate="720"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="30.0"
+						MaxDeflectionAntiClockwise="90d"
+						MaxDeflectionClockwise="30d"
+						NaturalTurretAngle="90d"
+						RecenterWhenOutOfTurnRange="true"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			
+			<LaserState
+				id="ModuleTag_LaserState01"
+				LaserId="1" >
+				<LaserEndParticleSystem>AlliedCryoBeamHitRichochet</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedCryoBeamHitMist</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedCryoBeamHitGlow</LaserEndParticleSystem>
+
+				<LaserStartParticleSystem>AlliedCryoBeamFireGlow</LaserStartParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState03"
+				LaserId="3" >
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Mote</LaserStartParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState04"
+				LaserId="4" >
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Mote</LaserStartParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState05"
+				LaserId="5" >
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Mote</LaserStartParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState08"
+				LaserId="8" >
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>Rushmore_Jefferson_Mote</LaserStartParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserStateShrinkRay"
+				LaserId="9"
+				OriginBoneName="FXWeaponA01"
+			/>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAir"
+				CreationList="AUMirage_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieGround"
+				CreationList="AUMirage_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					ExemptStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_CryocpterDie" />
+			</FXListBehavior>				
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>	
+			<ProductionUpdate
+				id="ModuleTag_PU" />
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED CAN_ATTACK"
+				ContainMax="4"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="false"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID">
+				<InitialPayload
+					Name="AlliedPaladinPointDefenseLaserActivater"
+					Count="4" />
+				<PassengerFilter
+					Rule="NONE">
+					<IncludeThing>AlliedPaladinPointDefenseLaserActivater</IncludeThing>
+				</PassengerFilter>
+				<PassengerData
+					BonePrefix="laser">
+					<Filter
+						Rule="NONE">
+						<IncludeThing>AlliedPaladinPointDefenseLaserActivater</IncludeThing>
+					</Filter>
+				</PassengerData>
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+			</TransportContain>			
+			<!--Deploy Ion Storm Special Power-->
+			<SpecialPower
+				id="ModuleTag_ShrinkRaySpecialPower"
+				SpecialPowerTemplate="SpecialPower_ShrinkRay"
+				UpdateModuleStartsAttack="true"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ShrinkRaySpecialAbilityUpdate"
+				SpecialPowerTemplate="SpecialPower_ShrinkRay"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="9"
+				SpecialWeapon="AlliedSupportAircraftShrinkRay"
+				StartAbilityRange="650"
+				UnpackTime="0s"
+				PackTime="1s"
+				TriggerSound="ALL_CryocopterShrinkrayFire"
+			/>
+
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+			<xi:include
+				href="DATA:Includes/AlliedAirPowerUpgrade.xml" />
+			
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="HelicopterAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"
+					RotateToTargetWhenAiming="false"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="800" />
+		</Body>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="40.0"
+				MinorRadius="30.0"
+				Height="18.0"
+				ContactPointGeneration="VEHICLE">
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_Cryocopter_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_Cryocopter_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_Cryocopter_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_Cryocopter_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_Cryocopter_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_Cryocopter_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_Cryocopter_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_Cryocopter_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> 
+			<NamedEntry Sound="ALL_Cryocopter_VoiceAttackSpecial" Name="VoiceShrinkRay" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_CenturyBomber_MoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="ALL_CenturyBomber_MoveLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+
+		<VisionInfo
+			VisionRange="305"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+
+</AssetDeclaration>

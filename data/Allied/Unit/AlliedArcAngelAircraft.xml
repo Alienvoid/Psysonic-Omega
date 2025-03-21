@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+<!-- aka Cryocopter -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include
+			type="all"	
+			source="ART:Decal_Rig_CO.xml" />
+
+		<Include type="all"	source="ART:fxarchangelshield.W3X" />
+		<Include type="all"	source="ART:FXInvisBone.W3X" />
+		<Include type="all"	source="ART:auarchcarrier_SKN.W3X" />
+		<Include type="all"	source="ART:auarchcarrier_FP.W3X" />
+		<Include type="all"	source="ART:auarchcarrier_SKL.W3X" />
+		<Include type="all"	source="ART:auarchcarrier_IDLA.W3X" />
+		<Include type="all"	source="ART:FXCryoBeamLaser.xml" />
+		<Include type="all"	source="ART:FXShrinkRay.xml" />
+		<Include type="all"	source="ART:FXInterlacedMask.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:auarchcarrier.xml" />
+		<Include type="all"	source="ART:auarchcarrier_02_D.xml" />
+		<Include type="all"	source="ART:auarchcarrier_02.xml" />
+		<Include type="all"	source="ART:auarchcarrier_D.xml" />
+		<Include type="all"	source="ART:auarchcarrier_SPM.xml" />
+		<Include type="all"	source="ART:auarchcarrier_NRM.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedArcAngelAircraft"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedArcAngel"
+		ButtonImage="Button_AlliedArcAngel"
+		Side="Allies"
+		SubGroupPriority="530"
+		EditorSorting="UNIT"
+		TransportSlotCount="20"
+		BuildTime="30"
+		CommandSet="AlliedArcAngelCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT FIGHTER_AIRCRAFT ASSAULT_AIRCRAFT HUGE_VEHICLE VEHICLE LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LEAVE_PARKING_ON_BUILD_COMPLETE PRODUCED_AT_HELIPAD T3_UNIT"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="AlliedArcAngelAircraft"
+		Description="Desc:AlliedArcAngelAircraft"
+		TypeDescription="Type:AlliedArcAngelAircraft"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedArcAngelAircraft</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="3000"/>
+		</ObjectResourceInfo>
+		
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech3</NeededUpgrade>
+			<RequiredObject>AlliedTechStructure</RequiredObject>
+		</GameDependency>
+		
+		<ArmorSet
+			Armor="AlliedArcAngelLightningArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />
+		<LocomotorSet
+			Locomotor="AlliedArchangelAirborneLocomotor"
+			Condition="NORMAL"
+			Speed="100.0" />
+
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDPS="6"
+			ConquerMetricsOverrideDamageType="EXPLOSIVE"
+			ConquerMetricsOverrideAntiMask="ANTI_GROUND ANTI_WATER ANTI_STRUCTURE"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE"
+      DoesSecondaryDamage="true"/>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="b_center b_drone01 b_drone02 b_drone03 b_drone04 Runway0Park0Han Runway0Park1Han Runway1Park0Han Runway1Park1Han">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="FX_PROTONCORE"
+						FXParticleSystemTemplate="SS_HealingStationLight"/>	
+					<Model
+						Name="auarchcarrier_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="b_drone" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="b_drone" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="b_drone" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="b_drone" />
+					
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+						<Model
+						Name="auarchcarrier_FP" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED USER_2">
+					<Model
+						Name="auarchcarrier_SKN" />
+					<Texture
+						Original="auarchcarrier_02"
+						New="auarchcarrier_02_D" />						
+					<ParticleSysBone
+						BoneName="b_drone01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="auarchcarrier_SKN" />
+					<Texture
+						Original="auarchcarrier_02"
+						New="auarchcarrier_02_D" />
+					<ParticleSysBone
+						BoneName="b_drone01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="b_drone01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="b_drone02"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING USER_2">
+					<Model
+						Name="auarchcarrier_SKN" />
+					<Texture
+						Original="auarchcarrier_02"
+						New="auarchcarrier_02_D" />
+					<ParticleSysBone
+						BoneName="ROOTTRANSFORM"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="auarchcarrier_SKN" />
+					<Texture
+						Original="auarchcarrier"
+						New="auarchcarrier_02" />
+				</ModelConditionState>				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="auarchcarrier_SKN" />
+					<ParticleSysBone
+						BoneName="FX_damage01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="auarchcarrier_SKN" />
+					<Texture
+						Original="auarchcarrier"
+						New="auarchcarrier_D" />
+					<ParticleSysBone
+						BoneName="FX_damage01"
+						FXParticleSystemTemplate="ChopperDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_damage01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="auarchcarrier_SKN" />
+					<Texture
+						Original="auarchcarrier"
+						New="auarchcarrier_D" />
+					<ParticleSysBone
+						BoneName="ROOTTRANSFORM"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="auarchcarrier_IDLA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				  <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AirRadarEffect"
+						FollowBone="true" />	
+					<ParticleSysBone
+						BoneName="B_ENGINE01"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="B_ENGINE02"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="IonStormCarrierGlow"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="IonStormCarrierLightning"/>
+				</AnimationState>
+				
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_Particles">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					Skeleton="">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="" />
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="HelicopterMovingWaterWake"
+						FollowBone="false" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_RepairDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="=$REPAIR_DRONE_HOME_DECAL_SIZE"
+						SizeY="=$REPAIR_DRONE_HOME_DECAL_SIZE"
+						OverrideLODVisibility="true"
+						UseHouseColor="true"
+						Texture="Decal_Rig_CO"
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="550" />
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSet">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedArchangelAttackDrones" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="525" />
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAir"
+				CreationList="AUArcAngel_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieGround"
+				CreationList="AUArcAngel_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					ExemptStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_CryocpterDie" />
+			</FXListBehavior>	
+			<AutoHealBehavior
+				id="ModuleTag_ActiveArmorHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="0s"
+				HealingAmount="5"
+				HealingDelay=".25s">
+				<ObjectStatusValidation
+					RequiredStatus="GENERIC_TOGGLE_STATE" />
+			</AutoHealBehavior>
+
+			<SlaughterHordeContain
+				id="ModuleTag_SlaughterHordeContain"
+				CashBackPercent="0"
+				ResetInitialTeamOnCapture="true">
+				<CanAlwaysEnterObjectFilter
+					Rule="NONE">
+					<IncludeThing>AlliedSupersonicDrone</IncludeThing>
+				</CanAlwaysEnterObjectFilter>
+			</SlaughterHordeContain>
+			<ParkingPlaceBehavior
+				id="ModuleTag_ParkingPlaceBehavior"
+				NumRows="2"
+				NumCols="2"
+				ApproachHeight="10"
+				ParkInHangars="true"
+				DoorOpenTime="4.0s">
+				<CanParkHereFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+					<IncludeThing>AlliedSupersonicDrone</IncludeThing>
+				</CanParkHereFilter>
+			</ParkingPlaceBehavior>
+			
+			<SpawnBehavior
+				id="ModuleTag_SpawnArcAngelRepairDrones"
+				SpawnNumberData="5"
+				InitialBurst="5"
+				SpawnReplaceDelayData=".1s"
+				SpawnedRequireSpawner="true"
+				KillSpawnsOnCaptured="true"
+				SpawnInsideBuilding="true"
+				KillSpawnsOnDisabled="true"
+				PassExperienceToSpawned="true">
+				<Die
+					DeathTypes="ALL" />
+				<SpawnTemplate>AlliedArchAngelRepairDrone</SpawnTemplate>
+			</SpawnBehavior>
+			
+			<xi:include
+				href="DATA:Includes/AlliedAirPowerUpgrade.xml" />
+			
+			
+			<!--Deploy Ion Storm Special Power-->
+			<SpecialPower
+				id="ModuleTag_DeployIonStormStart"
+				SpecialPowerTemplate="SpecialPower_DeployIonStormStart"
+				UpdateModuleStartsAttack="true" />
+			<SpecialAbilityUpdate
+				id="ModuleTag_OCLSpecialPowerDeployIonStormStart"
+				SpecialPowerTemplate="SpecialPower_DeployIonStormStart"
+				UnpackTime="0.1s"
+				ChainedButton="Command_AlliedArchAngelDeployIonStorm" />
+			<OCLSpecialPower
+				id="ModuleTag_OCLSpecialPowerDeployIonStorm"
+				SpecialPowerTemplate="SpecialPower_DeployIonStorm"
+				UpdateModuleStartsAttack="true"
+				OCL="OCL_ArchAngelCarrierIonStorm"
+				CreateLocation="USE_OWNER_OBJECT" />
+			<OCLMonitorSpecialAbilityUpdate
+				id="ModuleTag_DeployIonStormUpdate"
+				SpecialPowerTemplate="SpecialPower_DeployIonStorm"
+				StartRechargeOnExit="true" />
+			<!--End Deploy Ion Storm Special Power-->
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeMod_AirDetectionBuff"
+				RefreshDelay="0.75s"
+				Range="750"
+				AllowSelf="true"
+				InitiallyActive="true">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES"
+					Include="VEHICLE INFANTRY AIRCRAFT"
+                    StatusBitFlags="AIRBORNE_TARGET"
+					StatusBitFlagsExclude="NOT_IN_WORLD"
+					>
+					<ExcludeThing>AlliedArcAngelAircraft</ExcludeThing>
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="60.0s">
+				<FireWeaponNugget
+					WeaponName="AlliedArchAngelShieldWeapon"
+					FireDelay="1.5s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate2">
+				<FireWeaponNugget
+					WeaponName="AlliedArchAngelShieldWeapon"
+					FireDelay="1.5s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AI"
+				NeedsRunway="false"
+				KeepsParkingSpaceWhenAirborne="false"				
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="HelicopterAIStateMachine"
+				MaxCombineChildren="8"
+				SpawnOffsetRadius="160.0">
+				<UnitAITargetChooserData
+					RotateToTargetWhenAiming="false" />
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="5000" />
+		</Body>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="30"
+			CrushableLevel="31"
+			CrushWhileStationary="true"
+			CrushDecelerationPercent="0%" />
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="90.0"
+				MinorRadius="36.0"
+				Height="40.2"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="0"
+					y="0.0"
+					z="-12.711" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="ALI_Archa_VoiceAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceCreate"
+				AudioType="voiceCreated" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceMoveHelopad"
+				AudioType="voiceEnter" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceRetreat"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="ALI_Archa_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+			<NamedEntry
+				Sound="ALI_Archa_VoiceScan"
+				Name="VoicePulseScan" />
+			<NamedEntry
+				Sound="ALI_Archa_VoiceLaunchSensorPod"
+				Name="VoiceSensorPod" />
+      <NamedEntry
+				Sound="ALI_Archa_VoiceMoveHelopad"
+				Name="ReturnToProducer" />
+			<NamedEntry
+				Sound="ALI_Archa_VoiceRetreat"
+				Name="ReturnToProducerWhileUnderAttack" />
+			<AudioEntry Sound="ALI_Archa_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+		<AudioEntry
+				Sound="ALL_Vindicator_MovStart"
+				AudioType="soundMoveStart" />
+		</AudioArraySound>
+
+
+		<VisionInfo
+			VisionRange="760"
+			ShroudClearingRange="750" />
+	</GameObject>
+
+</AssetDeclaration>

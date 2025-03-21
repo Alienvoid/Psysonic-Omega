@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:FXINVISBONE.w3x" />
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />		
+	</Includes>
+	<GameObject
+		id="AlliedPointDefenseLaserActivater"
+		inheritFrom="BaseVehicle"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS INFANTRY CAN_ATTACK AIRCRAFT PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS UNATTACKABLE MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="INFANTRY"
+		UnitCategory="INFANTRY"
+		WeaponCategory="CANNON"
+		TransportSlotCount="1"
+		EditorName="AlliedPointDefenseLaserActivater"
+		UnitTypeIcon="RiflemenIcon"
+		Description="Desc:AlliedPointDefenseLaserActivater">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:AlliedPointDefenseLaserActivater</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="275.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXINVISBONE" />
+				</ModelConditionState>			
+			</ScriptedModelDraw>
+				<LaserDraw
+				id="ModuleTag_PointDefenseLaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+  			FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="211">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>3.5000000</Value>
+							<Value>2.000000</Value>
+							<Value>10.00000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+	  </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedAircraftLaserPointDefenseWeapon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+	<LaserState
+        id="ModuleTag_PointDefenseLaserState"
+        OriginBoneName="NONE"
+        LaserId="211" >
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Light_End</LaserEndParticleSystem>
+	</LaserState>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="0.1s"
+				MaxLifetime="0.1s" />
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>		
+		</Behaviors>		
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+                    RotateToTargetWhenAiming="true">
+					<ObjectVisionRange
+						id="ObjectVisionRange_Aircraft"
+						Range="500">
+						<Filter
+							Rule="ANY"
+							Include="INFANTRY VEHICLE AIRCRAFT"
+							StatusBitFlags="AIRBORNE_TARGET"/>
+					</ObjectVisionRange>	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="400.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="450"
+			ShroudClearingRange="20" />
+	</GameObject>
+	
+	<GameObject
+		id="AlliedPaladinPointDefenseLaserActivater"
+		inheritFrom="BaseVehicle"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS INFANTRY CAN_ATTACK AIRCRAFT PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS UNATTACKABLE MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="INFANTRY"
+		UnitCategory="INFANTRY"
+		WeaponCategory="CANNON"
+		TransportSlotCount="1"
+		EditorName="AlliedPaladinPointDefenseLaserActivater"
+		UnitTypeIcon="RiflemenIcon"
+		Description="Desc:AlliedPaladinPointDefenseLaserActivater">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:AlliedPaladinPointDefenseLaserActivater</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="275.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXINVISBONE" />
+				</ModelConditionState>			
+			</ScriptedModelDraw>
+				<LaserDraw
+				id="ModuleTag_PointDefenseLaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+  			FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="211">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>3.2500000</Value>
+							<Value>1.000000</Value>
+							<Value>3.50000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+	  </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedSupportAircraftLaserPointDefenseWeapon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="0.1s"
+				MaxLifetime="0.1s" />
+	<LaserState
+        id="ModuleTag_PointDefenseLaserState"
+        OriginBoneName="NONE"
+        LaserId="211" >
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPointDefenseLaser_Light_End</LaserEndParticleSystem>
+	</LaserState>
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>		
+		</Behaviors>		
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+                    RotateToTargetWhenAiming="true">
+					<ObjectVisionRange
+						id="ObjectVisionRange_Aircraft"
+						Range="500">
+						<Filter
+							Rule="ANY"
+							Include="INFANTRY VEHICLE AIRCRAFT"
+							StatusBitFlags="AIRBORNE_TARGET"/>
+					</ObjectVisionRange>	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="400.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="450"
+			ShroudClearingRange="20" />
+	</GameObject>
+	
+	<GameObject
+		id="AlliedFighterAircraftPointDefenseLaserActivater"
+		inheritFrom="BaseVehicle"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS INFANTRY CAN_ATTACK AIRCRAFT PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS UNATTACKABLE MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="INFANTRY"
+		UnitCategory="INFANTRY"
+		WeaponCategory="CANNON"
+		TransportSlotCount="1"
+		EditorName="AlliedFighterAircraftPointDefenseLaserActivater"
+		UnitTypeIcon="RiflemenIcon"
+		Description="Desc:AlliedFighterAircraftPointDefenseLaserActivater">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:AlliedFighterAircraftPointDefenseLaserActivater</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="275.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUDrone" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="AUBomb" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="AUBomb" />
+				</ModelConditionState>			
+			</ScriptedModelDraw>
+				<LaserDraw
+				id="ModuleTag_PointDefenseLaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+  			FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="211">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>1.000000</Value>
+							<Value>3.2500000</Value>
+							<Value>3.50000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+	  </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedFighterAircraftLaserPointDefenseWeapon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="0.1s"
+				MaxLifetime="0.1s" />
+	<LaserState
+        id="ModuleTag_PointDefenseLaserState"
+        OriginBoneName="NONE"
+        LaserId="211" >
+				<LaserEndParticleSystem>AlliedFighterPointDefenseLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedFighterPointDefenseLaser_Light_End</LaserEndParticleSystem>
+	</LaserState>
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUDrone_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>			
+		</Behaviors>		
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+                    RotateToTargetWhenAiming="true">
+					<ObjectVisionRange
+						id="ObjectVisionRange_Aircraft"
+						Range="500">
+						<Filter
+							Rule="ANY"
+							Include="INFANTRY VEHICLE AIRCRAFT"
+							StatusBitFlags="AIRBORNE_TARGET"/>
+					</ObjectVisionRange>	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="400.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="450"
+			ShroudClearingRange="20" />
+	</GameObject>
+</AssetDeclaration>

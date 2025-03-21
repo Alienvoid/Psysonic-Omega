@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<!-- A.K.A. Javelin Soldier -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include type="all"	source="ART:FXObeliskLaser.xml" />
+    <Include type="all"	source="ART:FXObeliskLaserHeroic.xml" />
+    <Include type="all"	source="ART:FXLaserOverlay.xml" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_SKN.w3x" />
+		<Include type="all" source="ART:GUS_INFANTRYS_AIDA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_AIFA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_AIFB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_ATKA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_ATKB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_ATKC.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_JMPA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_JMPB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_JMPC.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_BATA.w3x" />
+		<Include type="all" source="ART:GUS_INFANTRYS_BIDA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_DIEA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_RUNA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_BIFA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_BIFB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_DIEB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYS_FLYA.w3x" />
+		<Include type="all" source="ART:GUS_INFANTRYS_DIEC.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerHeroic.xml" />
+	</Includes>
+	<!-- A.K.A. ENFORCER -->
+	<GameObject
+		id="AlliedAntiVehicleInfantry"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_AlliedEnforcer"
+		ButtonImage="Button_AlliedEnforcer"
+		Side="Allies"
+		SubGroupPriority="420" 
+		EditorSorting="UNIT"	
+		BuildTime="4"
+		CommandSet="AlliedEnforcerInfantryCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE CAVALRY"
+		ThreatLevel="10"
+		WeaponCategory="MISSILE"
+		VoicePriority="100"
+		EditorName="AlliedEnforcer"
+		Description="Desc:AlliedEnforcer"
+		TypeDescription="Type:AlliedEnforcer"
+		UnitTypeIcon="RiflemenIcon"
+		HealthBoxHeightOffset="30">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedEnforcer</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="350"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedArmouredInfantryArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="55" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="GUS_INFANTRYS_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_01" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_01" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_02" />
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_02" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_01" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_01" />
+          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_1">
+					<Model
+						Name="NPSkeleton_SKN" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Model
+						Name="NPRadiation" />
+						<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="RadiationPuddle"
+						FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationSplash"
+            FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationLightSmall"
+            FollowBone="true" />          
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_bored"
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="GUS_INFANTRYS_BIDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="100"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="GUS_INFANTRYS_BIfA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					<Animation
+						AnimationName="GUS_INFANTRYS_BIFB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					
+				</AnimationState>
+			
+				<!-- meta impact anims -->
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_FLAILING"
+					StateName="STATE_stunned_flailing">
+					<Animation
+						AnimationName="GUS_INFANTRYS_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED">
+					<Animation
+						AnimationName="GUS_INFANTRYS_FLYA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+          <Animation
+						AnimationName="GUS_INFANTRYS_FLYA"
+						AnimationMode="ONCE" 
+						AnimationSpeedFactorMin="1.0"
+						AnimationSpeedFactorMax="1.0"/>
+          <!-- Shared Particle Systems -->
+          <ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+          <!-- FX_Jet1 Particle Systems -->
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetTrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSmoke"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+          <Script>
+            CurDrawableShowSubObjectPermanently("fxjumpjet01")
+          </Script>
+        </AnimationState>
+
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5 OVER_WATER">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+					<!-- dying when running -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING_WASMOVING">
+					<Animation
+						AnimationName="GUS_INFANTRYS_DIEC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<!-- default death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="GUS_INFANTRYS_DIEA"
+						AnimationMode="ONCE" />
+						<Animation
+						AnimationName="GUS_INFANTRYS_DIEB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				
+				<AnimationState
+					  ParseCondStateType="PARSE_NORMAL"
+					  ConditionsYes="MOVING FIRING_A"
+					  Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GUS_INFANTRYS_RUNA"
+						AnimationMode="LOOP"
+						Distance="75" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GUS_INFANTRYS_RUNA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"
+						Distance="40" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AIM_HIGH PREATTACK_B">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKC"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AIM_HIGH FIRING_B">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKC"
+						AnimationMode="LOOP" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AIM_HIGH PREATTACK_A">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKC"
+						AnimationMode="MANUAL"/>
+				</AnimationState>
+				<AnimationState
+						ParseCondStateType="PARSE_NORMAL"
+						ConditionsYes="AIM_HIGH FIRING_A"
+						FrameForPristineBonePositions="4">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AIM_HIGH ATTACKING">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKC"
+						AnimationMode="MANUAL" />
+				</AnimationState>
+
+				<!-- laser mode attacking anims -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_B">
+					<Animation
+						AnimationName="GUS_INFANTRYS_AIDA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_B">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKB"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_A">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+
+				<!-- normal mode attacking anims -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A"
+					FrameForPristineBonePositions="4">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKA"
+						AnimationMode="ONCE"
+						UseWeaponTiming="true" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACKING">
+					<Animation
+						AnimationName="GUS_INFANTRYS_ATKA"
+						AnimationMode="MANUAL" />
+				</AnimationState>
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Selected">
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="GUS_INFANTRYS_AIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="100"
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="GUS_INFANTRYS_AIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="GUS_INFANTRYS_AIFB"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+
+				</AnimationState>
+				
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_boredToAttention">
+					<Animation
+						AnimationName="GUS_INFANTRYS_BATA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				
+
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="GUS_INFANTRYS_BATA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+
+
+				
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Commune"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Commune"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawThird"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="22"
+				MaxSpeed="32"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracer"
+				UseAdditiveBlending="true">
+        <HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>			
+
+     <!-- Third veterancy weapon -->
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawThirdVeterancy"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+        <HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>
+	  
+	  
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawAir"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="22"
+				MaxSpeed="32"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracer"
+				UseAdditiveBlending="true">
+        <HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>			
+
+     <!-- Third veterancy weapon -->
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawAirVeterancy"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+        <HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawAllied.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+				
+			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedEnforcerChaingun"/>
+				</WeaponSlotHardpoint>
+				<WeaponSlotHardpoint
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedEnforcerChaingun_Aircraft"/>
+				</WeaponSlotHardpoint>
+				<WeaponSlotHardpoint
+					ID="3">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedEnforcerGrenadeLauncher"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			
+      <Physics
+				id="ModuleTag_Physics" />
+				
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4.5s">
+				<DieMuxData
+					DeathTypes="ALL" 
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound
+					Type="INITIAL"
+					List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="LASERED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ELECTROCUTED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ELECTROCUTED LASERED STABBED IRRADIATED ERASED"/>
+                <Sound Type="INITIAL" List="ALL_Javelin_VoiceDieFire" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_Javelin_VoiceDie" />
+			</SlowDeath>
+						
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+      <SpecialPower
+				id="ModuleTag_CryoLeap"
+				SpecialPowerTemplate="SpecialPower_TriggerRangerLeap"
+				UpdateModuleStartsAttack="true" />
+      <!-- UnpackTime should match leap animation length -->
+      <WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_LeapUpdate"
+				SpecialWeapon="AlliedLegionnaireLeapWeapon"
+				SpecialPowerTemplate="SpecialPower_TriggerRangerLeap"
+        		Options="FAIL_WITH_INVALID_APPROACH"
+				UnpackTime="0.25s"
+				PackTime="0s"
+				TriggerSound="ALL_CryoLegionaire_Jump"
+				SetObjectStatusOnTrigger="IGNORE_AI_COMMAND"
+				ClearObjectStatusOnExit="IGNORE_AI_COMMAND"
+				StartAbilityRange="300.0"
+				WhichSpecialWeapon="1" />
+      <BezierProjectile
+				id="ModuleTag_Projectile"
+				Flags="CRUSH_STYLE NO_DETONATE DETONATE_CALLS_KILL"
+				FirstHeightMin="150"
+				FirstHeightMax="160"
+				SecondHeightMin="100"
+				SecondHeightMax="110"
+				FirstPercentIndent="40%"
+				SecondPercentIndent="60%" 
+				BounceCount="0"
+				FinalStuckTime="1.0s"
+				GroundHitWeapon="AlliedLegionnaireInfantryLandWeapon"/>
+
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_JapanFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>	
+
+			<SuppressionUpdate
+				id="ModuleTag_SuppressionUpdate"
+				xai:joinAction="Remove" />
+				
+			<AutoHealBehavior
+				id="Upgrade_AutoHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="true"
+				HealOnlyIfNotUnderAttack="true"				
+				HealingAmount="5"
+				HealingDelay="1.0s"/>	
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="AlliedAntiVehicleInfantryFunctions" />
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+                    RotateToTargetWhenAiming="true">
+					<ObjectVisionRange
+						id="ObjectVisionRange_Aircraft"
+						Range="117">
+						<Filter
+							Rule="ANY"
+							Include="AIRCRAFT"
+							StatusBitFlags="AIRBORNE_TARGET"/>
+					</ObjectVisionRange>	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="350" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="ALL_Javelin_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="ALL_Javelin_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior
+				id="ModuleTag_ASCB">
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="AUAntiVehicleInfantry_MCNB" Frame="3" />
+				
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_CDTA" Frame="6" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_CDTB" Frame="7" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="GUS_INFANTRYS_DIEA" Frame="55" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="GUS_INFANTRYS_DIEB" Frame="33" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTFA" Frame="102" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTKA" Frame="50" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTKB" Frame="74" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTPA" Frame="82" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTPB" Frame="80" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_DTSA" Frame="38" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_LNDA" Frame="5" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUAntiVehicleInfantry_MCND" Frame="4" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="GUS_INFANTRYS_DIEC" Frame="37" />
+			</AnimationSoundClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_LaserGuidedVoice">
+				<Override RequiredFlags="USER_6">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_Javelin_VoiceAttackLaserGuided" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LaserGuideOff">
+				<ModelConditionSound Sound="ALL_JavelinSoldier_LaserGuideOffMS" RequiredFlags="USER_7" ExcludedFlags="USER_6 DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_GUZoneD_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceGarrison" AudioType="voiceGarrison" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_GUZoneD_VoiceUnderAttack" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+	</GameObject>
+	<GameObject
+		id="AlliedAntiVehicleInfantry_Vet"
+		EditorName="AlliedAntiVehicleInfantry_Veteran" 
+		inheritFrom="AlliedAntiVehicleInfantry">
+		<EquivalentTo>AlliedAntiVehicleInfantry</EquivalentTo>
+
+		<Behaviors>
+			<LevelUpUpgrade
+				id="ModuleTag_LevelUpUpgrade"
+				LevelCap="4"
+				DoFlash="false"
+				LevelsToGain="1">
+				<TriggeredBy>Upgrade_AllFactionUpgrade</TriggeredBy>
+			</LevelUpUpgrade>
+			<GrantUpgradeCreate
+				id="ModuleTag_GrantUpgradeCreate" 
+				UpgradeToGrant="Upgrade_AllFactionUpgrade"
+				/>
+		</Behaviors>
+
+	</GameObject>
+</AssetDeclaration>

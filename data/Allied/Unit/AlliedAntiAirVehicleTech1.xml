@@ -1,0 +1,1544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:AUAthena_SKN.w3x" />
+		<Include type="instance" source="ART:EXTnkTrack.xml" />
+		<Include type="instance" source="ART:EXTireTrack2.xml" />
+		<Include type="instance" source="ART:EX_Headlights.w3x" />
+		<Include type="all" source="ART:AUAthena_D.xml" />
+		<Include type="instance" source="ART:AUHarvester_Hover.w3x" />
+    
+		<!-- FX Includes -->
+		<Include type="all"	source="ART:FXJapanTracer.xml" />
+		<Include type="all"	source="ART:FXRailGunCoreMask.xml" />
+		<Include type="all"	source="ART:FXCryoBeamLaser.xml" />
+		<Include type="all"	source="ART:FXLaserOverlay.xml" />
+		<Include type="all"	source="ART:FXLaserStandard.xml" />
+		<Include type="all"	source="ART:FXObeliskLaser.xml" />
+		<Include type="all"	source="ART:FXTracerAlien.xml" />
+		<Include type="all"	source="ART:FXTracerAlienHeroic.xml" />
+		<Include type="all"	source="ART:FXHarpoonBeam.xml" />
+		<Include type="all"	source="ART:FXCloud01.xml" />
+		<Include type="all"	source="ART:FXFireStream_Blue.xml" />
+    
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka IFV -->
+	<GameObject
+		id="AlliedAntiAirVehicleTech1"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedAthena"
+		ButtonImage="Button_AlliedAthena"
+		Side="Allies"
+		SubGroupPriority="705" 
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="25"
+		BuildTime="9"
+		CommandSet="AlliedAntiAirVehicleTech1CommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT AMPHIBIOUS"
+		WeaponCategory="MISSILE"
+		VoicePriority="188"
+		EditorName="AlliedAntiAirVehicleTech1"
+		Description="Desc:AlliedAntiAirVehicleTech1"
+		TypeDescription="Type:AlliedAntiAirVehicleTech1"
+		UnitIntro="Allied_IFV_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedAntiAirVehicleTech1</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="850"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedAntiAirVehicleTech1Armor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorWHEELS"
+			Condition="NORMAL"
+			Speed="95.0" />
+		<LocomotorSet
+			Locomotor="AlliedMinerWaterLocomotor"
+			Condition="NORMAL"
+			Speed="50.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+      ContainedMembersProvideWeapon="true"/>
+	  		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="Upgrade_GoldenGun Upgrade_MachineGun Upgrade_MissileLauncher Upgrade_Natasha_Sniper Upgrade_Ninja_Star Upgrade_Plasma Upgrade_Psyonic Upgrade_Psyonic_Turret Upgrade_Shotgun Upgrade_Speakers Upgrade_Tesla Upgrade_Tesla_Turret Upgrade_Cryo Upgrade_ArcherMaiden Upgrade_ArcherMaidenString Upgrade_Desolator Upgrade_Flak Upgrade_Engineer Upgrade_Blaster_Rifles Turret_Pitch Bone_Tire_Left_Middle_02 Bone_Tire_Right_Middle_02 Bone_Tire_Left_Front Bone_Tire_Left_Front_2 Bone_Tire_Right_Front_2 Bone_Tire_Right_Middle_01 Bone_Tire_Left_Middle_01 Bone_Tire_Right_Front Bone_Tire_Left_Rear Bone_Tire_Right_Rear AUIFV_WEAPONCOVER Bone_Tread_FrontLeft Bone_Tread_FrontRight Bone_Tread_RearLeft Bone_Tread_RearRight"
+				TrackMarks="EXTireTrack2"
+				
+				TrackMarksLeftBone="Bone_Tire_L_03"
+				TrackMarksRightBone="Bone_Tire_R_03"
+
+				LeftFrontTireBone="Bone_Tire_Left_Front"
+				RightFrontTireBone="Bone_Tire_Right_Front"
+
+				MidLeftMidTireBone="Bone_Tire_Left_Front_2"
+				MidRightMidTireBone="Bone_Tire_Right_Front_2"
+
+				MidLeftRearTireBone="Bone_Tire_Left_Middle_01"
+				MidRightRearTireBone="Bone_Tire_Right_Middle_01"
+
+				LeftRearTireBone2="Bone_Tire_Left_Middle_02"
+				RightRearTireBone2="Bone_Tire_Right_Middle_02"
+
+				LeftRearTireBone="Bone_Tire_Left_Rear"
+				RightRearTireBone="Bone_Tire_Right_Rear">
+
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_RearLeft"
+					RightTrack="Bone_Tread_RearRight"
+					SpeedMultiplier="0.06"
+					TreadDriveSpeedFraction="10%"/>
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_FrontLeft"
+					RightTrack="Bone_Tread_FrontRight"
+					SpeedMultiplier="0.06"
+					TreadDriveSpeedFraction="10%"/>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="AUAthena_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="UPGRADE_DEFAULT_MISSILE" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="UPGRADE_DEFAULT_MISSILE" />
+					<WeaponFireFXBone
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="UPGRADE_DEFAULT_MISSILE" />
+					<WeaponLaunchBone
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="UPGRADE_DEFAULT_MISSILE" />
+					<Turret
+						TurretNameKey="Turret"
+						TurretPitch="Turret_Pitch"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="AUAthena_SKN" />
+					<ParticleSysBone
+						BoneName="AUIFV_WeaponCover"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUAthena_SKN" />
+					<Texture
+						Original="AUAthena"
+						New="AUAthena_D" />
+					<ParticleSysBone
+						BoneName="AUIFV_WeaponCover"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="AUIFV_WeaponCover"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<AnimationState
+					ConditionsYes="FORMATION_PREVIEW"
+					ParseCondStateType="PARSE_NORMAL">
+					<Script>
+            CurDrawableHideSubObjectPermanently( "Upgrade_Blaster_Rifles" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Engineer" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Flak" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_GoldenGun" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_MachineGun" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_MissileLauncher" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Natasha_Sniper" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Ninja_Star" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Ninja_Turret" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Plasma" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Psyonic" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Psyonic_Turret" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Shotgun" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Speakers" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Tanya_Pistols" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Tesla_Turret" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Tesla" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Turret" )
+            CurDrawableHideSubObjectPermanently( "Tanya" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Cryo" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_Desolator" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_ArcherMaiden" )
+            CurDrawableHideSubObjectPermanently( "Upgrade_ArcherMaidenString" )
+          </Script>
+				</AnimationState>
+
+			</TruckDraw>
+			
+
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Hover">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUHarvester_Hover" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COMING_OUT_OF_FACTORY">
+					<Model
+						Name="" />
+				</ModelConditionState>					
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="AUHarvester_Hover" />
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_Land"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="AUHarvester_Hover"
+						AnimationMode="ONCE" />					
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Water" then
+						CurDrawableSetTransitionAnimState("TRANS_Land")
+						end
+					</Script>						
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COMING_OUT_OF_FACTORY"
+					StateName="STATE_Land">
+					<Animation
+						AnimationName="AUHarvester_Hover"
+						AnimationMode="ONCE" />
+				</AnimationState>
+								
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER"
+					StateName="STATE_Water"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="AUHarvester_Hover"
+						AnimationMode="ONCE_BACKWARDS" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Land" then
+						CurDrawableSetTransitionAnimState("TRANS_Water")
+						end
+					</Script>						
+						<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="StingrayWaterWake"
+						FollowBone="false" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_Water"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="AUHarvester_Hover"
+						AnimationMode="ONCE_BACKWARDS">
+					</Animation>
+					<Script>
+						CurDrawablePlaySound("ALL_Prospector_WaterSplashMS")
+					</Script>     
+							</AnimationState>
+							<AnimationState
+								ParseCondStateType="PARSE_TRANSITION"
+								StateName="TRANS_Land"
+								Flags="START_FRAME_FIRST">
+								<Animation
+									AnimationName="AUHarvester_Hover"
+									AnimationMode="ONCE">
+					</Animation>
+					<Script>
+						CurDrawablePlaySound("AmphibiousWaterUnitToLand_ScrapeTreadsOut")
+					</Script>    
+				</AnimationState>												
+			</ScriptedModelDraw>
+
+      <LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".3"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1.4"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				LaserStateID="1">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXObeliskLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXLaserOverlay</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>5.000000</Value>
+              <Value>2.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />
+      </LaserDraw>
+
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw_CryoBeam"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				FadeInTime="0.1s"
+				FadeOutTime="0.1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="0">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXCryoBeamLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="101">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>8.000000</Value>
+							<Value>10.000000</Value>
+							<Value>2.500000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_03" />
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw_vet"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+        FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="102">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.000000</Value>
+							<Value>10.000000</Value>
+							<Value>8.500000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_03" />
+			</LaserDraw>
+			
+			<LaserDraw
+				id="ModuleTag_LaserDistort"
+				UseDistortionShader="true"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".01"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				LaserWidth="50"
+				WeaponSlotID="1"
+				LaserStateID="201">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXRailGunCoreDistortion</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXRailGunCoreMask</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAdd"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="25"
+				MaxSpeed="25"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.08"
+				MaxTracersPerFrame="0.08"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracerAlien"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHit">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_03 CONTAINER_OCCUPIED" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddVeterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="25"
+				MaxSpeed="25"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.08"
+				MaxTracersPerFrame="0.08"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracerAlienHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHitHeroic">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_03" 
+					ForbiddenStatus="CONTAINER_OCCUPIED"/>						
+			</TracerModelDraw>
+			
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddAA"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="25"
+				MaxSpeed="25"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.08"
+				MaxTracersPerFrame="0.08"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				Texture="FXTracerAlien"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHit">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_03 CONTAINER_OCCUPIED" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddVeterancyAA"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="25"
+				MaxSpeed="25"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.08"
+				MaxTracersPerFrame="0.08"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				Texture="FXTracerAlienHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHitHeroic">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_03" 
+					ForbiddenStatus="CONTAINER_OCCUPIED"/>						
+			</TracerModelDraw>
+			
+			
+      <LaserDraw
+				id="ModuleTag_LaserDrawOuter"
+				Texture1_UTile="1"
+				Texture1_VTile="1.3"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-0.8"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="5"
+				LaserStateID="301">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXHarpoonBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXCloud01</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>2.2000000</Value>
+              <Value>2.2000000</Value>
+              <Value>1.4000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+
+      <LaserDraw
+				id="ModuleTag_LaserDrawMid"
+				Texture1_UTile="1"
+				Texture1_VTile="1.2"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="1"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.5"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="6"
+				WeaponSlotID="1"
+				LaserStateID="301">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXHarpoonBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXCloud01</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>2.2000000</Value>
+              <Value>2.2000000</Value>
+              <Value>1.4000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDrawInner"
+				Texture1_UTile="1"
+				Texture1_VTile="1.25"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="1.3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".9"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1.5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="7"
+				WeaponSlotID="1"
+				LaserStateID="301">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXHarpoonBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXCloud01</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>2.2000000</Value>
+              <Value>2.2000000</Value>
+              <Value>1.4000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+	  
+			<StreamDraw
+				id="ModuleTag_UpgradedStreamDraw"
+				UseDistortionShader="false"
+				Velocity="300.0"
+				ArcHeightFactor="0.0625"
+				UVWorldSize="100.0"
+				NumTubeSides="8"
+				TubeRadius="0.5"
+				HitFx="FX_None"
+				WeaponSlotID="1"
+				StreamStateID="0">
+				<!-- HitFx="FX_BulletHitGDI" -->
+				<!-- FX_NOD_BlackHandFlameWeaponHit = FX_BulletHitGDI - the bullet ricochet sounds! -->
+				<FXShader
+					ShaderName="Stream.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ParticleSystems>
+					<ParticleSys>NUBlkHndPurifyingStrmFlame</ParticleSys>
+					<ParticleSys>NUBlkHndPurifyingStrmGlow</ParticleSys>
+					<ParticleSys>NUBlkHndPurifyingStrmDistort</ParticleSys>
+				</ParticleSystems>
+			</StreamDraw>
+			
+	  
+		</Draws>
+
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					AllowInterleavedFiring="false"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE"
+					AutoChooseWeapon="true">
+
+					<!-- Default unoccupied weapon -->
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedIFVDefaultWeapon"
+						ForbiddenObjectStatus="CONTAINER_OCCUPIED"/>
+						
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="AlliedIFVDefaultWeapon_Aircraft"
+						ForbiddenObjectStatus="CONTAINER_OCCUPIED"/>
+					
+					<!-- SovietAntiVehicleInfantry -->
+					<Weapon
+						Template="ABD_SovietAntiVehicleFlakLauncher"
+						Upgrade="Uprade_IFV_FlakTrooper"
+						Ordering="PRIMARY_WEAPON"/>
+					
+					<!-- AlliedInfiltrationInfantry -->
+					<Weapon
+						Template="ABD_PistolWeapon"
+						Upgrade="Uprade_IFV_GoldenGun"
+						Ordering="PRIMARY_WEAPON"/>
+					
+					<!-- SovietAntiInfantryInfantry & JapanAntiInfantryInfantry-->
+					<Weapon
+						Template="ABD_MachineGun"
+						Upgrade="Uprade_IFV_MachineGun"
+						Ordering="PRIMARY_WEAPON"/>
+						
+				<!-- JapanAntiInfantryInfantry-->
+						
+					<Weapon
+						Template="ABD_JapanMachineGun"
+						Upgrade="Uprade_IFV_JapanMachineGun"
+						Ordering="SECONDARY_WEAPON"/>		
+					
+					<!-- AlliedAntiVehicleInfantry -->
+					<Weapon
+						Template="AAAVT1_AlliedAntiVehicleInfantrySonicGrenade"
+						Upgrade="Uprade_IFV_MissleTrooper"
+						Ordering="PRIMARY_WEAPON"/>
+					
+					<!-- AlliedCommandoTech1 -->
+					<Weapon
+						Template="ABD_CommandoRailgunWeapon"
+						Upgrade="Uprade_IFV_Pistol"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- JapanAntiVehicleInfantry -->
+					<Weapon
+						Template="ABD_JapanAntiVehicleInfantryPlasmaBazooka"
+						Upgrade="Uprade_IFV_PlasmaBazooka"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- JapanCommandoTech1 -->
+					<Weapon
+						Template="ABD_JapanCommandoTech1PsyonicCrush"
+						Upgrade="Uprade_IFV_PsyonicCrush"
+						Ordering="PRIMARY_WEAPON"/>
+                    <Weapon
+                       Template="ABD_JapanCommandoTech1PsyonicAntiAirCrush"
+                       Upgrade="Uprade_IFV_PsyonicCrush"
+                       Ordering="SECONDARY_WEAPON"/>
+
+					<!-- AlliedEngineer, SovietEngineer & JapanEngineer -->
+					<Weapon
+						Template="ABD_RepairWeapon"
+						Upgrade="Uprade_IFV_Repair"
+						Ordering="PRIMARY_WEAPON"/>
+					<Weapon
+						Template="ABD_AdvancedRepairWeapon"
+						Upgrade="Uprade_IFV_AdvancedRepair"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- SovietScoutInfantry & AlliedScoutInfantry-->
+					<Weapon
+						Template="ABD_RoarWeapon"
+						Upgrade="Uprade_IFV_Roar"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- AlliedAntiInfantryInfantry -->
+					<Weapon
+						Template="ABD_ShotgunWeapon"
+						Upgrade="Uprade_IFV_Shotgun"
+						Ordering="PRIMARY_WEAPON"
+						ForbiddenObjectStatus="WEAPON_UPGRADED_03"/>
+					<Weapon
+						Template="ABD_ShotgunWeapon_Vet"
+						Upgrade="Uprade_IFV_Shotgun"
+						Ordering="PRIMARY_WEAPON"
+						ObjectStatus="WEAPON_UPGRADED_03"/>
+
+					<!-- JapanInfiltrationInfantry -->
+					<Weapon
+						Template="ABD_JapanInfiltrationShiruken"
+						Upgrade="Uprade_IFV_Shuriken"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- SovietCommando -->
+					<Weapon
+						Template="ABD_SovietCommandoSniperRifle"
+						Upgrade="Uprade_IFV_SovietCommando"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- SovietHeavyAntiVehicleInfantry -->
+					<Weapon
+						Template="ABD_SovietHeavyAntiVehicleInfantryTeslaGun"
+						Upgrade="Uprade_IFV_TeslaTrooper"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- AlliedLegionnairInfantry -->
+					<Weapon
+						Template="ABD_AlliedLegionnaireWeapon"
+						Upgrade="Uprade_IFV_Legionnaire"
+						Ordering="PRIMARY_WEAPON"/>
+					<Weapon
+						Template="ABD_AlliedLegionnaireWeapon_Air"
+						Upgrade="Uprade_IFV_Legionnaire"
+						Ordering="SECONDARY_WEAPON"/>
+
+					<!-- JapanSpitter -->
+					<Weapon
+						Template="AAAVT1_JapanSpitterSpray"
+						Upgrade="Upgrade_IFV_Desolator"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<!-- JapanArcherInfantry -->
+					<Weapon
+						Template="AAAVT1_ArcherMaiden"
+						Upgrade="Upgrade_IFV_Archer"
+						Ordering="PRIMARY_WEAPON"/>
+
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-30d"
+						AllowsPitch="true" 
+						TurretPitchRate="180" 
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true">
+							<ObjectVisionRange
+								id="ObjectVisionRange_Aircraft"
+								Range="150">
+								<Filter
+									Rule="ANY"
+									Include="INFANTRY VEHICLE AIRCRAFT"
+									StatusBitFlags="AIRBORNE_TARGET"/>
+							</ObjectVisionRange>	
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<StreamState
+				id="ModuleTag_StreamState"
+				StreamId="0">			
+			</StreamState>
+      <!-- For the Plasma Bazooka -->
+      <LaserState
+				id="ModuleTag_LaserState"
+				LaserId="1" />
+
+      <LaserState
+				id="ModuleTag_LaserState"
+				LaserId="301"
+				>
+        <LaserEndParticleSystem>Sov_Leech_Glow02</LaserEndParticleSystem>
+      </LaserState>
+	  
+		<LaserState
+			id="ModuleTag_LaserState"
+			LaserId="101">
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Mote</LaserStartParticleSystem>
+		</LaserState>
+      
+      <!-- VETERAN -->
+
+		<LaserState
+			id="ModuleTag_LaserState_Vet"
+			LaserId="102">
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Mote</LaserStartParticleSystem>
+		</LaserState>
+		
+		<LaserState
+			id="ModuleTag_LaserState02"
+			LaserId="201">
+      </LaserState>
+			<!-- For the machine gun -->			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade01"
+				StatusToSet="ENABLE_TRACER_DRAW">
+				<TriggeredBy>Uprade_IFV_MachineGun</TriggeredBy>
+				<TriggeredBy>Uprade_IFV_JapanMachineGun</TriggeredBy>
+			</StatusBitsUpgrade>
+			
+			<!-- For the Allied Commando Tech 1 Tracers -->
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade02"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Uprade_IFV_Pistol</TriggeredBy>
+			</StatusBitsUpgrade>
+
+      <!-- For the Allied IFV Auto Repair Allies -->
+      <StatusBitsUpgrade
+				id="ModuleTag_UpgradeWeapon"
+				StatusToSet="REPAIR_ALLIES_WHEN_IDLE">
+        <TriggeredBy>Uprade_IFV_Repair</TriggeredBy>
+      </StatusBitsUpgrade>
+      <StatusBitsUpgrade
+				id="ModuleTag_UpgradeWeapon_AdvancedRepair"
+				StatusToSet="REPAIR_ALLIES_WHEN_IDLE">
+        <TriggeredBy>Uprade_IFV_AdvancedRepair</TriggeredBy>
+      </StatusBitsUpgrade>
+            <LiftObjectUpdate
+                id="ModuleTag_PsyonicCrushLiftUpdate"
+                CrusherModifiesVelocity="false"
+                LiftVelocity="4.0"
+                MaxElevationFromGround="200.0"
+                TimeIncrement="0.5s"
+                MaxTimeLifted="8.0s"
+                MaxStructureShakeVelocity="0.25"
+                AirplaneCrashWeapon="JapanCommandoTech1AirplaneCrashWeapon">
+			</LiftObjectUpdate>
+
+			<!-- For the Cryo Legionnaire -->
+			<LaserState
+				id="ModuleTag_LaserStateCryobeam"
+				LaserId="0">
+				<LaserEndParticleSystem>AlliedCryoBeamHitRichochet</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedCryoBeamHitMist</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedCryoBeamHitGlow</LaserEndParticleSystem>
+				<LaserStartParticleSystem>AlliedCryoBeamFireGlow</LaserStartParticleSystem>
+			</LaserState>
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgradeRe"
+				StatusToSet="WEAPON_UPGRADED_03">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<Physics
+				id="ModuleTag_Physics" />
+			
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED NO_ATTACK"
+				ContainMax="1"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="true"
+				EnterSound="VehicleEnter"
+				ExitSound="AlliedMultigunnerIFVvehicleExitWithVoiceMS"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID"
+				ExtendedExitContainerChecks="true">
+				<PassengerFilter
+					Rule="ANY"
+					Include="INFANTRY" />
+				<DieMuxData
+					DeathTypes="ALL" />
+				<PassengerData
+					BonePrefix="BONEGARRISON">
+					<Filter
+						Rule="NONE"
+						Include="INFANTRY" />
+				</PassengerData>
+			</TransportContain>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUAthena_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="TOPPLED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedChieftanDie" />
+			</FXListBehavior>
+		<SecondaryObjectListenerModule
+			id="ModuleTag_SecondaryObjectListener"
+			Flags="NOTIFY_WEAPON_SET_UPDATE">
+		
+			<!-- SovietAntiVehicleInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>SovietMissileMan</IncludeThing>
+					<IncludeThing>SACOMAntiVehicleInfantry</IncludeThing>
+					<IncludeThing>SovietAntiVehicleInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_FlakTrooper</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- AlliedInfiltrationInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>AlliedInfiltrationInfantry</IncludeThing>
+					<IncludeThing>AlliedSniper</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_GoldenGun</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- SovietAntiInfantryInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>SovietAntiInfantryInfantry</IncludeThing>
+					<IncludeThing>SACOMAntiInfantryInfantry</IncludeThing>
+					<IncludeThing>SovietExecuter</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_MachineGun</UpgradeSelf>
+			</ObjectEffectTuple>
+			
+		
+			<!--  JapanAntiInfantryInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>JapanAntiInfantryInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_JapanMachineGun</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- AlliedAntiVehicleInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>AlliedAntiVehicleInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_MissleTrooper</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- AlliedCommandoTech1 -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>AlliedCommandoTech1</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_Pistol</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- JapanAntiVehicleInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>JapanAntiVehicleInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_PlasmaBazooka</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- JapanCommandoTech1 -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>JapanCommandoTech1</IncludeThing>
+					<IncludeThing>JapanBetaYuriko</IncludeThing>
+					<IncludeThing>PsychicPartisanCommandoTech1</IncludeThing>
+					<IncludeThing>PsychicPartisanBetaYuriko</IncludeThing>
+					</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_PsyonicCrush</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- AlliedEngineer, SovietEngineer & JapanEngineer -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>SovietEngineer</IncludeThing>
+					<IncludeThing>SACOMEngineer</IncludeThing>
+					<IncludeThing>PsychicPartisanEngineer</IncludeThing>
+					<IncludeThing>JapanEngineer</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_Repair</UpgradeSelf>
+			</ObjectEffectTuple>
+			
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>AlliedEngineer</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_AdvancedRepair</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- SovietScoutInfantry & AlliedScoutInfantry-->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>SovietScoutInfantry</IncludeThing>
+					<IncludeThing>SACOMScoutInfantry</IncludeThing>
+					<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_Roar</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- AlliedAntiInfantryInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>AlliedAntiInfantryInfantry</IncludeThing>
+					<IncludeThing>SACOMMedic</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_Shotgun</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- JapanInfiltrationInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>JapanInfiltrationInfantry</IncludeThing>
+					<IncludeThing>PsychicPartisanInfiltrationInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_Shuriken</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- SovietCommando -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>SovietCommandoTech1</IncludeThing>
+					<IncludeThing>SACOMCommandoTech1</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_SovietCommando</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- SovietHeavyAntiVehicleInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_TeslaTrooper</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- AlliedLegionnaireInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>AlliedLegionnaireInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Uprade_IFV_Legionnaire</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- JapanSpitter -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>JapanSpitter</IncludeThing>
+					<IncludeThing>PsychicPartisanECTrooper</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Upgrade_IFV_Desolator</UpgradeSelf>
+			</ObjectEffectTuple>
+		
+			<!-- JapanArcherInfantry -->
+			<ObjectEffectTuple>
+				<ObjectFilter Rule="NONE">
+					<IncludeThing>JapanArcherInfantry</IncludeThing>
+				</ObjectFilter>
+				<UpgradeSelf>Upgrade_IFV_Archer</UpgradeSelf>
+			</ObjectEffectTuple>	
+	
+		</SecondaryObjectListenerModule>
+		<SubObjectsUpgrade
+	id="ModuleTag_SubObjectsUpgrade">
+	<TriggeredBy>Uprade_IFV_FlakTrooper</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_GoldenGun</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_MachineGun</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_MissleTrooper</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_Pistol</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_PlasmaBazooka</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_PsyonicCrush</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_Repair</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_Roar</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_Shotgun</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_Shuriken</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_SovietCommando</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_TeslaTrooper</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_JapanMachineGun</TriggeredBy>
+	<TriggeredBy>Uprade_IFV_Legionnaire</TriggeredBy>
+  <TriggeredBy>Upgrade_IFV_Desolator</TriggeredBy>
+  <TriggeredBy>Upgrade_IFV_Archer</TriggeredBy>
+
+  <!-- SovietAntiVehicleInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_FlakTrooper"
+		ShowSubObjects="Upgrade_Flak"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- AlliedInfiltrationInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_GoldenGun"
+		ShowSubObjects="Upgrade_GoldenGun"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_GoldenGun"
+		ShowSubObjects="Upgrade_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- SovietAntiInfantryInfantry & JapanAntiInfantryInfantry-->
+	<Nugget
+		Upgrade="Uprade_IFV_MachineGun"
+		ShowSubObjects="Upgrade_MachineGun"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+		
+	<!-- SovietAntiInfantryInfantry & JapanAntiInfantryInfantry-->
+	<Nugget
+		Upgrade="Uprade_IFV_JapanMachineGun"
+		ShowSubObjects="Upgrade_MachineGun"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>	
+		
+
+	<!-- AlliedAntiVehicleInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_MissleTrooper"
+		ShowSubObjects="Upgrade_MissileLauncher"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- AlliedCommandoTech1 -->
+<!--
+	<Nugget
+		Upgrade="Uprade_IFV_Pistol"
+		ShowSubObjects="TANYA"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+-->		
+	<Nugget
+		Upgrade="Uprade_IFV_Pistol"
+		ShowSubObjects="UPGRADE_DESOLATOR"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_Pistol"
+		ShowSubObjects="Upgrade_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- JapanAntiVehicleInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_PlasmaBazooka"
+		ShowSubObjects="Upgrade_Plasma"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_PlasmaBazooka"
+		ShowSubObjects="Upgrade_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- JapanCommandoTech1 -->
+	<Nugget
+		Upgrade="Uprade_IFV_PsyonicCrush"
+		ShowSubObjects="Upgrade_Psyonic"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_PsyonicCrush"
+		ShowSubObjects="Upgrade_Psyonic_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- AlliedEngineer, SovietEngineer & JapanEngineer -->
+	<Nugget
+		Upgrade="Uprade_IFV_Repair"
+		ShowSubObjects="Upgrade_Engineer"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_AdvancedRepair"
+		ShowSubObjects="Upgrade_Engineer"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- SovietScoutInfantry & AlliedScoutInfantry-->
+	<Nugget
+		Upgrade="Uprade_IFV_Roar"
+		ShowSubObjects="Upgrade_Speakers"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- AlliedAntiInfantryInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_Shotgun"
+		ShowSubObjects="Upgrade_Shotgun"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- JapanInfiltrationInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_Shuriken"
+		ShowSubObjects="Upgrade_Ninja_Star"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_Shuriken"
+		ShowSubObjects="Upgrade_Ninja_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_Shuriken"
+		ShowSubObjects="Upgrade_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- SovietCommando -->
+	<Nugget
+		Upgrade="Uprade_IFV_SovietCommando"
+		ShowSubObjects="Upgrade_Natasha_Sniper"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_SovietCommando"
+		ShowSubObjects="Upgrade_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- SovietHeavyAntiVehicleInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_TeslaTrooper"
+		ShowSubObjects="Upgrade_Tesla"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_TeslaTrooper"
+		ShowSubObjects="Upgrade_Tesla_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- AlliedLegionnaireInfantry -->
+	<Nugget
+		Upgrade="Uprade_IFV_Legionnaire"
+		ShowSubObjects="Upgrade_Cryo"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+	<Nugget
+		Upgrade="Uprade_IFV_Legionnaire"
+		ShowSubObjects="Upgrade_Tesla_Turret"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+
+	<!-- SovietDesolatorInfantry -->
+	<Nugget
+		Upgrade="Upgrade_IFV_Desolator"
+		ShowSubObjects="Upgrade_Desolator"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+  
+	<!-- JapanArcherInfantry -->
+	<Nugget
+		Upgrade="Upgrade_IFV_Archer"
+		ShowSubObjects="Upgrade_ArcherMaiden"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+  
+  <Nugget
+		Upgrade="Upgrade_IFV_Archer"
+		ShowSubObjects="Upgrade_ArcherMaidenString"
+		HideSubObjects="Upgrade_Default_Missile"
+		HideSubObjectsOnRemove="true"
+		UnHideSubObjectsOnRemove="true"/>
+  
+</SubObjectsUpgrade>
+		<LUAEventList
+			id="ModuleTag_LUAEventList"
+			EventListName="AlliedAntiAirVehicleTech1Functions"
+		/>				
+		
+  </Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+        <UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+					CanPickDynamicTargets="false">
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="750" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_MultigunnerIFV_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<UpgradeSoundSelectorClientBehavior id="VoiceMoveRepair">
+				<Override>
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_IFV_VoiceMoveRepair" AudioType="voiceMove" />
+						<AudioEntry Sound="ALL_IFV_VoiceMoveRepair" AudioType="voiceAttack" />
+						<AudioEntry Sound="ALL_IFV_VoiceMoveRepair" AudioType="voiceAttackAfterMoving" />
+					</AudioArrayVoice>
+					<RequiredUpgrade>Uprade_IFV_Repair</RequiredUpgrade>
+				</Override>
+			</UpgradeSoundSelectorClientBehavior>
+			<UpgradeSoundSelectorClientBehavior id="VoiceMoveRepair">
+				<Override>
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_IFV_VoiceMoveRepair" AudioType="voiceMove" />
+						<AudioEntry Sound="ALL_IFV_VoiceMoveRepair" AudioType="voiceAttack" />
+						<AudioEntry Sound="ALL_IFV_VoiceMoveRepair" AudioType="voiceAttackAfterMoving" />
+					</AudioArrayVoice>
+					<RequiredUpgrade>Uprade_IFV_AdvancedRepair</RequiredUpgrade>
+				</Override>
+			</UpgradeSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="20.0"
+				MinorRadius="15.0"
+				Height="16.0"
+				ContactPointGeneration="VEHICLE">
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_IFV_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_IFV_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_IFV_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_IFV_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_IFV_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_MultiGunnerIFV_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_IFV_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_IFV_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_MultiGunnerIFV_MovStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry Sound="ALL_MultiGunnerIFV_MoveByLoop" AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="350"
+			ShroudClearingRange="=$LIGHT_VEHICLE_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushEqualLevelProps="true"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+	</GameObject>
+</AssetDeclaration>

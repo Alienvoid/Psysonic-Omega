@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:AUSUPERSONICDRONE_SKN.W3X" />
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:AUSUPERSONICDRONE_02.xml" />
+		<Include type="all"	source="ART:AUSUPERSONICDRONE_02_D.xml" />
+		<Include type="all"	source="ART:AUSUPERSONICDRONE_D.xml" />
+    <Include type="all" source="ART:FXTracerAlien.xml" />
+    <Include type="all" source="ART:FXTracerAlienHeroic.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedSupersonicDrone"
+		inheritFrom="BaseVehicle"
+		TransportSlotCount="1" 
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT VEHICLE PASS_EXPERIENCE_TO_SLAVER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		EditorName="AlliedSupersonicDrone"
+		Description="Desc:AlliedSupersonicDrone"
+		UnitTypeIcon="BurstDroneIcon">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:AlliedSupersonicDrone</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="100" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+
+		<LocomotorSet
+			Locomotor="AlliedSupersonicDroneLocomotor"
+			Condition="NORMAL"
+			Speed="275.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUSUPERSONICDRONE_SKN" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_01" />
+					<ParticleSysBone
+						BoneName="FX_Wingtip_01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Wingtip_02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>
+				</ModelConditionState>
+<!-- UPGRADED MODEL -->
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="AUSUPERSONICDRONE_SKN" />
+					<Texture
+						Original="AUSUPERSONICDRONE"
+						New="AUSUPERSONICDRONE_02_D" />
+					<ParticleSysBone
+						BoneName="FX_Wingtip_01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Wingtip_02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>        
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="AUSUPERSONICDRONE_SKN" />
+					<Texture
+						Original="AUSUPERSONICDRONE"
+						New="AUSUPERSONICDRONE_02" />	
+					<ParticleSysBone
+						BoneName="FX_Wingtip_01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Wingtip_02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>						
+				</ModelConditionState>						
+<!-- UPGRADED MODEL -->
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUSUPERSONICDRONE_SKN" />
+					<Texture
+						Original="AUSUPERSONICDRONE"
+						New="AUSUPERSONICDRONE_D" />
+					<ParticleSysBone
+						BoneName="FX_Wingtip_01"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Wingtip_02"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"/>    
+				</ModelConditionState>	
+			</ScriptedModelDraw>
+
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddAA"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="25"
+				MaxSpeed="25"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.08"
+				MaxTracersPerFrame="0.08"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracerAlien"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHit">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_03" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddVeterancyAA"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="25"
+				MaxSpeed="25"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.08"
+				MaxTracersPerFrame="0.08"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracerAlienHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHitHeroic">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_03"/>						
+			</TracerModelDraw>
+			
+	  </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedSupersonicDroneCannon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+	  
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="true"/>
+				
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="600"
+				GuardMaxRange="0"
+				GuardWanderRange="0"
+				AttackRange="375"
+				DieOnMastersDeath="true" />
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUSupersonicDrone_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgradeRe"
+				StatusToSet="WEAPON_UPGRADED_03">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>			
+		</Behaviors>		
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AI"
+				NeedsRunway="false"
+				KeepsParkingSpaceWhenAirborne="false"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="StrafingRunAIStateMachine"
+				CirclesForAttack="true"
+				SpawnOffsetRadius="160.0">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="600.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="400"
+			ShroudClearingRange="20" />
+	</GameObject>
+</AssetDeclaration>

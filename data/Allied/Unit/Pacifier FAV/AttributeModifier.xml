@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<AttributeModifier
+		id="AttributeMod_PacifierVision_UnDeployed"    
+		Duration="9999s">
+		<Modifier Type="VISION" Value="34%"/>
+	</AttributeModifier>
+	<AttributeModifier
+		id="AttributeMod_Pacifier_Deployed"    
+		Category="NONE"
+		ObjectStatusToSet="DEPLOYED">
+	</AttributeModifier>
+	
+	<AttributeModifier
+		id="AttributeModifier_SiegeMarker"
+		Duration="3s"
+		ObjectStatusToSet="IS_ATTACKING" />
+</AssetDeclaration>

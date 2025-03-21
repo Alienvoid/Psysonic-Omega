@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="instance" source="ART:FXLaserStandard.xml" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_SKN.w3x" />
+		<Include type="all" source="ART:GUS_INFANTRYT_AIDA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_AIFA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_AIFB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_ATKA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_ATKB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_BATA.w3x" />
+		<Include type="all" source="ART:GUS_INFANTRYT_BIDA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_BIFA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_BIFB.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_DIEA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_DIEB.w3x" />
+		<Include type="all" source="ART:GUS_INFANTRYT_DIEC.w3x" />
+		<Include type="all" source="ART:GUS_INFANTRYT_DIED.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_RUNA.w3x" />
+		<Include type="all"	source="ART:GUS_INFANTRYT_FLYA.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+
+
+    <!-- FX Includes -->
+    <Include type="all"	source="ART:FXTracer.xml" />
+    <Include type="all"	source="ART:FXTracerHeroic.xml" />
+
+    <!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<!-- aka The Peacekeeper -->
+	<GameObject
+		id="AlliedAntiInfantryInfantry"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_AlliedDesignatedMarksman"
+		ButtonImage="Button_AlliedDesignatedMarksman"
+		Side="Allies"
+		SubGroupPriority="360" 
+		EditorSorting="UNIT"	
+		BuildTime="4"
+		CommandSet="AlliedRangerCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE CAVALRY"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="104"
+		EditorName="AlliedAntiInfantryInfantry"
+		Description="Desc:AlliedDesignatedMarksman"
+		TypeDescription="Type:AlliedDesignatedMarksman"
+		UnitTypeIcon="RangerIcon"
+		HealthBoxHeightOffset="33">
+
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedDesignatedMarksman</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedArmouredInfantryArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="55" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="GUS_INFANTRYT_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fxweapon" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fxweapon" />
+          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_1">
+					<Model
+						Name="NPSkeleton_SKN" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Model
+						Name="NPRadiation" />
+						<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="RadiationPuddle"
+						FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationSplash"
+            FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationLightSmall"
+            FollowBone="true" />          
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_bored"
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="GUS_INFANTRYT_BIDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="100"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="GUS_INFANTRYT_BIfA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					<Animation
+						AnimationName="GUS_INFANTRYT_BIFB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					
+				</AnimationState>
+			
+				<!-- meta impact anims -->
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_FLAILING"
+					StateName="STATE_stunned_flailing">
+					<Animation
+						AnimationName="GUS_INFANTRYT_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED">
+					<Animation
+						AnimationName="GUS_INFANTRYT_FLYA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+          <Animation
+						AnimationName="GUS_INFANTRYT_FLYA"
+						AnimationMode="ONCE" 
+						AnimationSpeedFactorMin="1.0"
+						AnimationSpeedFactorMax="1.0"/>
+          <!-- Shared Particle Systems -->
+          <ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+          <!-- FX_Jet1 Particle Systems -->
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetTrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSmoke"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+          <Script>
+            CurDrawableShowSubObjectPermanently("fxjumpjet01")
+          </Script>
+        </AnimationState>
+
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5 OVER_WATER">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+					<!-- dying when running -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING_WASMOVING">
+					<Animation
+						AnimationName="GUS_INFANTRYT_DIEC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<!-- default death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="GUS_INFANTRYT_DIEA"
+						AnimationMode="ONCE" />
+						<Animation
+						AnimationName="GUS_INFANTRYT_DIEB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				
+				<AnimationState
+					  ParseCondStateType="PARSE_NORMAL"
+					  ConditionsYes="MOVING FIRING_A"
+					  Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GUS_INFANTRYT_RUNA"
+						AnimationMode="LOOP"
+						Distance="75" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GUS_INFANTRYT_RUNA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"
+						Distance="40" />
+				</AnimationState>
+				
+
+				<!-- laser mode attacking anims -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_B">
+					<Animation
+						AnimationName="GUS_INFANTRYT_AIDA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_B">
+					<Animation
+						AnimationName="GUS_INFANTRYT_ATKB"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_A">
+					<Animation
+						AnimationName="GUS_INFANTRYT_ATKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+
+				<!-- normal mode attacking anims -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A"
+					FrameForPristineBonePositions="4">
+					<Animation
+						AnimationName="GUS_INFANTRYT_ATKA"
+						AnimationMode="ONCE"
+						UseWeaponTiming="true" />
+					<ParticleSysBone
+						BoneName="fxweapon"
+						FXParticleSystemTemplate="FXRangerPreAttackDarkMatter"
+						FollowBone="true" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACKING">
+					<Animation
+						AnimationName="GUS_INFANTRYT_ATKA"
+						AnimationMode="MANUAL" />
+				</AnimationState>
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Selected">
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="GUS_INFANTRYT_AIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="100"
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="GUS_INFANTRYT_AIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="GUS_INFANTRYT_AIFB"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+
+				</AnimationState>
+				
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_boredToAttention">
+					<Animation
+						AnimationName="GUS_INFANTRYT_BATA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				
+
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="GUS_INFANTRYT_BATA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+
+
+				
+			</ScriptedModelDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Commune"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Commune"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>5.000000</Value>
+							<Value>7.000000</Value>
+							<Value>1.500000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw_vet"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+        FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.000000</Value>
+							<Value>8.000000</Value>
+							<Value>7.500000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawAllied.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+				
+			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedDesignatedMarksmanProtonBeam"
+						ForbiddenObjectStatus="WEAPON_UPGRADED_01"/>
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedDesignatedMarksmanProtonBeam_Veteran"
+						ObjectStatus="WEAPON_UPGRADED_01" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+		<LaserState
+			id="ModuleTag_LaserState"
+			LaserId="1">
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Mote</LaserStartParticleSystem>
+		</LaserState>
+      
+      <!-- VETERAN -->
+
+		<LaserState
+			id="ModuleTag_LaserState_Vet"
+			LaserId="2">
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedRangerLaserCannon_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedRangerLaserCannon_Mote</LaserStartParticleSystem>
+		</LaserState>
+		
+			<ChargeWeaponUpdate
+				id="ModuleTag_ChargeWeapon"
+				ChargeTime="1.0s">
+				<ObjectStatusValidation
+					ForbiddenStatus="IS_FIRING_WEAPON IS_RELOADING_WEAPON"/>
+			</ChargeWeaponUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED IRRADIATED ERASED"/>
+                <Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+            </SlowDeath>
+     
+            <SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="LASERED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ELECTROCUTED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ELECTROCUTED LASERED STABBED IRRADIATED ERASED"/>
+                <Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDieFire" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+			</SlowDeath>
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+		
+			<SpecialPower
+				id="ModuleTag_PsyonicBlast"
+				SpecialPowerTemplate="SpecialPower_EnhanceDrug"
+				UpdateModuleStartsAttack="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_EnhanceDrug"
+				SpecialWeapon="AlliedEnhanceDrugWeapon"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="0s"/>
+			
+			<AutoHealBehavior
+				id="Upgrade_AutoHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="true"
+				HealOnlyIfNotUnderAttack="true"				
+				HealingAmount="4"
+				HealingDelay="1.0s"/>
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_JapanFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>	
+			
+			<SuppressionUpdate
+				id="ModuleTag_SuppressionUpdate"
+				xai:joinAction="Remove" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					RotateToTargetWhenAiming="true"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="300.0" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="ALL_PeaceKeeper_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="ALL_PeaceKeeper_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior
+				id="ModuleTag_ASCB">
+				<Sound Sound="ALL_Peacekeeper_WeaponReload" Animation="AUAntiInfantryInfantry_RLDA" Frame="7" />
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="AUAntiInfantryInfantry_SMCNB" Frame="3" />
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="AUAntiInfantryInfantry_MCNB" Frame="3" />
+
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_CDTA" Frame="2" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_CDTB" Frame="1" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTBA" Frame="2" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTBB" Frame="0" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTFA" Frame="11" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTFB" Frame="27" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTKA" Frame="4" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTKB" Frame="3" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTPA" Frame="2" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_DTPB" Frame="1" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_LNDA" Frame="6" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_MCND" Frame="5" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_RNDA" Frame="3" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_RNDB" Frame="0" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SCDTA" Frame="0" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SCDTB" Frame="3" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SDTBA" Frame="6" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SDTFA" Frame="5" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SDTKA" Frame="8" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SDTPA" Frame="7" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SLNDA" Frame="9" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SMCND" Frame="5" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="AUAntiInfantryInfantry_SRNDA" Frame="4" />
+			</AnimationSoundClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="RiotShieldOnVoices">
+				<Override RequiredFlags="USER_6">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_PeaceKeeper_VoiceMoveShield" AudioType="voiceMove" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceCreate" AudioType="voiceFullyCreated" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceGarrison" AudioType="voiceGarrison" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceMove" AudioType="voiceGuard" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="GDI_ZoneRaider_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<NamedEntry Sound="GDI_ZoneRaider_VoiceMoveJump" Name="InitiateJumpJets" />
+		</AudioArrayVoice>
+<!--
+		<AudioArraySound>
+			<AudioEntry Sound="AudioEvent:TEMP_PredatorMoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="AudioEvent:PredatorAmbientLoop" AudioType="soundAmbient" />
+		</AudioArraySound>
+-->
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"/>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+	</GameObject>
+	<GameObject
+		id="AlliedAntiInfantryInfantry_Vet"
+		EditorName="AlliedAntiInfantryInfantry_Veteran" 
+		inheritFrom="AlliedAntiInfantryInfantry">
+		<EquivalentTo>AlliedAntiInfantryInfantry</EquivalentTo>
+
+		<Behaviors>
+			<LevelUpUpgrade
+				id="ModuleTag_LevelUpUpgrade"
+				LevelCap="4"
+				DoFlash="false"
+				LevelsToGain="1">
+				<TriggeredBy>Upgrade_CallSupportUpgrade</TriggeredBy>
+			</LevelUpUpgrade>
+			<GrantUpgradeCreate
+				id="ModuleTag_GrantUpgradeCreate" 
+				UpgradeToGrant="Upgrade_CallSupportUpgrade"
+				/>
+		</Behaviors>
+
+	</GameObject>
+</AssetDeclaration>

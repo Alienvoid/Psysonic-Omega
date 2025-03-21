@@ -1,0 +1,1306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include type="all"	source="ART:Decal_Heal_CO.xml" />
+		<Include type="all"	source="ART:de/Decal_Sensor_CO.xml" />
+
+		<Include type="all"	source="ART:AUCommandoTech1_SKN.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_ABTA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_AIDA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_AIFA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_AIFB.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_AIFC.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_ATKA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BATA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIDA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIFA.w3x" />
+		<Include type="all" source="ART:AUCommandoTech1_BIFB.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIFC.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIFD.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_CHRA.w3x" />	
+		<Include type="all"	source="ART:AUCommandoTech1_DTBA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_DTFA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_DTKA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_DTPA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_GTPA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_RUNA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SATA.w3x" />
+		<Include type="all" source="ART:AUCommandoTech1_SDIA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SDVA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SGTA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SIDA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SMVA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_FLYA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_LNDA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SWMA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SWMB.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_SWMC.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_WAIDA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_MCNA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_MCNB.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_MCNC.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_MCND.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_CDTA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_CDTB.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_AIFX.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_AIFZ.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIFW.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIFX.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIFY.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_BIFZ.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_CWRZ.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_ATKB2.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_ATKC.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_ATRA.w3x" />
+		<Include type="all" source="ART:AUCommandoTech1_RNFZ.w3x" />
+    <Include type="all"	source="ART:AUCommandoTech1_RNFY.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_RNDA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_WDIEA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_WATKA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_CINA.w3x" />
+		<Include type="all"	source="ART:AUCommandoTech1_WLNDA.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_WDIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation_WDIEA.w3x" />
+		<Include type="all"	source="ART:FXRailGunCoreMask.xml" />
+		<Include type="all"	source="ART:FXRailGunCoreDistortion.xml" />
+		<Include type="all"	source="ART:FXTracer.xml" />
+		<Include type="all"	source="ART:FXRailTracer.xml" />
+		<Include type="all"	source="ART:FXTracerHeroic.xml" />
+		<Include type="all"	source="ART:GUGar_Comm.w3x" />
+		<Include type="all"	source="ART:FXCommando_FP.w3x" />
+		<Include type="all"	source="ART:FXInvisBone.w3x" />
+		
+		
+		<Include
+			type="all"
+			source="ART:GUCmmndo_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_DIEA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_DIEB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_ATKA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_AIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_AIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_AIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_AIFC.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_ATRA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_RUNA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_CHRA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_CHRB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_BIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_BIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_BIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_BIFC.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_BIFD.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KDIA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SDIA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SMVA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SATA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SDVA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_SGTA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KAIA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KAFA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KAFB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KAFC.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KAKA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KBIA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KATA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KBFA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KBFC.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_KBTA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_CRNA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_BATA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_ABTA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_FLYA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_LNDA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_JMPA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_FLYB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_LNDB.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_CDTA.w3x" />
+		<Include
+			type="all"
+			source="ART:GU_Cmmndo_CDTB.w3x" />
+		<Include
+			type="all"
+			source="ART:FXLaserStandard.xml" />
+    <Include
+			type="all"
+			source="ART:EXAlliedTargetLaserGrad.xml" />
+			
+		<Include
+			type="all"
+			source="ART:FXRailGunCoreDistortion.xml" />
+		<Include
+			type="all"
+			source="ART:FXRailgunThread.xml" />
+		<Include
+			type="all"
+			source="ART:FXRailGunCoreMask.xml" />
+		<Include
+			type="all"
+			source="ART:AUAmily.xml" />
+				
+		<!-- Base Object -->
+		<Include type="instance"	source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<Defines>
+		<Define name="ALLIED_RECYCLER_RADIUS" value="500.0" />
+	</Defines>	
+	<GameObject
+		id="AlliedCommandoTech1"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_AlliedAmily"
+		ButtonImage="Button_AlliedAmily"
+		Side="Allies"
+		SubGroupPriority="210" 
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="35"
+		Scale="1.35"
+		BuildTime="30"
+		CommandSet="AlliedAmilyCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY COMMANDO SCORE UNIQUE_UNIT SKIRMISH_AI_DONT_GARRISON IGNORE_FORCE_MOVE CAN_BE_FAVORITE_UNIT"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="120"
+		EditorName="AlliedCommandoTech1"
+		Description="Desc:AlliedAmily"
+		TypeDescription="Type:AlliedAmily"
+		UnitTypeIcon="CommandoIcon"
+		MaxSimultaneousOfType="1"
+		UnitIntro="Allied_Tanya_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedAmily</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech3</NeededUpgrade>
+			<RequiredObject>AlliedTechStructure</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="BaseArmoredInfantryArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="FastHumanLocomotor"
+			Condition="NORMAL"
+			Speed="50" />
+		<LocomotorSet
+			Locomotor="HumanWaterLocomotor"
+			Condition="NORMAL"
+			Speed="50" />
+		<LocomotorSet
+			Locomotor="JapanAntiVehicleInfantryTech3Locomotor"
+			Condition="SUPERSONIC"
+			Speed="50" />
+    <SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+      ConquerMetricsOverrideDPS="100"
+      ConquerMetricsOverrideDamageType="AUTO_CANNON"
+      ConquerMetricsOverrideAntiMask="ANTI_WATER ANTI_GROUND ANTI_STRUCTURE"
+      OutOfRangePenalty="30.0"/> <!-- Tanya is fragile, so be gentle with her -->
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="false"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="B_WEAPONA_FX">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="GUCmmndo_SKN" />
+					<Texture
+						Original="CUCommB"
+						New="AUAmily" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponRecoilBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponFireFXBone
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponRecoilBone
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponLaunchBone
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="FXCommando_FP" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<!-- no anim -->
+				</AnimationState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="GUGar_Comm" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponRecoilBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponFireFXBone
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponRecoilBone
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="" />
+					<WeaponLaunchBone
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER THROWN_PROJECTILE">
+					<Model
+						Name="GUCmmndo_SKN" />
+					<Texture
+						Original="CUCommB"
+						New="AUAmily" />
+				</ModelConditionState>	
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="GUCmmndo_SKN" />
+					<Texture
+						Original="CUCommB"
+						New="AUAmily" />
+					<ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="AlliedLegionaireWaterFrost"/>
+					<ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="AlliedLegionaireWaterWake"/>						
+				</ModelConditionState>		
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<!-- no anim -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_FLAILING"
+					StateName="STATE_stunned_flailing">
+					<Animation
+						AnimationName="GU_Cmmndo_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					StateName="STATE_stunned_landing">
+					<Animation
+						AnimationName="GU_Cmmndo_LNDA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FRONTCRUSHED">
+					<Animation
+						AnimationName="GU_Cmmndo_CDTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BACKCRUSHED">
+					<Animation
+						AnimationName="GU_Cmmndo_CDTB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_bored">
+					<Animation
+						AnimationName="GU_Cmmndo_BIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="50" />
+					<Animation
+						AnimationName="GU_Cmmndo_BIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="15" />
+					<Animation
+						AnimationName="GU_Cmmndo_BIFC"
+						AnimationMode="ONCE"
+						AnimationPriority="3" />
+					<Animation
+						AnimationName="GU_Cmmndo_BIFD"
+						AnimationMode="ONCE"
+						AnimationPriority="25" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Suppressed" then
+						CurDrawableSetTransitionAnimState("TRANS_fromSuppressed")
+						end
+						if Prev == "STATE_SelectedPose" then
+						CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+						end
+						if Prev == "STATE_stunned_flailing" then
+						CurDrawableSetTransitionAnimState("STATE_stunned_landing")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED DYING"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="GU_Cmmndo_SDIA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER DYING"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="GU_Cmmndo_KDIA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimNickName="DTA"
+						AnimationName="GU_Cmmndo_DIEA"
+						AnimationMode="ONCE"
+						AnimationPriority="50" />
+					<Animation
+						AnimationName="GU_Cmmndo_DIEB"
+						AnimationMode="ONCE"
+						AnimationPriority="50" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SPECIAL_WEAPON_ONE UNPACKING"
+					StateName="State_JumpJetInitiate">
+					<Animation
+						AnimationName="GU_Cmmndo_JMPA"
+						AnimationMode="ONCE" />
+						
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSmoke"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ABOUT_TO_HIT"
+					StateName="State_AboutToLand">
+					<Animation
+						AnimationName="GU_Cmmndo_LNDB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SPECIAL_WEAPON_ONE PACKING"
+					StateName="State_JumpJetJumping">
+					<Animation
+						AnimationName="GU_Cmmndo_FLYB"
+						AnimationMode="ONCE" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE1"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSmoke"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="THROWN_PROJECTILE"
+					StateName="JumpJet_Flying">
+					<Animation
+						AnimationName="GU_Cmmndo_FLYB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="10" />
+					<ParticleSysBone
+						BoneName="SPINE"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="SPINE"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSmoke"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED MOVING"
+					StateName="STATE_Suppressed"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GU_Cmmndo_SMVA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED USING_WEAPON_A"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="GU_Cmmndo_SATA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="GU_Cmmndo_SIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="5" />
+					<Animation
+						AnimationName="GU_Cmmndo_SIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="1" />
+					<Animation
+						AnimationName="GU_Cmmndo_SIFB"
+						AnimationMode="ONCE"
+						AnimationPriority="1" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev ~= "STATE_Suppressed" and Prev ~= "TRANS_toSuppressed" then
+						CurDrawableSetTransitionAnimState("TRANS_toSuppressed")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toSuppressed">
+					<Animation
+						AnimationName="GU_Cmmndo_SDVA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_fromSuppressed"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="GU_Cmmndo_SGTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER USING_WEAPON_A"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="GU_Cmmndo_KAKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER MOVING"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="GU_Cmmndo_CRNA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER SELECTED"
+					StateName="STATE_CoverAttention"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="GU_Cmmndo_KAIA"
+						AnimationMode="ONCE"
+						AnimationPriority="10" />
+					<Animation
+						AnimationName="GU_Cmmndo_KAFA"
+						AnimationMode="ONCE"
+						AnimationPriority="1" />
+					<Animation
+						AnimationName="GU_Cmmndo_KAFB"
+						AnimationMode="ONCE"
+						AnimationPriority="1" />
+					<Animation
+						AnimationName="GU_Cmmndo_KAFC"
+						AnimationMode="ONCE"
+						AnimationPriority="1" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Cover" then
+						CurDrawableSetTransitionAnimState("TRANS_CoverToCoverAttention")
+						end
+					</Script>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER"
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="GU_Cmmndo_KBIA"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="10" />
+					<Animation
+						AnimationName="GU_Cmmndo_KBFA"
+						AnimationMode="ONCE"
+						AnimationPriority="2"
+						AnimationBlendTime="10" />
+					<Animation
+						AnimationName="GU_Cmmndo_KBFC"
+						AnimationMode="ONCE"
+						AnimationPriority="2" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_CoverAttention" then
+						CurDrawableSetTransitionAnimState("TRANS_CoverAttentionToCover")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING FIRING_A"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GU_Cmmndo_ATRA"
+						AnimationMode="LOOP"
+						Distance="75" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING FIRING_B"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GU_Cmmndo_ATRA"
+						AnimationMode="LOOP"
+						Distance="75" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GU_Cmmndo_RUNA"
+						AnimationMode="LOOP"
+						Distance="75" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_A">
+					<Animation
+						AnimationName="GU_Cmmndo_ATKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_B">
+					<Animation
+						AnimationName="GU_Cmmndo_ATKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ENGAGED">
+					<Animation
+						AnimationName="GU_Cmmndo_AIDA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<!-- EMOTIONS -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="EMOTION_CELEBRATING"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="GU_Cmmndo_CHRA"
+						AnimationMode="LOOP" />
+					<Animation
+						AnimationName="GU_Cmmndo_CHRB"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<!-- SELECTED -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_SelectedPose">
+					<Animation
+						AnimationName="GU_Cmmndo_AIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="50"
+						AnimationBlendTime="5" />
+					<Animation
+						AnimationName="GU_Cmmndo_AIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="15"
+						AnimationBlendTime="5" />
+					<Animation
+						AnimationName="GU_Cmmndo_AIFB"
+						AnimationMode="ONCE"
+						AnimationPriority="25"
+						AnimationBlendTime="5" />
+					<Animation
+						AnimationName="GU_Cmmndo_AIFC"
+						AnimationMode="ONCE"
+						AnimationPriority="25"
+						AnimationBlendTime="5" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_bored" then
+						CurDrawableSetTransitionAnimState("TRANS_IdleToSelected")
+						end
+					</Script>
+				</AnimationState>
+				<!-- TRANSITIONS -->
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="GU_Cmmndo_BATA"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="GU_Cmmndo_ABTA"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_CoverAttentionToCover">
+					<Animation
+						AnimationName="GU_Cmmndo_KATA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_CoverToCoverAttention">
+					<Animation
+						AnimationName="GU_Cmmndo_KBTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+			</ScriptedModelDraw>
+
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawAllied.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+
+<!-- DRAW DECAL -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_syndicalism"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						OpacityStart="0.3"
+						OpacityFadeOutTime="1s"
+						OpacityPeak="0.3"
+						OpacityEnd="0.3"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_syndicalism"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_RecyclationDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="1000"
+						SizeY="1000"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Sensor_CO" 
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="1100"
+						SizeY="1100"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Sensor_CO" 
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+						
+			<LaserDraw
+				id="ModuleTag_LaserDistort"
+				UseDistortionShader="true"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".01"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				LaserWidth="50"
+				WeaponSlotID="1"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXRailGunCoreDistortion</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXRailGunCoreMask</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+			
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="0"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="3"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>EXAlliedTargetLaserGrad</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>2.000000</Value>
+              <Value>2.000000</Value>
+              <Value>2.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+		</Draws>
+		<Behaviors>
+			<ProductionUpdate
+				id="ModuleTag_ProductionUpdate"
+				GiveNoXP="true" />
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedAmiliRailRifle"
+                        ForbiddenObjectStatus="ATTACHED"/>
+                </WeaponSlotHardpoint>
+				<WeaponSlotHardpoint
+					ID="2"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedAmilyTargetLaser"
+                        ForbiddenObjectStatus="ATTACHED"/>
+                </WeaponSlotHardpoint>
+            </WeaponSetUpdate>			
+		
+      <LaserState
+        id="ModuleTag_LaserState"                                
+        LaserId="1" >
+        <LaserStartParticleSystem>Allied_Target_Laser</LaserStartParticleSystem>
+        <LaserEndParticleSystem>Allied_Orbital_LaserEnd</LaserEndParticleSystem>
+      </LaserState>
+	  
+		<LaserState
+			id="ModuleTag_LaserState02"
+			LaserId="2">
+      </LaserState>
+	  			<ActivateModuleSpecialPower
+				id="ModuleTag_TriggerTeleport"
+				SpecialPowerTemplate="SpecialPower_TriggerAmilyLeap"
+				AttributeModifier="AttributeModifier_TemporalDisplacementMove_Short"
+				AttributeModifierAffectsSelf="true">
+			</ActivateModuleSpecialPower>
+
+			<TeleportSpecialAbilityUpdate
+				id="ModuleTag_TeleportSpecialAbility"
+				SpecialPowerTemplate="SpecialPower_TriggerAmilyLeap"
+				UnpackTime="0.1s"
+				PackTime="0.1s"
+				BusyDuration="0.5s"
+				MaxDistance="450"
+				UnpackingVariation="1"
+				HeightToTeleportTo="0"
+				UnpackSound="ALL_Chronosphere_Die"
+				Options="IGNORE_FACING_CHECK" />
+            
+				
+			<Physics
+				id="ModuleTag_Physics" />
+			<EmotionTrackerUpdate
+				id="Module_ETU">
+				<TauntAndPointExcluded
+					Rule="NONE" />
+				<AddEmotion>CheerIdle_Base</AddEmotion>
+				<AddEmotion>CheerBusy_Base</AddEmotion>
+			</EmotionTrackerUpdate>
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED IRRADIATED ERASED"
+                    ExemptStatus="OVER_WATER"/>
+                <Sound Type="INITIAL" List="ALL_Tanya_VoiceDie" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_DeathWater"
+                Fade="true"
+                FadeDelay="6s"
+                FadeTime="2s"
+				SinkDelay="0.5s"
+				SinkRate="1.2"
+				DestructionDelay="10.0s">
+				<DieMuxData
+                    DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+                    RequiredStatus="OVER_WATER" />
+                <Sound Type="INITIAL" List="ALL_Tanya_VoiceDie" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="LASERED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_Tanya_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ELECTROCUTED BURNED STABBED IRRADIATED ERASED"
+                    ExemptStatus="OVER_WATER" />
+				<Sound Type="INITIAL" List="ALL_Tanya_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ELECTROCUTED LASERED STABBED IRRADIATED ERASED"
+                   ExemptStatus="OVER_WATER" />
+                <Sound Type="INITIAL" List="ALL_Tanya_VoiceDieFire" />
+            </SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED IRRADIATED ERASED"
+                    ExemptStatus="OVER_WATER"/>
+				<Sound Type="INITIAL" List="ALL_Tanya_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_Tanya_VoiceDie" />
+			</SlowDeath>
+		
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+				
+			<SuppressionUpdate
+				id="ModuleTag_SuppressionUpdate"
+				xai:joinAction="Remove"/>	
+
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_JapanFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<FireWeaponUpdate
+				id="ModuleTag_CashyBountyUpdate"
+				FireInterval="0.5s">
+				<FireWeaponNugget
+					WeaponName="AlliedAmilyChronoRecyclationWeapon"
+					FireDelay="0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+                    TargetingCompareList="CommandoTargetingCompareList"
+					CheckVisionRange="true"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="900" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="ALL_Tanya_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="ALL_Tanya_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior id="ModuleTag_ASCB">
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="AUCommandoTech1_MCNB" Frame="3" />
+				
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_CDTA" Frame="9" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_CDTB" Frame="8" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_DTBA" Frame="25" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_DTFA" Frame="129" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_DTKA" Frame="55" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_DTPA" Frame="133" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_DTSA" Frame="24" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_LNDA" Frame="9" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_MCND" Frame="4" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="AUCommandoTech1_RNDA" Frame="10" />
+			</AnimationSoundClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_WaterSounds">
+				<Override RequiredFlags="OVER_WATER">
+					<AudioArraySound>
+						<AudioEntry Sound="ALL_Commando_MoveStartWater" AudioType="soundMoveStart" />
+						<AudioEntry Sound="Infantry_MoveLoopWater" AudioType="soundMoveLoop" />
+					</AudioArraySound>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_NUManti_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_NUManti_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_NUManti_VoiceSelectUnderFire" AudioType="voiceFear" />
+			<AudioEntry Sound="ALL_NUManti_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_NUManti_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_NUManti_VoiceMove" AudioType="voiceGarrison" />
+			<AudioEntry Sound="ALL_NUManti_VoiceMove" AudioType="voiceMoveWaterToLand" />
+			<AudioEntry Sound="ALL_NUManti_VoiceMove" AudioType="voiceMoveLandToWater" />
+			<AudioEntry Sound="ALL_NUManti_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_NUManti_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_NUManti_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_NUManti_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<EvaEventArray>
+			<EvaEntry EvaEvent="CriticalUnitLost" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="EnemyCommandoDetected" EvaType="enemyObjectSighted" />
+		</EvaEventArray>
+
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="450"
+			ShroudClearingRange="500" />
+
+			
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="50" />
+	</GameObject>
+</AssetDeclaration>

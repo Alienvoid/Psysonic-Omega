@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<!-- aka Mirage Tank -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:AUPanzer_D.xml" />			
+		<Include type="all" source="ART:AUAntiVehicleVehicleTech3_FX.w3x" />						
+		<Include type="all"	source="ART:AUPanzer_SKN.w3x" />
+		<Include type="all"	source="ART:AUPanzer_SKL.w3x" />
+		<Include type="all"	source="ART:AUPanzer_IDLA.w3x" />
+		<Include type="all"	source="ART:AUPanzer_MOVA.w3x" />
+    		<Include type="all"	source="ART:EXAtlanShield.w3x" />
+    <Include type="all"	source="ART:EXCloakingField.w3x" />
+    		<Include type="instance" source="ART:EXTireTrack2.xml" />	
+	
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include
+			type="all"
+			source="ART:FXRailGunCoreDistortion.xml" />
+		<Include
+			type="all"
+			source="ART:FXLaserStandard.xml" />
+		<Include
+			type="all"
+			source="ART:FXRailgunThread.xml" />
+		<Include
+			type="all"
+			source="ART:FXRailGunCoreMask.xml" />
+	</Includes>
+	<!-- aka The Primage Tank -->
+	<GameObject
+		id="AlliedAntiVehicleVehicleTech3"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedMirageTank"
+		ButtonImage="Button_AlliedMirageTank"
+		Side="Allies"
+		SubGroupPriority="535" 
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="25"
+		BuildTime="15"
+		CommandSet="AlliedAntiVehicleVehicleTech3CommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT DISGUISER T3_UNIT"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="AlliedAntiVehicleVehicleTech3"
+		Description="Desc:AlliedMirageTank"
+		TypeDescription="Type:AlliedMirageTank"
+		UnitIntro="Allied_MirageTank_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedMirageTank</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech3</NeededUpgrade>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedAntiVehicleVehicleTech3Armor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="DefaultLocomotor"
+			Locomotor="AlliedAntiVehicleVehicleTech3Locomotor"
+			Condition="NORMAL"
+			Speed="80" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+      OutOfRangePenalty="2.0"/>
+		<Draws>
+
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				LeftFrontTireBone="Bone_Tread_Front_L"
+				RightFrontTireBone="Bone_Tread_Front_R"
+				LeftRearTireBone="Bone_Tread_Rear_Left"
+				RightRearTireBone="Bone_Tread_Rear_Right"
+				
+				TireRotationMultiplier="0.0"		
+				InitialRecoilSpeed="0.5"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				
+				ExtraPublicBone="Bone_Tread_Rear_Right Bone_Tread_Rear_Left Bone_Tread_Front_R Bone_Tread_Front_L Bone_TREADFX01 Bone_TREADFX02 Bone_Turret Bone_Barrel FX_Laser Bone_Weapon01"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="Bone_Tread_Rear_Left"
+				TrackMarksRightBone="Bone_Tread_Rear_Right">
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Rear_Left"
+					RightTrack="Bone_Tread_Rear_Right"
+					SpeedMultiplier="0.10"
+					TreadDriveSpeedFraction="10%"/>
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Front_L"
+					RightTrack="Bone_Tread_Front_R"
+					SpeedMultiplier="0.10"
+					TreadDriveSpeedFraction="10%"/>
+														
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="AUPanzer_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon"/>
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<Turret
+						TurretNameKey="Bone_Turret"
+						TurretPitch="Bone_Barrel"
+						TurretID="1" />
+				</ModelConditionState>
+
+				
+
+        <!-- Damage States -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+				<Model
+						Name="AUPanzer_SKN" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A">
+					<Model
+						Name="AUPanzer_SKN" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Light"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Charge"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Hit"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Glow"
+							FollowBone="true" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A DAMAGED">
+					<Model
+						Name="AUPanzer_SKN" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Light"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Charge"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Hit"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Glow"
+							FollowBone="true" />
+				</ModelConditionState>
+        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUPanzer_SKN" />
+					<Texture
+						Original="AUPanzer"
+						New="AUPanzer_D" />
+          				<Texture
+						Original="AUAntiVehicleVehicleTech3"
+						New="AUAntiVehicleVehicleTech3_D" />   
+					
+				</ModelConditionState> 
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A REALLYDAMAGED">
+					<Model
+						Name="AUPanzer_SKN" />
+					<Texture
+						Original="AUPanzer"
+						New="AUPanzer_D" />
+          				<Texture
+						Original="AUAntiVehicleVehicleTech3"
+						New="AUAntiVehicleVehicleTech3_D" /> 
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Light"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Charge"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Hit"
+							FollowBone="true" />
+		                <ParticleSysBone
+							BoneName="FX_Weapon"
+							FXParticleSystemTemplate="WaveForce_Glow"
+							FollowBone="true" />
+				</ModelConditionState>	
+
+        <!-- Animations -->			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_bored">
+					<Animation
+						AnimationName="AUPanzer_IDLA"
+						AnimationMode="ONCE" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>						
+				</AnimationState>
+
+				<AnimationState
+					  ParseCondStateType="PARSE_NORMAL"
+					  ConditionsYes="USER_6 MOVING"
+					  StateName="STATE_Field" >
+					<Animation
+						AnimationName="AUPanzer_MOVA"
+						AnimationMode="LOOP" />
+				</AnimationState>	
+					
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6 SELECTED"
+          			Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Field">
+					<Animation
+						AnimationName="AUPanzer_IDLA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<AnimationState
+					  ParseCondStateType="PARSE_NORMAL"
+					  ConditionsYes="MOVING">
+					<Animation
+						AnimationName="AUPanzer_MOVA"
+						AnimationMode="LOOP" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>						
+				</AnimationState>	
+					
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+          			Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_SelectedPose">
+					<Animation
+						AnimationName="AUPanzer_IDLA"
+						AnimationMode="ONCE" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>						
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Field">
+					<Animation
+						AnimationName="AUPanzer_IDLA"
+						AnimationMode="ONCE" />
+						<!-- <FXEvent Effect="FX_ALL_MirageFieldStart" FireWhenSkipped="true" /> -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_FromField" >
+					<Animation
+						AnimationName="AUPanzer_IDLA"
+						AnimationMode="ONCE" />
+						<!-- <FXEvent Effect="FX_ALL_MirageFieldStart" FireWhenSkipped="true" /> -->
+				</AnimationState>
+				
+				
+			</TruckDraw>
+        
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_FX"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUAntiVehicleVehicleTech3_FX" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED DISGUISED">
+					<Model
+						Name="AUAntiVehicleVehicleTech3_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED DISGUISED">
+					<Model
+						Name="AUAntiVehicleVehicleTech3_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="AUAntiVehicleVehicleTech3_FX" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUAntiVehicleVehicleTech3_FX" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>	
+			<ScriptedModelDraw
+				id="ModuleTag_CloakingShieldDraw"
+				NoRotate="true"
+				OkToChangeModelColor="false">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AFFECTED_BY_EMP USER_6">
+					<Model Name="EXCloakingField" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARALYZED USER_6">
+					<Model Name="EXCloakingField" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6">
+					<Model Name="EXCloakingField" />
+				</ModelConditionState>
+				<!-- no mirage when damaged. -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model Name="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_NoField"
+					Flags="START_FRAME_FIRST">
+					<Animation
+					AnimationName="EXCloakingField"
+					AnimationMode="ONCE" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6 AFFECTED_BY_EMP"
+					StateName="STATE_Field">
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6 PARALYZED"
+					StateName="STATE_Field">
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6"
+					StateName="STATE_Field">
+					<Animation
+						AnimationName="EXCloakingField"
+						AnimationMode="ONCE" />
+						<!-- <FXEvent Effect="FX_ALL_MirageFieldStart" FireWhenSkipped="true" /> -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_FromField" >
+					<Animation
+						AnimationName="EXCloakingField"
+						AnimationMode="ONCE_BACKWARDS" />
+						<!-- <FXEvent Effect="FX_ALL_MirageFieldStart" FireWhenSkipped="true" /> -->
+				</AnimationState>
+		</ScriptedModelDraw>
+			 
+			<LaserDraw
+				id="ModuleTag_LaserDistort"
+				UseDistortionShader="true"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".01"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				LaserWidth="50"
+				WeaponSlotID="1"
+				LaserStateID="0">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXRailGunCoreDistortion</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXRailGunCoreMask</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+        FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.500000</Value>
+							<Value>2.000000</Value>
+							<Value>16.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+			
+			<LaserDraw
+				id="ModuleTag_LaserDrawVet"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+        FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				WeaponSlotID="1"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>8.000000</Value>
+							<Value>1.500000</Value>
+							<Value>8.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+
+
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedMirageTankPrismCannon"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE WEAPON_UPGRADED_01"/>
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedMirageTankPrismCannon_Veteran"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"
+						ObjectStatus="WEAPON_UPGRADED_01" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-30d"
+						AllowsPitch="true" 
+						TurretPitchRate="180" 
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<LaserState
+				id="ModuleTag_LaserState02"
+				LaserId="0">
+				<LaserEndParticleSystem>Japan_SPC_Mecha_StepDust</LaserEndParticleSystem>
+				<LaserEndParticleSystem>Japan_SPC_Mecha_StepElec</LaserEndParticleSystem>
+				<LaserEndParticleSystem>Japan_SPC_Mecha_Foot_Ripple</LaserEndParticleSystem>
+      </LaserState>
+				
+			<LaserState
+        id="ModuleTag_LaserState"
+        LaserId="1" >
+				<LaserEndParticleSystem>AlliedPanzerLaser_Glow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPanzerLaser_Light_End</LaserEndParticleSystem>
+				<LaserStartParticleSystem>AlliedPanzerLaser_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedPanzerLaser_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedPanzerLaser_Mote</LaserStartParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserStateVet"
+				LaserId="2" >
+				<LaserEndParticleSystem>AlliedPanzerLaser_GlowHeroic</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedPanzerLaser_Light_EndHeroic</LaserEndParticleSystem>
+				<LaserStartParticleSystem>AlliedPanzerLaser_GlowHeroic</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedPanzerLaser_LightHeroic</LaserStartParticleSystem>
+				<LaserStartParticleSystem>AlliedPanzerLaser_MoteHeroic</LaserStartParticleSystem>
+			</LaserState>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUAntiVehicleVehicleTech3_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedChieftanDie" />
+			</FXListBehavior>
+			
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="175"
+				UpdatePeriod="0.2s"
+				AffectsSelf="false" 
+				InvisibilityTemplate="AlliedAntiVehicleVehicleTech3InvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES"
+					Include="INFANTRY VEHICLE"
+					StatusBitFlagsExclude="AIRBORNE_TARGET BROADCASTING_INVISIBILITY IGNORING_STEALTH">
+					<ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+				</BroadcastObjectFilter>
+				<ObjectStatusValidation
+					RequiredStatus="GENERIC_TOGGLE_STATE" />
+			</InvisibilityBroadcastUpdate>
+			
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibilitytoShield"
+				BroadcastRange="10"
+				UpdatePeriod="0.2s"
+				AffectsSelf="false" 
+				InvisibilityTemplate="AlliedAntiVehicleVehicleTech3InvisibilityBroadcasttoShieldTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+				<IncludeThing>AlliedForceShield</IncludeThing>
+				</BroadcastObjectFilter>
+				<ObjectStatusValidation
+					ForbiddenStatus="GENERIC_TOGGLE_STATE" />
+			</InvisibilityBroadcastUpdate>
+
+			<SpecialPower
+				id="ModuleTag_Disguise"
+				SpecialPowerTemplate="SpecialPower_PrimageDisguise"
+				UpdateModuleStartsAttack="true" />
+			<SpecialDisguiseUpdate
+				id="ModuleTag_DisguiseUpdate"
+				SpecialPowerTemplate="SpecialPower_PrimageDisguise"
+				OpacityTarget="0.5"
+                ScanRadiusForPropDisguise="250.0"
+				DisguiseFX="FX_PrimageDisguise">
+				<TerrainData
+					TerrainClass="Misc"
+					ObjectTemplate="PrimageDisguise_Tree01"/>
+				<TerrainData
+					TerrainClass="Grass"
+					ObjectTemplate="PrimageDisguise_Tree01"/>
+				<TerrainData
+					TerrainClass="Snow"
+					ObjectTemplate="PrimageDisguise_Tree02"/>
+				<TerrainData
+					TerrainClass="Mud"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Dirt"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Cliff"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Sand"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Rock"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Road"
+					ObjectTemplate="PrimageDisguise_Truck01"/>
+			</SpecialDisguiseUpdate>
+			<SpecialPower
+				id="ModuleTag_ToggleMirageFieldTrigger"
+				SpecialPowerTemplate="SpecialPower_ToggleMirageField"
+				UpdateModuleStartsAttack="true" />
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleMirageFieldTriggerUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND" 
+				SpecialPowerTemplate="SpecialPower_ToggleMirageField">
+
+				<ToggleState
+					EnterStateSound="ALL_MirageField_StopMS">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT"
+						NeverUseInState="RETREAT GATHER">
+						<StateWeapon
+							Weapon="AlliedMirageTankPrismCannon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE BROADCASTING_INVISIBILITY"
+					ModelConditions="USER_6"
+					EnterStateSound="ALL_MirageField_StartMS">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_STEALTH_OTHERS"
+						NeverUseWhenHealthIsBelow="250" 
+						StealthOthersInvisibilityModuleId="ModuleTag_BroadcastInvisibility" />
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<AutoHealBehavior
+				id="Upgrade_HeroicHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="true"
+				HealOnlyIfNotUnderAttack="true"				
+				HealingAmount="5"
+				HealingDelay="0.8s">				
+			</AutoHealBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="DisguiseWhenIdleAIStateMachine">
+				<UnitAITargetChooserData 
+				IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="800" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_MirageTank_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MirageField">
+				<ModelConditionSound Sound="ALL_MirageField_StartAndEndLoop" RequiredFlags="USER_1" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_MirageFieldVoices">
+				<Override RequiredFlags="USER_1">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_MirageTank_VoiceMoveSpecial" AudioType="voiceMove" />
+						<AudioEntry Sound="ALL_MirageTank_VoiceSelectMirageMS" AudioType="voiceSelect" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="20.0"
+				MinorRadius="14.0"
+				Height="17.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_MirageTank_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_MirageTank_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_Mirage_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="450"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+		<CrusherInfo 
+			CrushableLevel="20" 
+			CrusherLevel="20" 
+			CrushDecelerationPercent="80%" />
+	</GameObject>
+</AssetDeclaration>

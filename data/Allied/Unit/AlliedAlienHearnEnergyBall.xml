@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all" source="ART:FXAlienLaser.xml" />
+		<Include type="all" source="ART:FXAlienLaserHeroic.xml" />
+		<Include type="instance" source="DATA:BaseObjects/BaseObject.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedAlienHearnEnergyBall"
+		inheritFrom="BaseObject"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SCORE AIRCRAFT VEHICLE PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS UNATTACKABLE"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		EditorName="AlliedAttackDrone_Leeched"
+		Description="Desc:AlliedAttackDrone">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:AlliedAttackDrone</DisplayName>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+
+		<LocomotorSet
+			Locomotor="AlliedAlienHearnEnergyBallLocomotor"
+			Condition="NORMAL"
+			Speed="150.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+					<!-- no anim -->
+          				<ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="AlliedEnergyBallGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABGatewayIdleCenterDist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABGatewayIdleCenterFlare"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABGatewayIdleCenterGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABGatewayIdleCenterDarkMatter"
+						FollowBone="true" />					
+				</AnimationState>
+			</ScriptedModelDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw1"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".3"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".7"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="50"
+				LaserStateID="101">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlienLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXAlienLaser</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+			<!-- standard and veteran laser distortion -->
+			<LaserDraw
+				id="ModuleTag_LaserDistort1"
+				UseDistortionShader="true"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".7"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="65"
+				LaserStateID="101">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlienOverlay</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXAlienOverlay</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDrawHeroic"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".3"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".7"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="50"
+				LaserStateID="102">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlienLaserHeroic</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXAlienLaserHeroic</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedAlienHearnEnergyBallBeamWeapon"
+            ForbiddenObjectStatus="WEAPON_UPGRADED_01"/>
+          <Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedAlienHearnEnergyBallBeamWeapon_Veteran" 
+            ObjectStatus="WEAPON_UPGRADED_01"/>
+        </WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<SweepingLaserState
+				id="ModuleTag_SweepingLaserState"
+				Radius="15.0"
+				SweepFXList="FX_AlienLaserSweepHit"
+				VeteranSweepFXList="FX_AlienLaserSweepHitHeroic"
+				SweepFXTimeout="0.25s" 
+				LaserId="101" />
+			<LaserState
+				id="ModuleTag_LaserState01"
+				LaserId="101"
+				OriginBoneName="">
+				<EndOffset y="-2.5"/>
+        <LaserEndParticleSystem>JapanOniLaserHitFlash</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitLight</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitMolt</LaserEndParticleSystem>
+			</LaserState>
+
+      <LaserState
+				id="ModuleTag_LaserState02_Veterancy"
+				LaserId="102"
+				OriginBoneName="">
+        <EndOffset y="2.5"/>
+        <LaserEndParticleSystem>JapanOniLaserHitFlash_Vet</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitLight_Vet</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitMolt_Vet</LaserEndParticleSystem>
+      </LaserState>
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="true"/>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  MinLifetime="26.0s"
+			  MaxLifetime="28.0s" />
+
+
+      <FXListBehavior
+				id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_ALL_JavelinSoldier_MissileExplosion" />
+      </FXListBehavior>
+      <DestroyDie
+				id="ModuleTag_Die">
+        <DieMuxData
+					DeathTypes="ALL" />
+      </DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="350"
+				AttackRange="350"
+				DieOnMastersDeath="true"
+				UseSlaverAsControlForEvaObjectSightedEvents="false" />
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				StanceTemplate="Generic" />
+		</Behaviors>		
+		<AI>		
+			<JetAIUpdate
+				id="ModuleTag_JetAI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				CirclesForAttack="false"
+				StateMachine="JetAIStateMachine"
+				DefaultLocomotorSet="NORMAL">
+				<UnitAITargetChooserData />
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="200.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+			<EvaEventArray>
+				<EvaEntry EvaEvent="" EvaType="dieOwner" />
+				<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+				<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+			</EvaEventArray>
+
+		<VisionInfo
+			VisionRange="350"
+			ShroudClearingRange="200" />
+	</GameObject>
+</AssetDeclaration>

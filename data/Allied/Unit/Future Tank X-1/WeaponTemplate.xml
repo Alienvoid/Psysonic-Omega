@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WeaponTemplate
+		id="AlliedFutureTankNeutronScrambler"
+		AttackRange="380.0"
+		MinimumAttackRange="50.0"
+		FireSound="ALL_FutureTank_Weapon1FireMS"
+		FireFX="FX_Allied_FutureTank_Fire"
+		FireVeteranFX="FX_Allied_FutureTank_Fire"
+		RadiusDamageAffects="ENEMIES"		
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		Flags="ATTACK_NEEDS_LINE_OF_SIGHT NOT_ATTRACTED_BY_MAGNETS"		
+		CanFireWhileMoving="true"
+		ClipSize="1"
+		ShotsPerBarrel="1"
+		ReAcquireDetailType="PER_SHOT"
+		PreAttackType="PER_CLIP">
+		<PreAttackDelay
+			MinSeconds="2.4s"
+			MaxSeconds="2.4s" />
+		<FiringDuration
+			MinSeconds="0.0s"
+			MaxSeconds="0.0s" />
+		<ClipReloadTime
+			MinSeconds="3.0s"
+			MaxSeconds="3.0s" />
+		<Nuggets>
+		        <ProjectileNugget
+			      ProjectileTemplate="AlliedFutureTankNeutronWeaponProjectile"
+			      WarheadTemplate="AlliedFutureTankNeutronWeaponWarhead">
+		              <VeterancyProjectiles
+			             VeterancyLevel="HEROIC"
+			             ProjectileTemplate="AlliedFutureTankNeutronWeaponProjectile_Vet"/>
+		        </ProjectileNugget>
+			<InformTargetNugget />
+		</Nuggets>
+		<ScatterRadiusVsType
+			Radius="70.0"
+			RequiredModelConditions="SHRINK_EFFECT">
+			<Filter
+				Rule="ANY"
+				Include="INFANTRY AIRCRAFT VEHICLE HUGE_VEHICLE" />
+		</ScatterRadiusVsType>
+	</WeaponTemplate>
+
+	
+  <WeaponTemplate
+		id="AlliedFutureTankNeutronWeaponWarhead"
+		Flags="ATTACK_NEEDS_LINE_OF_SIGHT NOT_ATTRACTED_BY_MAGNETS"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER" >
+		<Nuggets>
+			<DamageNugget
+				id="defaultDamageNugget"
+				Damage="0.1"
+				DamageType="UNRESISTABLE" />
+				<!-- DamageType="NEUTRON" -->
+			<WeaponOCLNugget
+				WeaponOCL="OCL_FutureTankDummyObject">
+			</WeaponOCLNugget>
+			<WeaponOCLNugget
+				WeaponOCL="OCL_AlliedFutureTankNeutronScramblerNode">
+				<SpecialObjectFilter
+					Rule="ALL"
+					Exclude="BRIDGE BRIDGE_SEGMENT BRIDGE_ENDCAP BRIDGE_GATEHOUSE" />
+          <ForbiddenUpgrade>Upgrade_Veterancy_HEROIC</ForbiddenUpgrade>
+			</WeaponOCLNugget>
+
+			<WeaponOCLNugget
+				WeaponOCL="OCL_AlliedFutureTankNeutronScramblerNode_Vet">
+				<SpecialObjectFilter
+					Rule="ALL"
+					Exclude="BRIDGE BRIDGE_SEGMENT BRIDGE_ENDCAP BRIDGE_GATEHOUSE" />
+          <RequiredUpgrade>Upgrade_Veterancy_HEROIC</RequiredUpgrade>
+			</WeaponOCLNugget>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="AlliedFutureTankLaserWeapon"
+		AttackRange="375"
+		CanFireWhileMoving="false"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		RevealShroudOnFire="true">
+		<FiringDuration
+			MinSeconds="1s"
+			MaxSeconds="1s" />
+		<Nuggets>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget1"
+				Lifetime="1s"
+				LaserId="101">
+				<ForbiddenUpgrade>Upgrade_Veterancy_HEROIC</ForbiddenUpgrade>
+			</ActivateLaserNugget>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget2"
+				Lifetime="1s"
+				LaserId="102">
+				<ForbiddenUpgrade>Upgrade_Veterancy_HEROIC</ForbiddenUpgrade>
+			</ActivateLaserNugget>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget3"
+				Lifetime="1s"
+				LaserId="103">
+				<RequiredUpgrade>Upgrade_Veterancy_HEROIC</RequiredUpgrade>
+			</ActivateLaserNugget>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget4"
+				Lifetime="1s"
+				LaserId="104">
+				<RequiredUpgrade>Upgrade_Veterancy_HEROIC</RequiredUpgrade>
+			</ActivateLaserNugget>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="AlliedFutureTankLaserSweepWeapon"
+		RadiusDamageAffects="ENEMIES NEUTRALS"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		AttackRange="375.0"
+		CanFireWhileMoving="false">
+		<Nuggets>
+			<DamageNugget
+				Damage="50.0"
+				Radius="5.0"
+				RadiusAffectsBridges="true"
+				DelayTimeSeconds="0.1s"
+				DamageType="EXPLOSIVE"
+				DeathType="LASERED">
+				<SpecialObjectFilter
+					Rule="ALL"
+					Exclude="AIRCRAFT ORE_NODE BRIDGE_SEGMENT BRIDGE_ENDCAP"
+					StatusBitFlagsExclude="AIRBORNE_TARGET SUBMERGED" />
+				<DamageScalarDetails
+					Scalar="200%">
+					<Filter
+						Rule="ANY"
+						Include="HUGE_VEHICLE" />
+				</DamageScalarDetails>
+			</DamageNugget>
+			<LineDamageNugget
+				id="DefaultDamageNugget"
+				Damage="25.0"
+				LineWidth="5.0"
+				DamageType="EXPLOSIVE"
+				DamageFXType="JAPAN_FORCE"
+				DeathType="NORMAL"
+				UseDynamicLineLength="true"
+				RadiusAffectsBridges="true"
+				OverShootDistance="0.0">
+				<SpecialObjectFilter
+					Rule="ALL"
+					Exclude="AIRCRAFT ORE_NODE BRIDGE_SEGMENT BRIDGE_ENDCAP"
+					StatusBitFlagsExclude="AIRBORNE_TARGET SUBMERGED" />
+				<DamageScalarDetails
+					Scalar="200%">
+					<Filter
+						Rule="ANY"
+						Include="HUGE_VEHICLE" />
+				</DamageScalarDetails>
+			</LineDamageNugget>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	
+	
+	<!-- Hammer Tank -->
+	<WeaponTemplate
+		id="Leech_FutureTank"
+		inheritFrom="AlliedFutureTankNeutronScrambler" 
+		ClipSize="1">
+		<PreAttackDelay
+			MinSeconds="0.0s"
+			MaxSeconds="0.0s" />
+		<FiringDuration
+			MinSeconds="0.0s"
+			MaxSeconds="0.0s" />
+		<ClipReloadTime
+			MinSeconds="6.0s"
+			MaxSeconds="6.0s" />
+	</WeaponTemplate>
+	
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon1"
+		RadiusDamageAffects="ENEMIES NEUTRALS"
+		Flags="NOT_ATTRACTED_BY_MAGNETS"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER ANTI_AIRBORNE_INFANTRY ANTI_AIRBORNE_VEHICLE" >
+		<Nuggets>
+			<DamageNugget
+				Damage="20.0"
+				Radius="24"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="12.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>	
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon2"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="19.0"
+				Radius="37"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="19.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>		
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon3"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="18.0"
+				Radius="50"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="25.0"				
+				DamageType="UNRESISTABLE">				      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>			
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon4"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="17.0"
+				Radius="63"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="32.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>				
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon5"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="16.0"
+				Radius="76"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="38.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>		
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon6"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="15.0"
+				Radius="89"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="45.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>		
+
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon7"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="14.0"
+				Radius="102"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="51.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>	
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon8"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="13.0"
+				Radius="115"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="58.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>		
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon9"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="12.0"
+				Radius="128"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="64.0"				
+				DamageType="UNRESISTABLE">						      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>		
+
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon10"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="11.0"
+				Radius="141"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="71.0"				
+				DamageType="UNRESISTABLE">				      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>			
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon11"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="10.0"
+				Radius="154"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="77.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>			
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon12"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="10.0"
+				Radius="167"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="84.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>		
+	
+	<WeaponTemplate
+		id="FutureTankIncrementalWeapon13"
+		inheritFrom="FutureTankIncrementalWeapon1">
+		<Nuggets  xai:joinAction="Replace"  xmlns:xai="uri:ea.com:eala:asset:instance">
+			<DamageNugget
+				Damage="10.0"
+				Radius="180"
+				DamageFXType="ALLIED_BOMB"
+				DeathType="DETONATED"
+				DamageMaxHeight="90.0"				
+				DamageType="UNRESISTABLE">					      	
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>		
+</AssetDeclaration>

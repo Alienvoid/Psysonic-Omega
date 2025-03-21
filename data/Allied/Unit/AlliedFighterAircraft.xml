@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:AUMantis_SKN.w3x" />
+		<Include type="all"	source="ART:aumantis_fp_skn.w3x" />
+		<Include type="all"	source="ART:AUMantis_d.xml" />
+		<Include type="all"	source="ART:AUMantis_FLYA.w3x" />
+		<Include type="all"	source="ART:AUMantis_FLYB.w3x" />
+		<Include type="all" source="ART:AUFighterAircraft_D.xml" />			
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:AUMantis_02.xml" />
+		<Include type="all"	source="ART:AUMantis_02_D.xml" />		
+		<Include type="all"	source="ART:FXAlienLaser.xml" />
+		<Include type="all"	source="ART:FXRailTracer.xml" />	
+		<Include type="all"	source="ART:FXTiberiumLaserHeroic.xml" />
+		<Include type="all"	source="ART:FXAlliedFutureLaser_Overshoot.xml" />
+		<Include type="all"	source="ART:FXLaserStandard.xml" />	
+    <Include type="all" source="ART:FXTiberiumLaser.xml" />
+    <Include type="all" source="ART:FXTracerAlien.xml" />
+    <Include type="all" source="ART:FXTracerAlienHeroic.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedFighterAircraft"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedViking"
+		ButtonImage="Button_AlliedViking"
+		Side="Allies"
+		SubGroupPriority="610" 
+		EditorSorting="UNIT"
+		BuildTime="10"
+		CommandSet="AlliedFighterAircraftCommandSet"
+		KindOf="PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT TRANSPORT VEHICLE FIGHTER_AIRCRAFT LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LIMITED_PRODUCTION_AIRCRAFT"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="AlliedFighterAircraft"
+		Description="Desc:AlliedFairyFighter"
+		TypeDescription="Type:AlliedFairyFighter"
+		HealthBoxHeightOffset="10"
+		UnitIntro="Allied_Apollo_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedFairyFighter</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedFighterAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			id="AlliedFighterAircraftLocomotor"
+			Locomotor="AlliedFighterAircraftLocomotor"
+			Condition="NORMAL"
+			Speed="300" />
+		<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="30" />
+
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_FRONT_L BONE_REAR Bone_Chassis BONE_MUZZLE_01 BONE_MUZZLE_02 CHASSIS BONE_WeaponA01 BONE_WeaponA02">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUMantis_SKN" />
+
+
+          <WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE_WeaponA" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE_WeaponA" />
+          <WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE_MUZZLE_" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE_MUZZLE_" />
+				</ModelConditionState>
+<!-- UPGRADED MODEL -->
+
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="aumantis_fp_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED USER_2">
+					<Texture
+						Original="AUMantis01"
+						New="AUMantis_02" />						
+					<Model
+						Name="AUMantis_SKN" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+        </ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="AUMantis_SKN" />
+					<Texture
+						Original="AUMantis01"
+						New="AUMantis_02_D" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="AUMantis_SKN" />
+					<Texture
+						Original="AUMantis01"
+						New="AUMantis_02" />			
+				</ModelConditionState>		
+<!-- UPGRADED MODEL -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="AUMantis_SKN" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+         
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUMantis_SKN" />
+					<Texture
+						Original="AUMantis01"
+						New="AUMantis_D" />	
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_REAR"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2 FLYING">
+					<Animation
+						AnimationName="AUMantis_FLYA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_01"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_02"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2 FLYING REALLYDAMAGED">
+					<Animation
+						AnimationName="AUMantis_FLYB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_01"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_02"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING">
+					<Animation
+						AnimationName="AUMantis_FLYA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_01"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_02"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING REALLYDAMAGED">
+					<Animation
+						AnimationName="AUMantis_FLYB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_01"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_02"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COMING_OUT_OF_FACTORY"
+					StateName="STATE_built">
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXChronoSphere"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXChronoSphereLightning"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedTimeBombChronoCircles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="ChronoSphereFallout"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="ChronoSphereFlash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXChronoSphereFogMist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="ChronoSphereDistort"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXMedChronoLightning"
+						FollowBone="true" />
+				</AnimationState>
+			</ScriptedModelDraw>
+			
+
+      <LaserDraw
+				id="ModuleTag_LaserDraw1"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.0"
+				Texture1_VScrollRate=".0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				FadeOutTime="0.5s"
+				LaserWidth="20"
+				LaserStateID="101">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser_Overshoot</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaser</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </LaserDraw>
+
+      <LaserDraw
+				id="ModuleTag_LaserDraw1Vet"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.0"
+				Texture1_VScrollRate=".0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				FadeOutTime="0.5s"
+				LaserWidth="20"
+				LaserStateID="102">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser_Overshoot</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaserHeroic</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+      </LaserDraw>
+
+      <LaserDraw
+				id="ModuleTag_LaserDraw2"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.0"
+				Texture1_VScrollRate=".0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				FadeOutTime="0.5s"
+				LaserWidth="20"
+				LaserStateID="103">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser_Overshoot</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaser</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </LaserDraw>
+
+      <LaserDraw
+				id="ModuleTag_LaserDraw2Vet"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.0"
+				Texture1_VScrollRate=".0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				FadeOutTime="0.5s"
+				LaserWidth="20"
+				LaserStateID="104">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser_Overshoot</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaserHeroic</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+							<Value>2.250000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+      </LaserDraw>
+
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAdd01"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="45"
+				MaxSpeed="50"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.16"
+				MaxTracersPerFrame="0.16"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerAlien"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHit">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddVeterancy01"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="45"
+				MaxSpeed="50"
+				SweepSpeed="1.0"
+				SpreadAngle="0.0"
+				MinTracersPerFrame="0.16"
+				MaxTracersPerFrame="0.16"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerAlienHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHitHeroic">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+	  
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_LEAST_MOVEMENT"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedFighterAircraftProtonCatalystCannon"
+						ForbiddenObjectStatus="WEAPON_UPGRADED_01" />
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedFighterAircraftProtonCatalystCannon_Veteran"
+						ObjectStatus="WEAPON_UPGRADED_01" />
+				</WeaponSlotHardpoint>
+				<WeaponSlotHardpoint
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedFighterAircraftPlasmaAutoCannon" />
+				</WeaponSlotHardpoint>
+
+			</WeaponSetUpdate>
+
+			<SweepingLaserState
+				id="ModuleTag_SweepingLaserState_01"
+				OriginBoneName="BONE_MUZZLE_01"
+				Radius="10.0"
+				SweepFXList="FX_AlienLaserSweepHit"
+				VeteranSweepFXList="FX_AlienLaserSweepHitHeroic"
+				SweepFXTimeout="0.25s" 
+				LaserId="101" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow</LaserStartParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</SweepingLaserState>
+			<SweepingLaserState
+				id="ModuleTag_SweepingLaserState_02"
+				OriginBoneName="BONE_MUZZLE_02"
+				Radius="10.0"
+				SweepFXList="FX_AlienLaserSweepHit"
+				VeteranSweepFXList="FX_AlienLaserSweepHitHeroic"
+				SweepFXTimeout="0.25s" 
+				LaserId="103" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow</LaserStartParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</SweepingLaserState>
+			<SweepingLaserState
+				id="ModuleTag_SweepingLaserState_01_Vet"
+				OriginBoneName="BONE_MUZZLE_01"
+				Radius="10.0"
+				SweepFXList="FX_AlienLaserSweepHit"
+				VeteranSweepFXList="FX_AlienLaserSweepHitHeroic"
+				SweepFXTimeout="0.25s" 
+				LaserId="102" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow_Vet</LaserStartParticleSystem>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</SweepingLaserState>
+			<SweepingLaserState
+				id="ModuleTag_SweepingLaserState_02_Vet"
+				OriginBoneName="BONE_MUZZLE_02"
+				Radius="10.0"
+				SweepFXList="FX_AlienLaserSweepHit"
+				VeteranSweepFXList="FX_AlienLaserSweepHitHeroic"
+				SweepFXTimeout="0.25s" 
+				LaserId="104" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow_Vet</LaserStartParticleSystem>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+			</SweepingLaserState>
+			
+			<!--<LaserState
+				id="ModuleTag_LaserState1"
+				LaserId="101"
+				OriginBoneName="BONE_MUZZLE_01" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFairyGlow</LaserEndParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserState>
+
+			<LaserState
+				id="ModuleTag_LaserState2"
+				LaserId="103"
+				OriginBoneName="BONE_MUZZLE_02" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFairyGlow</LaserEndParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState3"
+				LaserId="102"
+				OriginBoneName="BONE_MUZZLE_01" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow_Vet</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFairyGlow_Vet</LaserEndParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState4"
+				LaserId="104"
+				OriginBoneName="BONE_MUZZLE_02" >
+				<LaserStartParticleSystem>AlliedFairyStartGlow_Vet</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFairyGlow_Vet</LaserEndParticleSystem>
+			</LaserState>-->
+
+			<!-- gravity mult of 30 is temporary -->
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAir"
+				CreationList="AUViking_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET" />
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieGround"
+				CreationList="AUViking_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					ExemptStatus="AIRBORNE_TARGET" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_ApolloDie" />
+			</FXListBehavior>			
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>				
+			<!--Please make sure the model condition duration matches the attribute mod duration-->
+	
+			<!-- The Chronoshift Teleport Jump -->
+			<ActivateModuleSpecialPower
+				id="ModuleTag_TriggerTeleport"
+				SpecialPowerTemplate="SpecialPower_TriggerTeleport"
+				AttributeModifier="AttributeModifier_TemporalDisplacementMove"
+				AttributeModifierAffectsSelf="true">
+			</ActivateModuleSpecialPower>
+
+			<TeleportSpecialAbilityUpdate
+				id="ModuleTag_TeleportSpecialAbility"
+				SpecialPowerTemplate="SpecialPower_TriggerTeleport"
+				UnpackTime="0.1s"
+				PackTime="0.1s"
+				BusyDuration="0.75s"
+				MaxDistance="9999"
+				UnpackingVariation="1"
+				HeightToTeleportTo="300"
+				UnpackSound="ALL_Chronosphere_Die"
+				Options="IGNORE_FACING_CHECK" />
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<!-- These help the AI decide when to use SUPERSONIC! -->
+			<TrackIncomingWeaponFireBehavior
+					 id="TrackIncomingWeaponFireForSupersonic" />
+			<TrackDamage
+					 id="TrackDamageForSupersonic"
+					 TimeToTrack="1s"
+					 InstantWeaponsOnly="true" />
+
+			<ProductionUpdate
+				id="ModuleTag_PU" />
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED CAN_ATTACK"
+				ContainMax="2"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="false"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID">
+				<InitialPayload
+					Name="AlliedFighterAircraftPointDefenseLaserActivater"
+					Count="2" />
+				<PassengerFilter
+					Rule="NONE">
+					<IncludeThing>AlliedFighterAircraftPointDefenseLaserActivater</IncludeThing>
+				</PassengerFilter>
+				<PassengerData
+					BonePrefix="CHASSIS">
+					<Filter
+						Rule="NONE">
+						<IncludeThing>AlliedFighterAircraftPointDefenseLaserActivater</IncludeThing>
+					</Filter>
+				</PassengerData>
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+			</TransportContain>	
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="15.0s">
+				<FireWeaponNugget
+					WeaponName="AlliedMantisShieldWeapon"
+					FireDelay="1.5s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate2">
+				<FireWeaponNugget
+					WeaponName="AlliedMantisShieldWeapon"
+					FireDelay="1.5s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<xi:include
+				href="DATA:Includes/AlliedAirPowerUpgrade.xml" />
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_JetAIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				KeepsParkingSpaceWhenAirborne="true"
+				OutOfAmmoDamagePerSecond="1.5"
+				ReturnToBaseWhenVictimDead="true"
+				StateMachine="HelicopterAIStateMachine">
+				<UnitAITargetChooserData 
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior
+				id="ModuleTag_FlyingLoop">
+				<ModelConditionSound
+					Sound="ALL_Apollo_IdleLoop"
+					RequiredFlags="FLYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="16.0"
+				MinorRadius="16.0"
+				Height="8.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_Apollo_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_Apollo_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_Apollo_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_Apollo_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_Apollo_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_Apollo_VoiceReturn" AudioType="voiceEnter" />
+			<AudioEntry Sound="ALL_Apollo_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_Apollo_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_Apollo_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<NamedEntry Sound="ALL_Apollo_VoiceReturn" Name="ReturnToProducer" />
+			<NamedEntry Sound="ALL_Apollo_VoiceRetreat" Name="ReturnToProducerWhileUnderAttack" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+		 	<AudioEntry
+				Sound="ALL_Apollo_MoveLoop"
+				AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="ALL_Apollo_MoveStart"
+				AudioType="soundMoveStart" />
+		</AudioArraySound>
+
+		<VisionInfo
+			VisionRange="510"
+			ShroudClearingRange="500" />
+	</GameObject>
+</AssetDeclaration>

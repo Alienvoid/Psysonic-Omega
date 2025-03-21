@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<!-- aka Riptide ACV -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:AUSpeeder_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:AUSpeeder_IDLA.w3x" />
+		<Include
+			type="all"
+			source="ART:AUSpeeder_D.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerHeroic.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka PT Boat -->
+	<GameObject
+		id="AlliedAntiInfantryVehicle"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedSpeeder"
+		ButtonImage="Button_AlliedSpeeder"
+		Side="Allies"
+		SubGroupPriority="710" 
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="30"
+		BuildTime="8"
+		CommandSet="AlliedAntiInfantryVehicleCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT TRANSPORT AMPHIBIOUS"
+		RadarPriority="UNIT"
+		ProductionQueueType="WATERCRAFT"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="AlliedAntiInfantryVehicle"
+		Description="Desc:AlliedTransporter"
+		TypeDescription="Type:AlliedTransporter">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedTransporter</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="750"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedAntiInfantryVehicleArmor"
+			DamageFX="VehicleDamageFX" />
+    <LocomotorSet
+      id="DefaultLandLocomotor"
+			Locomotor="AlliedTransporterLocomotor"
+			Condition="NORMAL"
+			Speed="90.0" />
+    <LocomotorSet
+      id="DefaultWaterLocomotor"
+			Locomotor="AlliedTransporterWaterLocomotor"
+			Condition="NORMAL"
+			Speed="100.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				TireRotationMultiplier="0.0"
+				TireRotationMultiplierFront="0.2"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FX_Weapon_01 FXDamage01 FX_Weapon_02">
+
+				<TreadTerrainParticles>SovietTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUSpeeder_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="Bone_CHASSIS" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="Bone_CHASSIS" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="Bone_CHASSIS" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="Bone_CHASSIS" />
+					<Turret
+						TurretNameKey="Bone_CHASSIS"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="AUSpeeder_SKN" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUSpeeder_SKN" />
+					<Texture
+						Original="AUSpeeder"
+						New="AUSpeeder_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFire"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFireLight"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/> 
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="AUSpeeder_IDLA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+			</TruckDraw>
+		</Draws>
+		
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_LEAST_MOVEMENT"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedSpeederPlasmaDiskLauncher" />
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="AlliedAntiInfantryVehicleTorpedoLauncher" 
+						ObjectStatus="WATER_LOCOMOTOR_ACTIVE"/>
+					<Weapon
+						Ordering="TERTIARY_WEAPON"
+						Template="AlliedAntiInfantryVehicleTorpedoLauncherForBridges" 
+						ObjectStatus="WATER_LOCOMOTOR_ACTIVE"/>	
+					<TurretSettings
+						TurretTurnRate="250"
+						TurretPitchRate="40"
+						AllowsPitch="true"
+						NaturalTurretAngle="0d"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="0.0">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			<ProductionUpdate
+				id="ModuleTag_PU" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUSpeeder_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_RiptideDie" />
+			</FXListBehavior>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED NO_ATTACK"
+				ContainMax="5"				
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="true"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID">
+				<PassengerFilter
+					Rule="ANY"
+					Include="INFANTRY" />
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+				<PassengerData
+					BonePrefix="NONE">
+					<Filter
+						Rule="NONE"
+						Include="INFANTRY" />
+				</PassengerData>
+			</TransportContain>	
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					SympathyRange="25.0" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="525" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MoveLoop">
+				<ModelConditionSound Sound="" RequiredFlags="MOVING" ExcludedFlags="OVER_WATER DYING" />
+				<ModelConditionSound Sound="Ship_Small_MoveLoopWater" RequiredFlags="MOVING OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_Riptide_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_WaterEntrySplash">
+				<ModelConditionSound Sound="ALL_Prospector_WaterSplashMS" RequiredFlags="OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_WaterSounds">
+				<Override RequiredFlags="OVER_WATER">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_Riptide_VoiceAttackWater" AudioType="voiceAttack" />
+						<AudioEntry Sound="ALL_ACVRiptide_Water_VoiceSelectMS" AudioType="voiceSelect" />
+						<AudioEntry Sound="ALL_ACVRiptide_Water_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+						<AudioEntry Sound="ALL_ACVRiptide_Water_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+					</AudioArrayVoice>
+					<AudioArraySound>
+						<AudioEntry Sound="ALL_ACVRiptide_MoveStartWater" AudioType="soundMoveStart" />
+						<!-- <AudioEntry Sound="Ship_Small_MoveLoopWater" AudioType="soundMoveLoop" /> -->
+					</AudioArraySound>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "24.1502"
+				MinorRadius = "28.0388"
+				Height = "13.0"
+				ContactPointGeneration="VEHICLE" >
+				<Offset
+					x = "2.47527"
+					y = "-0.279559"/>
+			</Shape>			
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALL_Riptide_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="ALL_Riptide_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALL_Riptide_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="ALL_Riptide_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="ALL_Riptide_VoiceMoveToLand" AudioType="voiceMoveWaterToLand" />
+			<AudioEntry Sound="ALL_Riptide_VoiceMoveToWater" AudioType="voiceMoveLandToWater" />
+			<AudioEntry Sound="ALL_Riptide_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALL_ACVRiptide_Land_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="ALL_ACVRiptide_Land_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="ALL_ACVRiptide_Land_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> 
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_ACVRiptide_MoveStartLand"
+				AudioType="soundMoveStart" />
+			<!--<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+			<AudioEntry Sound="AudioEvent:MammothTankTurretMoveLoop" AudioType="soundTurretMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="320"
+			ShroudClearingRange="=$LIGHT_VEHICLE_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushEqualLevelProps="true"
+			CrusherLevel="1"
+			CrushableLevel="20" />
+	</GameObject>
+
+	<GameObject
+		id="AlliedAntiInfantryVehicle_Ground"
+		inheritFrom="AlliedAntiInfantryVehicle"
+		EditorName="AlliedAntiInfantryVehicle_Ground"
+		ProductionQueueType="VEHICLE">
+		<EquivalentTo>AlliedAntiInfantryVehicle</EquivalentTo>		
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+    <Include
+        type="all"
+        source="ART:AUFighterDrone_SKN.w3x" />
+		<Include type="all"	source="ART:AUDrone_02.xml" />				
+		<Include type="all"	source="ART:AUDrone_02_D.xml" />			
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />			
+		<Include type="all"	source="ART:FXAlienLaser.xml" />	
+		<Include type="all"	source="ART:FXAlienLaserHeroic.xml" />
+		<Include type="all"	source="ART:FXAlliedFutureLaser.xml" />			
+	</Includes>
+	<GameObject
+		id="AlliedAttackDrone_Fighter"
+		inheritFrom="BaseVehicle"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT VEHICLE PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		EditorName="AlliedAttackDrone"
+		Description="Desc:AlliedAttackDrone">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:AlliedAttackDrone</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			id="AlliedFighterDroneLocomotor"
+			Locomotor="AlliedFighterDroneLocomotor"
+			Condition="NORMAL"
+			Speed="275" />
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FX_Weapon01 FX_Weapon02 FX_Wingtip01 FX_Wingtip02">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUFighterDrone_SKN" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="FX_Wingtip01"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Wingtip02"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+				</ModelConditionState>
+<!-- UPGRADED MODEL -->
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="AUFighterDrone_SKN" />
+					<Texture
+						Original="AUDrone"
+						New="AUDrone_02_D" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" /> 
+					<ParticleSysBone
+						BoneName="FX_Wingtip01"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Wingtip02"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />       
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="AUFighterDrone_SKN" />
+					<Texture
+						Original="AUDrone"
+						New="AUDrone_02" />							
+				</ModelConditionState>						
+<!-- UPGRADED MODEL -->
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUFighterDrone_SKN" />
+					<Texture
+						Original="AUDrone"
+						New="AUDrone_D" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="FX_JetGlow"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />    
+					<ParticleSysBone
+						BoneName="FX_Wingtip01"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Wingtip02"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />    
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>			
+			</ScriptedModelDraw>
+			
+			<LaserDraw
+				id="ModuleTag_LaserDraw01"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.2"
+				Texture1_VScrollRate=".3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				LaserWidth="5"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaser</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw02"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.2"
+				Texture1_VScrollRate=".3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				LaserWidth="5"
+				WeaponSlotID="1"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaser</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw01_Vet"
+				xai:joinAction="Replace"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.2"
+				Texture1_VScrollRate=".3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				LaserWidth="5"
+				WeaponSlotID="1"
+				LaserStateID="3">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaserHeroic</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />	
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw02_Vet"
+				xai:joinAction="Replace"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0.2"
+				Texture1_VScrollRate=".3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="0"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="-.2"
+				Texture2_VScrollRate="-.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="0"
+				LaserWidth="5"
+				WeaponSlotID="1"
+				LaserStateID="4">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlliedFutureLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTiberiumLaserHeroic</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+							<Value>4.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />	
+			</LaserDraw>
+	  </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedFighterDroneCannon" />
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedFighterDroneCannon_Veteran"
+						ObjectStatus="WEAPON_UPGRADED_01" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LaserState
+				id="ModuleTag_LaserState1"
+				LaserId="1"
+				OriginBoneName="FX_Weapon01">
+				<LaserStartParticleSystem>AlliedFighterDroneBeamGlow</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFighterDroneBeamGlow</LaserEndParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </LaserState>
+			<LaserState
+				id="ModuleTag_LaserState2"
+				LaserId="2"
+				OriginBoneName="FX_Weapon02">
+				<LaserStartParticleSystem>AlliedFighterDroneBeamGlow</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFighterDroneBeamGlow</LaserEndParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </LaserState>
+
+			<LaserState
+				id="ModuleTag_LaserState1_Vet"
+				LaserId="3"
+				OriginBoneName="FX_Weapon01">
+				<LaserStartParticleSystem>AlliedFighterDroneBeamGlow_Vet</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFighterDroneBeamGlow_Vet</LaserEndParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </LaserState>
+			<LaserState
+				id="ModuleTag_LaserState2_Vet"
+				LaserId="4"
+				OriginBoneName="FX_Weapon02">
+				<LaserStartParticleSystem>AlliedFairyStartGlow_Vet</LaserStartParticleSystem>
+				<LaserEndParticleSystem>AlliedFairyStartGlow_Vet</LaserEndParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </LaserState>
+
+			<StrafeAreaTargetChooser
+				id="ModuleTag_StrafeAreaTargetChooser"
+				Radius="100.0"
+				OverflowOptions="CHOOSE_RANDOM_POSITION">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ENEMIES"
+					StatusBitFlags="AIRBORNE_TARGET">
+				</ObjectFilter>
+			</StrafeAreaTargetChooser>
+			<StrafeAreaUpdate
+				id="ModuleTag_StrafeAreaUpdate"
+				WeaponName="AlliedFighterDroneCannon"
+				SweepFrequency="0.2"
+				SweepAmplitude="5"
+				DivingFloor="0"
+				PreattackDistance="500"
+				Radius="400"
+				MinRadius="0"
+				Options="FLEE_STRAIGHT_AHEAD USE_TARGET_CHOOSER CANNOT_IDLE"/>
+				
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="true"/>
+				
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAir"
+				CreationList="AUFighterDrone_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET" />
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieGround"
+				CreationList="AUFighterDrone_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					ExemptStatus="AIRBORNE_TARGET" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>	
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+			</SubObjectsUpgrade>	
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="1300"
+				AttackRange="1300"
+				DieOnMastersDeath="true"
+				UseSlaverAsControlForEvaObjectSightedEvents="false" />
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+				
+		</Behaviors>		
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AI"
+				NeedsRunway="false"
+				KeepsParkingSpaceWhenAirborne="false"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="StrafingRunAIStateMachine"
+				CirclesForAttack="true"
+				SpawnOffsetRadius="160.0">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="400.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="400"
+			ShroudClearingRange="35" />
+	</GameObject>
+
+
+</AssetDeclaration>

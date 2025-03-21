@@ -37,30 +37,30 @@
 			source="ART:FXTracerAlienHeroic.xml" />		
 	</Includes>
 	<GameObject
-		id="AlliedAirBattleShip"
+		id="AlliedBomberAircraft"
 		inheritFrom="BaseVehicle"
 		SelectPortrait="Portrait_AlliedKodiak"
 		ButtonImage="Button_AlliedKodiak"
 		Side="Allies"
 		SubGroupPriority="530"
 		EditorSorting="UNIT"
-		BuildTime="30"
+		BuildTime="25"
 		CommandSet="AlliedKodiakCommandSet"
-		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT FIGHTER_AIRCRAFT BOMBER_AIRCRAFT VEHICLE HUGE_VEHICLE SIEGE_WEAPON LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LEAVE_PARKING_ON_BUILD_COMPLETE PRODUCED_AT_HELIPAD"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT BOMBER_AIRCRAFT VEHICLE HUGE_VEHICLE SIEGE_WEAPON LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LEAVE_PARKING_ON_BUILD_COMPLETE PRODUCED_AT_HELIPAD"
 		RadarPriority="UNIT"
 		ThreatLevel="10"
 		ProductionQueueType="AIRCRAFT"
 		UnitCategory="AIRCRAFT"
 		WeaponCategory="MISSILE"
 		VoicePriority="148"
-		EditorName="AlliedAirBattleShip"
+		EditorName="AlliedBomberAircraft"
 		Description="Desc:AlliedKodiak"
 		TypeDescription="Type:AlliedKodiak"
 		HealthBoxHeightOffset="30">
 		<DisplayName
 			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedKodiak</DisplayName>
 		<ObjectResourceInfo>
-			<BuildCost Account="=$ACCOUNT_ORE" Amount="3000"/>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2500"/>
 		</ObjectResourceInfo>
 
 		<GameDependency>
@@ -580,7 +580,137 @@
 				<ObjectStatusValidation
 					RequiredStatus="WEAPON_UPGRADED_01" />						
 			</TracerModelDraw>
-		
+
+
+      <!-- Behind weapon -->			
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawBehind"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="22"
+				MaxSpeed="32"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="55"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="3"
+				Texture="FXRailTracer"
+				UseAdditiveBlending="true">
+        <HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>
+
+
+
+     <!-- Behind veterancy weapon -->
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawBehindVeterancy"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="65"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="3"
+				Texture="FXRailTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+        <HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>
+
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawThird"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="22"
+				MaxSpeed="32"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="4"
+				Texture="FXRailTracer"
+				UseAdditiveBlending="true">
+        <HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>			
+
+     <!-- Third veterancy weapon -->
+      <TracerModelDraw
+				id="ModuleTag_TracerModelDrawThirdVeterancy"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="3.0"
+				SpreadAngle="4.0"
+				MinTracersPerFrame=".5"
+				MaxTracersPerFrame=".8"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="4"
+				Texture="FXRailTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+        <HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+        <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+      </TracerModelDraw>			
+
+	  
+	  
 			<LaserDraw
 				id="ModuleTag_LaserDraw01"
 				Texture1_UTile="1"
@@ -686,7 +816,6 @@
 						RecenterWhenOutOfTurnRange="true"
 						ComeToHaltJiggle="1d">
 						<TurretAITargetChooserData
-							CanPickDynamicTargets="true"
 							CanAcquireDynamicIfAssignedOutOfRange="true"
 							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY">
 							<ObjectVisionRange
@@ -721,7 +850,6 @@
 						RecenterWhenOutOfTurnRange="true"
 						ComeToHaltJiggle="1d">
 						<TurretAITargetChooserData
-							CanPickDynamicTargets="true"
 							CanAcquireDynamicIfAssignedOutOfRange="true"
 							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY">
 							<ObjectVisionRange
@@ -752,7 +880,6 @@
 						MinIdleScanAngle="30.0"
 						MaxIdleScanAngle="50.0">
 						<TurretAITargetChooserData
-							CanPickDynamicTargets="true"
 							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
 							CanAcquireDynamicIfAssignedOutOfRange="true">
 						</TurretAITargetChooserData>	
@@ -775,7 +902,6 @@
 						MinIdleScanAngle="30.0"
 						MaxIdleScanAngle="50.0">
 						<TurretAITargetChooserData
-							CanPickDynamicTargets="true"
 							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
 							CanAcquireDynamicIfAssignedOutOfRange="true" />
 					</TurretSettings>
@@ -939,7 +1065,7 @@ DeathTypesForbidden="ERASED"/>
 				FireInterval="60.0s">
 				<FireWeaponNugget
 					WeaponName="AlliedKodiakShieldWeapon"
-					FireDelay="1.5s">
+					FireDelay="0.0s">
 				</FireWeaponNugget>
 			</FireWeaponUpdate>
 			<FireWeaponUpdate
@@ -954,6 +1080,13 @@ DeathTypesForbidden="ERASED"/>
 			<xi:include
 				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
 			
+      <!-- These help the AI decide when to use EnergizedArmor -->
+      <TrackIncomingWeaponFireBehavior
+				id="TrackIncomingWeaponFireForEnergizedArmor" />
+      <TrackDamage
+				id="TrackDamageForEnergizedArmor"
+				TimeToTrack="2s"
+				InstantWeaponsOnly="true" />
 		</Behaviors>
 		<AI>
 			<JetAIUpdate
@@ -961,7 +1094,6 @@ DeathTypesForbidden="ERASED"/>
 				AutoAcquireEnemiesWhenIdle="YES"
 				StateMachine="HelicopterAIStateMachine">
 				<UnitAITargetChooserData
-					CanPickDynamicTargets="false"
 					RotateToTargetWhenAiming="true">
 					<ObjectVisionRange
 						id="ObjectVisionRange_Aircraft"
@@ -982,15 +1114,13 @@ DeathTypesForbidden="ERASED"/>
 		<CrusherInfo
 			id="id_CrusherInfo"
 			CrusherLevel="101"
-			CrushableLevel="101"
-			CrushWhileStationary="true"
-			CrushDecelerationPercent="0%" />
+			CrushableLevel="101" />
 		<Geometry
 			IsSmall="true">
 			<Shape
 				Type="BOX"
-				MajorRadius="50.0"
-				MinorRadius="23.0"
+				MajorRadius="56.0"
+				MinorRadius="35.0"
 				Height="19.0"
 				ContactPointGeneration="VEHICLE">
 			</Shape>
@@ -1044,7 +1174,7 @@ DeathTypesForbidden="ERASED"/>
 
 
 		<VisionInfo
-			VisionRange="420"
+			VisionRange="360"
 			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
 	</GameObject>
 
