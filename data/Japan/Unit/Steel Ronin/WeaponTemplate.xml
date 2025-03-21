@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WeaponTemplate
+		id="JapanSentinelVehicleLaserGlaiveWeapon"
+		FireSoundPerClip=""
+		FireFX="FX_SentinalSpearAttack"
+		FireVeteranFX="FX_SentinalSpearAttackVet"
+		RadiusDamageAffects="ENEMIES"
+		AttackRange="35.0"
+		ClipSize="1"
+		WeaponSpeed="999999.0"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		CanFireWhileMoving="false"
+		DamageDealtAtSelfPosition="true"
+		AcceptableAimDelta="10d"
+		IgnoresContactPoints="true"
+		HitStoredTarget="true"
+		MeleeWeapon="true"
+		ChaseWeapon="true"
+		FinishAttackOnceStarted="true"
+		Flags="ATTACK_NEEDS_LINE_OF_SIGHT NOT_ATTRACTED_BY_MAGNETS"
+		ReAcquireDetailType="PER_CLIP">
+		<!--<PreAttackDelay
+			MinSeconds="0.6s"
+			MaxSeconds="0.6s" />-->
+		<FiringDuration
+			MinSeconds="0.8s"
+			MaxSeconds="0.8s" />
+		<ClipReloadTime
+			MinSeconds="1.0s"
+			MaxSeconds="1.0s" />
+		<Nuggets>
+			<!-- Note: the damage radius MUST be the AttackRange + half the unit's width unless you want overshoot-->
+			
+			<DamageNugget
+				id="DefaultDamageNugget" 
+				Damage="80.0"
+				Radius="105.0"
+				DamageArc="75d"
+				DelayTimeSeconds="0.6s"
+				DamageType="CANNON"
+				DamageFXType="SOVIET_MACHINEGUN"
+				DeathType="EXTRA_1"
+				PartitionFilterTestType="SPHERE"
+				ForceFXPositionToVictim="true"
+				DrainLife="true"
+				DrainLifeMultiplier="0.075"
+				>
+				<DamageScalarDetails Scalar= "200%">
+					<Filter
+						Rule="ANY"
+						Include="INFANTRY">
+					</Filter>		
+				</DamageScalarDetails>
+			</DamageNugget>
+			<DOTNugget
+				id="DefaultDOTDamageNugget"
+				Damage="3"
+				DamageInterval="0.5s"
+				DamageDuration="5s"
+				DamageType="EXPLOSIVE"
+				DamageFXType="SOVIET_MOLOTOV"
+				DeathType="BURNED"
+				RemoveIfHealed="false"
+			/>
+            <AttributeModifierNugget
+				AttributeModifierName="PsychicPartisanBerserkerCleaveAttributeModifier"
+				AttributeModifierOwnerName="PsychicPartisanBerserkerConquerAttributeModifier">
+            </AttributeModifierNugget>
+			<MetaImpactNugget
+				id="DefaultMetaImpactNugget" 
+				ShockWaveAmount="25"
+				ShockWaveRadius="100.0"
+				ShockWaveArc="75d"
+				ForbiddenTargetModelCondition="STUNNED STUNNED_STANDING_UP STUNNED_FLAILING"/>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="JapanSentinelVehicleLaserGlaiveWeapon75"
+		inheritFrom="JapanSentinelVehicleLaserGlaiveWeapon">
+		<Nuggets>
+			<DamageNugget
+				id="DefaultDamageNugget" 
+				Damage="120.0"
+				Radius="105.0"
+				DamageArc="75d"
+				DelayTimeSeconds="0.6s"
+				DamageType="CANNON"
+				DamageFXType="SOVIET_MACHINEGUN"
+				DeathType="EXTRA_1"
+				PartitionFilterTestType="SPHERE"
+				ForceFXPositionToVictim="true"
+				DrainLife="true"
+				DrainLifeMultiplier="0.15">
+				<DamageScalarDetails Scalar= "200%">
+					<Filter
+						Rule="ANY"
+						Include="INFANTRY">
+					</Filter>		
+				</DamageScalarDetails>
+			</DamageNugget>
+			<DOTNugget
+				id="DefaultDOTDamageNugget"
+				Damage="5"
+				DamageInterval="0.5s"
+				DamageDuration="5s"
+				DamageType="EXPLOSIVE"
+				DamageFXType="SOVIET_MOLOTOV"
+				DeathType="BURNED"
+				RemoveIfHealed="false"
+			/>
+            <AttributeModifierNugget
+				AttributeModifierName="PsychicPartisanBerserkerCleaveAttributeModifier"
+				AttributeModifierOwnerName="PsychicPartisanBerserkerConquerAttributeModifier">
+            </AttributeModifierNugget>
+			<MetaImpactNugget
+				id="DefaultMetaImpactNugget" 
+				ShockWaveAmount="25"
+				ShockWaveRadius="100.0"
+				ShockWaveArc="75d"
+				ForbiddenTargetModelCondition="STUNNED STUNNED_STANDING_UP STUNNED_FLAILING"/>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="JapanSentinelVehicleLaserGlaiveWeapon50"
+		inheritFrom="JapanSentinelVehicleLaserGlaiveWeapon">
+		<Nuggets>
+			<DamageNugget
+				id="DefaultDamageNugget" 
+				Damage="160.0"
+				Radius="105.0"
+				DamageArc="75d"
+				DelayTimeSeconds="0.6s"
+				DamageType="CANNON"
+				DamageFXType="SOVIET_MACHINEGUN"
+				DeathType="EXTRA_1"
+				PartitionFilterTestType="SPHERE"
+				ForceFXPositionToVictim="true"
+				DrainLife="true"
+				DrainLifeMultiplier="0.3">
+				<DamageScalarDetails Scalar= "200%">
+					<Filter
+						Rule="ANY"
+						Include="INFANTRY">
+					</Filter>		
+				</DamageScalarDetails>
+			</DamageNugget>
+			<DOTNugget
+				id="DefaultDOTDamageNugget"
+				Damage="7"
+				DamageInterval="0.5s"
+				DamageDuration="5s"
+				DamageType="EXPLOSIVE"
+				DamageFXType="SOVIET_MOLOTOV"
+				DeathType="BURNED"
+				RemoveIfHealed="false"
+			/>
+            <AttributeModifierNugget
+				AttributeModifierName="PsychicPartisanBerserkerCleaveAttributeModifier"
+				AttributeModifierOwnerName="PsychicPartisanBerserkerConquerAttributeModifier">
+            </AttributeModifierNugget>
+			<MetaImpactNugget
+				id="DefaultMetaImpactNugget" 
+				ShockWaveAmount="25"
+				ShockWaveRadius="100.0"
+				ShockWaveArc="75d"
+				ForbiddenTargetModelCondition="STUNNED STUNNED_STANDING_UP STUNNED_FLAILING"/>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="JapanSentinelVehicleLaserGlaiveWeapon25"
+		inheritFrom="JapanSentinelVehicleLaserGlaiveWeapon">
+		<Nuggets>
+			<DamageNugget
+				id="DefaultDamageNugget" 
+				Damage="200.0"
+				Radius="105.0"
+				DamageArc="75d"
+				DelayTimeSeconds="0.6s"
+				DamageType="CANNON"
+				DamageFXType="SOVIET_MACHINEGUN"
+				DeathType="EXTRA_1"
+				PartitionFilterTestType="SPHERE"
+				ForceFXPositionToVictim="true"
+				DrainLife="true"
+				DrainLifeMultiplier="0.5">
+				<DamageScalarDetails Scalar= "200%">
+					<Filter
+						Rule="ANY"
+						Include="INFANTRY">
+					</Filter>		
+				</DamageScalarDetails>
+			</DamageNugget>
+			<DOTNugget
+				id="DefaultDOTDamageNugget"
+				Damage="9"
+				DamageInterval="0.5s"
+				DamageDuration="5s"
+				DamageType="EXPLOSIVE"
+				DamageFXType="SOVIET_MOLOTOV"
+				DeathType="BURNED"
+				RemoveIfHealed="false"
+			/>
+            <AttributeModifierNugget
+				AttributeModifierName="PsychicPartisanBerserkerCleaveAttributeModifier"
+				AttributeModifierOwnerName="PsychicPartisanBerserkerConquerAttributeModifier">
+            </AttributeModifierNugget>
+			<MetaImpactNugget
+				id="DefaultMetaImpactNugget" 
+				ShockWaveAmount="25"
+				ShockWaveRadius="100.0"
+				ShockWaveArc="75d"
+				ForbiddenTargetModelCondition="STUNNED STUNNED_STANDING_UP STUNNED_FLAILING"/>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<!-- The glaive blast special power -->
+	<WeaponTemplate
+		id="JapanSentinelVehicleLaserGlaiveBlastWeapon"
+		AttackRange="300.0"
+		ReAcquireDetailType="PRE_FIRE"
+		ClipSize="1"
+		FireSound="JAP_KingOni_LaserFire"
+		AcceptableAimDelta="10d"
+		CanFireWhileMoving="true"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		Flags="ATTACK_NEEDS_LINE_OF_SIGHT NOT_ATTRACTED_BY_MAGNETS">
+		<FiringDuration
+			MinSeconds="0.5s"
+			MaxSeconds="0.5s" />
+		<ClipReloadTime
+			MinSeconds="0.5s"
+			MaxSeconds="0.5s" />
+		<Nuggets>
+			<DamageNugget
+				id="JapanSentinelVehicleLaserGlaiveBlastDamageNugget"
+				Damage="0.001"
+				Radius="1.0"
+				DamageType="MAGIC"
+				DeathType="NORMAL"/>
+			<ActivateLinearDamageNugget
+				id="JapanSentinelVehicleLaserGlaiveBlastLinearDamageNugget"
+				Lifetime="2.0s"/>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="JapanSentinelVehicleLaserGlaiveBlastSweepingWeapon"
+		RadiusDamageAffects="ENEMIES NEUTRALS">
+		<Nuggets>
+			<LeechHealthDamageNugget
+				id="DefaultNugget" 
+				Damage="100.0"
+				DamageType="EXPLOSIVE"
+				DeathType="NORMAL"
+				PercentDamageToHeal="175%">
+				<SpecialObjectFilter
+					   Rule="ALL"
+					   Exclude="MONSTER">
+				</SpecialObjectFilter>
+			</LeechHealthDamageNugget>
+			<DamageNugget
+				id="DefaultNugget" 
+				Damage="100.0"
+				DamageType="EXPLOSIVE"
+				DeathType="NORMAL">
+				<SpecialObjectFilter
+					Rule="NONE"
+					Include="MONSTER">
+				</SpecialObjectFilter>
+			</DamageNugget>
+			<DOTNugget
+				id="DefaultDOTDamageNugget"
+				Damage="5"
+				DamageInterval="0.5s"
+				DamageDuration="5s"
+				DamageType="EXPLOSIVE"
+				DamageFXType="SOVIET_MOLOTOV"
+				DeathType="BURNED"
+				RemoveIfHealed="false"
+			/>
+			<AttributeModifierNugget
+				AttributeModifierOwnerName="PsychicPartisanBerserkerConquerAttributeModifier"
+				AttributeModifierName="AttributeModifier_50PercentSlower"
+				Radius="25.0">
+                <SpecialObjectFilter
+					Rule="ANY"
+					Include="VEHICLE"
+					StatusBitFlagsExclude="NOT_IN_WORLD UNDER_IRON_CURTAIN">
+                </SpecialObjectFilter>
+			</AttributeModifierNugget>
+		</Nuggets>
+	</WeaponTemplate>
+	
+</AssetDeclaration>

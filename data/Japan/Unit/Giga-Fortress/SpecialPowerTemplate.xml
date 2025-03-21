@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<SpecialPowerTemplate
+		id="SpecialPower_JapanFortressShipTransformMode"
+		ReloadTime="15s"
+		TargetType="NONE"
+		Flags="NOT_WHILE_BENEATH_BRIDGE NOT_ON_BRIDGE NOT_IN_NANOSWARM" 
+		PreventConditions="BOOBY_TRAPPED IS_BEING_DRAGGED IMMOBILE_ALLOW_ROTATE MARCH_OF_DEATH UNDER_FROZEN" >
+	</SpecialPowerTemplate>
+
+	<SpecialPowerTemplate
+		id="SpecialPower_GigaFortressLaserGeneratorTrigger"
+		TargetType="LOCATION"
+		ReloadTime="0s"
+		Flags="WATER_OK FOGGED_SHROUDED_CELLS_OK CANNOT_LEAVE_ENCLOSURE CAN_NOT_BE_SCRAMBLED"
+		WaypointModeTerminal="false" >
+	</SpecialPowerTemplate>
+
+	<SpecialPowerTemplate
+		id="SpecialPower_GFLaserTrigger"
+		TargetType="LOCATION"
+		ReloadTime="2s"
+                                RadiusCursorRadius="60"
+		Flags="WATER_OK FOGGED_SHROUDED_CELLS_OK CANNOT_LEAVE_ENCLOSURE CAN_NOT_BE_SCRAMBLED"
+		WaypointModeTerminal="false" >
+	</SpecialPowerTemplate>
+
+</AssetDeclaration>

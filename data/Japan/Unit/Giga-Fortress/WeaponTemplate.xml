@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WeaponTemplate
+		id="JapanFortressShipMissilePods"
+		AttackRange="500.0"
+		MinimumAttackRange="30"
+		WeaponSpeed="500"
+		MinWeaponSpeed="290"
+		MaxWeaponSpeed="310"
+		FireFX="FX_Japan_DefenderVX_Fire"
+		FireVeteranFX="FX_Japan_DefenderVX_Fire_Vet"
+		FireSound="JAP_EmperorsPearl_MissilePodFire"
+		AcceptableAimDelta="45d"
+		VirtualDamage="SHARE"
+		ClipSize="8"
+		AutoReloadsClip="AUTO"
+		PreAttackType="PER_CLIP"
+		CanFireWhileMoving="true"
+		RequiredAntiMask="ANTI_WATER ANTI_GROUND ANTI_STRUCTURE ANTI_SUBMERGED"
+		RadiusDamageAffects="ENEMIES">
+		<PreAttackDelay
+			MinSeconds="0.25s"
+			MaxSeconds="0.25s" />
+		<FiringDuration
+			MinSeconds="0.07s"
+			MaxSeconds="0.07s" />
+		<ClipReloadTime
+			MinSeconds="5s"
+			MaxSeconds="5s" />
+		<Nuggets>
+			<ProjectileNugget
+				WarheadTemplate="JapanFortressShipMissileProjectileWarhead"
+				ProjectileTemplate="JapanFortressShipMissileProjectile">
+				<VeterancyProjectiles
+					VeterancyLevel="HEROIC"
+					ProjectileTemplate="JapanFortressShipMissileProjectile_Veteran"/>
+			</ProjectileNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipMissilePods_Aircraft"
+		inheritFrom="JapanFortressShipMissilePods"
+		MinimumAttackRange="0"
+		AcceptableAimDelta="180d"
+		RequiredAntiMask="ANTI_AIRBORNE_VEHICLE ANTI_AIRBORNE_INFANTRY ANTI_PARACHUTE">
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipMissilePods_JapanAdvancedMissilePack"
+		inheritFrom="JapanFortressShipMissilePods"
+		ClipSize="11">
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="JapanFortressShipMissilePods_Aircraft_JapanAdvancedMissilePack"
+		inheritFrom="JapanFortressShipMissilePods_Aircraft"
+		ClipSize="11">
+	</WeaponTemplate>
+
+	<WeaponTemplate
+			id="JapanFortressShipMissileProjectileWarhead"
+			ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+			RadiusDamageAffects="ENEMIES NEUTRALS"
+			Flags="ATTACK_NEEDS_LINE_OF_SIGHT NOT_ATTRACTED_BY_MAGNETS"
+			RequiredAntiMask="ANTI_WATER ANTI_GROUND ANTI_STRUCTURE ANTI_AIRBORNE_VEHICLE ANTI_AIRBORNE_INFANTRY ANTI_PARACHUTE ANTI_SUBMERGED">
+		<Nuggets>
+			<DamageNugget
+				Damage="35.0"
+				Radius="20.0"
+				DamageType="ROCKET"
+				DamageFXType="JAPAN_MISSILE"
+				DeathType="EXPLODED" />
+			<SuppressionNugget
+				Radius="20.0"
+				Suppression="10"
+				DurationSeconds="1s" />
+		</Nuggets>
+		<ScatterRadiusVsType
+			Radius="10.0">
+			<Filter
+				Rule="NONE"
+				Include="INFANTRY" />
+		</ScatterRadiusVsType>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipCannonWeapon"
+		AttackRange="600.0"
+		MinimumAttackRange="30"
+		WeaponSpeed="750"
+		ScatterRadius="30"
+		FireSound="JAP_EmperorsPearl_WaterWeapon_CannonFire"
+		FireFX="FX_JapanAntiStructureGunFire"
+		FireVeteranFX="FX_JapanAntiStructureGunFire_Vet"
+		RadiusDamageAffects="ENEMIES"
+		CanFireWhileMoving="true"
+		ClipSize="4"
+		ReAcquireDetailType="PRE_FIRE"
+		Flags="RELOAD_WHEN_ATTACK_STOPS"
+		ShotsPerBarrel="1"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		WeaponRecoil="1d"
+		AcceptableAimDelta="1d"
+		RevealShroudOnFire="true">
+		<FiringDuration
+			MinSeconds="0.25s"
+			MaxSeconds="0.25s" />
+		<ClipReloadTime
+			MinSeconds="5.0s"
+			MaxSeconds="5.0s"	/>
+		<Nuggets>
+			<ProjectileNugget
+				ProjectileTemplate="JapanFortressShipCannonWeaponProjectile"
+				WarheadTemplate="JapanFortressShipCannonWeaponWarhead">
+				<VeterancyProjectiles
+					VeterancyLevel="HEROIC"
+					ProjectileTemplate="JapanFortressShipCannonWeaponProjectileVeteran"/>
+			</ProjectileNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipCannonWeaponWarhead"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS"
+		RequiredAntiMask="ANTI_STRUCTURE ANTI_WATER ANTI_GROUND"
+		Flags="NOT_ATTRACTED_BY_MAGNETS">
+		<Nuggets>
+			<DamageNugget
+				Damage="90.0"
+				Radius="15.0"
+				DamageTaperOff="0.0"
+				DamageType="EXPLOSIVE"
+				DamageFXType="JAPAN_CANNON"
+				DeathType="NORMAL">
+				<DamageScalarDetails Scalar= "50%">
+					<Filter
+						Rule="ALL"
+						Relationship="ALLIES" />
+				</DamageScalarDetails>
+			</DamageNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeapon"
+		AttackRange="750.0"
+		MinimumAttackRange="100.0"
+		WeaponSpeed="99999.0"
+		FireSound="JAP_EmperorsPearl_SiegeLaserWeapon_Fire"
+		FireFX="FX_JapanPearlLaserFire"
+		FireVeteranFX="FX_JapanPearlLaserFire"
+		RadiusDamageAffects="ENEMIES"
+		CanFireWhileMoving="false"
+		ClipSize="1"
+		ReAcquireDetailType="PER_CLIP"
+		Flags="RELOAD_WHEN_ATTACK_STOPS FORCE_EMPTY_ENTIRE_CLIP"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		WeaponRecoil="1d"
+		RevealShroudOnFire="true"
+		UseCenterForRangeCheck="true"
+		IgnoresContactPoints="true">
+		<ClipReloadTime
+			MinSeconds="4.0s"
+			MaxSeconds="4.0s"	/>
+		<Nuggets>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget" 
+				Lifetime="1s"
+				LaserId="101"/>
+		</Nuggets>
+	</WeaponTemplate>
+		<!-- Veteran sweep laser -->
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeaponVeteran"
+		inheritFrom="JapanFortressShipAirborneSeigeCannonWeapon">
+		<Nuggets>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget"
+				LaserId="102" />
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeapon_SweepingWeapon"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS"
+		RequiredAntiMask="ANTI_STRUCTURE ANTI_WATER ANTI_GROUND"
+		Flags="NOT_ATTRACTED_BY_MAGNETS">
+		<Nuggets>
+			<WeaponOCLNugget
+				id="defaultOCLNugget" 
+				WeaponOCL="OCL_JapanFortressShipAirborneSeigeCannonWeaponNode">
+			</WeaponOCLNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeapon_SweepingWeapon_Veteran"
+		inheritFrom="JapanFortressShipAirborneSeigeCannonWeapon_SweepingWeapon">
+		<Nuggets>
+			<WeaponOCLNugget
+				id="defaultOCLNugget"
+				WeaponOCL="OCL_JapanFortressShipAirborneSeigeCannonWeaponNode_Veteran">
+			</WeaponOCLNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeapon_NodeExplosion"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS"
+		RequiredAntiMask="ANTI_STRUCTURE ANTI_WATER ANTI_GROUND"
+		Flags="NOT_ATTRACTED_BY_MAGNETS">
+		<Nuggets>
+			<DamageNugget
+				id="DefaultDamageNugget" 
+				Damage="250.0"
+				Radius="25.0"
+        RadiusAffectsBridges="true" 
+				DamageTaperOff="200.0"
+				DamageType="EXPLOSIVE"
+				DeathType="NORMAL">
+        <SpecialObjectFilter
+          Rule="ALL"
+          Exclude="BRIDGE BRIDGE_SEGMENT BRIDGE_ENDCAP" />
+				<DamageScalarDetails Scalar= "50%">
+					<Filter
+						Rule="ALL"
+						Relationship="ALLIES" />
+				</DamageScalarDetails>
+			</DamageNugget>
+			<MetaImpactNugget
+				ShockWaveAmount="50"
+				ShockWaveRadius="25.0"
+				ShockWaveTaperOff="25.0"
+				ForbiddenTargetModelCondition="STUNNED STUNNED_STANDING_UP STUNNED_FLAILING">
+				<SpecialObjectFilter
+					Rule="ANY"
+					Relationship="ENEMIES"
+					StatusBitFlagsExclude="NO_COLLISIONS">
+				</SpecialObjectFilter>
+			</MetaImpactNugget>
+		</Nuggets>
+	</WeaponTemplate>
+	
+	<WeaponTemplate
+		id="JapanFortressShipAirborneDeathWeapon"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS"
+		FireFX="FX_GigaFortressDeathWeapon" 
+		Flags="NOT_ATTRACTED_BY_MAGNETS"
+		RequiredAntiMask="ANTI_WATER ANTI_GROUND ANTI_STRUCTURE">
+		<Nuggets>
+			<DamageNugget
+				id="DamageNugget_Default" 
+				Damage="750.0"
+				Radius="110.0"
+				DamageTaperOff="100"
+				DamageType="EXPLOSIVE"
+				DeathType="NORMAL" >
+				<DamageScalarDetails Scalar= "50%">
+					<Filter
+						Rule="ALL"
+						Relationship="ALLIES" />
+				</DamageScalarDetails>
+			</DamageNugget>
+			<MetaImpactNugget
+				 ShockWaveAmount="50.0"
+				 ShockWaveRadius="110.0"
+				 ShockWaveTaperOff="1.0"/>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneDeathWeapon_Upgraded"
+		inheritFrom="JapanFortressShipAirborneDeathWeapon">
+		<Nuggets>
+			<DamageNugget
+				id="DamageNugget_Default"
+				Damage="1000.0"
+				Radius="120.0" />
+		</Nuggets>
+	</WeaponTemplate>
+	
+	
+	
+	<!-- Hammer Tank -->
+	<WeaponTemplate
+		id="Leech_GigaFortress"
+		inheritFrom="JapanFortressShipMissilePods"
+		MinimumAttackRange="0"
+		RequiredAntiMask="ANTI_WATER ANTI_GROUND ANTI_STRUCTURE ANTI_AIRBORNE_VEHICLE ANTI_AIRBORNE_INFANTRY ANTI_PARACHUTE" />
+
+
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneColumnSeigeCannonWeapon"
+		AttackRange="750.0"
+		MinimumAttackRange="100.0"
+		ScatterLength="1"
+		WeaponSpeed="999999"
+		CanFireWhileMoving="false"
+		ClipSize="1"
+		PreAttackType="PER_SHOT"
+		ReAcquireDetailType="PRE_FIRE"
+		Flags="RELOAD_WHEN_ATTACK_STOPS FORCE_EMPTY_ENTIRE_CLIP LENGTH_SCATTER"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		WeaponRecoil="1d"
+		AcceptableAimDelta="20d"
+		ScatterIndependently="true"
+		UseCenterForRangeCheck="true"
+		IgnoresContactPoints="false">
+		<PreAttackDelay
+			MinSeconds="0.05s"
+			MaxSeconds="0.05s"/>
+		<FiringDuration
+			MinSeconds="1.2s"
+			MaxSeconds="1.2s" />			
+		<ClipReloadTime
+			MinSeconds="3.0s"
+			MaxSeconds="3.0s"	/>
+		<Nuggets>
+			<DamageNugget
+				id="DefaultDamageNugget" 
+				Damage="0.1"
+				Radius="1.0"
+				DamageTaperOff="0.0"
+				DamageType="EXPLOSIVE"
+				DeathType="NORMAL">
+			</DamageNugget>
+			<SpecialPowerNugget
+				SpecialPowerTemplate="SpecialPower_GFLaserTrigger">
+			</SpecialPowerNugget>
+		</Nuggets>
+		<ScatterRadiusVsType
+			Radius="0.1">
+			<Filter
+				Rule="ANY"
+				Include="INFANTRY AIRCRAFT VEHICLE HUGE_VEHICLE STRUCTURE" />
+		</ScatterRadiusVsType>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="GigaFortressLaserWeapon"
+		AttackRange="999999"
+		ScatterLength="400"
+		WeaponSpeed="999999"
+		FireSound="JAP_EmperorsPearl_SiegeLaserWeapon_Fire"
+		FireFX="FX_JapanPearlLaserFire"
+		CanFireWhileMoving="false"
+		ClipSize="16"
+		PreAttackType="PER_SHOT"
+		ReAcquireDetailType="PRE_FIRE"
+		Flags="RELOAD_WHEN_ATTACK_STOPS FORCE_EMPTY_ENTIRE_CLIP LENGTH_SCATTER NOT_ATTRACTED_BY_MAGNETS"
+		RequiredAntiMask="ANTI_GROUND ANTI_STRUCTURE ANTI_WATER"
+		WeaponRecoil="1d"
+		AcceptableAimDelta="1d"
+		ScatterIndependently="true"
+		UseCenterForRangeCheck="true"
+		IgnoresContactPoints="true"
+		AutoReloadsClip="NONE">
+		<PreAttackDelay
+			MinSeconds="0.05s"
+			MaxSeconds="0.05s"	/>
+		<ClipReloadTime
+			MinSeconds="0.01s"
+			MaxSeconds="0.01s"	/>
+		<Nuggets>
+			<ActivateLaserNugget
+				Lifetime="0.1s"
+				LaserId="1"/>
+			<ProjectileNugget
+				WarheadTemplate="DummyWeaponWarhead"
+				ProjectileTemplate="JapanFortressShipAirborneSeigeCannonWeaponProjectile"/>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="GigaFortressLaserWeaponVeteran"
+		inheritFrom="GigaFortressLaserWeapon"
+		FireFX="FX_JapanPearlLaserFireVet">
+		<Nuggets xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">
+			<ActivateLaserNugget
+				Lifetime="0.1s"
+				LaserId="2"/>
+			<ProjectileNugget
+				WarheadTemplate="DummyWeaponWarhead"
+				ProjectileTemplate="JapanFortressShipAirborneSeigeCannonWeaponProjectile_Veteran"/>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeapon_NodeExplosionII"
+		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS"
+		RequiredAntiMask="ANTI_STRUCTURE ANTI_WATER ANTI_GROUND"
+		Flags="NOT_ATTRACTED_BY_MAGNETS">
+		<Nuggets>
+			<DamageNugget
+				Damage="250.0"
+				Radius="25.0"
+				RadiusAffectsBridges="true"
+				DamageTaperOff="100.0"
+				DamageType="EXPLOSIVE"
+				DeathType="NORMAL">
+				<SpecialObjectFilter
+					Rule="ALL"
+					Exclude="BRIDGE BRIDGE_SEGMENT BRIDGE_ENDCAP" />
+				<DamageScalarDetails Scalar= "50%">
+					<Filter
+						Rule="ALL"
+						Relationship="ALLIES" />
+				</DamageScalarDetails>
+			</DamageNugget>
+			<MetaImpactNugget
+				ShockWaveAmount="50"
+				ShockWaveRadius="25.0"
+				ShockWaveTaperOff="25.0"
+				ForbiddenTargetModelCondition="STUNNED STUNNED_STANDING_UP STUNNED_FLAILING">
+				<SpecialObjectFilter
+					Rule="ANY"
+					Include="INFANTRY"
+					Exclude="MACHINE"
+					StatusBitFlagsExclude="NO_COLLISIONS IN_SPIDER_HOLE">
+				</SpecialObjectFilter>
+			</MetaImpactNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeapon_VeteranNodeExplosionII"
+		RadiusDamageAffects="ALLIES ENEMIES NEUTRALS"
+		RequiredAntiMask="ANTI_STRUCTURE ANTI_WATER ANTI_GROUND"
+		Flags="NOT_ATTRACTED_BY_MAGNETS">
+		<Nuggets>
+			<DamageNugget
+				Damage="300.0"
+				Radius="25.0"
+				RadiusAffectsBridges="true"
+				DamageTaperOff="100.0"
+				DamageType="EXPLOSIVE"
+				DeathType="NORMAL">
+				<SpecialObjectFilter
+					Rule="ALL"
+					Exclude="BRIDGE BRIDGE_SEGMENT BRIDGE_ENDCAP" />
+				<DamageScalarDetails Scalar= "50%">
+					<Filter
+						Rule="ALL"
+						Relationship="ALLIES" />
+				</DamageScalarDetails>
+			</DamageNugget>
+			<MetaImpactNugget
+				ShockWaveAmount="50"
+				ShockWaveRadius="25.0"
+				ShockWaveTaperOff="25.0"
+				ForbiddenTargetModelCondition="STUNNED STUNNED_STANDING_UP STUNNED_FLAILING">
+				<SpecialObjectFilter
+					Rule="ANY"
+					Include="INFANTRY"
+					Exclude="MACHINE"
+					StatusBitFlagsExclude="NO_COLLISIONS IN_SPIDER_HOLE">
+				</SpecialObjectFilter>
+			</MetaImpactNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+	<WeaponTemplate
+		id="GFLaserWeapon"
+		AttackRange="750.0"
+		MinimumAttackRange="100.0"
+		ScatterLength="400"
+		WeaponSpeed="999999"
+		FireSound="JAP_EmperorsPearl_SiegeLaserWeapon_Fire"
+		FireFX="FX_JapanPearlLaserFire"
+		FireVeteranFX="FX_JapanPearlLaserFire"
+		CanFireWhileMoving="false"
+		ClipSize="16"
+		PreAttackType="PER_SHOT"
+		ReAcquireDetailType="PRE_FIRE"
+		Flags="RELOAD_WHEN_ATTACK_STOPS FORCE_EMPTY_ENTIRE_CLIP LENGTH_SCATTER"
+		ForbiddenAntiMask="ANTI_VEHICLE ANTI_STRUCTURE ANTI_INFANTRY ANTI_AIRBORNE_VEHICLE ANTI_AIRBORNE_INFANTRY"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		WeaponRecoil="1d"
+		AcceptableAimDelta="20d"
+		ScatterIndependently="true"
+		UseCenterForRangeCheck="true"
+		IgnoresContactPoints="true"
+		AutoReloadsClip="NONE">
+		<PreAttackDelay
+			MinSeconds="0.05s"
+			MaxSeconds="0.05s"/>
+		<ClipReloadTime
+			MinSeconds="0.01s"
+			MaxSeconds="0.01s"/>
+		<Nuggets>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget" 
+				Lifetime="0.1s"
+				LaserId="101">
+			</ActivateLaserNugget>
+			<WeaponOCLNugget
+				id="defaultOCLNugget" 
+				WeaponOCL="OCL_JapanFortressShipAirborneSeigeCannonWeaponNode">
+			</WeaponOCLNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+
+
+
+
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeapon_AntiAircraft"
+		AttackRange="750.0"
+		MinimumAttackRange="100.0"
+		WeaponSpeed="99999.0"
+		FireSound="JAP_EmperorsPearl_SiegeLaserWeapon_Fire"
+		FireFX="FX_JapanPearlLaserFire"
+		FireVeteranFX="FX_JapanPearlLaserFire"
+		RadiusDamageAffects="ENEMIES"
+		CanFireWhileMoving="false"
+		ClipSize="1"
+		ReAcquireDetailType="PER_CLIP"
+		Flags="RELOAD_WHEN_ATTACK_STOPS FORCE_EMPTY_ENTIRE_CLIP"
+		RequiredAntiMask="ANTI_AIRBORNE_VEHICLE ANTI_AIRBORNE_INFANTRY"
+		ProjectileCollidesWith="ALLIES ENEMIES NEUTRAL STRUCTURES WALLS"
+		WeaponRecoil="1d"
+		RevealShroudOnFire="true"
+		UseCenterForRangeCheck="true"
+		IgnoresContactPoints="true">
+		<ClipReloadTime
+			MinSeconds="4.0s"
+			MaxSeconds="4.0s"	/>
+		<Nuggets>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget" 
+				Lifetime="1s"
+				LaserId="103"
+				OverShootDistance="250.0"/>
+			<LineDamageNugget
+				id="defaultLineDamageNugget"
+				Damage="1500.0"
+				LineWidth="30.0"
+				DelayTimeSeconds="0.75s"
+				DamageType="PRISM"
+				DeathType="NORMAL"
+				UseDynamicLineLength="true"
+				OverShootDistance="250.0">
+			</LineDamageNugget>
+		</Nuggets>
+	</WeaponTemplate>
+		<!-- Veteran sweep laser -->
+	<WeaponTemplate
+		id="JapanFortressShipAirborneSeigeCannonWeaponVeteran_AntiAircraft"
+		inheritFrom="JapanFortressShipAirborneSeigeCannonWeapon_AntiAircraft">
+		<Nuggets>
+			<ActivateLaserNugget
+				id="defaultActivateLaserNugget"
+				LaserId="104"
+				OverShootDistance="250.0" />
+			<LineDamageNugget
+				id="defaultLineDamageNugget"
+				Damage="1500.0"
+				LineWidth="30.0"
+				DelayTimeSeconds="0.75s"
+				DamageType="PRISM"
+				DeathType="NORMAL"
+				UseDynamicLineLength="true"
+				OverShootDistance="250.0">
+			</LineDamageNugget>
+		</Nuggets>
+	</WeaponTemplate>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</AssetDeclaration>
