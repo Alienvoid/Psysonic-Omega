@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:JUCruiseMissile_SKN.w3x" />
+	</Includes>
+	<GameObject
+		id="JapanCruiseMissile"
+		Side="Japan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		CommandSet="EmptyCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT SUMMONED IGNORES_SELECT_ALL NO_COLLIDE SKIRMISH_AI_DONT_CONSIDER_THREAT PROJECTILE BALLISTIC_MISSILE"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="GUN"
+		EditorName="JapanCruiseMissile">
+		<DisplayName>JapanCruiseMissile</DisplayName>
+		<ArmorSet
+			Armor="BaseMissileArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JUCruiseMissile_SKN" />
+				</ModelConditionState>
+				        
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="JapanCruiseMissileJetGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="JapanCruiseMissileJetTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="JapanCruiseMissileJetLight"
+						FollowBone="true" />
+				</AnimationState>
+        
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<!--<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="DummyWeaponWarhead" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<StrafeAreaTargetChooser
+				id="ModuleTag_StrafeAreaTargetChooser"
+				Radius="100.0"
+				OverflowOptions="CHOOSE_RANDOM_POSITION">
+				<ObjectFilter
+					Rule="ALL"
+					Relationship="ENEMIES"
+					Exclude="INFANTRY">
+				</ObjectFilter>
+			</StrafeAreaTargetChooser>
+			<StrafeAreaUpdate
+				id="ModuleTag_StrafeAreaUpdate"
+				WeaponName="JapanFinalSquadronAircraftKamikazeAttack"
+				SweepFrequency="0.2"
+				SweepAmplitude="5"
+				DivingFloor="0"
+				PreattackDistance="500"
+				Radius="400"
+				MinRadius="0"
+				Options="FLEE_STRAIGHT_AHEAD USE_TARGET_CHOOSER CANNOT_IDLE"/>-->
+	
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				FirstHeightMin="20"
+				FirstHeightMax="20"
+				SecondHeightMin="0"
+				SecondHeightMax="-20"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				Flags="IGNORE_CONTACT_POINTS DONT_SET_NO_ATTACK_STATUS ORIENT_TO_FLIGHT_PATH"
+				FlightPathAdjustDistPerSecond="0.0"
+				MaxDistanceToTravel="99999.0"
+				GroundHitFX="FX_JapanCruiseMissileHit"	/>
+
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+      <FXListBehavior
+				id="ModuleTag_FXList">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_JapanCruiseMissileHit" />
+      </FXListBehavior>
+
+			<Physics
+				id="ModuleTag_Physics"/>
+
+			<StancesBehavior
+				id="ModuleTag_Stance"				
+				StanceTemplate="OnlyAggressive" />
+
+			<!--<FireWeaponWhenDead
+				id="ModuleTag_JapanCruiseMissileDeadFireWeapon"
+				DeathWeapon="JapanCruiseMissileDeadFireWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>-->
+			
+		
+				
+		</Behaviors>
+		<!--<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"				
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+					CanPickDynamicTargets="true"
+					CanOnlyAttackTargetsInFront="true"/>
+			</AIUpdate>
+		</AI>-->
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500"/>
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="BOX"
+				MajorRadius="16.5"
+				MinorRadius="10.0"
+				Height="18.0"
+				ContactPointGeneration="VEHICLE" >
+				<Offset
+					x="1.5"
+					y="0.0"
+					z="0.0" />
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="500"
+			ShroudClearingRange="100"
+		/>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

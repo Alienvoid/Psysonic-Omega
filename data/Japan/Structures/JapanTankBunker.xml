@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:JBTankBunker_skn.w3x" />				
+		<Include type="all"	source="ART:JBTankBunker_paddle.w3x" />			
+		<Include type="all"	source="ART:JBTankBunker_paddleUp.w3x" />				
+		<Include type="all"	source="ART:JBTankBunker_BLD_SKN.w3x" />				
+		<Include type="all"	source="ART:JBTankBunker_BLD_BLD.w3x" />
+		<Include type="all"	source="ART:JBTankBunker_BLD_BLDW.w3x" />								
+		<Include type="all"	source="ART:ABBaseDefense_FX.w3x" />
+		<Include type="all"	source="ART:ABBaseDefense_Platform.w3x" />
+		<Include type="all"	source="ART:ABBaseDefense_Platform_BLD.w3x" />	
+		<Include type="all"	source="ART:ABRefinery_FX.w3x" />									
+		<Include type="all"	source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="JapanTankBunker"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_JapanTankBunker" 
+		ButtonImage="Button_JapanTankBunker"
+		Side="Japan"
+		HealthBoxHeightOffset="20"
+		EditorSorting="STRUCTURE"		
+		BuildTime="10"
+		CommandSet="JapanLightTransportVehicleCommandSet"
+		KindOf="-CAN_BUILD_ON_WATER -CAN_BUILD_ON_DEEP_WATER -NOT_AUTOACQUIRABLE +CAN_ATTACK +FS_BASE_DEFENSE +GARRISONABLE_UNTIL_DESTROYED"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="225d"
+		CampnessValue="=$CAMPNESS_DEFENSIVE_STRUCTURE"
+		ProductionQueueType="OTHER_STRUCTURE"
+		BuildPlacementTypeFlag="OTHER_STRUCTURE"
+		EditorName="JapanTankBunker"
+		WeaponCategory="GUN"
+		TypeDescription="Type:JapanTankBunker"
+		Description="Desc:JapanTankBunker">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanTankBunker</DisplayName>
+		<!--<GameDependency>
+			<RequiredObject>AlliedPowerPlant</RequiredObject>
+		</GameDependency>-->
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedPrimaryBaseDefenseArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="DEFENSE" >
+			<ConstructionBaseSelectionCriteria
+				ExcludedBaseTypes="NO_BUILD_RADIUS"
+				PreferredBaseTypes="ENEMIES_IN_BASE UNDER_ATTACK"
+				SortOrder="PREFER_MOST_RECENTLY_ATTACKED" />
+		</SkirmishAIInformation>
+		<Draws>
+			<!-- DRAW GUN -->
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Gun"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_STATION">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JBTankBunker_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="JBTankBunker_skn" />
+				</ModelConditionState>        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="JBTankBunker_BLD_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="JBTankBunker_BLD_SKN" />
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+				</AnimationState>									
+								
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="JBTankBunker_BLD_BLD"
+						AnimationBlendTime="0"
+						AnimationMode="ONCE"
+						AnimationAbsoluteTime="1.5s" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Med"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Lights"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Flash"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBTankBunker_BLD_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="1.5s"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Med"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Lights"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Flash"
+						FollowBone="true" />
+				</AnimationState>					
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Garrison"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JBTankBunker_paddle" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Script>
+						CurDrawableHideSubObjectPermanently("PADDLE")
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST"
+					StateName="STATE_Idle">
+					<Animation
+						AnimationName="JBTankBunker_paddle"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("PADDLE")
+						Prev = CurDrawablePrevAnimationState();
+						if Prev ~= "STATE_Idle" and Prev ~= "TRANS_IntoIdle" then
+						CurDrawableSetTransitionAnimState("TRANS_IntoIdle")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="GARRISONED"
+					Flags="START_FRAME_LAST"
+					StateName="STATE_Garrisoned">
+					<Animation
+						AnimationName="JBTankBunker_paddle"
+						AnimationMode="MANUAL"
+						AnimationBlendTime="0"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+						Prev = CurDrawablePrevAnimationState();
+						if Prev ~= "STATE_Garrisoned" and Prev ~= "TRANS_IntoGarrisoned" then
+						CurDrawableSetTransitionAnimState("TRANS_IntoGarrisoned")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					Flags="START_FRAME_LAST"
+					StateName="STATE_Idle">
+					<Animation
+						AnimationName="JBTankBunker_paddle"
+						AnimationMode="MANUAL"
+						AnimationBlendTime="0"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+						Prev = CurDrawablePrevAnimationState();
+						if Prev ~= "STATE_Idle" and Prev ~= "TRANS_IntoIdle" then
+						CurDrawableSetTransitionAnimState("TRANS_IntoIdle")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IntoGarrisoned"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="JBTankBunker_paddleUp"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+					</Script>						
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IntoIdle"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBTankBunker_paddleUp"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+					</Script>						
+				</AnimationState>										
+			</ScriptedModelDraw>
+
+			<!--draw paddle
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Paddle"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JBTankBunker_paddle" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					StateName="STATE_unpacking"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="JBTankBunker_paddleUp"
+						AnimationMode="ONCE"
+						AnimationAbsoluteTime="1.5s"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="GARRISONED SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBTankBunker_paddleUp"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="1.5s"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+					</Script>
+				</AnimationState>			
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="GARRISONED"
+					StateName="STATE_garrisoned">
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_ungarrisoned" then
+						CurDrawableSetTransitionAnimState("TRANS_fromUngarrisoned")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_fromUngarrisoned">
+					<Animation
+						AnimationName="JBTankBunker_paddleUp"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_fromGarrisoned"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBTankBunker_paddleUp"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("PADDLE")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_ungarrisoned">
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_garrisoned" then
+						CurDrawableSetTransitionAnimState("TRANS_fromGarrisoned")
+						elseif Prev == "STATE_unpacking" then
+						CurDrawableSetTransitionAnimState("TRANS_fromGarrisoned")
+					</Script>
+				</AnimationState>																		
+			</ScriptedModelDraw>-->
+
+<!-- DRAW PARTICLES -->
+
+      <ScriptedModelDraw
+				id="ModuleTag_Draw_FX"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABRefinery_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="ABRefinery_FX" />
+					<ParticleSysBone 
+						BoneName="FX_BONE01" 
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="ABRefinery_FX" />
+					<ParticleSysBone 
+						BoneName="FX_BONE01" 
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone 
+						BoneName="FX_BONE01"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<!--<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					AllowInterleavedFiring="false"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE"
+					AutoChooseWeapon="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedLaserTowerBeam"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="AlliedLaserTowerBeam_Aircraft"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>
+					
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-30d"
+						AllowsPitch="true" 
+						TurretPitchRate="180" 
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true">
+					</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>-->
+      
+			<GarrisonContain
+				id="ModuleTag_Garrison"
+				ObjectStatusOfContained="UNSELECTABLE CAN_ATTACK"
+				ContainMax="1"
+				EnterSound="GenericBuilding_Garrison"
+				ExitSound="GenericBuilding_Ungarrison"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="true"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="false"
+				PassDisabilityToRiders="true"
+				KillPassengersOnDeath="false">
+				<PassengerFilter
+					Rule="ANY"
+					Include="VEHICLE"
+					Exclude="EGG DRONE"
+					StatusBitFlagsExclude="AIRBORNE_TARGET">
+					<ExcludeThing>SovietMARV</ExcludeThing>
+					<ExcludeThing>SovietAntiVehicleVehicleTech3</ExcludeThing>
+					<ExcludeThing>JapanAntiStructureVehicle</ExcludeThing>
+					<ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+					<ExcludeThing>SovietScud</ExcludeThing>
+					<ExcludeThing>JapanMastermind</ExcludeThing>
+					<ExcludeThing>AlliedArtilleryVehicle</ExcludeThing>
+					<ExcludeThing>JapanSentinelVehicle</ExcludeThing>
+					<ExcludeThing>JapanLightTransportVehicle</ExcludeThing>
+					<ExcludeThing>AlliedMiner</ExcludeThing>
+					<ExcludeThing>JapanMiner</ExcludeThing>
+					<ExcludeThing>SovietMiner</ExcludeThing>
+					<ExcludeThing>AlliedMCV</ExcludeThing>
+					<ExcludeThing>JapanMCV</ExcludeThing>
+					<ExcludeThing>SovietMCV</ExcludeThing>
+				</PassengerFilter>
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+				<PassengerData
+					BonePrefix="BONE_STATION">
+					<Filter
+						Rule="ANY"
+						Include="VEHICLE"
+						StatusBitFlagsExclude="AIRBORNE_TARGET"/>					
+				</PassengerData>					
+			</GarrisonContain>
+
+			<Physics
+				id="ModuleTag_Physics"/>
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="SovietRefineryHit"
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_None" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData 
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event Index="onDeath" FX="FX_SmallBuildingDieExplosion" />
+			</FXListBehavior>
+			<!--<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="ABBaseDefense_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</CreateObjectDie>-->
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</DestroyDie>	
+			
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpack"
+				UnpackTime="1.5s" />
+			<!-- Temp -->
+
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+						
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="StructureAIStateMachine">
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="2000" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type= "BOX"
+				MajorRadius = "45.0"
+				MinorRadius = "45.0"
+				Height = "5.0" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape 
+				Type= "CYLINDER"
+				MajorRadius = "20.0"
+				Height = "19.227"
+				ContactPointGeneration = "INFANTRY" />
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="AudioEvent:ALL_TurretSelect"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+<!--
+			<AudioEntry Sound="HumanFaction_SmallBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_SmallBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="455"
+			ShroudClearingRange="500" />
+	</GameObject>
+</AssetDeclaration>

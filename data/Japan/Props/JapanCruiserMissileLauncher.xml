@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<GameObject
+		id="JapanCruiserMissileLauncher"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_GDIOrca"
+		ButtonImage="Portrait_GDIOrca"
+		Side="Japan"
+		EditorSorting="UNIT"
+		BuildTime="0"
+		CommandSet="AlliedBomberAircraftCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT VEHICLE SUMMONED UNATTACKABLE IGNORES_SELECT_ALL NO_COLLIDE SKIRMISH_AI_DONT_CONSIDER_THREAT PASS_EXPERIENCE_TO_PRODUCER"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		IsTrainable="false" 
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		EditorName="SovietSupportBomber"
+		Description="Desc:SovietSupportBomber">
+		<DisplayName
+			xai:joinAction="Replace">Name:SovietSupportBomber</DisplayName>
+		<ArmorSet
+			Armor="SovietBomberAircraftArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="Locomotor_Normal"
+			Locomotor="Soviet_BombingRunLocomotor"
+			Condition="NORMAL"
+			Speed="300.0" />
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="CHASSIS">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanCruiserMissileLauncherWeapon" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			<RunOffMapBehavior
+				id="ModuleTag_RunOffMapBehavior"
+				FlyingOffMap="true"
+				RequiresSpecificTrigger="true" />
+			<ParabolicCurveUpdate
+				id="ModuleTag_ParabolicCurve"/>
+
+			<OCLMonitorUpdate
+				id="ModuleTag_MonitorUpdate"				
+				/>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_SupportBomberDieExplosion" />
+			</FXListBehavior>
+			
+			<!-- No stances because it's summoned -->
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				xai:joinAction="Remove" />
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="400" />
+		</Body>
+		<AudioArraySound>
+			<AudioEntry	Sound="SOV_Bomber_MoveLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="10.0"
+				MinorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="1500"
+			ShroudClearingRange="100" />
+	</GameObject>
+</AssetDeclaration>

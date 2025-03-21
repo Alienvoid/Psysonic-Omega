@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:FI_FloatingFortressPowerCore_CTR.W3X" />
+		<Include
+			type="all"
+			source="ART:FI_FloatingFortressPowerCore_BLD.w3x" /> 
+		<Include
+			type="all"
+			source="ART:FI_FloatingFortressPowerCore_BLD2.w3x" /> 
+		<Include
+			type="all"	
+			source="ART:JBPowerCoreBeam.w3x" />
+		<Include
+			type="all"	
+			source="ART:JUEgg_Unpack.w3x" />
+		<Include
+			type="all"
+			source="ART:JBPowerPlant_FX.w3x" />
+		<Include
+			type="all"
+			source="ART:JBPowerCore_Platform_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:JBPowerCore_Platform_BLD.w3x" />		
+			
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="JapanPowerPlant"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_Japan_FloatingFortressPowerCore"
+		ButtonImage="Button_Japan_FloatingFortressPowerCore"
+		Side="Japan"
+		EditorSorting="STRUCTURE"
+		BuildTime="30"
+		EnergyProduction="9999"
+		EnergyBonus="50"
+		CommandSet="JapanPowerPlantCommandSet"
+		KindOf="+FS_POWER +SKIRMISH_AI_CAN_BUILD_DURING_EMERGENCY_NO_INCOME +ACTIVATE_AFTER_UNPACK"
+		RadarPriority="STRUCTURE"
+		ProductionQueueType="MAIN_STRUCTURE"
+		BuildPlacementTypeFlag="MAIN_STRUCTURE"
+		EditorName="JapanPowerPlant"
+		Description="Desc:JapanPowerCore"
+		TypeDescription="Type:JapanPowerCore"
+		PlacementViewAngle="315d"
+		MaxSimultaneousOfType="1">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanPowerCore</DisplayName>
+		<GameDependency>
+			<ObjectFilter
+				Rule="ANY">
+				<IncludeThing>JapanConstructionYard</IncludeThing>
+				<IncludeThing>JapanCrane</IncludeThing>
+			</ObjectFilter>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanPowerPlantArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="SPREAD">
+      <ConstructionBaseSelectionCriteria
+        ExcludedBaseTypes="NO_BUILD_RADIUS CAPTURED"/>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08 BONE_CONTACT_POINT_09 BONE_CONTACT_POINT_10 BONE_CONTACT_POINT_11 BONE_CONTACT_POINT_12 BONE_CONTACT_POINT_13 BONE_CONTACT_POINT_14 BONE_CONTACT_POINT_15 BONE_CONTACT_POINT_16 BONE_CONTACT_POINT_17 BONE_CONTACT_POINT_18 BONE_CONTACT_POINT_19 BONE_CONTACT_POINT_20">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="Fortress_Power_Core_03"/>	
+					<Model
+						Name="FI_FloatingFortressPowerCore" />										
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FROZEN">
+					<Model
+						Name="FI_FloatingFortressPowerCore" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedCryoFrozenMistLarge"
+						FollowBone="true"/>
+					<Material
+					  ShaderName="ObjectsFrozen.fx"
+					  TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBFloatingFortressPowerCore</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBFloatingFortressPowerCore_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBFloatingFortressPowerCore_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="FI_FloatingFortressPowerCore" />
+					<Material ShaderName="ObjectsGeneric.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBFloatingFortressPowerCore</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBFloatingFortressPowerCore_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBFloatingFortressPowerCore_SPM</Value>
+							</Texture>
+							<Float Name="BumpScale">
+								<Value>1.000000</Value>
+							</Float>
+							<Float Name="AmbientColor">
+								<Value>0.400000</Value>
+								<Value>0.400000</Value>
+								<Value>0.400000</Value>
+							</Float>
+							<Float Name="DiffuseColor">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Float Name="SpecularColor">
+								<Value>0.800000</Value>
+								<Value>0.800000</Value>
+								<Value>0.800000</Value>
+							</Float>
+							<Float Name="SpecularExponent">
+								<Value>50.000000</Value>
+							</Float>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+						</Constants>
+					</Material>						
+				</ModelConditionState>				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="FI_FloatingFortressPowerCore" />
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>
+				</ModelConditionState>	
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="FI_FloatingFortressPowerCore" />
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="FI_FloatingFortressPowerCore_BLD2"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("RADIUSEFFECT")
+						CurDrawableHideSubObjectPermanently("RADIUSEFFECT01")
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FROZEN">
+					<Script>
+						CurDrawableHideSubObjectPermanently("RADIUSEFFECT")
+						CurDrawableHideSubObjectPermanently("RADIUSEFFECT01")
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="FI_FloatingFortressPowerCore_BLD2"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("RADIUSEFFECT")
+						CurDrawableHideSubObjectPermanently("RADIUSEFFECT01")
+					</Script>						
+				</AnimationState>											
+			</ScriptedModelDraw>
+			
+<!-- DRAW BUILD UP -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Buildup"
+				ExtraPublicBone="A BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08 BONE_CONTACT_POINT_09 BONE_CONTACT_POINT_10"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="FI_FloatingFortressPowerCore" />
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBFloatingFortressPowerCore</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBFloatingFortressPowerCore_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBFloatingFortressPowerCore_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="FI_FloatingFortressPowerCore" />
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBFloatingFortressPowerCore</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBFloatingFortressPowerCore_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBFloatingFortressPowerCore_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>						
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="FI_FloatingFortressPowerCore_BLD"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />					
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="FI_FloatingFortressPowerCore_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>					
+				</AnimationState>				
+			</ScriptedModelDraw>
+			
+<!-- DRAW PLATFORM -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Model
+						Name="JBPowerCore_Platform_SKN" />
+<!-- particle system template not found	
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBPowerPlantWakeSplash"
+						FollowBone="true" />
+-->
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>1.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>true</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>						          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD">
+					<Model
+						Name="JBPowerCore_Platform_SKN" />
+<!-- particle system template not found	
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBPowerPlantWakeSplash"
+						FollowBone="true" />
+-->
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>1.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>true</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>						          
+				</ModelConditionState>	
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="JBPowerCore_Platform_SKN" />
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Animation
+						AnimationName="JBPowerCore_Platform_BLD"
+						AnimationMode="MATCH_UNPACKING" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBPowerCore_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+				</AnimationState>					
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+						CurDrawableHideSubObjectPermanently("Bib")
+					</Script>
+				</AnimationState>																				
+			</ScriptedModelDraw>
+
+<!-- DRAW BUILD UP PLATFORM -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform_Buildup"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Model
+						Name="JBPowerCore_Platform_SKN" />
+<!-- particle system template not found							
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBPowerPlantWakeSplash"
+						FollowBone="true" />
+-->
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBPlatform</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBPlatform_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBPlatform_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>						          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD">
+					<Model
+						Name="JBPowerCore_Platform_SKN" />
+<!-- particle system template not found							
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBPowerPlantWakeSplash"
+						FollowBone="true" />
+-->
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBPlatform</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBPlatform_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBPlatform_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>						          
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Animation
+						AnimationName="JBPowerCore_Platform_BLD"
+						AnimationMode="MATCH_UNPACKING" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBPowerCore_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+				</AnimationState>					
+			</ScriptedModelDraw>
+<!-- DRAW PARTICLES -->
+
+      <ScriptedModelDraw
+				id="ModuleTag_Draw_FX"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JBPowerCoreBeam" />
+					<ParticleSysBone
+						BoneName="BONE_BEAMSOURCE"
+						FXParticleSystemTemplate="AlliedAirShipGlow"/>	
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FROZEN">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="IRONCURTAIN">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="CHRONORIFT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="JBPowerPlant_FX" />						
+				</ModelConditionState>	
+			</ScriptedModelDraw>	
+						
+						
+<!-- draw for Egg unpacking -->
+			<ScriptedModelDraw
+				id="ModuleTag_DrawEGG"
+				OkToChangeModelColor="true"
+				StaticModelLODMode="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="JUEgg_Unpack" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="" />
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="JUEgg_Unpack"
+						AnimationMode="ONCE" />
+				</AnimationState>
+			</ScriptedModelDraw>
+						
+
+		</Draws>
+		
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"/>
+
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="FX_BuildingDebrisExplosion"
+					CreationObject="AlliedBarracks_Debris"
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<!--<StructureSellUpdate
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" 
+				id="ModuleTag_StructureSellUpdate"
+				SellTime="2.0s"
+				ActiveModelCondition="SOLD"/>-->
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_Civ_Explosion_Large" />
+				<Event
+					Index="onDeath"
+					FX="FX_SpecialDebrisExplosionShake" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData DeathTypes="ALL" DeathTypesForbidden="SUICIDED ERASED" />
+					<Event Index="onDeath" FX="FX_MediumBuildingDieExplosion" />
+			</FXListBehavior>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="JBFloatingFortressPowerCore_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</CreateObjectDie>	
+			<CreateObjectDie
+				id="ModuleTag_Platform_CreateObjectDie"
+				CreationList="JBSuperWeapon_Platform_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED"
+					RequiredStatus="OVER_WATER" />
+			</CreateObjectDie>
+			
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</DestroyDie>
+			
+			<!--<FireWeaponWhenDead
+				id="ModuleTag_ExplosionDeathWeapon"
+				InitiallyActive="true"
+				DeathWeapon="JapanPowerPlantOmegaShockwave"
+				ContinueToBezierDestination="false">
+			 <DieMuxData
+				DeathTypes="ALL"
+				ExemptStatus="UNPACKING"
+				DeathTypesForbidden="PRODUCTION_CANCELLED SUICIDED"/>
+			</FireWeaponWhenDead>-->
+			
+			<ReplaceSelfSpecialAbility
+				id="ModuleTag_ReplaceSelf"
+				SpecialPowerTemplate="SpecialPower_PackReplaceSelf"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				NewObjectUnpackTime="30s"
+				ReplaceOptions="COPY_UPGRADES DISABLE_DURING_REPLACE DISABLE_NEW_OBJECT_DURING_UNPACK">
+				<ReplacementTemplate>JapanPowerPlantEgg</ReplacementTemplate>
+			</ReplaceSelfSpecialAbility>
+			
+			<ProductionUpdate
+				id="ModuleTag_ProductionUpdate"
+				GiveNoXP="true" />
+
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="30s" />
+				
+			<InfiltratorContain
+				id="ModuleTag_InfiltratorContain"
+				Effect="ENERGY"
+				Amount="0.002"
+				ObjectRef="EnergyDisabler"
+				StructureFilter="InfiltrationEnergyStructuresFilter">
+			</InfiltratorContain>
+			
+			<xi:include
+				href="DATA:Includes/GenericPackPower.xml" />
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/GenericEngineerContain.xml" />
+			<xi:include
+				href="DATA:Includes/GenericJapanBuildingDestruction.xml" />
+			<xi:include
+				href="DATA:Includes/GenericJapanBuildingSuicide.xml" />
+				
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIForLua"
+				StateMachine="StructureAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="10000.0" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "78.9028"
+				MinorRadius = "80.4782"
+				Height = "113.465"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "-8.70125"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "31.5611"
+				MinorRadius = "42.5086"
+				Height = "11.3465"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "102.578"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+		</Geometry>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_StructureConstructionAudio">
+				<ModelConditionSound
+					Sound="JAP_Nanocore_DeployStructureLand"
+					RequiredFlags="STRUCTURE_UNPACKING"
+					ExcludedFlags="OVER_WATER"/>
+				<ModelConditionSound
+					Sound="JAP_Nanocore_DeployStructureWaterMS"
+					RequiredFlags="STRUCTURE_UNPACKING OVER_WATER"/>
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_PowerPlant_SelectMS" AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+		<AudioEntry Sound="JAP_Nanocore_DeployLoop" AudioType="soundUnderConstruction" />
+<!--
+			<AudioEntry Sound="HumanFaction_MediumBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_MediumBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="100"
+			ShroudClearingRange="1000" />
+		<ProjectedBuildabilityInfo
+			Radius="480"
+			RadiusY="465" 
+			BuildPlacementTypes="OTHER_STRUCTURE" />
+	</GameObject>
+</AssetDeclaration>

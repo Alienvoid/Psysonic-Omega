@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include type="all"	source="ART:FXInvisBone.w3x" />
+
+
+
+		<!-- Base Object -->
+		<Include type="instance"	source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+  
+	<GameObject
+		id="JapanPsychicScanner"
+		SelectPortrait="Portrait_JapanEngineer"
+		ButtonImage="Button_JapanEngineer"
+		Side="Japan"
+		EditorSorting="SYSTEM"	
+		BuildTime="5"
+		CommandSet="EmptyCommandSet"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE AMPHIBIOUS PATH_THROUGH_INFANTRY SKIRMISH_AI_DONT_GARRISON CAN_BE_FAVORITE_UNIT IGNORES_SELECT_ALL NOT_AUTOACQUIRABLE"
+		EditorName="JapanPsychicScanner"
+		Description="Desc:JapanPsychicScanner"
+		TypeDescription="Type:JapanPsychicScanner">
+		<DisplayName>JapanPsychicScanner</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="0"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanEngineerArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="AlliedSatelliteSweepLocomotor"
+			Condition="NORMAL"
+			Speed="50" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXInvisBone" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanScannerDome"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  IgnoreProjectileState="true"
+			  MinLifetime="10.2s"
+			  MaxLifetime="10.4s" />
+			<Physics
+				id="ModuleTag_Physics" />
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="500" />
+			<EmotionTrackerUpdate
+				id="Module_ETU">
+				<TauntAndPointExcluded
+					Rule="NONE" />
+					<AddEmotion>CheerIdle_Base</AddEmotion>
+					<AddEmotion>CheerBusy_Base</AddEmotion>
+			</EmotionTrackerUpdate>			
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="6s"
+				SinkRate="2.4"
+				DestructionDelay="7.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED"/>
+			</SlowDeath>			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine"/>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="999999.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				MinorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER" >
+			</Shape>
+		</Geometry>
+	<!--
+		<AudioArraySound>
+			<AudioEntry Sound="AudioEvent:TEMP_PredatorMoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="AudioEvent:PredatorAmbientLoop" AudioType="soundAmbient" />
+		</AudioArraySound>
+	-->
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="100"
+			ShroudClearingRange="500" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="100"
+			CrusherLevel="0"
+		/>
+	</GameObject>
+</AssetDeclaration>

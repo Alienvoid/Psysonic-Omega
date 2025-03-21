@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+    <Include type="all"	source="ART:JULiberator_COL.w3x" />
+    <Include type="all"	source="ART:JULiberator_D.xml" />		
+    <Include type="instance" source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+  <GameObject
+		id="JapanLiberator_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="JapanLiberator_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="15"
+			Explodiness="8" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JULiberator_COL" />
+					<Texture
+						Original="JULiberator"
+						New="JULiberator_D" />
+<!--
+				<xi:include
+					href="DATA:Includes/VehicleCollapseParticles/JapanVehicleCollapseParticles.xml"
+					xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:JapanVehicleCollapseParticles/child::*)" />
+-->
+					          
+          <!-- Secondary Debris -->
+          <ParticleSysBone
+            BoneName="Bone_D_01"
+            FXParticleSystemTemplate="JapanVehicleDamagedFire"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_01"
+            FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_01"
+            FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_01"
+            FXParticleSystemTemplate="JapanVehicleDamagedLight"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_01"
+            FXParticleSystemTemplate="AlliedCarrierDestructionDebrisBubbles"
+            FollowBone="true"
+            OnlyIfOnWater="true"/>
+
+          <ParticleSysBone
+            BoneName="Bone_D_03"
+            FXParticleSystemTemplate="JapanVehicleDamagedFire"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_03"
+            FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_03"
+            FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_03"
+            FXParticleSystemTemplate="JapanVehicleDamagedLight"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_03"
+            FXParticleSystemTemplate="AlliedCarrierDestructionDebrisBubbles"
+            FollowBone="true"
+            OnlyIfOnWater="true"/>
+
+          <ParticleSysBone
+            BoneName="Bone_D_05"
+            FXParticleSystemTemplate="JapanVehicleDamagedFire"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_05"
+            FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_05"
+            FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_05"
+            FXParticleSystemTemplate="JapanVehicleDamagedLight"
+            FollowBone="true"
+            OnlyIfOnLand="true"/>
+          <ParticleSysBone
+            BoneName="Bone_D_05"
+            FXParticleSystemTemplate="AlliedCarrierDestructionDebrisBubbles"
+            FollowBone="true"
+            OnlyIfOnWater="true"/>          
+				</ModelConditionState>
+
+			<BoneVolumes>
+
+<BoneVolume BoneName="Bone_D_01" Mass="7710" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="17.6036" HalfSizeY="6.248" HalfSizeZ="6.9236" >
+		<Translation x="-29.5373" y="-0.209908" z="4.27414" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="2691" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="20.2632" HalfSizeY="6.7544" HalfSizeZ="1.942" >
+		<Translation x="28.5497" y="5.93266" z="3.29" />
+		<Rotation x="0.0" y="0.0" z="-0.168416" w="0.985716" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="2691" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="20.2632" HalfSizeY="6.7545" HalfSizeZ="1.942" >
+		<Translation x="28.55" y="-5.933" z="3.29" />
+		<Rotation x="0.0" y="0.0" z="-0.168416" w="0.985716" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="1099" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="9.6724" HalfSizeY="5.3192" HalfSizeZ="2.1108" >
+		<Translation x="4.53823" y="16.8456" z="5.18921" />
+		<Rotation x="0.0" y="0.0" z="-0.212734" w="0.97711" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="1099" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="9.6724" HalfSizeY="5.3192" HalfSizeZ="2.1108" >
+		<Translation x="4.538" y="-16.846" z="5.18921" />
+		<Rotation x="0.0" y="0.0" z="-0.212734" w="0.97711" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="18" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.746269" HalfSizeY="2.55597" HalfSizeZ="0.970149" >
+		<Translation x="-15.0645" y="-5.59341" z="4.22652" />
+		<Rotation x="0.180148" y="-0.0348334" z="0.18662" w="0.965146" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="18" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.746269" HalfSizeY="2.55597" HalfSizeZ="0.970149" >
+		<Translation x="-15.0645" y="5.56648" z="5.73957" />
+		<Rotation x="0.267244" y="-0.0516741" z="0.182675" w="0.944744" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="4003" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="10.5832" HalfSizeY="6.8388" HalfSizeZ="5.4632" >
+		<Translation x="-4.20733" y="-0.530641" z="5.18921" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_09" Mass="316" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.6304" HalfSizeY="3.0608" HalfSizeZ="2.8112" >
+		<Translation x="-37.1043" y="-0.162689" z="6.19994" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_10" Mass="7272" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="21.4328" HalfSizeY="10.024" HalfSizeZ="3.3432" >
+		<Translation x="-24.4298" y="11.9289" z="2.07651" />
+		<Rotation x="-0.189183" y="0.0" z="0.0" w="0.981942" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_11" Mass="7272" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="21.4328" HalfSizeY="10.024" HalfSizeZ="3.3432" >
+		<Translation x="-24.4298" y="-11.929" z="2.077" />
+		<Rotation x="-0.189183" y="0.0" z="0.0" w="0.981942" />
+	</Box>
+</BoneVolume>
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	
+	<Behaviors>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="4s"
+			MaxLifetime="5s" />	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			DestructionDelay="8s">
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+	</Behaviors>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionMediumNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+</GameObject>
+</AssetDeclaration>
