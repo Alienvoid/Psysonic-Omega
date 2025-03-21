@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- The default tank projectile -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:GUSonicProjectile_CTR.w3x" />
+	</Includes>
+	<GameObject
+		id="AlliedOrcaSonicGrenadeProjectile"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="AlliedOrcaSonicGrenadeProjectile">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="GUSonicProjectile" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="GDIZSonicProj_Trail"
+						FollowBone="true" />						
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+		
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+					<Event
+					Index="onDeath"
+					FX="FX_ALL_SonicRifleGroundImpact" />
+				<!--<Event
+					Index="onDeath"
+					FX="FX_ALL_ZoneRaider_SonicRifleImpactExplosion" />-->
+			</FXListBehavior>
+
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="-20"
+				FirstHeightMax="80"
+				SecondHeightMin="-20"
+				SecondHeightMax="80"
+				FirstPercentIndent="0"
+				SecondPercentIndent="66"
+				GroundHitFX="FX_ALL_SonicRifleGroundImpact"
+				SidewaysDrift="100"
+				FlightPathAdjustDistPerSecond="0"
+				MaxDistanceToTravel="600.0"/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+	<GameObject
+		inheritFrom="AlliedOrcaSonicGrenadeProjectile"
+		id="AlliedOrcaSonicGrenadeProjectile_Veteran"
+		EditorName="AlliedOrcaSonicGrenadeProjectile_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="GUSonicProjectile" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="GDIZSonicProj_TrailHeroic"
+						FollowBone="true" />						
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				xai:joinAction="Replace"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="30"
+				FirstHeightMax="40"
+				SecondHeightMin="30"
+				SecondHeightMax="40"
+				FirstPercentIndent="20"
+				SecondPercentIndent="50"
+				GroundHitFX="FX_ALL_SonicRifleGroundImpactHeroic"
+				SidewaysDrift="20"
+				FlightPathAdjustDistPerSecond="0"
+				MaxDistanceToTravel="600.0"/>
+		</Behaviors>
+	</GameObject>		
+</AssetDeclaration>

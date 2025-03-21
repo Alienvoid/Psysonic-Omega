@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:ABLASERTOWER_COL.w3x" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedLaserTower_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="AlliedLaserTower_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="10"
+			Explodiness="2">
+			<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="ABLASERTOWER_COL" />
+			</ModelConditionState>
+			<BoneVolumes>
+<BoneVolume BoneName="Bone_D_01" Mass="911" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="7.09632" HalfSizeY="2.5622" HalfSizeZ="4.94863" >
+		<Translation x="-1.54166" y="0.101992" z="15.253" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="2049" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="7.45278" HalfSizeY="3.69794" HalfSizeZ="7.34452" >
+		<Translation x="-0.944092" y="5.25677" z="5.97755" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="2049" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="7.45278" HalfSizeY="3.69794" HalfSizeZ="7.34452" >
+		<Translation x="-0.944092" y="-4.80772" z="5.97755" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="354" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.42381" HalfSizeY="6.57616" HalfSizeZ="2.19771" >
+		<Translation x="-0.590075" y="2.47431" z="9.29144" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="2962" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="12.3903" HalfSizeY="12.2294" HalfSizeZ="1.93096" >
+		<Translation x="0.832219" y="0.0489817" z="0.0" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="2161" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="7.28405" HalfSizeY="3.57061" HalfSizeZ="8.20901" >
+		<Translation x="-0.0249157" y="6.85091" z="5.21526" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_d_07" Mass="111" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.6953" HalfSizeY="1.54879" HalfSizeZ="2.62916" >
+		<Translation x="0.691439" y="8.0343" z="1.6913" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	<Behaviors/>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_Airfield_Die" AudioType="soundAmbient" />
+		</AudioArraySound>
+</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include type="all"	source="ART:AUMantis_SKN.w3x" />
+    <Include
+		type="all"
+		source="ART:AUMantis_D.xml" />	
+    <Include
+		type="all"
+		source="ART:AUMantis_02_D.xml" />	
+	</Includes>
+	<GameObject
+		id="AlliedViking_Dying"
+		EditorName="AlliedViking_Dying"
+		Description="Desc:AlliedViking_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED UNATTACKABLE">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUMantis_SKN" />
+					<Texture
+						Original="AUMantis01"
+						New="AUMantis_D" />					
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="AUMantis_SKN" />
+					<Texture
+						Original="AUMantis01"
+						New="AUMantis_02_D" />			
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="400"
+				MaxYRotationVelocity="0"
+				MaxZRotationVelocity="0"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUViking_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanAntiAirShipDeathWeapon"
+				DeathWeapon="NormalAircraftDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanVehicleDie" />
+			</FXListBehavior>
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/AlliedAirPowerUpgrade.xml" />
+			<!-- -->
+			
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_PropBody" />
+		</Body>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		
+		<Include type="all"	source="ART:AUArcherDrone_SKL.W3X" />
+		<Include type="all"	source="ART:AUArcherDrone_SKN.W3X" />
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:AUArcherDrone_02.xml" />				
+		<Include type="all"	source="ART:AUArcherDrone_02_D.xml" />		
+		<Include type="all"	source="ART:AUArcherDrone_D.xml" />		
+		<Include type="all"	source="ART:AUArcherDrone.xml" />		
+		<Include type="all"	source="ART:AUArcherDrone_SPM.xml" />		
+		<Include type="all"	source="ART:AUArcherDrone_NRM.xml" />			
+	</Includes>
+	<GameObject
+		id="AlliedArcherDrone_Dying"
+		EditorName="AlliedArcherDrone_Dying"
+		Description="Desc:AlliedDrone_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUArcherDrone_SKN" />
+					<Texture
+						Original="AUArcherDrone"
+						New="AUArcherDrone_D" />	
+        </ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="AUArcherDrone_SKN" />
+					<Texture
+						Original="AUArcherDrone"
+						New="AUArcherDrone_02_D" />							
+				</ModelConditionState>		
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="50"
+				MaxYRotationVelocity="50"
+				MaxZRotationVelocity="0"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUAtkDrone_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+      <FXListBehavior
+				id="ModuleTag_FXList">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_AlliedBomberDie" />
+      </FXListBehavior>      
+
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100" />
+		</Body>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />		
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include
+			type="all"
+			source="ART:ABTBBone.w3x" />
+		<Include type="instance" source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedWormHole_Relive"
+		SelectPortrait="Portrait_AlliedWormhole"
+		ButtonImage="Button_AlliedWormhole"
+		inheritFrom="BaseStructure"
+		Side="ALLIED"
+		EditorSorting="STRUCTURE"
+		CommandSet="EmptyCommandSet"
+		KindOf="STRUCTURE SELECTABLE UNATTACKABLE IMMOBILE CAN_CAST_REFLECTIONS NOT_AUTOACQUIRABLE NOT_SELLABLE"
+		RadarPriority="STRUCTURE"
+		MaxSimultaneousOfType="1"
+		EditorName="AlienWormHole">
+		<DisplayName>Name:AlienWormHole</DisplayName>
+		<ArmorSet
+			Armor="AlienWormHoleArmor"
+			DamageFX="GenericStructureDamageFX" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABTPBone" />
+					<ParticleSysBone
+						BoneName="FXBone01"
+						FXParticleSystemTemplate="ABTPDist"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="FXBone01"
+						FXParticleSystemTemplate="ABTPFlare"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="FXBone01"
+						FXParticleSystemTemplate="ABTPGlow"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="FXBone01"
+						FXParticleSystemTemplate="ABTPDarkMatter"
+						FollowBone="false" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData DeathTypes="ALL" />
+				<Event Index="onDeath" FX="FX_ALI_Wormhole_End" />
+			</FXListBehavior>
+			<LifetimeUpdate
+				id="ModuleTag_Lifetime"
+				MinLifetime="25.0s"
+				MaxLifetime="25.0s" />
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="24.25s">
+				<FireWeaponNugget
+					WeaponName="AlliedAlienHearnWormHole"
+					FireDelay="0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500.0" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="25.0"
+				Height="100.0"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="ALI_WormHole_Select"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALI_WormHole_BeginAndLoopMS"
+				AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="100"
+			ShroudClearingRange="200" />
+	</GameObject>
+</AssetDeclaration>

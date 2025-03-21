@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+	</Includes>
+	<GameObject
+		id="IonStorm"
+		Side="Neutral" 
+		KindOf="IMMOBILE CAN_ATTACK NOT_AUTOACQUIRABLE RESIST_EMP NO_COLLIDE UNATTACKABLE"
+		EditorSorting="MISC_NATURAL"
+		EditorName="IonStorm">
+		<DisplayName>Name:IonStorm</DisplayName>
+		<ArmorSet
+			Armor="InvulnerableArmor" />		
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL">
+					<Model
+						Name="" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="IonStormCarrierGlow"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="IonStormCarrierLightning"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARALYZED">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<PassiveAreaEffectBehavior
+				id="ModuleTag_IonStormBuff"
+				EffectRadius="350"
+				HealingPercentPerSecond="3.5%"
+				NonStackable="true" >
+				<Modifier>Modifier_IonStorm</Modifier>
+				<AllowFilter Rule="NONE">
+					<IncludeThing>AlliedSupportAircraft</IncludeThing>
+					<IncludeThing>AlliedFighterAircraft</IncludeThing>
+					<IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+					<IncludeThing>AlliedArcAngelAircraft</IncludeThing>
+					<IncludeThing>AlliedBomberAircraft</IncludeThing>
+					<IncludeThing>AlliedAirBattleShip</IncludeThing>
+					<IncludeThing>AlliedMotherShip</IncludeThing>
+					<IncludeThing>AlliedAttackDrone</IncludeThing>
+					<IncludeThing>AlliedAttackDrone_Fighter</IncludeThing>
+					<IncludeThing>AlliedSupersonicDrone</IncludeThing>
+				</AllowFilter>
+			</PassiveAreaEffectBehavior>
+			<DestroyDie
+				id="ModuleTag_DestroyDie">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="5s"
+			MaxLifetime="5s" />	
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES">
+				<UnitAITargetChooserData
+					CanAutoAcquireNonAutoAcquirable="true" 
+					SympathyRange="25.0" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="100.0"
+				Height="160.0"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="375"
+			ShroudClearingRange="500" />
+		<CrusherInfo
+			CrushableLevel="100" />
+	</GameObject>
+	<AttributeModifier
+		id="Modifier_IonStorm"
+		Category="SPELL"
+		ModelConditionsSet="USER_5"
+		Duration="10s">
+		<Modifier Type="DAMAGE_MULT" Value="125%"/>
+		<Modifier Type="ARMOR" Value="75%"/>
+	</AttributeModifier>
+</AssetDeclaration>

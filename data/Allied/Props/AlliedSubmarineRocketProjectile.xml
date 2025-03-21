@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:SUMirvRocket_Missle.w3x" />
+		<Include
+			type="all"
+			source="ART:FXNodTankShell.w3x" />
+	</Includes>
+	<GameObject
+		id="AlliedSubmarineRocketProjectile"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE BALLISTIC_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED CAN_CAST_REFLECTIONS"
+		EditorName="AlliedSubmarineRocketProjectile">
+		<ArmorSet
+			Armor="ProjectileArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUMirvRocket_Missle" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedSubmarineRocketTrailFire"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedSubmarineRocketTrailFireLight"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedSubmarineRocketTrailSmoke"/>
+          
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<!--<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  MinLifetime="1.0s"
+			  MaxLifetime="1.0s" />
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanRazorDroneDeathWeapon"
+				DeathWeapon="AlliedSubmarineRocketWarhead"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED DETONATED" />
+			</FireWeaponWhenDead>-->
+      <FXListBehavior
+				id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion" />
+      </FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="350"
+				FirstHeightMax="400"
+				SecondHeightMin="350"
+				SecondHeightMax="400"
+				FirstPercentIndent="0"
+				SecondPercentIndent="30"
+				GroundHitFX="FX_SOV_V4Explosion"
+				FlightPathAdjustDistPerSecond="55.0"
+				Acceleration="0.25"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="250.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_V4MissileLauncher_MissileIncoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+  <!-- VETERAN -->
+
+  <GameObject
+    inheritFrom="AlliedSubmarineRocketProjectile"
+		id="AlliedSubmarineRocketProjectile_Veteran">
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+        xai:joinAction="Replace">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="SUMirvRocket_Missle" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedSubmarineRocketTrailFire_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedSubmarineRocketTrailFireLight_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedSubmarineRocketTrailSmoke"/>
+        </ModelConditionState>
+      </ScriptedModelDraw>
+    </Draws>
+    <Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion_Vet" />
+      </FXListBehavior>
+		<BezierProjectile
+			id="ModuleTag_BezierProjectileBehavior"
+        xai:joinAction="Replace"
+			Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+			FirstHeightMin="350"
+			FirstHeightMax="400"
+			SecondHeightMin="350"
+			SecondHeightMax="400"
+			FirstPercentIndent="0"
+			SecondPercentIndent="30"
+			GroundHitFX="FX_SOV_V4Explosion_Vet"
+			FlightPathAdjustDistPerSecond="55.0"
+			Acceleration="0.25"
+			/>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

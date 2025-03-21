@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:FXCrit01.xml" />
+	    <Include type="all"	source="ART:FXLightRays01.xml" />
+		<Include type="all"	source="ART:FXInvisBone.w3x" />
+    <Include
+			type="all"
+			source="ART:FXChronoSpherePlayerPower.w3x" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseObject.xml" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="instance"
+			source="ART:ShadowI.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedAlienHearnAirborneKillerEffect"
+		inheritFrom="BaseObject"
+		RadarPriority="UNIT"		
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NOT_AUTOACQUIRABLE OBSTACLE SELECTABLE SKIRMISH_AI_ATTEMPT_TO_DODGE IMMOBILE IGNORES_SELECT_ALL"
+		EditorName="VacuumBombEffect">
+		<DisplayName>VacuumBombEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<LocomotorSet
+			Locomotor="TimeBombDummyLocomotor"
+			Condition="NORMAL"
+			Speed="0" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="300.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="FXChronoSpherePlayerPower" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABTPDist"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABTPFlare"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABTPGlow"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="ABTPDarkMatter"
+						FollowBone="true" />          
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="Black01"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="Black02"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName=""
+						FXParticleSystemTemplate="Black03"
+						FollowBone="true" />          
+        </ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("TORUS01")
+					</Script>						
+				</AnimationState>		
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+
+			
+			<!-- NOTE: This was changed from a DestroyDie to a SlowDeath to keep it around for a short while.  
+					This is a necessary change for the Achievement System to properly score the kills. [tpreis - 08-01-2008] -->
+
+				<!-- ArmTemplate="SovietTeslaSingularity" -->
+			<SlowDeath
+				id="ModuleTag_Death"
+				DestructionDelay="1s">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</SlowDeath>
+			
+			<FireWeaponUpdate
+				id="ModuleTag_VacuumBombIncrementalWeapon"
+				FireInterval="0.25s">
+				<FireWeaponNugget
+					WeaponName="AlliedAlienHearnWormHoleWeapon" />
+			</FireWeaponUpdate>
+
+
+			<MagneticEffectUpdate
+				id="ModuleTag_MagneticEffectUpdate"
+				Radius="200"
+				ScalableDrawModuleId="ModuleTag_ShieldDraw"
+				ScaledBoneName="None">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ENEMIES"
+					Include="VEHICLE"
+					Exclude="UNATTACKABLE INFANTRY"
+					StatusBitFlagsExclude="MAGNETIZED">	
+				</ObjectFilter>
+			</MagneticEffectUpdate>
+			<SqueezeFlingUpdate
+				id="ModuleTag_SqueezeFlingUpdate"
+				EffectDistance="200"
+				GatherAcceleration="0.001"
+				ModelLength="290.0"
+				ArmTemplate="SovietTeslaSingularity"
+				VictimShader="ShaderOverride_ObjectsChronoRift">
+				<Filter
+					Rule="ANY"
+					Relationship="ENEMIES"
+					Include="VEHICLE AIRCRAFT SHIP"
+					Exclude="UNATTACKABLE INFANTRY" 
+					StatusBitFlagsExclude="UNDER_IRON_CURTAIN IN_NANOHIVE"
+				/>
+			</SqueezeFlingUpdate>
+			<GatherEjectUpdate
+				id="GatherEjectUpdate"
+				Lifetime="999s"
+				GatherAcceleration="0.01"
+				EffectDistance="180.0"
+				HeightOffGround="100.0">
+				<RotationSpeed x="0.05" z="0.1" />
+				<UnitSpacing x="50.0" y="50.0" z="20.0" />
+				<Filter
+					Rule="ANY"
+					Relationship="ENEMIES"
+					Include="VEHICLE AIRCRAFT"
+					Exclude="UNATTACKABLE INFANTRY" 
+					StatusBitFlagsExclude="UNATTACKABLE UNDER_IRON_CURTAIN IN_NANOHIVE"/>
+			</GatherEjectUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="25.0s"
+				MaxLifetime="25.0s" />
+
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="StructureAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_VacuumBomb_Swell" AudioType="soundAmbient" />
+		</AudioArraySound>
+			
+		<VisionInfo
+			VisionRange="0"
+			ShroudClearingRange="300" />		
+			
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+</AssetDeclaration>

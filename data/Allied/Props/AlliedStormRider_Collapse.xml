@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:AUStormRider_COL.w3x" />
+    <Include
+		type="all"
+		source="ART:AUStormRider_D.xml" />		
+    <Include
+		type="all"
+		source="ART:AUStormRider_02_D.xml" />		
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedStormRider_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="AlliedStormRider_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="15"
+			Explodiness="8">
+			<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="AUStormRider_COL" />
+					<Texture
+						Original="AUStormRider"
+						New="AUStormRider_D" />
+				<xi:include
+					href="DATA:Includes/VehicleCollapseParticles/SovietVehicleCollapseParticles.xml"
+					xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:SovietVehicleCollapseParticles/child::*)" />
+								
+			</ModelConditionState>
+			<ModelConditionState
+				ParseCondStateType="PARSE_NORMAL"
+				ConditionsYes="USER_2">
+				<Model
+					Name="AUStormRider_COL" />
+				<Texture
+					Original="AUStormRider"
+					New="AUStormRider_02_D" />					
+			</ModelConditionState>	
+
+				<BoneVolumes>
+				<BoneVolume BoneName="Bone_D_01" Mass="11" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.544298" HalfSizeY="6.36148" HalfSizeZ="0.340186" >
+		<Translation x="-6.13687" y="-24.427" z="-0.812041" />
+		<Rotation x="0.0" y="0.0" z="-0.235561" w="0.971859" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="147" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.1135" HalfSizeY="3.0895" HalfSizeZ="1.51049" >
+		<Translation x="-12.083" y="0.0" z="-1.73905" />
+		<Rotation x="0.0" y="0.0" z="0.382683" w="0.92388" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="107" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.87543" HalfSizeY="6.41625" HalfSizeZ="0.340186" >
+		<Translation x="-9.33604" y="-23.0712" z="-0.788271" />
+		<Rotation x="0.0" y="0.0" z="-0.30481" w="0.952413" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="40" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.78407" HalfSizeY="2.21121" HalfSizeZ="0.476261" >
+		<Translation x="-4.32258" y="-15.5128" z="-1.01337" />
+		<Rotation x="0.0" y="0.0" z="-0.371807" w="0.92831" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="49" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.66346" HalfSizeY="2.21121" HalfSizeZ="0.476261" >
+		<Translation x="-10.3231" y="-9.57845" z="-1.01337" />
+		<Rotation x="0.0" y="0.0" z="-0.371807" w="0.92831" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="6052" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="16.397" HalfSizeY="11.9065" HalfSizeZ="3.06168" >
+		<Translation x="0.286202" y="-0.658829" z="-3.09855" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="542" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="8.25335" HalfSizeY="12.3147" HalfSizeZ="0.52683" >
+		<Translation x="-8.62564" y="17.0167" z="-0.936685" />
+		<Rotation x="0.0" y="0.0" z="0.262865" w="0.964833" />
+	</Box>
+</BoneVolume>
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	
+	<Behaviors>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="4s"
+			MaxLifetime="5s" />	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			DestructionDelay="8s">
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+	</Behaviors>
+		<AudioArraySound>
+			<AudioEntry Sound="RA3VehicleExplosionMediumNoDelay" AudioType="soundAmbient" />
+		</AudioArraySound>	
+</GameObject>
+</AssetDeclaration>

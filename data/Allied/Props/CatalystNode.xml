@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Includes>
+		<Include type="instance" source="DATA:SageXml/BaseObjects/BaseCollapsingObject.xml" />
+		<Include type="instance" source="DATA:SageXml/BaseObjects/BaseProjectile.xml"/>
+		<Include type="instance" source="DATA:SageXml/BaseObjects/BaseVehicle.xml" />
+		<Include
+			type="all"
+			source="ART:FXAlienLaser.xml" />
+		<Include
+			type="all"
+			source="ART:FXAlienLaserHeroic.xml" />
+		<Include
+			type="all"
+			source="ART:FXAlliedFutureLaser.xml" />
+	</Includes>
+	<GameObject
+		id="CatalystNode"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE SIMPLE_OBJECT_PROP SKIRMISH_AI_ATTEMPT_TO_DODGE PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="CatalystNode">
+		<DisplayName>CatalystNode</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="220.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+          <ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="AlliedCatalystReactionEmitterEffect"
+              FollowBone="true"/>
+          <ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="AlliedCatalystReactionLight"
+              FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="1.5s"
+				MaxLifetime="1.5s" />
+				
+			<FireWeaponUpdate
+				id="ModuleTag_FireOneShotWeaponUpdate">
+				<FireWeaponNugget
+					WeaponName="AlliedFutureTankNeutronWeapon_OneShotWeapon"
+					FireDelay="0.0s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			
+			<FireWeaponUpdate
+				id="ModuleTag_FireIncrementalWeaponUpdate"
+				FireInterval="0.25s">
+				<FireWeaponNugget
+					WeaponName="CatalystNodeIncrementalWeapon"
+					FireDelay="0.0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="1.0">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_FutureTank_Weapon_NeutronScramblerImpactSmall" AudioType="soundAmbient"/>
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+	<GameObject
+		id="CatalystNode_Vet"
+		inheritFrom="CatalystNode">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				NoRotate="true"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+					<ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="AlliedCatalystReactionEmitterEffect_Vet"
+              FollowBone="true"/>
+					<ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="AlliedCatalystReactionLight_Vet"
+              FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+	</GameObject>
+</AssetDeclaration>

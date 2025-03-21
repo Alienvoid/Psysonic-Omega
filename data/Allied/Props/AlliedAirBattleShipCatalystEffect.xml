@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Includes>
+		<Include type="instance" source="DATA:SageXml/BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedAirBattleShipCatalystEffect"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE SIMPLE_OBJECT_PROP SKIRMISH_AI_ATTEMPT_TO_DODGE PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="AlliedAirBattleShipCatalystEffect">
+		<DisplayName>AlliedAirBattleShipCatalystEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="220.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="1.5s"
+				MaxLifetime="1.5s" />
+			
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate">
+				<FireWeaponNugget
+					WeaponName="AlliedCatalystCannonWeapon_IncrementalWeapon"
+					FireDelay="1.4s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate2">
+				<FireWeaponNugget
+					WeaponName="AlliedCatalystCannonWeapon_OneShotWeapon"
+					FireDelay="1.4s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			
+			<FXListBehavior	
+				id="ModuleTag_FXLists">
+				<DieMuxData	
+					DeathTypes="ALL"/>
+				<Event 
+					Index="onDeath" 
+					FX="FX_AlliedGunshipProtonHit" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="1.0">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_Gunship_ColliderCannonExploMS" AudioType="soundAmbient"/>
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	<GameObject
+		inheritFrom="AlliedAirBattleShipCatalystEffect"
+		id="AlliedAirBattleShipCatalystEffect_Veteran">
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXList"
+				xai:joinAction="Replace">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedGunshipProtonHitVet" />
+			</FXListBehavior>
+		</Behaviors>
+	</GameObject>
+</AssetDeclaration>

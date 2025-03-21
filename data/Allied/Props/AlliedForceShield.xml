@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:EXFUTURETANKSHIELD.w3x" />
+		
+		<Include
+			type="all"
+			source="ART:FXHarvesterShield.w3x" />
+			
+		<Include
+			type="all"
+			source="ART:fxarchangelshield.w3x" />
+		<Include
+			type="all"
+			source="ART:fxKodiakShield.w3x" />
+		<Include
+			type="all"
+			source="ART:fxMotherShipShield.w3x" />
+		<Include
+			type="all"
+			source="ART:fxMantisShield.w3x" />
+			
+			
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedForceShield"
+		Side="Allied"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED VEHICLE NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="AlliedForceShield">
+		<DisplayName>AlliedForceShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				ExtraPublicBone="FX_Bone_01 FX_Bone_02 FX_Bone_03"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXFUTURETANKSHIELD" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeMod_AlliedPanzerShieldEMPResistAttached"
+			/>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="29s"
+				MaxLifetime="29s" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="5"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="300" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALI_ForceField_Begin" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	
+	<GameObject
+		id="AlliedHarvesterShield"
+		Side="Allied"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED VEHICLE NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="AlliedHarvesterShield">
+		<DisplayName>AlliedHarvesterShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXHarvesterShield" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeMod_AlliedPanzerShieldEMPResistAttached"
+			/>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="29s"
+				MaxLifetime="29s" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+			
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="200" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALI_ForceField_Begin" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	<GameObject
+		id="AlliedArchAngelShield"
+		Side="Allied"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED VEHICLE NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="AlliedArchAngelShield">
+		<DisplayName>AlliedArchAngelShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="fxarchangelshield" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT TELEPORT_AND_ALIGN_WITH_PARENT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeMod_AerialWarshipShieldAttached"
+			/>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="59s"
+				MaxLifetime="59s" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+			
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="2000" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="177.4"
+				MinorRadius="73.0"
+				Height="40.2"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="0"
+					y="0.0"
+					z="-12.711" />
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALI_ForceField_Begin" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	
+	<GameObject
+		id="AlliedKodiakShield"
+		Side="Allied"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED VEHICLE NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="AlliedKodiakShield">
+		<DisplayName>AlliedKodiakShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="fxKodiakShield" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT TELEPORT_AND_ALIGN_WITH_PARENT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeMod_AerialWarshipShieldAttached"
+			/>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="59s"
+				MaxLifetime="59s" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="3000" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="73.0"
+				MinorRadius="38.5"
+				Height="31"
+				ContactPointGeneration="VEHICLE">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALI_ForceField_Begin" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	<GameObject
+		id="AlliedMotherShipShield"
+		Side="Allied"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED VEHICLE NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="AlliedMotherShipShield">
+		<DisplayName>AlliedMotherShipShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="fxMotherShipShield" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT TELEPORT_AND_ALIGN_WITH_PARENT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeMod_AerialWarshipShieldAttached"
+			/>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="119s"
+				MaxLifetime="119s" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+			
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="4000" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="73.0"
+				MinorRadius="38.5"
+				Height="31"
+				ContactPointGeneration="VEHICLE">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALI_ForceField_Begin" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	<GameObject
+		id="AlliedMantisShield"
+		Side="Allied"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED VEHICLE NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="AlliedMantisShield">
+		<DisplayName>AlliedMantisShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="fxMantisShield" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT TELEPORT_AND_ALIGN_WITH_PARENT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeMod_AerialWarshipShieldAttached"
+			/>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="15s"
+				MaxLifetime="15s" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+			
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="73.0"
+				MinorRadius="38.5"
+				Height="31"
+				ContactPointGeneration="VEHICLE">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALI_ForceField_Begin" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

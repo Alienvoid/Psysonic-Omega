@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance"  xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:aumirage_d.xml" />
+		<Include type="all"	source="ART:AUMotherShip_skn.W3X" />
+		<Include type="all"	source="ART:AUMotherShip_2_D.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedMotherShip_Dying"
+		EditorName="AlliedMotherShip_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUMotherShip_skn" />
+					<Texture
+						Original="AUMotherShip_2"
+						New="AUMotherShip_2_D" />
+					<ParticleSysBone
+						BoneName="FX_Radar"
+						FXParticleSystemTemplate="ChopperDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Radar"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Radar"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="ChopperDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="0"
+				MaxYRotationVelocity="50"
+				MaxZRotationVelocity="200"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUMotherShip_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_DeathWeapon"
+				DeathWeapon="NormalAircraftDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionMediumNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />		
+	</GameObject>
+</AssetDeclaration>

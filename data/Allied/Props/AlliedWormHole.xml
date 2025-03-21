@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:abwormhole_skn.w3x" />
+		<Include
+			type="all"
+			source="ART:SBBunker_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:SBBunker_BLD.w3x" />
+		<Include
+			type="all"
+			source="ART:SSBaseDefenseAdvanced_Scaffold.w3x" />				
+		<Include
+			type="all"
+			source="ART:SBBarracks_FX.w3x" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseSovietStructure.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedWormHole"
+		inheritFrom="BaseSovietStructure"
+		Side="Allies"
+		EditorSorting="STRUCTURE"
+		BuildTime="0.0"
+		SelectPortrait="Portrait_AlliedWormHole_Obj"
+		ButtonImage="Button_AlliedWormHole_Obj"
+		EnergyProduction="-50"
+		CommandSet="EmptyCommandSet"
+		KindOf="+IGNORE_FOR_VICTORY +UNATTACKABLE +NOT_SELLABLE"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="225d"
+		CampnessValue="=$CAMPNESS_DEFENSIVE_STRUCTURE"
+		ProductionQueueType="OTHER_STRUCTURE"
+		BuildPlacementTypeFlag="OTHER_STRUCTURE"
+		EditorName="AlliedWormHole"
+		Description="Desc:AlliedWormHole"
+		TypeDescription="Type:AlliedWormHole">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedWormHole</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="0"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="FRONT" />
+		<Draws>
+		
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="WORMHOLE">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="abwormhole_skn" />
+					<ParticleSysBone
+						BoneName="WORMHOLE"
+						FXParticleSystemTemplate="ABTPDist"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="WORMHOLE"
+						FXParticleSystemTemplate="ABTPFlare"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="WORMHOLE"
+						FXParticleSystemTemplate="ABTPGlow"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="WORMHOLE"
+						FXParticleSystemTemplate="ABTPDarkMatter"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="WORMHOLE"
+						FXParticleSystemTemplate="AlliedWormHoleGlow"
+						FollowBone="false" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+		</Draws>
+		<Behaviors>
+						
+			<LifetimeUpdate
+				id="ModuleTag_Lifetime"
+				MinLifetime="25.0s"
+				MaxLifetime="25.0s" />					
+			<Physics
+				id="ModuleTag_Physics"/>
+			<TunnelTeleportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE"
+				ContainMax="1000"
+				AllowEnemiesInside="true"
+				AllowAlliesInside="true"
+				AllowNeutralInside="true"
+				ShowPips="false"
+				EnterSound="ALI_WormHole_Enter"
+				ExitSound="ALI_WormHole_Exit"
+				KillPassengersOnDeath="false">
+				<PassengerFilter
+					Rule="ALL">
+				</PassengerFilter>
+				<DieMuxData
+					DeathTypes="ALL" />
+			</TunnelTeleportContain>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event 
+				 Index="onDeath" 
+				 FX="FX_ALI_Wormhole_End" />
+				<!-- FX_SOV_Bunker_Die -->
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+					DeathTypesForbidden="SUICIDED ERASED"/>
+			</DestroyDie>
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="0s" />
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/GenericSovietBuildingSuicideNoSpawn.xml" />
+				
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				StanceTemplate="Generic" />
+		</Behaviors>	
+		<Body>
+			<ActiveBody
+				id="ModuleTag_05"
+				MaxHealth="9999" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="25.0"
+				Height="100.0"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="ALI_WormHole_Select"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALI_WormHole_BeginAndLoopMS"
+				AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />
+		<ProjectedBuildabilityInfo
+			Radius="0"
+			BuildPlacementTypes="MAIN_STRUCTURE OTHER_STRUCTURE" />
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+	</Includes>
+	<GameObject
+		id="TimeStopHelper"
+		Side="Neutral" 
+		EnergyProduction="-9999"
+		KindOf="IMMOBILE CAN_ATTACK NOT_AUTOACQUIRABLE RESIST_EMP NO_COLLIDE UNATTACKABLE NO_COLLIDE"
+		EditorSorting="MISC_NATURAL"
+		EditorName="TimeStopHelper">
+		<DisplayName>Name:TimeStopHelper</DisplayName>
+		<ArmorSet
+			Armor="IonStormArmor" />		
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="20.0s"
+				MaxLifetime="20.0s" />
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeModifier_TimeStop_Allies_Helper"
+				RefreshDelay="0.1s"
+				Range="10000"
+				InitiallyActive="true">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES"
+					Include="VEHICLE HUGE_VEHICLE INFANTRY STRUCTURE AIRCRAFT PROJECTILE SMALL_MISSILE VALID_TARGET_FOR_C4 SUBMARINE">
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			<DestroyDie
+				id="ModuleTag_DestroyDie">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES">
+				<UnitAITargetChooserData
+					CanAutoAcquireNonAutoAcquirable="true" 
+					SympathyRange="25.0" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="100.0"
+				Height="160.0"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="375"
+			ShroudClearingRange="500" />
+		<CrusherInfo
+			CrushableLevel="100" />
+	</GameObject>
+	<AttributeModifier
+		id="Modifier_IonStorm"
+		Shader="ShaderOverride_ObjectsTeslaSingularity"
+		Category="SPELL"
+		Duration="10s">
+		<Modifier Type="DAMAGE_MULT" Value="125%"/>
+		<Modifier Type="ARMOR" Value="75%"/>
+	</AttributeModifier>
+</AssetDeclaration>

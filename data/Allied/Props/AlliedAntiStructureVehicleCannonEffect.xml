@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include 
+			type="all" 
+			source="DATA:GlobalData/GlobalDefines.xml" />
+    <Include
+			type="all"
+			source="ART:EXAlliedAntiStructure_Beam.w3x" />
+    <Include
+          type="all"
+          source="ART:EXAlliedAntiStructure_BeamVet.w3x" />
+    <Include
+			type="all"
+			source="ART:FXOrbitalCannonEffect.w3x" />
+    <Include
+          type="all"
+          source="ART:FXOrbitalCannonEffectVet.w3x" />
+    <Include
+          type="all"
+          source="ART:FXOrbitalCannonEffect_ATK.w3x" />
+	</Includes>
+	<GameObject
+		id="AlliedAntiStructureVehicleCannonEffect"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		IsTrainable="false"
+		KindOf="PRELOAD UNATTACKABLE NOT_AUTOACQUIRABLE INERT_SHROUD_REVEALER PASS_EXPERIENCE_TO_PRODUCER CAN_ATTACK NO_COLLIDE LINE_OF_SIGHT_IGNORES_BUILDINGS SKIP_IDLE_WHEN_CAPTURED"
+		EditorName="AlliedAntiStructureVehicleCannonEffect">
+		<DisplayName>AlliedAntiStructureVehicleCannonEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<LocomotorSet
+			id="DefaultGroundLocomotorSet"
+			Locomotor="AlliedAntiStructureVehicleCannonEffectLocomotor"
+			Condition="NORMAL"
+			Speed="100" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Beam">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXOrbitalCannonEffect" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="FXOrbitalCannonEffect_ATK"
+						AnimationMode="ONCE" />					
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedOrbitalCannonDummyWeapon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="2.5s"
+				MaxLifetime="2.5s" />
+			
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="500"
+				AttackRange="5"
+				DieOnMastersDeath="true"
+				UseSlaverAsControlForEvaObjectSightedEvents="false" />
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate">
+				<FireWeaponNugget
+					WeaponName="AthenaCannonWeaponStage1"
+					OneShot="true">
+				</FireWeaponNugget>
+				<FireWeaponNugget
+					WeaponName="AthenaCannonWeaponStage2"
+					FireDelay="0.625s"
+					OneShot="true">
+				</FireWeaponNugget>
+				<FireWeaponNugget
+					WeaponName="AthenaCannonWeaponStage3"
+					FireDelay="1.25s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+
+			<FireWeaponWhenDead
+				id="ModuleTag_FinalWeapon"
+				InitiallyActive="true"
+				DeathWeapon="AthenaCannonWeaponStage3">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			
+			<DestroyObjectsUpdate
+				id="ModuleTag_DestroyObjectsUpdate"
+				Radius="500">
+				<ObjectFilter Rule="NONE" Include="CIVILIAN_UNIT"/>
+			</DestroyObjectsUpdate>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>		
+		</Behaviors>
+		
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine"><!--UnitAIStateMachine-->
+				<UnitAITargetChooserData />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="9999999.0" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="1.0"
+				Height="300.0"/>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="400"
+			ShroudClearingRange="20" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+  <GameObject
+    inheritFrom="AlliedAntiStructureVehicleCannonEffect"
+		id="AlliedAntiStructureVehicleCannonEffect_Vet"
+		EditorName="AlliedAntiStructureVehicleCannonEffect_Vet">
+    <DisplayName>AlliedAntiStructureVehicleCannonEffect_VET</DisplayName>
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_Draw_Beam"
+        xai:joinAction="Replace" >
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model Name="FXOrbitalCannonEffectVet" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_02"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_03"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectLight"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectRing"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AlliedOrbitalDefenseVetEffectVapor"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Bone_04"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+        </ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="FXOrbitalCannonEffect_ATK"
+						AnimationMode="ONCE" />					
+				</AnimationState>
+      </ScriptedModelDraw>
+    </Draws>
+  </GameObject>
+  
+  
+</AssetDeclaration>

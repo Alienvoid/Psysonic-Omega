@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:auminefield.w3x" />
+	</Includes>
+	<GameObject
+		id="CommuneMine"
+		Side="Allies"
+		EditorSorting="MISC_MAN_MADE"
+		KindOf="IMMOBILE SHOW_BEHIND_OCCLUDERS MINE STICK_TO_TERRAIN_SLOPE NO_HEAL_ICON IGNORE_FOR_VICTORY"
+		EditorName="AlliedMine">
+		<DisplayName>AlliedMine</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="auminefield" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FireWeaponCollide
+				id="ModuleTag_FireWeaponCollide" 
+				CollideWeapon="AlliedMinefieldMine"
+				FireOnce="true"
+				Flags="TARGET_MUST_BE_MOVING" 
+				WhereToFire="OWNER_POSITION"/>
+			<DestroyDie
+				id="ModuleTag_DestroyDie">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="25"
+				UpdatePeriod="4.3s"
+				AffectsSelf="true" 
+				InvisibilityTemplate="AlliedCryoShipInvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+			<IncludeThing>CommuneMine</IncludeThing>
+				</BroadcastObjectFilter>
+			</InvisibilityBroadcastUpdate>	
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="EXPLODED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_BombExplosion" />
+			</FXListBehavior>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="50.0"/>
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="15.0"
+				Height="10.0"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+	</GameObject>
+</AssetDeclaration>

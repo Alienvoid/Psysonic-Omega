@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include 
+			type="all" 
+			source="DATA:GlobalData/GlobalDefines.xml" />
+    <Include
+			type="all"
+			source="ART:FXOrbitalDefense.w3x" />
+    <Include
+			type="all"
+			source="ART:FXOrbitalDefenseVet.w3x" />
+    <Include
+			type="all"
+			source="ART:FXOrbitalDefense_ATK.w3x" />
+    <Include
+          type="all"
+          source="ART:EXAlliedAntiStructure_BeamVet.w3x" />
+	</Includes>
+	<GameObject
+		id="AlliedOrbitalDefenseEffect"
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE INERT_SHROUD_REVEALER PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="AlliedOrbitalDefenseEffect">
+		<DisplayName>AlliedOrbitalDefenseEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Beam">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXOrbitalDefense" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="AlliedOrbitalHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="AlliedOrbitalHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="AlliedOrbitalHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="AlliedOrbitalHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="FXOrbitalDefense_ATK"
+						AnimationMode="ONCE" />
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="3.0s"
+				MaxLifetime="3.0s" />
+			
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="TELEPORT STICK_TO_PARENT DIE_WHEN_DETACH_ALWAYS"
+				CloseEnoughRange="1.0" />
+				
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.5s">
+				<FireWeaponNugget
+					WeaponName="AlliedOrbitalDefenseWeapon"
+					FireDelay="0.1s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+
+			
+			<DestroyObjectsUpdate
+				id="ModuleTag_DestroyObjectsUpdate"
+				Radius="500">
+				<ObjectFilter Rule="NONE" Include="CIVILIAN_UNIT"/>
+			</DestroyObjectsUpdate>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>		
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="9999999.0" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="50.0"
+				Height="300.0"/>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+  <GameObject
+    inheritFrom="AlliedOrbitalDefenseEffect"
+		id="AlliedOrbitalDefenseEffect_Vet"
+		EditorName="AlliedOrbitalDefenseEffect_Vet">
+    <DisplayName>AlliedOrbitalDefenseEffect_VET</DisplayName>
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_Draw_Beam"
+        xai:joinAction="Replace" >
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model Name="FXOrbitalDefenseVet" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="AlliedOrbitalVetHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone01"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="AlliedOrbitalVetHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone02"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="AlliedOrbitalVetHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone03"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="AlliedOrbitalVetHitLight"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="Allied_Laser_Beam_Start"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="ABTPDarkMatter"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="ABTPDist"
+							FollowBone="true" />
+						<ParticleSysBone
+							BoneName="FX_Bone04"
+							FXParticleSystemTemplate="AlliedOrbitalHitVapor"
+							FollowBone="true" />
+        </ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="FXOrbitalDefense_ATK"
+						AnimationMode="ONCE" />
+				</AnimationState>
+      </ScriptedModelDraw>
+    </Draws>
+  </GameObject>
+  
+  
+</AssetDeclaration>

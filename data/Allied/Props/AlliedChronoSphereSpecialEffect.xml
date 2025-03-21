@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:FXCrit01.xml" />
+	    <Include type="all"	source="ART:FXLightRays01.xml" />
+		<Include type="all"	source="ART:FXInvisBone.w3x" />
+		<Include type="all"	source="ART:EXChronoField.w3x" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseObject.xml" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="instance"
+			source="ART:ShadowI.xml" />
+	</Includes>
+	
+	<!-- As Known As Chrono Stasis Field -->
+	<GameObject
+		id="AlliedChronoSphereSpecialEffect"
+		inheritFrom="BaseObject"
+		RadarPriority="UNIT"		
+		Side="Allies"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		EnergyProduction="-50"
+		IsTrainable="false"
+		KindOf="NOT_AUTOACQUIRABLE OBSTACLE SKIRMISH_AI_ATTEMPT_TO_DODGE IMMOBILE IGNORES_SELECT_ALL"
+		EditorName="AlliedChronoSphereSpecialEffect">
+		<DisplayName>AlliedChronoSphereSpecialEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<LocomotorSet
+			Locomotor="TimeBombDummyLocomotor"
+			Condition="NORMAL"
+			Speed="0" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="350.0">
+      <DodgeWithUnits Rule="ALL">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="EXChronoField" />
+					<ParticleSysBone
+						BoneName="CENTERPOINT"
+						FXParticleSystemTemplate="DarkMatterEmit"
+						FollowBone="true" />          
+					<ParticleSysBone
+						BoneName="CENTERPOINT"
+						FXParticleSystemTemplate="Black01"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="CENTERPOINT"
+						FXParticleSystemTemplate="Black02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="CENTERPOINT"
+						FXParticleSystemTemplate="Black03"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="EXChronoField"
+						AnimationMode="ONCE" />
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="EXChronoField"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>	
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+
+			<!-- fire a weapon that adds an attribute mod and paralyze which lasts for a short time. -->
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.1s">
+				<FireWeaponNugget
+					WeaponName="AlliedCrystalShieldWeaponTrigger"
+				/>
+			</FireWeaponUpdate>
+			
+			<SlowDeath
+				id="ModuleTag_Death"
+				DestructionDelay="1s">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</SlowDeath>
+			
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="20.0s"
+				MaxLifetime="20.0s" />
+
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="StructureAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="1.0"
+				Height="1.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_VacuumBomb_Swell" AudioType="soundAmbient" />
+		</AudioArraySound>
+			
+		<VisionInfo
+			VisionRange="0"
+			ShroudClearingRange="300" />		
+			
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+</AssetDeclaration>
