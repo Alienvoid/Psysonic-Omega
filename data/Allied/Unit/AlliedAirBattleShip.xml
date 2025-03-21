@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+<!-- aka Cryocopter -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include type="all"	source="ART:aumirage_d.xml" />
+
+		<Include type="all"	source="ART:AUAirBattleship_skn.W3X" />
+		<Include type="all"	source="ART:AUAirBattleship_fp.W3X" />
+		<Include type="all"	source="ART:AUAirBattleship_idla.W3X" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:AUAirBattleship02_D.xml" />
+		<Include type="all"	source="ART:AUAirBattleship01_02.xml" />
+		<Include type="all"	source="ART:AUAirBattleship01_D.xml" />
+		<Include type="all"	source="ART:AUAirBattleship01_02_D.xml" />
+	  <Include type="all"	source="ART:AUKodiak_D.xml" />    
+		<Include
+			type="all"
+			source="ART:FXRailTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXRailTracerHeroic.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerHeroic.xml" />
+		<Include type="all"	source="ART:FXLaserStandard.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerAlien.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerAlienHeroic.xml" />		
+	</Includes>
+	<GameObject
+		id="AlliedAirBattleShip"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_AlliedKodiak"
+		ButtonImage="Button_AlliedKodiak"
+		Side="Allies"
+		SubGroupPriority="530"
+		EditorSorting="UNIT"
+		BuildTime="30"
+		CommandSet="AlliedKodiakCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT FIGHTER_AIRCRAFT BOMBER_AIRCRAFT VEHICLE HUGE_VEHICLE SIEGE_WEAPON LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LEAVE_PARKING_ON_BUILD_COMPLETE PRODUCED_AT_HELIPAD"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="AlliedAirBattleShip"
+		Description="Desc:AlliedKodiak"
+		TypeDescription="Type:AlliedKodiak"
+		HealthBoxHeightOffset="30">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedKodiak</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="3000"/>
+		</ObjectResourceInfo>
+
+		<GameDependency>
+			<NeededUpgrade>Upgrade_AlliedTech3</NeededUpgrade>
+		</GameDependency>
+		
+		<ArmorSet
+			Armor="AlliedKodiakArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />
+		<LocomotorSet
+			Locomotor="AlliedFortressShipAirborneLocomotor"
+			Condition="NORMAL"
+			Speed="100" />
+
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDPS="6"
+			ConquerMetricsOverrideDamageType="EXPLOSIVE"
+			ConquerMetricsOverrideAntiMask="ANTI_GROUND ANTI_WATER ANTI_STRUCTURE"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE"
+			DoesSecondaryDamage="true"/>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" 
+				InitialRecoilSpeed="1.0"
+				MaxRecoilDistance="1.0"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="1.5"
+				ExtraPublicBone="Bone_Turret01 Bone_Turret02 Bone_MiniGunTurretPitch01 Bone_MiniGunTurretPitch02 Bone_MiniGunTurret01 FX_Weapon_01 FX_Weapon_02 FX_Weapon_03 FX_Weapon_04 FX_MiniGun_01 FX_MiniGun_02 FX_Weapon_07 FX_Weapon_08 FX_Weapon_09 FX_MainGun_01 Bone_MiniGunTurret02 Bone_Radar FX_Engine01 FX_Engine02">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUAirBattleship_skn" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponMuzzleFlash
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<Turret
+						TurretNameKey="Bone_TURRET01"
+						TurretID="1" />
+					
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponMuzzleFlash
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<Turret
+						TurretNameKey="Bone_TURRET02"
+						TurretID="2" />
+
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MiniGun_" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MiniGun_" />
+					<WeaponMuzzleFlash
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MiniGun_" />
+					<Turret
+						TurretNameKey="Bone_MiniGunTurret01"
+						TurretPitch="Bone_MiniGunTurretPitch01"
+						TurretID="3" />
+
+					<WeaponLaunchBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MiniGun_" />
+					<WeaponFireFXBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MiniGun_" />
+					<WeaponMuzzleFlash
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MiniGun_" />
+					<Turret
+						TurretNameKey="Bone_MiniGunTurret02"
+						TurretPitch="Bone_MiniGunTurretPitch02"
+						TurretID="4" />
+
+					<WeaponLaunchBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MainGun_01" />
+					<WeaponFireFXBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MainGun_01" />
+					<WeaponMuzzleFlash
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_MainGun_01" />
+					<Turret
+						TurretNameKey="Bone_MAINTURRET"
+						TurretID="5" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+
+
+				</ModelConditionState>
+				
+	            <ModelConditionState
+	              ParseCondStateType="PARSE_NORMAL"
+	              ConditionsYes="FORMATION_PREVIEW">
+	              <Model
+	                Name="AUAirBattleship_fp" />
+								
+	            </ModelConditionState>					
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="AUAirBattleship_skn" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlienTravEngDist_DevWarship"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlienTravEngDist_DevWarship"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_RADAR"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+          <Model
+						Name="AUAirBattleship_skn" />
+					<Texture
+						Original="aumirage"
+						New="aumirage_d" />
+					<Texture
+						Original="AUAirBattleship01"
+						New="AUAirBattleship01_d" />
+					<Texture
+						Original="AUAirBattleship02"
+						New="AUAirBattleship02_d" />
+					<ParticleSysBone
+						BoneName="FXCon_R"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXCon_L"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Weapon_02"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+           BoneName="FXDamage01"
+           FXParticleSystemTemplate="AlliedVehicleDamageFire"
+           FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FXDamage02"
+						FXParticleSystemTemplate="AlliedVehicleDamageFire"
+						FollowBone="true"/>
+        </ModelConditionState>
+		
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="USER_2 DAMAGED">
+					<Model
+						Name="AUAirBattleship_skn" />
+					<Texture
+						Original="AUAirBattleship01"
+						New="AUAirBattleship01_02" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_RADAR"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Weapon_04"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="USER_2 REALLYDAMAGED">
+          <Model
+						Name="AUAirBattleship_skn" />
+					<Texture
+						Original="aumirage"
+						New="aumirage_d" />
+					<Texture
+						Original="AUAirBattleship02"
+						New="AUAirBattleship02_d" />
+					<Texture
+						Original="AUAirBattleship01_02"
+						New="AUAirBattleship01_02_D" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_Weapon_02"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+				
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="AUAirBattleship_skn" />
+					<Texture
+						Original="AUAirBattleship01"
+						New="AUAirBattleship01_02" />	
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Engine02"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+					<Animation
+						AnimationName="AUAirBattleship_idla"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING">
+					<Animation
+						AnimationName="AUAirBattleship_idla"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				
+				
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A WEAPONSTATE_TWO">
+					<Animation
+						AnimationName="AUAirBattleship_idla"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+		            <ParticleSysBone
+						BoneName="FX_MainGun_01"
+						FXParticleSystemTemplate="ProtonCannonConcentratedLight_Vet"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_MainGun_01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_MainGun_01"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+        </AnimationState>
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A">
+					<Animation
+						AnimationName="AUAirBattleship_idla"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+		            <ParticleSysBone
+						BoneName="FX_MainGun_01"
+						FXParticleSystemTemplate="ProtonCannonConcentratedLight"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_MainGun_01"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_MainGun_01"
+						FXParticleSystemTemplate="AlliedAirShipGlow_02"
+						FollowBone="true" />
+        </AnimationState>
+
+        
+			</ScriptedModelDraw>
+			
+			
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAdd01"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="45"
+				MaxSpeed="50"
+				SweepSpeed="1.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame="0.16"
+				MaxTracersPerFrame="0.16"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerAlien"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHit">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddVeterancy01"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="45"
+				MaxSpeed="50"
+				SweepSpeed="1.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame="0.16"
+				MaxTracersPerFrame="0.16"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerAlienHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHitHeroic">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAdd01"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="45"
+				MaxSpeed="50"
+				SweepSpeed="1.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame="0.16"
+				MaxTracersPerFrame="0.16"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerAlien"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHit">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawAddVeterancy01"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="8.0"
+				MinSpeed="45"
+				MaxSpeed="50"
+				SweepSpeed="1.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame="0.16"
+				MaxTracersPerFrame="0.16"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerAlienHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_AlienAutoCannonHitHeroic">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="0.0"
+					g="0.0"
+					b="0.0"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+		
+			<LaserDraw
+				id="ModuleTag_LaserDraw01"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				LaserStateID="101">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>10.0000000</Value>
+							<Value>10.000000</Value>
+							<Value>2.00000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />
+			</LaserDraw>
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw01Vet"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="1"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="15"
+				LaserStateID="102">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserStandard</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>10.0000000</Value>
+							<Value>2.500000</Value>
+							<Value>2.50000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+
+    </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSet">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedKodiakAntiAircraftAutoCannon"/>
+					<TurretSettings
+						TurretTurnRate="360"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="30.0"
+						MaxDeflectionAntiClockwise="60d"
+						MaxDeflectionClockwise="60d"
+						NaturalTurretAngle="0d"
+						RecenterWhenOutOfTurnRange="true"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY">
+							<ObjectVisionRange
+								id="ObjectVisionRange_Aircraft"
+								Range="230">
+								<Filter
+									Rule="ANY"
+									Include="AIRCRAFT"
+									StatusBitFlags="AIRBORNE_TARGET"/>
+							</ObjectVisionRange>	
+						</TurretAITargetChooserData>	
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<WeaponSlotTurret
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedKodiakAntiAircraftAutoCannon"/>
+					<TurretSettings
+						TurretTurnRate="360"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="30.0"
+						MaxDeflectionAntiClockwise="60d"
+						MaxDeflectionClockwise="60d"
+						NaturalTurretAngle="0d"
+						RecenterWhenOutOfTurnRange="true"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY">
+							<ObjectVisionRange
+								id="ObjectVisionRange_Aircraft"
+								Range="230">
+								<Filter
+									Rule="ANY"
+									Include="AIRCRAFT"
+									StatusBitFlags="AIRBORNE_TARGET"/>
+							</ObjectVisionRange>	
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+				<WeaponSlotTurret
+					ID="3">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedKodiakGun"/>
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true">
+						</TurretAITargetChooserData>	
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+				<WeaponSlotTurret
+					ID="4">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedKodiakGun"/>
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+				<WeaponSlotTurret
+					ID="5">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedKodiakMainCannon"
+						ForbiddenObjectStatus="WEAPON_UPGRADED_01"/>
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedKodiakMainCannon_Veteran"
+						ObjectStatus="WEAPON_UPGRADED_01" />
+					<TurretSettings
+						MaxDeflectionClockwise="120d"
+						MaxDeflectionAntiClockwise="120d"
+						TurretTurnRate="360"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY">
+							<ObjectVisionRange
+								id="ObjectVisionRange_Aircraft"
+								Range="230">
+								<Filter
+									Rule="ANY"
+									Include="AIRCRAFT"
+									StatusBitFlags="AIRBORNE_TARGET"/>
+							</ObjectVisionRange>	
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="3"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAir"
+				CreationList="AUAirBattleship_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieGround"
+				CreationList="AUAirBattleship_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					ExemptStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_CryocpterDie" />
+			</FXListBehavior>
+
+			<SubObjectsUpgrade
+				id="ModuleTag_AlliedAirPower_subobject">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_AlliedAirPower">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>
+			<LaserState
+				id="ModuleTag_LaserState2"
+				LaserId="101"
+				OriginBoneName="FX_MainGun_01" >
+				<LaserEndParticleSystem>ProtonCannonDispersedLight</LaserEndParticleSystem>
+				<LaserEndParticleSystem>ProtonCannonSpark</LaserEndParticleSystem>
+				<LaserEndParticleSystem>ProtonCannonGlow</LaserEndParticleSystem>
+				<LaserEndParticleSystem>ProtonCannonRing</LaserEndParticleSystem>
+				<LaserEndParticleSystem>FXAlliedGunshipProtonCore</LaserEndParticleSystem>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState4"
+				LaserId="102"
+				OriginBoneName="FX_MainGun_01" >
+				<LaserEndParticleSystem>ProtonCannonDispersedLight_Vet</LaserEndParticleSystem>
+				<LaserEndParticleSystem>ProtonCannonSpark_Vet</LaserEndParticleSystem>
+				<LaserEndParticleSystem>ProtonCannonGlow_Vet</LaserEndParticleSystem>
+				<LaserEndParticleSystem>ProtonCannonRing</LaserEndParticleSystem>
+				<LaserEndParticleSystem>FXAlliedGunshipVetCore</LaserEndParticleSystem>
+			</LaserState>
+			<!-- The Chronoshift Teleport Jump -->
+			<ActivateModuleSpecialPower
+				id="ModuleTag_TriggerTeleport"
+				SpecialPowerTemplate="SpecialPower_TriggerTeleport"
+				AttributeModifier="AttributeModifier_TemporalDisplacementMove"
+				AttributeModifierAffectsSelf="true">
+			</ActivateModuleSpecialPower>
+
+			<TeleportSpecialAbilityUpdate
+				id="ModuleTag_TeleportSpecialAbility"
+				SpecialPowerTemplate="SpecialPower_TriggerTeleport"
+				UnpackTime="1s"
+				PackTime="1s"
+				BusyDuration="3s"
+				MaxDistance="1300"
+				UnpackingVariation="1"
+				HeightToTeleportTo="270"
+				UnpackSound="ALL_Chronosphere_Die"
+				Options="IGNORE_FACING_CHECK" />
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<SubObjectsUpgrade
+				id="ModuleTag_JapanAntiStructureVehicle_subobject">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+				<Nugget
+					Upgrade="Upgrade_Veterancy_HEROIC">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="WEAPONSTATE_TWO"/>	
+			</SubObjectsUpgrade>
+			<AttributeModifierUpgrade
+				id="ModuleTag_AirPowerUpgrade"
+				AttributeModifier="AttributeMod_AlliedKodiakAirPowerAttribute">
+				<TriggeredBy>Upgrade_AlliedAirPower</TriggeredBy>
+			</AttributeModifierUpgrade>
+
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="60.0s">
+				<FireWeaponNugget
+					WeaponName="AlliedKodiakShieldWeapon"
+					FireDelay="1.5s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate2">
+				<FireWeaponNugget
+					WeaponName="AlliedKodiakShieldWeapon"
+					FireDelay="1.5s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			
+			<xi:include
+				href="DATA:Includes/AlliedHighTechnologyUpgrade.xml" />
+			
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="HelicopterAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					RotateToTargetWhenAiming="true">
+					<ObjectVisionRange
+						id="ObjectVisionRange_Aircraft"
+						Range="200">
+						<Filter
+							Rule="ANY"
+							Include="INFANTRY VEHICLE AIRCRAFT"
+							StatusBitFlags="AIRBORNE_TARGET"/>
+					</ObjectVisionRange>
+				</UnitAITargetChooserData>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="4000" />
+		</Body>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="101"
+			CrushableLevel="101"
+			CrushWhileStationary="true"
+			CrushDecelerationPercent="0%" />
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="BOX"
+				MajorRadius="50.0"
+				MinorRadius="23.0"
+				Height="19.0"
+				ContactPointGeneration="VEHICLE">
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceCreate"
+				AudioType="voiceCreated" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceMoveHelopad"
+				AudioType="voiceEnter" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceRetreat"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="ALI_Kodia_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+			<NamedEntry
+				Sound="ALI_Kodia_VoiceScan"
+				Name="VoicePulseScan" />
+			<NamedEntry
+				Sound="ALI_Kodia_VoiceLaunchSensorPod"
+				Name="VoiceSensorPod" />
+      <NamedEntry
+				Sound="ALI_Kodia_VoiceMoveHelopad"
+				Name="ReturnToProducer" />
+			<NamedEntry
+				Sound="ALI_Kodia_VoiceRetreat"
+				Name="ReturnToProducerWhileUnderAttack" />
+			<AudioEntry Sound="ALI_Kodia_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+    <AudioArraySound>
+			<AudioEntry Sound="ALL_CenturyBomber_MoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="ALL_CenturyBomber_MoveLoop" AudioType="soundMoveLoop" />
+    </AudioArraySound>
+
+
+		<VisionInfo
+			VisionRange="420"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+
+</AssetDeclaration>
