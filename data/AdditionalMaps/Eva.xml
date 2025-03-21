@@ -1,0 +1,2264 @@
+<?xml version="1.0" encoding="utf-8"?><AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">			
+  			<Tags/>			
+  			<Includes/>			
+
+
+  			<!-- ===== CNC3 DEFINITIONS BEGIN ===== -->			
+
+			<!-- 
+
+from Eva.xsd
+
+	<xs:complexType name="EvaEvent" xas:typeGroup="Xml">
+		<xs:complexContent>
+			<xs:extension base="BaseInheritableAsset">
+				<xs:sequence>
+				<xs:element name="SideSound" type="SideSound" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="OtherEvaEventToBlock" type="EvaEventWeakRef" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+					<xs:attribute name="Priority" type="SageUnsignedInt" default="0" />					
+					<xs:attribute name="TimeBetweenEvents" type="Time" default="0s" />
+					<xs:attribute name="ExpirationTime" type="Time" default="2s"/>
+					<xs:attribute name="AlwaysPlayFromHomeBase" type="SageBool" default="false" />
+					<xs:attribute name="CountAsJumpToLocation" type="SageBool"  default="true"/>
+					<xs:attribute name="QuietTime" type="Time" default="0s" />
+					<xs:attribute name="TimeToWaitBeforePlaying" type="Time" default="0s" />
+			        <xs:attribute name="SuppressOn360" type="SageBool" default="false" />
+	    			<xs:attribute name="SuppressOnPC" type="SageBool" default="false" />
+-->			
+
+  			<Defines>						
+							<Define name="EVA_UNIT_CREATED_PRIORITY" value="5"/>						
+							<!-- Params for non-hero created event -->						
+							<Define name="EVA_UNIT_CREATED_TIME_BETWEEN_EVENTS" value="10000ms"/>						
+							<!-- Params for non-hero created event -->						
+							<Define name="EVA_UNIT_CREATED_EXPIRATION_TIME" value="10000ms"/>						
+							<!-- Params for non-hero created event -->						
+
+							<Define name="EVA_HERO_CREATED_PRIORITY" value="6"/>						
+							<!-- Params for hero created event -->						
+							<Define name="EVA_HERO_CREATED_TIME_BETWEEN_EVENTS" value="10000ms"/>						
+							<!-- Params for hero created event -->						
+							<Define name="EVA_HERO_CREATED_EXPIRATION_TIME" value="10000ms"/>						
+							<!-- Params for hero created event -->						
+
+							<Define name="EVA_HERO_HELP_ME_PRIORITY" value="7"/>						
+							<Define name="EVA_HERO_HELP_ME_TIME_BETWEEN_EVENTS" value="30000ms"/>						
+							<Define name="EVA_HERO_HELP_ME_EXPIRATION_TIME" value="10000ms"/>						
+
+							<Define name="EVA_BUILDING_COMPLETE_PRIORITY" value="6"/>						
+							<!-- Params for building finished construction event -->						
+							<Define name="EVA_BUILDING_COMPLETE_TIME_BETWEEN_EVENTS" value="1000ms"/>						
+							<!-- Params for building finished construction event. Short because we want 2 buildings to announce twice -->						
+							<Define name="EVA_BUILDING_COMPLETE_EXPIRATION_TIME" value="10000ms"/>						
+							<!-- Params for building finished construction event -->						
+
+							<Define name="EVA_UPGRADE_COMPLETE_PRIORITY" value="6"/>						
+							<Define name="EVA_UPGRADE_COMPLETE_TIME_BETWEEN_EVENTS" value="1000ms"/>						
+							<Define name="EVA_UPGRADE_COMPLETE_EXPIRATION_TIME" value="10000ms"/>						
+
+							<Define name="EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" value="2000ms"/>						
+							<!-- How long to hold on to any of our under-attack events -->						
+
+							<Define name="EVA_SUPERWEAPON_READY_PRIORITY" value="39"/>						
+							<Define name="EVA_ENEMY_SUPERWEAPON_FIRED_PRIORITY" value="40"/>						
+							<Define name="EVA_ALLIED_SUPERWEAPON_FIRED_PRIORITY" value="8"/>						
+							<Define name="EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" value="5"/>						
+							<Define name="EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" value="10000ms"/>						
+							<Define name="EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" value="3000ms"/>						
+
+							<!-- Player Powers that are upgrades -->						
+							<Define name="EVA_PLAYERPOWERUPGRADES_READY_PRIORITY" value="9"/>						
+							<Define name="EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" value="10000ms"/>						
+							<Define name="EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" value="3000ms"/>						
+
+							<!-- Timeouts for anything which is basically an immediate reaction to a player button press (basically, a fancy voice of a button 'click') -->						
+							<Define name="EVA_GUI_PRIORITY" value="10"/>						
+							<Define name="EVA_GUI_TIME_BETWEEN_EVENTS" value="1000ms"/>						
+							<Define name="EVA_GUI_EXPIRATION_TIME" value="2000ms"/>						
+
+							<!-- Coop AI voice responses -->						
+		 						<!-- They need different priorities otherwise when you have multipled Coop-Commanders, a random commander will respond each time an order is given (I think) -->						
+							<Define name="EVA_COOP_AI_PRIORITY" value="50"/>						
+							<Define name="ALLIED_GILES_COOP_AI_PRIORITY" value="54"/>						
+							<Define name="ALLIED_LISS_COOP_AI_PRIORITY" value="57"/>						
+							<Define name="ALLIED_WARREN_COOP_AI_PRIORITY" value="51"/>						
+							<Define name="EMPIRE_KENJI_COOP_AI_PRIORITY" value="52"/>						
+							<Define name="EMPIRE_NAOMI_COOP_AI_PRIORITY" value="58"/>						
+							<Define name="EMPIRE_SHINZO_COOP_AI_PRIORITY" value="55"/>						
+							<Define name="SOVIET_MOSKVIN_COOP_AI_PRIORITY" value="53"/>						
+							<Define name="SOVIET_OLEG_COOP_AI_PRIORITY" value="56"/>						
+							<Define name="SOVIET_ZHANA_COOP_AI_PRIORITY" value="59"/>						
+							<Define name="EVA_COOP_AI_TIME_BETWEEN_EVENTS" value="4s"/>						
+							<Define name="EVA_COOP_AI_EXPIRATION_TIME" value="3s"/>						
+
+							<!-- On Hold -->						
+							<Define name="EVA_ONHOLD_TIME_BETWEEN_EVENTS" value="30s"/>						
+							<Define name="EVA_ONHOLD_EXPIRATION_TIME" value="2s"/>						
+  			</Defines>			
+
+  			<!-- ===== CNC3 DEFINITIONS END ===== -->			
+
+  			<EvaSettings EnemySightedMaxVoicePositionScanRange="1100" MaxTimeBeforeResettingLastJumpTo="3000ms" MaxTimeToKeepJumpToEvents="60000ms" MinDistanceBetweenJumpToEvents="400" id="TheEvaSettings"/>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="BuildingManuallyPoweredDown">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="BuildingManuallyPoweredUp">
+  </EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1000ms" Priority="4" TimeBetweenEvents="10000ms" id="BuildingRepaired">						
+							<SideSound Side="Allies" Sound="Aeva_StructureRepa"/>						
+							<SideSound Side="Soviet" Sound="Seva_StructureRepa"/>						
+							<SideSound Side="Japan" Sound="Ieva_StructureRepa"/>						
+  						<SideSound Side="SACOM" Sound="Seva_StructureRepa"/>									<SideSound Sound="Ieva_StructureRepa" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_StructureRepa" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1000ms" Priority="5" TimeBetweenEvents="10000ms" id="BridgeRepaired">						
+							<!-- TimeBetweenEvents = 30 seconds. Don't play more often than this -->						
+							<!-- ExpirationTime = 1 second.  If Eva is busy, hold the event this long before giving up -->						    
+							<SideSound Side="Allies" Sound="Aeva_BridgeRepaired"/>						
+							<SideSound Side="Soviet" Sound="Seva_BridgeRepaired"/>						
+							<SideSound Side="Japan" Sound="Ieva_BridgeRepaired"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BridgeRepaired"/>									<SideSound Sound="Ieva_BridgeRepaired" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BridgeRepaired" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" CountAsJumpToLocation="false" ExpirationTime="6000ms" Priority="6" TimeBetweenEvents="90000ms" id="LowPower">						
+							<SideSound Side="Allies" Sound="Aeva_LowPower"/>						
+							<SideSound Side="Soviet" Sound="Seva_LowPower"/>						
+							<SideSound Side="Japan" Sound="Ieva_LowPower"/>						
+  						<SideSound Side="SACOM" Sound="Seva_LowPower"/>									<SideSound Sound="Ieva_LowPower" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_LowPower" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="90000ms" id="SilosNeeded">
+  </EvaEvent>			
+
+  			<!-- When OUR building has been captured, I think -->			
+  			<EvaEvent AlwaysPlayFromHomeBase="true" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="10000ms" id="BuildingStolen">						
+							<SideSound Side="Allies" Sound="Aeva_OurBuildingCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_OurBuildingCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_OurBuildingCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OurBuildingCapt"/>									<SideSound Sound="Ieva_OurBuildingCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_OurBuildingCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1000ms" Priority="3" TimeBetweenEvents="30s" id="CriticalStructureLost">						
+							<SideSound Side="Allies" Sound="Aeva_CritStrucLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_CritStrucLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_CritStrucLost"/>						
+  						<SideSound Side="SACOM" Sound="Seva_CritStrucLost"/>									<SideSound Sound="Ieva_CritStrucLost" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_CritStrucLost" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="10000ms" id="EnemyBuildingInfiltrated">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyBuildingInfil"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyBuildingInfil"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyBuildingInfil"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyBuildingInfil"/>									<SideSound Sound="Ieva_EnemyBuildingInfil" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyBuildingInfil" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" ExpirationTime="1000ms" Priority="7" TimeBetweenEvents="10000ms" id="OurBuildingInfiltrated">						
+							<SideSound Side="Allies" Sound="Aeva_OurBuildingInfil"/>						
+							<SideSound Side="Soviet" Sound="Seva_OurBuildingInfil"/>						
+							<SideSound Side="Japan" Sound="Ieva_OurBuildingInfil"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OurBuildingInfil"/>									<SideSound Sound="Ieva_OurBuildingInfil" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_OurBuildingInfil" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="BuildingConstructionStarted">						
+							<SideSound Side="Allies" Sound="Aeva_Building"/>						
+							<SideSound Side="Soviet" Sound="Seva_Building"/>						
+							<SideSound Side="Japan" Sound="Ieva_Building"/>						
+  						<SideSound Side="SACOM" Sound="Seva_Building"/>									<SideSound Sound="Ieva_Building" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_Building" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="BuildingConstructionComplete">						
+							<SideSound Side="Allies" Sound="Aeva_ConComplete"/>						
+							<SideSound Side="Soviet" Sound="Seva_ConComplete"/>						
+							<SideSound Side="Japan" Sound="Ieva_ConComplete"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ConComplete"/>									<SideSound Sound="Ieva_ConComplete" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ConComplete" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="EnemyBuildingCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyBuildingCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyBuildingCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyBuildingCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyBuildingCapt"/>									<SideSound Sound="Ieva_EnemyBuildingCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyBuildingCapt" Side="NRA"/>	</EvaEvent>			
+
+				<!-- for Neutral buildings without specific Eva events (like Neutral PowerPlant) -->			
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="BuildingCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_BuildingCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_BuildingCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_BuildingCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BuildingCapt"/>									<SideSound Sound="Ieva_BuildingCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BuildingCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="AirportCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_AirportCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_AirportCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_AirportCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_AirportCapt"/>									<SideSound Sound="Ieva_AirportCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_AirportCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="DryDockCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_DryDockCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_DryDockCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_DryDockCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_DryDockCapt"/>									<SideSound Sound="Ieva_DryDockCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_DryDockCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="FirebaseCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_FirebaseCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_FirebaseCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_FirebaseCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_FirebaseCapt"/>									<SideSound Sound="Ieva_FirebaseCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_FirebaseCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="GarageCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_GarageCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_GarageCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_GarageCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_GarageCapt"/>									<SideSound Sound="Ieva_GarageCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_GarageCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="HospitalCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_HospitalCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_HospitalCapt"/>						
+							<SideSound Side="Soviet" Sound="Ieva_HospitalCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_HospitalCapt"/>								<SideSound Sound="Aeva_HospitalCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="ObservationPostCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_ObservationPostCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_ObservationPostCapt"/>						
+							<SideSound Side="Soviet" Sound="Ieva_ObservationPostCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ObservationPostCapt"/>								<SideSound Sound="Aeva_ObservationPostCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="OilDerrickCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_OilDerrickCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_OilDerrickCapt"/>						
+							<SideSound Side="Soviet" Sound="Ieva_OilDerrickCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OilDerrickCapt"/>								<SideSound Sound="Aeva_OilDerrickCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="4000ms" id="VeteranAcademyCaptured">						
+							<SideSound Side="Allies" Sound="Aeva_VeteranAcademyCapt"/>						
+							<SideSound Side="Soviet" Sound="Seva_VeteranAcademyCapt"/>						
+							<SideSound Side="Japan" Sound="Ieva_VeteranAcademyCapt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_VeteranAcademyCapt"/>									<SideSound Sound="Ieva_VeteranAcademyCapt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_VeteranAcademyCapt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1s" Priority="3" TimeBetweenEvents="30s" id="EnemyCampSighted">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyBaseDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyBaseDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyBaseDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyBaseDet"/>									<SideSound Sound="Ieva_EnemyBaseDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyBaseDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1s" Priority="3" TimeBetweenEvents="30s" id="EnemyBuildingDetected">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyBuildingDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyBuildingDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyBuildingDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyBuildingDet"/>									<SideSound Sound="Ieva_EnemyBuildingDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyBuildingDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="5s" Priority="8" TimeBetweenEvents="30s" id="ConstructionYardUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_ConYardUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_ConYardUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_ConYardUndAttack"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ConYardUndAttack"/>									<SideSound Sound="Ieva_ConYardUndAttack" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ConYardUndAttack" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="5s" Priority="8" TimeBetweenEvents="30s" id="CriticalStructureUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_CritStrucUnderAtt"/>						
+							<SideSound Side="Soviet" Sound="Seva_CritStrucUnderAtt"/>						
+							<SideSound Side="Japan" Sound="Ieva_CritStrucUnderAtt"/>						
+  						<SideSound Side="SACOM" Sound="Seva_CritStrucUnderAtt"/>									<SideSound Sound="Ieva_CritStrucUnderAtt" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_CritStrucUnderAtt" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="5s" Priority="7" TimeBetweenEvents="30s" id="AllyStructureUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_AllyUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_AllyUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_AllyUndAttack"/>						
+  						<SideSound Side="SACOM" Sound="Seva_AllyUndAttack"/>									<SideSound Sound="Ieva_AllyUndAttack" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_AllyUndAttack" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="5s" Priority="7" TimeBetweenEvents="30s" id="StructureUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_BaseUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_BaseUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_BaseUndAttack"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BaseUndAttack"/>									<SideSound Sound="Ieva_BaseUndAttack" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BaseUndAttack" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="StructureCannotBuildDueToFullBuildQueue">						
+							<SideSound Side="Allies" Sound="Aeva_BuilInProgres"/>						
+							<SideSound Side="Soviet" Sound="Seva_BuilInProgres"/>						
+							<SideSound Side="Japan" Sound="Ieva_BuilInProgres"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BuilInProgres"/>									<SideSound Sound="Ieva_BuilInProgres" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BuilInProgres" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="StructurePlacementFailed">						
+							<SideSound Side="Allies" Sound="Aeva_CantDeploHere"/>						
+							<SideSound Side="Soviet" Sound="Seva_CantDeploHere"/>						
+							<SideSound Side="Japan" Sound="Ieva_CantDeploHere"/>						
+  						<SideSound Side="SACOM" Sound="Seva_CantDeploHere"/>									<SideSound Sound="Ieva_CantDeploHere" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_CantDeploHere" Side="NRA"/>	</EvaEvent>			
+  
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="StructureRepairing">						
+							<SideSound Side="Allies" Sound="Aeva_Repairing"/>						
+							<SideSound Side="Soviet" Sound="Seva_Repairing"/>						
+							<SideSound Side="Japan" Sound="Ieva_Repairing"/>						
+  						<SideSound Side="SACOM" Sound="Seva_Repairing"/>									<SideSound Sound="Ieva_Repairing" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_Repairing" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="StructureSold">						
+							<SideSound Side="Allies" Sound="Aeva_StructureSold"/>						
+							<SideSound Side="Soviet" Sound="Seva_StructureSold"/>						
+							<SideSound Side="Japan" Sound="Ieva_StructureSold"/>						
+  						<SideSound Side="SACOM" Sound="Seva_StructureSold"/>									<SideSound Sound="Ieva_StructureSold" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_StructureSold" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="Upgrading">						
+							<SideSound Side="Allies" Sound="Aeva_Upgrading"/>						
+							<SideSound Side="Soviet" Sound="Seva_Upgrading"/>						
+							<SideSound Side="Japan" Sound="Ieva_Upgrading"/>						
+  						<SideSound Side="SACOM" Sound="Seva_Upgrading"/>									<SideSound Sound="Ieva_Upgrading" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_Upgrading" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="UpgradingInProgress">						
+							<SideSound Side="Allies" Sound="Aeva_UpgradeinProg"/>						
+							<SideSound Side="Soviet" Sound="Seva_UpgradeinProg"/>						
+							<SideSound Side="Japan" Sound="Ieva_UpgradeinProg"/>						
+  						<SideSound Side="SACOM" Sound="Seva_UpgradeinProg"/>									<SideSound Sound="Ieva_UpgradeinProg" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_UpgradeinProg" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="3s" Priority="6" TimeBetweenEvents="5s" id="UpgradeComplete">						
+							<SideSound Side="Allies" Sound="Aeva_UpgradeComple"/>						
+							<SideSound Side="Soviet" Sound="Seva_UpgradeComple"/>						
+							<SideSound Side="Japan" Sound="Ieva_UpgradeComple"/>						
+  						<SideSound Side="SACOM" Sound="Seva_UpgradeComple"/>									<SideSound Sound="Ieva_UpgradeComple" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_UpgradeComple" Side="NRA"/>	</EvaEvent>			
+
+				<!-- Player Powers and Super Weapons Ready -->			
+
+					<!-- Japanese non-upgrade Player Powers -->			
+
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="19" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="BalloonBombsReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_BalloonBombsReady"/>						
+						<!--
+		<OtherEvaEventToBlock>BalloonBombBarrageReady</OtherEvaEventToBlock>
+		<OtherEvaEventToBlock>BalloonBombBlowtReady</OtherEvaEventToBlock>
+-->						
+							<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_BalloonBombsReady" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+	
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="22" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="BalloonBombBlowtReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_BalloonBombBlowtReady"/>						
+								<OtherEvaEventToBlock>BalloonBombsReady</OtherEvaEventToBlock>						
+						<!--
+		<OtherEvaEventToBlock>BalloonBombBarrageReady</OtherEvaEventToBlock>
+-->						
+				</EvaEvent>			
+	
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="25" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="BalloonBombBarrageReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_BalloonBombBarrageReady"/>						
+								<OtherEvaEventToBlock>BalloonBombsReady</OtherEvaEventToBlock>						
+								<OtherEvaEventToBlock>BalloonBombBlowtReady</OtherEvaEventToBlock>						
+				</EvaEvent>			
+
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="15" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="EmperorsRageReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_EmperorsRageReadyMS"/>						
+						<!--
+		<OtherEvaEventToBlock>EmperoreRevengeReady</OtherEvaEventToBlock>
+		<OtherEvaEventToBlock>EmperorsRetributReady</OtherEvaEventToBlock>
+-->						
+							<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_EmperorsRageReadyMS" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+	
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="18" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="EmperoreRevengeReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_EmperoreRevengeReadyMS"/>						
+								<OtherEvaEventToBlock>EmperorsRageReadyMS</OtherEvaEventToBlock>						
+						<!--
+		<OtherEvaEventToBlock>EmperorsRetributReady</OtherEvaEventToBlock>
+-->						
+				</EvaEvent>			
+
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="21" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="EmperorsRetributReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_EmperorsRetributReadyMS"/>						
+								<OtherEvaEventToBlock>EmperorsRageReadyMS</OtherEvaEventToBlock>						
+								<OtherEvaEventToBlock>EmperoreRevengeReadyMS</OtherEvaEventToBlock>						
+				</EvaEvent>			
+
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="17" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="FinalSquadronReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_FinalSquadronReady"/>						
+						<!--
+		<OtherEvaEventToBlock>FinalSquadronOmgReady</OtherEvaEventToBlock>
+		<OtherEvaEventToBlock>FinalSquadronXReady</OtherEvaEventToBlock>
+-->						
+							<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_FinalSquadronReady" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+	
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="20" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="FinalSquadronXReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_FinalSquadronXReady"/>						
+						<!--
+		<OtherEvaEventToBlock>FinalSquadronOmgReady</OtherEvaEventToBlock>
+		<OtherEvaEventToBlock>FinalSquadronReady</OtherEvaEventToBlock>
+-->						
+							<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_FinalSquadronXReady" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="23" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="FinalSquadronOmgReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_FinalSquadronOmgReady"/>						
+								<OtherEvaEventToBlock>FinalSquadronReady</OtherEvaEventToBlock>						
+								<OtherEvaEventToBlock>FinalSquadronXReady</OtherEvaEventToBlock>						
+				</EvaEvent>			
+
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="14" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="PointDefenseDronesReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_PointDefenseDronesReady"/>						
+							<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_PointDefenseDronesReady" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+				<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="16" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="SleeperAmbushReady">						
+								<SideSound Side="Allies" Sound=""/>						
+								<SideSound Side="Soviet" Sound=""/>						
+								<SideSound Side="Japan" Sound="Ieva_SleeperAmbushReadyMS"/>						
+							<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_SleeperAmbushReadyMS" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+					<!-- ****** -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="11" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="AdvancedAeronauticsUpgradeAuthorized">						
+							<SideSound Side="Allies" Sound="Aeva_AdvAeronauticsUpAuth"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_AdvAeronauticsUpAuth" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="11" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="AdvancedAeronauticsUpgradeComplete">						
+							<SideSound Side="Allies" Sound="Aeva_AdvAeronauticsUp"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_AdvAeronauticsUp" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="13" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="AdvancedRocketPodsUpgradeAuthorized">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound="Ieva_AdvRocketPodsUpgrdeAuthMS"/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_AdvRocketPodsUpgrdeAuthMS" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+				<!-- aka RoboticAssembly -->			
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="24" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="AssemblyUpgradeAuthorized">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound="Ieva_AssmblyUpgrdeAuthMS"/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_AssmblyUpgrdeAuthMS" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+				<!-- aka Production Kickbacks -->			
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="12" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="CashBountyReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_CashBountyReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound="Seva_CashBountyReady"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="18" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="ChronoChasmReady">						
+							<SideSound Side="Allies" Sound="Aeva_ChronoChasmReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>ChronoRiftReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="21" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="ChronoFissureReady">						
+							<SideSound Side="Allies" Sound="Aeva_ChronoFissureReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>ChronoRiftReady</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>ChronoChasmReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="15" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="ChronoRiftReady">						
+							<SideSound Side="Allies" Sound="Aeva_ChronoRiftReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ChronoRiftReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_SUPERWEAPON_READY_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="ChronosphereReady">						
+							<SideSound Side="Allies" Sound="Aeva_ChronosphereReady"/>						
+							<SideSound Side="Soviet" Sound="Seva_ChronosphereReady"/>						
+							<SideSound Side="Japan" Sound="Ieva_ChronosphereReady"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ChronosphereReady"/>									<SideSound Sound="Ieva_ChronosphereReady" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ChronosphereReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="16" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="ChronoSwapReady">						
+							<SideSound Side="Allies" Sound="Aeva_ChronoSwapReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ChronoSwapReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="19" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="CryoshotReady">						
+							<SideSound Side="Allies" Sound="Aeva_CryshotReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_CryshotReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="22" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="CryoblastReady">						
+							<SideSound Side="Allies" Sound="Aeva_CryblastReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>CryoshotReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="25" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="CryogeddonReady">						
+							<SideSound Side="Allies" Sound="Aeva_CryogeddonReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>CryoshotReady</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>CryoblastReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+				<!-- aka Grinder Treads GrinderTreads -->			
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="13" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="CrushTreadsUpgradeAuthorized">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_GrinderTreadsUpgradeAuthorizedWithSFX"/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound="Seva_GrinderTreadsUpgradeAuthorizedWithSFX"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="15" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="DesolatorAirstrikeReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_DesolatorAirstrkeReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound="Seva_DesolatorAirstrkeReady"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="18" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="DesolatorDualAirstrikeReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_DesolatorDualAirstrkeReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>DesolatorAirstrikeReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="21" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="DesolatorDeltaAirstrikeReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_DesolatorDeltaAirstrkeReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>DesolatorDualAirstrikeReady</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>DesolatorAirstrikeReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="11" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="FortifiedFleetUpgradeAuthorized">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound="Ieva_FortidiedFleetUgrdeAuth"/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_FortidiedFleetUgrdeAuth" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="24" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="FreeTradeUpradeAuthorized">						
+							<SideSound Side="Allies" Sound="Aeva_FreeTradeUpradeAuthMS"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_FreeTradeUpradeAuthMS" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="24" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="FreeTradeUpradeComplete">						
+							<SideSound Side="Allies" Sound="Aeva_FreeTradeUpradeComplete"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_FreeTradeUpradeComplete" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="13" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="HighTechnologyUpgradeAuthorized">						
+							<SideSound Side="Allies" Sound="Aeva_HighTechUpgradeAuth"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_HighTechUpgradeAuth" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="=$EVA_PLAYERPOWERUPGRADES_READY_PRIORITY" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="HighTechnologyUpgradeComplete">						
+							<SideSound Side="Allies" Sound="Aeva_HighTechUpgradeComplete"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_HighTechUpgradeComplete" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="12" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="HonorableDischargeUpgardeAuthorized">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound="Ieva_HonrbleDischargeUpgrdeAuthMS"/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="Ieva_HonrbleDischargeUpgrdeAuthMS" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_SUPERWEAPON_READY_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="IronCurtainReady">						
+							<SideSound Side="Allies" Sound="Aeva_IronCurtainReadyMS"/>						
+							<SideSound Side="Soviet" Sound="Seva_IronCurtainReadyMS"/>						
+							<SideSound Side="Japan" Sound="Ieva_IronCurtainReadyMS"/>						
+  						<SideSound Side="SACOM" Sound="Seva_IronCurtainReadyMS"/>									<SideSound Sound="Ieva_IronCurtainReadyMS" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_IronCurtainReadyMS" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="16" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="MagneticSatelliteReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_MagneticSatellteReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+						<!--
+	<OtherEvaEventToBlock>SuperMagneticSatelliteReady</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>UltraMagneticSatelliteReady</OtherEvaEventToBlock>
+-->						
+  						<SideSound Side="SACOM" Sound="Seva_MagneticSatellteReady"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="19" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="SuperMagneticSatelliteReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_SuprMagnticSatellteReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>MagneticSatelliteReady</OtherEvaEventToBlock>						
+						<!--
+	<OtherEvaEventToBlock>UltraMagneticSatelliteReady</OtherEvaEventToBlock>
+-->						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="22" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="UltraMagneticSatelliteReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Svea_UltraNagnticSatellteReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>SuperMagneticSatelliteReady</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UltraMagneticSatelliteReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="25" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="MagneticSingularityReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Svea_MagnticSingularityReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound="Svea_MagnticSingularityReady"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="24" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="MassProductionUpgradeAuthorized">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_MassProdUpgradeAuthMS"/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound="Seva_MassProdUpgradeAuthMS"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_SUPERWEAPON_READY_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="NanoswarmReady">						
+							<SideSound Side="Allies" Sound="Aeva_NanoswarmReady"/>						
+							<SideSound Side="Soviet" Sound="Seva_NanoswarmReady"/>						
+							<SideSound Side="Japan" Sound="Ieva_NanoswarmReady"/>						
+  						<SideSound Side="SACOM" Sound="Seva_NanoswarmReady"/>									<SideSound Sound="Ieva_NanoswarmReady" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_NanoswarmReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="17" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="OrbitalDropReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_OrbitalDropReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+						<!--
+	<OtherEvaEventToBlock>OrbitalDumpReady</OtherEvaEventToBlock>
+	<OtherEvaEventToBlock>OrbitalDownpourReady</OtherEvaEventToBlock>
+-->						
+  						<SideSound Side="SACOM" Sound="Seva_OrbitalDropReady"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="20" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="OrbitalDumpReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_OrbitalDumpReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>OrbitalDropReady</OtherEvaEventToBlock>						
+						<!--
+	<OtherEvaEventToBlock>OrbitalDownpourReady</OtherEvaEventToBlock>
+-->						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="23" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="OrbitalDownpourReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_OrbitalDownpourReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>OrbitalDropReady</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>OrbitalDumpReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_SUPERWEAPON_READY_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="ProtonColliderReady">						
+							<SideSound Side="Allies" Sound="Aeva_ProtonColidrReadyMS"/>						
+							<SideSound Side="Soviet" Sound="Seva_ProtonColliderReadyaMS"/>						
+							<SideSound Side="Japan" Sound="Ieva_ProtonColliderReadyMS"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ProtonColliderReadyaMS"/>									<SideSound Sound="Ieva_ProtonColliderReadyMS" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ProtonColidrReadyMS" Side="NRA"/>	</EvaEvent>			
+
+				<!-- not used, use Proton Collider Ready instead -->			
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_SUPERWEAPON_READY_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="ProtonShockwaveReady">						
+							<SideSound Side="Allies" Sound="Aeva_ProtonShockwaveReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ProtonShockwaveReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_SUPERWEAPON_READY_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="PsionicDecimatorReady">						
+							<SideSound Side="Allies" Sound="Aeva_PsionicDecimatorReady"/>						
+							<SideSound Side="Soviet" Sound="Seva_PsionicDecimatorReady"/>						
+							<SideSound Side="Japan" Sound="Ieva_PsionicDecimatorReady"/>						
+  						<SideSound Side="SACOM" Sound="Seva_PsionicDecimatorReady"/>									<SideSound Sound="Ieva_PsionicDecimatorReady" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_PsionicDecimatorReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="14" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="SurgicalStrikeReady">						
+							<SideSound Side="Allies" Sound="Aeva_SurgicalStrikeReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SurgicalStrikeReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="12" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="SurveillanceSweepReady">						
+							<SideSound Side="Allies" Sound="Aeva_SurveillanceSweepReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SurveillanceSweepReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="11" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="TerrorDroneSurpriseUpgradeComplete">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_TerrorDroneSurpUpradeCompleteMS"/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound="Seva_TerrorDroneSurpUpradeCompleteMS"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+	
+				<!-- Irradiate Target -->			
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_PLAYERPOWERUPGRADES_READY_EXPIRATION_TIME" Priority="14" TimeBetweenEvents="=$EVA_PLAYERPOWERUPGRADES_READY_TIME_BETWEEN_EVENTS" id="ToxicCorrosionReady">						
+							<SideSound Side="Allies" Sound=""/>						
+							<SideSound Side="Soviet" Sound="Seva_ToxicCorrisionReady"/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound="Seva_ToxicCorrisionReady"/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="17" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="TimeBombReady">						
+							<SideSound Side="Allies" Sound="Aeva_TimeBombReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+  						<SideSound Side="SACOM" Sound=""/>									<SideSound Sound="" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_TimeBombReady" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="20" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="DeluxeTimeBombReady">						
+							<SideSound Side="Allies" Sound="Aeva_DelxTimeBombReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>TimeBombReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="23" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="SupremeTimeBombReady">						
+							<SideSound Side="Allies" Sound="Aeva_SuprmeTimeBombReady"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>TimeBombReady</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>DeluxeTimeBombReady</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_SUPERWEAPON_READY_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="VacuumMissileReady">						
+							<SideSound Side="Allies" Sound="Aeva_VacuumImplodrReady"/>						
+							<SideSound Side="Soviet" Sound="Seva_VacuumImplodrReady"/>						
+							<SideSound Side="Japan" Sound="Ieva_VacuumImploderReady"/>						
+  						<SideSound Side="SACOM" Sound="Seva_VacuumImplodrReady"/>									<SideSound Sound="Ieva_VacuumImploderReady" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_VacuumImplodrReady" Side="NRA"/>	</EvaEvent>			
+
+				<!-- Superweapon Warnings -->			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnChronosphereActivated">						
+							<SideSound Side="Allies" Sound="Aeva_WarnChronosphereAct"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnChronosphereAct"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnChronosphereAct"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnChronosphereAct"/>									<SideSound Sound="Ieva_WarnChronosphereAct" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnChronosphereAct" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnChronosphereDetected">						
+							<SideSound Side="Allies" Sound="Aeva_WarnChronosphereDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnChronosphereDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnChronosphereDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnChronosphereDet"/>									<SideSound Sound="Ieva_WarnChronosphereDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnChronosphereDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnIronCurtainActivated">						
+							<SideSound Side="Allies" Sound="Aeva_WarnIronCurtainAct"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnIronCurtainAct"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnIronCurtainAct"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnIronCurtainAct"/>									<SideSound Sound="Ieva_WarnIronCurtainAct" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnIronCurtainAct" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnIronCurtainDetected">						
+							<SideSound Side="Allies" Sound="Aeva_WarnIronCurtainDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnIronCurtainDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnIronCurtainDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnIronCurtainDet"/>									<SideSound Sound="Ieva_WarnIronCurtainDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnIronCurtainDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnNanoswarmActivated">						
+							<SideSound Side="Allies" Sound="Aeva_WarnNanoswarmAct"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnNanoswarmAct"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnNanoswarmAct"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnNanoswarmAct"/>									<SideSound Sound="Ieva_WarnNanoswarmAct" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnNanoswarmAct" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnNanoswarmDetected">						
+							<SideSound Side="Allies" Sound="Aeva_WarnNanoswarmDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnNanoswarmDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnNanoswarmDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnNanoswarmDet"/>									<SideSound Sound="Ieva_WarnNanoswarmDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnNanoswarmDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnProtonColliderDetected">						
+							<SideSound Side="Allies" Sound="Aeva_WarnProtonColliderDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnProtonColliderDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnProtonColliderDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnProtonColliderDet"/>									<SideSound Sound="Ieva_WarnProtonColliderDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnProtonColliderDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnProtonColliderLaunched">						
+							<SideSound Side="Allies" Sound="Aeva_WarnProtonColliderLaunch"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnProtonColliderLaunch"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnProtonColliderLaunch"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnProtonColliderLaunch"/>									<SideSound Sound="Ieva_WarnProtonColliderLaunch" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnProtonColliderLaunch" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnPsionicDecimatorDetected">						
+							<SideSound Side="Allies" Sound="Aeva_WarnPsionicDecimatorDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnPsionicDecimatorDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnPsionicDecimatorDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnPsionicDecimatorDet"/>									<SideSound Sound="Ieva_WarnPsionicDecimatorDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnPsionicDecimatorDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnPsionicDecimatorLaunched">						
+							<SideSound Side="Allies" Sound="Aeva_WarnPsionicDecimatorLaunch"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnPsionicDecimatorLaunch"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnPsionicDecimatorLaunch"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnPsionicDecimatorLaunch"/>									<SideSound Sound="Ieva_WarnPsionicDecimatorLaunch" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnPsionicDecimatorLaunch" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnVacuumImploderDetected">						
+							<SideSound Side="Allies" Sound="Aeva_WarnVacuumImploderDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnVacuumImploderDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnVacuumImploderDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnVacuumImploderDet"/>									<SideSound Sound="Ieva_WarnVacuumImploderDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnVacuumImploderDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_SUPERWEAPON_FIRE_EXPIRATION_TIME" Priority="=$EVA_OWN_SUPERWEAPON_FIRED_PRIORITY" TimeBetweenEvents="=$EVA_SUPERWEAPON_FIRED_TIME_BETWEEN_EVENTS" id="WarnVacuumImploderLaunched">						
+							<SideSound Side="Allies" Sound="Aeva_WarnVacuumImploderLaunch"/>						
+							<SideSound Side="Soviet" Sound="Seva_WarnVacuumImploderLaunch"/>						
+							<SideSound Side="Japan" Sound="Ieva_WarnVacuumImploderLaunch"/>						
+  						<SideSound Side="SACOM" Sound="Seva_WarnVacuumImploderLaunch"/>									<SideSound Sound="Ieva_WarnVacuumImploderLaunch" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_WarnVacuumImploderLaunch" Side="NRA"/>	</EvaEvent>			
+
+  			<!-- UNIT EVENTS -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="UnitConstructionStarted">						
+							<SideSound Side="Allies" Sound="Aeva_Training"/>						
+							<SideSound Side="Soviet" Sound="Seva_Training"/>						
+							<SideSound Side="Japan" Sound="Ieva_Training"/>						
+  						<SideSound Side="SACOM" Sound="Seva_Training"/>									<SideSound Sound="Ieva_Training" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_Training" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1s" Priority="3" TimeBetweenEvents="30s" id="UnitPromoted">
+  </EvaEvent>			
+
+				<!-- UNDER ATTACKS -->			
+
+  			<EvaEvent CountAsJumpToLocation="true" ExpirationTime="2s" Priority="4" TimeBetweenEvents="5s" TimeToWaitBeforePlaying="0.5s" id="UnitInfected">						 
+							<!-- this delay is calibrated so that it triggers at the same time as the 
+	UnderAttack EVA so that Nanocore/HarvesterUnderAttack will play and suppress 
+	this EVA, but other units will play the Infected EVA and suppress the UnderAttack EVAs -->						
+							<SideSound Side="Allies" Sound="Aeva_UnitInfected"/>						
+							<SideSound Side="Soviet" Sound="Seva_UnitInfected"/>						
+							<SideSound Side="Japan" Sound="Ieva_UnitInfected"/>						
+							<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HarvesterUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>NanocoreUnderAttack</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="3" TimeBetweenEvents="30s" id="UnitUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_UnitUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_UnitUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_UnitUndAttack"/>						
+							<!-- Don't play both UnitUnderAttack and UnitUnderAttackFromShroudedUnit if we are being attacked from both a shrouded and non-shrouded unit -->						
+							<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="3" TimeBetweenEvents="30s" id="UnitUnderAttackFromShroudedUnit">						
+							<SideSound Side="Allies" Sound="Aeva_UnitUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_UnitUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_UnitUndAttack"/>						
+							<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="3" TimeBetweenEvents="30s" id="UnitAmbushed">						
+							<SideSound Side="Allies" Sound="Aeva_UnitUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_UnitUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_UnitUndAttack"/>						
+							<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="3" TimeBetweenEvents="120s" id="AllyUnitUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_AllyUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_AllyUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_AllyUndAttack"/>						
+							<!-- Don't play both AllyUnitUnderAttack and AllyUnitUnderAttackFromShroudedUnit if they are being attacked from both a shrouded and non-shrouded unit -->						
+							<!-- NOTE: need to implement AllyUnitUnderAttackFromShroudedUnit next! -->						
+							<!-- <OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock> -->						
+  						<SideSound Side="SACOM" Sound="Seva_AllyUndAttack"/>									<SideSound Sound="Ieva_AllyUndAttack" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_AllyUndAttack" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="3" TimeBetweenEvents="30s" id="GenericUnitBeingBurned">						
+							<SideSound Side="Allies" Sound="Aeva_UnitUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_UnitUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_UnitUndAttack"/>						
+							<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="5" TimeBetweenEvents="30000ms" id="CriticalUnitUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_CritUnitUnderAtt"/>						
+							<SideSound Side="Soviet" Sound="Seva_CritUnitUnderAtt"/>						
+							<SideSound Side="Japan" Sound="Ieva_CritUnitUnderAtt"/>						
+							<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="5" TimeBetweenEvents="15000ms" id="HarvesterUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_HarvUndAttack"/>						
+							<SideSound Side="Soviet" Sound="Seva_HarvUndAttack"/>						
+							<SideSound Side="Japan" Sound="Ieva_HarvUndAttack"/>						
+							<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitInfected</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="5" TimeBetweenEvents="30s" id="NanocoreUnderAttack">						
+							<SideSound Side="Allies" Sound="Aeva_NanocoreUndAtt"/>						
+							<SideSound Side="Soviet" Sound="Seva_NanocoreUndAtt"/>						
+							<SideSound Side="Japan" Sound="Ieva_NonocoreUndAtt"/>						
+							<!-- Don't play both UnitUnderAttack and UnitUnderAttackFromShroudedUnit if we are being attacked from both a shrouded and non-shrouded unit -->						
+							<OtherEvaEventToBlock>UnitUnderAttack</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitUnderAttackFromShroudedUnit</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>GenericUnitBeingBurned</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitAmbushed</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>UnitInfected</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+				<!-- UNIT LOSTS -->			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="2" TimeBetweenEvents="60s" id="UnitLost">						
+							<SideSound Side="Allies" Sound="Aeva_UnitLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_UnitLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_UnitLost"/>						
+ 						<SideSound Side="SACOM" Sound="Seva_UnitLost"/>									<SideSound Sound="Ieva_UnitLost" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_UnitLost" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="4" TimeBetweenEvents="30s" id="CriticalUnitLost">						
+							<SideSound Side="Allies" Sound="Aeva_CritUnitLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_CritUnitLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_CritUnitLost"/>						
+							<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HarvesterLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>EliteUnitLost</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+  
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="4" TimeBetweenEvents="30s" id="EliteUnitLost">						
+							<SideSound Side="Allies" Sound="Aeva_EliteUnitLost"/>						
+							<SideSound Side="Soviet" Sound=""/>						
+							<SideSound Side="Japan" Sound=""/>						
+							<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>CriticalUnitLost</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="10s" Priority="9" TimeBetweenEvents="2s" id="HeroicUnitLost">						
+							<SideSound Side="Allies" Sound="Aeva_HeroicUnitLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_HeriocUnitLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_HeriocUnitLost"/>						
+  						<SideSound Side="SACOM" Sound="Seva_HeriocUnitLost"/>									<SideSound Sound="Ieva_HeriocUnitLost" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_HeroicUnitLost" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="3" TimeBetweenEvents="20s" id="HarvesterLost">						
+							<SideSound Side="Allies" Sound="Aeva_HarvesterLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_HarvesterLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_HarvesterLost"/>						
+							<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="3" TimeBetweenEvents="60s" id="NanocoreLost">						
+							<SideSound Side="Allies" Sound="Aeva_NanocoreLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_NanocoreLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_NonocoreLost"/>						
+							<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>CriticalUnitLost</OtherEvaEventToBlock>						
+ 			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="4" TimeBetweenEvents="30s" id="NatashaLost">						
+							<SideSound Side="Allies" Sound="Aeva_NatashaLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_NatashaLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_NatashaLost"/>						
+							<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>CriticalUnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>EliteUnitLost</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="4" TimeBetweenEvents="30s" id="TanyaLost">						
+							<SideSound Side="Allies" Sound="Aeva_TanyaLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_TanyaLost"/>						
+							<SideSound Side="Soviet" Sound="Ieva_TanyaLost"/>						
+							<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>CriticalUnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>EliteUnitLost</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME" Priority="4" TimeBetweenEvents="30s" id="YurikoLost">						
+							<SideSound Side="Allies" Sound="Aeva_YurikoLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_YurikoLost"/>						
+							<SideSound Side="Soviet" Sound="Ieva_YurikoLost"/>						
+							<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>CriticalUnitLost</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>EliteUnitLost</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+			<!--
+  <EvaEvent
+	id = "AircraftOutOfAmmoDamage"
+	Priority ="3"
+	TimeBetweenEvents="30s"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Aeva_UnitLost" Side="Allies"/>
+	<SideSound Sound="Seva_UnitLost" Side="Soviet"/>
+	<SideSound Sound="Ieva_UnitLost" Side="Japan"/>
+	<OtherEvaEventToBlock>UnitLost</OtherEvaEventToBlock>
+  </EvaEvent>
+-->			
+
+			<!--
+  <EvaEvent
+	id = "DamagedByTiberium"
+	Priority ="3"
+	TimeBetweenEvents="30s"
+	ExpirationTime="=$EVA_UNIT_UNDER_ATTACK_EXPIRATION_TIME">
+	<SideSound Sound="Geva_TiberExposDet" Side="Allies"/>
+	<SideSound Sound="Geva_TiberExposDet" Side="Soviet"/>
+	<SideSound Sound="Geva_TiberExposDet" Side="Japan"/>
+  </EvaEvent>
+-->			
+
+			<!--
+  <EvaEvent
+	id = "WarningMothershipDeployed"
+	Priority ="3"
+	TimeBetweenEvents="30s"
+	ExpirationTime="1s">
+	<SideSound Sound="Geva_WarnMothership" Side="Allies"/>
+	<SideSound Sound="Geva_WarnMothership" Side="Soviet"/>
+	<SideSound Sound="Geva_WarnMothership" Side="Japan"/>
+  </EvaEvent>
+
+  <EvaEvent
+	id = "MothershipDeployed"
+	Priority ="3"
+	TimeBetweenEvents="30s"
+	ExpirationTime="1s">
+	<SideSound Sound="Geva_MothershipDeployed" Side="Allies"/>
+	<SideSound Sound="Geva_MothershipDeployed" Side="Soviet"/>
+	<SideSound Sound="Geva_MothershipDeployed" Side="Japan"/>
+  </EvaEvent>
+-->			
+
+  			<EvaEvent ExpirationTime="1s" Priority="3" TimeBetweenEvents="30s" id="GenericEnemyUnitSighted">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyUnitDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyUnitDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyUnitDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyUnitDet"/>									<SideSound Sound="Ieva_EnemyUnitDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyUnitDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1s" Priority="7" TimeBetweenEvents="30s" id="EnemyAircraftDetected">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyAircraftDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyAircraftDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyAircraftDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyAircraftDet"/>									<SideSound Sound="Ieva_EnemyAircraftDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyAircraftDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="10s" Priority="5" TimeBetweenEvents="30s" id="EnemyCommandoDetected">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyComandoDetected"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyComandoDetected"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyComandoDetected"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyComandoDetected"/>									<SideSound Sound="Ieva_EnemyComandoDetected" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyComandoDetected" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="10s" Priority="4" TimeBetweenEvents="30s" id="EnemyEngineerDetected">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyEngineerDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyEngineerDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyEngineerDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyEngineerDet"/>									<SideSound Sound="Ieva_EnemyEngineerDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyEngineerDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="10s" Priority="6" TimeBetweenEvents="30s" id="EnemyInfiltratorDetected">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyInfitratorDet"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyInfitratorDet"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyInfitratorDet"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyInfitratorDet"/>									<SideSound Sound="Ieva_EnemyInfitratorDet" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyInfitratorDet" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1s" Priority="5" TimeBetweenEvents="30s" id="EnemyKirovDetected">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyKirovDetected"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyKirovDetected"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyKirovDetected"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyKirovDetected"/>									<SideSound Sound="Ieva_EnemyKirovDetected" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyKirovDetected" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="10s" Priority="4" TimeBetweenEvents="30s" id="EnemyStealthUnitDiscovered">
+  </EvaEvent>			
+
+  			<!-- MISC EVENTS -->			
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_ONHOLD_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_ONHOLD_TIME_BETWEEN_EVENTS" id="BuildOnHold">						
+							<SideSound Side="Allies" Sound="Aeva_OnHold"/>						
+							<SideSound Side="Soviet" Sound="Seva_OnHold"/>						
+							<SideSound Side="Japan" Sound="Ieva_OnHold"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OnHold"/>									<SideSound Sound="Ieva_OnHold" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_OnHold" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="Resuming">						
+							<SideSound Side="Allies" Sound="Aeva_Resuming"/>						
+							<SideSound Side="Soviet" Sound="Seva_Resuming"/>						
+							<SideSound Side="Japan" Sound="Ieva_Resuming"/>						
+  						<SideSound Side="SACOM" Sound="Seva_Resuming"/>									<SideSound Sound="Ieva_Resuming" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_Resuming" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="BuildCancelled">						
+							<SideSound Side="Allies" Sound="Aeva_Canceled"/>						
+							<SideSound Side="Soviet" Sound="Seva_Canceled"/>						
+							<SideSound Side="Japan" Sound="Ieva_Canceled"/>						
+  						<SideSound Side="SACOM" Sound="Seva_Canceled"/>									<SideSound Sound="Ieva_Canceled" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_Canceled" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="NewConstructionOptions">						
+							<SideSound Side="Allies" Sound="Aeva_NewConOptons"/>						
+							<SideSound Side="Soviet" Sound="Seva_NewConOptons"/>						
+							<SideSound Side="Japan" Sound="Ieva_NewConOptons"/>						
+  						<SideSound Side="SACOM" Sound="Seva_NewConOptons"/>									<SideSound Sound="Ieva_NewConOptons" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_NewConOptons" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="15s" Priority="7" TimeBetweenEvents="5s" id="CannotBuildDueToCPLimit">						
+							<SideSound Side="Allies" Sound="Aeva_InsufCommandPoints"/>						
+							<SideSound Side="Soviet" Sound="Seva_InsufCommandPoints"/>						
+							<SideSound Side="Japan" Sound="Ieva_InsufCommandPoints"/>						
+  						<SideSound Side="SACOM" Sound="Seva_InsufCommandPoints"/>									<SideSound Sound="Ieva_InsufCommandPoints" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_InsufCommandPoints" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="15s" Priority="7" QuietTime="10s" TimeBetweenEvents="5s" id="BuildQueuePausedDueToCPLimit">						
+							<SideSound Side="Allies" Sound="Aeva_InsufCommandPoints"/>						
+							<SideSound Side="Soviet" Sound="Seva_InsufCommandPoints"/>						
+							<SideSound Side="Japan" Sound="Ieva_InsufCommandPoints"/>						
+  						<SideSound Side="SACOM" Sound="Seva_InsufCommandPoints"/>									<SideSound Sound="Ieva_InsufCommandPoints" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_InsufCommandPoints" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" CountAsJumpToLocation="false" ExpirationTime="15s" Priority="7" QuietTime="10s" TimeBetweenEvents="20s" id="BuildQueuePausedDueToFunds">						
+							<SideSound Side="Allies" Sound="Aeva_InsufficFunds"/>						
+							<SideSound Side="Soviet" Sound="Seva_InsufficFunds"/>						
+							<SideSound Side="Japan" Sound="Ieva_InsufficFunds"/>						
+  						<SideSound Side="SACOM" Sound="Seva_InsufficFunds"/>									<SideSound Sound="Ieva_InsufficFunds" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_InsufficFunds" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" CountAsJumpToLocation="false" ExpirationTime="15s" Priority="7" TimeBetweenEvents="20s" id="CannotBuildDueToFunds">						
+							<SideSound Side="Allies" Sound="Aeva_InsufficFunds"/>						
+							<SideSound Side="Soviet" Sound="Seva_InsufficFunds"/>						
+							<SideSound Side="Japan" Sound="Ieva_InsufficFunds"/>						
+  						<SideSound Side="SACOM" Sound="Seva_InsufficFunds"/>									<SideSound Sound="Ieva_InsufficFunds" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_InsufficFunds" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="CannotRepairDueToFunds">						
+							<SideSound Side="Allies" Sound="Aeva_InsufficFunds"/>						
+							<SideSound Side="Soviet" Sound="Seva_InsufficFunds"/>						
+							<SideSound Side="Japan" Sound="Ieva_InsufficFunds"/>						
+  						<SideSound Side="SACOM" Sound="Seva_InsufficFunds"/>									<SideSound Sound="Ieva_InsufficFunds" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_InsufficFunds" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="CannotUsePowerDueToFunds">						
+							<SideSound Side="Allies" Sound="Aeva_InsufficFunds"/>						
+							<SideSound Side="Soviet" Sound="Seva_InsufficFunds"/>						
+							<SideSound Side="Japan" Sound="Ieva_InsufficFunds"/>						
+  						<SideSound Side="SACOM" Sound="Seva_InsufficFunds"/>									<SideSound Sound="Ieva_InsufficFunds" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_InsufficFunds" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="2" TimeBetweenEvents="20s" id="ReinforcementsReady">						
+							<SideSound Side="Allies" Sound="Aeva_ReinfHavArriv"/>						
+							<SideSound Side="Soviet" Sound="Seva_ReinfHavArriv"/>						
+							<SideSound Side="Japan" Sound="Ieva_ReinfHavArriv"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ReinfHavArriv"/>									<SideSound Sound="Ieva_ReinfHavArriv" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ReinfHavArriv" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="5" TimeBetweenEvents="5s" id="ReinforcementsAcquired">						
+							<SideSound Side="Allies" Sound="Aeva_ReinforcementsAcquired"/>						
+							<SideSound Side="Soviet" Sound="Seva_ReinforcementsAcquired"/>						
+							<SideSound Side="Japan" Sound="Ieva_ReinforcementsAcquired"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ReinforcementsAcquired"/>									<SideSound Sound="Ieva_ReinforcementsAcquired" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ReinforcementsAcquired" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="2" TimeBetweenEvents="5s" id="SecurityPointGranted">						
+							<SideSound Side="Allies" Sound="Aeva_SecurityPointGranted"/>						
+							<SideSound Side="Soviet" Sound="Seva_SecurityPointGranted"/>						
+							<SideSound Side="Japan" Sound="Ieve_SecurityPointGranted"/>						
+  						<SideSound Side="SACOM" Sound="Seva_SecurityPointGranted"/>									<SideSound Sound="Ieve_SecurityPointGranted" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SecurityPointGranted" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="2" TimeBetweenEvents="5s" id="5000credits">						
+							<SideSound Side="Allies" Sound="Aeva_5000credits"/>						
+							<SideSound Side="Soviet" Sound="Seva_5000credits"/>						
+							<SideSound Side="Japan" Sound="Ieva_5000credits"/>						
+  						<SideSound Side="SACOM" Sound="Seva_5000credits"/>									<SideSound Sound="Ieva_5000credits" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_5000credits" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="2" TimeBetweenEvents="5s" id="10000credits">						
+							<SideSound Side="Allies" Sound="Aeva_10000credits"/>						
+							<SideSound Side="Soviet" Sound="Seva_10000credits"/>						
+							<SideSound Side="Japan" Sound="Ieva_10000credits"/>						
+  						<SideSound Side="SACOM" Sound="Seva_10000credits"/>									<SideSound Sound="Ieva_10000credits" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_10000credits" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="2" TimeBetweenEvents="5s" id="15000credits">						
+							<SideSound Side="Allies" Sound="Aeva_15000credits"/>						
+							<SideSound Side="Soviet" Sound="Seva_15000credits"/>						
+							<SideSound Side="Japan" Sound="Ieva_15000credits"/>						
+  						<SideSound Side="SACOM" Sound="Seva_15000credits"/>									<SideSound Sound="Ieva_15000credits" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_15000credits" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="2" TimeBetweenEvents="5s" id="20000credits">						
+							<SideSound Side="Allies" Sound="Aeva_20000credits"/>						
+							<SideSound Side="Soviet" Sound="Seva_20000credits"/>						
+							<SideSound Side="Japan" Sound="Ieva_20000credits"/>						
+  						<SideSound Side="SACOM" Sound="Seva_20000credits"/>									<SideSound Sound="Ieva_20000credits" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_20000credits" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="3s" Priority="2" TimeBetweenEvents="5s" id="25000credits">						
+							<SideSound Side="Allies" Sound="Aeva_25000credits"/>						
+							<SideSound Side="Soviet" Sound="Seva_25000credits"/>						
+							<SideSound Side="Japan" Sound="Ieva_25000credits"/>						
+  						<SideSound Side="SACOM" Sound="Seva_25000credits"/>									<SideSound Sound="Ieva_25000credits" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_25000credits" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="SelectDestination">						
+							<SideSound Side="Allies" Sound="Aeva_SelectDestination"/>						
+							<SideSound Side="Soviet" Sound="Seva_SelectDestination"/>						
+							<SideSound Side="Japan" Sound="Ieva_SelectDestination"/>						
+  						<SideSound Side="SACOM" Sound="Seva_SelectDestination"/>									<SideSound Sound="Ieva_SelectDestination" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SelectDestination" Side="NRA"/>	</EvaEvent>			
+  
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="SelectLocation">						
+							<SideSound Side="Allies" Sound="Aeva_SelectLocation"/>						
+							<SideSound Side="Soviet" Sound="Seva_SelectLocation"/>						
+							<SideSound Side="Japan" Sound="Ieva_SelectLocation"/>						
+  						<SideSound Side="SACOM" Sound="Seva_SelectLocation"/>									<SideSound Sound="Ieva_SelectLocation" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SelectLocation" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="SelectSpecialPowerTarget">						
+							<SideSound Side="Allies" Sound="Aeva_SelectTarget"/>						
+							<SideSound Side="Soviet" Sound="Seva_SelectTarget"/>						
+							<SideSound Side="Japan" Sound="Ieva_SelectTarget"/>						
+  						<SideSound Side="SACOM" Sound="Seva_SelectTarget"/>									<SideSound Sound="Ieva_SelectTarget" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SelectTarget" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="=$EVA_GUI_PRIORITY" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="SelectSpecialPowerTargetArea">						
+							<SideSound Side="Allies" Sound="Aeva_SelectTargetArea"/>						
+							<SideSound Side="Soviet" Sound="Seva_SelectTargetArea"/>						
+							<SideSound Side="Japan" Sound="Ieva_SelectTargetArea"/>						
+  						<SideSound Side="SACOM" Sound="Seva_SelectTargetArea"/>									<SideSound Sound="Ieva_SelectTargetArea" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SelectTargetArea" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="1s" Priority="6" TimeBetweenEvents="100ms" id="SelectUnit">						
+							<SideSound Side="Allies" Sound="Aeva_SelectUnit"/>						
+							<SideSound Side="Soviet" Sound="Seva_SelectUnit"/>						
+							<SideSound Side="Japan" Sound="Ieva_SelectUnit"/>						
+  						<SideSound Side="SACOM" Sound="Seva_SelectUnit"/>									<SideSound Sound="Ieva_SelectUnit" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_SelectUnit" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="10s" Priority="6" TimeBetweenEvents="20s" id="OreMineLow">						
+							<SideSound Side="Allies" Sound="Aeva_OreMineNearDepletion"/>						
+							<SideSound Side="Soviet" Sound="Seva_OreNodeNearDepletion"/>						
+							<SideSound Side="Japan" Sound="Ieva_OreMineNearDepletion"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OreNodeNearDepletion"/>									<SideSound Sound="Ieva_OreMineNearDepletion" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_OreMineNearDepletion" Side="NRA"/>	</EvaEvent>			
+  
+  			<EvaEvent ExpirationTime="10s" Priority="6" TimeBetweenEvents="20s" id="OreMineDepleted">						
+							<SideSound Side="Allies" Sound="Aeva_OreMineDepleted"/>						
+							<SideSound Side="Soviet" Sound="Seva_OreNodeDepleted"/>						
+							<SideSound Side="Japan" Sound="Ieva_OreMineDepleted"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OreNodeDepleted"/>									<SideSound Sound="Ieva_OreMineDepleted" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_OreMineDepleted" Side="NRA"/>	</EvaEvent>			
+
+				<!-- don't use, use OreMineLow instead -->			
+  			<EvaEvent ExpirationTime="10s" Priority="6" TimeBetweenEvents="20s" id="OreNodeLow">						
+							<SideSound Side="Allies" Sound="Aeva_OreNodeNearDepletion"/>						
+							<SideSound Side="Soviet" Sound="Seva_OreNodeNearDepletion"/>						
+							<SideSound Side="Japan" Sound="Ieva_OreNodeNearDepletion"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OreNodeNearDepletion"/>									<SideSound Sound="Ieva_OreNodeNearDepletion" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_OreNodeNearDepletion" Side="NRA"/>	</EvaEvent>			
+
+				<!-- don't use, use OreMineDepleted instead -->			
+  			<EvaEvent ExpirationTime="10s" Priority="6" TimeBetweenEvents="20s" id="OreNodeDepleted">						
+							<SideSound Side="Allies" Sound="Aeva_OreNodeDepleted"/>						
+							<SideSound Side="Soviet" Sound="Seva_OreNodeDepleted"/>						
+							<SideSound Side="Japan" Sound="Ieva_OreNodeDepleted"/>						
+  						<SideSound Side="SACOM" Sound="Seva_OreNodeDepleted"/>									<SideSound Sound="Ieva_OreNodeDepleted" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_OreNodeDepleted" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="5s" Priority="6" TimeBetweenEvents="5s" id="NewMissionObjective">						
+							<SideSound Side="Allies" Sound="Aeva_NewObjectReci"/>						
+							<SideSound Side="Soviet" Sound="Seva_NewObjectReci"/>						
+							<SideSound Side="Japan" Sound="Ieva_NewObjectReci"/>						
+  						<SideSound Side="SACOM" Sound="Seva_NewObjectReci"/>									<SideSound Sound="Ieva_NewObjectReci" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_NewObjectReci" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="3s" Priority="6" TimeBetweenEvents="5s" id="CompletedMissionObjective">						
+							<SideSound Side="Allies" Sound="Aeva_ObjectiveComp"/>						
+							<SideSound Side="Soviet" Sound="Seva_ObjectiveComp"/>						
+							<SideSound Side="Japan" Sound="Ieva_ObjectiveComp"/>						
+  						<SideSound Side="SACOM" Sound="Seva_ObjectiveComp"/>									<SideSound Sound="Ieva_ObjectiveComp" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_ObjectiveComp" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="5s" Priority="6" TimeBetweenEvents="5s" id="NewBonusObjective">						
+							<SideSound Side="Allies" Sound="Aeva_BonusObjectiveRec"/>						
+							<SideSound Side="Soviet" Sound="Seva_BonusObjectiveRec"/>						
+							<SideSound Side="Japan" Sound="Ieva_BonusObjectiveRec"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BonusObjectiveRec"/>									<SideSound Sound="Ieva_BonusObjectiveRec" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BonusObjectiveRec" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="3s" Priority="6" TimeBetweenEvents="5s" id="CompletedBonusMissionObjective">						
+							<SideSound Side="Allies" Sound="Aeva_BonusObjectiveComplete"/>						
+							<SideSound Side="Soviet" Sound="Seva_BonusObjectiveComplete"/>						
+							<SideSound Side="Japan" Sound="Ieva_BonusObjectiveComplete"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BonusObjectiveComplete"/>									<SideSound Sound="Ieva_BonusObjectiveComplete" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BonusObjectiveComplete" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="9" TimeBetweenEvents="0s" id="MissionAccomplished">						
+							<SideSound Side="Allies" Sound="Aeva_MissionAccomp"/>						
+							<SideSound Side="Soviet" Sound="Seva_MissionAccomp"/>						
+							<SideSound Side="Japan" Sound="Ieva_MissionAccomp"/>						
+  						<SideSound Side="SACOM" Sound="Seva_MissionAccomp"/>									<SideSound Sound="Ieva_MissionAccomp" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_MissionAccomp" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="9" TimeBetweenEvents="0s" id="MissionFailed">						
+							<SideSound Side="Allies" Sound="Aeva_MissionFailed"/>						
+							<SideSound Side="Soviet" Sound="Seva_MissionFailed"/>						
+							<SideSound Side="Japan" Sound="Ieva_MissionFailed"/>						
+  						<SideSound Side="SACOM" Sound="Seva_MissionFailed"/>									<SideSound Sound="Ieva_MissionFailed" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_MissionFailed" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="7" TimeBetweenEvents="0s" id="AllyDefeated">						
+							<SideSound Side="Allies" Sound="Aeva_AllyDefeated"/>						
+							<SideSound Side="Soviet" Sound="Seva_AllyDefeated"/>						
+							<SideSound Side="Japan" Sound="Ieva_AllyDefeated"/>						
+  						<SideSound Side="SACOM" Sound="Seva_AllyDefeated"/>									<SideSound Sound="Ieva_AllyDefeated" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_AllyDefeated" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="81" TimeBetweenEvents="0s" id="EnemyDefeated">						
+							<!-- Priority needs to be very high, and higher than LocalPlayerVictorious. When you defeat the last enemy, we always 
+	want the next words out of EVA's mouth to be "Enemy defeated. You are victorious.-->						
+							<SideSound Side="Allies" Sound="Aeva_PlayerDefeated"/>						
+							<SideSound Side="Soviet" Sound="Seva_PlayerDefeated"/>						
+							<SideSound Side="Japan" Sound="Ieva_PlayerDefeated"/>						
+  						<SideSound Side="SACOM" Sound="Seva_PlayerDefeated"/>									<SideSound Sound="Ieva_PlayerDefeated" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_PlayerDefeated" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="9" TimeBetweenEvents="0s" id="EnemyBaseDestroyed">						
+							<SideSound Side="Allies" Sound="Aeva_EnemyBaseDest"/>						
+							<SideSound Side="Soviet" Sound="Seva_EnemyBaseDest"/>						
+							<SideSound Side="Japan" Sound="Ieva_EnemyBaseDest"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EnemyBaseDest"/>									<SideSound Sound="Ieva_EnemyBaseDest" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EnemyBaseDest" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="75" TimeBetweenEvents="0s" id="ObservedPlayerDefeated">						
+							<SideSound Side="Allies" Sound="Aeva_PlayerDefeated"/>						
+							<SideSound Side="Soviet" Sound="Seva_PlayerDefeated"/>						
+							<SideSound Side="Japan" Sound="Ieva_PlayerDefeated"/>						
+  						<SideSound Side="SACOM" Sound="Seva_PlayerDefeated"/>									<SideSound Sound="Ieva_PlayerDefeated" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_PlayerDefeated" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="80" TimeBetweenEvents="0s" id="LocalPlayerDefeated">						
+							<!-- Priority  should be very high, we want this to always play next after EnemyDefeated-->						
+							<SideSound Side="Allies" Sound="Aeva_YouHaveLost"/>						
+							<SideSound Side="Soviet" Sound="Seva_YouHaveLost"/>						
+							<SideSound Side="Japan" Sound="Ieva_YouHaveLost"/>						
+  						<SideSound Side="SACOM" Sound="Seva_YouHaveLost"/>									<SideSound Sound="Ieva_YouHaveLost" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_YouHaveLost" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="80" TimeBetweenEvents="0s" id="LocalPlayerVictorious">						
+							<!-- Priority  should be very high, we want this to always play next-->						
+							<SideSound Side="Allies" Sound="Aeva_YouAreVictorious"/>						
+							<SideSound Side="Soviet" Sound="Seva_YouAreVictoriousa"/>						
+							<SideSound Side="Japan" Sound="Ieva_YouAreVictorious"/>						
+  						<SideSound Side="SACOM" Sound="Seva_YouAreVictoriousa"/>									<SideSound Sound="Ieva_YouAreVictorious" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_YouAreVictorious" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="80" TimeBetweenEvents="0s" id="LocalPlayerResigned">						
+							<SideSound Side="Allies" Sound="Aeva_YouHaveResign"/>						
+							<SideSound Side="Soviet" Sound="Seva_YouHaveResign"/>						
+							<SideSound Side="Japan" Sound="Ieva_YouHaveResign"/>						
+  						<SideSound Side="SACOM" Sound="Seva_YouHaveResign"/>									<SideSound Sound="Ieva_YouHaveResign" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_YouHaveResign" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent ExpirationTime="6s" Priority="1" SuppressOn360="true" SuppressOnPC="false" TimeBetweenEvents="2s" id="IntelDatabaseEntryReceived">
+  </EvaEvent>			
+
+  			<!-- ===== RA3 DEFINITIONS BEGIN ===== -->			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" CountAsJumpToLocation="false" ExpirationTime="10000ms" Priority="100" TimeBetweenEvents="0ms" id="IncomingTransmission">						
+							<!-- DO NOT CHANGE TimeBetweenEvents or you will lose satcams -->						
+							<SideSound Side="Allies" Sound="Aeva_IncomingTrans"/>						
+							<SideSound Side="Soviet" Sound="Seva_IncomingTrans"/>						
+							<SideSound Side="Japan" Sound="Ieva_IncomingTrans"/>						
+  						<SideSound Side="SACOM" Sound="Seva_IncomingTrans"/>									<SideSound Sound="Ieva_IncomingTrans" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_IncomingTrans" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" CountAsJumpToLocation="false" ExpirationTime="10000ms" Priority="100" TimeBetweenEvents="0ms" id="IncomingRadarTransmission">						
+							<!-- DO NOT CHANGE TimeBetweenEvents or you will lose movies -->						
+							<!-- cut these out for the demo -->						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="9" TimeBetweenEvents="0s" id="EstablishingBattlefieldControl">						
+							<SideSound Side="Allies" Sound="Aeva_EstablishingB"/>						
+							<SideSound Side="Soviet" Sound="Seva_EstablishingB"/>						
+							<SideSound Side="Japan" Sound="Ieva_EstablishingB"/>						
+  						<SideSound Side="SACOM" Sound="Seva_EstablishingB"/>									<SideSound Sound="Ieva_EstablishingB" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_EstablishingB" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="9" TimeBetweenEvents="0s" id="BattlefieldExpanded">						
+							<SideSound Side="Allies" Sound="Aeva_BattleExpande"/>						
+							<SideSound Side="Soviet" Sound="Seva_BattConTermin"/>						
+							<SideSound Side="Japan" Sound="Ieva_BattConTermin"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BattConTermin"/>									<SideSound Sound="Ieva_BattConTermin" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BattleExpande" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="9" TimeBetweenEvents="0s" id="BattleControlTerminated">						
+							<SideSound Side="Allies" Sound="Aeva_BattConTermin"/>						
+							<SideSound Side="Soviet" Sound="Seva_BattConTermin"/>						
+							<SideSound Side="Japan" Sound="Ieva_BattConTermin"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BattConTermin"/>									<SideSound Sound="Ieva_BattConTermin" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BattConTermin" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="9" TimeBetweenEvents="0s" id="FundsTransferred">						
+							<SideSound Side="Allies" Sound="Aeva_FundsTransfer"/>						
+							<SideSound Side="Soviet" Sound="Seva_FundsTransfer"/>						
+							<SideSound Side="Japan" Sound="Ieva_FundsTransfer"/>						
+  						<SideSound Side="SACOM" Sound="Seva_FundsTransfer"/>									<SideSound Sound="Ieva_FundsTransfer" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_FundsTransfer" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="OwnerRedAlertActivated">						
+							<SideSound Side="Allies" Sound="Aeva_RedAlertAct"/>						
+							<SideSound Side="Soviet" Sound="Svea_RedAlertAct"/>						
+							<SideSound Side="Japan" Sound="Ivea_RedAlertAct"/>						
+  						<SideSound Side="SACOM" Sound="Svea_RedAlertAct"/>									<SideSound Sound="Ivea_RedAlertAct" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RedAlertAct" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="AllyRedAlertActivated">						
+							<SideSound Side="Allies" Sound="Aeva_CautnAllyRedAlert"/>						
+							<SideSound Side="Soviet" Sound="Seva_CautnAllyRedAlert"/>						
+							<SideSound Side="Japan" Sound="Ieva_CautnAllyRedAlert"/>						
+  						<SideSound Side="SACOM" Sound="Seva_CautnAllyRedAlert"/>									<SideSound Sound="Ieva_CautnAllyRedAlert" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_CautnAllyRedAlert" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="EnemyRedAlertActivated">						
+							<SideSound Side="Allies" Sound="Aeva_CautnEnemyRedAlert"/>						
+							<SideSound Side="Soviet" Sound="Seva_CautnEnemyRedAlert"/>						
+							<SideSound Side="Japan" Sound="Ieva_CautnEnemyRedAlert"/>						
+  						<SideSound Side="SACOM" Sound="Seva_CautnEnemyRedAlert"/>									<SideSound Sound="Ieva_CautnEnemyRedAlert" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_CautnEnemyRedAlert" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="6" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="AttackBeaconPlaced">						
+							<SideSound Side="ALLIES" Sound="Aeva_BeaconPlaced"/>						
+							<SideSound Side="Soviet" Sound="Seva_BeaconPlaced"/>						
+							<SideSound Side="Japan" Sound="Ieva_BeaconPlaced"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BeaconPlaced"/>									<SideSound Sound="Ieva_BeaconPlaced" Side="PsychicPartisan"/>				</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_GUI_EXPIRATION_TIME" Priority="6" TimeBetweenEvents="=$EVA_GUI_TIME_BETWEEN_EVENTS" id="HoldBeaconPlaced">						
+							<SideSound Side="ALLIES" Sound="Aeva_BeaconPlaced"/>						
+							<SideSound Side="Soviet" Sound="Seva_BeaconPlaced"/>						
+							<SideSound Side="Japan" Sound="Ieva_BeaconPlaced"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BeaconPlaced"/>									<SideSound Sound="Ieva_BeaconPlaced" Side="PsychicPartisan"/>				</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" ExpirationTime="1000ms" Priority="6" TimeBetweenEvents="10000ms" id="BeaconPlacedPlayer">						
+							<SideSound Side="ALLIES" Sound="Aeva_BeaconPlaced"/>						
+							<SideSound Side="Soviet" Sound="Seva_BeaconPlaced"/>						
+							<SideSound Side="Japan" Sound="Ieva_BeaconPlaced"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BeaconPlaced"/>									<SideSound Sound="Ieva_BeaconPlaced" Side="PsychicPartisan"/>				</EvaEvent>			
+
+  			<EvaEvent AlwaysPlayFromHomeBase="true" ExpirationTime="10s" Priority="6" TimeBetweenEvents="5s" id="BeaconPlacedAlly">						
+							<SideSound Side="Allies" Sound="Aeva_BeaconDetected"/>						
+							<SideSound Side="Soviet" Sound="Seva_BeaconDetected"/>						
+							<SideSound Side="Japan" Sound="Ieva_BeaconDetected"/>						
+  						<SideSound Side="SACOM" Sound="Seva_BeaconDetected"/>									<SideSound Sound="Ieva_BeaconDetected" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_BeaconDetected" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="15s" Priority="6" TimeBetweenEvents="0s" id="Countdown10SecsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainSec10"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainSec10"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainSec10"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainSec10"/>									<SideSound Sound="Ieva_RemainSec10" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainSec10" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="5s" Priority="6" TimeBetweenEvents="0s" id="Countdown30SecsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainSec30"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainSec30"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainSec30"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainSec30"/>									<SideSound Sound="Ieva_RemainSec30" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainSec30" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="Countdown1MinsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainMin01"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainMin01"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainMin01"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainMin01"/>									<SideSound Sound="Ieva_RemainMin01" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainMin01" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="Countdown3MinsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainMin03"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainMin03"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainMin03"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainMin03"/>									<SideSound Sound="Ieva_RemainMin03" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainMin03" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="Countdown5MinsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainMin05"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainMin05"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainMin05"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainMin05"/>									<SideSound Sound="Ieva_RemainMin05" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainMin05" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="Countdown10MinsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainMin10"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainMin10"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainMin10"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainMin10"/>									<SideSound Sound="Ieva_RemainMin10" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainMin10" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="Countdown15MinsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainMin15"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainMin15"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainMin15"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainMin15"/>									<SideSound Sound="Ieva_RemainMin15" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainMin15" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="6" TimeBetweenEvents="0s" id="Countdown20MinsInGame">						
+							<SideSound Side="Allies" Sound="Aeva_RemainMin20"/>						
+							<SideSound Side="Soviet" Sound="Seva_RemainMin20"/>						
+							<SideSound Side="Japan" Sound="Ieva_RemainMin20"/>						
+  						<SideSound Side="SACOM" Sound="Seva_RemainMin20"/>									<SideSound Sound="Ieva_RemainMin20" Side="PsychicPartisan"/>					<SideSound Sound="Aeva_RemainMin20" Side="NRA"/>	</EvaEvent>			
+
+				<!-- COOP COMMANDER COOPCOMMANDER CO COMMANDER COCOMMANDER CO-COMMANDER COOP-COMMANDER -->			
+
+					<!-- ALLIED GILES (LEADER) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesAutopilot">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_Autopilot"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesGeneric">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesPlanAttack">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesPlanAttackDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesStrikeThis">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesStrikeThisDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesTakePos">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_TakePosition"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_GILES_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGilesTakePosDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderGiles_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderGiles_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderGiles_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- ALLIED WARREN (BALANCED) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenAutopilot">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_Autopilot"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenGeneric">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenPlanAttack">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenPlanAttackDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenStrikeThis">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenStrikeThisDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenTakePos">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_TakePosition"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_WARREN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopWarrenTakePosDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderWarren_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderWarren_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderWarren_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- ALLIED LISS (SPECIAL FORCES) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissAutopilot">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_Autopilot"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissGeneric">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissPlanAttack">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissPlanAttackDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissStrikeThis">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissStrikeThisDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissTakePos">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_TakePosition"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$ALLIED_LISS_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopLissTakePosDone">						
+							<SideSound Side="Allies" Sound="ALL_CommanderLiss_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="ALL_CommanderLiss_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="ALL_CommanderLiss_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- EMPIRE KENJI (MECH WARFARE) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiAutopilot">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_Autopilot"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiGeneric">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiPlanAttack">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiPlanAttackDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiStrikeThis">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiStrikeThisDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiTakePos">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_TakePosition"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_KENJI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopKenjiTakePosDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderKenji_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderKenji_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderKenji_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- EMPIRE NAOMI (FLEET COMMAND) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiAutopilot">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_Autopilot"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiGeneric">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiPlanAttack">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiPlanAttackDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiStrikeThis">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiStrikeThisDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiTakePos">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_TakePosition"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_NAOMI_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopNaomiTakePosDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderNaomi_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderNaomi_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderNaomi_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- EMPIRE SHINZO (BALANCED) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoAutopilot">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_Autopilot"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoGeneric">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoPlanAttack">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoPlanAttackDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoStrikeThis">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoStrikeThisDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoTakePos">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_TakePosition"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EMPIRE_SHINZO_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="EmpireCoopShinzoTakePosDone">						
+							<SideSound Side="Allies" Sound="EMP_CommanderShinzo_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="EMP_CommanderShinzo_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="EMP_CommanderShinzo_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- SOVIET MOSKVIN (SHOCK SPECIALIST) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinAutopilot">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_Autopilot"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinGeneric">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinPlanAttack">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinPlanAttackDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinStrikeThis">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinStrikeThisDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinTakePos">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_TakePosition"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_MOSKVIN_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopMoskvinTakePosDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderMoskvin_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderMoskvin_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderMoskvin_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- SOVIET OLEG (BALANCED) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegAutopilot">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_Autopilot"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegGeneric">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegPlanAttack">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegPlanAttackDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegStrikeThis">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegStrikeThisDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegTakePos">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_TakePosition"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_OLEG_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopOlegTakePosDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderOleg_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderOleg_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderOleg_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- SOVIET ZHANA (AIR MARSHALL) -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaAutopilot">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_Autopilot"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_Autopilot"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_Autopilot"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaGeneric">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_GenericOrder"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_GenericOrder"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_GenericOrder"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaPlanAttack">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_PlanAttack"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_PlanAttack"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_PlanAttack"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaPlanAttackDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_PlanAttackDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_PlanAttackDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_PlanAttackDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaStrikeThis">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_StrikeThis"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_StrikeThis"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_StrikeThis"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaStrikeThisDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_StrikeThisDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_StrikeThisDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_StrikeThisDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaTakePos">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_TakePosition"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_TakePosition"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_TakePosition"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$SOVIET_ZHANA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="SovietCoopZhanaTakePosDone">						
+							<SideSound Side="Allies" Sound="SOV_CommanderZhana_TakePositionDone"/>						
+							<SideSound Side="Japan" Sound="SOV_CommanderZhana_TakePositionDone"/>						
+							<SideSound Side="Soviet" Sound="SOV_CommanderZhana_TakePositionDone"/>						
+							<OtherEvaEventToBlock>AttackBeaconPlaced</OtherEvaEventToBlock>						
+							<OtherEvaEventToBlock>HoldBeaconPlaced</OtherEvaEventToBlock>						
+  			</EvaEvent>			
+
+					<!-- X-Slice -->			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopBetrayal">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_Betrayal"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_Betrayal"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_Betrayal"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_Betrayal"/>									<SideSound Sound="CA_MajorGiles_Betrayal" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_Betrayal" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopCompleteAssault">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_CompleteAssault"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_CompleteAssault"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_CompleteAssault"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_CompleteAssault"/>									<SideSound Sound="CA_MajorGiles_CompleteAssault" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_CompleteAssault" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopCompleteHelp">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_CompleteHelp"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_CompleteHelp"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_CompleteHelp"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_CompleteHelp"/>									<SideSound Sound="CA_MajorGiles_CompleteHelp" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_CompleteHelp" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopCompleteHold">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_CompleteHold"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_CompleteHold"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_CompleteHold"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_CompleteHold"/>									<SideSound Sound="CA_MajorGiles_CompleteHold" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_CompleteHold" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopCompleteObjective">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_CompleteObjective"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_CompleteObjective"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_CompleteObjective"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_CompleteObjective"/>									<SideSound Sound="CA_MajorGiles_CompleteObjective" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_CompleteObjective" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopCompleteTac">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_CompleteTac"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_CompleteTac"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_CompleteTac"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_CompleteTac"/>									<SideSound Sound="CA_MajorGiles_CompleteTac" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_CompleteTac" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopDefeat">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_Defeat"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_Defeat"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_Defeat"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_Defeat"/>									<SideSound Sound="CA_MajorGiles_Defeat" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_Defeat" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopDefeatEnemy">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_DefeatEnemy"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_DefeatEnemy"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_DefeatEnemy"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_DefeatEnemy"/>									<SideSound Sound="CA_MajorGiles_DefeatEnemy" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_DefeatEnemy" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopDefeatEnemyNear">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_DefeatEnemyNear"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_DefeatEnemyNear"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_DefeatEnemyNear"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_DefeatEnemyNear"/>									<SideSound Sound="CA_MajorGiles_DefeatEnemyNear" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_DefeatEnemyNear" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopDefeatNear">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_DefeatNear"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_DefeatNear"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_DefeatNear"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_DefeatNear"/>									<SideSound Sound="CA_MajorGiles_DefeatNear" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_DefeatNear" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopGreeting">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_Greeting"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_Greeting"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_Greeting"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_Greeting"/>									<SideSound Sound="CA_MajorGiles_Greeting" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_Greeting" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopHelpMe">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_HelpMe"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_HelpMe"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_HelpMe"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_HelpMe"/>									<SideSound Sound="CA_MajorGiles_HelpMe" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_HelpMe" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopAssaultBeaconPlaced">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderAssault"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderAssault"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderAssault"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderAssault"/>									<SideSound Sound="CA_MajorGiles_OrderAssault" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderAssault" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderCanceled">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderCanceled"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderCanceled"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderCanceled"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderCanceled"/>									<SideSound Sound="CA_MajorGiles_OrderCanceled" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderCanceled" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderCompleteTac">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderCompleteTac"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderCompleteTac"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderCompleteTac"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderCompleteTac"/>									<SideSound Sound="CA_MajorGiles_OrderCompleteTac" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderCompleteTac" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderGeneric">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderGeneric"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderGeneric"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderGeneric"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderGeneric"/>									<SideSound Sound="CA_MajorGiles_OrderGeneric" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderGeneric" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopHelpRequested">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderHelp"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderHelp"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderHelp"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderHelp"/>									<SideSound Sound="CA_MajorGiles_OrderHelp" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderHelp" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopDefendBeaconPlaced">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderHold"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderHold"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderHold"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderHold"/>									<SideSound Sound="CA_MajorGiles_OrderHold" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderHold" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderTacCapture">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderTacCapture"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderTacCapture"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderTacCapture"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderTacCapture"/>									<SideSound Sound="CA_MajorGiles_OrderTacCapture" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderTacCapture" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderTacDefend">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderTacDefend"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderTacDefend"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderTacDefend"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderTacDefend"/>									<SideSound Sound="CA_MajorGiles_OrderTacDefend" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderTacDefend" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderTacDestroy">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderTacDestroy"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderTacDestroy"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderTacDestroy"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderTacDestroy"/>									<SideSound Sound="CA_MajorGiles_OrderTacDestroy" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderTacDestroy" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderTacEscort">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderTacEscort"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderTacEscort"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderTacEscort"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderTacEscort"/>									<SideSound Sound="CA_MajorGiles_OrderTacEscort" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderTacEscort" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderTacGeneral">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderTacGeneral"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderTacGeneral"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderTacGeneral"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderTacGeneral"/>									<SideSound Sound="CA_MajorGiles_OrderTacGeneral" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderTacGeneral" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderTacInfiltrate">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderTacInfiltrate"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderTacInfiltrate"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderTacInfiltrate"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderTacInfiltrate"/>									<SideSound Sound="CA_MajorGiles_OrderTacInfiltrate" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderTacInfiltrate" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopOrderTacNavy">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_OrderTacNavy"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_OrderTacNavy"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_OrderTacNavy"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_OrderTacNavy"/>									<SideSound Sound="CA_MajorGiles_OrderTacNavy" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_OrderTacNavy" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopReset">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_Reset"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_Reset"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_Reset"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_Reset"/>									<SideSound Sound="CA_MajorGiles_Reset" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_Reset" Side="NRA"/>	</EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="=$EVA_COOP_AI_EXPIRATION_TIME" Priority="=$EVA_COOP_AI_PRIORITY" TimeBetweenEvents="=$EVA_COOP_AI_TIME_BETWEEN_EVENTS" id="AlliedCoopVictory">						
+							<SideSound Side="Allies" Sound="CA_MajorGiles_Victory"/>						
+							<SideSound Side="Soviet" Sound="CA_MajorGiles_Victory"/>						
+							<SideSound Side="Japan" Sound="CA_MajorGiles_Victory"/>						
+  						<SideSound Side="SACOM" Sound="CA_MajorGiles_Victory"/>									<SideSound Sound="CA_MajorGiles_Victory" Side="PsychicPartisan"/>					<SideSound Sound="CA_MajorGiles_Victory" Side="NRA"/>	</EvaEvent>			
+
+				<!-- ===== RA3 DEFINITIONS END ===== -->			
+
+  			<EvaEvent ExpirationTime="3s" Priority="6" TimeBetweenEvents="0s" id="CTFYouHaveFlag">
+  </EvaEvent>			
+
+  			<EvaEvent ExpirationTime="30s" Priority="6" TimeBetweenEvents="0s" id="CTFEnemyHasFlag">
+  </EvaEvent>			
+
+  			<EvaEvent ExpirationTime="30s" Priority="6" TimeBetweenEvents="0s" id="CTFFlagDropped">
+  </EvaEvent>			
+
+  			<EvaEvent ExpirationTime="30s" Priority="6" TimeBetweenEvents="0s" id="CTFEnemyDroppedFlag">
+  </EvaEvent>			
+
+  			<EvaEvent ExpirationTime="30s" Priority="8" TimeBetweenEvents="0s" id="CTFFlagCaptured">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="8" TimeBetweenEvents="0s" id="CTFEnemyCapturedFlag">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="6" TimeBetweenEvents="0s" id="ControlPointCaptured">
+  </EvaEvent>			
+
+  			<EvaEvent ExpirationTime="30s" Priority="6" TimeBetweenEvents="0s" id="ControlPointLost">
+  </EvaEvent>			
+
+  			<EvaEvent ExpirationTime="30s" Priority="6" TimeBetweenEvents="0s" id="ControlPointHasBeenCaptured">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="500ms" Priority="5" TimeBetweenEvents="0s" id="Countdown01">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="500ms" Priority="5" TimeBetweenEvents="0s" id="Countdown02">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="500ms" Priority="5" TimeBetweenEvents="0s" id="Countdown03">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="500ms" Priority="5" TimeBetweenEvents="0s" id="Countdown04">
+  </EvaEvent>			
+  
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="500ms" Priority="5" TimeBetweenEvents="0s" id="Countdown05">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="99" TimeBetweenEvents="0s" id="SiegeBarrierEngaged">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="30s" Priority="99" TimeBetweenEvents="0s" id="SiegeBarrierDisengaged">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="1500ms" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown10Secs">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="5s" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown30Secs">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown1Mins">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown3Mins">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown5Mins">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown10Mins">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown15Mins">
+  </EvaEvent>			
+
+  			<EvaEvent CountAsJumpToLocation="false" ExpirationTime="10s" Priority="5" TimeBetweenEvents="0s" id="SiegeCountdown20Mins">
+  </EvaEvent>			  
+
+</AssetDeclaration>
