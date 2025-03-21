@@ -1,0 +1,1784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+<Tags></Tags>
+<Includes>
+  <Include type="reference" source="DATA:static.xml" />
+  <Include type="reference" source="DATA:global.xml" />   
+  <Include type="reference" source="DATA:audio.xml" />
+
+  
+  <Include type="all" source="DATA:Psysonic Omega/Audio/AudioFile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Audio/SoundEffects.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Audio/Voice.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Audio/Eva.xml"/>-->
+  <!--Maps Settings-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/AdditionalMaps/MapMetaData_Mod.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/AdditionalMaps/CampaignTemplates.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/AI/index.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Base/BaseAIPersonalityDefinition.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Base/BaseMissionEvaDialogue.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Base/BaseAmbientStream.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Base/BaseExperienceLevelTemplate.xml"/>
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/AttributeModifier.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/Armor.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/GlobalDefines.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/DamageFX.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/ExperienceLevels.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/Environment.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/FXList.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/FXListGDI.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/InvisibilityTemplates.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/Locomotor.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/LogicCommand.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/LogicCommandSet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/MultiplayerSettings.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/ObjectCreationLists.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/RegisteredObjectSets.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/ShaderOverrides.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/SpecialPowerTemplates.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/UnitTypeIcons.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/UnitIntros.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/upgrade.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/Weapon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/GlobalData/Weather.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/Includes/SpecialPowerObjectFilters.xml"/>
+  
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/Includes/SovietNationalismPropagandaUpgrade.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Includes/AlliedTechUpgradeReceiverLevel2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Includes/AlliedTechUpgradeReceiverLevel3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Includes/VehicleCollapseParticles/AlliedVehicleCollapseParticles.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Includes/VehicleCollapseParticles/JapanVehicleCollapseParticles.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Includes/VehicleCollapseParticles/SovietVehicleCollapseParticles.xml"/>-->
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXEmergencyRepairHitDarkMatter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXEmergencyRepairHitDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXEmergencyRepairHitFlash.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystReactionEmitterEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystReactionEmitterEffect_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystReactionLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystReactionLight_Vet.xml"/>
+  
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaFireLightning01_Yellow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaFireLightning02_Yellow.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EnterAirRadarEffect.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFighterDroneBeamGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFighterDroneBeamGlow_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXYurikoLeadershipGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonFireFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonFireFlashHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonHitDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonHitFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonHitFlashHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonHitLightning.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonHitLightningHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienAutoCannonLightning.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedRangerLaserCannon_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedRangerLaserCannon_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedRangerLaserCannon_Light_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedRangerLaserCannon_Mote.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TachyonLance_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TachyonLance_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TachyonLance_Light_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TachyonLance_Mote.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/CHRONOSPHERE.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ChronoSphereLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ChronoSphereLightning.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ChronoDistort.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ChronoSphereFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXChronoSphereFogMist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXMedChronoLightning.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXMiniChrono.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXMiniChronoLightning.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ChronoSphereFallout.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayCenterAccelerant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayCenterDarkMatter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayCenterDist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayCenterFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayCenterGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayIdleCenterDarkMatter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayIdleCenterDist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayIdleCenterFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABGatewayIdleCenterGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedAirShipGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedAirShipGlow_02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDiskFire_Add.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDiskFire_AddHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDiskFire_Dist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDiskFire_SW.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDiskFire_SWHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDisk_Add.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDisk_AddHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDisk_Dist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDisk_Shockwave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedDisk_ShockwaveHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedEnergyBallGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFutureTankFX.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Frost_Decal3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Frost_Decal2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Frost_Decal.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Frost_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Frost_Myst.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Frost_Snow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Frost_wave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_Decal.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_DecalL.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_DecalR.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_hit.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_hitVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_MystL.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_MystR.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegion_Laser_MystVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionaireDeathDecal.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionaireDeathGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionaireDeathLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionaireDeathMist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionaireWaterFrost.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionaireWaterWake.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionLaserhit.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapDust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapHitDebris.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapHitDust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapHitSplash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapHitWake.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapJetLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapJetSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapJetSparkles.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapJetTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedLegionnaireLeapSparkles.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCryoCopter_Frost_Decal.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCryoCopter_Frost_Decal2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Allied_Pointer_Laser_Start.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Allied_Pointer_Laser_Start_Veteran.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Allied_Laser_Beam_Start.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Allied_Hydra_Beam_Start.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Allied_Hydra_Beam_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionCenterFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionCenterFireVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionEmbers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionEmbersVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionFire_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionFireMush.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionFireMush_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionFlashVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionLightVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionShockwave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionShockwaveVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionSmokeGround.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionSmokeMush.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionWake.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryExplosionWaterMist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFire_Geo.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFire_GeoVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFire_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFire_GlowVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFire_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFire_LightVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFire_Smoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryFootDust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryPrimary_Break.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryPrimary_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryPrimary_FlashVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryPrimary_Shells.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryShellTrail02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryShellTrail02Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryShellTrail03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryShellTrail03Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryShellTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryShellTrailVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryTankDust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryTankWake.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedArtilleryTankWater.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedBuzzers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPointDefenseLaser_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPointDefenseLaser_Light_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedJetTrailGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPowerSmoke_Upgraded.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/alliedcoldPowerGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedMissleLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedMissleLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedNanoBuzzers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AllianceSmallFireDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedToxic_Cloud.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedToxicHit.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedToxicHit_Embers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedToxicCloudFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedToxicCloudShimmer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedToxicCloudPuddle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPlasmaDiskTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPlasmaDiskTrailHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ARFUJetTrailGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ARFU_Target_Laser.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlienHearnAirBorneKillerDistortLevel3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlienHearnAirBorneKillerDustLevel3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlienHearnAirBorneKillerLevel3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlienHearnAirBorneKillerMistLevel3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlienHearnAirBorneKillerMotesLevel3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlienHearnAirBorneKillerWakeLevel3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProton01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProton02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProton03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProton04.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProton05.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProton06.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProtonCore.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProtonDist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProtonFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipProtonSW.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetCore.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetDist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetProton01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetProton02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetProton03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetProton04.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetProton05.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetProton06.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedGunshipVetSW.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/IonStorm.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienWromHole.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAircraftDie.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NODObelisk.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedStealthFX.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXMissileTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXMissileMiss.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXFlameTank.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAutoCannonFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailGunCore.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailGunCoreHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunFireDistort.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunFireFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunFireFlashHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunFireSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunFireSmokeHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunThreads.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunThreadsHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TibCellAura.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AllianceHydraDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoPsyonicBlastAdditive.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoPsyonicBlastDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoPsyonicBlastFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoPsyonicBlastLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoPsyonicBlastLightRays.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoAttackDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoAttackFlashes.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoAttackLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoAttackLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoAttackSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoAttackSparks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoLureCircle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoLureGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoLureSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoLureSparks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Tera.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistort.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistortA.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistortB.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistortC.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistortBlast.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistortBlastA.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistortRingA.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraDistortRingA_Lg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowA.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowAHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowB.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowBHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YurikoLureSparks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowBlast.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowBlastA.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowBlastAHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowBlastHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowC.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowC2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadial.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadial2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadial2Echo.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadial2Echo_Lg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadial2EchoHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadial2Heroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadialEcho.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraGlowRadialEcho_Lg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraSparkB.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeraSparkBHeroic.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDIZSonicProj_Trail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDIZSonicProj_TrailHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienTravEngDist_DevWarship.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedJetTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NUBlkHndPilotDistortion.xml"/>
+  
+  
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienVehicleExplodeDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienVehicleExplodeFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienVehicleExplodeGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienVehicleExplodeSmoke.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietShuttleTrailFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietShuttleTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietShuttleTrailSmoke.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_Glow02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_Glow03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_Grind.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_Spark.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_End02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_End03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Mgtron_TB_EndDust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_Razor_TB_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXRazorDroneReproduction.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPMediumXP_Distort.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietFoxMissleTrailSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_GaussCannon_Elec.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietOrbitalDebrisTinyGlow_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Frogtie_Balls.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Frogtie_Fire01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Frogtie_Fire02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Frogtie_Sparks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietFoxFighterEngineGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ShockTrooperGrende.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietCountermeasuresTrailFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SoviettCountermeasuresTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SoviettCountermeasuresTrailSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietEnhancedMorale.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_HW_Embers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_HW_EmbersVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_HW_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_HW_FlashVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_HW_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_HW_LightVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_HW_Smoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowitzerShellTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowitzerShellTrailHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowShellMissDebris.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowShellMissDirt.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowShellMissFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowShellMissFlashHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowShellMissRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHowShellMissRingHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSonicGrenadeGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GUGrenadeTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GUGrenadeTrailHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDIOrcaMissileSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDIOrcaMissileFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDISensorDots.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDISensorExplosion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietMortarParticleSystems.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTeslaBombFlash.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFairyGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFairyGlow_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFairyStartGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFairyStartGlow_Vet.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GreatAttractorAbsorbMatter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GreatAttractorAbsorbMatter_Air.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BlueTeslaSpark.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/YellowTeslaSpark.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/WhiteTeslaSpark.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBolt01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBolt01_Yellow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBolt02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBolt02_Yellow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunCenterGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/RailgunCenterGlow_Yellow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Target_LaserEnd.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Target_Laser.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAEMPProjectileLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPProjectileCenterGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPMuzzleDistort.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPMuzzleFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPMuzzlePulse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BuggyEMPBlast02_qtr.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BuggyEMPBlast03_qtr.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BuggyEMPCard02_qtr.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BuggyEMPCard03_qtr.xml"/>
+  
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietToxicMissileTrailFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietToxicMissileTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonConcentratedLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonConcentratedLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonDispersedLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonDispersedLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonSpark.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonSpark_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonGlow_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ProtonCannonRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXJapanMIRVTrail_VetHIGH.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXJapanMIRVTrail_VetLOW.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanFortRocketTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanFortRocketTrailVet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SS_HealingStationLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SS_PsychicInhibitorLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Japan_Chaos.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Japan_Chaos02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Japan_Chaos03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Japan_Chaos04.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_Light_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_Mote.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_GlowHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_Light_EndHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_LightHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedPanzerLaser_MoteHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedWormHoleGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AUMothershipLaserParticles.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AUMothershipLaserHitSphere.xml"/>-->
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketFireFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketFireFlash_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketFireLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketFireSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketFire_water.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketFire_Water_Ripple.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketTrailSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketTrailFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketTrailFire_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedSubmarineRocketTrailFireLight_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMTrailSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMTrailFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMTrailFire_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMTrailFireLight_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_CheetahTank_M_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_CheetahTank_M_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_CheetahTank_M_Shot.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_CheetahTank_M_Glow_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_CheetahTank_M_Flash_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_CheetahTank_M_Shot_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMInvaderDrone_Hit_Geo.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMInvaderDrone_Hit_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMInvaderDrone_Fire_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMInvaderDrone_Fire_Light_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMInvaderDrone_Fire_Flash_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMInvaderDrone_Fire_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMInvaderDrone_Charge01.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXIonCannonFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXIonCannonPreExplosionDustA.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXIonCannonPreExplosionDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXIonCannonFireGlow.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonBomb.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonXPSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonScatter.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlliedAirBattleshipMainCannonAbsorbParticles.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDIDebrisSmallFireDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietMLRSRocketTrailSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/OrcaDustDesert.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/OrcaDustRocksDesert.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietShipV4TrailFire_EMP.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietShipV4TrailFireLight_EMP.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanPsyonic_Start.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanPsyonic_Start_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/HarvestingSpark.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMSpyPlaneListenWave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionShockwave.xml"/>     
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionFireMushroom.xml" />
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionFire.xml" />      
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionSmoke.xml" />      
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionSmokeMushroom.xml" />
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionSmokeGround.xml" />  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionLight.xml" />
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionParticleBlast.xml" />
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSCUDRocketExplosionFireDistortion.xml" />
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Crystal_Laser.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Crystal_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Crystal_Laser_SmallGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Crystal_Beam_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Crystal_Beam_End_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Crystal_GlowLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Crystal_Glow02.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAWhitePhosphorusSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAWhitePhosphorusBurningGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAWhitePhosphorusGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAWhitePhosphorusLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAWhitePhosphorusTrail.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedOrbitalDefenseEffectLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedOrbitalDefenseEffectRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedOrbitalDefenseEffectVapor.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedOrbitalDefenseVetEffectLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedOrbitalDefenseVetEffectRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedOrbitalDefenseVetEffectVapor.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonLightHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonBombHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonRingHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonXPSmokeHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedCatalystCannonScatterHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABSpikeFireLightning.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ABSpikeFireLightningHeroic.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanAOEMindControlAdditive.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanAOEMindControlDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanAOEMindControlFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanAOEMindControlLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXTimeStopHitBrightMatter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMAntiSubmarineSonarWave.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanCruiseMissileJetGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanCruiseMissileJetTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanCruiseMissileJetLight.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedEMPMissileDetonation_EMPLifetime.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedEMPMissileDetonation_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedEMPMissileDetonation_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedEMPMissileDetonation_Flare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedEMPMissileDetonation_Distort.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Target_Laser.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Target_LaserEnd.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMNerveGasSomke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_GaussProjectile_Elec.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietExecutionEffect_Mote.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_Dirt.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_Dirt02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_Dust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_DustAdd.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_Add.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_Flame.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/XPBombHit_Trail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXRavagerRocketTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXRavagerRocketTrail_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXRavagerRocketTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXRavagerRocketTrailFireLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_MentalSup_ring.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JAP_MentalSup_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXTimeStopLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXTimeStopWave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/IonStorm_Beam_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/IonStorm_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NUBlkHndPurifyingStrmFlame.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NUBlkHndPurifyingStrmGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NUBlkHndStreamDistort.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NUBlkHndStreamGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NUBlkHndStreamFlame.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NUBlkHndPurifyingStrmDistort.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/MutantMaster.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMPowerGlow.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SpectreGunshipExplosionLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BattleMasterTransitionExplosionSmall.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BuggyMissileExplosionLenzflare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/StrategyCenterBarrageDebris.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsionicLeapFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsionicLeapDarkMatter.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanBeaconDarkMatter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanBeaconRays.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanBeaconIdleLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanBeaconGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanBeaconDistortion.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTeslaLarge_EMPLifetime.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaTank_EMP.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AirRadarEffect.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanPatmosProjectileLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanEnergyBallBlast.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ALLFuel_Fuel.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ALLFuel_dist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ALLFuel_Embers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ALLFuel_Exp.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ALLFuel_Fire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ALLFuel_SW.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ALLFuel_Light.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicSingularityCoreDistortion_Air.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NapalmExplosionSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NapalmExplosion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NapalmExplosion_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/CarpetBombExplosion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/CarpetBombWave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/CarpetBombExplosionPuff.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/CarpetBombExplosionPuff_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietThermobaricRocketTrailFireLight.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlienShieldHit.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TomahawkExplosionLenzFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TomahawkExplosion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TomahawkExplosionSparks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BombTruckHEShockwave.xml"/>
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/MythicShotDetonationRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/MythicShotFireLight.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanTechUpgradeGlow01.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanMindCtrlHit_Base.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanMindCtrlHit_Dist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanMindCtrlHit_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanMindCtrlHit_Rays.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanMindCtrlHit_Smoke.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_TeslaRepairDrone_Elec.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHellDroneTrailGlow.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXNanoStormCloud.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSpectreGunshipTrailGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTearGasSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/JapanScannerDome.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMCarryallRecovery.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietNeutronMissileTrailFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietNeutronMissileTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietNeutronMissileTrailFire_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietNeutronMissileTrailFireLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BulletHitGDI.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietToxicHit_Cloud.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietToxic_Cloud.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMSuperFighterEngineHeatDistortion.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMNerveGasGrenadeHit.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMNerveGasGrenadeHit_Cloud.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMNerveGasGrenadeHit_Embers.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ParticleUplinkCannon_HitFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ParticleUplinkCannon_HitFlareWater.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ParticleUplinkCannon_EmitParticles.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ParticalUplinkCannon_Distortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ParticleUplinkCannon_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/ParticleUplinkCannon_Magma.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVNanoBuzzers.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Japan_RazorDrone_Embers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Japan_RazorDrone_Embers02.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietDestroyerJammingSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXAlien.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/GDIShellTrail.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SCParticleBeam.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietToxic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFighterPointDefenseLaser_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedFighterPointDefenseLaser_Light_End.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Neutron.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_Neutron02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXRangerPreAttackDarkMatter.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXPatmosIllusionFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanSacrificeReceiverEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicSoulFormingGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicSoulFadingGlow.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMLockDownHit.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_SharkToxicGas.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_SharkToxicGas02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_SharkToxicGas03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_SharkToxicGas04.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_DestroyerImpactMed_Fire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/Soviet_DestroyerImpactMed_Flash.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BlackHoleHorizon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BlackHoleDarkMatter.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXPsychicStormChannelingParticles.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXPsychicStormChannelingSparks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicStormLightRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicStorm_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicStorm_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicStorm_Elec.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NanoCloud_Medium.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVJetGlowLanding.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVUnpackSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVUnpackLights.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVUnpackFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVCenterDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVCenterGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVIdleLight.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMGhostMissileSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMGhostMissileTrailFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMGhostMissileTrailFire_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMGhostMissileTrailFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMGhostMissileTrailFireLight_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicOrderAirShipGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NanoFieldBuzzers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsionicLeapBlackHole.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAFighterAircraftAAMissileSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAFighterAircraftAAMissileSmoke_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAFighterAircraftAAMissileFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAFighterAircraftAAMissileFireLight_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMCVJetGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanWormHoleGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHarvesterDrone_TeslaRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHarvesterDrone_TeslaRingLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietHarvesterDrone_TeslaElec.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMSuperFighterGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMSuperFighterGlow_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMJetTrailGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietGaussCannonFireDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPBlast.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPBlast02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPBlast03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPCard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPCard02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/EMPCard03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BuggyEMPCard02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BuggyEMPCard03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SS_HealingStationLight_BioReaction.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTeslaBomb_LightHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTeslaBomb_FlashHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBombLightning.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBombFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBombFlareHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTeslaBomb_Light.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/TeslaBombDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTeslaBomb_Flash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMListenerRadarWave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMListenerListenWave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMListenedLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSuperBomberEngineFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietSuperBomberEngineFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXDreamWeaverFireSparks.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SonicAirExplosionDist01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SonicAirExplosionDist02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SonicAirExplosionGlow01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SonicAirExplosionRing01b.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SonicAirExplosionSphere.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SonicAirExplosionSphere02.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/IronCloud.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/LeafletParticles1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanSoulGlow.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedProtonTowerLaserHitRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedProtonTowerLaserHitVapor.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AlliedProtonTowerLaserHitGlow.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BeamPreFireDist.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BeamPreFireFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BeamConstantFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/BeamConstantFire02.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMExplosionMushroom.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMExplosionMushroom_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMExplosionMushroomStem.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMExplosionFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAICBMExplosionFlash_Vet.xml"/>
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXObeliskHitDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXObeliskHitFire.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXObeliskHitGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXObeliskHitFlash.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMagicBallBlast.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicPartisanMagicBallBlastLight.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/DarkMatterEmit.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMAntiAirMissileVehicleFlakMissileSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMAntiAirMissileVehicleFlakMissileFireLight.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SACOMStealthBomberMissileSmoke.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/SovietTowerSonicWave.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASpectrumGunFireFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASpectrumGunFireLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASpectrumGunFireFlash_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASpectrumGunFireLight_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Radar_Ring.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASuperheavyTankCharge01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASuperheavyTankCharge02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASuperheavyTankCharge03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRASuperheavyTankCharge04.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Electro_Small01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Electro_Small02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Electro_Small03.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Electro_Small04.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Electro_Permanent.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Electro_Median.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_Electro_Median_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileDispersedParticle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileDispersedParticle_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileExplosionDispersedParticle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileExplosionDispersedParticle_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileExplosionLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileExplosionLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileExplosionRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileExplosionRing_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileLight.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonProjectileLight_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonStreamGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonStreamGlow_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonStreamDispersedParticle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonStreamDispersedParticle_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAIonStreamMote.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAirship_IceFog.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAirship_Frost_Glow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAirship_Frost_Snow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAirship_Frost_Myst.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAEMPProjectileDispersedParticle.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAntiAirLaserEnd.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAntiAirLaserEnd_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAntiAirLaserEnd_Red.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRAAntiAirLaserEnd_Red_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_ResonateWave.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_ResonateWaveGlow.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_ResonateWave_Vet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NRA_ResonateWaveGlow_Vet.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronDustRingDust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronDust.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronMushroomExplosion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronRing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronLenzflare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AirF_AuroraBombScatterIgnite2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/DaisyExplosionSmoke.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/AirF_AuroraBombExplosion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronBombAbsorbingParticle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronBombDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronRadiationField.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronRadiationField_Water.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NeutronRadiationField_Embers.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NukeRadiationField.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/NukeRadiationField_Water.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicLightning01.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicLightning02.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicStormCoreDistortion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/PsychicStormCoreMagicFlare.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/FXPsychicPartisanDreamfieldCore.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/DreamWeaverShotDetonationMagicRing.xml"/>
+  
+  <!--
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/DisruptorHitFlash.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/DisruptorHitSparks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/DisruptorHitFlashHeroic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/FXParticleSystems/DisruptorHitSparksHeroic.xml"/>
+-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/UI/ButtonStateDataCommon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/UI/HealthBarTemplates.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/UI/RadiusCursors.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/UI/Mouse/PlayerPowerButtonTemplates.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/UI/Mouse/UnitAbilityButtonTemplates.xml"/>
+
+  
+  
+  
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFUConstructionYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFUOutPost.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFUPowerPlant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFUAirField.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFUBarracks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFURefinery.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFUWarFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Structures/ARFUNavalYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUAssultCarrier.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUAttackDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUAliceHearn.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUAurora.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUBattleShipAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUFighterAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUGreet.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUDestoryer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUSupportAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUSupportVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUMCV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUMedicAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUNiki.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUOrca.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUPoliceForce.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUPanzer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUPaladin.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUShockTrooper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUScudLauncher.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Unit/ARFUItalyInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUAliceHearnArrows.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUAttackDroneProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUAurora_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUAurora_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUFairy_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUFairy_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUCryoShip_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUCryoShip_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUProtonMissile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUMedicAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUMedicAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUMedicShipAirborneKillerEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUShockTrooperGrenadeProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUSupportVehicle_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUScudCryoRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUScudMIRVBits.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUScudMIRVHusk.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUScudMIRVMiniRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/ARFU/Props/ARFUScudMIRVProjectile.xml"/>-->
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedSubMarine.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedConstructionYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedEconomyStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedSuperWeapon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/IFV Turret/index.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedBaseDefense.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedBarracks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedBaseDefenseAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedOutPost.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedPowerPlant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedWarFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedPowerPlantTurbine.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedTechStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedAirbase.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedCrane.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedWallPiece.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Structures/AlliedRefinery.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiNavalScout.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedMCV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiGroundAircraft.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedBomberAircraft.xml"/>-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAirBattleShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedBomberAircraft_Support_1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedFighterAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedArcAngelAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAttackDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAttackDrone_Fighter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiVehicleInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiInfantryInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedSniper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedLegionnaireInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedInfiltrationInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedEngineer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedScoutInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedCommandoTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiStructureVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiStructureShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiVehicleVehicleTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiInfantryVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiNavyShipTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedSupportAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiVehicleVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiAirShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAntiAirVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedPointDefenseLaserActivater.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/Pacifier FAV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/Future Tank X-1.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedWarFactoryRepairDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedMotherShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedSupersonicDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedMotherShipIonStormHelper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedHypersonicBomber.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedKodiakGunProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedScienceLab_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedViking_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedViking_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/NR_FutureTechScienceBuilding4_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedStormRider_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedStormRider_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAttackDrone_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAttackDrone_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/IonStorm.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedFighterDrone_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedFighterDrone_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedFighterAircraftProtonCannonScatterNode.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMythicShotProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedShieldHarvester_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAttackDroneProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedSupersonicDrone_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedSupersonicDrone_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAntiStructureVehicleCannonEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMotherShip_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMotherShip_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAirBattleShipCatalystEffect.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedOrcaSonicGrenadeProjectile.xml"/>-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedIFVUpgradedSonicGrenadeProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAirBattleship_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAirBattleship_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedArcAngelAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedArcAngelAircraft_Collapse.xml"/>
+  <!--
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedCommandoTech3WeaponEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAlienHearnAirborneKillerEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedKodiakAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAlienHearnMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedKodiakAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedWormHole_Relive.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Unit/AlliedAlienHearnEnergyBall.xml"/>
+  -->
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedConYard_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMCV_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedCryoSatelliteLvl1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedCryoSatelliteLvl2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedCryoSatelliteLvl3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedLaserTower_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedSuperWeaponEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedForceShield.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedPlasmaDisk.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedHydra_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedChronoSphereSpecialEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/ChronoWarpHiveEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAntiVehicleVehicleTech3CannonNode.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedDefaultMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedWormHole.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedBlackHoleSingularity.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedBattleShipAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedBattleShipAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedBomberAircraftBombProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedTyphoon_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMirage_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMirage_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAPC_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAirbase_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedColdPlant_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedFutureFactory_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedFutureBarracks_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedSpeeder_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedTyphoon_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedLegionnaireInfantryFreezeSprayProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedOrbitalDefenseSystemBeacon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedOrbitalDefenseEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/ToxicFog.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedSubmarine_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMissileJammerBeacon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedMissileJammer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAthena_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedChronoRecyclationHelper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/TimeStopHelper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedAntiStructureShipEMPProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedSubmarineRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedHypersonicBomber_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedHypersonicBomber_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/CatalystNode.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedHyperSonicBomberFAEProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/CommuneMine.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/MirageIonStorm.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/NR_FutureTech_MiniTower3_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedShieldOutpost_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Allied/Props/AlliedSubmarineTorpedoProjectile.xml"/>
+
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietPropagandaRadio.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/DesolatorField_DesolatorBomb.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/VacuumBombEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietWarWolfShield.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietDestroyerCannonShell.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietScudMIRVMiniRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSharkToxicBombProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietGaussCannon_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietScudHERocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietScudRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietDestroyerMainCannonShell.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietDestroyer_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietAntiStructureVehicleMIRVMiniRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietAntiStructureShipV4GuidedRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietTenhoSmokeGrenadeShell.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMARVProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMARVMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHumvee_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/MagneticSingularityEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietThermobaricRocketsProjectile.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietBladeSensorPodProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietBladeSensorPod.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietBladeSensorStickyPod.xml"/>-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietStatue_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSonicGrenadeProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMigBombingRunMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietDefaultTankShell.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHowitzerShell.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHowitzerMIRVShell.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHowitzer_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietStalker_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietFrogtieAircraftProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietAntiGroundAircraftWeaponProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/MagneticSatelliteEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSpectreGunshipAAMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietAntiStructureShipV4RocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietAntiStructureVehicleV4RocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/sufrogtie_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/sufrogtie_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMLRS_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMigBombingRun_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMigBombingRun_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietCarryall_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietCarryall_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietRavager_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietRavager_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietRavagerRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietFoxFighter_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietFoxFighter_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietDepositer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHypersonicBomber_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHypersonicBomber_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SUBattleMaster_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietFighterAircraftFlakMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietCounterMeasures.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMLRSRocket.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietTenhoSmokeGrenadeEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHeavyWalkerGrenadeWeaponProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietAntiNavyShipTech2SuperTorpedoProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietBombingRunBombProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMissilemanMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietMARV_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietDesolatorSprayProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSpectreGunship_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSpectreGunship_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSpectreGunshipMissile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietGasFireEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietTearGasEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietShuttle_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietShuttle_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSentryGun_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SUOsprey_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietOspreyTorpedo.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietDestroyerRocketBarragesRocket.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietPalace_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietScud_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/NeutronField_NeutronBomb.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietGaussCannonProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietShark_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietShark_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHellDrone_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHellDrone_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/DesolatorField_SharkToxicBomb.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSpyPlane_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietSpyPlane_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietScanner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietScudMIRVBits.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietScudMIRVHusk.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHeavyAntiVehicleInfantryTeslaGunNode.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietLaputaAirship_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietLaputaAirship_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietAntiAirVehicleTech1_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/OrbitalRefuseEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietGaussCannonEMSingularityNode.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Props/SovietHarvesterDrone_Collapse.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietPropagandaAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietTeslaTank.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietMCV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiAirShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietCarryall.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietFighterAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiVehicleVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiVehicleVehicleTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiInfantryInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietScoutInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiVehicleInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietHeavyAntiVehicleInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietEngineer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietMLRS.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietHellDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietSpyPlane.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietHammerTank.xml"/>-->
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiVehicleAircraft.xml"/>-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietCommandoTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietBomberAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiGroundAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiInfantryVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiStructureVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietFrogtieAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietCounterMeasuresActivater.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietCounterMeasuresActivater_Fighter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietExecuter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/Soviet_MigBombingRun.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietTransportAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietMissileMan.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietMARV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietSpectreGunship.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietTeslaRepairDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/BaseSovietSupportBomber.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/Soviet_BombingRun.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietDestroyer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietOsprey.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietScoutVehicle.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietMedic.xml"/>-->
+  
+  
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiAirVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiNavyShipTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiNavyShipTech2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietAntiStructureShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietSurveyor.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietHumvee.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/Mortar Cycle.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietPeopleVanguardInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Unit/SovietVanguardTransport.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietRefinery.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietStatue.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietConstructionYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietTechStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietAirfield.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietWarFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietNavalFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietBunker.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietBarracks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietNavalYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietBaseDefenseAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietBaseDefenseAir.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietBaseDefenseGround.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietOutPost.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietPowerPlant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietPowerPlantAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietCrane.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietWallPiece.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietGaussCannon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietSuperWeaponAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Soviet/Structures/SovietDetentionCamp.xml"/>
+
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanCruiserMissileLauncher.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanCruiseMissile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanGattlingTower_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAntiAirShipWeaponProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAntiAirVehicleTech1MissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAntiVehicleInfantryTech3MissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanCruiserMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanTengoArrowProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanMagnetronLureEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanNinjaSmokeBombEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanLiberator_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanLiberator_Collapse.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanHarvesterDrone_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/NanoSwarmHiveEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanDeathDanceEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAdvancedBattleShip_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanFloatingFortressPowerCore_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAntiInfantryVehicle_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAntiInfantryVehicleAirborne_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAntiInfantryVehicleAirborne_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanPointDefenseDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanPlasmaDefenderProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanPlasmaDefender_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanPsychicScanner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanRadarBoat_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanAntiStructureShipWeaponProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanIllusionBroadcaster.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanKenjiMecha_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanMastermind_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanChaosField.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/SS_HealingStationRagdoll_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/SS_HealingStation_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/SS_PsychicInhibitor_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanYurikoBarracks_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanYurikoBarracks_Open_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanYurikoWarFactory_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanShurikenProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanShurikenProjectile_IFV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanMagnetron_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanMastermindAOEMindControlEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanHover_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanDevourer_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/TH_JapanHiveGenerator_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanChinook_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Props/JapanChinook_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanTechStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanBaseDefense.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanPlasmaDefender.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanVIPBunker.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanBarracks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanBaseDefenseAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanPowerPlant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanWarFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanRefinery.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanWallPiece.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanSuperWeapon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanNavalYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanSuperWeaponAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanAirport.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanTankBunker.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Structures/JapanConstructionYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanVIPBunkerEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanBaseDefenseAdvancedEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanPowerPlantEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanBarracksEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanWarFactoryEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanRefineryEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanTechStructureEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanBaseDefenseEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanSuperWeaponEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanPlasmaDefenderEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanNavalYardEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanSuperWeaponAdvancedEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Eggs/JapanAirportEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanRazorDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanMCV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanScoutInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiVehicleInfantryTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanCommandoTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanEngineer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiInfantryInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanInfiltrationInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiVehicleVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanMindController.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiVehicleVehicleTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiVehicleInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiVehicleCommandoTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiInfantryVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiStructureVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiStructureShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanNavyScoutShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiAirShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiVehicleShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanAntiAirVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanBetaYuriko.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanMagnetron.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanMastermind.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanMobileMindController.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanSpitter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/Archer Maiden.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/Giga-Fortress.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/Giga-Fortress Core.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/Steel Ronin.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanLightTransportVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanRadarBoat.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanMissileJammer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanLiberator.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanChinook.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanRioter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Japan/Unit/JapanPointDefenseHelper.xml"/>
+  
+  <!--Psychic Partisan-->
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanFlyingSoul.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanTrueDamageBurner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanBerserkerProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanMCVDummyFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanDreamWeaverProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/NanoField.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanNano_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanAirField_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanFighterAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanFighterAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanAntiStructureShip_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanInfantrySoul.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanSacrificeEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanPsychicBeacon_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanAcademy_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanMCV_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanMCV_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanConstructionYard_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanWarFactory_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicStormEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanShields.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanAntiVehicleVehicleTech3LeechHealthHelper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanCombatFortressProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanCombatFortress_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanPatmosProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanPatmos_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Props/PsychicPartisanGattlingVehicle_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanRefinery.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanConstructionYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanConstructionYardDummy.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanTechStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanBaseDefense.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanPlasmaDefender.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanVIPBunker.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanBarracks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanBaseDefenseAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanPowerPlant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanWarFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanSuperWeapon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanNavalYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanSuperWeaponAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanTankBunker.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanBarricade.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanMagicBall.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Structures/PsychicPartisanAirport.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanAirportEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanFortressShipEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanVIPBunkerEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanBaseDefenseAdvancedEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanPowerPlantEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanBarracksEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanWarFactoryEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanRefineryEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanTechStructureEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanBaseDefenseEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanSuperWeaponEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanPlasmaDefenderEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanNavalYardEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanSuperWeaponAdvancedEgg.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Eggs/PsychicPartisanMechaKingEgg.xml"/>
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanRepairDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanFighterAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanMCV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiInfantryInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiVehicleInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiVehicleVehicleTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanMechaKing.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanECTrooper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanCenturion.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanSuperSonicAirAttack.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanGattlingVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanPatmos.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanPatmos_fake.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanCombatFortress.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanBetaYuriko.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiVehicleInfantryTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanCommandoTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanInfiltrationInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiInfantryVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiAirShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiStructureShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanScoutInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanEngineer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiVehicleShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanNavyScoutShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanAntiStructureVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanMastermind.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanMagnetron.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanInitiate.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanBerserker.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanArcherInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanFlak.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/PsychicPartisan/Unit/PsychicPartisanMCVUnpacking.xml"/>
+
+  <!--SACOM-->
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SupplyCrateSeed.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAttackDroneMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAntiStructureShip_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMGhostBomberMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMGhostBomberAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMGhostBomberAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMTransportHelicopter_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMTransportHelicopter_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSpectreAAMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSuperFighter_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSuperFighter_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSuperFighterMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAvenger_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/ForceFloater.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMCormorantRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMCormorant_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMCormorant_Collapse.xml"/>
+  
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/BluePoisonField.xml"/>-->
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMNavalYard_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMWarFactory_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMBarracks_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAirfield_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAirDropPodEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAirDropPod.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAntiAirMissileVehicle_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSuperFighterADMMGenerator.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMNerveGasEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMHarrier_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMHarrier_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMStealthBomberProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSpyPlane_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSpyPlane_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMStealthBomberHelper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMTomahawkRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMTomahawk_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMListenerHelper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMListener_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMBaseDefenseAir_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMToxicGrenadeProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMTankDestroyerShell.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAntiVehicleVehicleTech2_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSpectreGunshipRailGunProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMLighteningMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMLightening_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMLightening_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMStealthBomber_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMStealthBomber_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSpectreGunship_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSpectreGunship_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMMLRSRocket.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSeaMig_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSeaMig_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMDuster_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMDuster_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMMortarProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMMortarClusterProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMHunterAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMHunterAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMSuperFighterRailGunProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SupplyCrate.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMTomahawkCruiseMissile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMBunkerBuster.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAerialCommandCenter_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMDroneSwarm_Collapse.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAerialCommandCenterAOEShield.xml"/>-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAntiAirMissileVehicleFlakMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAntiAirMissileVehicleEMPMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/ParticleUplinkCannonSpawner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/ParticleUplinkCannonEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAirDropPod_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMRisingParachute.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMCivilianTankCannonProjectile.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMPatriotRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Props/SACOMAntiNavyShipTech2_Collapse.xml"/>
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMSupplyAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiAirMissileVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMMedic.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMScud.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/Reaper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMGhostBomberAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMMCV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiAirShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMCarryall.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMFighterAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiInfantryInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMScoutInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiVehicleInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMEngineer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMMLRS.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMCommandoTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAerialCommandCruiser.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMInvaderDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiSubmarineAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiInfantryVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiStructureVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMStealthBomber.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMSpectreGunship.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMDestroyer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMScoutVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiNavyShipTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiNavyShipTech2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiStructureShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMSurveyor.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMHumvee.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiVehicleVehicleTech2.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMListener.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMSpyPlane.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMTeslaTank.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/Desolator.xml"/>
+  
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMTwinBladeAircraft_Hunter.xml"/>-->
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiAirVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMSuperFighter.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAttackDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMHunterAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMSwarmDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Unit/SACOMAntiVehicleVehicleTech3.xml"/>
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMMortar.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMConstructionYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMTechStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMAirfield.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMWarFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMBunker.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMBarracks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMNavalYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMBaseDefenseAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMBaseDefenseAir.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMBaseDefenseGround.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMOutPost.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMPowerPlant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMRefinery.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMSuperWeapon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMSuperWeaponAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMCrane.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMGaussCannon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMSupplyZone.xml"/>
+  <!--<Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMPowerPlantAdvanced.xml"/>-->
+  <Include type="all" source="DATA:Psysonic Omega/Data/SACOM/Structures/SACOMAerialCommandCenter.xml"/>
+  
+  
+  
+  
+  <!-- NRA  -->
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAALIASTower_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAALIASDrone_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAALIASDrone_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAMediaCenterBountyHelper.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAMediaCenter_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRABaseDefenseEMPCannonProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRABaseDefense_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiAirShipAAMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiAirShip_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiStructureShipICBMProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiStructureShip_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAHypersonicMissile_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/WhitePhosphorusEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiGroundAircraftMIRVMiniRocketProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiGroundAircraftMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiGroundAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiGroundAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiStructureVehicle_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiInfantryVehicle_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiAirVehicleTech1_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/IronCloudEffect.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAHypersonicMissile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRASupportAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRASupportAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRABomberAircraftDummyObject.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NeutronRadiationField.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NukeRadiationField.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRABomberAircraftBombProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRABomberAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRABomberAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAIonStreamSprayProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiVehicleVehicleTech3Projectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAFighterAircraftAAMissileProjectile.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAFighterAircraft_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAFighterAircraft_Dying.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiVehicleVehicleTech1_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Props/NRAAntiVehicleVehicleTech3_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRABaseDefenseAir.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRAairbase.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRABarracks.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRABaseDefense.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRABaseDefenseAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRAConstructionYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRAEconomyStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRANavalYard.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRAOutPost.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRAPowerPlant.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRARefinery.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRASuperWeapon.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRASuperWeaponAdvanced.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRATechStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Structures/NRAWarFactory.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiAirShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiAirVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiGroundAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiInfantryInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiInfantryVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiNavalScout.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiNavyShipTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiStructureShip.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiStructureVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiVehicleInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiVehicleVehicleTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAAntiVehicleVehicleTech3.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRABomberAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRACommandoTech1.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAEngineer.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAFighterAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAInfiltrationInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAMCV.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAScoutInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRASupportAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAWarFactoryRepairDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/NRA/Units/NRAALIASDrone.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseInfantry.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseContainableVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseVehicle.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseBridge.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseRepairDrone.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseCivilian.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseCivilianStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/BaseObjects/BaseTechStructure.xml"/>
+  
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/System/PlayerSpellBook.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/System/PlayerTechs.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/System/PlayerTechRanks.xml"/>
+  
+  <Include type="all" source="DATA:Psysonic Omega/Data/UI/PlayerTechStoreTemplates.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/System/Playertemplates.xml"/>
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/OreNode.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/FakeMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/FakeRefinery.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/BaseMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/AlliedMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/SovietMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/JapanMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/PsychicPartisanMiner.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/OreNode/OilDerrick.xml"/>
+
+  <Include type="all" source="ART:Images/SampleUpdatedPackedImages.xml"/>
+  <Include type="all" source="ART:Images/apt_TacticalHUDSelectionDetails.xml"/>
+  <Include type="all" source="ART:Images/apt_igm_pauseMenu_1.xml"/>
+  <Include type="all" source="ART:Images/apt_igm_PlayerTechStoreDialog_1.xml"/>
+  <Include type="all" source="ART:Images/apt_igm_PlayerTechStoreDialog_2.xml"/>
+
+
+
+  <Include type="all" source="DATA:Psysonic Omega/Data/Neutral_MOD/InfiltratorContainFilters.xml"/>
+  <!--
+  <Include type="all" source="DATA:Psysonic Omega/Data/Neutral_MOD/Structures/OilDerrick.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Neutral_MOD/Structures/AirportTechStructure.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Neutral_MOD/Props/AirportTechStructure_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Neutral_MOD/Props/CivilianTank_Collapse.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Neutral_MOD/Units/CivilianTransportAircraft.xml"/>
+  <Include type="all" source="DATA:Psysonic Omega/Data/Neutral_MOD/Units/CivilianTank.xml"/>-->
+  
+
+</Includes>
+
+	<UIMouseTacticalCommandHarvest id="UIMouseTacticalCommandHarvest" Cursor="MineOre"/>
+</AssetDeclaration>
