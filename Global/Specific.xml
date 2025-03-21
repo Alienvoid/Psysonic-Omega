@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<Includes>
+		<Include type="all" source="Specific/Credits.xml" />
+		<Include type="all" source="Specific/Video.xml" />
+		<Include type="all" source="Specific/VideoEventList.xml" />
+		<Include type="all" source="DATA:Psysonic Omega/Data/MapSettings/MapMetaData.xml"/>
+	</Includes>
+</AssetDeclaration>

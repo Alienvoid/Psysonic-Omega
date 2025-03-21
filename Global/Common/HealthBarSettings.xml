@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<HealthBarSettings
+		id="HealthBarSettings"
+		DefaultHealthBar="Medium_Mod">
+		<ObjectMapping
+			HealthBar="Short_Mod">
+				<ObjectFilter Rule="ANY" Include="INFANTRY">
+				<IncludeThing>ExplodingBarrel_Delay</IncludeThing>
+				<ExcludeThing>JapanYurikoTech1</ExcludeThing>
+				<ExcludeThing>JapanYurikoTech2</ExcludeThing>
+				<ExcludeThing>JapanYurikoTech3</ExcludeThing>
+				<ExcludeThing>JapanScientist</ExcludeThing>
+				<ExcludeThing>JapanIzumi</ExcludeThing>
+				<ExcludeThing>SovietLargeScoutInfantry</ExcludeThing>				
+			</ObjectFilter>
+		</ObjectMapping>
+		
+		<ObjectMapping
+			HealthBar="Medium_Mod">
+			<ObjectFilter
+				Rule="ANY" Include="FS_BASE_DEFENSE">
+				<IncludeThing>AlliedWallPiece</IncludeThing>
+				<IncludeThing>AlliedWallSegmentPiece</IncludeThing>
+				<IncludeThing>SovietWallPiece</IncludeThing>
+				<IncludeThing>SovietWallSegmentPiece</IncludeThing>
+				<IncludeThing>JapanWallPiece</IncludeThing>
+				<IncludeThing>JapanWallSegmentPiece</IncludeThing>
+				<IncludeThing>SovietBunker</IncludeThing>
+				<IncludeThing>PsychicPartisanBarricade</IncludeThing>
+				<IncludeThing>AlliedChronoVehicle</IncludeThing>
+				<IncludeThing>JapanYurikoTech1</IncludeThing>
+				<IncludeThing>JapanYurikoTech2</IncludeThing>
+				<IncludeThing>JapanYurikoTech3</IncludeThing>
+				<IncludeThing>JapanScientist</IncludeThing>
+				<IncludeThing>JapanIzumi</IncludeThing>
+				<ExcludeThing>FI_FloatingFortressMainGun</ExcludeThing>
+			</ObjectFilter>
+		</ObjectMapping>
+		
+		<ObjectMapping
+			HealthBar="Long_Mod">
+			<ObjectFilter
+			 	Rule="ANY">
+				<IncludeThing>SovietAntiVehicleVehicleTech3</IncludeThing>
+				<IncludeThing>SovietMCV</IncludeThing>
+				<IncludeThing>SovietAntiStructureShip</IncludeThing>
+				<IncludeThing>SovietBomberAircraft</IncludeThing>
+				<IncludeThing>SovietKodiak</IncludeThing>
+				<IncludeThing>SovietBomberAircraft_Special</IncludeThing>
+				<IncludeThing>SovietAntiNavyShipTech2</IncludeThing>
+				<IncludeThing>SovietLargeScoutInfantry</IncludeThing>
+				<IncludeThing>SovietGrinderVehicle</IncludeThing>
+				<IncludeThing>AlliedMCV</IncludeThing>
+				<IncludeThing>AlliedBomberAircraft</IncludeThing>
+				<IncludeThing>AlliedAntiStructureShip</IncludeThing>
+				<IncludeThing>AlliedAntiStructureVehicle</IncludeThing>
+				<IncludeThing>AlliedAntiNavyShipTech1</IncludeThing>
+				<IncludeThing>AlliedArtilleryVehicle</IncludeThing>
+				<IncludeThing>AlliedFutureTank</IncludeThing>
+				<IncludeThing>AlliedGunshipAircraft</IncludeThing>
+				<IncludeThing>JapanMCV</IncludeThing>
+				<IncludeThing>JapanAntiVehicleVehicleTech3</IncludeThing>
+				<IncludeThing>JapanEmperorMechaOni</IncludeThing>
+				<IncludeThing>SovietAntiVehicleVehicleTech2</IncludeThing>
+				<IncludeThing>JapanAntiStructureVehicle</IncludeThing>
+				<IncludeThing>JapanAntiStructureShip</IncludeThing>
+				<IncludeThing>JapanAntiVehicleShip</IncludeThing>
+				<IncludeThing>JapanEmperorMecha</IncludeThing>
+				<IncludeThing>KR_ArtilleryDome</IncludeThing>
+				<IncludeThing>JapanKenjiMecha</IncludeThing>
+			</ObjectFilter>
+		</ObjectMapping>
+		
+		<ObjectMapping
+			HealthBar="VeryLargeUnit_Mod">
+			<ObjectFilter
+				Rule="ANY">
+				<IncludeThing>JapanFortressShip</IncludeThing>
+			</ObjectFilter>
+		</ObjectMapping>
+		
+		<ObjectMapping
+			HealthBar="Structure_Mod">
+			<ObjectFilter
+				Rule="ANY" Include="STRUCTURE">
+				<IncludeThing>PsychicPartisanMechaKing</IncludeThing>
+				<IncludeThing>JapanMechaKing</IncludeThing>
+				<IncludeThing>ST_ShuttleDisguiseBuilding</IncludeThing>
+				<IncludeThing>FI_FloatingFortressMainGun</IncludeThing>
+			</ObjectFilter>
+		</ObjectMapping>
+	</HealthBarSettings>
+</AssetDeclaration>
