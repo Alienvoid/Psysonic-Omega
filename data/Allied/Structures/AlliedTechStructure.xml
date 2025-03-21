@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:ABSciencelab_SKN.w3x" />	
+		<Include type="all"	source="ART:ABSciencelab_IDLA.w3x" />
+		<Include type="all"	source="ART:ABSciencelab_FX.w3x" />	
+		<Include type="all"	source="ART:ABSciencelab_BLD_BLD.w3x" />
+		<Include type="all"	source="ART:ABSciencelab_BLD_SKN.w3x" />
+		
+		<Include type="all"	source="ART:ABAirfield_Platform.w3x" />    
+		<Include type="all"	source="ART:ABAirfield_Platform_BLD_SKN.w3x" />				
+		<Include type="all" source="ART:ABAirfield_Platform_BLD_BLD.w3x" />		
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedTechStructure"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_AlliedScienceLaboratory"
+		ButtonImage="Button_AlliedScienceLaboratory"
+		Side="Allies"
+		EditorSorting="STRUCTURE"
+		BuildTime="30"
+		CommandSet="AlliedTechStructureCommandSet"
+		KindOf="+FS_TECHNOLOGY +CAN_ATTACK +POWERED"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="315d"
+		EnergyProduction="-75"
+		MaxSimultaneousOfType="1"
+		ProductionQueueType="MAIN_STRUCTURE"
+		BuildPlacementTypeFlag="MAIN_STRUCTURE"
+		IsTrainable="false"
+		EditorName="AlliedTechStructure"
+		Description="Desc:AlliedRDFacilities"
+		TypeDescription="Type:AlliedTechStructure"
+		WeaponCategory="GUN">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedRDFacilities</DisplayName>
+		<GameDependency>
+			<RequiredObject>AlliedAirfield</RequiredObject>
+			<RequiredObject>AlliedRefinery</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="BaseFactionStructureArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="BACK">
+      <ConstructionBaseSelectionCriteria
+        ExcludedBaseTypes="NO_BUILD_RADIUS CAPTURED"
+        PreferredBaseTypes="MAIN_BASE"
+        SortOrder="PREFER_OLDEST" />
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08 BONE_CONTACT_POINT_09 BONE_CONTACT_POINT_10 BONE_CONTACT_POINT_11 BONE_CONTACT_POINT_12">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABSciencelab_SKN" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="ABSciencelab_SKN" />
+				</ModelConditionState>
+        <!-- BUILD UP -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="ABSciencelab_BLD_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="ABSciencelab_BLD_SKN" />
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="ABSciencelab_IDLA"
+						AnimationMode="LOOP" />
+				</AnimationState>			
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="ABSciencelab_BLD_BLD"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="ABSciencelab_BLD_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="3s"/>
+				</AnimationState>
+			</ScriptedModelDraw>
+
+			<!-- DRAW PLATFORM -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABAirfield_Platform" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="ABAirfield_Platform" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Model
+						Name="ABAirfield_Platform_BLD_SKN" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="ABAirBaseWakeSplash"
+						FollowBone="true" />          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD">
+					<Model
+						Name="ABAirfield_Platform_BLD_SKN" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="ABAirBaseWakeSplash"
+						FollowBone="true" />
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>	
+				
+					<!-- BUILDUP ANIMATION -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Animation
+						AnimationName="ABAirfield_Platform_BLD_BLD"
+						AnimationMode="ONCE" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupFlashes"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupSparksSeed"
+						FollowBone="true" />          
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="ABAirfield_Platform_BLD_BLD"
+						AnimationBlendTime="0"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+						CurDrawableHideSubObjectPermanently("Bib")
+					</Script>
+				</AnimationState>
+			</ScriptedModelDraw>
+						
+								
+		</Draws>
+		<Behaviors>			
+			<Physics
+				id="ModuleTag_Physics"/>
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction"
+				FillerMesh="NEWSKIN_FILL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED"/>
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="SovietRefineryHit"
+					CreationObject="AlliedBarracks_Debris"
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_CIV_MY_AlliedScienceLab_DieExplosion" />
+			</FXListBehavior>
+      <FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+        <DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+        <Event Index="onDeath" FX="FX_LargeBuildingDieExplosion" />
+      </FXListBehavior>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="ABSciencelab_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>		
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED"/>
+			</DestroyDie>
+			
+			<TechUpgrade
+				id="ModuleTag_TechUpgrade_Tech3"
+				Radius="999999.0"
+				DistanceType="RECTANGULAR"
+				FXLineBoneName="fx_bone_upgrade_dish">
+				<TriggeredBy>Upgrade_AlliedTech3</TriggeredBy>
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES" >
+					<IncludeThing>AlliedAirfield</IncludeThing>
+					<IncludeThing>AlliedBarracks</IncludeThing>
+					<IncludeThing>AlliedNavalYard</IncludeThing>
+					<IncludeThing>AlliedWarFactory</IncludeThing>
+					<IncludeThing>AlliedTechStructure</IncludeThing>
+				</ObjectFilter>
+			</TechUpgrade>
+			<TechUpgrade
+				id="ModuleTag_TechUpgrade_Tech2"
+				Radius="999999.0"
+				DistanceType="RECTANGULAR"
+				FXLineBoneName="fx_bone_upgrade_dish">
+				<TriggeredBy>Upgrade_AlliedTech2</TriggeredBy>
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES" >
+					<IncludeThing>AlliedAirfield</IncludeThing>
+					<IncludeThing>AlliedBarracks</IncludeThing>
+					<IncludeThing>AlliedNavalYard</IncludeThing>
+					<IncludeThing>AlliedWarFactory</IncludeThing>
+					<IncludeThing>AlliedTechStructure</IncludeThing>
+				</ObjectFilter>
+			</TechUpgrade>
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="3s" />
+			<AutoDepositUpdate
+				id="ModuleTag_AutoDeposit"
+				DepositInterval="5s"
+				GiveNoXP="true"
+				Flags="ACTIVE_WHEN_REPAIRING">
+				<Deposit
+					Account="=$ACCOUNT_ORE" Amount="100"/>
+			</AutoDepositUpdate>
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/GenericEngineerContain.xml" />
+			<xi:include
+				href="DATA:Includes/GenericAlliedBuildingDestruction.xml" />
+			<xi:include
+				href="DATA:Includes/GenericAlliedBuildingSuicide.xml" />
+			<xi:include
+				href="DATA:Includes/InfiltratorContainParalyze.xml" />								
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="BuildingPowerFunctions"
+			/>
+			<SpecialPower
+				id="ModuleTag_Paradrop"
+				SpecialPowerTemplate="SpecialPowerChronoReinforcement"
+				AvailableAtStart="false"
+				UpdateModuleStartsAttack="true"
+				CanAffectObjectFilter="GenericAllObjectSpecialPowerObjectFilter"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ParadropUpdate"
+				SpecialWeapon="AlliesParadropSupportSeedWeapon"
+				SpecialPowerTemplate="SpecialPowerChronoReinforcement"
+				UnpackTime="1s"
+				PackTime="1s"
+				FaceTarget="false"
+				StartAbilityRange="2500.0"
+				BusyForDuration="0.2s"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="StructureAIStateMachine">
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="3000.0" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<PlacementShape
+				Type= "BOX"
+				MajorRadius = "60.0"
+				MinorRadius = "90.0"
+				Height = "5.0"/>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "55.0"
+				MinorRadius = "41.5"
+				Height = "40.0"
+				ContactPointGeneration="STRUCTURE" >
+				<Offset
+					x = "-5.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape
+				Type= "CYLINDER"
+				MajorRadius = "17.0"
+				MinorRadius = "1.0"
+				Height = "70.0"
+				ContactPointGeneration="STRUCTURE" >
+				<Offset
+					x = "0.0"
+					y = "51.0"
+					z = "0.0" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "20.0"
+				MinorRadius = "26.0"
+				Height = "5.0"
+				ContactPointGeneration="STRUCTURE" >
+				<Offset
+					x = "0.0"
+					y = "-65.0"
+					z = "0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="AudioEvent:ALL_TechCenter_Select"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+<!--
+			<AudioEntry Sound="HumanFaction_MediumBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_MediumBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="150"
+			ShroudClearingRange="500" />
+	</GameObject>
+</AssetDeclaration>

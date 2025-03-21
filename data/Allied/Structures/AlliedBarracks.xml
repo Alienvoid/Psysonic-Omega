@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		
+<!-- THIS IS HERE UNTIL WE GET A WAY POINT MARKER IN THE GAME -->
+		<Include type="all"	source="ART:GBDugOut.w3x" />
+		
+		<Include type="all"	source="ART:ABFutureBarracks.w3x" /> 
+		<Include type="all"	source="ART:ABFutureBarracks_idla.w3x" /> 
+		<Include type="all" source="ART:ABBarracks_particles.w3x" />
+		<Include type="all"	source="ART:ABBarracks_GAG.w3x" />
+		<Include type="all"	source="ART:ABFutureBarracks_DOOR_SKN.w3x" />
+		<Include type="all"	source="ART:ABFutureBarracks_DOOR_OPEN.w3x" />
+		<Include type="all"	source="ART:ABBarracks_UPGRADE.w3x" />
+		<Include type="all"	source="ART:ABFutureBarracks_BLD_SKN.w3x" />			
+		<Include type="all"	source="ART:ABFutureBarracks_BLD_BLD.w3x" />	
+		<Include type="all"	source="ART:ABBarracks_LightsA.w3x" />	
+		<!-- Base Object -->
+		<Include type="instance"	source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedBarracks"
+		inheritFrom="BaseStructure"
+		Side="Allies"
+		EditorSorting="STRUCTURE"
+		BuildTime="10"
+		SelectPortrait="Portrait_AlliedFutureBarracks"
+		ButtonImage="Button_AlliedFutureBarracks"
+		EnergyProduction="-25"
+		CommandSet="AlliedBarracksCommandSet"
+		KindOf="-CAN_BUILD_ON_WATER -CAN_BUILD_ON_DEEP_WATER +FS_FACTORY +AUTO_RALLYPOINT +FS_BARRACKS"
+		RadarPriority="STRUCTURE"
+		ProductionQueueType="MAIN_STRUCTURE"
+		PlacementViewAngle="225d"
+		BuildPlacementTypeFlag="MAIN_STRUCTURE"
+		EditorName="AlliedBarracks"
+		Description="Desc:AlliedBarracks"
+		TypeDescription="Type:AlliedBarracks">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedBarracks</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedBarracksArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="FRONT">
+      <ConstructionBaseSelectionCriteria
+        ExcludedBaseTypes="NO_BUILD_RADIUS CAPTURED"
+        PreferredBaseTypes="MAIN_BASE"
+        SortOrder="PREFER_OLDEST" />
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08 BONE_CONTACT_POINT_09"
+				StaticModelLODMode="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABFutureBarracks" />
+				</ModelConditionState>
+        
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+          <Model
+						Name="ABFutureBarracks" />
+        </ModelConditionState>
+        <!-- BUILD UP -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="ABFutureBarracks_BLD_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="ABFutureBarracks_BLD_SKN" />
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="ABFutureBarracks_idla"
+						AnimationMode="LOOP" />
+				</AnimationState>				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="ABFutureBarracks_BLD_BLD"
+						AnimationMode="ONCE" 
+						AnimationAbsoluteTime="3s"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Med"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Lights"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Flash"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="ABFutureBarracks_BLD_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="3s"/>
+				</AnimationState>				
+			</ScriptedModelDraw>
+
+<!-- DRAW DOOR01 -->
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Door"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABFutureBarracks_DOOR_SKN" />
+				</ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+          <Model
+						Name="" />
+        </ModelConditionState>        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="" />
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="ABFutureBarracks_DOOR_OPEN"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOOR_1_WAITING_OPEN"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="ABFutureBarracks_DOOR_OPEN"
+						AnimationMode="MANUAL" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOOR_1_OPENING"
+					StateName="STATE_Open">
+					<Animation
+						AnimationName="ABFutureBarracks_DOOR_OPEN"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DOOR_1_CLOSING"
+					StateName="STATE_Closed"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="ABFutureBarracks_DOOR_OPEN"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+			</ScriptedModelDraw>		
+
+<!-- DRAW UPGRADE -->
+
+			
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"/>
+
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction"
+				FillerMesh="NEWSKIN_FILL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="SovietRefineryHit"
+					CreationObject="AlliedBarracks_Debris"
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+        <Event
+					Index="onDeath"
+					FX="FX_YU_Hotel02_Explode" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData DeathTypes="ALL" DeathTypesForbidden="SUICIDED ERASED" />
+					<Event Index="onDeath" FX="FX_LargeBuildingDieExplosion" />
+			</FXListBehavior>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="ABFutureBarracks_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</DestroyDie>		
+			<BuildingBehavior
+				id="ModuleTag_BuildingBehavior"
+				NightWindowObject="LIGHT_01" />
+			<ProductionUpdate
+				id="ModuleTag_ProductionUpdate"
+				GiveNoXP="true"
+				Type="INFANTRY"
+				NumDoorAnimations="1"
+				DoorOpeningTime="0.66s"
+				DoorWaitOpenTime="1.0s"
+				DoorCloseTime="0.66s"
+				NewObjectFadeInTime="0.5s">
+				<GiveUpgradeToProduced>
+					<UpgradeTranslate
+						RequiredUpgrade="Upgrade_ProductionVeterancy_VETERAN" 
+						ProvidedUpgrade="Upgrade_CreationVeterancy_VETERAN" />
+					<UpgradeTranslate
+						RequiredUpgrade="Upgrade_ProductionVeterancy_ELITE" 
+						ProvidedUpgrade="Upgrade_CreationVeterancy_ELITE" />
+					<UpgradeTranslate
+						RequiredUpgrade="Upgrade_ProductionVeterancy_HEROIC" 
+						ProvidedUpgrade="Upgrade_CreationVeterancy_HEROIC" />
+				</GiveUpgradeToProduced>
+			</ProductionUpdate>
+			<QueueProductionExitUpdate
+				id="ModuleTag_QueueProductionExitUpdate"
+				PlacementViewAngle="45d"
+				ExitDelaySeconds="0.07s">
+				<UnitCreatePoint
+					x="-51.86"
+					y="2.47" />
+				<NaturalRallyPoint
+					x="80.98"
+					y="-2.47" />
+			</QueueProductionExitUpdate>
+
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="3.0s" />
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/GenericEngineerContain.xml" />
+			<xi:include
+				href="DATA:Includes/GenericAlliedBuildingDestruction.xml" />
+			<xi:include
+				href="DATA:Includes/GenericAlliedBuildingSuicide.xml" />
+			<xi:include
+				href="DATA:Includes/InfiltratorContainInfantry.xml" />				
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				StanceTemplate="Generic" />
+
+			<xi:include
+				href="DATA:Includes/AlliedTechUpgradeReceiverLevel2.xml" />
+			<xi:include
+				href="DATA:Includes/AlliedTechUpgradeReceiverLevel3.xml" />
+
+			<xi:include
+				href="DATA:Includes/AlliedSubObjectsUpgradeTech2.xml" />
+			<xi:include
+				href="DATA:Includes/AlliedSubObjectsUpgradeTech3.xml" />
+				
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="AlliedBarracksFunctions" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_SoWeCanUseWeapon"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="StructureAIStateMachine"/>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1750" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type= "BOX"
+				MajorRadius = "15.0"
+				MinorRadius = "75.0"
+				Height = "5.0" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "75.0"
+				MinorRadius = "15.0"
+				Height = "5.0" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "45.0"
+				MinorRadius = "45.0"
+				Height = "5.0" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "15.0"
+				MinorRadius = "15.0"
+				Height = "45.0" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="ALL_TrainingCenter_Select"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+<!--
+			<AudioEntry Sound="HumanFaction_MediumBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_MediumBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="150"
+			ShroudClearingRange="300" />
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:FXLaserOverlay.xml" />		
+		<Include type="all"	source="ART:FXLaserOverlay_Overshoot.xml" />				
+		<Include type="all"	source="ART:ABlasertower_skn.w3x" />				
+		<Include type="all"	source="ART:ABlasertower_BLD_SKN.w3x" />				
+		<Include type="all"	source="ART:ABlasertower_BLD_BLD.w3x" />
+		<Include type="all"	source="ART:ABlasertower_BLD_BLDW.w3x" />								
+		<Include type="all"	source="ART:ABBaseDefense_FX.w3x" />
+		<Include type="all"	source="ART:ABBaseDefense_Platform.w3x" />
+		<Include type="all"	source="ART:ABBaseDefense_Platform_BLD.w3x" />	
+		<Include type="all"	source="ART:EXCloakingField.w3x" />									
+		<Include type="all"	source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="AlliedBaseDefense"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_Alliedlasertower"
+		ButtonImage="Button_Alliedlasertower"
+		Side="Allies"
+		HealthBoxHeightOffset="20"
+		EditorSorting="STRUCTURE"		
+		BuildTime="10"
+		EnergyProduction="-50"
+		CommandSet="AlliedBaseDefenseCommandSet"
+		KindOf="-NOT_AUTOACQUIRABLE +CAN_ATTACK +FS_BASE_DEFENSE +GARRISONABLE_UNTIL_DESTROYED +DISGUISER +POWERED"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="225d"
+		CampnessValue="=$CAMPNESS_DEFENSIVE_STRUCTURE"
+		ProductionQueueType="OTHER_STRUCTURE"
+		BuildPlacementTypeFlag="OTHER_STRUCTURE"
+		EditorName="AlliedBaseDefense"
+		WeaponCategory="GUN"
+		TypeDescription="Type:AlliedBaseDefense"
+		Description="Desc:AlliedProtonTower">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:AlliedProtonTower</DisplayName>
+		<!--<GameDependency>
+			<RequiredObject>AlliedPowerPlant</RequiredObject>
+		</GameDependency>-->
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="600"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedPrimaryBaseDefenseArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="DEFENSE" >
+			<ConstructionBaseSelectionCriteria
+				ExcludedBaseTypes="NO_BUILD_RADIUS"
+				PreferredBaseTypes="ENEMIES_IN_BASE UNDER_ATTACK"
+				SortOrder="PREFER_MOST_RECENTLY_ATTACKED" />
+		</SkirmishAIInformation>
+		<Draws>
+			<!-- DRAW GUN -->
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Gun"
+				OkToChangeModelColor="true"
+				ExtraPublicBone=" FXWeaponA01 FXBone_01">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABlasertower_skn" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXWeaponA01" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXWeaponA01" />
+					<Turret
+						TurretNameKey="Bone_Turret"
+						TurretPitch="Bone_TurretPitch"
+						TurretID="1" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="ABlasertower_skn" />
+				</ModelConditionState>        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="ABlasertower_BLD_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="ABlasertower_BLD_SKN" />
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+				</AnimationState>									
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING ">
+					<Animation
+						AnimationName="ABlasertower_BLD_BLDW"
+						AnimationBlendTime="0"
+						AnimationMode="ONCE"
+						AnimationAbsoluteTime="2s"/>
+				</AnimationState>									
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="ABlasertower_BLD_BLD"
+						AnimationBlendTime="0"
+						AnimationMode="ONCE"
+						AnimationAbsoluteTime="2s" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="ABlasertower_BLD_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+				</AnimationState>					
+			</ScriptedModelDraw>
+
+<!-- DRAW PLATFORM -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABBaseDefense_Platform" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="ABBaseDefense_Platform" />
+				</ModelConditionState>
+        
+        
+        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Model
+						Name="ABBaseDefense_Platform_BLD" />
+						 <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="ABPowerPlantWakeSplash"
+						FollowBone="true" />          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD">
+					<Model
+						Name="ABBaseDefense_Platform_BLD" />
+					<ParticleSysBone
+						 BoneName="None"
+						 FXParticleSystemTemplate="ABPowerPlantWakeSplash"
+						 FollowBone="true" />
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>	
+				
+					<!-- BUILDUP ANIMATION -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Animation
+						AnimationName="ABBaseDefense_Platform_BLD"
+						AnimationMode="ONCE" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD OVER_WATER"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="ABBaseDefense_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+				</AnimationState>				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+						CurDrawableHideSubObjectPermanently("Bib")
+					</Script>
+				</AnimationState>		
+			</ScriptedModelDraw>
+
+<!-- DRAW PARTICLES -->
+
+      <ScriptedModelDraw
+				id="ModuleTag_Draw_FX"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="ABRefinery_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="ABBaseDefense_FX" />
+					<ParticleSysBone 
+						BoneName="FX_BONE01" 
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="ABBaseDefense_FX" />
+					<ParticleSysBone 
+						BoneName="FX_BONE01" 
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone 
+						BoneName="FX_BONE01"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_CloakingShieldDraw"
+				NoRotate="true"
+				OkToChangeModelColor="false">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AFFECTED_BY_EMP USER_6">
+					<Model Name="EXCloakingField" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARALYZED USER_6">
+					<Model Name="EXCloakingField" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6">
+					<Model Name="EXCloakingField" />
+				</ModelConditionState>
+				<!-- no mirage when damaged. -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model Name="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_NoField"
+					Flags="START_FRAME_FIRST">
+					<Animation
+					AnimationName="EXCloakingField"
+					AnimationMode="ONCE" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6 AFFECTED_BY_EMP"
+					StateName="STATE_Field">
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6 PARALYZED"
+					StateName="STATE_Field">
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Field" then
+						CurDrawableSetTransitionAnimState("TRANS_FromField")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6"
+					StateName="STATE_Field">
+					<Animation
+						AnimationName="EXCloakingField"
+						AnimationMode="ONCE" />
+						<!-- <FXEvent Effect="FX_ALL_MirageFieldStart" FireWhenSkipped="true" /> -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_FromField" >
+					<Animation
+						AnimationName="EXCloakingField"
+						AnimationMode="ONCE_BACKWARDS" />
+						<!-- <FXEvent Effect="FX_ALL_MirageFieldStart" FireWhenSkipped="true" /> -->
+				</AnimationState>
+		</ScriptedModelDraw>
+			
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".3"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="10"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>5.000000</Value>
+							<Value>5.000000</Value>
+							<Value>2.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+			<LaserDraw
+				id="ModuleTag_LaserDraw_AntiAir"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="0"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				FadeInTime="0s"
+				FadeOutTime="1s"
+				LaserWidth="10"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay_Overshoot</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>5.000000</Value>
+							<Value>5.000000</Value>
+							<Value>2.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					AllowInterleavedFiring="false"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE"
+					AutoChooseWeapon="true">
+
+					<!-- Default unoccupied weapon -->
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="AlliedProtonTowerBeam"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="AlliedProtonTowerBeam_Aircraft"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>
+					
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-30d"
+						AllowsPitch="true" 
+						TurretPitchRate="180" 
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true">
+					</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+      
+			<!-- For the Plasma Bazooka -->			
+			<LaserState id="ModuleTag_LaserState" LaserId="1">
+				<LaserEndParticleSystem>Sov_Leech_Glow02</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedOrbitalHitRing</LaserEndParticleSystem>
+				<LaserEndParticleSystem>AlliedOrbitalHitVapor</LaserEndParticleSystem>
+			</LaserState>
+					<!-- For the Plasma Bazooka -->			
+			<LaserState
+				id="ModuleTag_LaserState_AntiAir"
+				LaserId="2">
+			</LaserState>
+
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="175"
+				UpdatePeriod="0.2s"
+				AffectsSelf="false" 
+				InvisibilityTemplate="AlliedAntiVehicleVehicleTech3InvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES"
+					Include="INFANTRY VEHICLE"
+					StatusBitFlagsExclude="AIRBORNE_TARGET BROADCASTING_INVISIBILITY IGNORING_STEALTH">
+					<ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+				</BroadcastObjectFilter>
+				<ObjectStatusValidation
+					RequiredStatus="GENERIC_TOGGLE_STATE" />
+			</InvisibilityBroadcastUpdate>
+
+			<SpecialPower
+				id="ModuleTag_Disguise"
+				SpecialPowerTemplate="SpecialPower_PrimageDisguise"
+				UpdateModuleStartsAttack="true" />
+			<SpecialDisguiseUpdate
+				id="ModuleTag_DisguiseUpdate"
+				SpecialPowerTemplate="SpecialPower_PrimageDisguise"
+				OpacityTarget="0.5"
+                ScanRadiusForPropDisguise="250.0"
+				DisguiseFX="FX_PrimageDisguise">
+				<TerrainData
+					TerrainClass="Misc"
+					ObjectTemplate="PrimageDisguise_Tree01"/>
+				<TerrainData
+					TerrainClass="Grass"
+					ObjectTemplate="PrimageDisguise_Tree01"/>
+				<TerrainData
+					TerrainClass="Snow"
+					ObjectTemplate="PrimageDisguise_Tree02"/>
+				<TerrainData
+					TerrainClass="Mud"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Dirt"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Cliff"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Sand"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Rock"
+					ObjectTemplate="PrimageDisguise_Rock01"/>
+				<TerrainData
+					TerrainClass="Road"
+					ObjectTemplate="PrimageDisguise_Truck01"/>
+			</SpecialDisguiseUpdate>
+			<SpecialPower
+				id="ModuleTag_ToggleMirageFieldTrigger"
+				SpecialPowerTemplate="SpecialPower_ToggleMirageField"
+				UpdateModuleStartsAttack="true" />
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleMirageFieldTriggerUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND" 
+				SpecialPowerTemplate="SpecialPower_ToggleMirageField">
+
+				<ToggleState
+					EnterStateSound="ALL_MirageField_StopMS">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT"
+						NeverUseInState="RETREAT GATHER">
+						<StateWeapon
+							Weapon="AlliedProtonTowerBeam" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE BROADCASTING_INVISIBILITY"
+					ModelConditions="USER_6"
+					EnterStateSound="ALL_MirageField_StartMS">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_STEALTH_OTHERS"
+						NeverUseWhenHealthIsBelow="250" 
+						StealthOthersInvisibilityModuleId="ModuleTag_BroadcastInvisibility" />
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>
+			<Physics
+				id="ModuleTag_Physics"/>
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="SovietRefineryHit"
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_None" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData 
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event Index="onDeath" FX="FX_SmallBuildingDieExplosion" />
+			</FXListBehavior>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="ABLaserTower_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</DestroyDie>	
+			
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpack"
+				UnpackTime="2.0s" />
+			<!-- Temp -->
+
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/GenericAlliedBuildingSuicideNoSpawn.xml" />			
+			<xi:include
+				href="DATA:Includes/InfantryFighting/IF_SecondaryObjectListener.xml" />
+			<xi:include
+				href="DATA:Includes/InfantryFighting/IF_SubObjectsUpgrade.xml" />
+			
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="AlliedBaseDefenseFunctions"
+			/>
+						
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="DisguiseWhenIdleAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY">	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1400" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<PlacementShape
+				Type= "BOX"
+				MajorRadius = "15.0"
+				MinorRadius = "15.0"
+				Height = "3.0" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</PlacementShape>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "4.02"
+				MinorRadius = "5.25141"
+				Height = "19.227"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "8.93276"
+				MinorRadius = "8.02577"
+				Height = "7.9023"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "12.9889" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "7.5"
+				MinorRadius = "10.0"
+				Height = "6.09" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="AudioEvent:ALL_TurretSelect"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+<!--
+			<AudioEntry Sound="HumanFaction_SmallBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_SmallBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="455"
+			ShroudClearingRange="500" />
+	</GameObject>
+</AssetDeclaration>
