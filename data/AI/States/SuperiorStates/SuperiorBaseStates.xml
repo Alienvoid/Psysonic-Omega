@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="SuperiorCratePickup"
+    MaxTargets="2">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="CrateHeuristic"/>
+    <Tactic id="CratePickup" Tactic="SimpleAttack" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT TRANSFORMER IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" AlwaysRecruit="false" SortByDistance="true"
+                    MicroManager="StandardMicroManager"/>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorCommandoController"
+    MaxTargets="1">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietCommandoTech1</IncludeThing>
+          <IncludeThing>SACOMCommandoTech1</IncludeThing>
+          <IncludeThing>JapanCommandoTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorOtherClosestTerrorDronesHeuristic" Priority="9990"/>
+    <TargetHeuristic TargetHeuristic="SuperiorScout2Heuristic" Priority="990"/>
+    <TargetHeuristic TargetHeuristic="SuperiorAntiInfantryONLYHeuristic" Priority="990"/>
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="40"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="INFANTRY"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorCommandoMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietCommandoTech1</IncludeThing>
+          <IncludeThing>SACOMCommandoTech1</IncludeThing>
+          <IncludeThing>JapanCommandoTech1</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+	<AIStrategicStateDefinition
+    id="SuperiorHarvesterController"
+		MaxRunningCopies="1">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		<Tactic id="Null" Tactic="NullTactic" Targetless="true">
+			<TeamTemplate MinUnits="1"
+                    RegisteredObjectSet="HARVESTERS"
+                    IncludeKindOf="HARVESTER" ExcludeKindOf=""
+                    AlwaysRecruit="true"
+										Priority="LOW" ReleaseType="RELEASE_TO_PRIORITY" SortByDistance="false"
+                    MicroManager="SuperiorHarvesterMicroManager"/>
+		</Tactic>
+	</AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorLandDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyLandStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="450" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="14"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true" ReleaseType="RELEASE_TO_PRIORITY" 
+                    MicroManager="SuperiorDefenseLandMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAirBattleShip</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorLandEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByLandEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="SuperiorEmergencyLandDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAirBattleShip</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorWaterDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyWaterStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="450" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="14"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true" ReleaseType="RELEASE_TO_PRIORITY"
+                    MicroManager="SuperiorDefenseWaterMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAirBattleShip</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorWaterEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByWaterEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="SuperiorEmergencyWaterDefenseMicroManager">
+        <ObjectFilter Rule="ALL">
+          <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAirBattleShip</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Allies -->
+	<AIBuildStateDefinition
+		id="AlliedAmphibiousUnitBuildState_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="AlliedCommandoTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiInfantryVehicle_Ground" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiInfantryVehicle" Heuristic="BEST_UNIT_EXPECTED"/>
+		<BuildEntry Build="AlliedAntiNavyShipTech1" Heuristic="BEST_UNIT_EXPECTED"/>
+		<!-- No, the AlliedAntiStructureShip is not amphibious but its ok to build even if our enemy has no water units or structures-->
+		<BuildEntry Build="AlliedAntiStructureShip" Heuristic="BEST_UNIT_WEIGHTED"/>
+		<BuildEntry Build="AlliedSubmarine" Heuristic="BEST_UNIT_WEIGHTED"/>
+		
+		<BuildEntry Build="AlliedLegionnaireInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedArtilleryVehicle" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedMiner" Heuristic="HARVESTER"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="AlliedLandUnitBuildState_Upheaval">
+		<Heuristic>
+			<ObjectOfTypeExistsHeuristic
+				PassIfExists="true"
+				Location="Land">
+				<ObjectFilter
+					Relationship="ENEMIES"
+					Rule="ALL" >
+				</ObjectFilter>
+			</ObjectOfTypeExistsHeuristic>
+		
+			<PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="AlliedAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+		</Heuristic>
+		
+		<BuildEntry Build="AlliedWarFactory" Heuristic="FACTORY" />
+		
+		<BuildEntry Build="AlliedAntiInfantryInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiInfantryInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiVehicleInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiVehicleVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiAirVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiAirShip_Ground" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiVehicleVehicleTech3" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedAntiStructureVehicle" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedSniper" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="AlliedFutureTank" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="AlliedAntiGroundAircraftBuildState_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="AlliedSupportAircraft" Heuristic="BEST_UNIT_EXPECTED"/>
+		<BuildEntry Build="AlliedAntiGroundAircraft" Heuristic="BEST_UNIT_EXPECTED"/>
+		<BuildEntry Build="AlliedHypersonicBomber" Heuristic="BEST_UNIT_EXPECTED"/>
+		<BuildEntry Build="AlliedAirBattleShip" Heuristic="BEST_UNIT_WEIGHTED"/>
+		<BuildEntry Build="AlliedArcAngelAircraft" Heuristic="BEST_UNIT_EXPECTED"/>
+		<BuildEntry Build="AlliedMotherShip" Heuristic="BEST_UNIT_EXPECTED"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="AlliedAirfieldBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="AlliedFighterAircraft" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="14"/>
+		<BuildEntry Build="AlliedSupportAircraft" Heuristic="RANDOM_UNIT" PercentLow="14" PercentHigh="28"/>
+		<BuildEntry Build="AlliedAntiGroundAircraft" Heuristic="RANDOM_UNIT" PercentLow="28" PercentHigh="43"/>
+		<BuildEntry Build="AlliedAirBattleShip" Heuristic="RANDOM_UNIT" PercentLow="43" PercentHigh="57"/>
+		<BuildEntry Build="AlliedArcAngelAircraft" Heuristic="RANDOM_UNIT" PercentLow="57" PercentHigh="71"/>
+		<BuildEntry Build="AlliedMotherShip" Heuristic="RANDOM_UNIT" PercentLow="71" PercentHigh="85"/>
+		<BuildEntry Build="AlliedHypersonicBomber" Heuristic="RANDOM_UNIT" PercentLow="85" PercentHigh="100"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="AlliedBarracksBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="AlliedScoutInfantry" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="16"/>
+		<BuildEntry Build="AlliedAntiInfantryInfantry" Heuristic="RANDOM_UNIT" PercentLow="16" PercentHigh="33"/>
+		<BuildEntry Build="AlliedAntiVehicleInfantry" Heuristic="RANDOM_UNIT" PercentLow="33" PercentHigh="49"/>
+		<BuildEntry Build="AlliedCommandoTech1" Heuristic="RANDOM_UNIT" PercentLow="49" PercentHigh="65"/>
+		<BuildEntry Build="AlliedLegionnaireInfantry" Heuristic="RANDOM_UNIT" PercentLow="65" PercentHigh="81"/>
+		<BuildEntry Build="AlliedSniper" Heuristic="RANDOM_UNIT" PercentLow="81" PercentHigh="100"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="AlliedWarFactoryBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="AlliedAntiInfantryVehicle_Ground" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="14"/>
+		<BuildEntry Build="AlliedAntiVehicleVehicleTech1" Heuristic="RANDOM_UNIT" PercentLow="14" PercentHigh="28"/>
+		<BuildEntry Build="AlliedAntiAirVehicleTech1" Heuristic="RANDOM_UNIT" PercentLow="28" PercentHigh="42"/>
+		<BuildEntry Build="AlliedAntiVehicleVehicleTech3" Heuristic="RANDOM_UNIT" PercentLow="42" PercentHigh="56"/>
+		<BuildEntry Build="AlliedAntiStructureVehicle" Heuristic="RANDOM_UNIT" PercentLow="56" PercentHigh="70"/>
+		<BuildEntry Build="AlliedArtilleryVehicle" Heuristic="RANDOM_UNIT" PercentLow="70" PercentHigh="84"/>
+		<BuildEntry Build="AlliedAntiAirShip_Ground" Heuristic="RANDOM_UNIT" PercentLow="84" PercentHigh="100"/>
+		<BuildEntry Build="AlliedMiner" Heuristic="HARVESTER"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="AlliedNeededUnits_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="AlliedEngineer" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedScoutInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiInfantryInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiVehicleInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedInfiltrationInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedCommandoTech1" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="AlliedMiner" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiAirVehicleTech1" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiAirShip_Ground" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiInfantryVehicle_Ground" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiVehicleVehicleTech1" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiVehicleVehicleTech3" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiStructureVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedFutureTank" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedMCV" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="AlliedMiner_Naval" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiInfantryVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiNavalScout" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiNavyShipTech1" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiAirShip" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiStructureShip" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedSubmarine" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedMCV_Naval" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="AlliedFighterAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedSupportAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAntiGroundAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedAirBattleShip" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="AlliedPowerPlant" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedRefinery" Heuristic="NEEDED_UNIT"/>
+		
+		<!-- EP1 Allied Units -->
+		<BuildEntry Build="AlliedLegionnaireInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedSniper" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedArtilleryVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedArcAngelAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="AlliedMotherShip" Heuristic="NEEDED_UNIT"/>
+		<!--<BuildEntry Build="AlliedFutureTank" Heuristic="NEEDED_UNIT"/>-->
+	</AIBuildStateDefinition>
+	
+	
+	
+	<!-- Japan -->
+	
+  <AIBuildStateDefinition
+    id="JapanDefenseBuildState_MOD">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <BuildEntry Build="JapanBaseDefenseEgg" Heuristic="BEST_UNIT_EXPECTED"/>
+    <BuildEntry Build="JapanPlasmaDefenderEgg" Heuristic="BEST_UNIT_EXPECTED"/>
+    <BuildEntry Build="JapanBaseDefenseAdvancedEgg" Heuristic="BEST_UNIT_EXPECTED"/>
+    <BuildEntry Build="PsychicPartisanMechaKingEgg" Heuristic="BEST_UNIT_EXPECTED"/>
+  </AIBuildStateDefinition>
+  
+	<AIBuildStateDefinition
+		id="JapanAmphibiousUnitBuildState_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="JapanScoutInfantry" Heuristic="BEST_UNIT_WEIGHTED"/>
+		
+		<BuildEntry Build="JapanInfiltrationInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+		</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiVehicleInfantryTech3" Heuristic="BEST_UNIT_EXPECTED"/>
+		
+		<BuildEntry Build="JapanCommandoTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiInfantryVehicle" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiAirVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiVehicleVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiVehicleVehicleTech1_Naval" Heuristic="BEST_UNIT_EXPECTED"/>
+		
+		<BuildEntry Build="JapanAntiAirShip" Heuristic="BEST_UNIT_EXPECTED"/>
+		<!-- No, the JapanAntiStructureShip is not amphibious but its ok to build even if our enemy has no water units or structures-->
+		<BuildEntry Build="JapanAntiStructureShip" Heuristic="BEST_UNIT_WEIGHTED"/>
+		
+		<BuildEntry Build="JapanFortressShipEgg" Heuristic="CONSTANT" Score="100">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES" Include="CAN_ATTACK ENGINEER INFILTRATOR"/>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanMiner" Heuristic="HARVESTER"/>
+		
+		<BuildEntry Build="PsychicPartisanMechaKingEgg" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES" Include="CAN_ATTACK ENGINEER INFILTRATOR"/>
+		</BuildEntry>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="JapanLandUnitBuildState_Upheaval">
+		<Heuristic>
+			<ObjectOfTypeExistsHeuristic
+				PassIfExists="true"
+				Location="Land">
+				<ObjectFilter
+					Relationship="ENEMIES"
+					Rule="ALL" >
+				</ObjectFilter>
+			</ObjectOfTypeExistsHeuristic>
+			
+			<PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+		</Heuristic>
+		
+		<BuildEntry Build="JapanWarFactoryEgg" Heuristic="FACTORY" />
+		<BuildEntry Build="JapanAirportEgg" Heuristic="FACTORY" />
+		
+		<BuildEntry Build="JapanAntiInfantryInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiVehicleInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiVehicleVehicleTech3" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanAntiStructureVehicle" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanLiberator" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanSentinelVehicle" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanArcherInfantry" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		<BuildEntry Build="JapanRazorDrone" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanBetaYuriko" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>JapanBetaYuriko</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanSpitter" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>JapanSpitter</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="JapanMagnetron" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="JapanBarracksBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="JapanScoutInfantry" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="11"/>
+		<BuildEntry Build="JapanAntiInfantryInfantry" Heuristic="RANDOM_UNIT" PercentLow="11" PercentHigh="22"/>
+		<BuildEntry Build="JapanAntiVehicleInfantry" Heuristic="RANDOM_UNIT" PercentLow="22" PercentHigh="33"/>
+		<BuildEntry Build="JapanInfiltrationInfantry" Heuristic="RANDOM_UNIT" PercentLow="33" PercentHigh="44"/>
+		<BuildEntry Build="JapanAntiVehicleInfantryTech3" Heuristic="RANDOM_UNIT" PercentLow="44" PercentHigh="55"/>
+		<BuildEntry Build="JapanCommandoTech1" Heuristic="RANDOM_UNIT" PercentLow="55" PercentHigh="66"/>
+		<BuildEntry Build="JapanArcherInfantry" Heuristic="RANDOM_UNIT" PercentLow="66" PercentHigh="77"/>
+		<BuildEntry Build="JapanBetaYuriko" Heuristic="RANDOM_UNIT" PercentLow="77" PercentHigh="88"/>
+		<BuildEntry Build="JapanSpitter" Heuristic="RANDOM_UNIT" PercentLow="88" PercentHigh="100"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="JapanNavalYardBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="JapanNavyScoutShip" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="14"/>
+		<BuildEntry Build="JapanAntiVehicleVehicleTech1_Naval" Heuristic="RANDOM_UNIT" PercentLow="14" PercentHigh="28"/>
+		<BuildEntry Build="JapanAntiAirShip" Heuristic="RANDOM_UNIT" PercentLow="28" PercentHigh="42"/>
+		<BuildEntry Build="JapanAntiVehicleShip" Heuristic="RANDOM_UNIT" PercentLow="42" PercentHigh="56"/>
+		<BuildEntry Build="JapanRadarBoat" Heuristic="RANDOM_UNIT" PercentLow="56" PercentHigh="70"/>
+		<BuildEntry Build="JapanAntiStructureShip" Heuristic="RANDOM_UNIT" PercentLow="70" PercentHigh="84"/>
+		<BuildEntry Build="JapanFortressShipEgg" Heuristic="RANDOM_UNIT" PercentLow="84" PercentHigh="100"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="JapanWarFactoryBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="JapanMiner" Heuristic="HARVESTER"/>
+		<BuildEntry Build="JapanAntiInfantryVehicle" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="14"/>
+		<BuildEntry Build="JapanAntiAirVehicleTech1" Heuristic="RANDOM_UNIT" PercentLow="14" PercentHigh="29"/>
+		<BuildEntry Build="JapanAntiVehicleVehicleTech1" Heuristic="RANDOM_UNIT" PercentLow="29" PercentHigh="43"/>
+		<BuildEntry Build="JapanAntiVehicleVehicleTech3" Heuristic="RANDOM_UNIT" PercentLow="43" PercentHigh="57"/>
+		<BuildEntry Build="JapanAntiStructureVehicle" Heuristic="RANDOM_UNIT" PercentLow="57" PercentHigh="72"/>
+		<BuildEntry Build="JapanSentinelVehicle" Heuristic="RANDOM_UNIT" PercentLow="72" PercentHigh="86"/>
+		<BuildEntry Build="JapanMagnetron" Heuristic="RANDOM_UNIT" PercentLow="86" PercentHigh="100"/>
+		
+	</AIBuildStateDefinition>
+	
+	
+	<AIBuildStateDefinition
+		id="JapanAirportBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="JapanAntiInfantryVehicle_Air" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="20"/>
+		<BuildEntry Build="JapanAntiAirVehicleTech1_Air" Heuristic="RANDOM_UNIT" PercentLow="20" PercentHigh="40"/>
+		<BuildEntry Build="JapanAntiAirShip_Air" Heuristic="RANDOM_UNIT" PercentLow="40" PercentHigh="60"/>
+		<BuildEntry Build="JapanAntiVehicleInfantryTech3_Air" Heuristic="RANDOM_UNIT" PercentLow="60" PercentHigh="80"/>
+		<BuildEntry Build="JapanLiberator" Heuristic="RANDOM_UNIT" PercentLow="80" PercentHigh="100"/>
+		
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="JapanNeededUnits_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="JapanEngineer" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanScoutInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiInfantryInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiVehicleInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiVehicleInfantryTech3" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiVehicleInfantryTech3_Air" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanInfiltrationInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanCommandoTech1" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="JapanMiner" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanLightTransportVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiInfantryVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiInfantryVehicle_Air" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiAirVehicleTech1" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiAirVehicleTech1_Air" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiVehicleVehicleTech1" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiVehicleVehicleTech3" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiStructureVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanLiberator" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanMCV" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="JapanNavyScoutShip" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiVehicleVehicleTech1_Naval" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiAirShip" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiAirShip_Air" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiVehicleShip" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanRadarBoat" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAntiStructureShip" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanMCV_Naval" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="JapanBaseDefenseEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanBaseDefenseAdvancedEgg" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="JapanBarracksEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanNavalYardEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanAirportEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanWarFactoryEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanPowerPlantEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanRefineryEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanVIPBunkerEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanPlasmaDefenderEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanTechStructureEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanSuperWeaponEgg" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="NEEDED_UNIT"/>
+		
+		<!-- EP1 Japan Units -->
+		<BuildEntry Build="JapanSentinelVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanMagnetron" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanArcherInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanBetaYuriko" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="JapanSpitter" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="PsychicPartisanMechaKingEgg" Heuristic="NEEDED_UNIT"/>
+		<!-- <BuildEntry Build="JapanFortressShipEgg" Heuristic="NEEDED_UNIT"/> -->
+	</AIBuildStateDefinition>
+	
+	
+	
+	<!-- Soviet -->
+	
+  <AIBuildStateDefinition
+    id="SovietDefenseBuildState_MOD">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <BuildEntry Build="SovietBaseDefenseGround" Heuristic="BEST_UNIT_EXPECTED"/>
+    <BuildEntry Build="SovietBaseDefenseAir" Heuristic="BEST_UNIT_EXPECTED"/>
+    <BuildEntry Build="SovietBaseDefenseAdvanced" Heuristic="BEST_UNIT_EXPECTED"/>
+    <BuildEntry Build="SovietGaussCannon" Heuristic="BEST_UNIT_EXPECTED"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SovietDefenseBuildState_FEWEST_MOD">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <BuildEntry Build="SovietBaseDefenseGround" Heuristic="FEWEST_UNIT"/>
+    <BuildEntry Build="SovietBaseDefenseAir" Heuristic="FEWEST_UNIT"/>
+    <BuildEntry Build="SovietBaseDefenseAdvanced" Heuristic="FEWEST_UNIT"/>
+    <BuildEntry Build="SovietGaussCannon" Heuristic="FEWEST_UNIT"/>
+  </AIBuildStateDefinition>
+  
+	<AIBuildStateDefinition
+		id="SovietAmphibiousUnitBuildState_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="SovietCommandoTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietScoutVehicle" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietAntiNavyShipTech1" Heuristic="BEST_UNIT_EXPECTED"/>
+		<BuildEntry Build="SovietDestroyer" Heuristic="BEST_UNIT_EXPECTED"/>
+		<!-- No, the SovietAntiStructureShip is not amphibious but its ok to build even if our enemy has no water units or structures-->
+		<BuildEntry Build="SovietAntiStructureShip" Heuristic="BEST_UNIT_WEIGHTED"/>
+		<BuildEntry Build="SovietMARV" Heuristic="BEST_UNIT_WEIGHTED"/>
+		<BuildEntry Build="SovietMiner" Heuristic="HARVESTER"/>
+	</AIBuildStateDefinition>
+	
+  <AIBuildStateDefinition
+    id="SovietAntiGroundAircraftBuildState_Mod">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <BuildEntry Build="SovietAntiGroundAircraft" Heuristic="BEST_UNIT_EXPECTED"/>
+    <BuildEntry Build="SovietBomberAircraft" Heuristic="BEST_UNIT_WEIGHTED"/>
+    <BuildEntry Build="SovietCarryAll" Heuristic="BEST_UNIT_WEIGHTED"/>
+    <BuildEntry Build="SovietFrogtieAircraft" Heuristic="BEST_UNIT_WEIGHTED"/>
+    <BuildEntry Build="SovietSpectreGunship" Heuristic="BEST_UNIT_WEIGHTED"/>
+  </AIBuildStateDefinition>
+  
+	<AIBuildStateDefinition
+		id="SovietLandUnitBuildState_Upheaval">
+		<Heuristic>
+			<ObjectOfTypeExistsHeuristic
+				PassIfExists="true"
+				Location="Land">
+				<ObjectFilter
+					Relationship="ENEMIES"
+					Rule="ALL" >
+				</ObjectFilter>
+			</ObjectOfTypeExistsHeuristic>
+			
+			<PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+		</Heuristic>
+		
+		<BuildEntry Build="SovietWarFactory" Heuristic="FACTORY" />
+		
+		<BuildEntry Build="SovietAntiInfantryInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietAntiVehicleInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>AlliedScoutInfantry</IncludeThing>
+				<IncludeThing>SovietScoutInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietHeavyAntiVehicleInfantry" Heuristic="BEST_UNIT_EXPECTED"/>
+		
+		<BuildEntry Build="SovietAntiInfantryVehicle" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietAntiVehicleVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		<BuildEntry Build="SovietTeslaTank" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietAntiStructureVehicle" Heuristic="BEST_UNIT_WEIGHTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietAntiVehicleVehicleTech3" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietMLRS" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietMARV" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		<BuildEntry Build="SovietExecuter" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>
+		
+		
+		<!--<BuildEntry Build="SovietDesolatorInfantry" Heuristic="BEST_UNIT_EXPECTED">
+			<BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</BlockIfThingNearFactory>
+		</BuildEntry>-->
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="SovietBarracksBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="SovietScoutInfantry" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="20"/>
+		<BuildEntry Build="SovietAntiInfantryInfantry" Heuristic="RANDOM_UNIT" PercentLow="20" PercentHigh="40"/>
+		<BuildEntry Build="SovietAntiVehicleInfantry" Heuristic="RANDOM_UNIT" PercentLow="40" PercentHigh="60"/>
+		<BuildEntry Build="SovietHeavyAntiVehicleInfantry" Heuristic="RANDOM_UNIT" PercentLow="60" PercentHigh="80"/>
+		<BuildEntry Build="SovietCommandoTech1" Heuristic="RANDOM_UNIT" PercentLow="80" PercentHigh="100"/>
+		<BuildEntry Build="SovietExecuter" Heuristic="RANDOM_UNIT" PercentLow="84" PercentHigh="100"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="SovietWarFactoryBuildState_RANDOM_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="SovietScoutVehicle" Heuristic="RANDOM_UNIT" PercentLow="0" PercentHigh="10"/>
+		<BuildEntry Build="SovietAntiInfantryVehicle" Heuristic="RANDOM_UNIT" PercentLow="10" PercentHigh="20"/>
+		<BuildEntry Build="SovietAntiAirShip_Ground" Heuristic="RANDOM_UNIT" PercentLow="20" PercentHigh="30"/>
+		<BuildEntry Build="SovietAntiVehicleVehicleTech1" Heuristic="RANDOM_UNIT" PercentLow="30" PercentHigh="40"/>
+		<BuildEntry Build="SovietAntiStructureVehicle" Heuristic="RANDOM_UNIT" PercentLow="40" PercentHigh="50"/>
+		<BuildEntry Build="SovietAntiVehicleVehicleTech3" Heuristic="RANDOM_UNIT" PercentLow="50" PercentHigh="60"/>
+		<BuildEntry Build="SovietMLRS" Heuristic="RANDOM_UNIT" PercentLow="60" PercentHigh="70"/>
+		<BuildEntry Build="SovietMARV" Heuristic="RANDOM_UNIT" PercentLow="70" PercentHigh="80"/>
+		<BuildEntry Build="SovietTeslaTank" Heuristic="RANDOM_UNIT" PercentLow="80" PercentHigh="90"/>
+		<BuildEntry Build="SovietAntiAirVehicleTech1" Heuristic="RANDOM_UNIT" PercentLow="90" PercentHigh="100"/>
+		<BuildEntry Build="SovietMiner" Heuristic="HARVESTER"/>
+	</AIBuildStateDefinition>
+	
+	<AIBuildStateDefinition
+		id="SovietNeededUnits_Upheaval">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		
+		<BuildEntry Build="SovietEngineer" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietScoutInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiInfantryInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiVehicleInfantry" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietHeavyAntiVehicleInfantry" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="SovietMiner" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietSurveyor" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietScoutVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiInfantryVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiStructureVehicle" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietTeslaTank" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiVehicleVehicleTech3" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietMCV" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="SovietSurveyor_Naval" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiAirShip" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiAirVehicleTech1" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiNavyShipTech1" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiNavyShipTech2" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietDestroyer" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietMCV_Naval" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="SovietCarryAll" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietFighterAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietAntiGroundAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietBomberAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietFrogtieAircraft" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietSpectreGunship" Heuristic="NEEDED_UNIT"/>
+		
+		<BuildEntry Build="SovietPowerPlant" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietRefinery" Heuristic="NEEDED_UNIT"/>
+		
+		<!-- EP1 Soviet Units -->
+		<BuildEntry Build="SovietMLRS" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietMARV" Heuristic="NEEDED_UNIT"/>
+		<BuildEntry Build="SovietExecuter" Heuristic="NEEDED_UNIT"/>
+	</AIBuildStateDefinition>
+</AssetDeclaration>

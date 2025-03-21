@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSupportAllySiegeShips"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorTeamPlaySupportAllySiegeShipsHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" EndBehavior="DISBAND" Distance="450">
+      <TeamTemplate MinUnits="2" MaxUnits="3"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="HIGH"  ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorCryoTeamPlayMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedSupportAircraft</IncludeThing>
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+          <IncludeThing>JapanAntiAirShip</IncludeThing>
+          <IncludeThing>JapanAntiVehicleShip</IncludeThing>
+          <IncludeThing>SovietAntiAirShip</IncludeThing>
+          <IncludeThing>SovietAntiNavyShipTech2</IncludeThing>
+          <IncludeThing>SovietAntiNavyShipTech1</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorCryosDefendAlly"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+          Relationship="ALLIES"
+          Rule="ANY"
+          Include="STRUCTURE">
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="4000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorTeamPlayDefendUnderAttackHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" EndBehavior="DISBAND" Distance="450">
+      <TeamTemplate MinUnits="3" MaxUnits="4"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="DEFENSE_HIGH"  ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorCryoTeamPlayMicroManager" >
+        <ObjectFilter Rule="ALL">
+          <IncludeThing>AlliedSupportAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorDefendAllyAircraft"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+          Relationship="ALLIES"
+          Rule="ANY" 
+          Include="AIRCRAFT">
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2500">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="AIRCRAFT TRANSFORMER">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorTeamPlayHelpAirFightsHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" EndBehavior="DISBAND" Distance="95">
+      <TeamTemplate MinUnits="2" MaxUnits="6"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD"  ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="SuperiorFighterAircraftMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietFighter</IncludeThing>
+          <IncludeThing>AlliedFighter</IncludeThing>
+          <IncludeThing>JapanAntiInfantryVehicle</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

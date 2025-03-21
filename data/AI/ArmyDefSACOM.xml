@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes></Includes>
+	<ArmyDefinition
+		id="SACOMArmy"
+		Side="PlayerTemplate:SACOM"
+    MCVTemplate="SACOMMCV"
+    GathererTemplate="SovietMiner"
+    ExpanderTemplate="SACOMSurveyor"
+    EnergyProducer="SACOMPowerPlant"
+		PrimaryResourceNodeCollector="SACOMRefinery"
+		PrimaryResourceThingToBuild="SACOMRefinery"
+    VehicleRepairFacility="SACOMCrane"
+    NavalRepairFacility="SACOMCrane"
+    AircraftRepairFacility="SACOMCrane"
+		WallPiece="SovietWallPiece"
+		>
+
+	</ArmyDefinition>
+</AssetDeclaration>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+	<Includes></Includes>
+	
+	<AIMicroManagerData
+    id="TysonBaseMicroManager"
+    UpdateTime="0.5s"
+    MaxTeamIdleTime="15s"
+    MaxTeamIdleDistanceChange="50.0" 
+    MaxUnitIdleTime="10s"
+    MaxUnitIdleDistanceChange="30.0"
+    EnemySearchDistanceVisionMultiplier="1.5"
+    MinTimeToKeepTempVisionRangeBonus="10s"
+    SiegeWeaponBuffer="1.5"
+    DodgeThreatsReactionTimeMin="0.5s"
+    DodgeThreatsReactionTimeMax="0.5s"
+    GatherTempVisionRangeBonus="1.5"
+    RetreatTempVisionRangeBonus="1.5"
+    MaxSecondaryDamageFraction="1.3">
+    <RetreatBaseCriteria
+			PreferredNotBaseTypes="CAPTURED"
+			SortOrder="PREFER_CLOSEST" />
+    <IgnoreTargets Rule="ANY"
+      Include="TIME_BOMB">
+    </IgnoreTargets>
+  </AIMicroManagerData>
+
+  <AIMicroManagerData
+    id="TysonStandardMicroManager"
+		inheritFrom="TysonBaseMicroManager"
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="1.2"
+    RetreatPowerAdvantage="0.002"
+    RetreatMinDistanceFromBase="900.0"
+    RetreatMinDistanceToFallback="500.0"
+    AlphaStrikeTargetHealthPct="0.5"
+    AlphaStrikeTargetTimeToKill="1.0"
+    Crush="true"
+    EnterGarrisons="true"
+    EnterGarrisonableStructureDistance="150"
+		EnterBaseDefensesWhenIdle="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.40"
+    ReverseMove="true"
+    DodgeThreats="true"
+    UseSpecialPowers="true"
+    />
+
+  <AIMicroManagerData
+    id="TysonDefenseMicroManager"
+    inheritFrom="TysonBaseMicroManager"
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="1.8"
+    RetreatPowerAdvantage="0.0"
+    UseGatherState="false" 
+    Crush="true"
+    EnterGarrisons="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.70"
+    ReverseMove="true"
+    UseSpecialPowers="true"
+    />
+
+  <AIMicroManagerData
+    id="TysonSpyMicroManager"
+		inheritFrom="TysonBaseMicroManager"
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="2.0"
+    RetreatPowerAdvantage="0.0"
+    RetreatMinDistanceFromBase="900.0"
+    RetreatMinDistanceToFallback="500.0"
+    Crush="false"
+    EnterGarrisons="false"
+    PullbackInjured="false"
+    ReverseMove="false"
+    DodgeThreats="true"
+    UseSpecialPowers="true"
+    />
+
+  <AIMicroManagerData
+    id="TysonAssaultDestroyMicroManager"
+		inheritFrom="TysonStandardMicroManager"
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="1.2"
+    RetreatPowerAdvantage="0.2"
+    RetreatMinDistanceFromBase="900.0"
+    RetreatMinDistanceToFallback="500.0"
+    AlphaStrikeTargetHealthPct="0.3"
+    AlphaStrikeTargetTimeToKill="1.0"
+    Crush="true"
+    EnterGarrisons="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.30"
+    ReverseMove="true"
+    DodgeThreats="true"
+    UseSpecialPowers="true"
+    />
+
+  <AIMicroManagerData
+    id="TysonHydroFoilMicroManager"
+		inheritFrom="TysonBaseMicroManager"
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="2.2"
+    RetreatPowerAdvantage="0.2"
+    RetreatMinDistanceFromBase="900.0"
+    RetreatMinDistanceToFallback="500.0"
+    AlphaStrikeTargetHealthPct="0.5"
+    AlphaStrikeTargetTimeToKill="1.0"
+    Crush="true"
+    EnterGarrisons="true"
+    EnterGarrisonableStructureDistance="150"
+		EnterBaseDefensesWhenIdle="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.55"
+    ReverseMove="false"
+    DodgeThreats="true"
+    UseSpecialPowers="true"
+    />
+
+  <AIMicroManagerData
+    id="TysonCryoMicroManager"
+		inheritFrom="TysonBaseMicroManager"
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="1.5"
+    PassiveTargetSearchDistance="650"
+    RetreatPowerAdvantage="0.6"
+    RetreatMinDistanceFromBase="400.0"
+    RetreatMinDistanceToFallback="400.0"
+    Crush="true"
+    EnterGarrisons="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.30"
+    ReverseMove="false"
+    DodgeThreats="false"
+    UseSpecialPowers="true"
+    />
+
+  <AIMicroManagerData
+    id="TysonApolloMicroManager"
+		inheritFrom="TysonBaseMicroManager" 
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="1.5"
+    PassiveTargetSearchDistance="650"
+    UseGatherState="false"
+    AlphaStrikeTargetHealthPct="0.7"
+    AlphaStrikeTargetTimeToKill="1.0"
+    RetreatPowerAdvantage="1.0"
+    RetreatMinDistanceFromBase="800.0"
+    RetreatMinDistanceToFallback="400.0"
+    Crush="false"
+    EnterGarrisons="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.55"
+    ReverseMove="false"
+    UseSpecialPowers="true"
+    />
+
+    <AIMicroManagerData
+    id="CENTURYMicroManager"
+    inheritFrom="TysonBaseMicroManager"
+    UpdateTime="1.5s"
+    EngageHostileTargets="false"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="false"
+    EnemySearchDistanceVisionMultiplier="3.75"
+    UseGatherState="false"
+    CanUseSiegeState="false"
+    RetreatPowerAdvantage="0.1"
+    RetreatMinDistanceFromBase="600.0"
+    RetreatMinDistanceToFallback="600.0"
+    Crush="false"
+    EnterGarrisons="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.50"
+    ReverseMove="false"
+    UseSpecialPowers="true"
+    DodgeThreats="false"
+    >
+    <IgnoreTargets Rule="ANY"
+      Include="HARVESTER">
+    </IgnoreTargets>
+  </AIMicroManagerData>
+
+  <AIMicroManagerData
+    id="TysonVindicatorMicroManager"
+    inheritFrom="TysonBaseMicroManager"
+    UpdateTime="0.25s"
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="2.75"
+    UseGatherState="false"
+    CanUseSiegeState="false"
+    RetreatPowerAdvantage="0.8"
+    RetreatMinDistanceFromBase="500.0"
+    RetreatMinDistanceToFallback="700.0"
+    Crush="false"
+    EnterGarrisons="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.65"
+    ReverseMove="false"
+    UseSpecialPowers="true"
+    DodgeThreats="false"
+    MinDistanceFromBaseToIgnoreTargets="0"
+    >
+    <IgnoreTargets Rule="ANY"
+                   StatusBitFlags="UNDER_IRON_CURTAIN">
+      <IncludeThing>AlliedAntiInfantryInfantry</IncludeThing>
+      <IncludeThing>AlliedScoutInfantry</IncludeThing>
+      <IncludeThing>SovietAntiInfantryInfantry</IncludeThing>
+      <IncludeThing>SovietScoutInfantry</IncludeThing>
+      <IncludeThing>JapanAntiInfantryInfantry</IncludeThing>
+    </IgnoreTargets>
+  </AIMicroManagerData>
+
+
+
+
+
+
+</AssetDeclaration>

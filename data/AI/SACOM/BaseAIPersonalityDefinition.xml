@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Includes>
+	<Include type="instance" source="DATA:Base/BaseAIPersonalityDefinition.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="SACOMCoopBasePersonality"
+    PersonalityType="SACOMCoopBasePersonality"
+    inheritFrom="CoopBasePersonality"
+		>
+
+    <Side>SACOM</Side>
+
+		<StrategicState id="SACOMAerialFleetFlankAttack"         State="SACOMAerialFleetFlankAttack"            Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="SACOMExpansion"         State="SACOMExpansion"            Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="SACOMNavalBase"         State="SACOMNavalBase"            Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+		<StrategicState id="SACOMCaptureTech"       State="SACOMCaptureTech"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="SACOMCaptureWaterHusks" State="SACOMCaptureWaterHusks"    Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="SACOMDefenseBuildState"     State="SACOMDefenseBuildState"    Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="SACOMNeededUnits"           State="SACOMNeededUnits"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Defensive modifier on infantry accounting for low speed and crushability -->
+    <UnitModifier Unit="SACOMScoutInfantry" OffensiveModifier="0.5" DefensiveModifier="0.5"/> <!-- Bears offense not as good as the AI thinks because they do overkill -->
+    <UnitModifier Unit="SACOMAntiInfantryInfantry" OffensiveModifier="1.0" DefensiveModifier="0.2"/>
+    <UnitModifier Unit="SACOMMedic" OffensiveModifier="1.0" DefensiveModifier="0.2"/>
+    <UnitModifier Unit="SACOMAntiVehicleInfantry" OffensiveModifier="0.8" DefensiveModifier="0.2"/>
+    <UnitModifier Unit="SovietMortarcycle" OffensiveModifier="1.5" DefensiveModifier="0.5"/> <!-- Can't be crushed -->
+    <UnitModifier Unit="SACOMCommandoTech1" OffensiveModifier="5.0" DefensiveModifier="5.0"/> <!-- Commandos are good.  You pretty much always want them. -->
+
+    <UnitModifier Unit="SACOMAntiInfantryVehicle" OffensiveModifier="1.5" DefensiveModifier="1.0"/> <!-- Sickle's Jump ability is a big offensive boost -->
+    <UnitModifier Unit="SACOMAntiAirVehicle" OffensiveModifier="1.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="SACOMAntiAirMissileVehicle" OffensiveModifier="1.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="SACOMListener" OffensiveModifier="0.25" DefensiveModifier="0.25"/>
+    <UnitModifier Unit="SACOMScoutVehicle" OffensiveModifier="1.0" DefensiveModifier="0.75"/> <!-- Terror Drones have poor range, can't attack structures and multiple cannot attack the same unit -->
+    <UnitModifier Unit="SACOMAntiVehicleVehicleTech2" OffensiveModifier="5.0" DefensiveModifier="2.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="SovietHeavyWalkerVehicle" OffensiveModifier="5.0" DefensiveModifier="2.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="SACOMAntiStructureVehicle" OffensiveModifier="4.5" DefensiveModifier="1.0"/> <!-- Extreme range makes artillery much more powerful -->
+    <UnitModifier Unit="SACOMScud" OffensiveModifier="4.5" DefensiveModifier="1.0"/> <!-- Extreme range makes artillery much more powerful -->
+    <UnitModifier Unit="SACOMAntiVehicleVehicleTech3" OffensiveModifier="6.5" DefensiveModifier="2.0"/> <!-- Extreme range makes artillery much more powerful -->
+
+    <UnitModifier Unit="SACOMAntiNavyShipTech1" OffensiveModifier="0.75" DefensiveModifier="0.75"/>
+
+    <UnitModifier Unit="SACOMGhostBomberAircraft" OffensiveModifier="3.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="SACOMFighterAircraft" OffensiveModifier="3.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="SACOMFrogtieAircraft" OffensiveModifier="4.0" DefensiveModifier="0.5"/>
+    <UnitModifier Unit="SACOMAerialCommandCruiser" OffensiveModifier="1.0" DefensiveModifier="0.2"/> <!-- The Kirov's horrendous speed negates most of its high hitpoints -->
+    <UnitModifier Unit="SACOMSuperFighter" OffensiveModifier="5.0" DefensiveModifier="5.0"/>
+
+    <SpecificUnitCap Unit="SACOMSurveyor" Cap="1" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Player Tech -->
+    
+    <!-- Tier 1 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_TerrorDroneEggs" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_ProductionKickbacks" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_CrushPuppies" Weight="100%"/>
+
+    <!-- Tier 2 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_IrradiateTarget" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank1" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_1" Weight="200%"/>
+
+    <!-- Tier 3 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_2" Weight="300%"/>
+
+    <!-- Tier 4 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank2" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank3" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_3" Weight="400%"/>
+
+    <!-- Tier 5 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank3" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Soviet" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSingularity" Weight="500%"/>
+    
+
+  </AIPersonalityDefinition>
+	<AIPersonalityDefinition
+		id="SACOMCoopBaseSkirmishPersonality"
+		PersonalityType="SACOMCoopBaseSkirmishPersonality"
+		inheritFrom="SACOMCoopBasePersonality"
+		EmergencyManagerHandleConyardInDangerAtDifficulty="MEDIUM HARD BRUTAL">
+		<OpeningMove Name="SACOMStandard_EASY" Weight="100%" Difficulty="EASY">
+			<Heuristic>
+				<PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+			</Heuristic>
+		</OpeningMove>
+		
+		<OpeningMove Name="SACOMIsland_EASY" Weight="100%" Difficulty="EASY">
+			<Heuristic>
+				<PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+			</Heuristic>
+		</OpeningMove>
+		
+		<!-- Defense States -->
+		<StrategicState id="LandDefense" State="LandDefense" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="WaterDefense" State="WaterDefense" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="LandDefense_MEDIUM" State="LandDefense_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="WaterDefense_MEDIUM" State="WaterDefense_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="LandDefense_EASY" State="LandDefense_EASY" Difficulty="EASY"/>
+		<StrategicState id="WaterDefense_EASY" State="WaterDefense_EASY" Difficulty="EASY"/>
+		
+		<StrategicState id="LandEmergencyDefense" State="LandEmergencyDefense" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="WaterEmergencyDefense" State="WaterEmergencyDefense" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="LandEmergencyDefense_MEDIUM" State="LandEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="WaterEmergencyDefense_MEDIUM" State="WaterEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="LandEmergencyDefense_EASY" State="LandEmergencyDefense_EASY" Difficulty="EASY"/>
+		<StrategicState id="WaterEmergencyDefense_EASY" State="WaterEmergencyDefense_EASY" Difficulty="EASY"/>
+		
+		<!-- General Skirmish States -->
+		<StrategicState id="Cleanup" State="Cleanup" Difficulty="EASY MEDIUM HARD"/>
+		<StrategicState id="Cleanup_BRUTAL" State="Cleanup_BRUTAL" Difficulty="BRUTAL"/>
+		
+		<StrategicState id="RetreatMCVToLand" State="RetreatMCVToLand" Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="RetreatMCVToWater" State="RetreatMCVToWater" Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="EscortMCV" State="EscortMCV" Difficulty="MEDIUM HARD BRUTAL"/>
+		
+		<StrategicState id="ModBombardmentShipAttack" State="ModBombardmentShipAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="CommandoController" State="CommandoController" Difficulty="MEDIUM HARD BRUTAL"/>
+		
+		<StrategicState id="SACOMStealthDetector" State="SACOMStealthDetector" Difficulty="MEDIUM HARD BRUTAL"/>
+		
+		<StrategicState id="CratePickup" State="CratePickup" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<!-- Aircraft Offensive States -->
+		<StrategicState id="Mod_FighterAircraftFlankAttack" State="Mod_FighterAircraftFlankAttack" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="Mod_FighterAircraft_MEDIUM" State="Mod_FighterAircraft_MEDIUM" Difficulty="EASY MEDIUM"/>
+		
+		<StrategicState id="SACOMArmedHelicopterHarrassment_EASY" State="SACOMArmedHelicopterHarrassment_EASY" Difficulty="EASY"/>
+		<StrategicState id="SACOMArmedHelicopterHarrassment" State="SACOMArmedHelicopterHarrassment" Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="SACOMAirshipFlankAttack" State="SACOMAirshipFlankAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<StrategicState id="SACOMTerrorDroneHarrassment" State="SACOMTerrorDroneHarrassment" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="SACOMTerrorDroneHarrassment_MEDIUM" State="SACOMTerrorDroneHarrassment_MEDIUM" Difficulty="EASY MEDIUM"/>
+		
+		<!-- Island States -->
+		<StrategicState id="SACOMTransportAttack" State="SACOMTransportAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<!-- Removed Strategic States-->
+		<StrategicState id="SACOMNavalBase" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+		<StrategicState id="SACOMExpansion" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+		<StrategicState id="SACOMCaptureTech" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+		
+		<StrategicState id="SACOMExpansion_MEDIUM" State="SACOMExpansion_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="SACOMExpansion_HARD" State="SACOMExpansion_HARD" Difficulty="HARD"/>
+		<StrategicState id="SACOMExpansion_BRUTAL" State="SACOMExpansion_BRUTAL" Difficulty="BRUTAL"/>
+		
+		<StrategicState id="SACOMCaptureTech_EASY" State="SACOMCaptureTech_EASY" Difficulty="EASY"/>
+		<StrategicState id="SACOMCaptureTech_MEDIUM" State="SACOMCaptureTech_MEDIUM" Difficulty="MEDIUM"/>
+		
+		<StrategicState id="SACOMCapturePriorityTech_HARD" State="SACOMCapturePriorityTech_HARD" Difficulty="HARD"/>
+		<StrategicState id="SACOMCaptureNonPriorityTech_HARD" State="SACOMCaptureNonPriorityTech_HARD" Difficulty="HARD"/>
+		
+		<StrategicState id="SACOMCapturePriorityTech_BRUTAL" State="SACOMCapturePriorityTech_BRUTAL" Difficulty="BRUTAL"/>
+		<StrategicState id="SACOMCaptureNonPriorityTech_BRUTAL" State="SACOMCaptureNonPriorityTech_BRUTAL" Difficulty="BRUTAL"/>
+		
+		<StrategicState id="SACOMCaptureVehicleHealTech" State="SACOMCaptureVehicleHealTech" Difficulty="HARD BRUTAL"/>
+		
+		<!-- Build States -->
+    <!-- BRUTAL BUILD STATES -->
+    <BuildState id="SuperiorBrutalSACOMWarfactorySpam" State="SuperiorBrutalSACOMWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalSACOMNavalYardSpam" State="SuperiorBrutalSACOMNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalSACOMAirfieldSpam" State="SuperiorBrutalSACOMAirfieldSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES
+    <BuildState id="SuperiorINFINITEBrutalSovietWarfactorySpam" State="SuperiorINFINITEBrutalSovietWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalSovietNavalYardSpam" State="SuperiorINFINITEBrutalSovietNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalSovietAirfieldSpam" State="SuperiorINFINITEBrutalSovietAirfieldSpam" Difficulty="BRUTAL"/>  -->
+		<BuildState id="SACOMNonPathDependentStructureBuildState" State="SACOMNonPathDependentStructureBuildState" Difficulty="EASY MEDIUM HARD BRUTAL"/>   
+		<BuildState id="SuperiorBrutalSACOMsTechBuildState" State="SuperiorBrutalSACOMsTechBuildState" Difficulty="BRUTAL"/>
+		<BuildState id="SuperiorSACOMsTechBuildState" State="SuperiorSACOMsTechBuildState" Difficulty="HARD"/>
+		<BuildState id="SACOMTechBuildState" State="SACOMTechBuildState" Difficulty="MEDIUM"/>
+		<BuildState id="SACOMTechBuildState_EASY" State="SACOMTechBuildState_EASY" Difficulty="EASY"/>
+		
+		<BuildState id="SACOMLandUnitBuildState" State="SACOMLandUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+		<BuildState id="SACOMWaterUnitBuildState" State="SACOMWaterUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+		<BuildState id="SACOMAmphibiousUnitBuildState" State="SACOMAmphibiousUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+		<BuildState id="SACOMAntiInfantryOnlyBuildState" State="SACOMAntiInfantryOnlyBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+		<BuildState id="SACOMAntiAirOnlyBuildState" State="SACOMAntiAirOnlyBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+		<BuildState id="SACOMAntiSubmarineAircraftBuildState" State="SACOMAntiSubmarineAircraftBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+		
+		<BuildState id="SACOMBarracksBuildState_RANDOM" State="SACOMBarracksBuildState_RANDOM" Difficulty="EASY"/>
+		<BuildState id="SACOMWarFactoryBuildState_RANDOM" State="SACOMWarFactoryBuildState_RANDOM" Difficulty="EASY"/>
+		<BuildState id="SACOMNavalYardBuildState_RANDOM" State="SACOMNavalYardBuildState_RANDOM" Difficulty="EASY"/>
+		<BuildState id="SACOMAirfieldBuildState_RANDOM" State="SACOMAirfieldBuildState_RANDOM" Difficulty="EASY"/>
+		
+
+		<!-- Caps for difficulty -->
+		<SpecificUnitCap Unit="SACOMFighterAircraft" Cap="0" Difficulty="EASY"/>
+		<SpecificUnitCap Unit="SACOMAntiSubmarineAircraft" Cap="1" Difficulty="EASY"/>
+		<SpecificUnitCap Unit="SACOMAerialCommandCruiser" Cap="1" Difficulty="EASY"/>
+		<SpecificUnitCap Unit="SACOMAntiStructureShip" Cap="1" Difficulty="EASY"/>
+		<SpecificUnitCap Unit="SACOMCommandoTech1" Cap="0" Difficulty="EASY"/>
+		
+		<SpecificUnitCap Unit="SACOMScoutVehicle" Cap="1" Difficulty="EASY"/>
+		
+		<SpecificUnitCap Unit="SACOMFighterAircraft" Cap="2" Difficulty="MEDIUM"/>
+		<SpecificUnitCap Unit="SACOMAerialCommandCruiser" Cap="2" Difficulty="MEDIUM"/>
+		
+		<!-- At a certain point, we don't need any more of these because they are very limited in use. -->
+		<SpecificUnitCap Unit="SACOMScoutInfantry" Cap="6" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<!-- At a certain point, we just don't need any more of these since they can't double-up on targets-->
+		<SpecificUnitCap Unit="SACOMScoutVehicle" Cap="10" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<!-- Although amphibious, these are anti-air only so they can never actually defeat an opponent -->
+		<SpecificUnitCap Unit="SACOMAntiAirShip" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMAntiAirVehicle" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<!-- We need caps for all land-only and water-only units to protect against situations where those units can no longer path to the enemy.
+		We try to protect against that as much as possible but this is the safety-net.  At a certain point, the AI should just spam amphibious
+		or air units which are always a safe bet. -->
+		<SpecificUnitCap Unit="SACOMAntiInfantryInfantry" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMMedic" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMAntiVehicleInfantry" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SovietMortarcycle" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<SpecificUnitCap Unit="SACOMListener" Cap="4" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMAntiInfantryVehicle" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMAntiVehicleVehicleTech2" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMAntiStructureVehicle" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SovietHeavyWalkerVehicle" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<SpecificUnitCap Unit="SACOMAntiNavyShipTech2" Cap="10" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMAntiStructureShip" Cap="6" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		
+		<SpecificUnitCap Unit="SACOMBarracks" Cap="4" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMNavalYard" Cap="3" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMWarFactory" Cap="3" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="SACOMAirfield" Cap="4" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+	</AIPersonalityDefinition>
+	
+	
+  <AIPersonalityDefinition
+		id="1SACOMBalanced"
+		PersonalityType="1SACOMBalanced"
+		inheritFrom="SACOMCoopBaseSkirmishPersonality"
+		SkirmishPersonality="false"
+		PersonalityUIName="Personality:Oleg"
+		CommanderPortrait="Oleg"
+		>
+
+    <OpeningMove Name="SACOMStandard" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SACOMStandard_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+    <OpeningMove Name="SACOMIsland" Weight="100%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <StrategicState id="BalancedDefense" State="BalancedDefense" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+    <StrategicState id="Cleanup" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="BalancedCleanup" State="BalancedCleanup" Difficulty="EASY MEDIUM HARD"/> 
+
+    <StrategicState id="SACOMScout" State="SACOMScout" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <!-- Harrassment States -->
+    <!--
+    <StrategicState id="SickleHarrassment" State="SickleHarrassment" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="TerrorDroneHarrassment" State="TerrorDroneHarrassment" Difficulty="HARD BRUTAL"/>
+    -->
+
+    <!-- Removed Strategic States-->
+    <StrategicState id="SACOMArmedHelicopterHarrassment" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+
+    <!-- Main Offensive States - HARD and BRUTAL -->
+    <StrategicState id="GrowingAttacks_Land" State="GrowingAttacks_Land" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="GrowingAttacks_Water" State="GrowingAttacks_Water" Difficulty="HARD BRUTAL"/>
+
+    <!-- Main Offensive States - MEDIUM -->
+    <StrategicState id="GrowingAttacks_Land_MEDIUM" State="GrowingAttacks_Land_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="GrowingAttacks_Water_MEDIUM" State="GrowingAttacks_Water_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+		<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="SovietCoopOlegPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="SovietCoopOlegPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="SovietCoopOlegTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="SovietCoopOlegTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="SovietCoopOlegStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="SovietCoopOlegStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="SovietCoopOlegAutoPilot" FeedbackTo="ALLIES"/>
+
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR3" 
+				FeedbackTo="ALLIES"/>
+    <FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR4"
+				FeedbackTo="ALLIES"/>
+
+    <!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+    <FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND4"
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>    
+
+    <!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE3" 
+				FeedbackTo="ALLIES"/>
+    <FeedbackEntry
+        FeedbackKey="Lost"
+        Video="SOLDE4"
+        FeedbackTo="ALLIES"/>
+
+    <!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+    <FeedbackEntry
+        FeedbackKey="FirstSeen"
+        Video="SOLTG4"
+        FeedbackTo="ENEMIES"
+        Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD3" 
+				FeedbackTo="ENEMIES"/>
+    <FeedbackEntry
+        FeedbackKey="DefeatedByLocalPlayer"
+        Video="SOLTD4"
+        FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV3" 
+				FeedbackTo="ENEMIES"/>
+    <FeedbackEntry
+        FeedbackKey="DefeatedLocalPlayer"
+        Video="SOLTV4"
+        FeedbackTo="ENEMIES"/>
+
+  </AIPersonalityDefinition>
+  
+	
+</AssetDeclaration>

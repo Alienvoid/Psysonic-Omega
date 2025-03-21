@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="SuperiorEarlyBearManager"
+    MaxTargets="99">
+    <Heuristic>
+      <TimerHeuristic StartTime="10s" EndTime="120s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorScout3Heuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorScout2Heuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SuperiorAntiInfantryONLYHeuristic" Priority="30"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="2" MaxUnits="3"
+                    RegisteredObjectSet="INFANTRY"
+                    Priority="HIGH" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorSovietStandardMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietScoutInfantry</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorDreadnoughtManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="1"/>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL_INWATER" Priority="1"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL_INWATER" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL_INWATER_SIEGEUNIT" Priority="120"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES_INWATER" Priority="99"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="4" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="SuperiorDreadnoughtMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorV4Manager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES" Priority="90"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="VEHICLES"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorSovietStandardMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietScout"
+    MaxTargets="2">
+    <Heuristic>
+      <TimerHeuristic StartTime="50s" EndTime="300s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorScout3Heuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorScout2Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorScout1Heuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SafestStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="INFANTRY"
+                    Priority="LOW" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ScoutMicroManager">
+        <CreateUnits UnitName="SovietScoutInfantry" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorSovietNonPathDependentStructureBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+    </Heuristic>
+    <BuildEntry Build="SovietPowerPlant" Heuristic="POWER"/>
+    <BuildEntry Build="SovietPowerPlantAdvanced" Heuristic="POWER"/>
+    <BuildEntry Build="SovietRefinery" Heuristic="REFINERY"/>
+    <BuildEntry Build="SovietBarracks" Heuristic="FACTORY"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorSovietAirfieldBuildState">
+    <Heuristic>
+      <TimerHeuristic StartTime="290s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+    </Heuristic>
+    <BuildEntry Build="SovietAirfield" Heuristic="FACTORY"/>
+  </AIBuildStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorFlakDrop"
+    MaxTargets="2">
+    <Heuristic>
+<!--
+      <PowerAdvantageHeuristic Value="1.75" Above="true" IncludeOwnDefenses="false" IncludeEnemyDefenses="false"/>
+-->
+      <IntervalHeuristic IntervalTime="87s" ActiveTime="30s"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiVehicleInfantry</IncludeThing>
+          <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvGROUNDHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack4Heuristic" Priority="20"/>
+
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="3" MaxUnits="5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AIR"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorFlakDropMicroManager">
+        <CreateUnits UnitName="SovietAntiGroundAircraft" MinUnits="1" MaxUnits="1"/>
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiVehicleInfantry</IncludeThing>
+          <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorKirovFlankAttack"
+    MaxTargets="3">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersHeuristic" Priority="990"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic_NonUnique" Priority="5"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="1"  MaxUnits="20" MinPowerAdvantage="8.5"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="KirovMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorMIGScoutandAttack"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSRocketAngelsTargetHeuristic" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTwinvindTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSKirovCenturyTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTenguTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSVXTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSFighterTargetHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSAnyAirTargetHeuristic" Priority="30"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK FIGHTER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="SuperiorSovietFighterAircraftMicroManager" />
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorMIGHandler"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTwinvindTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSKirovCenturyTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTenguTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSFighterTargetHeuristic" Priority="50"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK FIGHTER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="SuperiorSovietFighterAircraftMicroManager" />
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorStingrayHarrassment"
+    MaxTargets="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="15s" EndTime="120s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiNavyShipTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIExpoHeuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTICommandoHeuristic" Priority="50"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="SuperiorSovietStingrayRushMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiNavyShipTech1</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorTwinFrog"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIExpoHeuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillSiegeUnitsHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTICommandoHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirSurfaceUnitHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirPowerPlantHeuristic" Priority="20"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="3" MaxUnits="20"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK TRANSPORT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR AMPHIBIOUS"
+                    Priority="HIGH"  ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorTwinbladeMicroManager" >
+        <ObjectFilter Rule="ALL">
+          <IncludeThing>SovietAntiGroundAircraft</IncludeThing>
+          <IncludeThing>SovietAntiAirShip_Ground</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorFrogManager_Attack"
+    MaxTargets="1">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiAirShip</IncludeThing>
+          <IncludeThing>SovietAntiAirShip_Ground</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSRocketAngelsTargetHeuristic_GROUND" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTwinvindTargetHeuristic_GROUND" Priority="75"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSKirovCenturyTargetHeuristic_GROUND" Priority="75"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTenguTargetHeuristic_GROUND" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSVXTargetHeuristic_GROUND" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSFighterTargetHeuristic_GROUND" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSAnyAirTargetHeuristic_GROUND" Priority="30"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="4" MaxUnits="6" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="HIGH"  ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="SuperiorFrogMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiAirShip</IncludeThing>
+          <IncludeThing>SovietAntiAirShip_Ground</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorFrogManager_Defense"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiAirShip</IncludeThing>
+          <IncludeThing>SovietAntiAirShip_Ground</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="5s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target to defend -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSRocketAngelsTargetHeuristic_GROUND" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTwinvindTargetHeuristic_GROUND" Priority="75"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSKirovCenturyTargetHeuristic_GROUND" Priority="75"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTenguTargetHeuristic_GROUND" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSVXTargetHeuristic_GROUND" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSFighterTargetHeuristic_GROUND" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSAnyAirTargetHeuristic_GROUND" Priority="30"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" >
+      <TeamTemplate MinUnits="3" MaxUnits="4"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="LOW"  ReleaseType="RELEASE_TO_PRIORITY"  AlwaysRecruit="true" AllowRecruitUnitsInCombat="false"
+                    MicroManager="SuperiorFrogMicroManagerDEFENSIVE">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiAirShip</IncludeThing>
+          <IncludeThing>SovietAntiAirShip_Ground</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorTwinEscorts"
+    MaxTargets="2">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestOwnTwinbladeHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" EndBehavior="DISBAND" Distance="55">
+      <TeamTemplate MinUnits="3" MaxUnits="6"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK TRANSPORT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="HIGH"  ReleaseType="NEVER_RELEASE" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="SuperiorFrogMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiAirShip</IncludeThing>
+          <IncludeThing>SovietAntiAirShip_Ground</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorTerrorDroneHarrassment"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="TDvsLandHarvester" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="TDvsWaterHarvester" Priority="9880"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillCoresHeuristic" Priority="98899999"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="0.75"
+                    RegisteredObjectSet="INFANTRY"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorTerrorDroneHarassmentMicroManager">
+        <CreateUnits UnitName="SovietScoutVehicle" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorTwinbladeHarrassment"
+    MaxTargets="99">
+    <Heuristic>
+      <ConstantHeuristic/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIExpoHeuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillSiegeUnitsHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTICommandoHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirSurfaceUnitHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirPowerPlantHeuristic" Priority="20"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="5" 
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK " ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD"  ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorTwinbladeMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorTwinbladeDefenseManager"
+    MaxTargets="99"
+    MaxRunningCopies="25">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <EnemyNearbyHeuristic Distance="750.0" EnemyNearby="true" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="CryoDefenseStructureUnderAttackByEnemyHeuristic" Priority="99"/>
+    <Tactic id="Attack" Tactic="StaticDefense" Distance="500" EndIfStateTurnsOff="true" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="3"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="SuperiorCryoMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+      id="SuperiorSovietRepairBridges"
+      MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="750.0" EnemyNearby="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestSafestBrokenBridgeHeuristic"/>
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    MicroManager="CaptureAnythingMicroManager">
+        <CreateUnits UnitName="SovietEngineer" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietCapturePriorityTech"
+    MaxTargets="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="25s" EndTime="-1s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="500.0" EnemyNearby="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestSafestTechBuildingHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestSafestMoneyTechHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="ClosestSafestVeterancyTechHeuristic" Priority="999"/>
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="3" MaxUnits="3" MinPowerAdvantage="1.5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    MicroManager="CaptureAnythingMicroManager">
+        <CreateUnits UnitName="SovietEngineer" MinUnits="1" MaxUnits="1"/>
+        <CreateUnits UnitName="SovietScoutInfantry" MinUnits="2" MaxUnits="2"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="220s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietSurveyor</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietExpansionFaster"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="320s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="80s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietSurveyor</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorSovietCraneBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="320s" EndTime="-1s"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+          Relationship="SAME_PLAYER"
+          Rule="ANY"
+          Include="VEHICLE">
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <!-- Only build 1 Crane -->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false">
+        <ObjectFilter
+          Relationship="SAME_PLAYER">
+          <IncludeThing>SovietCrane</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <BuildEntry Build="SovietCrane" Heuristic="FACTORY"/>
+  </AIBuildStateDefinition>
+  
+  <AIBuildStateDefinition
+    id="SuperiorSovietTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="3000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="SovietPowerPlantAdvanced" Heuristic="TECH" MinTime="180s"/>
+    <BuildEntry Build="SovietTechStructure" Heuristic="TECH" MinTime="360s"/>
+    <BuildEntry Build="SovietSuperWeapon" Heuristic="TECH" MinTime="480s"/>
+    <BuildEntry Build="SovietSuperWeaponAdvanced" Heuristic="TECH" MinTime="520s"/>
+    <BuildEntry Build="SovietDetentionCamp" Heuristic="TECH" MinTime="640s"/>
+    <BuildEntry Build="SovietStatue" Heuristic="TECH" MinTime="720s"/>
+  </AIBuildStateDefinition>
+
+
+
+  <AIBuildStateDefinition
+    id="SuperiorSovietLandUnitBuildState">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true"
+        Location="Land">
+        <ObjectFilter
+          Relationship="ENEMIES"
+          Rule="ALL" >
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+
+    <BuildEntry Build="SovietWarFactory" Heuristic="FACTORY"/>
+
+    <BuildEntry Build="SovietScoutInfantry" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>AlliedScoutInfantry</IncludeThing>
+        <IncludeThing>SovietScoutInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+
+    <BuildEntry Build="SovietAntiInfantryInfantry" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>AlliedScoutInfantry</IncludeThing>
+        <IncludeThing>SovietScoutInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+    
+    <BuildEntry Build="SovietAntiVehicleInfantry" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>AlliedScoutInfantry</IncludeThing>
+        <IncludeThing>SovietScoutInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+    
+    <BuildEntry Build="SovietHeavyAntiVehicleInfantry" Heuristic="BEST_UNIT_EXPECTED"/>
+
+    <BuildEntry Build="SovietAntiInfantryVehicle" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+
+    <BuildEntry Build="SovietAntiVehicleVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+
+    <BuildEntry Build="SovietAntiStructureVehicle" Heuristic="BEST_UNIT_WEIGHTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+
+    <BuildEntry Build="SovietAntiVehicleVehicleTech3" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+    
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

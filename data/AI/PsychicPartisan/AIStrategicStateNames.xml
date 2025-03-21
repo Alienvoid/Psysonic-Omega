@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes></Includes>
+	<AIStrategicStateName id="PsychicPartisan_TenguHarrassmentName" State="PsychicPartisan_TenguHarrassment" Name="PsychicPartisan_TenguHarrassment" />
+	<AIStrategicStateName id="PsychicPartisanScoutName" State="PsychicPartisanScout" Name="PsychicPartisanScout" />
+	<AIStrategicStateName id="PsychicPartisanStealthDetectorName" State="PsychicPartisanStealthDetector" Name="PsychicPartisanStealthDetector" />
+	<AIStrategicStateName id="PsychicPartisan_VXHarrassmentName" State="PsychicPartisan_VXHarrassment" Name="PsychicPartisan_VXHarrassment" />
+	<AIStrategicStateName id="PsychicPartisan_SuddenTransportHarrassmentName" State="PsychicPartisan_SuddenTransportHarrassment" Name="PsychicPartisan_SuddenTransportHarrassment" />
+	<AIStrategicStateName id="PsychicPartisanTransportAttackName" State="PsychicPartisanTransportAttack" Name="PsychicPartisanTransportAttack" />
+	<AIStrategicStateName id="PsychicPartisanEggUnpackerName" State="PsychicPartisanEggUnpacker" Name="PsychicPartisanEggUnpacker" />
+	<AIStrategicStateName id="PsychicPartisanEggUnpacker_AllowNearConyardName" State="PsychicPartisanEggUnpacker_AllowNearConyard" Name="PsychicPartisanEggUnpacker_AllowNearConyard" />
+	<AIStrategicStateName id="PsychicPartisanCaptureWaterHusksName" State="PsychicPartisanCaptureWaterHusks" Name="PsychicPartisanCaptureWaterHusks" />
+	<AIStrategicStateName id="PsychicPartisanCaptureTech_MEDIUMName" State="PsychicPartisanCaptureTech_MEDIUM" Name="PsychicPartisanCaptureTech_MEDIUM" />
+	<AIStrategicStateName id="PsychicPartisanCaptureTechName" State="PsychicPartisanCaptureTech" Name="PsychicPartisanCaptureTech" />
+	<AIStrategicStateName id="PsychicPartisanCaptureTech_EASYName" State="PsychicPartisanCaptureTech_EASY" Name="PsychicPartisanCaptureTech_EASY" />
+	<AIStrategicStateName id="PsychicPartisanCapturePriorityTech_HARDName" State="PsychicPartisanCapturePriorityTech_HARD" Name="PsychicPartisanCapturePriorityTech_HARD" />
+	<AIStrategicStateName id="PsychicPartisanCaptureNonPriorityTech_HARDName" State="PsychicPartisanCaptureNonPriorityTech_HARD" Name="PsychicPartisanCaptureNonPriorityTech_HARD" />
+	<AIStrategicStateName id="PsychicPartisanCapturePriorityTech_BRUTALName" State="PsychicPartisanCapturePriorityTech_BRUTAL" Name="PsychicPartisanCapturePriorityTech_BRUTAL" />
+	<AIStrategicStateName id="PsychicPartisanCaptureNonPriorityTech_BRUTALName" State="PsychicPartisanCaptureNonPriorityTech_BRUTAL" Name="PsychicPartisanCaptureNonPriorityTech_BRUTAL" />
+	<AIStrategicStateName id="PsychicPartisanCaptureVehicleHealTechName" State="PsychicPartisanCaptureVehicleHealTech" Name="PsychicPartisanCaptureVehicleHealTech" />
+	<AIStrategicStateName id="PsychicPartisanExpansionName" State="PsychicPartisanExpansion" Name="PsychicPartisanExpansion" />
+	<AIStrategicStateName id="PsychicPartisanExpansion_MEDIUMName" State="PsychicPartisanExpansion_MEDIUM" Name="PsychicPartisanExpansion_MEDIUM" />
+	<AIStrategicStateName id="PsychicPartisanExpansion_HARDName" State="PsychicPartisanExpansion_HARD" Name="PsychicPartisanExpansion_HARD" />
+	<AIStrategicStateName id="PsychicPartisanExpansion_BRUTALName" State="PsychicPartisanExpansion_BRUTAL" Name="PsychicPartisanExpansion_BRUTAL" />
+	<AIStrategicStateName id="PsychicPartisanInfiltrationName" State="PsychicPartisanInfiltration" Name="PsychicPartisanInfiltration" />
+	<AIStrategicStateName id="PsychicPartisanMechaKingAttackName" State="PsychicPartisanMechaKingAttack" Name="PsychicPartisanMechaKingAttack" />
+	<AIStrategicStateName id="PsychicPartisanBerserkerAttackName" State="PsychicPartisanBerserkerAttack" Name="PsychicPartisanBerserkerAttack" />
+	
+	<AIStrategicStateName id="PsyNavalLeader_NavyHarrassmentName" State="PsyNavalLeader_NavyHarrassment" Name="PsyNavalLeader_NavyHarrassment" />
+	<AIStrategicStateName id="PsyNavalLeader_NavyAttackName" State="PsyNavalLeader_NavyAttack" Name="PsyNavalLeader_NavyAttack" />
+	<AIStrategicStateName id="PsyNavalLeader_LandAttackName" State="PsyNavalLeader_LandAttack" Name="PsyNavalLeader_LandAttack" />
+	<AIStrategicStateName id="NavalLeader_PsychicAngelSupportName" State="NavalLeader_PsychicAngelSupport" Name="NavalLeader_PsychicAngelSupport" />
+	
+	<AIStrategicStateName id="SoulOperator_AmphibiousVehicleAttackName" State="SoulOperator_AmphibiousVehicleAttack" Name="SoulOperator_AmphibiousVehicleAttack" />
+	<AIStrategicStateName id="SoulOperator_AmphibiousTransportAttackName" State="SoulOperator_AmphibiousTransportAttack" Name="SoulOperator_AmphibiousTransportAttack" />
+	
+	<AIStrategicStateName id="PsychicAngelFlankAttackName" State="PsychicAngelFlankAttack" Name="PsychicAngelFlankAttack" />
+	<AIStrategicStateName id="PrincessEscortHuntName" State="PrincessEscortHunt" Name="PrincessEscortHunt" />
+</AssetDeclaration>

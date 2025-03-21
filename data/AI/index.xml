@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<Includes>
+		
+		<!-- Common used -->
+		<Include type="all" source="AIBudgetStateLibrary.xml" />
+		<Include type="all" source="AIBuildStateDefinition.xml" />
+		<Include type="all" source="AIPersonalityDefinition.xml" />
+		<Include type="all" source="OpeningMoves/AIOpeningMoveLibrary.xml" />
+		<!--<Include type="all" source="AIData.xml" />-->
+		<Include type="all" source="TechStates.xml" />
+		<!--
+		<Include type="all" source="HuntPersonality.xml" />
+		<Include type="all" source="RandomPersonalities.xml" />
+		<Include type="all" source="ArmyDefAllied.xml" />
+		<Include type="all" source="ArmyDefJapan.xml" />
+		<Include type="all" source="ArmyDefSoviet.xml" />-->
+		
+		
+		<Include type="all" source="AIStrategicStateDefinition.xml" />
+		<Include type="all" source="AIStrategicStateNames.xml" />
+		<Include type="all" source="States/SuperiorBrutalAlliedBaseStates.xml" />
+		<Include type="all" source="States/SuperiorBrutalSovietBaseStates.xml" />
+		<Include type="all" source="States/SuperiorBrutalJapanBaseStates.xml" />
+		
+		<Include type="all" source="ArmyDefSACOM.xml" />
+		<Include type="all" source="SACOM/AIPersonalityDefinition.xml" />
+		<Include type="all" source="SACOM/AIStrategicStateNames.xml" />
+		<Include type="all" source="SACOM/BaseAIPersonalityDefinition.xml" />
+		<Include type="all" source="SACOM/SACOMBaseStates.xml" />
+		<Include type="all" source="SACOM/SACOMOpeningMoves.xml" />
+		<Include type="all" source="SACOM/SACOMQuickDeploymentStates.xml" />
+		<Include type="all" source="SACOM/SACOMSpyLeaderStates.xml" />
+		<Include type="all" source="SACOM/SuperiorBrutalSACOMBaseStates.xml" />
+		
+		<Include type="all" source="ArmyDefPsychicPartisan.xml" />
+		<Include type="all" source="PsychicPartisan/AIMicroManagerLibrary.xml" />
+		<Include type="all" source="PsychicPartisan/AIPersonalityDefinition.xml" />
+		<Include type="all" source="PsychicPartisan/AIStrategicStateNames.xml" />
+		<Include type="all" source="PsychicPartisan/BaseAIPersonalityDefinition.xml" />
+		<Include type="all" source="PsychicPartisan/PsychicPartisanBaseStates.xml" />
+		<Include type="all" source="PsychicPartisan/PsychicPartisanOpeningMoves.xml" />
+		<Include type="all" source="PsychicPartisan/PsychicPartisanNavalLeaderStates.xml" />
+		<Include type="all" source="PsychicPartisan/PsychicPartisanMechaKingStates.xml" />
+		<Include type="all" source="PsychicPartisan/PsychicPartisanSoulOperatorStates.xml" />
+		<Include type="all" source="PsychicPartisan/SuperiorBrutalPsychicPartisanBaseStates.xml" />
+		
+		
+		<Include type="all" source="ArmyDefNRA.xml" />
+		<Include type="all" source="NRA/AIStrategicStateNames.xml" />
+		<Include type="all" source="NRA/BaseAIPersonalityDefinition.xml" />
+		<Include type="all" source="NRA/AIPersonalityDefinition.xml" />
+		<Include type="all" source="NRA/NRABaseStates.xml" />
+		<Include type="all" source="NRA/NRAOpeningMoves.xml" />
+		<Include type="all" source="NRA/SuperiorBrutalNRABaseStates.xml" />
+		<Include type="all" source="NRA/NRASpecialForcesStates.xml" />
+		<Include type="all" source="NRA/NRASquadronLeaderStates.xml" />
+		
+		
+		<!-- Objects 
+		<Include type="all" source="BaseAIPersonalityDefinition.xml" />-->
+	</Includes>
+</AssetDeclaration>

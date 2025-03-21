@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include type="instance" source="BaseAIPersonalityDefinition.xml"/>
+	</Includes>
+	
+	<!-- SACOM -->
+  <AIPersonalityDefinition
+		id="4SACOMBalanced"
+		PersonalityType="4SACOMBalanced"
+		inheritFrom="SACOMCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Oleg"
+		CommanderPortrait="Oleg"
+		>
+
+    <OpeningMove Name="SACOMStandard" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SACOMStandard_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+    <OpeningMove Name="SACOMIsland" Weight="100%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <StrategicState id="BalancedDefense" State="BalancedDefense" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+    <StrategicState id="Cleanup" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="BalancedCleanup" State="BalancedCleanup" Difficulty="EASY MEDIUM HARD"/> 
+
+    <StrategicState id="SACOMScout" State="SACOMScout" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <!-- Harrassment States -->
+    <!--
+    <StrategicState id="SACOMAntiInfantryVehicleHarrassment" State="SACOMAntiInfantryVehicleHarrassment" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SACOMTerrorDroneHarrassment" State="SACOMTerrorDroneHarrassment" Difficulty="HARD BRUTAL"/>
+    -->
+
+    <!-- Removed Strategic States-->
+    <StrategicState id="SACOMArmedHelicopterHarrassment" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+
+    <!-- Main Offensive States - HARD and BRUTAL -->
+    <StrategicState id="GrowingAttacks_Land" State="GrowingAttacks_Land" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="GrowingAttacks_Water" State="GrowingAttacks_Water" Difficulty="HARD BRUTAL"/>
+
+    <!-- Main Offensive States - MEDIUM -->
+    <StrategicState id="GrowingAttacks_Land_MEDIUM" State="GrowingAttacks_Land_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="GrowingAttacks_Water_MEDIUM" State="GrowingAttacks_Water_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+		<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="SovietCoopOlegPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="SovietCoopOlegPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="SovietCoopOlegTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="SovietCoopOlegTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="SovietCoopOlegStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="SovietCoopOlegStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="SovietCoopOlegAutoPilot" FeedbackTo="ALLIES"/>
+
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR3" 
+				FeedbackTo="ALLIES"/>
+    <FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR4"
+				FeedbackTo="ALLIES"/>
+
+    <!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+    <FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND4"
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>    
+
+    <!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE3" 
+				FeedbackTo="ALLIES"/>
+    <FeedbackEntry
+        FeedbackKey="Lost"
+        Video="SOLDE4"
+        FeedbackTo="ALLIES"/>
+
+    <!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+    <FeedbackEntry
+        FeedbackKey="FirstSeen"
+        Video="SOLTG4"
+        FeedbackTo="ENEMIES"
+        Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD3" 
+				FeedbackTo="ENEMIES"/>
+    <FeedbackEntry
+        FeedbackKey="DefeatedByLocalPlayer"
+        Video="SOLTD4"
+        FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV3" 
+				FeedbackTo="ENEMIES"/>
+    <FeedbackEntry
+        FeedbackKey="DefeatedLocalPlayer"
+        Video="SOLTV4"
+        FeedbackTo="ENEMIES"/>
+
+	</AIPersonalityDefinition>
+	
+  <AIPersonalityDefinition
+		id="5SACOMSpyLeader"
+		PersonalityType="2SACOMSpyLeader"
+		inheritFrom="SACOMCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Moskvin"
+		CommanderPortrait="Moskvin"
+		>
+
+    <OpeningMove Name="SACOMTerrorDroneRush" Weight="50%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SACOMSickleRush" Weight="50%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SACOMIsland" Weight="100%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SACOMAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <!-- Harrassment States -->
+    <StrategicState id="SACOMAntiInfantryVehicleHarrassment" State="SACOMAntiInfantryVehicleHarrassment" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SACOMAntiInfantryVehicleHarrassment_MEDIUM" State="SACOMAntiInfantryVehicleHarrassment_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States  -->
+    
+		<StrategicState id="SpyLeader_HitAndRun_Land" State="SpyLeader_HitAndRun_Land" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="SpyLeader_HitAndRun_Water" State="SpyLeader_HitAndRun_Water" Difficulty="HARD BRUTAL"/>
+
+    <StrategicState id="SpyLeader_HitAndRun_Land_MEDIUM" State="SpyLeader_HitAndRun_Land_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="SpyLeader_HitAndRun_Water_MEDIUM" State="SpyLeader_HitAndRun_Water_MEDIUM" Difficulty="MEDIUM"/>
+    
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <BuildState id="SACOMCraneBuildState" State="SACOMCraneBuildState" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Unit Preferences -->
+    <UnitModifier Unit="SACOMAntiInfantryInfantry" OffensiveModifier="1.25" DefensiveModifier="1.25"/>
+    <UnitModifier Unit="SovietMortarcycle" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="SACOMScoutVehicle" OffensiveModifier="4.0" DefensiveModifier="4.0"/>
+    <UnitModifier Unit="SACOMAntiInfantryVehicle" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMAntiStructureVehicle" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMScud" OffensiveModifier="6.5" DefensiveModifier="6.0"/>
+	<UnitModifier Unit="SACOMAntiVehicleVehicleTech2" OffensiveModifier="6.0" DefensiveModifier="4.0"/>
+    <UnitModifier Unit="SovietHeavyWalkerVehicle" OffensiveModifier="0.25" DefensiveModifier="0.25"/>
+
+    <UnitModifier Unit="SACOMAntiAirMissileVehicle" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMAntiAirShip" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMAntiNavyShipTech1" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMDestroyer" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="SACOMAntiSubmarineAircraft" OffensiveModifier="1.0" DefensiveModifier="4.0"/>
+    <UnitModifier Unit="SACOMHunterAircraft" OffensiveModifier="4.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="SACOMAerialCommandCruiser" OffensiveModifier="5.5" DefensiveModifier="4.0"/>
+    <UnitModifier Unit="SACOMSpectreGunship" OffensiveModifier="6.5" DefensiveModifier="6.5"/>
+
+    <!-- Player Power Preferences -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_IrradiateTarget" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank3" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_TerrorDroneEggs" Weight="300%"/>
+
+		<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="SovietCoopMoskvinPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="SovietCoopMoskvinPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="SovietCoopMoskvinTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="SovietCoopMoskvinTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="SovietCoopMoskvinStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="SovietCoopMoskvinStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="SovietCoopMoskvinAutoPilot" FeedbackTo="ALLIES"/>
+		
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SMOGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SMOGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SMOGR3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SMOND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SMOND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SMOND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+
+		<!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SMODE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SMODE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SMODE3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SMOTG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SMOTG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SMOTG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SMOTD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SMOTD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SMOTD3" 
+				FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SMOTV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SMOTV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SMOTV3" 
+				FeedbackTo="ENEMIES"/>
+
+
+		
+	</AIPersonalityDefinition>
+	
+  <AIPersonalityDefinition
+		id="6SACOMQuickDeployment"
+		PersonalityType="3SACOMQuickDeployment"
+		inheritFrom="SACOMCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Zhana"
+		CommanderPortrait="Zhana"
+		>
+
+    <OpeningMove Name="SACOMAirfield_EASY" Weight="100%" Difficulty="EASY"/>
+    <OpeningMove Name="SACOMAirfield" Weight="100%" Difficulty="MEDIUM HARD"/>
+    <OpeningMove Name="SACOMAirfield_BRUTAL" Weight="100%" Difficulty="BRUTAL"/>
+
+    <!-- Land Attack States -->
+    <StrategicState id="QuickDeployment_Scouts" State="QuickDeployment_Scouts" Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="QuickDeployment_SiegeHarrassment" State="QuickDeployment_SiegeHarrassment" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="QuickDeployment_Attack_Land" State="QuickDeployment_Attack_Land" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="QuickDeployment_Attack_Land_MEDIUM" State="QuickDeployment_Attack_Land_MEDIUM" Difficulty="MEDIUM"/>
+
+    <StrategicState id="QuickDeployment_Attack_Water" State="QuickDeployment_Attack_Water" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="QuickDeployment_Attack_Water_MEDIUM" State="QuickDeployment_Attack_Water_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Aircraft Attack States -->
+		<StrategicState id="QuickDeployment_KirovRaid" State="QuickDeployment_KirovRaid" Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="QuickDeployment_KirovEscort" State="QuickDeployment_KirovEscort" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="QuickDeployment_TwinbladeAttack" State="QuickDeployment_TwinbladeAttack" Difficulty="MEDIUM HARD BRUTAL"/>
+    
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+    <StrategicState id="SACOMAirshipAttack" State="SACOMAirshipAttack" Difficulty="EASY"/>
+
+    <!-- Removed Strategic States-->
+    <StrategicState id="SACOMAirshipFlankAttack" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+
+    <!-- Unit Preferences -->
+    <UnitModifier Unit="SACOMAntiInfantryInfantry" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMAntiVehicleInfantry" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="SACOMAntiStructureVehicle" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMScud" OffensiveModifier="4.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="SACOMAntiNavyShipTech2" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMDestroyer" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="SACOMFighterAircraft" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMGhostBomberAircraft" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMAntiSubmarineAircraft" OffensiveModifier="1.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="SACOMHunterAircraft" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="SACOMAerialCommandCruiser" OffensiveModifier="5.5" DefensiveModifier="4.0"/>
+    <UnitModifier Unit="SACOMSpectreGunship" OffensiveModifier="8.5" DefensiveModifier="6.0"/>
+
+    <!-- Player Power Preferences -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_3" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank3" Weight="300%"/>
+
+	<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="SovietCoopZhanaPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="SovietCoopZhanaPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="SovietCoopZhanaTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="SovietCoopZhanaTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="SovietCoopZhanaStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="SovietCoopZhanaStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="SovietCoopZhanaAutoPilot" FeedbackTo="ALLIES"/>
+
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SZHGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SZHGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SZHGR3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SZHND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SZHND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SZHND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+
+		<!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SZHDE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SZHDE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SZHDE3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SZHTG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SZHTG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SZHTG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SZHTD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SZHTD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SZHTD3" 
+				FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SZHTV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SZHTV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SZHTV3" 
+				FeedbackTo="ENEMIES"/>
+	</AIPersonalityDefinition>
+</AssetDeclaration>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes></Includes>
+	<AIStrategicStateName id="SACOMAerialFleetFlankAttackName" State="SACOMAerialFleetFlankAttack" Name="SACOMAerialFleetFlankAttack" />
+	<AIStrategicStateName id="QuickDeployment_ScoutsName" State="QuickDeployment_Scouts" Name="QuickDeployment_Scouts" />
+	<AIStrategicStateName id="QuickDeployment_SiegeHarrassmentName" State="QuickDeployment_SiegeHarrassment" Name="QuickDeployment_SiegeHarrassment" />
+	<AIStrategicStateName id="QuickDeployment_KirovRaidName" State="QuickDeployment_KirovRaid" Name="QuickDeployment_KirovRaid" />
+	<AIStrategicStateName id="QuickDeployment_KirovEscortName" State="QuickDeployment_KirovEscort" Name="QuickDeployment_KirovEscort" />
+	<AIStrategicStateName id="QuickDeployment_TwinbladeAttackName" State="QuickDeployment_TwinbladeAttack" Name="QuickDeployment_TwinbladeAttack" />
+	<AIStrategicStateName id="QuickDeployment_Attack_LandName" State="QuickDeployment_Attack_Land" Name="QuickDeployment_Attack_Land" />
+	<AIStrategicStateName id="QuickDeployment_Attack_Land_MEDIUMName" State="QuickDeployment_Attack_Land_MEDIUM" Name="QuickDeployment_Attack_Land_MEDIUM" />
+	<AIStrategicStateName id="QuickDeployment_Attack_WaterName" State="QuickDeployment_Attack_Water" Name="QuickDeployment_Attack_Water" />
+	<AIStrategicStateName id="QuickDeployment_Attack_Water_MEDIUMName" State="QuickDeployment_Attack_Water_MEDIUM" Name="QuickDeployment_Attack_Water_MEDIUM" />
+	
+	<AIStrategicStateName id="SpyLeader_HitAndRun_LandName" State="SpyLeader_HitAndRun_Land" Name="SpyLeader_HitAndRun_Land" />
+	<AIStrategicStateName id="SpyLeader_HitAndRun_WaterName" State="SpyLeader_HitAndRun_Water" Name="SpyLeader_HitAndRun_Water" />
+	<AIStrategicStateName id="SpyLeader_HitAndRun_Land_MEDIUMName" State="SpyLeader_HitAndRun_Land_MEDIUM" Name="SpyLeader_HitAndRun_Land_MEDIUM" />
+	<AIStrategicStateName id="SpyLeader_HitAndRun_Water_MEDIUMName" State="SpyLeader_HitAndRun_Water_MEDIUM" Name="SpyLeader_HitAndRun_Water_MEDIUM" />
+	
+	
+	<AIStrategicStateName id="SACOMScoutName" State="SACOMScout" Name="SACOMScout" />
+	<AIStrategicStateName id="SACOMStealthDetectorName" State="SACOMStealthDetector" Name="SACOMStealthDetector" />
+	<AIStrategicStateName id="SACOMAntiInfantryVehicleHarrassmentName" State="SACOMAntiInfantryVehicleHarrassment" Name="SACOMAntiInfantryVehicleHarrassment" />
+	<AIStrategicStateName id="SACOMAntiInfantryVehicleHarrassment_MEDIUMName" State="SACOMAntiInfantryVehicleHarrassment_MEDIUM" Name="SACOMAntiInfantryVehicleHarrassment_MEDIUM" />
+	<AIStrategicStateName id="SACOMTerrorDroneHarrassmentName" State="SACOMTerrorDroneHarrassment" Name="SACOMTerrorDroneHarrassment" />
+	<AIStrategicStateName id="SACOMTerrorDroneHarrassment_MEDIUMName" State="SACOMTerrorDroneHarrassment_MEDIUM" Name="SACOMTerrorDroneHarrassment_MEDIUM" />
+	<AIStrategicStateName id="SACOMArmedHelicopterHarrassmentName" State="SACOMArmedHelicopterHarrassment" Name="SACOMArmedHelicopterHarrassment" />
+	<AIStrategicStateName id="SACOMArmedHelicopterHarrassment_EASYName" State="SACOMArmedHelicopterHarrassment_EASY" Name="SACOMArmedHelicopterHarrassment_EASY" />
+	<AIStrategicStateName id="SACOMAirshipAttackName" State="SACOMAirshipAttack" Name="SACOMAirshipAttack" />
+	<AIStrategicStateName id="SACOMAirshipFlankAttackName" State="SACOMAirshipFlankAttack" Name="SACOMAirshipFlankAttack" />
+	<AIStrategicStateName id="SACOMTransportAttackName" State="SACOMTransportAttack" Name="SACOMTransportAttack" />
+	<AIStrategicStateName id="SACOMCaptureWaterHusksName" State="SACOMCaptureWaterHusks" Name="SACOMCaptureWaterHusks" />
+	<AIStrategicStateName id="SACOMCaptureTechName" State="SACOMCaptureTech" Name="SACOMCaptureTech" />
+	<AIStrategicStateName id="SACOMCaptureTech_EASYName" State="SACOMCaptureTech_EASY" Name="SACOMCaptureTech_EASY" />
+	<AIStrategicStateName id="SACOMCaptureTech_MEDIUMName" State="SACOMCaptureTech_MEDIUM" Name="SACOMCaptureTech_MEDIUM" />
+	<AIStrategicStateName id="SACOMCapturePriorityTech_HARDName" State="SACOMCapturePriorityTech_HARD" Name="SACOMCapturePriorityTech_HARD" />
+	<AIStrategicStateName id="SACOMCaptureNonPriorityTech_HARDName" State="SACOMCaptureNonPriorityTech_HARD" Name="SACOMCaptureNonPriorityTech_HARD" />
+	<AIStrategicStateName id="SACOMCapturePriorityTech_BRUTALName" State="SACOMCapturePriorityTech_BRUTAL" Name="SACOMCapturePriorityTech_BRUTAL" />
+	<AIStrategicStateName id="SACOMCaptureNonPriorityTech_BRUTALName" State="SACOMCaptureNonPriorityTech_BRUTAL" Name="SACOMCaptureNonPriorityTech_BRUTAL" />
+	<AIStrategicStateName id="SACOMCaptureVehicleHealTechName" State="SACOMCaptureVehicleHealTech" Name="SACOMCaptureVehicleHealTech" />
+	<AIStrategicStateName id="SACOMExpansionName" State="SACOMExpansion" Name="SACOMExpansion" />
+	<AIStrategicStateName id="SACOMExpansion_MEDIUMName" State="SACOMExpansion_MEDIUM" Name="SACOMExpansion_MEDIUM" />
+	<AIStrategicStateName id="SACOMExpansion_HARDName" State="SACOMExpansion_HARD" Name="SACOMExpansion_HARD" />
+	<AIStrategicStateName id="SACOMExpansion_BRUTALName" State="SACOMExpansion_BRUTAL" Name="SACOMExpansion_BRUTAL" />
+	<AIStrategicStateName id="SACOMNavalBaseName" State="SACOMNavalBase" Name="SACOMNavalBase" />
+</AssetDeclaration>

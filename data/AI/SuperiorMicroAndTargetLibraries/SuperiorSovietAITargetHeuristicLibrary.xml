@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes>
+  </Includes>
+
+  <AITargetingHeuristic
+    id="SuperiorClosestOwnKirovHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="BOMBER_AIRCRAFT"
+    Relationship="SAME_PLAYER"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorClosestAllyKirovHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="BOMBER_AIRCRAFT"
+    Relationship="ALLIES"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorClosestOwnTwinbladeHeuristic"
+    HeuristicType="FriendlyUnit"
+    VitalKindOf="VEHICLE TRANSPORT ASSAULT_AIRCRAFT AIRCRAFT"
+    Relationship="SAME_PLAYER"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorSafesttoRefineryHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="REFINERY"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+    RequireUniqueTarget="true"
+    />
+
+   <!-- MAINLY Twinblade Targets -->
+
+  <AITargetingHeuristic
+    id="SuperiorANTIExpoHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="EXPANSION_UNIT"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorANTIharvHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="HARVESTER"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorANTIharvGROUNDHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="HARVESTER"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    Location="Land"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorANTICommandoHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="COMMANDO"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+   <!-- MAINLY Terror Drone Targets -->
+
+  <AITargetingHeuristic
+    id="SuperiorKillT2UnitsHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="T2_UNIT"
+    ForbiddenKindOf="T1_UNIT"
+    ForbiddenObjectStatus="AIRBORNE_TARGET UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKillApocsAndOnisT3UnitsHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="T3_UNIT"
+    ForbiddenKindOf="T1_UNIT T2_UNIT DISGUISER SIEGE_WEAPON"
+    ForbiddenObjectStatus="AIRBORNE_TARGET UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKillSiegeUnitsHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="SIEGE_WEAPON"
+    ForbiddenKindOf="T1_UNIT T2_UNIT DISGUISER"
+    ForbiddenObjectStatus="AIRBORNE_TARGET UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKillScoutUnitsHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="INFANTRY AMPHIBIOUS NO_GARRISON"
+    ForbiddenObjectStatus="AIRBORNE_TARGET UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+		id="TDvsLandHarvester"
+		HeuristicType="EnemyUnit"
+		SortType="Distance"
+		VitalKindOf="HARVESTER"
+		ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+		Location="Land"
+    RequireUniqueTarget="true"
+		/>
+
+  <AITargetingHeuristic
+		id="TDvsWaterHarvester"
+		HeuristicType="EnemyUnit"
+		SortType="Distance"
+		VitalKindOf="HARVESTER"
+		ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+		Location="Water"
+    RequireUniqueTarget="true"
+		/>
+
+</AssetDeclaration>

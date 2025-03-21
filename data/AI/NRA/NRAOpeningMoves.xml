@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+  
+  <!-- NRA Build Time and Cost as of 05.02.08 -->
+  <!-- NRAPowerPlant = 10  seconds Cost = 800  -->
+  <!-- NRABarracks   = 10  seconds Cost = 500  -->
+  <!-- NRARefinery   = 20 seconds Cost = 2000 -->
+  <!-- NRAWarFactory = 20 seconds Cost = 2000 -->
+  <!-- NRANavalYard  = 20 seconds Cost = 2000 -->
+  <!-- NRATech2      = 15 seconds Cost = 1000 -->
+  <!-- NRAAirfield   = 15 seconds Cost = 1000 -->
+  
+  <SkirmishOpeningMove
+    id="NRAStandard"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRABarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <Order Build="NRAEconomyStructure" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="NRAAntiInfantryVehicle_Ground" />
+    <Order Build="NRAAntiInfantryVehicle_Ground" />
+    <Order Build="NRAAntiInfantryVehicle_Ground" />
+    <Order Time="120s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAStandard_BRUTAL"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRABarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="4000" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <Order Build="NRAEconomyStructure" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiInfantryVehicle_Ground" />
+    <Order Build="NRAAntiInfantryVehicle_Ground" />
+    <Order Build="NRAAntiInfantryVehicle_Ground" />
+    <Order Time="120s" />
+  </SkirmishOpeningMove>
+
+
+  <SkirmishOpeningMove
+    id="NRAIsland"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRANavalYard" />
+    <!--
+    <Order Time="80s" />
+    -->
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiInfantryVehicle" />
+    <Order Build="NRAAntiInfantryVehicle" />
+    <Order Build="NRAAntiInfantryVehicle" />
+    <Order Time="110s" />
+    <Order Build="NRABarracks" />
+    <Order Time="120s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="135s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAStandard_EASY"
+    Side="PlayerTemplate:NRA">
+    <Order Time="10s" Build="NRABarracks" />
+    <Order Time="30s" Build="NRAPowerPlant" />
+    <Order Time="50s" Build="NRARefinery" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Time="80s"/>
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Time="110s" Build="NRAPowerPlant" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Time="130s"/>
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Time="160s"/>
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Time="190s"/>
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Time="220s"/>
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Time="250s"/>
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Time="280s"/>
+    <Order Build="NRAWarFactory" />
+    <Order Time="310s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAIsland_EASY"
+    Side="PlayerTemplate:NRA">
+    <Order Time="10s" Build="NRAPowerPlant" />
+    <Order Time="30s" Build="NRARefinery" />
+    <Order Time="60s"/>
+    <Order Time="90s" Build="NRAPowerPlant" />
+    <Order Time="110s" Build="NRANavalYard" />
+    <Order Time="140s" Build="NRAAntiInfantryVehicle" />
+    <Order Time="160s" Build="NRAAntiInfantryVehicle" />
+    <Order Time="180s" Build="NRAAntiInfantryVehicle" />
+    <Order Time="200s" Build="NRABarracks" />
+    <Order Time="260s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAWaterStart"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRANavalYard" />
+    <Order Time="68s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Time="96s" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAirfield" />
+    <Order Time="126s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="141s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAFastTech2"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRABarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="500" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <Order Build="Upgrade_AlliedTech2" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="NRASupportAircraft" />
+    <Order Time="120s" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAirfield" />
+    <Order Time="150s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="165s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAIFVRush"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRABarracks" />
+    
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAirfield" />
+    <Order Time="140s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="155s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAIFVRush_BRUTAL"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRABarracks" />
+
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiVehicleInfantry" />
+
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Build="NRAAntiAirVehicleTech1" />
+    <Order Time="140s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="155s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRATankRush"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRABarracks" />
+    <Order Build="UpgradeTech2" />
+    <Order Build="NRAWarFactory" />
+    <!--
+    <Order Time="105s" />
+    -->
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAScoutInfantry" />
+    <Order Build="NRAScoutInfantry" />
+    <Order Build="NRAScoutInfantry" />
+    <Order Build="NRAAntiVehicleVehicleTech1" />
+    <Order Build="NRAAntiVehicleVehicleTech1" />
+    <Order Build="NRAAntiVehicleVehicleTech1" />
+    <Order Build="NRAAntiVehicleVehicleTech1" />
+    <Order Build="NRAAntiVehicleVehicleTech1" />
+    <Order Time="155s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="170s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAVindicatorRush"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <!--
+    <Order Time="90s" />
+    -->    
+    <Order Time="120s" />
+    <Order Build="NRABarracks" />
+    <Order Time="130s" Account="PRODUCTION" Deposit="500"/>
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="150s" Account="PRODUCTION" Deposit="500"/>
+    <Order Time="170s" Account="PRODUCTION" Deposit="500"/>
+    <Order Time="190s" Account="PRODUCTION" Deposit="500"/>
+    <Order Time="210s" Account="PRODUCTION" Deposit="500"/>
+    <Order Time="230s" Account="PRODUCTION" Deposit="500"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAVindicatorRush_BRUTAL"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Time="120s" />
+    <Order Build="NRABarracks" />
+    <Order Time="130s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="150s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Time="170s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Time="190s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Time="210s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Time="230s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAVindicatorRushVsJapan"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAFighterAircraft" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAFighterAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAFighterAircraft" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Time="170s" />
+    <Order Build="NRABarracks" />
+    <Order Time="180s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="200s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Time="220s" Account="PRODUCTION" Deposit="1000"/>
+    <Order Time="240s" />
+    <Order Build="NRAWarFactory" />
+    <Order Time="260s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAVindicatorRushVsJapan_BRUTAL"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAFighterAircraft" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAAirfield" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAFighterAircraft" />
+    <Order Build="NRAAntiGroundAircraft" />
+    <Order Build="NRAFighterAircraft" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="170s" />
+    <Order Build="NRABarracks" />
+    <Order Time="180s" Account="PRODUCTION" Deposit="2000"/>
+    <Order Time="200s" Account="PRODUCTION" Deposit="2000"/>
+    <Order Time="220s" Account="PRODUCTION" Deposit="2000"/>
+    <Order Time="240s" />
+    <Order Build="NRAWarFactory" />
+    <Order Time="260s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAVindicatorRush_EASY"
+    Side="PlayerTemplate:NRA">
+    <Order Time="10s" Build="NRABarracks" />
+    <Order Time="30s" Build="NRAPowerPlant" />
+    <Order Time="50s" Build="NRARefinery" />
+    <Order Time="100s" Build="NRAAirfield" />
+    <Order Time="135s" Build="NRAAntiGroundAircraft" />
+    <Order Time="180s" Build="NRAPowerPlant" />
+    <Order Time="200s" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Time="230s" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Build="NRAAntiInfantryInfantry" />
+    <Order Time="260s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRAFirstAssault"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAWarFactory" />
+    <Order Time="48s" Account="PRODUCTION" Deposit="2700" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRABarracks" />
+    <Order Time="73s" Account="PRODUCTION" Deposit="2700" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <Order Time="121s" />
+    <Order Build="NRAAirfield" />
+    <Order Time="136s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="151s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRASpecialForces"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRABarracks" />
+    <Order Time="13s" Account="PRODUCTION" Deposit="1500" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Time="73s" Account="PRODUCTION" Deposit="500" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <Order Time="101s" />
+    <Order Build="NRAAirfield" />
+    <Order Time="126s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="141s" />
+  </SkirmishOpeningMove>
+  
+  <SkirmishOpeningMove
+    id="NRASquadronLeader"
+    Side="PlayerTemplate:NRA">
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRABarracks" />
+    <Order Time="53s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="Upgrade_AlliedTech2" />
+    <Order Build="NRAAirfield" />
+    <Order Time="111s" Account="PRODUCTION" Deposit="4000" />
+    <Order Build="NRAAirfield" />
+    <Order Time="121s" />
+    <Order Build="NRAEconomyStructure" />
+    <Order Time="136s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="NRACoop"
+    Side="PlayerTemplate:NRA">
+    <Order Time="0s" Account="PRODUCTION" Deposit="2500" />
+    <Order Build="NRARefinery" />
+    <Order Build="NRAPowerPlant" />
+    <Order Build="NRAWarFactory" />
+    <Order Time="48s" />
+  </SkirmishOpeningMove>
+</AssetDeclaration>

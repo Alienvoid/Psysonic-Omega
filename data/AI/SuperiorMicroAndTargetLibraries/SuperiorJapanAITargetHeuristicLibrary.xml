@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes>
+  </Includes>
+
+  <!-- FOR STRUCTURE PLACEMENT -->
+
+  <AITargetingHeuristic
+    id="SuperiorBuildingPlacementHeuristic"
+    HeuristicType="UnpackBuildingPlacement"
+		MinDistanceFromConyardEntrance="300"
+		IgnoreMinDistanceFromConyardEntranceForTime="1s" >
+    <!-- Try placing the building near the egg, to minimize transit times.
+			    If that doesn't work, look further & further out to find a place -->
+    <BuildingPlacementDistance Distance="300" />
+    <BuildingPlacementDistance Distance="475" />
+    <BuildingPlacementDistance Distance="700" />
+    <BuildingPlacementDistance Distance="1000" />
+    <BuildingPlacementDistance Distance="3000" />
+    <BuildingPlacementDistance Distance="4500" />
+    <BuildingPlacementDistance Distance="7000" />
+  </AITargetingHeuristic>
+
+  <AITargetingHeuristic
+    id="SuperiorPOWERPLANTPlacementHeuristic"
+    HeuristicType="UnpackBuildingPlacement"
+    MinDistanceFromConyardEntrance="0"
+    IgnoreMinDistanceFromConyardEntranceForTime="25s" >
+    <!-- Try placing the building near the egg, to minimize transit times.
+			    If that doesn't work, look further & further out to find a place -->
+    <BuildingPlacementDistance Distance="100" />
+    <BuildingPlacementDistance Distance="450" />
+    <BuildingPlacementDistance Distance="750" />
+    <BuildingPlacementDistance Distance="1000" />
+    <BuildingPlacementDistance Distance="3000" />
+    <BuildingPlacementDistance Distance="4500" />
+    <BuildingPlacementDistance Distance="7000" />
+  </AITargetingHeuristic>
+
+
+  <!-- FOR YURIKO MOSTLY -->
+
+  <AITargetingHeuristic
+    id="YurikoGuardHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    MinDistanceFromEnemy="1000"
+    VitalKindOf="CAN_ATTACK"
+    ForbiddenKindOf="HARVESTER AIRCRAFT"
+    Relationship="SAME_PLAYER"
+    />
+
+ <!-- FOR SHINOBIS MOSTLY -->
+  <AITargetingHeuristic
+    id="SafestToVulnerableRefineryHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="REFINERY"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+    Location="Water"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SafestToVulnerablePowerPlantHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="FS_POWER"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+    RequireUniqueTarget="true"
+    />
+
+ <!-- FOR SEAWINGS MOSTLY -->
+
+  <AITargetingHeuristic
+    id="SuperiorAttackLightVehiclesHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="VEHICLE"
+    ForbiddenKindOf="T2_UNIT T3_UNIT"
+    ForbiddenObjectStatus="AIRBORNE_TARGET SUBMERGED UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKillInfantryHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="INFANTRY"
+    ForbiddenObjectStatus="AIRBORNE_TARGET SUBMERGED UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="GuardYurikoHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="COMMANDO"
+    Relationship="SAME_PLAYER"
+    />
+
+  <AITargetingHeuristic
+    id="GuardShogunsHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+Location="Water"
+    VitalKindOf="SIEGE_WEAPON"
+    Relationship="SAME_PLAYER"
+    />
+
+</AssetDeclaration>

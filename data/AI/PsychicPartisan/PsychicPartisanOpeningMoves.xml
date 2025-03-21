@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <!-- PsychicPartisanPowerPlantEgg = 5 seconds -->
+  <!-- PsychicPartisanRefineryEgg   = 5 seconds -->
+  <!-- PsychicPartisanBarracksEgg   = 5 seconds -->
+  <!-- PsychicPartisanWarFactoryEgg = 5 seconds -->
+  <!-- PsychicPartisanNavalYardEgg  = 5 seconds -->
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanStandard"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="25s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="1500" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="90s" Build="PsychicPartisanWarFactoryEgg" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Time="110s" Account="PRODUCTION" Deposit="400" />
+    <Order Time="120s" Account="PRODUCTION" Deposit="400" />
+    <Order Time="130s" Account="PRODUCTION" Deposit="300" />
+    <Order Time="150s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanStandard_BRUTAL"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="25s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="1500" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="75s" Build="PsychicPartisanWarFactoryEgg" />
+    <Order Time="80s" Build="PsychicPartisanVIPBunkerEgg" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Time="85s" Account="PRODUCTION" Deposit="800" />
+    <Order Time="90s" Build="PsychicPartisanAirportEgg" />
+    <Order Time="95s" Account="PRODUCTION" Deposit="800" />
+    <Order Time="105s" Account="PRODUCTION" Deposit="800" />
+    <Order Time="115s" Account="PRODUCTION" Deposit="800" />
+    <Order Time="125s" Account="PRODUCTION" Deposit="600" />
+    <Order Time="135s" Account="PRODUCTION" Deposit="600" />
+    <Order Time="140s" Build="PsychicPartisanAirportEgg" />
+    <Order Time="150s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanIsland"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanVIPBunkerEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanNavalYardEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanNavyScoutShip" />
+    <Order Build="PsychicPartisanNavyScoutShip" />
+    <Order Build="PsychicPartisanNavyScoutShip" />
+    <Order Time="85s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="90s" Build="PsychicPartisanAirportEgg" />
+    <Order Time="95s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="100s" Build="PsychicPartisanAirportEgg" />
+    <Order Time="140s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanIsland_BRUTAL"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanVIPBunkerEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanNavalYardEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanBaseDefenseEgg" />
+    <Order Build="PsychicPartisanNavyScoutShip" />
+    <Order Build="PsychicPartisanNavyScoutShip" />
+    <Order Build="PsychicPartisanNavyScoutShip" />
+    <Order Time="85s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="90s" Build="PsychicPartisanAirportEgg" />
+    <Order Time="95s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="100s" Build="PsychicPartisanAirportEgg" />
+    <Order Time="140s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanStandard_EASY"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="50s"/>
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Time="80s" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Time="110s" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Time="140s" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Time="170s" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Time="200s" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Time="230s" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Time="260s" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Time="290s" />
+    <Order Build="PsychicPartisanWarFactoryEgg" />
+    <Order Build="PsychicPartisanAirportEgg" />
+    <Order Time="320s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanIsland_EASY"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Time="10s" Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="30s" Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="60s" />
+    <Order Time="90s" Build="PsychicPartisanPowerPlantEgg" />
+    <Order Time="110s" Build="PsychicPartisanNavalYardEgg" />
+    <Order Time="140s" Build="PsychicPartisanNavyScoutShip" />
+    <Order Time="160s" Build="PsychicPartisanNavyScoutShip" />
+    <Order Time="180s" Build="PsychicPartisanNavyScoutShip" />
+    <Order Time="190s" Build="PsychicPartisanAirportEgg" />
+    <Order Time="240s" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Time="300s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanMechRush"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanVIPBunkerEgg" />
+    <Order Build="PsychicPartisanWarFactoryEgg" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="700" />
+    <Order Build="PsychicPartisanAirportEgg" />
+    <Order Build="PsychicPartisanAirportEgg" />
+    <Order Build="PsychicPartisanPatmos" />
+    <Order Build="PsychicPartisanPatmos" />
+    <Order Time="160s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanMechRush_BRUTAL"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanVIPBunkerEgg" />
+    <Order Build="PsychicPartisanWarFactoryEgg" />
+    <Order Build="PsychicPartisanAirportEgg" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Build="PsychicPartisanAntiInfantryVehicle" />
+    <Order Time="65s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="PsychicPartisanBaseDefenseEgg" />
+    <Order Time="85s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="105s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="125s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="PsychicPartisanAirportEgg" />
+    <Order Time="150s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="PsychicPartisanPatmos" />
+    <Order Build="PsychicPartisanPatmos" />
+    <Order Time="160s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="PsychicPartisanTransportRush"
+    Side="PlayerTemplate:PsychicPartisan">
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanBarracksEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanRefineryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanWarFactoryEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanVIPBunkerEgg" />
+    <!--
+    <Order Time="40s" />
+    -->
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanPowerPlantEgg" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    <Order Build="PsychicPartisanInitiate" />
+    
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    <Order Build="PsychicPartisanAntiVehicleInfantry" />
+    
+    <Order Build="PsychicPartisanCombatFortress" />
+    <Order Build="PsychicPartisanCombatFortress" />
+    <Order Time="80s" />
+    <Order Build="PsychicPartisanAirportEgg" />
+    <Order Build="PsychicPartisanAirportEgg" />
+  </SkirmishOpeningMove>
+
+
+</AssetDeclaration>

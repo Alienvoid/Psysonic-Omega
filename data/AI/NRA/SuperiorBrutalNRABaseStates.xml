@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="SuperiorBrutalNRAWarfactorySpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="8500" Above="true" />
+      <IntervalHeuristic IntervalTime="75s" ActiveTime="22s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true"
+        Location="Land">
+        <ObjectFilter
+          Relationship="ENEMIES"
+          Rule="ALL" >
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="NRAAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      <CanBuildBuildingsOnSurfaceHeuristic
+		MinPlacementGridCells="14"
+        Surfaces="LAND">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="NRAWarfactory" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorBrutalNRANavalYardSpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="8500" Above="true" />
+      <IntervalHeuristic IntervalTime="75s" ActiveTime="22s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <CanBuildBuildingsOnSurfaceHeuristic
+		MinPlacementGridCells="14"
+        Surfaces="WATER DEEP_WATER">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="NRANavalYard" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorBrutalNRAAirfieldSpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="7000" Above="true" />
+      <IntervalHeuristic IntervalTime="75s" ActiveTime="30s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <CanBuildBuildingsOnSurfaceHeuristic
+		MinPlacementGridCells="14"
+        Surfaces="LAND WATER DEEP_WATER">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="NRAAirfield" Heuristic="FACTORY"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorINFINITEBrutalNRAWarfactorySpam">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="50000" Above="true" />
+      <IntervalHeuristic IntervalTime="20s" ActiveTime="40s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true"
+        Location="Land">
+        <ObjectFilter
+          Relationship="ENEMIES"
+          Rule="ALL" >
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="NRAAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      <CanBuildBuildingsOnSurfaceHeuristic
+		MinPlacementGridCells="14"
+        Surfaces="LAND">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="NRAWarfactory" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorINFINITEBrutalNRANavalYardSpam">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="50000" Above="true" />
+      <IntervalHeuristic IntervalTime="20s" ActiveTime="50s" CountFrom="AI_START"/>
+      <CanBuildBuildingsOnSurfaceHeuristic
+		MinPlacementGridCells="14"
+        Surfaces="WATER DEEP_WATER">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="NRANavalYard" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorINFINITEBrutalNRAAirfieldSpam">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="50000" Above="true" />
+      <IntervalHeuristic IntervalTime="20s" ActiveTime="30s" CountFrom="AI_START"/>
+      <CanBuildBuildingsOnSurfaceHeuristic
+		MinPlacementGridCells="14"
+        Surfaces="LAND WATER DEEP_WATER">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="NRAAirfield" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorINFINITEBrutalNRABarracksSpam">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="50000" Above="true" />
+      <IntervalHeuristic IntervalTime="80s" ActiveTime="20s" CountFrom="AI_START"/>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      <CanBuildBuildingsOnSurfaceHeuristic
+		MinPlacementGridCells="14"
+        Surfaces="LAND">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="NRABarracks" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

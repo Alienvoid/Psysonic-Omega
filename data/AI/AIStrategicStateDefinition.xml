@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+  <AIStrategicStateDefinition
+    id="HydraHarrassment"
+    MaxTargets="1">
+    <Heuristic>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToGroundSurveyorHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SafestToGroundHarvesterHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="SafestToGroundPowerPlantHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="0" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="10" MaxUnits="10" MinPowerAdvantage="0.5"
+                    RegisteredObjectSet="INFANTRY"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="HarrassmentMicroManager">
+        <CreateUnits UnitName="AlliedAntiAirShip_Ground" MinUnits="5" MaxUnits="5"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition
+    id="BetaYurikoHarrassment"
+    MaxTargets="1">
+    <Heuristic>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToGroundSurveyorHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SafestToGroundHarvesterHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="SafestToGroundPowerPlantHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="0" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="10" MaxUnits="10" MinPowerAdvantage="0.5"
+                    RegisteredObjectSet="INFANTRY"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="HarrassmentMicroManager">
+        <CreateUnits UnitName="JapanBetaYuriko" MinUnits="5" MaxUnits="5"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+  
+  <AIStrategicStateDefinition
+    id="AlliedSpaceFleetAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic_NonUnique" Priority="5"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="5" MinPowerAdvantage="5.0"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="ScoutMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAirBattleShip</IncludeThing>
+          <IncludeThing>AlliedArcAngelAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="AlliedSpaceFleetFlankAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAirBattleShip</IncludeThing>
+          <IncludeThing>AlliedArcAngelAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic_NonUnique" Priority="5"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="3" MinPowerAdvantage="5.0"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="ScoutMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAirBattleShip</IncludeThing>
+          <IncludeThing>AlliedArcAngelAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+  
+  <AIStrategicStateDefinition
+    id="PsychicPartisanLoadInfantryToPowerplant"
+    MaxTargets="1">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="10s" ActiveTime="3s"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>PsychicPartisanAntiInfantryInfantry</IncludeThing>
+          <IncludeThing>PsychicPartisanAntiVehicleInfantry</IncludeThing>
+          <IncludeThing>PsychicPartisanArcherInfantry</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="INFANTRY"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="true"
+                    MicroManager="StandardMicroManager">
+        <CreateUnits UnitName="PsychicPartisanPowerPlant" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SovietSkyFireFlankAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietFrogtieAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic_NonUnique" Priority="5"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="2" MinPowerAdvantage="5.0"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="KirovMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietFrogtieAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SovietSpectreGunshipFlankAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietSpectreGunship</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic_NonUnique" Priority="5"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="2" MinPowerAdvantage="5.0"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="ScoutMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietSpectreGunship</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SovietFighterFlankAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic_NonUnique" Priority="5"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="4" MinPowerAdvantage="5.0"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="ScoutMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+  <AIStrategicStateDefinition
+    id="ModBombardmentShipAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+          <IncludeThing>SovietAntiStructureShip</IncludeThing>
+          <IncludeThing>JapanAntiStructureShip</IncludeThing>
+          <IncludeThing>SACOMAntiStructureShip</IncludeThing>
+          <IncludeThing>PsychicPartisanAntiStructureShip</IncludeThing>
+          <IncludeThing>NRAAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestWaterStructureHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="CloseToShoreStructureHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="BombardmentShipRangeToShoreStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999" EndIfStateTurnsOff="true">
+      <TeamTemplate MinUnits="5" MaxUnits="15" MinPowerAdvantage="0.25"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="BombardmentShipMicroManager">
+        <ObjectFilter Rule="ANY"
+          Include="CAN_ATTACK"
+          Exclude="IGNORES_SELECT_ALL HARVESTER FIGHTER_AIRCRAFT BOMBER_AIRCRAFT">
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+          <IncludeThing>SovietAntiStructureShip</IncludeThing>
+          <IncludeThing>JapanAntiStructureShip</IncludeThing>
+          <IncludeThing>SACOMAntiStructureShip</IncludeThing>
+          <IncludeThing>PsychicPartisanAntiStructureShip</IncludeThing>
+          <IncludeThing>NRAAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+
+  <AIStrategicStateDefinition
+    id="Mod_FighterAircraftFlankAttack"
+    MaxTargets="3">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedFighterAircraft</IncludeThing>
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+          <IncludeThing>SACOMFighterAircraft</IncludeThing>
+          <IncludeThing>PsychicPartisanFighterAircraft</IncludeThing>
+          <IncludeThing>NRAFighterAircraft</IncludeThing>
+          <IncludeThing>JapanLiberator</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirAirborneTargetHeuristic"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK FIGHTER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="FighterAircraftMicroManager" />
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="Mod_FighterAircraft_MEDIUM"
+    MaxTargets="3">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedFighterAircraft</IncludeThing>
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+          <IncludeThing>SACOMFighterAircraft</IncludeThing>
+          <IncludeThing>PsychicPartisanFighterAircraft</IncludeThing>
+          <IncludeThing>NRAFighterAircraft</IncludeThing>
+          <IncludeThing>JapanLiberator</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestFriendlyVehicleHeuristic"/>
+    <Tactic id="Attack" Tactic="StaticDefense" Distance="400" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK FIGHTER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="FighterAircraftMicroManager_MEDIUM" />
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+
+  <AIStrategicStateDefinition
+    id="Mod_GenericAirHunt"
+    MaxTargets="3">
+    <Heuristic>
+	  <ConstantHeuristic Weight="1.0"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY"
+					Include="AIRCRAFT">
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <Tactic id="Hunt" Tactic="Hunt" Targetless="true" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="25" MaxUnits="999"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="CleanupMicroManager" />
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+  <AIStrategicStateDefinition
+    id="Mod_GenericSurfaceHunt"
+    MaxTargets="3">
+    <Heuristic>
+	  <ConstantHeuristic Weight="1.0"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY"
+					Include="INFANTRY VEHICLE"
+					Exclude="AIRCRAFT">
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <Tactic id="Hunt" Tactic="Hunt" Targetless="true" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+		<TeamTemplate MinUnits="50" MaxUnits="999"
+                    RegisteredObjectSet="MOBILE_GROUND_UNITS"
+                    IncludeKindOf="CAN_ATTACK INFANTRY VEHICLE" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER AIRCRAFT"
+                    AllowedLocomotorTypes="LAND WATER AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="CleanupMicroManager">
+			<ObjectFilter Rule="ALL">
+				<ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+				<ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+				<ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+				<ExcludeThing>SovietFighterAircraft</ExcludeThing>
+				<ExcludeThing>SovietBomberAircraft</ExcludeThing>
+			</ObjectFilter>
+		</TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+</AssetDeclaration>

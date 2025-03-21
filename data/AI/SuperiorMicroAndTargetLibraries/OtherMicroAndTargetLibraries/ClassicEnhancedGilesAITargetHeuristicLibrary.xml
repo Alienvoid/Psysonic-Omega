@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes>
+  </Includes>
+
+  <AITargetingHeuristic
+    id="EnhancedExpansionHeuristic"
+    HeuristicType="Expansion"
+    MinDistanceFromEnemy="200.0">
+    <BaseSelection
+				PreferredBaseTypes="MAIN_BASE"
+				PreferredNotBaseTypes="CAPTURED"
+				SortOrder="PREFER_OLDEST" />
+  </AITargetingHeuristic>
+
+</AssetDeclaration>

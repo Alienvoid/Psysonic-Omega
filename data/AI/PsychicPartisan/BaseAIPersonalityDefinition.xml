@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Includes>
+	<Include type="instance" source="DATA:Base/BaseAIPersonalityDefinition.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+    id="PsychicPartisanCoopBasePersonality"
+    PersonalityType="PsychicPartisanCoopBasePersonality"
+    inheritFrom="CoopBasePersonality"
+    BaseCompactness="1.0"
+	>
+
+	<ResourceMultiplierCheat Percentage="200%" Difficulty="MEDIUM"/>
+	<ResourceMultiplierCheat Percentage="300%" Difficulty="HARD"/>
+	<ResourceMultiplierCheat Percentage="400%" Difficulty="BRUTAL"/>
+	<CountAsStructureForBuildPurposesFilter
+			Rule="ANY"
+			Include="STRUCTURE UNPACKS_INTO_BUILDING" >
+			<ExcludeThing>AlliedMiner</ExcludeThing>
+			<ExcludeThing>SovietSurveyor</ExcludeThing>
+			<ExcludeThing>JapanRefineryEgg</ExcludeThing>
+			<ExcludeThing>PsychicPartisanRefineryEgg</ExcludeThing>
+	</CountAsStructureForBuildPurposesFilter>
+    <Side>PsychicPartisan</Side>
+
+    <StrategicState id="PsychicPartisanExpansion"             State="PsychicPartisanExpansion"                  Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsychicPartisanCaptureTech"           State="PsychicPartisanCaptureTech"                Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsychicPartisanCaptureWaterHusks"     State="PsychicPartisanCaptureWaterHusks"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="PsychicPartisanDefenseBuildState"         State="PsychicPartisanDefenseBuildState"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="PsychicPartisanNeededUnits"               State="PsychicPartisanNeededUnits"                Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <UnitModifier Unit="PsychicPartisanScoutInfantry" OffensiveModifier="0.5" DefensiveModifier="0.5"/>
+    <UnitModifier Unit="PsychicPartisanInitiate" OffensiveModifier="1.0" DefensiveModifier="0.2"/>
+    <UnitModifier Unit="JapanArcherInfantry" OffensiveModifier="0.5" DefensiveModifier="0.7"/>
+    <UnitModifier Unit="PsychicPartisanAntiVehicleInfantry" OffensiveModifier="1.0" DefensiveModifier="0.2"/>
+    <UnitModifier Unit="PsychicPartisanAntiVehicleInfantryTech3" OffensiveModifier="5.0" DefensiveModifier="5.0"/>
+    <UnitModifier Unit="PsychicPartisanCommandoTech1" OffensiveModifier="5.0" DefensiveModifier="5.0"/> <!-- Commandos are good.  You pretty much always want them. -->
+
+    <UnitModifier Unit="PsychicPartisanAntiInfantryVehicle" OffensiveModifier="1.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="PsychicPartisanPatmos" OffensiveModifier="1.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="PsychicPartisanCenturion" OffensiveModifier="6.0" DefensiveModifier="2.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="PsychicPartisanBerserker" OffensiveModifier="4.0" DefensiveModifier="4.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="PsychicPartisanAntiVehicleVehicleTech3" OffensiveModifier="6.0" DefensiveModifier="2.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="PsychicPartisanMastermind" OffensiveModifier="3.0" DefensiveModifier="1.0"/> <!-- Extreme range makes artillery much more powerful -->
+
+    <!-- There is never a reason to have more than 1 of these -->
+    <SpecificUnitCap Unit="PsychicPartisanVIPBunkerEgg" Cap="1" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="PsychicPartisanTechStructureEgg" Cap="1" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="PsychicPartisanRefineryEgg" Cap="1" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+    <!-- Don't go too crazy with base defenses.  This isn't a cap on how many defenses it can build, only a cap on how many it can try simulaneously.  This prevents the AI
+         from over-responding to minor threats. -->
+    <SpecificUnitCap Unit="PsychicPartisanBaseDefenseEgg" Cap="3" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="PsychicPartisanBaseDefenseAdvancedEgg" Cap="2" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Player Tech -->
+
+    <!-- Tier 1 -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_NavalPower" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EnhancedKamikaze" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_AdvancedMissilePacks" Weight="100%"/>
+
+    <!-- Tier 2 -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_PointDefenseDrones" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank1" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_Ambush" Weight="200%"/>
+
+    <!-- Tier 3 -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_FinalSquadron_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_BalloonAttack_Rank1" Weight="300%"/>
+
+    <!-- Tier 4 -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_FinalSquadron_Rank2" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank3" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_BalloonAttack_Rank2" Weight="400%"/>
+
+    <!-- Tier 5 -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_FinalSquadron_Rank3" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Japan" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_BalloonAttack_Rank3" Weight="500%"/>
+
+  </AIPersonalityDefinition>
+  
+  <AIPersonalityDefinition
+		id="PsychicPartisanCoopBaseSkirmishPersonality"
+    PersonalityType="PsychicPartisanCoopBaseSkirmishPersonality"
+    inheritFrom="PsychicPartisanCoopBasePersonality"
+		EmergencyManagerHandleConyardInDangerAtDifficulty="MEDIUM HARD BRUTAL"
+		>
+
+    <!-- Defense States -->
+
+    <StrategicState id="LandDefense" State="LandDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="WaterDefense" State="WaterDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="LandDefense_MEDIUM" State="LandDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="WaterDefense_MEDIUM" State="WaterDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="LandDefense_EASY" State="LandDefense_EASY" Difficulty="EASY"/>
+    <StrategicState id="WaterDefense_EASY" State="WaterDefense_EASY" Difficulty="EASY"/>
+
+    <StrategicState id="LandEmergencyDefense" State="LandEmergencyDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="WaterEmergencyDefense" State="WaterEmergencyDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="LandEmergencyDefense_MEDIUM" State="LandEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="WaterEmergencyDefense_MEDIUM" State="WaterEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="LandEmergencyDefense_EASY" State="LandEmergencyDefense_EASY" Difficulty="EASY"/>
+    <StrategicState id="WaterEmergencyDefense_EASY" State="WaterEmergencyDefense_EASY" Difficulty="EASY"/>
+
+    <!-- General Skirmish States -->
+
+    <StrategicState id="Cleanup" State="Cleanup" Difficulty="EASY MEDIUM HARD"/>
+    <StrategicState id="Cleanup_BRUTAL" State="Cleanup_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="RetreatMCVToLand" State="RetreatMCVToLand" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="RetreatMCVToWater" State="RetreatMCVToWater" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="EscortMCV" State="EscortMCV" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="ModBombardmentShipAttack" State="ModBombardmentShipAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="CommandoController" State="CommandoController" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="PsychicPartisanStealthDetector" State="PsychicPartisanStealthDetector" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsychicAngelFlankAttack" State="PsychicAngelFlankAttack" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PrincessEscortHunt" State="PrincessEscortHunt" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="CratePickup" State="CratePickup" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Island States -->
+    <StrategicState id="PsychicPartisanTransportAttack" State="PsychicPartisanTransportAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsychicPartisanBerserkerAttack" State="PsychicPartisanBerserkerAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsychicPartisanLoadInfantryToPowerplant" State="PsychicPartisanLoadInfantryToPowerplant" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+	
+
+    <!-- Removed Strategic States-->
+    <StrategicState id="PsychicPartisanExpansion" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="PsychicPartisanCaptureTech" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+
+    <StrategicState id="PsychicPartisanExpansion_MEDIUM" State="PsychicPartisanExpansion_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="PsychicPartisanExpansion_HARD" State="PsychicPartisanExpansion_HARD" Difficulty="HARD"/>
+    <StrategicState id="PsychicPartisanExpansion_BRUTAL" State="PsychicPartisanExpansion_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="PsychicPartisanCaptureTech_EASY" State="PsychicPartisanCaptureTech_EASY" Difficulty="EASY"/>
+    <StrategicState id="PsychicPartisanCaptureTech_MEDIUM" State="PsychicPartisanCaptureTech_MEDIUM" Difficulty="MEDIUM"/>
+
+    <StrategicState id="PsychicPartisanCapturePriorityTech_HARD" State="PsychicPartisanCapturePriorityTech_HARD" Difficulty="HARD"/>
+    <StrategicState id="PsychicPartisanCaptureNonPriorityTech_HARD" State="PsychicPartisanCaptureNonPriorityTech_HARD" Difficulty="HARD"/>
+
+    <StrategicState id="PsychicPartisanCapturePriorityTech_BRUTAL" State="PsychicPartisanCapturePriorityTech_BRUTAL" Difficulty="BRUTAL"/>
+    <StrategicState id="PsychicPartisanCaptureNonPriorityTech_BRUTAL" State="PsychicPartisanCaptureNonPriorityTech_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="PsychicPartisanCaptureVehicleHealTech" State="PsychicPartisanCaptureVehicleHealTech" Difficulty="HARD BRUTAL"/>
+
+    <!-- Build States -->
+	
+    <BuildState id="SuperiorBrutalPsychicPartisanWarfactorySpam" State="SuperiorBrutalPsychicPartisanWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalPsychicPartisanNavalYardSpam" State="SuperiorBrutalPsychicPartisanNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalPsychicPartisanAirportSpam" State="SuperiorBrutalPsychicPartisanAirportSpam" Difficulty="BRUTAL"/>
+    <BuildState id="4AggroBrutalPsychicPartisanBarracksSpam" State="4AggroBrutalPsychicPartisanBarracksSpam" Difficulty="BRUTAL"/>
+	
+    <BuildState id="PsychicPartisanNonPathDependentStructureBuildState" State="PsychicPartisanNonPathDependentStructureBuildState" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <BuildState id="PsychicPartisanTechBuildState" State="PsychicPartisanTechBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="PsychicPartisanTechBuildState_EASY" State="PsychicPartisanTechBuildState_EASY" Difficulty="EASY"/>
+	<!--<BuildState id="SuperiorBrutalPsychicPartisanTechBuildState" State="SuperiorBrutalPsychicPartisanTechBuildState" Difficulty="BRUTAL"/>
+	<BuildState id="SuperiorPsychicPartisanTechBuildState" State="SuperiorPsychicPartisanTechBuildState" Difficulty="HARD"/>-->
+    
+    <BuildState id="PsychicPartisanLandUnitBuildState" State="PsychicPartisanLandUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="PsychicPartisanAirportBuildState" State="PsychicPartisanAirportBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="PsychicPartisanWaterUnitBuildState" State="PsychicPartisanWaterUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="PsychicPartisanAmphibiousUnitBuildState" State="PsychicPartisanAmphibiousUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>   
+
+    <BuildState id="PsychicPartisanBarracksBuildState_RANDOM" State="PsychicPartisanBarracksBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="PsychicPartisanWarFactoryBuildState_RANDOM" State="PsychicPartisanWarFactoryBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="PsychicPartisanNavalYardBuildState_RANDOM" State="PsychicPartisanNavalYardBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="PsychicPartisanAirportBuildState_RANDOM" State="PsychicPartisanAirportBuildState_RANDOM" Difficulty="EASY"/>
+
+    <!-- Caps for difficulty -->
+    <SpecificUnitCap Unit="PsychicPartisanAntiStructureShip" Cap="1" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="PsychicPartisanInfiltrationInfantry" Cap="0" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="PsychicPartisanCommandoTech1" Cap="0" Difficulty="EASY"/>
+
+    <!-- At a certain point, we just don't need any more of these since they can't double-up on targets-->
+    <SpecificUnitCap Unit="PsychicPartisanScoutInfantry" Cap="8" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <SpecificUnitCap Unit="PsychicPartisanInfiltrationInfantry" Cap="8" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+	
+    
+
+    <!-- We need caps for all land-only and water-only units to protect against situations where those units can no longer path to the enemy.
+         We try to protect against that as much as possible but this is the safety-net.  At a certain point, the AI should just spam amphibious
+         or air units which are always a safe bet. -->
+    <SpecificUnitCap Unit="PsychicPartisanInitiate" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="PsychicPartisanAntiVehicleInfantry" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <SpecificUnitCap Unit="PsychicPartisanAntiVehicleVehicleTech3" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="PsychicPartisanMastermind" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <SpecificUnitCap Unit="PsychicPartisanNavyScoutShip" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="PsychicPartisanAntiVehicleShip" Cap="15" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="PsychicPartisanAntiStructureShip" Cap="6" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+		<SpecificUnitCap Unit="PsychicPartisanBarracks" Cap="4" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="PsychicPartisanNavalYard" Cap="3" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="PsychicPartisanWarFactory" Cap="3" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<SpecificUnitCap Unit="PsychicPartisanAirport" Cap="4" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+  </AIPersonalityDefinition>
+	
+  <AIPersonalityDefinition
+		id="1PsychicPartisanBalanced"
+		PersonalityType="1PsychicPartisanBalanced"
+		inheritFrom="PsychicPartisanCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Shinzo"
+		CommanderPortrait="Shinzo"
+		>
+
+    <OpeningMove Name="PsychicPartisanStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="PsychicPartisanIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="PsychicPartisanStandard" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="PsychicPartisanStandard_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+    <OpeningMove Name="PsychicPartisanIsland" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="PsychicPartisanIsland_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <StrategicState id="BalancedDefense" State="BalancedDefense" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="Cleanup" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="BalancedCleanup" State="BalancedCleanup" Difficulty="EASY MEDIUM HARD"/>
+
+    <StrategicState id="PsychicPartisanScout" State="PsychicPartisanScout" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <!-- Harrassment States -->
+    <StrategicState id="PsychicPartisan_TenguHarrassment" State="PsychicPartisan_TenguHarrassment" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="PsychicPartisan_VXHarrassment" State="PsychicPartisan_VXHarrassment" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsychicPartisan_SuddenTransportHarrassment" State="PsychicPartisan_SuddenTransportHarrassment" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="PsychicPartisanInfiltration" State="PsychicPartisanInfiltration" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <!-- Main Offensive States - HARD and BRUTAL -->
+		<StrategicState id="BalancedAttackGround" State="BalancedAttackGround" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="BalancedAttackWater" State="BalancedAttackWater" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="BalancedAttackOverwhelm" State="BalancedAttackOverwhelm" Difficulty="HARD BRUTAL"/>
+
+		<!-- Main Offensive States - MEDIUM -->
+		<StrategicState id="BalancedAttackGround_MEDIUM" State="BalancedAttackGround_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackWater_MEDIUM" State="BalancedAttackWater_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackOverwhelm_MEDIUM" State="BalancedAttackOverwhelm_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+	<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="EmpireCoopShinzoPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="EmpireCoopShinzoPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="EmpireCoopShinzoTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="EmpireCoopShinzoTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="EmpireCoopShinzoStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="EmpireCoopShinzoStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="EmpireCoopShinzoAutoPilot" FeedbackTo="ALLIES"/>
+ 
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JSHGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JSHGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JSHGR3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JSHND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JSHND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JSHND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+
+		<!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JSHDE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JSHDE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JSHDE3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JSHTG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JSHTG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JSHTG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JSHTD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JSHTD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JSHTD3" 
+				FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JSHTV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JSHTV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JSHTV3" 
+				FeedbackTo="ENEMIES"/>
+
+  </AIPersonalityDefinition>
+  
+	
+</AssetDeclaration>

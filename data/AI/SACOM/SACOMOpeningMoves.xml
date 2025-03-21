@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <!-- SACOMPowerPlant = 10  seconds -->
+  <!-- SACOMBarracks   = 10  seconds -->
+  <!-- SACOMRefinery   = 20 seconds -->
+  <!-- SACOMWarFactory = 20 seconds -->
+  <!-- SACOMAerialCommandCenter = 30 seconds -->
+  <!-- SACOMAirfield   = 30 seconds -->
+  <!-- SACOMTechStructure = 40 seconds -->
+  <!-- SACOMNavalYard = 20 seconds -->
+
+  <SkirmishOpeningMove
+    id="SACOMStandard"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMAirfield" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Time="120s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMStandard_BRUTAL"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="4000" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMAirfield" />
+    <!--
+    <Order Time="90s" />
+    -->
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Time="120s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMIsland"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMNavalYard" />
+    <!--
+    <Order Time="80s" />
+    -->
+    <Order Build="SACOMAntiNavyShipTech1" />
+    <Order Build="SACOMAntiNavyShipTech1" />
+    <Order Build="SACOMAntiNavyShipTech1" />
+    <Order Time="110s" />
+    <Order Build="SACOMBarracks" />
+    <Order Time="120s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMStandard_EASY"
+    Side="PlayerTemplate:SACOM">
+    <Order Time="10s" Build="SACOMBarracks" />
+    <Order Time="30s" Build="SACOMPowerPlant" />
+    <Order Time="50s" Build="SACOMRefinery" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Time="80s" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Time="110s" Build="SACOMPowerPlant" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Time="130s"/>
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Time="160s"/>
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Time="190s"/>
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Time="220s"/>
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Time="250s"/>
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Build="SACOMAntiVehicleInfantry" />
+    <Order Time="280s"/>
+    <Order Build="SACOMAirfield" />
+    <Order Time="310s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMIsland_EASY"
+    Side="PlayerTemplate:SACOM">
+    <Order Time="10s" Build="SACOMPowerPlant" />
+    <Order Time="30s" Build="SACOMRefinery" />
+    <Order Time="60s" />
+    <Order Time="90s" Build="SACOMPowerPlant" />
+    <Order Time="110s" Build="SACOMNavalYard" />
+    <Order Time="140s" Build="SACOMAntiNavyShipTech1" />
+    <Order Time="160s" Build="SACOMAntiNavyShipTech1" />
+    <Order Time="180s" Build="SACOMAntiNavyShipTech1" />
+    <Order Time="200s" Build="SACOMBarracks" />
+    <Order Time="260s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMTerrorDroneRush"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMWarFactory" />
+    <Order Build="SACOMScoutVehicle" />
+    <Order Build="SACOMScoutVehicle" />
+    <Order Build="SACOMScoutVehicle" />
+    <Order Build="SACOMScoutVehicle" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMBarracks" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMAirfield" />
+    <Order Time="90s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMSickleRush"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMBarracks" />
+    <Order Time="90s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMAirfield_EASY"
+    Side="PlayerTemplate:SACOM">
+    <Order Time="10s" Build="SACOMPowerPlant" />
+    <Order Time="40s" Build="SACOMRefinery" />
+    <Order Time="70s" Build="SACOMBarracks" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Time="100s"/>
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Time="130s"/>
+    <Order Build="SACOMAerialCommandCenter" />
+    <Order Time="180s" Build="SACOMAirfield" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Build="SACOMAntiInfantryInfantry" />
+    <Order Time="230s" Build="SACOMAerialCommandCruiser" />
+    <Order Time="250s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMAirfield"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMAerialCommandCenter" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMAirfield" />
+    <!--
+    <Order Time="120s" />
+    -->
+    <Order Build="SACOMAerialCommandCruiser" />
+    <Order Build="SACOMHunterAircraft" />
+    <Order Time="150s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMAirfield_BRUTAL"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="4000" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMAerialCommandCenter" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMAirfield" />
+    <!--
+    <Order Time="120s" />
+    -->
+    <Order Build="SACOMAerialCommandCruiser" />
+    <Order Build="SACOMAerialCommandCruiser" />
+    <Order Time="150s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SACOMTestFullTech"
+    Side="PlayerTemplate:SACOM">
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMRefinery" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMAirfield" />
+    <Order Build="SACOMBarracks" />
+    <Order Build="SACOMWarFactory" />
+    <Order Build="SACOMPowerPlant" />
+    <Order Build="SACOMTechStructure" />
+    <Order Build="SACOMSupplyZone" />
+    <Order Time="195s" />
+  </SkirmishOpeningMove>
+
+</AssetDeclaration>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes>
+  </Includes>
+
+
+
+  <AITargetingHeuristic
+    id="OwnBombardmentShipHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    Location="Water"
+    VitalKindOf="SIEGE_WEAPON"
+    Relationship="SAME_PLAYER"
+    />
+
+
+<!-- CRYO TARGETS-->
+
+  <AITargetingHeuristic
+    id="CoverMyAttackingUnitsHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="CAN_ATTACK"
+    Relationship="SAME_PLAYER"
+    VitalObjectStatus="IS_ATTACKING"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorAIRANTIharvHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="HARVESTER"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+
+  <AITargetingHeuristic
+    id="SuperiorAntiVXHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="TRANSFORMER"
+    ForbiddenKindOf="AMPHIBIOUS"
+    RequireUniqueTarget="true"
+    />
+
+
+  <AITargetingHeuristic
+    id="SuperiorAIRT2UnitsHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="CAN_ATTACK T2_UNIT"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    UnderAttack="true"
+    />
+
+
+<!-- SUPAI IMPORTS -->
+  <AITargetingHeuristic
+    id="SuperiorClosestOwnInfantrySPYHeuristic"
+    HeuristicType="FriendlyUnit"
+    VitalKindOf="INFANTRY"
+    ForbiddenKindOf="COMMANDO AMPHIBIOUS"
+    Relationship="SAME_PLAYER"
+    Location="Land"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorClosestOwnVehicleSPYHeuristic"
+    HeuristicType="FriendlyUnit"
+    VitalKindOf="VEHICLE"
+    ForbiddenKindOf="HARVESTER INFANTRY AIRCRAFT"
+    Relationship="SAME_PLAYER"
+    Location="Land"
+    />
+
+	<!-- TANYA DROP HEURISTICS -->
+
+  <AITargetingHeuristic
+    id="SuperiorTanyaDropConYardHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE CONSTRUCTION_YARD"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorTanyaDropTechKillHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToAir"
+    VitalKindOf="FS_TECHNOLOGY"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorTanyaDropSuperReactorHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToAir"
+    VitalKindOf="FS_POWER FS_TECHNOLOGY"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+	<!-- CENTURY BOMBER SNACKS HEURISTICS -->
+
+  <AITargetingHeuristic
+    id="SnacksForCenturyBombersHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE REFINERY"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+  <AITargetingHeuristic
+    id="SnacksForCenturyBombersPOWERHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="FS_POWER"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+  <AITargetingHeuristic
+    id="SnacksForCenturyBombersAIRFIELDHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="FS_AIR_FIELD"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+  <AITargetingHeuristic
+    id="SnacksForCenturyBombersSuperWepsHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="SUPER_WEAPON"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+  <AITargetingHeuristic
+    id="SnacksForCenturyBombersWarFacHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="FS_WAR_FACTORY"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB"
+    />
+
+
+	<!-- Mostly Vindi Target Heuristics -->
+
+  <AITargetingHeuristic
+    id="SuperiorCounterDojoPushHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE FS_BARRACKS"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKillCoresHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="UNPACKS_INTO_BUILDING"
+    ForbiddenKindOf="HARVESTER MCV"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorvindikillfrozenHARVSHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="HARVESTER" 
+    VitalObjectStatus="UNDER_FROZEN"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorvindikillfrozenUnitsHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="" 
+    VitalObjectStatus="UNDER_FROZEN"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorvindikillfrozenStructureHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="" 
+    VitalObjectStatus="UNDER_FROZEN"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorANTISPUTNIKHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="EXPANSION_UNIT"
+    ForbiddenKindOf="HARVESTER"
+    RequireUniqueTarget="false"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorANTISPUTNIK2Heuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="OUTPOST"
+    ForbiddenKindOf="ACTIVATE_AFTER_UNPACK HARVESTER"
+    RequireUniqueTarget="false"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKILLVehicleNOHARVHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="VEHICLE"
+    ForbiddenKindOf="HARVESTER"
+    ForbiddenObjectStatus="AIRBORNE_TARGET SUBMERGED UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKILLSURFACETHINGSNOHARVSHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf=""
+    ForbiddenKindOf="HARVESTER"
+    ForbiddenObjectStatus="AIRBORNE_TARGET SUBMERGED UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Land"
+    RequireUniqueTarget="false"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorKillBaseDefenses"
+    SortType="Distance"
+    HeuristicType="EnemyStructure"
+    VitalKindOf="FS_BASE_DEFENSE"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING"
+    RequireUniqueTarget="true"
+    />
+
+	<!-- Mostly Apollo Target heuristics -->
+
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSRocketAngelsTargetHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="INFANTRY"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSAnyAirTargetHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSTenguTargetHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="AMPHIBIOUS VEHICLE TRANSFORMER"
+    ForbiddenKindOf="SUBMARINE"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSFighterTargetHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="FIGHTER_AIRCRAFT"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSTwinvindTargetHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="ASSAULT_AIRCRAFT"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSKirovCenturyTargetHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="BOMBER_AIRCRAFT"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSVXTargetHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalKindOf="TRANSFORMER"
+    ForbiddenKindOf="AMPHIBIOUS"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+</AssetDeclaration>

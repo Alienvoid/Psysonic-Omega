@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include type="instance" source="BaseAIPersonalityDefinition.xml"/>
+	</Includes>
+	
+  <AIPersonalityDefinition
+		id="2PsychicPartisanSoulOperator"
+    PersonalityType="2PsychicPartisanSoulOperator"
+    inheritFrom="PsychicPartisanCoopBaseSkirmishPersonality"
+    SkirmishPersonality="true"
+    PersonalityUIName="Personality:Shinzo"
+		CommanderPortrait="Shinzo"
+    SecondsTillTargetsExpire="5"
+		DesiredExcessPowerBuffer="50"
+		BaseCompactness="0.75"
+    ResourceNodeSearchRadius="700"
+    ResourceNodeValueRemainingForExpansion="22000"
+		RefineryPlacementStartDistanceDelta="-30.0"
+		RefineryPlacementIncreaseTickAmount="30.0"
+		RefineryPlacementNumberOfIncreaseTicksBeforeGivingUp="15"
+    ReactiveDefenseRadius="750"
+    RepairBuildingsAtDifficulty="MEDIUM HARD BRUTAL"
+    ConyardInDangerEmergencyUnderAttackTime="5s"
+    ConyardInDangerEmergencyHealthPercent="30%"
+    ConyardInDangerEmergencyEngineerDistance="175.0"
+    CleanupRefineries="true"
+    BuildTechEfficiencyThreshold="2.0"
+    BuildTechMinPowerAdvantage="0.55"
+	  DefaultThreatFindRadius="300.0"
+		EnemySortingBrutalDifficulty="NearestFirst_BreakTies"
+		EnemySortingHardDifficulty="NearestFirst_BreakTies" 
+		EnemySortingMediumDifficulty="Flat"
+		EnemySortingEasyDifficulty="StrongestFirst_AllowTies"
+		EnemyResortingTime="15s"
+		MaxWallDestroyTimeToCountAsGoThroughWalls="10s"
+		>
+
+    <OpeningMove Name="PsychicPartisanTransportRush" Weight="100%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="PsychicPartisanIsland" Weight="100%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <!-- Main Offensive States -->
+
+		<StrategicState id="SoulOperator_AmphibiousVehicleAttack" State="SoulOperator_AmphibiousVehicleAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="SoulOperator_AmphibiousTransportAttack" State="SoulOperator_AmphibiousTransportAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="PsychicPartisanInfiltration" State="PsychicPartisanInfiltration" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="BalancedAttackWater" State="BalancedAttackWater" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Unit Preferences -->
+
+    <UnitModifier Unit="PsychicPartisanInitiate" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanAntiVehicleInfantry" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanInfiltrationInfantry" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanBetaYuriko" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanECTrooper" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="PsychicPartisanCenturion" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanMastermind" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanBerserker" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="PsychicPartisanFighterAircraft" OffensiveModifier="5.0" DefensiveModifier="5.5"/>
+  </AIPersonalityDefinition>
+	
+  <AIPersonalityDefinition
+		id="2PsychicPartisanMechaKing"
+		PersonalityType="2PsychicPartisanMechaKing"
+		inheritFrom="PsychicPartisanCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Kenji"
+		CommanderPortrait="Kenji"
+    SecondsTillTargetsExpire="5"
+		DesiredExcessPowerBuffer="50"
+		BaseCompactness="0.75"
+    ResourceNodeSearchRadius="700"
+    ResourceNodeValueRemainingForExpansion="22000"
+		RefineryPlacementStartDistanceDelta="-30.0"
+		RefineryPlacementIncreaseTickAmount="30.0"
+		RefineryPlacementNumberOfIncreaseTicksBeforeGivingUp="15"
+    ReactiveDefenseRadius="750"
+    RepairBuildingsAtDifficulty="MEDIUM HARD BRUTAL"
+    ConyardInDangerEmergencyUnderAttackTime="5s"
+    ConyardInDangerEmergencyHealthPercent="30%"
+    ConyardInDangerEmergencyEngineerDistance="175.0"
+    CleanupRefineries="true"
+    BuildTechEfficiencyThreshold="2.0"
+    BuildTechMinPowerAdvantage="0.55"
+	  DefaultThreatFindRadius="300.0"
+		EnemySortingBrutalDifficulty="NearestFirst_BreakTies"
+		EnemySortingHardDifficulty="NearestFirst_BreakTies" 
+		EnemySortingMediumDifficulty="Flat"
+		EnemySortingEasyDifficulty="StrongestFirst_AllowTies"
+		EnemyResortingTime="15s"
+		MaxWallDestroyTimeToCountAsGoThroughWalls="10s"
+		>
+
+    <OpeningMove Name="PsychicPartisanStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="PsychicPartisanIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="PsychicPartisanMechRush" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="PsychicPartisanMechRush_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+    <OpeningMove Name="PsychicPartisanIsland" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="PsychicPartisanIsland_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <StrategicState id="BalancedDefense" State="BalancedDefense" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="PsychicPartisanScout" State="PsychicPartisanScout" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <!-- Main Offensive States - HARD and BRUTAL -->
+    <StrategicState id="GrowingAttacks_Land" State="GrowingAttacks_Land" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="GrowingAttacks_Water" State="GrowingAttacks_Water" Difficulty="HARD BRUTAL"/>
+
+    <!-- Main Offensive States - MEDIUM -->
+    <StrategicState id="GrowingAttacks_Land_MEDIUM" State="GrowingAttacks_Land_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="GrowingAttacks_Water_MEDIUM" State="GrowingAttacks_Water_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+    
+    <UnitModifier Unit="PsychicPartisanScoutInfantry" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="PsychicPartisanAntiInfantryVehicleTech1" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanPatmos" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanAntiVehicleVehicleTech3" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+
+    <UnitModifier Unit="PsychicPartisanAntiAirShip" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanFighterAircraft" OffensiveModifier="5.0" DefensiveModifier="5.5"/>
+	
+    <UnitModifier Unit="PsychicPartisanMechaKingEgg" OffensiveModifier="2.0" DefensiveModifier="1.0"/>
+
+    <!-- Player Power Preferences -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_PointDefenseDrones" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank3" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Japan" Weight="300%"/>
+
+	<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="EmpireCoopKenjiPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="EmpireCoopKenjiPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="EmpireCoopKenjiTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="EmpireCoopKenjiTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="EmpireCoopKenjiStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="EmpireCoopKenjiStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="EmpireCoopKenjiAutoPilot" FeedbackTo="ALLIES"/>
+
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JKEGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JKEGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JKEGR3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JKEND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JKEND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JKEND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+
+		<!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JKEDE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JKEDE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JKEDE3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JKETG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JKETG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JKETG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JKETD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JKETD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JKETD3" 
+				FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JKETV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JKETV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JKETV3" 
+				FeedbackTo="ENEMIES"/>
+
+  </AIPersonalityDefinition>
+	
+  <AIPersonalityDefinition
+		id="3PsychicPartisanNavalLeader"
+		PersonalityType="3PsychicPartisanNavalLeader"
+		inheritFrom="PsychicPartisanCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Naomi"
+		CommanderPortrait="Naomi"
+    SecondsTillTargetsExpire="5"
+		DesiredExcessPowerBuffer="50"
+		BaseCompactness="0.75"
+    ResourceNodeSearchRadius="700"
+    ResourceNodeValueRemainingForExpansion="22000"
+		RefineryPlacementStartDistanceDelta="-30.0"
+		RefineryPlacementIncreaseTickAmount="30.0"
+		RefineryPlacementNumberOfIncreaseTicksBeforeGivingUp="15"
+    ReactiveDefenseRadius="750"
+    RepairBuildingsAtDifficulty="MEDIUM HARD BRUTAL"
+    ConyardInDangerEmergencyUnderAttackTime="5s"
+    ConyardInDangerEmergencyHealthPercent="35%"
+    ConyardInDangerEmergencyEngineerDistance="175.0"
+    CleanupRefineries="true"
+    BuildTechEfficiencyThreshold="2.0"
+    BuildTechMinPowerAdvantage="0.55"
+	  DefaultThreatFindRadius="300.0"
+		EnemySortingBrutalDifficulty="NearestFirst_BreakTies"
+		EnemySortingHardDifficulty="NearestFirst_BreakTies" 
+		EnemySortingMediumDifficulty="Flat"
+		EnemySortingEasyDifficulty="StrongestFirst_AllowTies"
+		EnemyResortingTime="15s"
+		MaxWallDestroyTimeToCountAsGoThroughWalls="10s"
+		>
+
+    <OpeningMove Name="PsychicPartisanIsland_EASY" Weight="100%" Difficulty="EASY"/>
+    <OpeningMove Name="PsychicPartisanIsland" Weight="100%" Difficulty="MEDIUM HARD"/>
+    <OpeningMove Name="PsychicPartisanIsland_BRUTAL" Weight="100%" Difficulty="BRUTAL"/>
+    
+    <!-- Main Offensive States -->
+
+    <StrategicState id="PsyNavalLeader_NavyHarrassment" State="PsyNavalLeader_NavyHarrassment" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsyNavalLeader_NavyAttack" State="PsyNavalLeader_NavyAttack" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="PsyNavalLeader_LandAttack" State="PsyNavalLeader_LandAttack" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="NavalLeader_PsychicAngelSupport" State="NavalLeader_PsychicAngelSupport" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+
+    <UnitModifier Unit="PsychicPartisanAntiVehicleInfantryTech3" OffensiveModifier="5.0" DefensiveModifier="5.0"/>
+
+    <UnitModifier Unit="PsychicPartisanNavyScout" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanAntiAirShip" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanAntiVehicleShip" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanAntiStructureShip" OffensiveModifier="2.0" DefensiveModifier="2.0"/>
+    <UnitModifier Unit="PsychicPartisanMechaKingEgg" OffensiveModifier="2.0" DefensiveModifier="1.5"/>
+
+    <UnitModifier Unit="PsychicPartisanFighterAircraft" OffensiveModifier="5.0" DefensiveModifier="5.5"/>
+    <!-- Player Power Preferences -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_FinalSquadron_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_FinalSquadron_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_FinalSquadron_Rank3" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_NavalPower" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EnhancedKamikaze" Weight="300%"/>
+
+	<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="EmpireCoopNaomiPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="EmpireCoopNaomiPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="EmpireCoopNaomiTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="EmpireCoopNaomiTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="EmpireCoopNaomiStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="EmpireCoopNaomiStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="EmpireCoopNaomiAutoPilot" FeedbackTo="ALLIES"/>
+
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JNAGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JNAGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="JNAGR3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JNAND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JNAND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="JNAND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+
+		<!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JNADE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JNADE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="JNADE3" 
+				FeedbackTo="ALLIES"/>
+
+		<!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JNATG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JNATG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="JNATG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JNATD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JNATD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="JNATD3" 
+				FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JNATV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JNATV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="JNATV3" 
+				FeedbackTo="ENEMIES"/>
+
+  </AIPersonalityDefinition>
+</AssetDeclaration>

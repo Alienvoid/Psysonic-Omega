@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBudgetStateDefinition
+    id="CoopBudgetMOD">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <ConstantHeuristic Weight="0.5"/>
+    </Heuristic>
+    <Budget>
+      <AccountShare Account="PRODUCTION" Percent="75%"/>
+      <AccountShare Account="SPECIAL_OPERATIONS" Percent="10%"/>
+      <AccountShare Account="DEFENSE" Percent="5%"/>
+      <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+    </Budget>
+  </AIBudgetStateDefinition>
+
+  <AIBudgetStateDefinition
+    id="DefenseBudgetMOD">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="true" MinEnemyValue="1000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <!-- Need at least one structure that can build base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedConstructionYard</IncludeThing>
+          <IncludeThing>JapanConstructionYard</IncludeThing>
+          <IncludeThing>PsychicPartisanConstructionYard</IncludeThing>
+          <IncludeThing>SovietConstructionYard</IncludeThing>
+          <IncludeThing>SACOMConstructionYard</IncludeThing>
+          <IncludeThing>SACOMCrane</IncludeThing>
+          <IncludeThing>SovietCrane</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <!-- Need at least one structure that's pre-requsite to building base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedPowerPlant</IncludeThing>
+          <IncludeThing>SovietPowerPlant</IncludeThing>
+          <IncludeThing>SACOMPowerPlant</IncludeThing>
+          <IncludeThing>JapanRefinery</IncludeThing>
+          <IncludeThing>PsychicPartisanRefinery</IncludeThing>
+          <IncludeThing>AlliedTechStructure</IncludeThing>
+          <IncludeThing>SACOMAerialCommandCenter</IncludeThing>
+          <IncludeThing>SovietPowerPlantAdvanced</IncludeThing>
+          <IncludeThing>JapanTechStructure</IncludeThing>
+          <IncludeThing>PsychicPartisanTechStructure</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <ConstantHeuristic Weight="0.75"/>
+    </Heuristic>
+    <Budget>
+      <AccountShare Account="PRODUCTION" Percent="75%"/>
+      <AccountShare Account="DEFENSE" Percent="20%"/>
+      <AccountShare Account="SPECIAL_OPERATIONS" Percent="5%"/>
+      <AccountShare Account="SLUSH_FUND" Percent="0%"/>
+    </Budget>
+  </AIBudgetStateDefinition>
+
+  <AIBudgetStateDefinition
+    id="HeavyDefenseBudgetMOD">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="400.0" EnemyNearby="true" MinEnemyValue="2500">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <!-- Need at least one structure that can build base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedConstructionYard</IncludeThing>
+          <IncludeThing>JapanConstructionYard</IncludeThing>
+          <IncludeThing>PsychicPartisanConstructionYard</IncludeThing>
+          <IncludeThing>SovietConstructionYard</IncludeThing>
+          <IncludeThing>SACOMConstructionYard</IncludeThing>
+          <IncludeThing>SACOMCrane</IncludeThing>
+          <IncludeThing>SovietCrane</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <!-- Need at least one structure that's pre-requsite to building base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedPowerPlant</IncludeThing>
+          <IncludeThing>SovietPowerPlant</IncludeThing>
+          <IncludeThing>SACOMPowerPlant</IncludeThing>
+          <IncludeThing>JapanRefinery</IncludeThing>
+          <IncludeThing>PsychicPartisanRefinery</IncludeThing>
+          <IncludeThing>AlliedTechStructure</IncludeThing>
+          <IncludeThing>SACOMAerialCommandCenter</IncludeThing>
+          <IncludeThing>SovietPowerPlantAdvanced</IncludeThing>
+          <IncludeThing>JapanTechStructure</IncludeThing>
+          <IncludeThing>PsychicPartisanTechStructure</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PowerAdvantageHeuristic Value="2.0" Above="false" IncludeOwnDefenses="true" IncludeEnemyDefenses="false"/>
+    </Heuristic>
+    <Budget>
+      <AccountShare Account="PRODUCTION" Percent="65%"/>
+      <AccountShare Account="SPECIAL_OPERATIONS" Percent="0%"/>
+      <AccountShare Account="DEFENSE" Percent="35%"/>
+      <AccountShare Account="SLUSH_FUND" Percent="0%"/>
+    </Budget>
+  </AIBudgetStateDefinition>
+
+</AssetDeclaration>

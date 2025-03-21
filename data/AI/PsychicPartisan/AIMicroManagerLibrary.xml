@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+	<Includes></Includes>
+	
+	<AIMicroManagerData
+		id="PsychicPartisanBaseMicroManager"
+		UpdateTime="0.5s"
+		MaxTeamIdleTime="15s"
+		MaxTeamIdleDistanceChange="50.0" 
+		MaxUnitIdleTime="10s"
+		MaxUnitIdleDistanceChange="30.0"
+		EnemySearchDistanceVisionMultiplier="1.5"
+		MinTimeToKeepTempVisionRangeBonus="10s"
+		SiegeWeaponBuffer="1.5"
+		DodgeThreatsReactionTimeMin="0.5s"
+		DodgeThreatsReactionTimeMax="0.5s"
+		GatherTempVisionRangeBonus="1.5"
+		RetreatTempVisionRangeBonus="1.5"
+		MaxSecondaryDamageFraction="1.3">
+		<RetreatBaseCriteria
+				PreferredNotBaseTypes="CAPTURED"
+				SortOrder="PREFER_CLOSEST" />
+		<IgnoreTargets Rule="ANY"
+		Include="TIME_BOMB">
+		</IgnoreTargets>
+	</AIMicroManagerData>
+  
+	<AIMicroManagerData
+		id="MechaKingFearlessMicroManager"
+		inheritFrom="PsychicPartisanBaseMicroManager" 
+		EngageHostileTargets="true"
+		EngagePassiveTargets="true"
+		EngageTacticalTarget="true"
+		EnemySearchDistanceVisionMultiplier="1.8"
+		RetreatPowerAdvantage="0.0"
+		Crush="true"
+		EnterGarrisons="false"
+		PullbackInjured="false"
+		ReverseMove="false"
+		UseSpecialPowers="true"
+	/>
+	
+  <AIMicroManagerData
+    id="PsychicPartisanFighterAircraftMicroManager"
+	inheritFrom="PsychicPartisanBaseMicroManager" 
+    EngageHostileTargets="true"
+    EngagePassiveTargets="true"
+    EngageTacticalTarget="true"
+    EnemySearchDistanceVisionMultiplier="1.5"
+    PassiveTargetSearchDistance="1400"
+    UseGatherState="false"
+    AlphaStrikeTargetHealthPct="1.0"
+    AlphaStrikeTargetTimeToKill="999"
+    RetreatPowerAdvantage="0.5"
+    RetreatMinDistanceFromBase="1200.0"
+    RetreatMinDistanceToFallback="400.0"
+    Crush="false"
+    EnterGarrisons="false"
+    PullbackInjured="true"
+    PullbackInjuredHealthPct="0.35"
+    ReverseMove="true"
+    UseSpecialPowers="true"
+    />
+</AssetDeclaration>

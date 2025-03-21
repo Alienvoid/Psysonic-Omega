@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Includes>
+	<Include type="instance" source="DATA:Base/BaseAIPersonalityDefinition.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="NRACoopBasePersonality"
+    PersonalityType="NRACoopBasePersonality"
+    inheritFrom="CoopBasePersonality"
+    BaseCompactness="1.0"
+	ResourceNodeSearchRadius="1000"
+		>
+
+    <Side>NRA</Side>
+
+    <UnitBuilderUnitChoiceStrategy Shape="BEST" StandardDeviation="0.25" Difficulty="EASY MEDIUM HARD BRUTAL" />
+		<StrategicState id="NRAExpansion"          State="NRAExpansion"             Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="NRANavalBase"          State="NRANavalBase"             Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+		<StrategicState id="NRACaptureTech"        State="NRACaptureTech"           Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="NRACaptureWaterHusks"  State="NRACaptureWaterHusks"     Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="NRADefenseBuildState"      State="NRADefenseBuildState"     Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="NRANeededUnits"            State="NRANeededUnits"           Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Defensive modifier on infantry accounting for low speed and crushability -->
+    <UnitModifier Unit="NRAScoutInfantry" OffensiveModifier="0.5" DefensiveModifier="0.5"/> <!-- Dogs offense not as good as the AI thinks because they do overkill -->
+    <UnitModifier Unit="NRAAntiInfantryInfantry" OffensiveModifier="1.0" DefensiveModifier="0.2"/>
+    <UnitModifier Unit="NRAAntiVehicleInfantry" OffensiveModifier="0.8" DefensiveModifier="0.2"/>
+    <UnitModifier Unit="NRACommandoTech1" OffensiveModifier="5.0" DefensiveModifier="5.0"/> <!-- Commandos are good.  You pretty much always want them. -->
+
+    <UnitModifier Unit="NRAAntiInfantryVehicle_Ground" OffensiveModifier="1.5" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="NRAAntiAirVehicleTech1" OffensiveModifier="1.0" DefensiveModifier="1.0"/> <!-- The AI can't use all the IFV's weapons at once -->
+    <UnitModifier Unit="NRAAntiVehicleVehicleTech1" OffensiveModifier="6.0" DefensiveModifier="1.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="NRAAntiVehicleVehicleTech3" OffensiveModifier="6.0" DefensiveModifier="6.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="NRAAntiStructureVehicle" OffensiveModifier="6.0" DefensiveModifier="1.0"/> <!-- The Athena cannon has a wierd DoT weapon.  This brings it close to its true damage -->
+
+    <UnitModifier Unit="NRAAntiInfantryVehicle" OffensiveModifier="1.5" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="NRAAntiAirShip" OffensiveModifier="0.5" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="NRAAntiStructureShip" OffensiveModifier="6.0" DefensiveModifier="1.0"/>
+	
+    <UnitModifier Unit="NRAFighterAircraft" OffensiveModifier="3.0" DefensiveModifier="1.0"/>
+    <UnitModifier Unit="NRABomberAircraft" OffensiveModifier="3.0" DefensiveModifier="1.0"/>
+
+    <!-- Player Tech -->
+
+    <!-- Tier 1 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_AirPower" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_SatelliteSweep" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_HighTechnology" Weight="100%"/>
+
+    <!-- Tier 2 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_PrecisionStrike" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoRift_Rank1" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoSwap" Weight="200%"/>
+
+    <!-- Tier 3 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_TimeBomb_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoRift_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank1" Weight="300%"/>
+
+    <!-- Tier 4 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_TimeBomb_Rank2" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoRift_Rank3" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank2" Weight="400%"/>
+
+    <!-- Tier 5 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_TimeBomb_Rank3" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Allies" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank3" Weight="500%"/>
+
+  </AIPersonalityDefinition>
+  
+  
+
+  <AIPersonalityDefinition
+		id="NRACoopBaseSkirmishPersonality"
+    PersonalityType="NRACoopBaseSkirmishPersonality"
+    inheritFrom="NRACoopBasePersonality"
+		EmergencyManagerHandleConyardInDangerAtDifficulty="MEDIUM HARD BRUTAL"
+		>
+
+    <!-- Defense States -->
+
+    <StrategicState id="LandDefense" State="LandDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="WaterDefense" State="WaterDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="LandDefense_MEDIUM" State="LandDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="WaterDefense_MEDIUM" State="WaterDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="LandDefense_EASY" State="LandDefense_EASY" Difficulty="EASY"/>
+    <StrategicState id="WaterDefense_EASY" State="WaterDefense_EASY" Difficulty="EASY"/>
+
+    <StrategicState id="LandEmergencyDefense" State="LandEmergencyDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="WaterEmergencyDefense" State="WaterEmergencyDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="LandEmergencyDefense_MEDIUM" State="LandEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="WaterEmergencyDefense_MEDIUM" State="WaterEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="LandEmergencyDefense_EASY" State="LandEmergencyDefense_EASY" Difficulty="EASY"/>
+    <StrategicState id="WaterEmergencyDefense_EASY" State="WaterEmergencyDefense_EASY" Difficulty="EASY"/>
+    
+    <!-- General Skirmish States -->
+
+    <StrategicState id="Cleanup" State="Cleanup" Difficulty="EASY MEDIUM HARD"/>
+    <StrategicState id="Cleanup_BRUTAL" State="Cleanup_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="RetreatMCVToLand" State="RetreatMCVToLand" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="RetreatMCVToWater" State="RetreatMCVToWater" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="EscortMCV" State="EscortMCV" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="ModBombardmentShipAttack" State="ModBombardmentShipAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="NRACommandoController" State="NRACommandoController" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="NRAStealthDetector" State="NRAStealthDetector" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="CratePickup" State="CratePickup" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Aircraft Offensive States -->
+    
+    <StrategicState id="NRAFighterAircraftFlankAttack" State="NRAFighterAircraftFlankAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="NRAAntiGroundAircraftDefense" State="NRAAntiGroundAircraftDefense" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="NRAAntiGroundAircraftAttack" State="NRAAntiGroundAircraftAttack" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="NRAAntiGroundAircraftAttack_MEDIUM" State="NRAAntiGroundAircraftAttack_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="NRAAntiGroundAircraftAttack_EASY" State="NRAAntiGroundAircraftAttack_EASY" Difficulty="EASY"/>
+
+    <StrategicState id="NRABomberAttack" State="NRABomberAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Island States -->
+    <StrategicState id="NRATransportAttack" State="NRATransportAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Removed Strategic States-->
+    <StrategicState id="NRANavalBase" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="NRAExpansion" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="NRACaptureTech" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+
+    <StrategicState id="NRAExpansion_MEDIUM" State="NRAExpansion_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="NRAExpansion_HARD" State="NRAExpansion_HARD" Difficulty="HARD"/>
+    <StrategicState id="NRAExpansion_BRUTAL" State="NRAExpansion_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="NRACaptureTech_EASY" State="NRACaptureTech_EASY" Difficulty="EASY"/>
+    <StrategicState id="NRACaptureTech_MEDIUM" State="NRACaptureTech_MEDIUM" Difficulty="MEDIUM"/>
+
+    <StrategicState id="NRACapturePriorityTech_HARD" State="NRACapturePriorityTech_HARD" Difficulty="HARD"/>
+    <StrategicState id="NRACaptureNonPriorityTech_HARD" State="NRACaptureNonPriorityTech_HARD" Difficulty="HARD"/>
+
+    <StrategicState id="NRACapturePriorityTech_BRUTAL" State="NRACapturePriorityTech_BRUTAL" Difficulty="BRUTAL"/>
+    <StrategicState id="NRACaptureNonPriorityTech_BRUTAL" State="NRACaptureNonPriorityTech_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="NRACaptureVehicleHealTech" State="NRACaptureVehicleHealTech" Difficulty="HARD BRUTAL"/>
+
+    <!-- Build States -->
+    <BuildState id="NRANonPathDependentStructureBuildState" State="NRANonPathDependentStructureBuildState" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <BuildState id="NRATechBuildState" State="NRATechBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="NRATechBuildState_EASY" State="NRATechBuildState_EASY" Difficulty="EASY"/>
+
+    <BuildState id="NRALandUnitBuildState" State="NRALandUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="NRAWaterUnitBuildState" State="NRAWaterUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="NRAAmphibiousUnitBuildState" State="NRAAmphibiousUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="NRAAntiInfantryOnlyBuildState" State="NRAAntiInfantryOnlyBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="NRAAntiAirOnlyBuildState" State="NRAAntiAirOnlyBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="NRAAntiGroundAircraftBuildState" State="NRAAntiGroundAircraftBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+	
+    <BuildState id="SuperiorBrutalNRAWarfactorySpam" State="SuperiorBrutalNRAWarfactorySpam" Difficulty="HARD BRUTAL"/>
+    <BuildState id="SuperiorBrutalNRANavalYardSpam" State="SuperiorBrutalNRANavalYardSpam" Difficulty="HARD BRUTAL"/>
+    <BuildState id="SuperiorBrutalNRAAirfieldSpam" State="SuperiorBrutalNRAAirfieldSpam" Difficulty="HARD BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalNRAWarfactorySpam" State="SuperiorINFINITEBrutalNRAWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalNRANavalYardSpam" State="SuperiorINFINITEBrutalNRANavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalNRAAirfieldSpam" State="SuperiorINFINITEBrutalNRAAirfieldSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalNRABarracksSpam" State="SuperiorINFINITEBrutalNRABarracksSpam" Difficulty="BRUTAL"/>
+
+    
+    <BuildState id="NRABarracksBuildState_FEWEST" State="NRABarracksBuildState_FEWEST" Difficulty="MEDIUM"/>
+    <BuildState id="NRAWarFactoryBuildState_FEWEST" State="NRAWarFactoryBuildState_FEWEST" Difficulty="MEDIUM"/>
+    <BuildState id="NRANavalYardBuildState_FEWEST" State="NRANavalYardBuildState_FEWEST" Difficulty="MEDIUM"/>
+    <BuildState id="NRAAirfieldBuildState_FEWEST" State="NRAAirfieldBuildState_FEWEST" Difficulty="MEDIUM"/>
+    
+
+    <BuildState id="NRABarracksBuildState_RANDOM" State="NRABarracksBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="NRAWarFactoryBuildState_RANDOM" State="NRAWarFactoryBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="NRANavalYardBuildState_RANDOM" State="NRANavalYardBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="NRAAirfieldBuildState_RANDOM" State="NRAAirfieldBuildState_RANDOM" Difficulty="EASY"/>
+    
+    <!-- Caps for difficulty -->
+    <SpecificUnitCap Unit="NRAFighterAircraft" Cap="0" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="NRAAntiGroundAircraft" Cap="1" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="NRASupportAircraft" Cap="2" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="NRABomberAircraft" Cap="1" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="NRAAntiStructureShip" Cap="1" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="NRACommandoTech1" Cap="0" Difficulty="EASY"/>
+
+    <SpecificUnitCap Unit="NRAFighterAircraft" Cap="2" Difficulty="MEDIUM"/>
+
+    <!-- At a certain point, we don't need any more of these because they are very limited in use. -->
+    <SpecificUnitCap Unit="NRAScoutInfantry" Cap="6" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- At a certain point, we just don't need any more of these since they can't actually do damage -->
+    <SpecificUnitCap Unit="NRASupportAircraft" Cap="10" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- We need caps for all land-only and water-only units to protect against situations where those units can no longer path to the enemy.
+         We try to protect against that as much as possible but this is the safety-net.  At a certain point, the AI should just spam amphibious
+         or air units which are always a safe bet. -->
+    <SpecificUnitCap Unit="NRAAntiInfantryInfantry" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="NRAAntiVehicleInfantry" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <SpecificUnitCap Unit="NRAAntiVehicleVehicleTech1" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="NRAAntiAirVehicleTech1" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="NRAAntiVehicleVehicleTech3" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="NRAAntiStructureVehicle" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <SpecificUnitCap Unit="NRAAntiNavalScout" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="NRAAntiAirShip" Cap="15" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="NRAAntiStructureShip" Cap="6" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+  </AIPersonalityDefinition>
+	
+  <AIPersonalityDefinition
+		id="1NRABalanced"
+		PersonalityType="1NRABalanced"
+		inheritFrom="NRACoopBaseSkirmishPersonality"
+		SkirmishPersonality="false"
+		PersonalityUIName="Personality:Warren"
+		CommanderPortrait="Warren"
+		>
+
+    <OpeningMove Name="NRAStandard" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="NRAAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="NRAStandard_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="NRAAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+    <OpeningMove Name="NRAIsland" Weight="100%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="NRAAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <StrategicState id="BalancedDefense" State="BalancedDefense" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+    <StrategicState id="Cleanup" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="BalancedCleanup" State="BalancedCleanup" Difficulty="EASY MEDIUM HARD"/> 
+
+    <StrategicState id="NRAScout" State="NRAScout" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <!-- Harrassment States -->
+    <!--
+    <StrategicState id="SickleHarrassment" State="SickleHarrassment" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="TerrorDroneHarrassment" State="TerrorDroneHarrassment" Difficulty="HARD BRUTAL"/>
+    -->
+
+
+    <!-- Main Offensive States - HARD and BRUTAL -->
+    <StrategicState id="GrowingAttacks_Land" State="GrowingAttacks_Land" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="GrowingAttacks_Water" State="GrowingAttacks_Water" Difficulty="HARD BRUTAL"/>
+
+    <!-- Main Offensive States - MEDIUM -->
+    <StrategicState id="GrowingAttacks_Land_MEDIUM" State="GrowingAttacks_Land_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="GrowingAttacks_Water_MEDIUM" State="GrowingAttacks_Water_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+		<!-- Voice Responses -->
+		<FeedbackEntry FeedbackKey="PlanAttackBeaconPlaced" EvaEvent="SovietCoopOlegPlanAttack" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="PlanAttackOrderComplete" EvaEvent="SovietCoopOlegPlanAttackDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionBeaconPlaced" EvaEvent="SovietCoopOlegTakePos" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="TakePositionOrderComplete" EvaEvent="SovietCoopOlegTakePosDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetBeaconPlaced" EvaEvent="SovietCoopOlegStrikeThis" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="StrikeTargetOrderComplete" EvaEvent="SovietCoopOlegStrikeThisDone" FeedbackTo="ALLIES"/>
+		<FeedbackEntry FeedbackKey="OrderCanceled" EvaEvent="SovietCoopOlegAutoPilot" FeedbackTo="ALLIES"/>
+
+		<!-- Skirmish feedback -->
+		
+		<!-- Greet ally at beginning of game -->
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR3" 
+				FeedbackTo="ALLIES"/>
+    <FeedbackEntry
+				FeedbackKey="StartGame"
+				Video="SOLGR4"
+				FeedbackTo="ALLIES"/>
+
+    <!-- Tell ally I'm in trouble -->
+		<!-- N.B.: If you wanted to add FeedbackTo="ENEMIES" or "NEUTRAL", you would also need to 
+			    adjust the InTroubleSkirmishFeedbackControl block's OnlyIfLocalPlayerIs list -->
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND1" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND2" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+		<FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND3" 
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>
+    <FeedbackEntry
+				FeedbackKey="InTrouble"
+				Video="SOLND4"
+				FeedbackTo="ALLIES"
+				Timeout="600s"/>    
+
+    <!-- Tell ally I'm dead -->
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE1" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE2" 
+				FeedbackTo="ALLIES"/>
+		<FeedbackEntry
+				FeedbackKey="Lost"
+				Video="SOLDE3" 
+				FeedbackTo="ALLIES"/>
+    <FeedbackEntry
+        FeedbackKey="Lost"
+        Video="SOLDE4"
+        FeedbackTo="ALLIES"/>
+
+    <!-- Tell enemy I'm going to defeat them! (when I first meet them) -->
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG1" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG2" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+		<FeedbackEntry
+				FeedbackKey="FirstSeen"
+				Video="SOLTG3" 
+				FeedbackTo="ENEMIES"
+				Timeout="9999999s"/>
+    <FeedbackEntry
+        FeedbackKey="FirstSeen"
+        Video="SOLTG4"
+        FeedbackTo="ENEMIES"
+        Timeout="9999999s"/>
+
+		<!-- Curse enemy who defeated me -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedByLocalPlayer"
+				Video="SOLTD3" 
+				FeedbackTo="ENEMIES"/>
+    <FeedbackEntry
+        FeedbackKey="DefeatedByLocalPlayer"
+        Video="SOLTD4"
+        FeedbackTo="ENEMIES"/>
+
+		<!-- Laugh at enemy whom I defeated -->
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV1" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV2" 
+				FeedbackTo="ENEMIES"/>
+		<FeedbackEntry
+				FeedbackKey="DefeatedLocalPlayer"
+				Video="SOLTV3" 
+				FeedbackTo="ENEMIES"/>
+    <FeedbackEntry
+        FeedbackKey="DefeatedLocalPlayer"
+        Video="SOLTV4"
+        FeedbackTo="ENEMIES"/>
+
+  </AIPersonalityDefinition>
+</AssetDeclaration>

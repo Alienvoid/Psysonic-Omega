@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes></Includes>
+	<AIStrategicStateName id="NRAAntiAirVehicleTech1HarrassmentName" State="NRAAntiAirVehicleTech1Harrassment" Name="NRAAntiAirVehicleTech1Harrassment" />
+	<AIStrategicStateName id="NRAScoutName" State="NRAScout" Name="NRAScout" />
+	<AIStrategicStateName id="NRAStealthDetectorName" State="NRAStealthDetector" Name="NRAStealthDetector" />
+	<AIStrategicStateName id="NRAACVHarrassmentName" State="NRAACVHarrassment" Name="NRAACVHarrassment" />
+	<AIStrategicStateName id="NRATransportAttackName" State="NRATransportAttack" Name="NRATransportAttack" />
+	<AIStrategicStateName id="NRACaptureWaterHusksName" State="NRACaptureWaterHusks" Name="NRACaptureWaterHusks" />
+	<AIStrategicStateName id="NRACaptureTechName" State="NRACaptureTech" Name="NRACaptureTech" />
+	<AIStrategicStateName id="NRACaptureTech_EASYName" State="NRACaptureTech_EASY" Name="NRACaptureTech_EASY" />
+	<AIStrategicStateName id="NRACaptureTech_MEDIUMName" State="NRACaptureTech_MEDIUM" Name="NRACaptureTech_MEDIUM" />
+	<AIStrategicStateName id="NRACapturePriorityTech_HARDName" State="NRACapturePriorityTech_HARD" Name="NRACapturePriorityTech_HARD" />
+	<AIStrategicStateName id="NRACaptureNonPriorityTech_HARDName" State="NRACaptureNonPriorityTech_HARD" Name="NRACaptureNonPriorityTech_HARD" />
+	<AIStrategicStateName id="NRACapturePriorityTech_BRUTALName" State="NRACapturePriorityTech_BRUTAL" Name="NRACapturePriorityTech_BRUTAL" />
+	<AIStrategicStateName id="NRACaptureNonPriorityTech_BRUTALName" State="NRACaptureNonPriorityTech_BRUTAL" Name="NRACaptureNonPriorityTech_BRUTAL" />
+	<AIStrategicStateName id="NRACaptureVehicleHealTechName" State="NRACaptureVehicleHealTech" Name="NRACaptureVehicleHealTech" />
+	<AIStrategicStateName id="NRAExpansionName" State="NRAExpansion" Name="NRAExpansion" />
+	<AIStrategicStateName id="NRAExpansion_MEDIUMName" State="NRAExpansion_MEDIUM" Name="NRAExpansion_MEDIUM" />
+	<AIStrategicStateName id="NRAExpansion_HARDName" State="NRAExpansion_HARD" Name="NRAExpansion_HARD" />
+	<AIStrategicStateName id="NRAExpansion_BRUTALName" State="NRAExpansion_BRUTAL" Name="NRAExpansion_BRUTAL" />
+	<AIStrategicStateName id="NRANavalBaseName" State="NRANavalBase" Name="NRANavalBase" />
+	
+	<AIStrategicStateName id="NRAAntiGroundAircraftDefenseName" State="NRAAntiGroundAircraftDefense" Name="NRAAntiGroundAircraftDefense" />
+	<AIStrategicStateName id="NRAAntiGroundAircraftAttackName" State="NRAAntiGroundAircraftAttack" Name="NRAAntiGroundAircraftAttack" />
+	<AIStrategicStateName id="NRAAntiGroundAircraftAttack_MEDIUMName" State="NRAAntiGroundAircraftAttack_MEDIUM" Name="NRAAntiGroundAircraftAttack_MEDIUM" />
+	<AIStrategicStateName id="NRAAntiGroundAircraftAttack_EASYName" State="NRAAntiGroundAircraftAttack_EASY" Name="NRAAntiGroundAircraftAttack_EASY" />
+	<AIStrategicStateName id="NRAAntiGroundAircraftAttack_ClosestName" State="NRAAntiGroundAircraftAttack_Closest" Name="NRAAntiGroundAircraftAttack_Closest" />
+	
+	<AIStrategicStateName id="NRABomberAttackName" State="NRABomberAttack" Name="NRABomberAttack" />
+	<AIStrategicStateName id="NRAAntiAirVehicleHarrassmentName" State="NRAAntiAirVehicleHarrassment" Name="NRAAntiAirVehicleHarrassment" />
+	<AIStrategicStateName id="NRACommandoControllerName" State="NRACommandoController" Name="NRACommandoController" />
+	
+	<AIStrategicStateName id="NRASquardonLeader_Attack_LandName" State="NRASquardonLeader_Attack_Land" Name="NRASquardonLeader_Attack_Land" />
+	<AIStrategicStateName id="NRASquardonLeader_Attack_Land_MEDIUMName" State="NRASquardonLeader_Attack_Land_MEDIUM" Name="NRASquardonLeader_Attack_Land_MEDIUM" />
+	<AIStrategicStateName id="NRASquardonLeader_Attack_WaterName" State="NRASquardonLeader_Attack_Water" Name="NRASquardonLeader_Attack_Water" />
+	<AIStrategicStateName id="NRASquardonLeader_Attack_Water_MEDIUMName" State="NRASquardonLeader_Attack_Water_MEDIUM" Name="NRASquardonLeader_Attack_Water_MEDIUM" />
+	
+	
+	<AIStrategicStateName id="NRASpecialForces_MainAttackName" State="NRASpecialForces_MainAttack" Name="NRASpecialForces_MainAttack" />
+	<AIStrategicStateName id="NRASpecialForces_SupportAttackName" State="NRASpecialForces_SupportAttack" Name="NRASpecialForces_SupportAttack" />
+	<AIStrategicStateName id="NRASpecialForces_WaterPatrolName" State="NRASpecialForces_WaterPatrol" Name="NRASpecialForces_WaterPatrol" />
+	<AIStrategicStateName id="NRAFighterAircraftFlankAttackName" State="NRAFighterAircraftFlankAttack" Name="NRAFighterAircraftFlankAttack" />
+	<AIStrategicStateName id="NRAInfiltrationName" State="NRAInfiltration" Name="NRAInfiltration" />
+	<AIStrategicStateName id="NRAAirDropName" State="NRAAirDrop" Name="NRAAirDrop" />
+	
+</AssetDeclaration>

@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes>
+  </Includes>
+
+  <AITargetingHeuristic
+    id="GuardEngineersHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="ENGINEER"
+    Relationship="SAME_PLAYER"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorSafestToEnemyRefineryHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="REFINERY"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+		id="AssaultDVSWaterRefineries"
+		HeuristicType="EnemyStructure"
+		SortType="Distance"
+		VitalKindOf="REFINERY"
+		ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+		Location="Water"
+    RequireUniqueTarget="true"
+		/>
+
+  <AITargetingHeuristic
+		id="AssaultDVSWaterHarvester"
+		HeuristicType="EnemyUnit"
+		SortType="Distance"
+		VitalKindOf="HARVESTER"
+		ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+		Location="Water"
+    RequireUniqueTarget="true"
+		/>
+
+  <AITargetingHeuristic
+    id="RefineryDefenseHeuristic"
+    HeuristicType="FriendlyStructure"
+    VitalKindOf="STRUCTURE REFINERY"
+    SortType="ClosestToEnemy"
+    />
+
+  <AITargetingHeuristic
+    id="AntiEnemyGarrisonHeuristic"
+    HeuristicType="EnemyGarrison"
+    SortType="ThreatToGround"
+    VitalKindOf="CIVILIAN_BUILDING"
+    ForbiddenKindOf=""
+    />
+
+  <AITargetingHeuristic
+    id="CryoDefenseStructureUnderAttackByEnemyHeuristic"
+    HeuristicType="UnderAttackBy"
+    VitalKindOf="STRUCTURE"
+    ForbiddenKindOf=""
+    />
+
+  <AITargetingHeuristic
+    id="DefendStructureUnderAttackByEnemyLANDHeuristic"
+    HeuristicType="UnderAttackBy"
+    VitalKindOf="STRUCTURE"
+    ForbiddenKindOf="FS_BASE_DEFENSE"
+    Location="Land"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorOutPostTargetHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="OUTPOST"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+
+
+  <AITargetingHeuristic
+    id="SuperiorVulnerableRefineryHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="REFINERY"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorVulnerableRefineryHeuristic_FORWATERUNITS"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToWater"
+    VitalKindOf="REFINERY"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    RequireUniqueTarget="true"
+    />
+
+<!-- FOR ENGINEERS -->
+  <AITargetingHeuristic
+    id="ClosestSafestEnemyStructureHeuristic"
+    HeuristicType="EnemyStructure"
+    VitalKindOf="STRUCTURE"
+    SortType="ThreatToGround"
+    SearchRange="9999.0"
+    />
+  <AITargetingHeuristic
+    id="ClosestDamagedStructureHeuristic"
+    HeuristicType="FriendlyStructure"
+    VitalKindOf="STRUCTURE"
+    SortType="Distance"
+    SearchRange="9999.0"
+    VitalObjectStatus="DAMAGED"
+    />
+  <AITargetingHeuristic
+    id="ClosestVeryDamagedStructureHeuristic"
+    HeuristicType="FriendlyStructure"
+    VitalKindOf="STRUCTURE"
+    SortType="Distance"
+    SearchRange="9999.0"
+    VitalObjectStatus="REALLYDAMAGED"
+    />
+
+  <AITargetingHeuristic
+    id="ClosestSafestBrokenBridgeHeuristic"
+    HeuristicType="Bridge"
+    SortType="Distance"
+    Destroyed="true"
+    VitalKindOf="BRIDGE_GATEHOUSE"
+    SearchRange="9999.0"
+    MinDistanceFromEnemy="700.0"
+    />
+
+  <AITargetingHeuristic
+    id="ClosestSafestMoneyTechHeuristic"
+    HeuristicType="TechBuilding"
+    SortType="Distance"
+    VitalKindOf="SUPPLY_SOURCE"
+    SearchRange="9999.0"
+    MinDistanceFromEnemy="1300.0"
+    />
+
+  <AITargetingHeuristic
+    id="ClosestSafestVeterancyTechHeuristic"
+    HeuristicType="TechBuilding"
+    VitalKindOf="GRANTS_VETERANCY"
+    SortType="Distance"
+    SearchRange="9999.0"
+    MinDistanceFromEnemy="700.0"
+    />
+
+  <AITargetingHeuristic
+    id="ClosestSafestTechBuildingHeuristic"
+    HeuristicType="TechBuilding"
+    SortType="Distance"
+    SearchRange="9999.0"
+    MinDistanceFromEnemy="1200.0"
+    />
+
+<!-- TEAM PLAY HEURISTICS -->
+
+  <AITargetingHeuristic
+    id="SuperiorTeamPlay1Heuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="CAN_ATTACK VEHICLE"
+    ForbiddenKindOf="HARVESTER INFANTRY AIRCRAFT"
+    Relationship="ALLIES"
+    Location="Land"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorTeamPlay2Heuristic"
+    HeuristicType="FriendlyStructure"
+    SortType="ClosestToEnemy"
+    VitalKindOf="STRUCTURE"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB FS_BASE_DEFENSE HARVESTER"
+    Relationship="ALLIES"
+    Location="Land"
+    UnderAttack="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorTeamPlay3Heuristic"
+    HeuristicType="FriendlyStructure"
+    SortType="ClosestToEnemy"
+    VitalKindOf="STRUCTURE"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB FS_BASE_DEFENSE HARVESTER FS_POWER"
+    Relationship="ALLIES"
+    Location="Water"
+    UnderAttack="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorTeamPlay4Heuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="AIRCRAFT"
+    ForbiddenKindOf="HARVESTER INFANTRY"
+    Relationship="ALLIES"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorTeamPlayDefendUnderAttackHeuristic"
+    HeuristicType="FriendlyStructure"
+    SortType="ClosestToEnemy"
+    VitalKindOf="STRUCTURE"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALL_SEGMENT WALL_PIECE WALL_HUB FS_BASE_DEFENSE HARVESTER"
+    Relationship="ALLIES"
+    UnderAttack="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorTeamPlaySupportAllySiegeShipsHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="SIEGE_WEAPON"
+    Relationship="ALLIES"
+    Location="Water"
+    />
+
+
+  <AITargetingHeuristic
+    id="SuperiorTeamPlayHelpAirFightsHeuristic"
+    HeuristicType="UnderAttackBy"
+    SortType="ClosestToEnemy"
+    VitalKindOf="AIRCRAFT"
+    ForbiddenKindOf="HARVESTER INFANTRY"
+    Relationship="ALLIES"
+    />
+
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+  <AITargetingHeuristic
+    id="SuperiorAntiInfantryHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="INFANTRY"
+    ForbiddenKindOf="COMMANDO"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorAntiInfantryHeuristic_LandOnly"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="INFANTRY"
+    ForbiddenKindOf="COMMANDO"
+    RequireUniqueTarget="false"
+    Location="Land"
+    />
+
+  <AITargetingHeuristic
+    id="DojoCrushEngiPlzHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="ENGINEER"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="false"
+    Location="Land"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorAntiInfantryONLYHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="INFANTRY"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorOtherClosestTerrorDronesHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="ATTACH_ATTACK INFANTRY"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+<!-- Scout dogs and bears heuristics -->
+
+  <AITargetingHeuristic
+    id="SuperiorScout1Heuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="STRUCTURE FS_BARRACKS"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorScout2Heuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="INFANTRY SKIRMISH_AI_DONT_GARRISON CANNOT_HIJACK CAN_ATTACK"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorScout3Heuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="ENGINEER"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+  <AITargetingHeuristic
+    id="SuperiorSafestToEnemySuperWeaponHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="SUPER_WEAPON"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorSafestToEnemyConyardHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="CONSTRUCTION_YARD"
+    ForbiddenKindOf="CRANE"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorEnemySuperWeaponHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="SUPER_WEAPON"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorEnemyConyardHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="CONSTRUCTION_YARD"
+    ForbiddenKindOf="CRANE"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorEnemyMCVHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="MCV"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorClosestTerrorDronesHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="ATTACH_ATTACK INFANTRY"
+    ForbiddenKindOf=""
+    RequireUniqueTarget="true"
+    Location="Land"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorMainAttack1Heuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE FS_BARRACKS"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorMainAttack2Heuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE FS_POWER"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorMainAttack3Heuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE FS_WAR_FACTORY"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorMainAttack4Heuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE REFINERY"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorMainAttack5Heuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="CAN_ATTACK"
+    ForbiddenKindOf="SUBMARINE SHIP STRUCTURE NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorMainAttack5FORSHOGUNSHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="CAN_ATTACK"
+    ForbiddenKindOf="INFANTRY NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land Water"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorMainAttack6Heuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ThreatToGround"
+    VitalKindOf="STRUCTURE"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="ParanoiaMainAttack1Heuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    MinDistanceFromEnemy="700"
+    VitalKindOf="CAN_ATTACK"
+    ForbiddenKindOf="SUBMARINE SHIP STRUCTURE NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+
+<!-- JAPAN MAIN ATTACK STATES -->
+
+  <AITargetingHeuristic
+    id="SuperiorJapanVsStructuresHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="STRUCTURE"
+    ForbiddenKindOf="SUBMARINE SHIP NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorJapanVsEnemyUnitsHeuristic"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="CAN_ATTACK"
+    ForbiddenKindOf="SUBMARINE SHIP STRUCTURE NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+		id="WaterRefineries"
+		HeuristicType="EnemyStructure"
+		SortType="ThreatToWater"
+		VitalKindOf="REFINERY"
+		ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+		Location="Water"
+    RequireUniqueTarget="true"
+		/>
+
+  <AITargetingHeuristic
+		id="WaterHarvester"
+		HeuristicType="EnemyUnit"
+		SortType="ThreatToWater"
+		VitalKindOf="HARVESTER"
+		ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_HUB WALL_SEGMENT WALL_PIECE WALL_GATE BASE_FOUNDATION"
+		Location="Water"
+    RequireUniqueTarget="true"
+		/>
+
+  <AITargetingHeuristic
+    id="KILL_AIRCRAFT"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="KILL_AIRCRAFT_SAFELY"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToAir"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="KILL_THEM_ALL"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="KILL_THEM_ALL_ATHENA"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="KILL_THEM_ALL_EVERYWHERE"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    />
+
+  <AITargetingHeuristic
+    id="KILL_THEM_ALL_EVERYWHERE_NOT_INFANTRY"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    ForbiddenKindOf="INFANTRY NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    />
+
+  <AITargetingHeuristic
+    id="DESTROY_THEM_ALL"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="KILL_THEM_ALL_INWATER"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Water"
+    RequireUniqueTarget="false"
+    />
+
+  <AITargetingHeuristic
+    id="KILL_THEM_ALL_INWATER_SIEGEUNIT"
+    HeuristicType="EnemyUnit"
+    SortType="Distance"
+    VitalKindOf="SIEGE_WEAPON"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Water"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="DESTROY_THEM_ALL_INWATER"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Water"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="DESTROY_THEMDEFENSES"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="FS_BASE_DEFENSE"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Land"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="DESTROY_THEMDEFENSES_INWATER"
+    HeuristicType="EnemyStructure"
+    SortType="Distance"
+    VitalKindOf="FS_BASE_DEFENSE"
+    ForbiddenKindOf="NEUTRAL_TECH CIVILIAN_BUILDING WALK_ON_TOP_OF_WALL DEFENSIVE_WALL WALL_UPGRADE WALL_GATE BASE_FOUNDATION"
+    ForbiddenObjectStatus="UNATTACKABLE UNDER_IRON_CURTAIN"
+    Location="Water"
+    RequireUniqueTarget="true"
+    />
+
+<!-- FOR BUILDER MCV EXPANSIONS -->
+
+  <AITargetingHeuristic
+    id="BuilderForwardMCVExpansionHeuristic"
+    HeuristicType="Expansion"
+    SortType="ClosestToEnemy"
+    MinDistanceFromEnemy="100.0">
+    <BaseSelection
+				PreferredNotBaseTypes="CAPTURED EXPANSION MAIN_BASE"
+				SortOrder="PREFER_OLDEST" />
+  </AITargetingHeuristic>
+
+  <AITargetingHeuristic
+    id="BuilderForwardMCVExpansionLandPathHeuristic"
+    HeuristicType="Expansion"
+    SortType="ClosestToEnemy"
+    Location="Land"
+    MinDistanceFromEnemy="100.0">
+    <BaseSelection
+				PreferredNotBaseTypes="CAPTURED MAIN_BASE"/>
+  </AITargetingHeuristic>
+
+  <AITargetingHeuristic
+    id="BuilderSupportAllyMCVHeuristic"
+    HeuristicType="FriendlyUnit"
+    SortType="ClosestToEnemy"
+    VitalKindOf="MCV"
+    Relationship="ALLIES">
+  </AITargetingHeuristic>
+<!-- Special builder outpost attack -->
+
+  <AITargetingHeuristic
+    id="BuilderOutpostAttackHeuristic"
+    HeuristicType="EnemyStructure"
+    SortType="ClosestToEnemy"
+    MinDistanceFromEnemy="500.0">
+    <BaseSelection
+				PreferredBaseTypes="MAIN_BASE"
+				PreferredNotBaseTypes="CAPTURED"
+				SortOrder="PREFER_OLDEST" />
+  </AITargetingHeuristic>
+
+	<!-- GROUND ANTI AIR Target heuristics -->
+
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSRocketAngelsTargetHeuristic_GROUND"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="INFANTRY"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSAnyAirTargetHeuristic_GROUND"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSTenguTargetHeuristic_GROUND"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="AMPHIBIOUS VEHICLE TRANSFORMER"
+    ForbiddenKindOf="SUBMARINE"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSFighterTargetHeuristic_GROUND"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="FIGHTER_AIRCRAFT"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSTwinvindTargetHeuristic_GROUND"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="ASSAULT_AIRCRAFT"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSKirovCenturyTargetHeuristic_GROUND"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="BOMBER_AIRCRAFT"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+  <AITargetingHeuristic
+    id="SuperiorFighterVSVXTargetHeuristic_GROUND"
+    HeuristicType="EnemyUnit"
+    SortType="ThreatToGround"
+    VitalKindOf="TRANSFORMER"
+    ForbiddenKindOf="AMPHIBIOUS"
+    VitalObjectStatus="AIRBORNE_TARGET"
+    RequireUniqueTarget="true"
+    />
+
+
+</AssetDeclaration>
