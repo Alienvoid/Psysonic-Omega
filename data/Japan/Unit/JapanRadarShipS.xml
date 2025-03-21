@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all" source="ART:JURadarShip_SKN.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<GameObject
+		id="JapanRadarShipS"
+		inheritFrom="BaseVehicle"
+                IsTrainable="true"
+		SelectPortrait="Portrait_JapanRadarShip"
+		ButtonImage="Button_JapanRadarShip"
+		Side="Japan"
+		SubGroupPriority="475"
+		EditorSorting="UNIT"
+		TransportSlotCount="20"
+		BuildTime="15"
+		CommandSet="JapanRadarShipCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE SHIP CAN_BE_FAVORITE_UNIT T2_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="WATERCRAFT"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="JapanRadarShip"
+		Description="Desc:JapanRadarShip"
+		TypeDescription="Type:JapanRadarShip">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanAntiVehicleShip</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_JapanNavalYardTech2</NeededUpgrade>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1800"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanAntiVehicleShipArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanAntiVehicleShipWaterLocomotor"
+			Condition="NORMAL"
+			Speed="50.0" />
+		<LocomotorSet
+			Locomotor="JapanAntiVehicleShipWaterLocomotor_LeavingFactory"
+			Condition="EXITING_PRODUCTION_STRUCTURE"
+			Speed="55.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JURadarShip_SKN" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanRadarDome"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="JURadarShip_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="JURadarShip_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JURadarShip_SKN" />
+				</ModelConditionState>
+
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="JURadarShip_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="TOPPLED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedChieftanDie" />
+			</FXListBehavior>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="300" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="20.0"
+				MinorRadius="14.0"
+				Height="12.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="-7.0"
+					y="0.0"
+					z="0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="JAP_NaginataCruiser_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<ObjectSpecificEntry Sound="JAP_NaginataCruiser_VoiceAttackSub" AudioType="voiceAttackUnit" TargetObject="JapanNavyScoutShip" />
+			<ObjectSpecificEntry Sound="JAP_NaginataCruiser_VoiceAttackSub" AudioType="voiceAttackUnit" TargetObject="SovietAntiNavyShipTech2" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="JAP_NaginataCruiser_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry
+				Sound="Ship_Large_MoveLoopWater"
+				AudioType="soundMoveLoop" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="200"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+			CrusherLevel="1"
+			CrushableLevel="20" />
+
+	</GameObject>
+</AssetDeclaration>

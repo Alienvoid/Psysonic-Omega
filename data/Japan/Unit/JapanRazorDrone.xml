@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+
+		<Include
+			type="all"
+			source="ART:AURazDro_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_ABTB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_AIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_AIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_AIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_AIFC.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_AIFD.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_ATKA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_ATKB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BATB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIDB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIFC.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIFD.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIFE.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIFF.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_BIFE.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_DIEA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_DIEB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_DIEC.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_DIED.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_KAFA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_KAIA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_KAKA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_KATA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_KATB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_KDIA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_KDIB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_RUNA.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_RUNB.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_RUNC.w3x" />
+		<Include
+			type="all"
+			source="ART:AURazDro_CDTA.w3x" />
+    <Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+
+
+    <!-- FX Includes -->
+    <Include type="all"	source="ART:FXJapanTracer.xml" />
+
+    <!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<GameObject
+		id="JapanRazorDrone"
+		Scale="1.2"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_JapanRazorDrone"
+		ButtonImage="Button_JapanRazorDrone"
+		Side="Japan"
+		SubGroupPriority="350"
+		EditorSorting="UNIT"
+		BuildTime="6"
+		HealthBoxHeightOffset="30"
+		CommandSet="JapanRazorDroneCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE"
+		ThreatLevel="10"
+		TransportSlotCount="0"	
+		WeaponCategory="GUN"
+		VoicePriority="104"
+		EditorName="JapanRazorDrone"
+		Description="Desc:JapanRazorDrone"
+		TypeDescription="Type:JapanRazorDrone"
+		UnitTypeIcon="RazorIcon">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanRazorDrone</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="600"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanRazorDroneArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			id="HumanLocomotor"
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="100.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AURazDro_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FXMuzzle" />
+					<ParticleSysBone
+						BoneName="FXMuzzle"
+						FollowBone="true"
+						FXParticleSystemTemplate="JAP_Razor_TB_Glow" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="AURazDro_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WORLD_BUILDER">
+					<Model
+						Name="AURazDro_SKN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<!-- no anim -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_bored"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="AURazDro_BIDB"
+						AnimationMode="ONCE"
+						AnimationPriority="80"
+						AnimationBlendTime="15" />
+					<Animation
+						AnimationName="AURazDro_BIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="40"
+						AnimationBlendTime="5" />
+					<Animation
+						AnimationName="AURazDro_BIFC"
+						AnimationMode="ONCE"
+						AnimationPriority="40"
+						AnimationBlendTime="5" />
+					<Animation
+						AnimationName="AURazDro_BIFE"
+						AnimationMode="ONCE"
+						AnimationPriority="40"
+						AnimationBlendTime="5" />
+					<Animation
+						AnimationName="AURazDro_BIFF"
+						AnimationMode="ONCE"
+						AnimationPriority="40"
+						AnimationBlendTime="5" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_Selected" or Prev == "ATNB" or Prev == "STATE_Run" then CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle") end;
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FRONTCRUSHED">
+					<Animation
+						AnimationName="AURazDro_CDTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BACKCRUSHED">
+					<Animation
+						AnimationName="AURazDro_CDTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER DYING"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="AURazDro_KDIA"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="AURazDro_KDIB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="AURazDro_DIEA"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="AURazDro_DIEB"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="AURazDro_DIEC"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="AURazDro_DIED"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER MOVING"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="AURazDro_RUNB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="5"
+						Distance="80" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Cover" then	CurDrawableSetTransitionAnimState("TRANS_CoverToRun")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER USING_WEAPON_A"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="AURazDro_KAKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="AURazDro_KAIA"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+					<Animation
+						AnimationName="AURazDro_KAFA"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Run" then	CurDrawableSetTransitionAnimState("TRANS_RunToCover")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING FIRING_OR_PREATTACK_A"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="AURazDro_RUNB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="5"
+						Distance="80" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Cover" then CurDrawableSetTransitionAnimState("TRANS_CoverToRun")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="AURazDro_RUNB"
+						AnimationMode="LOOP"
+						Distance="80"
+						AnimationPriority="30"
+						AnimationBlendTime="10" />
+					<Animation
+						AnimationName="AURazDro_RUNC"
+						AnimationMode="LOOP"
+						Distance="80"
+						AnimationPriority="25"
+						AnimationBlendTime="5" />
+					<Animation
+						AnimationName="AURazDro_RUNC"
+						AnimationMode="LOOP"
+						Distance="80"
+						AnimationPriority="20"
+						AnimationBlendTime="5" />
+					<Script>
+            Prev = CurDrawablePrevAnimationState()
+            if Prev == "STATE_Cover" then CurDrawableSetTransitionAnimState("TRANS_CoverToRun")
+            end
+          </Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A"
+					FrameForPristineBonePositions="5">
+					<Animation
+						AnimationName="AURazDro_ATKA"
+						AnimationMode="ONCE"
+						UseWeaponTiming="true"
+						AnimationBlendTime="10" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACKING">
+					<Animation
+						AnimationName="AURazDro_ATKA"
+						AnimationMode="MANUAL"
+						AnimationBlendTime="10" />
+				</AnimationState>
+				<!-- SELECTED -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Selected">
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="AURazDro_AIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="80" />
+					<!--  AnimationBlendTime="5" -->
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="AURazDro_AIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="40" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="AURazDro_AIFB"
+						AnimationMode="ONCE"
+						AnimationPriority="40" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="AURazDro_AIFC"
+						AnimationMode="ONCE"
+						AnimationPriority="30" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_bored" then CurDrawableSetTransitionAnimState("TRANS_boredToAttention") end;
+					</Script>
+				</AnimationState>
+				<!-- TRANSITIONS -->
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_boredToAttention">
+					<Animation
+						AnimationName="AURazDro_BATB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_attentionToBored">
+					<Animation
+						AnimationName="AURazDro_ABTB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="8" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="AURazDro_BATB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="AURazDro_ABTB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_RunToCover">
+					<Animation
+						AnimationName="AURazDro_KATB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_CoverToRun">
+					<Animation
+						AnimationName="AURazDro_KATA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanRazorDroneSuicideWeapon" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<!-- standard death -->
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED IRRADIATED"
+					ExemptStatus="WEAPON_UPGRADED_02"/>
+			</SlowDeath>
+
+			<!-- dying when switched to sword ability -->
+			<SlowDeath
+				id="ModuleTag_BanzaiDeath"
+				DeathFlags="DEATH_10"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED IRRADIATED"
+					RequiredStatus="WEAPON_UPGRADED_02"/>
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="ERASED LASERED BURNED STABBED IRRADIATED"/>
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ERASED ELECTROCUTED BURNED STABBED IRRADIATED"/>
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED STABBED IRRADIATED"/>
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED IRRADIATED"/>
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED"
+					ExemptStatus="OVER_WATER"/>
+			</SlowDeath>
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="5"
+				UpdatePeriod="4.3s"
+				AffectsSelf="true"
+				InvisibilityTemplate="JapanRazorDroneInvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+			<IncludeThing>JapanRazorDrone</IncludeThing>
+				</BroadcastObjectFilter>
+			</InvisibilityBroadcastUpdate>
+
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanRazorDroneDeathWeapon"
+				DeathWeapon="JapanRazorDroneDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="SUICIDED CRUSHED"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>
+<!--
+			<LargeGroupAudioUpdate
+				id="LGAU">
+				<Key>GDI_RifleSoldier</Key>
+			</LargeGroupAudioUpdate>
+-->
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+				<!-- ActiveLoopSound="JAP_ImperialWarrior_Weapon_SwordSheathFakeLoop" no worky didn't loop at all -->
+
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_AlliesFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>	
+				
+			<SpecialPower
+				id="ModuleTag_ReproductionSpecialPower"
+				SpecialPowerTemplate="SpecialPower_Reproduction"
+				UpdateModuleStartsAttack="true"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ReproductionSpecialAbilityUpdate"
+				SpecialPowerTemplate="SpecialPower_Reproduction"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				SpecialWeapon="JapanRazorDroneReproduction"
+				StartAbilityRange="30"
+				UnpackTime="0s"
+				PackTime="0s"
+			/>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="280.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="ALI_Disintegrator_SoundAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="ALI_Disintegrator_SoundCreate"
+				AudioType="voiceFullyCreated" />
+			<AudioEntry
+				Sound="ALI_Disintegrator_SoundMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="ALI_Disintegrator_SoundMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="ALI_Disintegrator_SoundSelectMS"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALI_RazorDrone_MoveStart"
+				AudioType="soundMoveStart" />
+			<!--			<AudioEntry Sound="NOD_AttackBike_IdleLoop" AudioType="soundAmbient" /> -->
+		</AudioArraySound>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" 
+		/>
+		<VisionInfo
+			VisionRange="260"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"
+		/>
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<GameObject
+		id="JapanMindController"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_JapanBetaYuriko"
+		ButtonImage="Button_JapanBetaYuriko"
+		Side="Japan"
+		SubGroupPriority="350"
+		EditorSorting="UNIT"		
+		BuildTime="7"
+		HealthBoxHeightOffset="30"
+		CommandSet="JapanBetaYurikoCommandSet"
+		KindOf="CAN_ATTACK CAN_CAST_REFLECTIONS UNATTACKABLE POWERED IMMOBILE"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="104"
+		EditorName="JapanMindController"
+		Description="Desc:JapanMindController"
+		TypeDescription="Type:JapanMindController"
+		UnitTypeIcon="CommandoIcon">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanMindController</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="EmptyDamageFX" />
+		<LocomotorSet
+			id="HumanLocomotor"
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />					
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanMindControllerPsichoControlWeaponTrigger" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			
+			<SpecialPower
+				id="ModuleTag_PsyonicBlast"
+				SpecialPowerTemplate="SpecialPower_PsyonicBlast"                
+				UpdateModuleStartsAttack="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_PsyonicBlast"
+				SpecialWeapon="JapanBetaYurikoPsyonicBlast"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="2s"/>
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SpecialPower
+				id="ModuleTag_ManipulatorDevice"
+				SpecialPowerTemplate="SpecialPower_ManipulateObject"
+				AvailableAtStart="true"
+				UpdateModuleStartsAttack="true" />
+			<ActivateModuleSpecialAbilityUpdate
+				id="ModuleTag_ManipulatorDeviceUpdate"
+				SpecialPowerTemplate="SpecialPower_ManipulateObject"
+				StartAbilityRange="350"
+				AwardXPForTriggering="300"
+				Options="CHECK_SPECIALPOWER_REQUIREMENTS_DURING_UPDATE">
+				<SpecialPowerModules
+					ModuleId="ModuleTag_ManipulatorDeviceWorker"
+					TriggerType="TARGET_OBJECT" />
+			</ActivateModuleSpecialAbilityUpdate>
+			<TemporaryOwnerSpecialPower
+				id="ModuleTag_ManipulatorDeviceWorker"
+				SpecialPowerTemplate="SpecialPowerDummyTriggered3"
+				UpdateModuleStartsAttack="false"
+				SlaveStatus="UNDER_MIND_CONTROL"
+				/>
+			<!-- standard death -->
+
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_DeathRocketAngel" />
+			</FXListBehavior>
+	
+			<AimWeapon
+				id="ModuleTag_AimWeapon"
+				AimHighThreshold="0.5" />
+				
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="300.0" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="JAP_ImperialWarrior_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="JAP_ImperialWarrior_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_Yuriko_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceFear" AudioType="voiceFear" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceGarrison" AudioType="voiceGarrison" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="JAP_Yuriko_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<NamedEntry Sound="JAP_Yuriko_VoicePsyonicBlastMS" Name="VoicePsyonicBlast" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="JAP_YurikoOmega_MoveStart" AudioType="soundMoveStart" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" 
+		/>
+		<VisionInfo
+			VisionRange="380"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"
+		/>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="50" />
+	</GameObject>
+</AssetDeclaration>

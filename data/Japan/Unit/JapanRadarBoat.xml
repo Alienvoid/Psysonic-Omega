@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+		<!-- aka Naginata -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:SS_PSYCHICBALL.w3x" />
+		<Include type="all"	source="ART:JURadarBoat_SKN.w3x" />
+		<Include type="all"	source="ART:JURadarBoat_D.xml" />
+						
+		<Include type="instance" source="ART:EX_Headlights.w3x" />
+		<Include type="all"	source="ART:FXLaserOverlay.xml" />
+		<Include type="all"	source="ART:JURadarBoat_02.xml" />
+		<Include type="all"	source="ART:JURadarBoat_02_D.xml" />
+		<Include type="all"	source="ART:de/Decal_Sensor_CO.xml" />
+
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<GameObject
+		id="JapanRadarBoat"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_JapanRadarBoat"
+		ButtonImage="Button_JapanRadarBoat"
+		Side="Japan"
+		SubGroupPriority="475"
+		EditorSorting="UNIT"
+		TransportSlotCount="20"
+		BuildTime="20"
+		CommandSet="JapanRadarBoatCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE SHIP CAN_BE_FAVORITE_UNIT T2_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="WATERCRAFT"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="JapanRadarBoat"
+		Description="Desc:JapanRadarBoat"
+		TypeDescription="Type:JapanRadarBoat"
+		HealthBoxHeightOffset="20"
+		UnitIntro="Japan_NaginataCruiser_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanRadarBoat</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_JapanNavalYardTech2</NeededUpgrade>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanAntiVehicleShipArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanAntiVehicleShipWaterLocomotor"
+			Condition="NORMAL"
+			Speed="80.0" />
+		<LocomotorSet
+			Locomotor="JapanAntiVehicleShipWaterLocomotor_LeavingFactory"
+			Condition="EXITING_PRODUCTION_STRUCTURE"
+			Speed="80.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+					<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JURadarBoat_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="JURADARBOAT" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="JURADARBOAT" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED USER_2">
+					<Model
+						Name="JURadarBoat_SKN" />
+					<Texture
+						Original="JURadarBoat" 
+						New="JURadarBoat_02_D" />
+          <ParticleSysBone 
+						BoneName="JURadarBoat" 
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true"/>
+          <ParticleSysBone 
+						BoneName="JURadarBoat"
+ 						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="JURadarBoat"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="JURadarBoat"
+						FXParticleSystemTemplate="JapanVehicleDamagedLight"
+						FollowBone="true"/>
+				</ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED USER_2">
+          <Model
+						Name="JURadarBoat_SKN" />
+          <Texture
+						Original="JURadarBoat"
+						New="JURadarBoat_02" />
+          <ParticleSysBone
+						BoneName="JURadarBoat"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_2">
+					<Model
+						Name="JURadarBoat_SKN" />
+					<Texture
+						Original="JURadarBoat"
+						New="JURadarBoat_02" />		
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="JURadarBoat_SKN" />
+					<Texture
+						Original="JURadarBoat"
+						New="JURadarBoat_D" />
+          <ParticleSysBone 
+						BoneName="JURadarBoat" 
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true"/>
+          <ParticleSysBone 
+						BoneName="JURadarBoat"
+ 						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="JURadarBoat"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="JURadarBoat"
+						FXParticleSystemTemplate="JapanVehicleDamagedLight"
+						FollowBone="true"/>
+				</ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+				<Model
+						Name="JURadarBoat_SKN" />
+				<ParticleSysBone
+						BoneName="JURadarBoat"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="JURadarBoat_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JURadarBoat_SKN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanRadarDome"
+						FollowBone="true" />     
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WEAPONSTATE_ONE">
+				</AnimationState>
+
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_RecyclationDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="700"
+						SizeY="700"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						Texture="Decal_Sensor_CO" 
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+				<!--<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WEAPONSTATE_ONE OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>-->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED OVER_WATER">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="700"
+						SizeY="700"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						Texture="Decal_Sensor_CO" 
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+    <Behaviors>
+		<WeaponSetUpdate
+			id="ModuleTag_WeaponSetUpdate">
+			<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanRadarBoatDummyWeapon"/>
+			</WeaponSlotHardpoint>
+		</WeaponSetUpdate>
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="350" />
+
+			<SubObjectsUpgrade
+				id="ModuleTag_JapanNavalPower_subobject">
+				<TriggeredBy>Upgrade_JapanNavalPower</TriggeredBy>
+				<Nugget
+					ShowSubObjects="Upgrade_01"
+					Upgrade="Upgrade_JapanNavalPower">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>	
+
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="JURadarBoat_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanBattleShipDie" />
+			</FXListBehavior>
+			
+		<DynamicsUpdate
+			id="ModuleTag_DefaultDynamicsUpdate"
+			xai:joinAction="Remove" />
+		
+		<LUAEventList
+			id="ModuleTag_LUAEventList"
+			EventListName="NODRaiderTankFunctions"
+		/>
+		
+		<AttributeModifierUpgrade
+			id="ModuleTag_JapanNavalPower"
+			AttributeModifier="AttributeModifer_JapanNavalPower_JapanAntiVehicleShip">
+			<TriggeredBy>Upgrade_JapanNavalPower</TriggeredBy>
+		</AttributeModifierUpgrade>
+		
+			<SpecialPower
+				id="ModuleTag_PsyonicBlast"
+				SpecialPowerTemplate="SpecialPower_ToggleRadarBoatSwitchMode"                
+				UpdateModuleStartsAttack="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_ToggleRadarBoatSwitchMode"
+				SpecialWeapon="JapanRadarboarInterferer"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="1s"/>
+			<!--<SpecialPower
+				id="ModuleTag_SpecialPower"
+				SpecialPowerTemplate="SpecialPower_ToggleRadarBoatSwitchMode"
+				UpdateModuleStartsAttack="true"
+			/>
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleTransformUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				SpecialPowerTemplate="SpecialPower_ToggleRadarBoatSwitchMode"
+				UnpackTime="0.0s"
+				PackTime="0.0s">
+					
+
+				<ToggleState
+					LocomotorSet="NORMAL"
+					AIUpdateModuleId="ModuleTag_AI">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT"
+						NeverUseWhenClear="true">
+						<StateWeapon
+							Weapon="JapanRadarBoatBuffWeapon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE"
+					ModelConditions="WEAPONSTATE_ONE">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_TRANSFORM">
+						<StateWeapon
+							Weapon="JapanAntiAirShipGun" />
+					</SkirmishAiInfo>
+
+				</ToggleState>
+			</ToggleStatusSpecialAbilityUpdate>
+
+			<OCLSpecialPower
+				id="ModuleTag_BombingRun"
+				SpecialPowerTemplate="SpecialPowerBombingRun"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_JapanRadarBoatCallCuriseMissile"				
+				CreateLocation="USE_SECONDARY_OBJECT_LOCATION">
+				<NearestSecondaryObjectFilter
+					Relationship="SAME_PLAYER">
+					<IncludeThing>SovietConstructionYard</IncludeThing>
+				</NearestSecondaryObjectFilter>
+			</OCLSpecialPower>
+			<OCLMonitorUpdate
+				id="ModuleTag_BombingRunMonitor"
+				Options="MASTER RELEASE_WHEN_MASTER_CHANGES_TARGET"
+				/>
+				
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.5s">
+				<FireWeaponNugget
+					WeaponName="JapanRadarBoatBuffWeapon"
+					FireDelay="0.1s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>-->
+
+
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeModifier_RadarShipBuffer"
+				RefreshDelay="0.75s"
+				Range="320"
+				AllowSelf="true"
+				InitiallyActive="true">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES"
+					Include="VEHICLE INFANTRY"
+					StatusBitFlagsExclude="NOT_IN_WORLD">
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			
+			<AssignSlavesTargetObjectSpecialPower
+				id="ModuleTag_SpecialPowerRepairVehicle"
+				SpecialPowerTemplate="SpecialPower_TargetedRepairVehicle" />
+			<SpawnBehavior
+				id="ModuleTag_SpawnRepairDrones"
+				SpawnNumberData="6"
+				InitialBurst="6"
+				SpawnReplaceDelayData="10s"
+				SpawnedRequireSpawner="true"
+				KillSpawnsOnCaptured="true"
+				SpawnInsideBuilding="true"
+				KillSpawnsOnDisabled="true"
+                SpawnOnUnpack="true">
+				<Die
+					DeathTypes="ALL" />
+				<SpawnTemplate>JapanMissileJammer</SpawnTemplate>
+			</SpawnBehavior>
+			
+		<!--<AttributeModifierAuraUpdate
+			id="ModuleTag_AttributeModifierAuraUpdate"
+			AttributeModifierName="AttributeModifier_RadarShipBuffer"
+			RefreshDelay="1s"
+			Range="350"
+			InitiallyActive="true">
+			<ObjectFilter
+				Rule="ANY"
+				Relationship="ALLIES"
+				Include="VEHICLE HUGE_VEHICLE AIRCRAFT SUBMARINE">
+			</ObjectFilter>
+		</AttributeModifierAuraUpdate>-->
+		
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+			<!-- -->
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY" />
+			</AIUpdate>
+		</AI>
+
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1000" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="JAP_Naginata_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_MagneticSatelliteSuckedAway">
+				<ModelConditionSound Sound="SOV_MagneticSatellite_SuckedAwayWater" RequiredFlags="SUCKED_UP_HIGH" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "48.319"
+				MinorRadius = "8.07535"
+				Height = "12.1645"
+				ContactPointGeneration = "VEHICLE" />
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "8.2234"
+				MinorRadius = "22.7547"
+				Height = "10.8556"
+				ContactPointGeneration = "VEHICLE" >
+				<Offset
+					x = "-20.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_RadarBoat_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_RadarBoat_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_RadarBoat_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="JAP_RadarBoat_VoiceSelect" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="JAP_RadarBoat_VoiceSelect" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_RadarBoat_VoiceSelect" AudioType="voiceSelectBattle" />
+			<!-- <AudioEntry Sound="SOV_TeslaTank_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> -->
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="JAP_NaginataCruiser_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry
+				Sound="Ship_Large_MoveLoopWater"
+				AudioType="soundMoveLoop" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingHeight="500"
+			ShroudClearingRange="1200" />
+		<CrusherInfo
+			CrusherLevel="1"
+			CrushableLevel="20" />
+
+	</GameObject>
+</AssetDeclaration>
