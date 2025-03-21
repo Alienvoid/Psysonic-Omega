@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+
+
+	<Include type="reference" source="DATA:static.xml" />
+	<Include type="reference" source="DATA:global.xml" />
+	<Include type="reference" source="DATA:audio.xml" />
+
+
+		<Include type="all" source="CampaignTemplates.xml" />
+		<Include type="all" source="CommandData.xml" />
+		<Include type="all" source="Eva.xml" />
+		<Include type="all" source="Eva_AudioEvents.xml" />
+		<Include type="all" source="MapMetaData_Mod.xml" />
+		<Include type="all" source="MpGameRules.xml" />
+		<Include type="all" source="Audiofile/index.xml" />
+		<Include type="all" source="Global/index.xml" />
+      </Includes>
+</AssetDeclaration>

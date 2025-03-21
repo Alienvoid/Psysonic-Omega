@@ -1,0 +1,4896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags />
+	<Includes>
+		<Include type="instance" source="DATA:SageXml/Sounds/BaseSoundEffect.xml" />
+		
+		<Include type="all" source="Audiofile/Aeva_10000credits.xml" />
+		<Include type="all" source="Audiofile/Aeva_15000credits.xml" />
+		<Include type="all" source="Audiofile/Aeva_20000credits.xml" />
+		<Include type="all" source="Audiofile/Aeva_25000credits.xml" />
+		<Include type="all" source="Audiofile/Aeva_5000credits.xml" />
+		<Include type="all" source="Audiofile/Aeva_AdvAeronauticsUp.xml" />
+		<Include type="all" source="Audiofile/Aeva_AdvAeronauticsUpAuth.xml" />
+		<Include type="all" source="Audiofile/Aeva_AirportCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_AllyDefeated.xml" />
+		<Include type="all" source="Audiofile/Aeva_AllyUndAttack.xml" />
+		<Include type="all" source="Audiofile/Aeva_BaseUndAttack.xml" />
+		<Include type="all" source="Audiofile/Aeva_BattConTermin.xml" />
+		<Include type="all" source="Audiofile/Aeva_BattleExpande.xml" />
+		<Include type="all" source="Audiofile/Aeva_BeaconDetected.xml" />
+		<Include type="all" source="Audiofile/Aeva_BeaconPlaced.xml" />
+		<Include type="all" source="Audiofile/Aeva_BonusObjectiveComplete.xml" />
+		<Include type="all" source="Audiofile/Aeva_BonusObjectiveRec.xml" />
+		<Include type="all" source="Audiofile/Aeva_BridgeRepaired.xml" />
+		<Include type="all" source="Audiofile/Aeva_Building.xml" />
+		<Include type="all" source="Audiofile/Aeva_BuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_BuilInProgres.xml" />
+		<Include type="all" source="Audiofile/Aeva_Canceled.xml" />
+		<Include type="all" source="Audiofile/Aeva_CantDeploHere.xml" />
+		<Include type="all" source="Audiofile/Aeva_CautnAllyRedAlert.xml" />
+		<Include type="all" source="Audiofile/Aeva_CautnEnemyRedAlert.xml" />
+		<Include type="all" source="Audiofile/Aeva_ChronoChasmReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_ChronoFissureReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_ChronoRiftReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_ChronosphereReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_ChronoSwapReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_ConComplete.xml" />
+		<Include type="all" source="Audiofile/Aeva_ConYardUndAttack.xml" />
+		<Include type="all" source="Audiofile/Aeva_CritStrucLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_CritStrucUnderAtt.xml" />
+		<Include type="all" source="Audiofile/Aeva_CritUnitLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_CritUnitUnderAtt.xml" />
+		<Include type="all" source="Audiofile/Aeva_CryblastReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_CryogeddonReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_CryshotReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_DelxTimeBombReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_DryDockCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_EliteUnitLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyAircraftDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyBaseDest.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyBaseDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyBuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyBuildingDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyBuildingInfil.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyComandoDetected.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyEngineerDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyInfitratorDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyKirovDetected.xml" />
+		<Include type="all" source="Audiofile/Aeva_EnemyUnitDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_EstablishingB.xml" />
+		<Include type="all" source="Audiofile/Aeva_FirebaseCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_FreeTradeUpradeAuth.xml" />
+		<Include type="all" source="Audiofile/Aeva_FreeTradeUpradeComplete.xml" />
+		<Include type="all" source="Audiofile/Aeva_FundsTransfer.xml" />
+		<Include type="all" source="Audiofile/Aeva_GarageCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_HarvesterLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_HarvUndAttack.xml" />
+		<Include type="all" source="Audiofile/Aeva_HeavyCasualtDetRedAlrtAuth.xml" />
+		<Include type="all" source="Audiofile/Aeva_HeroicUnitLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_HighTechUpgradeAuth.xml" />
+		<Include type="all" source="Audiofile/Aeva_HighTechUpgradeComplete.xml" />
+		<Include type="all" source="Audiofile/Aeva_HospitalCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_IncomingTrans.xml" />
+		<Include type="all" source="Audiofile/Aeva_InsufCommandPoints.xml" />
+		<Include type="all" source="Audiofile/Aeva_InsufficFunds.xml" />
+		<Include type="all" source="Audiofile/Aeva_IronCurtainReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_KeepCommandDirective.xml" />
+		<Include type="all" source="Audiofile/Aeva_LowPower.xml" />
+		<Include type="all" source="Audiofile/Aeva_MissionAccomp.xml" />
+		<Include type="all" source="Audiofile/Aeva_MissionFailed.xml" />
+		<Include type="all" source="Audiofile/Aeva_NanocoreLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_NanocoreUndAtt.xml" />
+		<Include type="all" source="Audiofile/Aeva_NanoswarmReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_NatashaLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_NewConOptons.xml" />
+		<Include type="all" source="Audiofile/Aeva_NewObjectReci.xml" />
+		<Include type="all" source="Audiofile/Aeva_ObjectiveComp.xml" />
+		<Include type="all" source="Audiofile/Aeva_ObservationPostCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_OilDerrickCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_OnHold.xml" />
+		<Include type="all" source="Audiofile/Aeva_OreMineDepleted.xml" />
+		<Include type="all" source="Audiofile/Aeva_OreMineNearDepletion.xml" />
+		<Include type="all" source="Audiofile/Aeva_OreNodeDepleted.xml" />
+		<Include type="all" source="Audiofile/Aeva_OreNodeNearDepletion.xml" />
+		<Include type="all" source="Audiofile/Aeva_OurBuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_OurBuildingInfil.xml" />
+		<Include type="all" source="Audiofile/Aeva_PlayerDefeated.xml" />
+		<Include type="all" source="Audiofile/Aeva_ProtonColidrReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_ProtonShockwaveReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_PsionicDecimatorReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_RedAlertAct.xml" />
+		<Include type="all" source="Audiofile/Aeva_RedAlertActProdOverdr.xml" />
+		<Include type="all" source="Audiofile/Aeva_RedAlertAuth.xml" />
+		<Include type="all" source="Audiofile/Aeva_ReinfHavArriv.xml" />
+		<Include type="all" source="Audiofile/Aeva_ReinforcementsAcquired.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainMin01.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainMin03.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainMin05.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainMin10.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainMin15.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainMin20.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainSec10.xml" />
+		<Include type="all" source="Audiofile/Aeva_RemainSec30.xml" />
+		<Include type="all" source="Audiofile/Aeva_Repairing.xml" />
+		<Include type="all" source="Audiofile/Aeva_Resuming.xml" />
+		<Include type="all" source="Audiofile/Aeva_SecurityPointGranted.xml" />
+		<Include type="all" source="Audiofile/Aeva_SelectDestination.xml" />
+		<Include type="all" source="Audiofile/Aeva_SelectLocation.xml" />
+		<Include type="all" source="Audiofile/Aeva_SelectTarget.xml" />
+		<Include type="all" source="Audiofile/Aeva_SelectTargetArea.xml" />
+		<Include type="all" source="Audiofile/Aeva_SelectUnit.xml" />
+		<Include type="all" source="Audiofile/Aeva_StrikeTargetDirective.xml" />
+		<Include type="all" source="Audiofile/Aeva_StructureRepa.xml" />
+		<Include type="all" source="Audiofile/Aeva_StructureSold.xml" />
+		<Include type="all" source="Audiofile/Aeva_SuprmeTimeBombReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_SurgicalStrikeReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_SurveillanceSweepReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_TakePositionDirective.xml" />
+		<Include type="all" source="Audiofile/Aeva_TanyaLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_TimeBombReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_Training.xml" />
+		<Include type="all" source="Audiofile/Aeva_UnitInfected.xml" />
+		<Include type="all" source="Audiofile/Aeva_UnitLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_UnitUndAttack.xml" />
+		<Include type="all" source="Audiofile/Aeva_UpgradeComple.xml" />
+		<Include type="all" source="Audiofile/Aeva_UpgradeinProg.xml" />
+		<Include type="all" source="Audiofile/Aeva_Upgrading.xml" />
+		<Include type="all" source="Audiofile/Aeva_VacuumImplodrReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_VacuumMissileReady.xml" />
+		<Include type="all" source="Audiofile/Aeva_VeteranAcademyCapt.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnChronosphereAct.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnChronosphereDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnIronCurtainAct.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnIronCurtainDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnNanoswarmAct.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnNanoswarmDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnProtonColliderDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnProtonColliderLaunch.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnPsionicDecimatorDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnPsionicDecimatorLaunch.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnVacuumImploderDet.xml" />
+		<Include type="all" source="Audiofile/Aeva_WarnVacuumImploderLaunch.xml" />
+		<Include type="all" source="Audiofile/Aeva_YouAreVictorious.xml" />
+		<Include type="all" source="Audiofile/Aeva_YouHaveLost.xml" />
+		<Include type="all" source="Audiofile/Aeva_YouHaveResign.xml" />
+		<Include type="all" source="Audiofile/Aeva_YurikoLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_10000credits.xml" />
+		<Include type="all" source="Audiofile/Ieva_15000credits.xml" />
+		<Include type="all" source="Audiofile/Ieva_20000credits.xml" />
+		<Include type="all" source="Audiofile/Ieva_25000credits.xml" />
+		<Include type="all" source="Audiofile/Ieva_5000credits.xml" />
+		<Include type="all" source="Audiofile/Ieva_AdvRocketPodsUpgrdeAuth.xml" />
+		<Include type="all" source="Audiofile/Ieva_AirportCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_AllyDefeated.xml" />
+		<Include type="all" source="Audiofile/Ieva_AllyUndAttack.xml" />
+		<Include type="all" source="Audiofile/Ieva_AssmblyUpgrdeAuth.xml" />
+		<Include type="all" source="Audiofile/Ieva_BalloonBombBarrageReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_BalloonBombBlowtReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_BalloonBombsReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_BaseUndAttack.xml" />
+		<Include type="all" source="Audiofile/Ieva_BattConTermin.xml" />
+		<Include type="all" source="Audiofile/Ieva_BattleExpande.xml" />
+		<Include type="all" source="Audiofile/Ieva_BeaconDetected.xml" />
+		<Include type="all" source="Audiofile/Ieva_BeaconPlaced.xml" />
+		<Include type="all" source="Audiofile/Ieva_BonusObjectiveComplete.xml" />
+		<Include type="all" source="Audiofile/Ieva_BonusObjectiveRec.xml" />
+		<Include type="all" source="Audiofile/Ieva_BridgeRepaired.xml" />
+		<Include type="all" source="Audiofile/Ieva_Building.xml" />
+		<Include type="all" source="Audiofile/Ieva_BuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_BuilInProgres.xml" />
+		<Include type="all" source="Audiofile/Ieva_Canceled.xml" />
+		<Include type="all" source="Audiofile/Ieva_CantDeploHere.xml" />
+		<Include type="all" source="Audiofile/Ieva_CautnAllyRedAlert.xml" />
+		<Include type="all" source="Audiofile/Ieva_CautnEnemyRedAlert.xml" />
+		<Include type="all" source="Audiofile/Ieva_ChronosphereReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_ConComplete.xml" />
+		<Include type="all" source="Audiofile/Ieva_ConYardUndAttack.xml" />
+		<Include type="all" source="Audiofile/Ieva_CritStrucLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_CritStrucUnderAtt.xml" />
+		<Include type="all" source="Audiofile/Ieva_CritUnitLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_CritUnitUnderAtt.xml" />
+		<Include type="all" source="Audiofile/Ieva_DryDockCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_EmperoreRevengeReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_EmperorsRageReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_EmperorsRetributReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyAircraftDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyBaseDest.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyBaseDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyBuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyBuildingDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyBuildingInfil.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyComandoDetected.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyEngineerDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyInfitratorDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyKirovDetected.xml" />
+		<Include type="all" source="Audiofile/Ieva_EnemyUnitDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_EstablishingB.xml" />
+		<Include type="all" source="Audiofile/Ieva_FinalSquadronOmgReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_FinalSquadronReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_FinalSquadronXReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_FirebaseCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_FortidiedFleetUgrdeAuth.xml" />
+		<Include type="all" source="Audiofile/Ieva_FundsTransfer.xml" />
+		<Include type="all" source="Audiofile/Ieva_GarageCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_HarvesterLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_HarvUndAttack.xml" />
+		<Include type="all" source="Audiofile/Ieva_HeavyCasualtDetRedAlrtAuth.xml" />
+		<Include type="all" source="Audiofile/Ieva_HeriocUnitLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_HonrbleDischargeUpgrdeAuth.xml" />
+		<Include type="all" source="Audiofile/Ieva_HospitalCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_IncomingTrans.xml" />
+		<Include type="all" source="Audiofile/Ieva_InsufCommandPoints.xml" />
+		<Include type="all" source="Audiofile/Ieva_InsufficFunds.xml" />
+		<Include type="all" source="Audiofile/Ieva_IronCurtainReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_KeepCommandDirective.xml" />
+		<Include type="all" source="Audiofile/Ieva_LowPower.xml" />
+		<Include type="all" source="Audiofile/Ieva_MissionAccomp.xml" />
+		<Include type="all" source="Audiofile/Ieva_MissionFailed.xml" />
+		<Include type="all" source="Audiofile/Ieva_NanoswarmReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_NatashaLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_NewConOptons.xml" />
+		<Include type="all" source="Audiofile/Ieva_NewObjectReci.xml" />
+		<Include type="all" source="Audiofile/Ieva_NonocoreLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_NonocoreUndAtt.xml" />
+		<Include type="all" source="Audiofile/Ieva_ObjectiveComp.xml" />
+		<Include type="all" source="Audiofile/Ieva_ObservationPostCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_OilDerrickCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_OnHold.xml" />
+		<Include type="all" source="Audiofile/Ieva_OreMineDepleted.xml" />
+		<Include type="all" source="Audiofile/Ieva_OreMineNearDepletion.xml" />
+		<Include type="all" source="Audiofile/Ieva_OreNodeDepleted.xml" />
+		<Include type="all" source="Audiofile/Ieva_OreNodeNearDepletion.xml" />
+		<Include type="all" source="Audiofile/Ieva_OurBuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_OurBuildingInfil.xml" />
+		<Include type="all" source="Audiofile/Ieva_PlayerDefeated.xml" />
+		<Include type="all" source="Audiofile/Ieva_PointDefenseDronesReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_ProtonColliderReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_PsionicDecimatorReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_RedAlertActProdOverdr.xml" />
+		<Include type="all" source="Audiofile/Ieva_RedAlertAuth.xml" />
+		<Include type="all" source="Audiofile/Ieva_ReinfHavArriv.xml" />
+		<Include type="all" source="Audiofile/Ieva_ReinforcementsAcquired.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainMin01.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainMin03.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainMin05.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainMin10.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainMin15.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainMin20.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainSec10.xml" />
+		<Include type="all" source="Audiofile/Ieva_RemainSec30.xml" />
+		<Include type="all" source="Audiofile/Ieva_Repairing.xml" />
+		<Include type="all" source="Audiofile/Ieva_Resuming.xml" />
+		<Include type="all" source="Audiofile/Ieva_SelectDestination.xml" />
+		<Include type="all" source="Audiofile/Ieva_SelectLocation.xml" />
+		<Include type="all" source="Audiofile/Ieva_SelectTarget.xml" />
+		<Include type="all" source="Audiofile/Ieva_SelectTargetArea.xml" />
+		<Include type="all" source="Audiofile/Ieva_SelectUnit.xml" />
+		<Include type="all" source="Audiofile/Ieva_SleeperAmbushReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_StrikeTargetDirective.xml" />
+		<Include type="all" source="Audiofile/Ieva_StructureRepa.xml" />
+		<Include type="all" source="Audiofile/Ieva_StructureSold.xml" />
+		<Include type="all" source="Audiofile/Ieva_TakePositionDirective.xml" />
+		<Include type="all" source="Audiofile/Ieva_TanyaLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_Training.xml" />
+		<Include type="all" source="Audiofile/Ieva_UnitInfected.xml" />
+		<Include type="all" source="Audiofile/Ieva_UnitLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_UnitUndAttack.xml" />
+		<Include type="all" source="Audiofile/Ieva_UpgradeComple.xml" />
+		<Include type="all" source="Audiofile/Ieva_UpgradeinProg.xml" />
+		<Include type="all" source="Audiofile/Ieva_Upgrading.xml" />
+		<Include type="all" source="Audiofile/Ieva_VacuumImploderReady.xml" />
+		<Include type="all" source="Audiofile/Ieva_VeteranAcademyCapt.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnChronosphereAct.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnChronosphereDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnIronCurtainAct.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnIronCurtainDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnNanoswarmAct.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnNanoswarmDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnProtonColliderDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnProtonColliderLaunch.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnPsionicDecimatorDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnPsionicDecimatorLaunch.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnVacuumImploderDet.xml" />
+		<Include type="all" source="Audiofile/Ieva_WarnVacuumImploderLaunch.xml" />
+		<Include type="all" source="Audiofile/Ieva_YouAreVictorious.xml" />
+		<Include type="all" source="Audiofile/Ieva_YouHaveLost.xml" />
+		<Include type="all" source="Audiofile/Ieva_YouHaveResign.xml" />
+		<Include type="all" source="Audiofile/Ieva_YurikoLost.xml" />
+		<Include type="all" source="Audiofile/Seva_10000credits.xml" />
+		<Include type="all" source="Audiofile/Seva_15000credits.xml" />
+		<Include type="all" source="Audiofile/Seva_20000credits.xml" />
+		<Include type="all" source="Audiofile/Seva_25000credits.xml" />
+		<Include type="all" source="Audiofile/Seva_5000credits.xml" />
+		<Include type="all" source="Audiofile/Seva_AirportCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_AllyDefeated.xml" />
+		<Include type="all" source="Audiofile/Seva_AllyUndAttack.xml" />
+		<Include type="all" source="Audiofile/Seva_BaseUndAttack.xml" />
+		<Include type="all" source="Audiofile/Seva_BattConTermin.xml" />
+		<Include type="all" source="Audiofile/Seva_BattleExpande.xml" />
+		<Include type="all" source="Audiofile/Seva_BeaconDetected.xml" />
+		<Include type="all" source="Audiofile/Seva_BeaconPlaced.xml" />
+		<Include type="all" source="Audiofile/Seva_BonusObjectiveComplete.xml" />
+		<Include type="all" source="Audiofile/Seva_BonusObjectiveRec.xml" />
+		<Include type="all" source="Audiofile/Seva_BridgeRepaired.xml" />
+		<Include type="all" source="Audiofile/Seva_Building.xml" />
+		<Include type="all" source="Audiofile/Seva_BuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_BuilInProgres.xml" />
+		<Include type="all" source="Audiofile/Seva_Canceled.xml" />
+		<Include type="all" source="Audiofile/Seva_CantDeploHere.xml" />
+		<Include type="all" source="Audiofile/Seva_CashBountyReady.xml" />
+		<Include type="all" source="Audiofile/Seva_CautnAllyRedAlert.xml" />
+		<Include type="all" source="Audiofile/Seva_CautnEnemyRedAlert.xml" />
+		<Include type="all" source="Audiofile/Seva_ChronosphereReady.xml" />
+		<Include type="all" source="Audiofile/Seva_ConComplete.xml" />
+		<Include type="all" source="Audiofile/Seva_ConYardUndAttack.xml" />
+		<Include type="all" source="Audiofile/Seva_CritStrucLost.xml" />
+		<Include type="all" source="Audiofile/Seva_CritStrucUnderAtt.xml" />
+		<Include type="all" source="Audiofile/Seva_CritUnitLost.xml" />
+		<Include type="all" source="Audiofile/Seva_CritUnitUnderAtt.xml" />
+		<Include type="all" source="Audiofile/Seva_DesolatorAirstrkeReady.xml" />
+		<Include type="all" source="Audiofile/Seva_DesolatorDeltaAirstrkeReady.xml" />
+		<Include type="all" source="Audiofile/Seva_DesolatorDualAirstrkeReady.xml" />
+		<Include type="all" source="Audiofile/Seva_DryDockCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_ElectroMagneticSngReady.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyAircraftDet.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyBaseDest.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyBaseDet.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyBuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyBuildingDet.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyBuildingInfil.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyComandoDetected.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyEngineerDet.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyInfitratorDet.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyKirovDetected.xml" />
+		<Include type="all" source="Audiofile/Seva_EnemyUnitDet.xml" />
+		<Include type="all" source="Audiofile/Seva_EstablishingB.xml" />
+		<Include type="all" source="Audiofile/Seva_FirebaseCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_FundsTransfer.xml" />
+		<Include type="all" source="Audiofile/Seva_GarageCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_GrinderTreadsUpgradeAuth.xml" />
+		<Include type="all" source="Audiofile/Seva_HarvesterLost.xml" />
+		<Include type="all" source="Audiofile/Seva_HarvUndAttack.xml" />
+		<Include type="all" source="Audiofile/Seva_HeavyCasualtDetRedAlrtAuth.xml" />
+		<Include type="all" source="Audiofile/Seva_HeriocUnitLost.xml" />
+		<Include type="all" source="Audiofile/Seva_HospitalCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_IncomingTrans.xml" />
+		<Include type="all" source="Audiofile/Seva_InsufCommandPoints.xml" />
+		<Include type="all" source="Audiofile/Seva_InsufficFunds.xml" />
+		<Include type="all" source="Audiofile/Seva_IronCurtainReady.xml" />
+		<Include type="all" source="Audiofile/Seva_KeepCommandDirective.xml" />
+		<Include type="all" source="Audiofile/Seva_LowPower.xml" />
+		<Include type="all" source="Audiofile/Seva_MagneticSatellteReady.xml" />
+		<Include type="all" source="Audiofile/Seva_MassProdUpgradeAuth.xml" />
+		<Include type="all" source="Audiofile/Seva_MissionAccomp.xml" />
+		<Include type="all" source="Audiofile/Seva_MissionFailed.xml" />
+		<Include type="all" source="Audiofile/Seva_NanocoreLost.xml" />
+		<Include type="all" source="Audiofile/Seva_NanocoreUndAtt.xml" />
+		<Include type="all" source="Audiofile/Seva_NanoswarmReady.xml" />
+		<Include type="all" source="Audiofile/Seva_NatashaLost.xml" />
+		<Include type="all" source="Audiofile/Seva_NewConOptons.xml" />
+		<Include type="all" source="Audiofile/Seva_NewObjectReci.xml" />
+		<Include type="all" source="Audiofile/Seva_ObjectiveComp.xml" />
+		<Include type="all" source="Audiofile/Seva_ObservationPostCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_OilDerrickCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_OnHold.xml" />
+		<Include type="all" source="Audiofile/Seva_OrbitalDownpourReady.xml" />
+		<Include type="all" source="Audiofile/Seva_OrbitalDropReady.xml" />
+		<Include type="all" source="Audiofile/Seva_OrbitalDumpReady.xml" />
+		<Include type="all" source="Audiofile/Seva_OreNodeDepleted.xml" />
+		<Include type="all" source="Audiofile/Seva_OreNodeNearDepletion.xml" />
+		<Include type="all" source="Audiofile/Seva_OurBuildingCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_OurBuildingInfil.xml" />
+		<Include type="all" source="Audiofile/Seva_PlayerDefeated.xml" />
+		<Include type="all" source="Audiofile/Seva_ProtonColliderReadya.xml" />
+		<Include type="all" source="Audiofile/Seva_PsionicDecimatorReady.xml" />
+		<Include type="all" source="Audiofile/Seva_RedAlertActProdOverdr.xml" />
+		<Include type="all" source="Audiofile/Seva_RedAlertAuth.xml" />
+		<Include type="all" source="Audiofile/Seva_ReinfHavArriv.xml" />
+		<Include type="all" source="Audiofile/Seva_ReinforcementsAcquired.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainMin01.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainMin03.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainMin05.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainMin10.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainMin15.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainMin20.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainSec10.xml" />
+		<Include type="all" source="Audiofile/Seva_RemainSec30.xml" />
+		<Include type="all" source="Audiofile/Seva_Repairing.xml" />
+		<Include type="all" source="Audiofile/Seva_Resuming.xml" />
+		<Include type="all" source="Audiofile/Seva_SalvgeCrushTrdsUpgradeAuth.xml" />
+		<Include type="all" source="Audiofile/Seva_SecurityPointGranted.xml" />
+		<Include type="all" source="Audiofile/Seva_SelectDestination.xml" />
+		<Include type="all" source="Audiofile/Seva_SelectLocation.xml" />
+		<Include type="all" source="Audiofile/Seva_SelectTarget.xml" />
+		<Include type="all" source="Audiofile/Seva_SelectTargetArea.xml" />
+		<Include type="all" source="Audiofile/Seva_SelectUnit.xml" />
+		<Include type="all" source="Audiofile/Seva_StrikeTargetDirective.xml" />
+		<Include type="all" source="Audiofile/Seva_StructureRepa.xml" />
+		<Include type="all" source="Audiofile/Seva_StructureSold.xml" />
+		<Include type="all" source="Audiofile/Seva_SuprMagnticSatellteReady.xml" />
+		<Include type="all" source="Audiofile/Seva_TakePositionDirective.xml" />
+		<Include type="all" source="Audiofile/Seva_TanyaLost.xml" />
+		<Include type="all" source="Audiofile/Seva_TerrorDroneSurpUpgAuth.xml" />
+		<Include type="all" source="Audiofile/Seva_TerrorDroneSurpUpradeComplete.xml" />
+		<Include type="all" source="Audiofile/Seva_ToxicCorrisionReady.xml" />
+		<Include type="all" source="Audiofile/Seva_Training.xml" />
+		<Include type="all" source="Audiofile/Seva_UnitInfected.xml" />
+		<Include type="all" source="Audiofile/Seva_UnitLost.xml" />
+		<Include type="all" source="Audiofile/Seva_UnitUndAttack.xml" />
+		<Include type="all" source="Audiofile/Seva_UpgradeComple.xml" />
+		<Include type="all" source="Audiofile/Seva_UpgradeinProg.xml" />
+		<Include type="all" source="Audiofile/Seva_Upgrading.xml" />
+		<Include type="all" source="Audiofile/Seva_VacuumImplodrReady.xml" />
+		<Include type="all" source="Audiofile/Seva_VeteranAcademyCapt.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnChronosphereAct.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnChronosphereDet.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnIronCurtainAct.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnIronCurtainDet.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnNanoswarmAct.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnNanoswarmDet.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnProtonColliderDet.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnProtonColliderLaunch.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnPsionicDecimatorDet.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnPsionicDecimatorLaunch.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnVacuumImploderDet.xml" />
+		<Include type="all" source="Audiofile/Seva_WarnVacuumImploderLaunch.xml" />
+		<Include type="all" source="Audiofile/Seva_YouAreVictorious.xml" />
+		<Include type="all" source="Audiofile/Seva_YouAreVictoriousa.xml" />
+		<Include type="all" source="Audiofile/Seva_YouHaveLost.xml" />
+		<Include type="all" source="Audiofile/Seva_YouHaveResign.xml" />
+		<Include type="all" source="Audiofile/Seva_YurikoLost.xml" />
+
+	</Includes>
+		<!-- =================== ALLIED EVA =================== -->
+		<!-- =================== ALLIED EVA =================== -->
+		<!-- =================== ALLIED EVA =================== -->
+
+	<AudioEvent id="Aeva_10000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_10000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_15000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_15000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_20000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_20000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_25000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_25000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_5000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_5000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ReinforcementsAcquired" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ReinforcementsAcquired</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SecurityPointGranted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SecurityPointGranted</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_AdvAeronauticsUpAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_AdvAeronauticsUpAuth</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ChronoChasmReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ChronoChasmReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ChronoFissureReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ChronoFissureReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CryblastReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CryblastReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CryogeddonReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CryogeddonReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_DelxTimeBombReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_DelxTimeBombReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyKirovDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyKirovDetected</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_FreeTradeUpradeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_FreeTradeUpradeAuth</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<Multisound id="Aeva_FreeTradeUpradeAuthMS">
+		<Subsound>Aeva_FreeTradeUpradeAuth</Subsound>
+		<Subsound>ALL_FreeTrade_Purchased</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Aeva_HeroicUnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_HeroicUnitLost</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_HighTechUpgradeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_HighTechUpgradeAuth</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_NanocoreLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_NanocoreLost</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_NanocoreUndAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_NanocoreUndAtt</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OreMineDepleted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OreMineDepleted</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OreMineNearDepletion" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OreMineNearDepletion</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ProtonColidrReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ProtonColidrReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+	
+	<Multisound id="Aeva_ProtonColidrReadyMS">
+		<Subsound>Aeva_ProtonColidrReady</Subsound>
+		<!-- <Subsound>ALL_ProtonCollider_Ready</Subsound> -->
+	</Multisound>
+
+	<AudioEvent id="Aeva_SuprmeTimeBombReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SuprmeTimeBombReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_VacuumImplodrReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_VacuumImplodrReady</Sound>
+		<!-- 07-07-2008 -->
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_AdvAeronauticsUp" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_AdvAeronauticsUp</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_AirportCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_AirportCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_AllyDefeated" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_AllyDefeated</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_AllyUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_AllyUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BaseUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BaseUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BattConTermin" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BattConTermin</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BattleExpande" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BattleExpande</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BeaconDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BeaconDetected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BeaconPlaced" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BeaconPlaced</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BonusObjectiveComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BonusObjectiveComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BonusObjectiveRec" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BonusObjectiveRec</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BridgeRepaired" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BridgeRepaired</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_Building" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_Building</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_BuilInProgres" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_BuilInProgres</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_Canceled" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_Canceled</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CantDeploHere" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CantDeploHere</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CautnAllyRedAlert" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CautnAllyRedAlert</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CautnEnemyRedAlert" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CautnEnemyRedAlert</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ChronoRiftReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ChronoRiftReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ChronosphereReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ChronosphereReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ChronoSwapReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ChronoSwapReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ConComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ConComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ConYardUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ConYardUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CritStrucLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CritStrucLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CritStrucUnderAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CritStrucUnderAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CritUnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CritUnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CritUnitUnderAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CritUnitUnderAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_CryshotReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_CryshotReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_DryDockCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_DryDockCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EliteUnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EliteUnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyAircraftDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyAircraftDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyBaseDest" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyBaseDest</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyBaseDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyBaseDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyBuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyBuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyBuildingDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyBuildingDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyBuildingInfil" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyBuildingInfil</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyComandoDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyComandoDetected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyEngineerDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyEngineerDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyInfitratorDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyInfitratorDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EnemyUnitDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EnemyUnitDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_EstablishingB" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_EstablishingB</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_FirebaseCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_FirebaseCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_FreeTradeUpradeComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_FreeTradeUpradeComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_FundsTransfer" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_FundsTransfer</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_GarageCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_GarageCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_HarvesterLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_HarvesterLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_HarvUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_HarvUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_HeavyCasualtDetRedAlrtAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_HeavyCasualtDetRedAlrtAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_HighTechUpgradeComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_HighTechUpgradeComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_HospitalCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_HospitalCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_IncomingTrans" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_IncomingTrans</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_InsufCommandPoints" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_InsufCommandPoints</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_InsufficFunds" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_InsufficFunds</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_IronCurtainReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_IronCurtainReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Aeva_IronCurtainReadyMS">
+		<Subsound>Aeva_IronCurtainReady</Subsound>
+		<!-- <Subsound>SOV_IronCurtain_Ready</Subsound> -->
+	</Multisound>
+
+	<AudioEvent id="Aeva_LowPower" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_LowPower</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_MissionAccomp" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_MissionAccomp</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_MissionFailed" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_MissionFailed</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_NanoswarmReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_NanoswarmReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_NatashaLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_NatashaLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_NewConOptons" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_NewConOptons</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_NewObjectReci" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_NewObjectReci</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ObjectiveComp" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ObjectiveComp</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ObservationPostCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ObservationPostCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OilDerrickCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OilDerrickCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OnHold" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OnHold</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OreNodeDepleted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OreNodeDepleted</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OreNodeNearDepletion" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OreNodeNearDepletion</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OurBuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OurBuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_OurBuildingInfil" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_OurBuildingInfil</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_PlayerDefeated" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_PlayerDefeated</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ProtonShockwaveReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ProtonShockwaveReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_PsionicDecimatorReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_PsionicDecimatorReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RedAlertAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RedAlertAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RedAlertActProdOverdr" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RedAlertActProdOverdr</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RedAlertAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RedAlertAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_ReinfHavArriv" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_ReinfHavArriv</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainMin01" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainMin01</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainMin03" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainMin03</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainMin05" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainMin05</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainMin10" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainMin10</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainMin15" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainMin15</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainMin20" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainMin20</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainSec10" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainSec10</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_RemainSec30" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_RemainSec30</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_Repairing" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_Repairing</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_Resuming" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_Resuming</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SelectDestination" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SelectDestination</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SelectLocation" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SelectLocation</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SelectTarget" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SelectTarget</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SelectTargetArea" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SelectTargetArea</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SelectUnit" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SelectUnit</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_StructureRepa" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_StructureRepa</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_StructureSold" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_StructureSold</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SurgicalStrikeReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SurgicalStrikeReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_SurveillanceSweepReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_SurveillanceSweepReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_TanyaLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_TanyaLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_TimeBombReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_TimeBombReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_Training" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_Training</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_UnitInfected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_UnitInfected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_UnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_UnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_UnitUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_UnitUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_UpgradeComple" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_UpgradeComple</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_UpgradeinProg" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_UpgradeinProg</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_Upgrading" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_Upgrading</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_VacuumMissileReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_VacuumMissileReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_VeteranAcademyCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_VeteranAcademyCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnChronosphereAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnChronosphereAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnChronosphereDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnChronosphereDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnIronCurtainAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnIronCurtainAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnIronCurtainDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnIronCurtainDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnNanoswarmAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnNanoswarmAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnNanoswarmDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnNanoswarmDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnProtonColliderDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnProtonColliderDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnProtonColliderLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnProtonColliderLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnPsionicDecimatorDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnPsionicDecimatorDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnPsionicDecimatorLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnPsionicDecimatorLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnVacuumImploderDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnVacuumImploderDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_WarnVacuumImploderLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_WarnVacuumImploderLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_YouAreVictorious" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_YouAreVictorious</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_YouHaveLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_YouHaveLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_YouHaveResign" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_YouHaveResign</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Aeva_YurikoLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Aeva_YurikoLost</Sound>
+	</AudioEvent>
+
+		<!-- =================== JAPANESE EVA =================== -->
+		<!-- =================== JAPANESE EVA =================== -->
+		<!-- =================== JAPANESE EVA =================== -->
+
+	<AudioEvent id="Ieva_10000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_10000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_15000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_15000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_20000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_20000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_25000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_25000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_5000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_5000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyKirovDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyKirovDetected</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OreMineDepleted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OreMineDepleted</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OreMineNearDepletion" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OreMineNearDepletion</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ReinforcementsAcquired" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ReinforcementsAcquired</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_StructureSold" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_StructureSold</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieve_SecurityPointGranted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieve_SecurityPointGranted</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_AdvRocketPodsUpgrdeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_AdvRocketPodsUpgrdeAuth</Sound>
+	</AudioEvent>
+
+	<Multisound id="Ieva_AdvRocketPodsUpgrdeAuthMS">
+		<Subsound>Ieva_AdvRocketPodsUpgrdeAuth</Subsound>
+		<Subsound>JAP_Powers_AdvancedRocketPods_Upgrade</Subsound>
+	</Multisound>
+	
+	<AudioEvent id="Ieva_AirportCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_AirportCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_AllyDefeated" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_AllyDefeated</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_AllyUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_AllyUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_AssmblyUpgrdeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_AssmblyUpgrdeAuth</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_AssmblyUpgrdeAuthMS" >
+		<Subsound>Ieva_AssmblyUpgrdeAuth</Subsound>
+		<Subsound>JAP_Robotic_Assembly</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Ieva_BalloonBombBarrageReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BalloonBombBarrageReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BalloonBombBlowtReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BalloonBombBlowtReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BalloonBombsReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BalloonBombsReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BaseUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BaseUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BattConTermin" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BattConTermin</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BattleExpande" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BattleExpande</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BeaconDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BeaconDetected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BeaconPlaced" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BeaconPlaced</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BonusObjectiveComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BonusObjectiveComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BonusObjectiveRec" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BonusObjectiveRec</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BridgeRepaired" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BridgeRepaired</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_Building" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_Building</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_BuilInProgres" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_BuilInProgres</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_Canceled" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_Canceled</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_CantDeploHere" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_CantDeploHere</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_CautnAllyRedAlert" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_CautnAllyRedAlert</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_CautnEnemyRedAlert" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_CautnEnemyRedAlert</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ChronosphereReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ChronosphereReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ConComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ConComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ConYardUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ConYardUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_CritStrucLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_CritStrucLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_CritStrucUnderAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_CritStrucUnderAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_CritUnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_CritUnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_CritUnitUnderAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_CritUnitUnderAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_DryDockCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_DryDockCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EmperoreRevengeReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EmperoreRevengeReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_EmperoreRevengeReadyMS">
+		<Subsound>Ieva_EmperoreRevengeReady</Subsound>
+		<!-- <Subsound>JAP_EmperorsResolve</Subsound> -->
+	</Multisound>
+
+	<AudioEvent id="Ieva_EmperorsRageReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EmperorsRageReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_EmperorsRageReadyMS">
+		<Subsound>Ieva_EmperorsRageReady</Subsound>
+		<!-- <Subsound>JAP_EmperorsRage</Subsound> -->
+	</Multisound>
+
+	<AudioEvent id="Ieva_EmperorsRetributReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EmperorsRetributReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_EmperorsRetributReadyMS">
+		<Subsound>Ieva_EmperorsRetributReady</Subsound>
+		<!-- <Subsound>JAP_EmperorsRetribution</Subsound> -->
+	</Multisound>
+
+	<AudioEvent id="Ieva_EnemyAircraftDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyAircraftDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyBaseDest" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyBaseDest</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyBaseDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyBaseDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyBuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyBuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyBuildingDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyBuildingDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyBuildingInfil" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyBuildingInfil</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyComandoDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyComandoDetected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyEngineerDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyEngineerDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyInfitratorDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyInfitratorDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EnemyUnitDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EnemyUnitDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_EstablishingB" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_EstablishingB</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_FinalSquadronOmgReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_FinalSquadronOmgReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_FinalSquadronReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_FinalSquadronReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_FinalSquadronXReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_FinalSquadronXReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_FirebaseCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_FirebaseCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_FortidiedFleetUgrdeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_FortidiedFleetUgrdeAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_FundsTransfer" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_FundsTransfer</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_GarageCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_GarageCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_HarvesterLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_HarvesterLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_HarvUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_HarvUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_HeavyCasualtDetRedAlrtAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_HeavyCasualtDetRedAlrtAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_HeriocUnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_HeriocUnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_HonrbleDischargeUpgrdeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_HonrbleDischargeUpgrdeAuth</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_HonrbleDischargeUpgrdeAuthMS">
+		<Subsound>Ieva_HonrbleDischargeUpgrdeAuth</Subsound>
+		<Subsound>JAP_HonorableDischarge_Upgrade01</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Ieva_HospitalCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_HospitalCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_IncomingTrans" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_IncomingTrans</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_InsufCommandPoints" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_InsufCommandPoints</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_InsufficFunds" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_InsufficFunds</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_IronCurtainReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_IronCurtainReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_IronCurtainReadyMS">
+		<Subsound>Ieva_IronCurtainReady</Subsound>
+		<Subsound>SOV_IronCurtain_Ready</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Ieva_LowPower" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_LowPower</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_MissionAccomp" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_MissionAccomp</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_MissionFailed" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_MissionFailed</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_NanoswarmReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_NanoswarmReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_NatashaLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_NatashaLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_NewConOptons" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_NewConOptons</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_NewObjectReci" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_NewObjectReci</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_NonocoreLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_NonocoreLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_NonocoreUndAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_NonocoreUndAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ObjectiveComp" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ObjectiveComp</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ObservationPostCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ObservationPostCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OilDerrickCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OilDerrickCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OnHold" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OnHold</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OreNodeDepleted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OreNodeDepleted</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OreNodeNearDepletion" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OreNodeNearDepletion</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OurBuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OurBuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_OurBuildingInfil" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_OurBuildingInfil</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_PlayerDefeated" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_PlayerDefeated</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_PointDefenseDronesReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_PointDefenseDronesReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ProtonColliderReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ProtonColliderReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_ProtonColliderReadyMS">
+		<Subsound>Ieva_ProtonColliderReady</Subsound>
+		<Subsound>ALL_ProtonCollider_Ready</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Ieva_PsionicDecimatorReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_PsionicDecimatorReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RedAlertActProdOverdr" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RedAlertActProdOverdr</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RedAlertAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RedAlertAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_ReinfHavArriv" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_ReinfHavArriv</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainMin01" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainMin01</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainMin03" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainMin03</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainMin05" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainMin05</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainMin10" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainMin10</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainMin15" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainMin15</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainMin20" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainMin20</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainSec10" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainSec10</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_RemainSec30" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_RemainSec30</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_Repairing" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_Repairing</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_Resuming" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_Resuming</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_SelectDestination" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_SelectDestination</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_SelectLocation" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_SelectLocation</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_SelectTarget" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_SelectTarget</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_SelectTargetArea" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_SelectTargetArea</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_SelectUnit" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_SelectUnit</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_SleeperAmbushReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_SleeperAmbushReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Ieva_SleeperAmbushReadyMS" >
+		<Subsound>Ieva_SleeperAmbushReady</Subsound>
+		<Subsound>JAP_Powers_SleeperAmbush_Ready</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Ieva_StructureRepa" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_StructureRepa</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_TanyaLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_TanyaLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_Training" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_Training</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_UnitInfected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_UnitInfected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_UnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_UnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_UnitUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_UnitUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_UpgradeComple" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_UpgradeComple</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_UpgradeinProg" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_UpgradeinProg</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_Upgrading" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_Upgrading</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_VacuumImploderReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_VacuumImploderReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_VeteranAcademyCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_VeteranAcademyCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnChronosphereAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnChronosphereAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnChronosphereDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnChronosphereDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnIronCurtainAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnIronCurtainAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnIronCurtainDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnIronCurtainDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnNanoswarmAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnNanoswarmAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnNanoswarmDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnNanoswarmDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnProtonColliderDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnProtonColliderDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnProtonColliderLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnProtonColliderLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnPsionicDecimatorDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnPsionicDecimatorDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnPsionicDecimatorLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnPsionicDecimatorLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnVacuumImploderDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnVacuumImploderDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_WarnVacuumImploderLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_WarnVacuumImploderLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_YouAreVictorious" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_YouAreVictorious</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_YouHaveLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_YouHaveLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_YouHaveResign" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_YouHaveResign</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ieva_YurikoLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ieva_YurikoLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Ivea_RedAlertAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Ivea_RedAlertAct</Sound>
+	</AudioEvent>
+
+		<!-- =================== SOVIET EVA =================== -->
+		<!-- =================== SOVIET EVA =================== -->
+		<!-- =================== SOVIET EVA =================== -->
+
+	<AudioEvent id="Seva_10000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_10000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_15000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_15000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_20000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_20000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_25000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_25000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_5000credits" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_5000credits</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ElectroMagneticSngReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ElectroMagneticSngReady</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyKirovDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyKirovDetected</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_GrinderTreadsUpgradeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_GrinderTreadsUpgradeAuth</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<Multisound id="Seva_GrinderTreadsUpgradeAuthorizedWithSFX">
+		<Subsound>Seva_GrinderTreadsUpgradeAuth</Subsound>
+		<Subsound>SOV_GrinderTreads</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Seva_ReinforcementsAcquired" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ReinforcementsAcquired</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SecurityPointGranted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SecurityPointGranted</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<AudioEvent id="Seva_TerrorDroneSurpUpgAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_TerrorDroneSurpUpgAuth</Sound>
+		<!-- stuff in Delivery 2 folder not anywhere else -->
+	</AudioEvent>
+
+	<Multisound	id="Seva_TerrorDroneSurpUpradeCompleteMS">
+		<Subsound>Seva_TerrorDroneSurpUpgAuth</Subsound> 
+		<!-- <Subsound>SOV_TerrorDrone_Surprise</Subsound> -->
+	</Multisound>
+
+	<AudioEvent id="Seva_AirportCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_AirportCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_AllyDefeated" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_AllyDefeated</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_AllyUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_AllyUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BaseUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BaseUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BattConTermin" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BattConTermin</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BattleExpande" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BattleExpande</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BeaconDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BeaconDetected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BeaconPlaced" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BeaconPlaced</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BonusObjectiveComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BonusObjectiveComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BonusObjectiveRec" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BonusObjectiveRec</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BridgeRepaired" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BridgeRepaired</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_Building" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_Building</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_BuilInProgres" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_BuilInProgres</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_Canceled" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_Canceled</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CantDeploHere" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CantDeploHere</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CashBountyReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CashBountyReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CautnAllyRedAlert" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CautnAllyRedAlert</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CautnEnemyRedAlert" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CautnEnemyRedAlert</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ChronosphereReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ChronosphereReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ConComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ConComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ConYardUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ConYardUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CritStrucLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CritStrucLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CritStrucUnderAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CritStrucUnderAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CritUnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CritUnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_CritUnitUnderAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_CritUnitUnderAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_DesolatorAirstrkeReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_DesolatorAirstrkeReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_DesolatorDeltaAirstrkeReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_DesolatorDeltaAirstrkeReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_DesolatorDualAirstrkeReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_DesolatorDualAirstrkeReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_DryDockCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_DryDockCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyAircraftDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyAircraftDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyBaseDest" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyBaseDest</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyBaseDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyBaseDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyBuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyBuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyBuildingDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyBuildingDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyBuildingInfil" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyBuildingInfil</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyComandoDetected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyComandoDetected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyEngineerDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyEngineerDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyInfitratorDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyInfitratorDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EnemyUnitDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EnemyUnitDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_EstablishingB" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_EstablishingB</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_FirebaseCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_FirebaseCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_FundsTransfer" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_FundsTransfer</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_GarageCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_GarageCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_HarvesterLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_HarvesterLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_HarvUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_HarvUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_HeavyCasualtDetRedAlrtAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_HeavyCasualtDetRedAlrtAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_HeriocUnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_HeriocUnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_HospitalCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_HospitalCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_IncomingTrans" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_IncomingTrans</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_InsufCommandPoints" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_InsufCommandPoints</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_InsufficFunds" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_InsufficFunds</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_IronCurtainReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_IronCurtainReady</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Seva_IronCurtainReadyMS">
+		<Subsound>Seva_IronCurtainReady</Subsound>
+		<Subsound>SOV_IronCurtain_Ready</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Seva_LowPower" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_LowPower</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_MagneticSatellteReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_MagneticSatellteReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_MassProdUpgradeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_MassProdUpgradeAuth</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Seva_MassProdUpgradeAuthMS" >
+		<Subsound>Seva_MassProdUpgradeAuth</Subsound>
+		<Subsound>SOV_Mass_Production</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Seva_MissionAccomp" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_MissionAccomp</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_MissionFailed" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_MissionFailed</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_NanocoreLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_NanocoreLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_NanocoreUndAtt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_NanocoreUndAtt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_NanoswarmReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_NanoswarmReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_NatashaLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_NatashaLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_NewConOptons" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_NewConOptons</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_NewObjectReci" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_NewObjectReci</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ObjectiveComp" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ObjectiveComp</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ObservationPostCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ObservationPostCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OilDerrickCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OilDerrickCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OnHold" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OnHold</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OrbitalDownpourReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OrbitalDownpourReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OrbitalDropReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OrbitalDropReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OrbitalDumpReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OrbitalDumpReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OreNodeDepleted" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OreNodeDepleted</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OreNodeNearDepletion" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OreNodeNearDepletion</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OurBuildingCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OurBuildingCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_OurBuildingInfil" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_OurBuildingInfil</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_PlayerDefeated" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_PlayerDefeated</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ProtonColliderReadya" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ProtonColliderReadya</Sound>
+	</AudioEvent>
+	
+	<Multisound id="Seva_ProtonColliderReadyaMS">
+		<Subsound>Seva_ProtonColliderReadya</Subsound>
+		<Subsound>ALL_ProtonCollider_Ready</Subsound>
+	</Multisound>
+
+	<AudioEvent id="Seva_PsionicDecimatorReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_PsionicDecimatorReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RedAlertActProdOverdr" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RedAlertActProdOverdr</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RedAlertAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RedAlertAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ReinfHavArriv" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ReinfHavArriv</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainMin01" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainMin01</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainMin03" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainMin03</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainMin05" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainMin05</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainMin10" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainMin10</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainMin15" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainMin15</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainMin20" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainMin20</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainSec10" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainSec10</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_RemainSec30" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_RemainSec30</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_Repairing" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_Repairing</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_Resuming" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_Resuming</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SalvgeCrushTrdsUpgradeAuth" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SalvgeCrushTrdsUpgradeAuth</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SelectDestination" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SelectDestination</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SelectLocation" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SelectLocation</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SelectTarget" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SelectTarget</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SelectTargetArea" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SelectTargetArea</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SelectUnit" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SelectUnit</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_StructureRepa" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_StructureRepa</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_StructureSold" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_StructureSold</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_SuprMagnticSatellteReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_SuprMagnticSatellteReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_TanyaLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_TanyaLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_TerrorDroneSurpUpradeComplete" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_TerrorDroneSurpUpradeComplete</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_ToxicCorrisionReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_ToxicCorrisionReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_Training" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_Training</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_UnitInfected" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_UnitInfected</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_UnitLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_UnitLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_UnitUndAttack" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_UnitUndAttack</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_UpgradeComple" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_UpgradeComple</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_UpgradeinProg" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_UpgradeinProg</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_Upgrading" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_Upgrading</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_VacuumImplodrReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_VacuumImplodrReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_VeteranAcademyCapt" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_VeteranAcademyCapt</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnChronosphereAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnChronosphereAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnChronosphereDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnChronosphereDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnIronCurtainAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnIronCurtainAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnIronCurtainDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnIronCurtainDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnNanoswarmAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnNanoswarmAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnNanoswarmDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnNanoswarmDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnProtonColliderDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnProtonColliderDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnProtonColliderLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnProtonColliderLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnPsionicDecimatorDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnPsionicDecimatorDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnPsionicDecimatorLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnPsionicDecimatorLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnVacuumImploderDet" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnVacuumImploderDet</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_WarnVacuumImploderLaunch" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_WarnVacuumImploderLaunch</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_YouAreVictorious" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_YouAreVictorious</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_YouAreVictoriousa" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_YouAreVictoriousa</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_YouHaveLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_YouHaveLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_YouHaveResign" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_YouHaveResign</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Seva_YurikoLost" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Seva_YurikoLost</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Svea_MagnticSingularityReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Svea_MagnticSingularityReady</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Svea_RedAlertAct" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Svea_RedAlertAct</Sound>
+	</AudioEvent>
+
+	<AudioEvent id="Svea_UltraNagnticSatellteReady" inheritFrom="AudioEvent:BaseUnitResponse"
+		Volume = "75"
+		MinVolume = "70"
+		Limit = "1"
+		Type = "UI PLAYER VOICE"
+		SubmixSlider = "VOICE" >
+		<PitchShift Low="-1" High="1" />
+		<Sound>Svea_UltraNagnticSatellteReady</Sound>
+	</AudioEvent>
+</AssetDeclaration>
