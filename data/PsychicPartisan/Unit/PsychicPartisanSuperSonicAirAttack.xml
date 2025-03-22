@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+    <Tags></Tags>
+	<!-- aka Jet Tengu / Mecha Tengu -->
+  <Includes>
+    <Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include type="all" source="ART:AUAurora_SKN.w3x" />
+		<Include type="all" source="ART:auauroa_D.xml" />
+
+		<!-- Base Object -->
+		<Include type="instance"	source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanSuperSonicAirAttack"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_JapanAntiInfantryVehicle_jet"
+		ButtonImage="Button_JapanAntiInfantryVehicle_jet"
+		Side="PsychicPartisan"
+		SubGroupPriority="310"
+		EditorSorting="UNIT"
+		BuildTime="7"
+		CommandSet="JapanAntiInfantryVehicleCommandSet"
+		KindOf="PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT VEHICLE SUMMONED IGNORES_SELECT_ALL NO_COLLIDE SKIRMISH_AI_DONT_CONSIDER_THREAT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="176"
+		EditorName="PsychicPartisanSuperSonicAirAttack"
+		Description="Desc:PsychicPartisanSuperSonicAirAttack"
+		TypeDescription="Type:JapanAntiInfantryVehicle_ground"
+		HealthBoxHeightOffset="30"
+		UnitIntro="Japan_JetTengu_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanAntiInfantryVehicle_air</DisplayName>
+		<ObjectResourceInfo>
+            <BuildCost Account="=$ACCOUNT_ORE" Amount="800"/>
+        </ObjectResourceInfo>
+		<SkirmishAIInformation
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+		<ArmorSet
+			Armor="AlliedFighterAircraftArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="AlliedSupersonicBomberLocomotor"
+			Condition="NORMAL"
+			Speed="750.0" />
+		<Draws>
+			<ScriptedModelDraw
+					id="ModuleTag_Draw"
+					OkToChangeModelColor="true"
+					ExtraPublicBone="BONE_WEAPONA01 BONE_ENGINE01 BONE_ENGINE02">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUAurora_SKN" />
+					<ParticleSysBone
+						BoneName="BONE_ENGINE01"
+						FXParticleSystemTemplate="AlliedSupersonicJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="BONE_ENGINE01"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+
+					<ParticleSysBone
+						BoneName="BONE_ENGINE02"
+						FXParticleSystemTemplate="AlliedSupersonicJetTrail"
+						FollowBone="true"
+						PersistID="3"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="BONE_ENGINE02"
+						FXParticleSystemTemplate="AlliedJetTrailGlow"
+						FollowBone="true"
+						PersistID="4"
+						FXAction="SPAWN" />
+
+					<ParticleSysBone
+						BoneName="Bone_WINGTIP01"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_WINGTIP02"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+          
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE_WEAPONA01" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="AUAurora_SKN" />
+					<ParticleSysBone
+						BoneName="BONE_ENGINE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="AUAurora_SKN" />
+					<ParticleSysBone
+						BoneName="BONE_ENGINE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_ENGINE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="BONE_ENGINE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+		</Draws>
+        <Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanSupersonicAirWeapon" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+            <Physics
+				id="ModuleTag_Physics" />
+			<ParabolicCurveUpdate
+				id="ModuleTag_ParabolicCurve"/>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+					FireInterval="0.5s">
+				<FireWeaponNugget
+					WeaponName="PsychicPartisanSupersonicAirWeapon"
+					FireDelay="1.5s"
+					OneShot="true"
+				/>
+			</FireWeaponUpdate>
+
+            <!-- Different deaths based on whether it is airborne or not -->
+            <DestroyDie
+				id="ModuleTag_Die">
+                <DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+            </DestroyDie>
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="0s"
+				SinkRate="0.5"
+				DestructionDelay="0.1s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</SlowDeath>
+
+            <!-- Enhanced Kamikaze Player Power -->
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+            <!-- -->
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				xai:joinAction="Remove" />
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+
+        </Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+        <Body>
+            <ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="5000" />
+        </Body>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="10.0"
+				MinorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SupersonicAirStrike_FlyByMS" AudioType="soundAmbient" />
+		</AudioArraySound>
+        <VisionInfo
+			VisionRange="450"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+    </GameObject>
+
+</AssetDeclaration>

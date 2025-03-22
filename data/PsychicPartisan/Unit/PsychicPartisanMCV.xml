@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include type="all"	source="ART:putitanmcv_SKN.w3x" />
+		<Include type="all"	source="ART:putitanmcv_FP.w3x" />
+		<Include
+			type="all"
+			source="ART:PBTitanConstructionYard_SKN.w3x" />
+		<Include type="all"	source="ART:PBTitanConstructionYard_TRANS.w3x" />
+
+		<Include type="all"	source="ART:putitanmcv_flya.w3x" />
+		<Include type="all"	source="ART:pumcv_titan_d.xml" />
+
+		<Include type="instance" source="ART:EX_Headlights.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+
+	<GameObject
+		id="PsychicPartisanMCV"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_PsychicPartisanMCV"
+		ButtonImage="Button_PsychicPartisanMCV"
+		Side="PsychicPartisan"
+		SubGroupPriority="820"
+		EditorSorting="UNIT"
+		BuildTime="25"
+		CommandSet="PsychicPartisanMCVCommandSet"
+		EnergyProduction="50"
+		KindOf="SELECTABLE CAN_CAST_REFLECTIONS AMPHIBIOUS VEHICLE HUGE_VEHICLE FS_FACTORY EXPANSION_UNIT UNPACKS_INTO_BUILDING CAN_BE_FAVORITE_UNIT MCV UNPACKS_INTO_BUILDING SKIRMISH_AI_CAN_BUILD_DURING_EMERGENCY_NO_INCOME IGNORES_SELECT_ALL CYCLE_SELECTION T3_UNIT AI_CAN_UNPACK_NEAR_CONYARD"
+		PlacementViewAngle="315d"
+		VoicePriority="32"
+		TransportSlotCount="10"
+		EditorName="PsychicPartisanMCV"
+		Description="Desc:PsychicPartisanMCV"
+		TypeDescription="Type:PsychicPartisanMCV"
+		HealthBoxHeightOffset="30">
+		<DisplayName
+			xai:joinAction="Replace">Name:PsychicPartisanMCV</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanMCVArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="DefaultLandLocomotor"
+			Locomotor="PsychicPartisanMCVLocomotor"
+			Condition="NORMAL"
+			Speed="100.0" />
+		<LocomotorSet
+			id="DefaultAILocomotor"
+			Locomotor="PsychicPartisanMCVAILocomotor"
+			Condition="NORMAL_UPGRADED"
+			Speed="100" />
+		<!--LEAVING FACTORY-->
+		<LocomotorSet
+			id="LeavingFactoryLocomotor"
+			Locomotor="JapanMCVLocomotor"
+			Condition="EXITING_PRODUCTION_STRUCTURE"
+			Speed="75.0" />
+		<!--<LocomotorSet
+			id="DefaultWaterLocomotor"
+			Locomotor="JapanMCVWaterLocomotor"
+			Condition="NORMAL"
+			Speed="90.0" />-->
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FX_HEADLIGHTL_BOTTOM FX_HEADLIGHTL_TOP FX_HEADLIGHTR_BOTTOM FX_HEADLIGHTR_TOP">
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="putitanmcv_SKN" />
+
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="putitanmcv_FP" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING REALLYDAMAGED">
+					<Model
+						Name="PBTitanConstructionYard_SKN" />
+					<Texture
+						Original="pumcv_titan"
+						New="pumcv_titan_d" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage03"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING DAMAGED">
+					<Model
+						Name="PBTitanConstructionYard_SKN" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage03"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Model
+						Name="PBTitanConstructionYard_SKN" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="putitanmcv_SKN" />
+					<ParticleSysBone
+						BoneName="FX_headlightL_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_headlightR_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="putitanmcv_SKN" />
+					<Texture
+						Original="pumcv_titan"
+						New="pumcv_titan_d" />
+					<ParticleSysBone
+						BoneName="FX_headlightL_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_headlightL_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_headlightL_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+
+					<ParticleSysBone
+						BoneName="FX_headlightR_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_headlightR_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_headlightR_Top"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING OVER_WATER"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="PBTitanConstructionYard_TRANS"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"
+						AnimationBlendTime="0" />
+					<FXEvent
+						Frame="0"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVUnpack"
+						Bone="BONE_root" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT01" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT02" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT03" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT04" />
+					<ParticleSysBone
+						BoneName="bone_root"
+						FXParticleSystemTemplate="PsychicPartisanMCVJetGlowLanding"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone_root"
+						FXParticleSystemTemplate="PsychicPartisanMCVCenterDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone_root"
+						FXParticleSystemTemplate="PsychicPartisanMCVCenterGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Root"
+						FXParticleSystemTemplate="PsychicPartisanMCVIdleLight"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+        </AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="PBTitanConstructionYard_TRANS"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"
+						AnimationBlendTime="0" />
+					<FXEvent
+						Frame="0"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVUnpack"
+						Bone="BONE_root" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT01" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT02" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT03" />
+					<FXEvent
+						Frame="45"
+						FireWhenSkipped="true"
+						Effect="FX_PsychicPartisanMCVFootprint"
+						Bone="BONE_BASEMENT04" />
+					<ParticleSysBone
+						BoneName="bone_root"
+						FXParticleSystemTemplate="PsychicPartisanMCVJetGlowLanding"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone_root"
+						FXParticleSystemTemplate="PsychicPartisanMCVCenterDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone_root"
+						FXParticleSystemTemplate="PsychicPartisanMCVCenterGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Root"
+						FXParticleSystemTemplate="PsychicPartisanMCVIdleLight"
+						FollowBone="true"/>
+        </AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST"
+					StateName="STATE_OnLAND">
+					<Animation
+						AnimationName="putitanmcv_flya"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="PsychicPartisanMCVJetGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Root"
+						FXParticleSystemTemplate="PsychicPartisanMCVCenterDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Root"
+						FXParticleSystemTemplate="PsychicPartisanMCVCenterGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="Bone_Root"
+						FXParticleSystemTemplate="PsychicPartisanMCVIdleLight"
+						FollowBone="true"/>
+				</AnimationState>
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_HeadLightLTop"
+				AttachToBoneInAnotherModule="FX_HEADLIGHTL_TOP"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="NIGHT">
+					<Model
+						Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_HeadLightLBottom"
+				AttachToBoneInAnotherModule="FX_HEADLIGHTL_BOTTOM"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="NIGHT">
+				<Model
+					Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_HeadLightRTop"
+				AttachToBoneInAnotherModule="FX_HEADLIGHTR_TOP"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="NIGHT">
+					<Model
+						Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_HeadLightRBottom"
+				AttachToBoneInAnotherModule="FX_HEADLIGHTR_BOTTOM"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="NIGHT">
+				<Model
+					Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<BuildingBehavior
+				id="ModuleTag_BuildingBehavior"
+				NightWindowObject="LIGHT_01" />
+
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="PUMCV_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanVehicleLargeDie" />
+			</FXListBehavior>
+<!--
+			<FireWeaponUpdate
+				id="ModuleTag_GenerateDummyFactory">
+				<FireWeaponNugget
+					WeaponName="PsychicPartisanMCVGenerateDummyFactoryWeapon"
+					FireDelay="0.5s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			-->
+			<!--
+			<ProductionUpdate
+				id="ModuleTag_ProductionUpdate"
+				Type="MAIN_STRUCTURE"
+				MaxQueueEntries="1" />
+			<ProductionUpdate
+				id="ModuleTag_OtherProductionUpdate"
+				Type="OTHER_STRUCTURE"
+				MaxQueueEntries="1" />
+			<ProductionUpdateInfo
+				id="ModuleTag_ProductionUpdateInfo"/>
+			<QueueProductionExitUpdate
+				id="ModuleTag_QueueProduction"
+				ExitDelaySeconds="0.07s"
+				AllowAirborneCreation="true">
+				<UnitCreatePoint
+					x="-3.0"
+					y="0.0"
+					z="-17.518" />
+				<NaturalRallyPoint
+					x="80.0"
+					y="0.0"
+					z="0.0" />
+			</QueueProductionExitUpdate>
+-->
+			<xi:include
+				href="DATA:Includes/GenericUnpackPower.xml" />
+
+			<ReplaceSelfSpecialAbility
+				id="ModuleTag_ReplaceSelf"
+				SpecialPowerTemplate="SpecialPower_UnpackReplaceSelf"
+				Options="IGNORE_FACING_CHECK USE_OBJECT_GEOMETRY_FOR_WITHIN_RANGE_CHECK FAIL_WITH_INVALID_APPROACH"
+				PackTime="2.0s"
+				StartAbilityRange="2.0"
+				NewObjectUnpackTime="2.0s"
+				ReplaceOptions="COPY_UPGRADES DISABLE_DURING_REPLACE CHECK_BUILD_ASSISTANT">
+				<ReplacementTemplate>PsychicPartisanConstructionYardDummy</ReplacementTemplate>
+			</ReplaceSelfSpecialAbility>
+
+			<!--<SpecialPower
+				id="ModuleTag_GiveUnpackUpgradeSpecialPowerTrigger"
+				SpecialPowerTemplate="SpecialPower_GrantUnpackUpgrade"
+				UpdateModuleStartsAttack="true"
+			/>
+			<GiveOrRestoreUpgradeSpecialPower
+				id="ModuleTag_GiveUnpackUpgradeSpecialPowerUpdate"
+				SpecialPowerTemplate="SpecialPower_GrantUnpackUpgrade"
+				UpgradeToGive="Upgrade_UnPack"
+			/>
+			<ReplaceSelfUpgrade
+				id="ModuleTag_ReplaceSelf"
+				Options = "CHECK_BUILD_ASSISTANT"
+				NewObjectUnpackTime="3.5s">
+				<TriggeredBy>Upgrade_UnPack</TriggeredBy>
+				<ReplacementTemplate>PsychicPartisanMCVUnpacking</ReplacementTemplate>
+			</ReplaceSelfUpgrade>
+-->
+
+			<LocomotorSetUpgrade
+				id="ModuleTag_SubmareineLocomotorUpgrade">
+				<TriggeredBy>Upgrade_HardAIMultiPlayer</TriggeredBy>
+			</LocomotorSetUpgrade>
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="PsychicPartisanMCVFunctions"
+			/>
+			<!-- No stances because there's no weapon -->
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				xai:joinAction="Remove" />
+
+			<!-- This is used to save the upgrade status of packed ConYards -->
+			<SubStructureStorageBehavior
+				id="ModuleTag_SubStructureStorageBehavior" />
+
+
+			<AssignSlavesTargetObjectSpecialPower
+				id="ModuleTag_SpecialPowerRepairVehicle"
+				SpecialPowerTemplate="SpecialPower_TargetedRepairVehicle" />
+			<SpawnBehavior
+				id="ModuleTag_SpawnRepairDrones"
+				SpawnNumberData="3"
+				InitialBurst="3"
+				SpawnReplaceDelayData="10s"
+				SpawnedRequireSpawner="true"
+				KillSpawnsOnCaptured="true"
+				SpawnInsideBuilding="true"
+				KillSpawnsOnDisabled="true">
+				<Die
+					DeathTypes="ALL" />
+				<SpawnTemplate>PsychicPartisanRepairDrone</SpawnTemplate>
+			</SpawnBehavior>
+			
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+			<!-- -->
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine"/>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="3500" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MoveLoop">
+				<ModelConditionSound Sound="Tank_Land_MoveLoop" RequiredFlags="MOVING" ExcludedFlags="OVER_WATER DYING" />
+				<ModelConditionSound Sound="Ship_Large_MoveLoopWater" RequiredFlags="MOVING OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_WaterSounds">
+				<Override RequiredFlags="OVER_WATER">
+					<AudioArraySound>
+						<AudioEntry Sound="JAP_MCV_MoveStartWater" AudioType="soundMoveStart" />
+						<AudioEntry Sound="" AudioType="soundMoveLoop" />
+					</AudioArraySound>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<AnimationSoundClientBehavior id="AnimationSoundCB" >
+				<Sound Sound="JAP_MCV_Animation_TRANS1_WaterMS" RequiredMC="OVER_WATER" ExcludedMC="STRUCTURE_UNPACKING" Animation="JUMCV_TRANS" Frame="70" />
+				<Sound Sound="JAP_MCV_Animation_TRANS1" ExcludedMC="STRUCTURE_UNPACKING" Animation="JUMCV_TRANS" Frame="70" />
+				<Sound Sound="JAP_MCV_Animation_TRANS2" ExcludedMC="STRUCTURE_UNPACKING" Animation="JUMCV_TRANS" Frame="49" />
+				<Sound Sound="JAP_MCV_Animation_TRANS3" ExcludedMC="STRUCTURE_UNPACKING" Animation="JUMCV_TRANS" Frame="1" />
+				<Sound Sound="JAP_MCV_Animation_WTRANS1_1" Animation="JUMCV_WTRANS2" Frame="1" />
+				<Sound Sound="JAP_MCV_Animation_WTRANS1_2" Animation="JUMCV_WTRANS2" Frame="18" />
+				<Sound Sound="JAP_MCV_Animation_WTRANS2_1" RequiredMC="OVER_WATER" Animation="JUMCV_WTRANS1" Frame="9" />
+				<Sound Sound="JAP_MCV_Animation_WTRANS2_2" RequiredMC="OVER_WATER" Animation="JUMCV_WTRANS1" Frame="24" />
+			</AnimationSoundClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="80.0"
+				MinorRadius="77.5"
+				Height="54.5"
+				ContactPointGeneration="VEHICLE">
+				<Offset x="-18.065" y="0.0" z="-13.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="PSY_MCV_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="PSY_MCV_VoiceMove" AudioType="voiceMove" />
+			<NamedEntry Sound="PSY_MCV_VoiceMoveSpecial" Name="VoiceDeploy" />
+			<AudioEntry Sound="PSY_MCV_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="PSY_MCV_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="PSY_MCV_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="JAP_MCV_MoveStartLand"
+				AudioType="soundMoveStart" />
+			<!-- <AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" /> -->
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="StructurePlacementFailed" EvaType="placementFailed" />
+		</EvaEventArray>
+
+		<VisionInfo
+			VisionRange="100"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+
+		<CrusherInfo
+				id="id_CrusherInfo"
+				CrusherLevel="30"
+				CrushableLevel="31"
+				CrushDecelerationPercent="80%">
+		<ExtraCrushLevels CrusherLevel="1" CrushableLevel="31" ModelConditionMatch="OVER_WATER"/>
+		 </CrusherInfo>
+
+	</GameObject>
+
+	<GameObject
+		id="PsychicPartisanMCV_Air"
+		inheritFrom="PsychicPartisanMCV"
+		EditorName="PsychicPartisanMCV_Air"
+		ProductionQueueType="AIRCRAFT">
+		<EquivalentTo>PsychicPartisanMCV</EquivalentTo>
+		<LocomotorSet
+			id="LeavingFactoryLocomotor"
+			xai:joinAction="Remove" />
+	</GameObject>
+
+</AssetDeclaration>

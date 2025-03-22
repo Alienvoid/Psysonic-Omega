@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:JUPatmos_skn.w3x" />
+		<Include
+			type="all"
+			source="ART:JUPatmos_stealth.w3x" />
+		<Include
+			type="all"
+			source="ART:JUPatmos_idla.w3x" />
+		<Include
+			type="all"
+			source="ART:JUPatmos_atka.w3x" />
+		<Include
+			type="all"
+			source="ART:JUPatmos_d.xml" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<Include
+			type="all"
+			source="ART:FXInvisBone.w3x" />
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+    <Include
+			type="all"
+			source="ART:FXObeliskLaser.w3x" />
+    <Include
+			type="all"
+			source="ART:FXObeliskLaserHeroic.w3x" />
+    <Include
+			type="all"
+			source="ART:FXLaserOverlay.w3x" />
+    <Include
+			type="all"
+			source="ART:FXRailGunCoreDistortion.w3x" />
+    <Include
+			type="all"
+			source="ART:FXRailGunCoreMask.w3x" />
+		<Include
+			type="all"
+			source="ART:FXBeam.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanPatmos"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_PsychicPartisanPatmos"
+		ButtonImage="Button_PsychicPartisanPatmos"
+		Side="PsychicPartisan"
+		SubGroupPriority="410"
+		EditorSorting="UNIT"		
+		BuildTime="14"
+		CommandSet="PsychicPartisanPatmosCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK SIEGE_WEAPON CAN_CAST_REFLECTIONS SCORE VEHICLE AMPHIBIOUS CAN_BE_FAVORITE_UNIT T2_UNIT"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="PsychicPartisanPatmos"
+		Description="Desc:PsychicPartisanPatmos"
+		TypeDescription="Type:PsychicPartisanPatmos"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanPatmos</DisplayName>
+		<GameDependency>
+			<RequiredObject>PsychicPartisanVIPBunker</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="PsychicPartisanPatmosArmor"
+			DamageFX="VehicleDamageFX" />
+		<ArmorSet
+			Armor="PsychicPartisanPatmosArmor"
+			DamageFX="VehicleDamageFX"
+			Conditions="PLAYER_UPGRADE" />
+		<LocomotorSet
+			Locomotor="PatmosLocomotor"
+			Condition="NORMAL"
+			Speed="100.0" />
+		<LocomotorSet
+			Locomotor="PatmosLocomotor_WaterLocomotor"
+			Condition="NORMAL"
+			Speed="100.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+
+				OkToChangeModelColor="true"
+				NoRotate="true"
+				PowerslideRotationAddition="1.25"
+								
+				ExtraPublicBone="FX_Weapon01 Bone_Body FX_Damage01">
+
+					
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="JUPatmos_skn" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JUPatmos_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="JUPatmos_skn" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="JUPatmos_skn" />
+					<Texture
+						Original="JUPatmos"
+						New="JUPatmos_D" />				
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+				</ModelConditionState>
+								
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="JUPatmos_idla"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>	
+                <AnimationState
+                   ParseCondStateType="PARSE_NORMAL"
+                   ConditionsYes="PREATTACK_A">
+                    <Animation
+						AnimationName="JUPatmos_atka"
+						AnimationMode="LOOP" />
+                    <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="JapanPsyonic_Start"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamPreFireFlash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamPreFireDist"
+						FollowBone="true" />
+                </AnimationState>
+                <AnimationState
+                   ParseCondStateType="PARSE_NORMAL"
+                   ConditionsYes="FIRING_A">
+                    <Animation
+						AnimationName="JUPatmos_atka"
+						AnimationMode="LOOP" />
+                    <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="JapanPsyonic_Start"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamConstantFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamConstantFire02"
+						FollowBone="true" />
+                </AnimationState>
+                <AnimationState
+                   ParseCondStateType="PARSE_NORMAL"
+                   ConditionsYes="UNPACKING">
+                    <Animation
+						AnimationName="JUPatmos_atka"
+						AnimationMode="LOOP" />
+                    <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="JapanPsyonic_Start"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamPreFireFlash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamPreFireDist"
+						FollowBone="true" />
+                </AnimationState>
+                <AnimationState
+                   ParseCondStateType="PARSE_NORMAL"
+                   ConditionsYes="PREPARING">
+                    <Animation
+						AnimationName="JUPatmos_atka"
+						AnimationMode="LOOP" />
+                    <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="JapanPsyonic_Start"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamConstantFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="BeamConstantFire02"
+						FollowBone="true" />
+                </AnimationState>
+                <AnimationState
+                   ParseCondStateType="PARSE_NORMAL"
+                   ConditionsYes="FIRING_B">
+                    <Animation
+						AnimationName="JUPatmos_idla"
+						AnimationMode="LOOP" />
+                    <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="JapanPsyonic_Start"
+						FollowBone="true" />
+                </AnimationState>							
+
+			</TruckDraw>
+			
+			
+			<TruckDraw
+				id="ModuleTag_DrawStealth"
+
+				OkToChangeModelColor="false">
+
+					
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model
+						Name="JUPatmos_stealth" />
+				</ModelConditionState>
+								
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>	
+                <AnimationState
+                   ParseCondStateType="PARSE_NORMAL"
+					Flags="START_FRAME_FIRST"
+                   ConditionsYes="INVISIBLE_STEALTH">
+                    <Animation
+						AnimationName="JUPatmos_atka"
+						AnimationMode="LOOP" />
+                </AnimationState>		
+
+			</TruckDraw>
+      <ScriptedModelDraw
+				id="ModuleTag_FX">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+					<ParticleSysBone
+            			FXParticleSystemTemplate="JapSchoolgirl_Idle" />
+					<ParticleSysBone
+            			FXParticleSystemTemplate="JapSchoolgirl_IdleDistortion" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+      <ScriptedModelDraw
+              id="ModuleTag_ParticlesDraw" >
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="FXInvisBone" />
+        </ModelConditionState>
+
+        <AnimationState
+					ParseCondStateType="PARSE_DEFAULT"/>
+
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER MOVING">
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="StingrayWaterWake"
+						FollowBone="false" />
+        </AnimationState>
+
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="SmallShipWakeIdle"
+						FollowBone="false" />
+        </AnimationState>
+
+      </ScriptedModelDraw>
+	  
+	  
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="20"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_03" />		
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDistort"
+				UseDistortionShader="true"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".01"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="1"
+				LaserWidth="50"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXRailGunCoreDistortion</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXRailGunCoreMask</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_03" />		
+			</LaserDraw>
+			
+			<!-- Veterancy -->
+			
+			<LaserDraw
+				id="ModuleTag_LaserDraw1_Veterancy"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="20"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaserHeroic</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_03" />					
+			</LaserDraw>			
+			<LaserDraw
+				id="ModuleTag_LaserDraw2_Veterancy"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="20"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaserHeroic</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_03" />					
+			</LaserDraw>
+	  
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanPatmosEnergyBall" />
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="PsychicPartisanPatmosLaserLink"					
+						 />
+				</WeaponSlotHardpoint>
+				<WeaponSlotHardpoint
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanPatmosLaser" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<SweepingLaserState
+				id="ModuleTag_LaserState0"
+				Radius="10.0"
+				SweepFXList="FX_ObeliskHit"
+				SweepFXTimeout="1.25s"
+				LaserId="1" />
+			
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="JUPatmos_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanVehicleDie" />
+			</FXListBehavior>
+
+			<NotifyWhenAttackingBehavior
+				id="ModuleTag_NotifyFriends"
+				NotifyRadius="450"
+				SleepTime="0.10s"
+				MaxFriendsToNotify="20"
+				AssistResponseModuleId="ModuleTag_AttackAssistResponse">
+				<AcceptableFriends
+					Rule="NONE"
+					Relationship="ALLIES">
+					<IncludeThing>PsychicPartisanPatmos</IncludeThing>
+				</AcceptableFriends>
+			</NotifyWhenAttackingBehavior>
+			
+			
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="10"
+				UpdatePeriod="0.1s"
+				AffectsSelf="true"
+				InvisibilityTemplate="PsychicPartisanPatmosInvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES"
+					StatusBitFlags="GENERIC_TOGGLE_STATE"
+					StatusBitFlagsExclude="NOT_IN_WORLD IGNORING_STEALTH">
+					<IncludeThing>PsychicPartisanPatmos</IncludeThing>
+				</BroadcastObjectFilter>
+			</InvisibilityBroadcastUpdate>
+			
+			<TimedOpacityUpdate
+				id="ModuleTag_SmokeBombOpacityUpdate" 
+				Duration="0.5s"
+				Opacity="0.5"/>
+				
+			<AttackAssistResponseBehavior
+				id="ModuleTag_AttackAssistResponse"
+				WeaponSlotID="1"
+				WeaponSlotType="SECONDARY_WEAPON"/>		
+			
+			
+			<SpecialPower
+				id="ModuleTag_PsyonicBlast"
+				SpecialPowerTemplate="SpecialPower_PatmosIllusion"                
+				UpdateModuleStartsAttack="true"
+				AttributeModifier="AttributeModifier_PatmosStealth"
+				AttributeModifierAffectsSelf="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_PatmosIllusion"
+				SpecialWeapon="PsychicPartisanPatmosIllusionGenerator"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="2s"/>
+				
+			<!-- Regular beam attack -->
+			<!-- <SpecialPower
+				id="ModuleTag_BeamLaserSpecialPower"
+				SpecialPowerTemplate="PsychicPartisanPatmosLaserSpecialPower"
+				UpdateModuleStartsAttack="true" />
+			<BeamSpecialAbilityUpdate
+				id="ModuleTag_BeamLaserSpecialPowerUpdate"
+				SpecialPowerTemplate="PsychicPartisanPatmosLaserSpecialPower"
+				JoinWithOtherBeams="true"
+				UnpackTime="1s"
+				UnpackSound="NOD_BeamCannon_BeamWeaponPowerUpSwell"
+				PreparationTime="10000s"
+				PackTime="0.1s"
+				StartAbilityRange="450.0"
+				AbilityAbortRange="450.0"
+				DamagePerSecond="50.0"
+				SetObjectStatusOnTrigger="IS_ENGAGED"
+				ClearObjectStatusOnExit="IS_ENGAGED"
+				Options="UPDATE_REQUIRES_LINE_OF_SIGHT"
+				PrepSoundLoop="NOD_BeamCannon_BeamWeaponLoopMS" /> -->
+			<!-- Charge defenses special power -->
+			<!-- <SpecialPower
+				id="ModuleTag_ChargeDefensesSP"
+				SpecialPowerTemplate="SpecialPower_ChargeDefensesTrigger"
+				UpdateModuleStartsAttack="true" />
+			<BeamSpecialAbilityUpdate
+				id="ModuleTag_ChargeDefensesSPUpdate"
+				SpecialPowerTemplate="SpecialPower_ChargeDefensesTrigger"
+				JoinWithOtherBeams="false"
+				UnpackTime="2s"
+				UnpackSound="NOD_BeamCannon_BeamWeaponPowerUpSwell"
+				PackTime="1s"
+				PreparationTime="10000s"
+				PrepSoundLoop="NOD_BeamCannon_ChargeObeliskLoopMS"
+				StartAbilityRange="200.0"
+				TargetAttributeModifierAdd="AttributeModifier_ChargeDefenses"
+				TargetSamePlayerOnly="true"
+				Options="CHECK_SPECIALPOWER_REQUIREMENTS_DURING_UPDATE" 
+				PreferredTargetBone="FXBONE01"
+				DamagePerSecond="0.0" /> -->
+			<!-- Reflector attack special power -->
+			<!-- <SpecialPower
+				id="ModuleTag_ReflectorSpecialPower"
+				SpecialPowerTemplate="SpecialPower_ReflectorAttack"
+				UpdateModuleStartsAttack="true" />
+			<BeamSpecialAbilityUpdate
+				id="ModuleTag_ReflectorSpecialPowerUpdate"
+				SpecialPowerTemplate="SpecialPower_ReflectorAttack"
+				JoinWithOtherBeams="true"
+				UnpackTime="2s"
+				UnpackSound="NOD_BeamCannon_BeamWeaponPowerUpSwell"
+				PreparationTime="10000s"
+				PrepSoundLoop="NOD_BeamCannon_BeamWeaponLoopMS"
+				PackTime="0.1s"
+				StartAbilityRange="10000"
+				ReflectorExtendDistance="250.0"
+				DamagePerSecond="100.0"
+				GoIdleInStartPreparation="false" />-->
+				
+			<AutoHealBehavior
+				id="ModuleTag_ActiveArmorHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="0s"
+				HealingAmount="2"
+				HealingDelay=".8s">
+			</AutoHealBehavior>
+	
+
+			<ProductionUpdate
+				id="ModuleTag_PU" />
+				
+      <!-- These help the AI decide when to use EnergizedArmor -->
+      <TrackIncomingWeaponFireBehavior
+				id="TrackIncomingWeaponFireForEnergizedArmor" />
+      <TrackDamage
+				id="TrackDamageForEnergizedArmor"
+				TimeToTrack="2s"
+				InstantWeaponsOnly="true" />
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_03">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>	
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+			<!-- -->
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					SympathyRange="100.0"
+					RotateToTargetWhenAiming="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="360" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MoveLoop">
+				<ModelConditionSound Sound="Tank_Land_MoveLoop" RequiredFlags="MOVING" ExcludedFlags="OVER_WATER DYING" />
+				<ModelConditionSound Sound="SOV_Bullfrog_MoveLoopWaterMS" RequiredFlags="MOVING OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="BOX"
+				MajorRadius="28.0"
+				MinorRadius="15.0"
+				Height="16.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="2.0"
+					y="0.0"
+					z="0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="ALI_Cultist_VoiceAttackMS" AudioType="voiceAttack"/>
+			<AudioEntry Sound="ALI_Cultist_VoiceCreateMS" AudioType="voiceFullyCreated"/>
+			<AudioEntry Sound="ALI_Cultist_VoiceGarrisonMS" AudioType="voiceGarrison" />
+			<AudioEntry Sound="ALI_Cultist_VoiceMoveMS" AudioType="voiceMove"/>
+			<AudioEntry Sound="ALI_Cultist_VoiceMoveAttackMS" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="ALI_Cultist_VoiceRetreatMS" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="ALI_Cultist_VoiceSelectMS" AudioType="voiceSelect"/>
+			<AudioEntry Sound="ALI_Cultist_VoiceSelectBattleMS" AudioType="voiceSelectBattle"/>
+			<NamedEntry Sound="ALI_Cultist_VoiceMoveAttack" Name="InitiateManipulateObject" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="JAP_Tsunami_MoveStartLand"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<!-- <AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="570"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	<CrusherInfo 
+			CrushableLevel="1" 
+			CrusherLevel="20" 
+			CrushDecelerationPercent="80%">
+	<ExtraCrushLevels CrusherLevel="1" CrushableLevel="20" ModelConditionMatch="OVER_WATER"/>	
+	</CrusherInfo>
+	</GameObject>
+	
+</AssetDeclaration>

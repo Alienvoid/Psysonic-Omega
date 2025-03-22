@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:FXYURIKOSHIELDUPGRADE_CTR.w3x" />	
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_AIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_AIDG.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_AIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_AIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_ATKA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_BATA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_BDIA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_BIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_BIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_BIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_DIE1.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_DIEA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_DIEB.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_DIEC.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_DIEG.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_DSEL.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_EMPA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_EMPG.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_FLYA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_RUNA.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_RUNG.w3x" />
+		<Include
+			type="all"
+			source="ART:NUS_INFANTRYS_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:FXFireStream_Blue.xml" />
+    <Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+
+		<Include
+			type="all"
+			source="ART:NUTibTroop_UGCL.xml" />
+		<Include
+			type="all"
+			source="ART:FXCorrupterStream.xml" />
+
+    <!-- FX Includes -->
+    <Include type="all"	source="ART:FXJapanTracer.xml" />
+
+    <!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanECTrooper"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_PsychicPartisanECTrooper"
+		ButtonImage="Button_PsychicPartisanECTrooper"
+		Side="PsychicPartisan"
+		SubGroupPriority="350"
+		EditorSorting="UNIT"
+		BuildTime="7"
+		HealthBoxHeightOffset="30"
+		CommandSet="PsychicPartisanECTrooperCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE CAVALRY"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="104"
+		EditorName="PsychicPartisanECTrooper"
+		Description="Desc:PsychicPartisanECTrooper"
+		TypeDescription="Type:PsychicPartisanECTrooper"
+		UnitTypeIcon="FlamethrowerIcon">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanECTrooper</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="700"/>
+		</ObjectResourceInfo>
+		<GameDependency>
+			<RequiredObject>PsychicPartisanVIPBunker</RequiredObject>
+		</GameDependency>
+		<ArmorSet
+			Armor="PsychicPartisanECTrooperArmor"
+			DamageFX="NormalDamageFX" />
+		<LocomotorSet
+			id="HumanLocomotor"
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="50" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="fx_weapon_01">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="NUS_INFANTRYS_SKN" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon_01" />
+					<ParticleSysBone
+						BoneName="fx_weapon_01"
+						FXParticleSystemTemplate="NUBlkHndPilotDistortion"
+						FollowBone="true" />
+
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="GUGarGun" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE01" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE01" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<!-- no anim -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					AllowRepeatInRandomPick="true"
+					StateName="STATE_Idle">
+					<Animation
+						AnimationName="NUS_INFANTRYS_BIDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"
+						AnimationPriority="30"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="NUS_INFANTRYS_BIFA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"
+						AnimationPriority="30"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />						
+					<Animation
+						AnimationName="NUS_INFANTRYS_BIFB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"
+						AnimationPriority="10"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />					
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_stunned_flailing" then
+						CurDrawableSetTransitionAnimState("STATE_stunned_landing")
+						end
+						if Prev == "STATE_Selected" then
+						CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_FLAILING"
+					StateName="STATE_stunned_flailing">
+					<Animation
+						AnimationName="NUS_INFANTRYS_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					StateName="STATE_stunned_landing">
+					<Animation
+						AnimationName="NUS_INFANTRYS_FLYA"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED DYING"
+					StateName="STATE_Suppressed">
+          <Animation
+						AnimNickName="DTA"
+						AnimationName="NUS_INFANTRYS_DIEG"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimNickName="DTA"
+						AnimationName="NUS_INFANTRYS_DIEA"
+						AnimationMode="ONCE" />
+          <Animation
+						AnimNickName="DTA"
+						AnimationName="NUS_INFANTRYS_DIEB"
+						AnimationMode="ONCE" />
+          <Animation
+						AnimNickName="DTA"
+						AnimationName="NUS_INFANTRYS_DIEC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED AFFECTED_BY_EMP">
+					<Animation
+						AnimationName="NUS_INFANTRYS_EMPG"
+						AnimationMode="LOOP" />
+					<ParticleSysBone
+							BoneName="NONE"
+							FXParticleSystemTemplate="Allied_DogStun01"
+							FollowBone="true" />
+					<ParticleSysBone
+							BoneName="NONE"
+							FXParticleSystemTemplate="Allied_DogStunGlows01"
+							FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="AFFECTED_BY_EMP">
+					<Animation
+						AnimationName="NUS_INFANTRYS_EMPA"
+						AnimationMode="LOOP" />
+					<ParticleSysBone
+							BoneName="NONE"
+							FXParticleSystemTemplate="Allied_DogStun01"
+							FollowBone="true" />
+					<ParticleSysBone
+							BoneName="NONE"
+							FXParticleSystemTemplate="Allied_DogStunGlows01"
+							FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USING_WEAPON_A">
+					<Animation
+						AnimationName="NUS_INFANTRYS_ATKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED MOVING"
+					Flags="RANDOMSTART">
+          <Animation
+						AnimationName="NUS_INFANTRYS_RUNG"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="NUS_INFANTRYS_RUNA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="NUS_INFANTRYS_AIDG"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"
+						AnimationPriority="1"/>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					AllowRepeatInRandomPick="true"
+					StateName="STATE_Selected">
+					<Animation
+						AnimationName="NUS_INFANTRYS_AIDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"
+						AnimationPriority="5"/>
+					<Animation
+						AnimationName="NUS_INFANTRYS_AIFA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"
+						AnimationPriority="1"/>
+					<Animation
+						AnimationName="NUS_INFANTRYS_AIFB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"
+						AnimationPriority="1"/>
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Idle" then
+						CurDrawableSetTransitionAnimState("TRANS_IdleToSelected")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="NUS_INFANTRYS_BATA"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="NUS_INFANTRYS_BATA"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+      
+			<!--<ScriptedModelDraw
+				id="ModuleTag_PsychicShield"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1">
+					<Model Name="FXYurikoShieldUpgrade" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">	
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 FORMATION_PREVIEW">
+					<Script>
+						CurDrawableHideSubObjectPermanently("Shield")
+					</Script>						
+				</AnimationState>	
+				
+			</ScriptedModelDraw>-->
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawJapan.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+			
+			<StreamDraw
+				id="ModuleTag_UpgradedStreamDraw"
+				UseDistortionShader="false"
+				Velocity="200.0"
+				ArcHeightFactor="0.0625"
+				UVWorldSize="100.0"
+				NumTubeSides="8"
+				TubeRadius="0.5"
+				HitFx="FX_None"
+				WeaponSlotID="1"
+				StreamStateID="0">
+				<!-- HitFx="FX_BulletHitGDI" -->
+				<!-- FX_NOD_BlackHandFlameWeaponHit = FX_BulletHitGDI - the bullet ricochet sounds! -->
+				<FXShader
+					ShaderName="Stream.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXFireStream_Blue</Value>
+						</Texture>
+					</Constants>
+				</FXShader>
+				<ParticleSystems>
+					<ParticleSys>NUBlkHndPurifyingStrmFlame</ParticleSys>
+					<ParticleSys>NUBlkHndPurifyingStrmGlow</ParticleSys>
+					<ParticleSys>NUBlkHndPurifyingStrmDistort</ParticleSys>
+				</ParticleSystems>
+			</StreamDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanSpitterSpray"
+					/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<StreamState
+				id="ModuleTag_StreamState"
+				StreamId="0" />	
+			<!-- standard death -->
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED IRRADIATED"
+					ExemptStatus="WEAPON_UPGRADED_02"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+
+			<!-- dying when switched to sword ability -->
+			<SlowDeath
+				id="ModuleTag_BanzaiDeath"
+				DeathFlags="DEATH_10"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED IRRADIATED"
+					RequiredStatus="WEAPON_UPGRADED_02"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="ERASED LASERED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ERASED ELECTROCUTED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED STABBED IRRADIATED"/>
+                <Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDieFire" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED IRRADIATED"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED"
+					ExemptStatus="OVER_WATER"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+			<SpecialPower
+				id="ModuleTag_SpecialPower"
+				SpecialPowerTemplate="SpecialPower_PsychicShield"
+				UpdateModuleStartsAttack="true"
+				AttributeModifier="AttributeModifier_PsychicShielded"
+				AttributeModifierAffectsSelf="true"
+			/>
+			<SpecialAbilityUpdate
+				id="ModuleTag_SpecialAbilityUpdate"
+				SpecialPowerTemplate="SpecialPower_PsychicShield"
+				UnpackTime="0s"
+				Options="RECONSTITUTE_STORED_COMMAND"
+			/>
+			
+			<!-- These help the AI decide when to use PsychicShield -->
+			<TrackIncomingWeaponFireBehavior
+				id="TrackIncomingWeaponFireForPsychicShield" />
+			<TrackDamage
+				id="TrackDamageForPsychicShield"
+				TimeToTrack="1s"
+				InstantWeaponsOnly="true" />
+				
+				<!-- ActiveLoopSound="JAP_ImperialWarrior_Weapon_SwordSheathFakeLoop" no worky didn't loop at all -->
+
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_AlliesFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>	
+				
+			<AutoHealBehavior
+				id="Upgrade_AutoHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="true"
+				HealOnlyIfNotUnderAttack="true"				
+				HealingAmount="5"
+				HealingDelay="0.8s"/>
+				
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="5"
+				UpdatePeriod="4.3s"
+				AffectsSelf="true"
+				InvisibilityTemplate="PsychicShieldedTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+				<IncludeThing>PsychicPartisanECTrooper</IncludeThing>
+				</BroadcastObjectFilter>
+			</InvisibilityBroadcastUpdate>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					TargetingCompareList="CommandoTargetingCompareList"
+					RotateToTargetWhenAiming="true"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="700.0" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="JAP_ImperialWarrior_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="JAP_ImperialWarrior_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior id="ModuleTag_ASCB">
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="SUCommando_MCNB" Frame="3" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_DTBA" Frame="25" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_DTBB" Frame="25" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_RNDA" Frame="25" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_RNDB" Frame="25" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_RUNA" Frame="1 13 25 37" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_RUNC" Frame="7 18 29 40" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_SRUNA" Frame="5 15 25" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_SRUNB" Frame="5 15 25" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_SRUNC" Frame="5 15 25" />
+				
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_CDTA" Frame="7" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_CDTB" Frame="6" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTBA" Frame="22" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTBB" Frame="24" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTFA" Frame="75" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTFB" Frame="64" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTKA" Frame="30" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTKB" Frame="38" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTPA" Frame="79" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTPB" Frame="81" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTSA" Frame="10" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTSB" Frame="8" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_LNDA" Frame="5" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_MCND" Frame="4" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_RNDA" Frame="33" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_RNDB" Frame="24" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SCDTA" Frame="6" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SCDTB" Frame="7" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTBA" Frame="10" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTBB" Frame="95" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTFA" Frame="116" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTFB" Frame="84" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTKB" Frame="23" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTPA" Frame="104" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTPB" Frame="83" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTSA" Frame="8" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDVA" Frame="21" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SLNDA" Frame="4" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SMCND" Frame="4" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SRNDA" Frame="35" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SRNDB" Frame="24" />
+			</AnimationSoundClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceGarrison" AudioType="voiceGarrison" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="PsychicPartisan_ECTrooper_VoiceUnderAttack" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+<!--
+		<AudioArraySound>
+			<AudioEntry Sound="AudioEvent:TEMP_PredatorMoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="AudioEvent:PredatorAmbientLoop" AudioType="soundAmbient" />
+		</AudioArraySound>
+-->
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" 
+		/>
+		<VisionInfo
+			VisionRange="200"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"
+		/>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+	</GameObject>
+</AssetDeclaration>

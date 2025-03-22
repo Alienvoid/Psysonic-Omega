@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<!-- aka Burst Drone -->
+  <Includes>
+	  <Include type="all"	source="ART:JU_dreamfly_HRC.w3x" />
+    <Include type="all"	source="ART:JU_dreamfly_FP.w3x" />
+	  <Include type="all"	source="ART:JU_dreamfly_AIDA.w3x" />
+	  <Include type="all"	source="ART:JU_dreamfly_Aidle.w3x" />
+	  <Include type="all"	source="ART:JU_dreamfly_ABTA.w3x" />
+	  <Include type="all"	source="ART:JU_dreamfly_BATA.w3x" />
+	  <Include type="all"	source="ART:JU_dreamfly_Amove.w3x" />
+	  <Include type="all"	source="ART:JU_dreamfly_Adie.w3x" />
+	  <Include type="all"	source="ART:JU_dreamfly_Aattached.w3x" />
+	  <Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+	  <!-- Base Object -->
+	  <Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+  
+	<GameObject
+		id="PsychicPartisanScoutInfantry"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_PsychicPartisanDreamfly"
+		ButtonImage="Button_PsychicPartisanDreamfly"
+		Side="PsychicPartisan"
+		SubGroupPriority="455"
+		EditorSorting="UNIT"
+		TransportSlotCount="100"		
+		BuildTime="3"
+		CommandSet="JapanScoutInfantryCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SKIRMISH_AI_DONT_GARRISON SCORE SKIRMISH_AI_DONT_MULTI_TARGET"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="1"
+		EditorName="PsychicPartisanScoutInfantry"
+		Description="Desc:PsychicPartisanScoutInfantry"
+		TypeDescription="Type:PsychicPartisanScoutInfantry"
+		HealthBoxHeightOffset="20"
+		UnitTypeIcon="DreamflyIcon">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanScoutInfantry</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="200"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="PsychicPartisanScoutInfantryArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanScoutInfantryLocomotor"
+			Condition="NORMAL"
+			Speed="100.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+      		ConquerMetricsOverrideDPS="4"
+      		ConquerMetricsOverrideDamageType="CANNON"
+      		ConquerMetricsOverrideAntiMask="ANTI_VEHICLE ANTI_AIRBORNE_VEHICLE"
+			ConquerMetricsOverrideForbiddenAntiMask="ANTI_INFANTRY ANTI_STRUCTURE ANTI_SUBMERGED ANTI_AIRBORNE_INFANTRY"
+      	/>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JU_dreamfly_HRC" />
+				  <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SACOMListenerRadarWave"
+						FollowBone="true" />	
+				</ModelConditionState>
+
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+          <Model
+						Name="JU_dreamfly_FP" />
+        </ModelConditionState>
+        
+        <ModelConditionState
+          ParseCondStateType="PARSE_NORMAL"
+          ConditionsYes="USER_1">
+          <Model
+						Name="JU_dreamfly_HRC" />
+				  <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SACOMListenerRadarWave"
+						FollowBone="true" />	
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Japan_Burst_Timer"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Japan_Burst_Timer02"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Japan_Burst_Timer03"
+						FollowBone="true" />
+        </ModelConditionState>
+        
+        <AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					AllowRepeatInRandomPick="true"
+					StateName="STATE_bored">
+					<Animation
+						AnimationName="JU_dreamfly_Aidle"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />					
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_SelectedPose" then
+						CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+						end
+					</Script>
+				</AnimationState>
+								
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACHED">
+					<Animation
+						AnimationName="JU_dreamfly_Aattached"
+						AnimationMode="LOOP" 
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureCircle"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSparks"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COMING_OUT_OF_FACTORY">
+					<Animation
+						AnimationName="JU_dreamfly_Amove"
+						AnimationMode="LOOP"
+						AnimationBlendTime="0"
+						Distance="75" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="JU_dreamfly_Amove"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"
+						Distance="75" />					
+				</AnimationState>
+									
+					<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					StateName="STATE_SelectedPose"
+					Flags="RESTART_ANIM_WHEN_COMPLETE" >
+					<Animation
+						AnimationName="JU_dreamfly_AIDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" 
+						AnimationSpeedFactorMin="0.6"
+						AnimationSpeedFactorMax="1.4" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_bored" then
+							CurDrawableSetTransitionAnimState("TRANS_IdleToSelected")
+						end
+					</Script>
+					</AnimationState>	
+					
+					<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="JU_dreamfly_BATA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" 
+						AnimationSpeedFactorMin="2.4"
+						AnimationSpeedFactorMax="2.6" />						
+				</AnimationState>	
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="JU_dreamfly_ABTA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" 
+						AnimationSpeedFactorMin="2.4"
+						AnimationSpeedFactorMax="2.6" />
+				</AnimationState>				
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACHED DYING"
+					StateName="DYING_ANIM">
+					<Animation
+						AnimationName="JU_dreamfly_Adie"
+						AnimationMode="ONCE" />
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING"
+					StateName="DYING_ANIM">
+					<Animation
+						AnimationName="JU_dreamfly_Adie"
+						AnimationMode="ONCE" />
+				</AnimationState>	
+				
+			</ScriptedModelDraw>			
+			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="false"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanDreamflyAttachWeapon" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanVehicleSmallDie" />
+			</FXListBehavior>
+			
+		<SlowDeath
+				id="ModuleTag_BittenDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="6s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED"/>
+			</SlowDeath>
+			
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="300" />
+<!--				
+			<LargeGroupAudioUpdate
+				id="LGAU">
+				<Key>GDI_RifleSoldier</Key>
+			</LargeGroupAudioUpdate>
+-->
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				FlightPathAdjustDistPerSecond="100"				
+				Flags="DONT_DIE_ON_DETONATE ORIENT_TO_FLIGHT_PATH USE_ATTACHPOS_ON_VICTIM"
+				FirstHeightMin="0"
+				FirstHeightMax="20"
+				SecondHeightMin="20"
+				SecondHeightMax="20"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66">
+			</BezierProjectile>
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				AttachedObjectStatus="IGNORE_AI_COMMAND ENCLOSED NON_AUTOACQUIRABLE UNATTACKABLE"
+				ParentStatus="VEHICLE_ATTACHED BOOBY_TRAPPED"
+				AttachedModelConditions="ATTACHED"
+				CloseEnoughRange="5.0"
+				DetachFXList="FX_JAP_BurstDrone_Detach" 
+				ParentOwnerAttachmentEvaEvent="UnitInfected"
+				Flags="ONE_ATTACH_PER_PARENT TELEPORT TELEPORT_AND_ALIGN_WITH_PARENT STICK_TO_PARENT LEECH_DAMAGE_FROM_PARENT MOVE_ORDER_FORCES_DETACH USE_GEOMETRY">
+				<ObjectFilter
+					Rule="ANY"
+					Include="INFANTRY"
+					Relationship="ENEMIES ALLIES NEUTRAL" />
+			</AttachUpdate>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeMod_PsychicPartisanDreamflyAttached"
+			/>
+			<!-- AntiFX="FX_JAP_BurstDrone_Detach" no worky didn't play anything -->
+
+			<!-- special power to trigger a weapon that hurls the drone toward the victim. 
+				I chose to do it this way so that the special power code automatically makes the drone go idle instead of
+				letting it continually try to fire at the vehicle even after it's attached -->
+			<SpecialPower
+				id="ModuleTag_SpecialPowerModule_Attach"
+				SpecialPowerTemplate="SpecialPower_JapanScoutInfantryAttachWeapon"
+				UpdateModuleStartsAttack="true"
+				IdleWhenStartingPower="true"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_SpecialAbilityUpdate_Attach"
+				SpecialPowerTemplate="SpecialPower_JapanScoutInfantryAttachWeapon"
+				SpecialWeapon="JapanScoutInfantryAttachWeapon"
+				Options="DO_NOT_DO_AI_SPECIAL_POWER RECONSTITUTE_STORED_COMMAND"
+				BusyForDuration="1.5s"
+			/>
+			<!-- called by the bezier detonate weapon. Releases us from Attack state so that if we were told to attack
+			an invalid target (already attached to a burst drone for example) then we won't follow it around the map 
+			in the aim-fire state -->
+			<SpecialPower
+				id="ModuleTag_ManipulatorDevice"
+				SpecialPowerTemplate="SpecialPower_ManipulateInfantry"
+				IdleWhenStartingPower="true"
+				AvailableAtStart="true"
+				UpdateModuleStartsAttack="true" />
+			<ActivateModuleSpecialAbilityUpdate
+				id="ModuleTag_ManipulatorDeviceUpdate"
+				SpecialPowerTemplate="SpecialPower_ManipulateInfantry"
+				StartAbilityRange="120"
+				AwardXPForTriggering="300"
+				Options="CHECK_SPECIALPOWER_REQUIREMENTS_DURING_UPDATE">
+				<SpecialPowerModules
+					ModuleId="ModuleTag_ManipulatorDeviceWorker"
+					TriggerType="TARGET_OBJECT" />
+			</ActivateModuleSpecialAbilityUpdate>
+			<TemporaryOwnerSpecialPower
+				id="ModuleTag_ManipulatorDeviceWorker"
+				SpecialPowerTemplate="SpecialPowerDummyTriggered3"
+				UpdateModuleStartsAttack="false"
+				SlaveStatus="UNDER_MIND_CONTROL"
+				/>
+
+			<SpecialPower
+				id="ModuleTag_SpecialPowerModule_Bomb"
+				SpecialPowerTemplate="SpecialPower_JapanScoutInfantryBomb"
+				UpdateModuleStartsAttack="true"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_SpecialAbilityUpdate_Bomb"
+				SpecialPowerTemplate="SpecialPower_JapanScoutInfantryBomb"
+				SpecialWeapon="JapanScoutInfantryBombWeapon"
+				Options="DO_NOT_DO_AI_SPECIAL_POWER"
+			/>
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				xai:joinAction="REMOVE"/>
+
+			<!-- Enhanced Kamikaze Player Power Model Conditions -->
+			<ModelConditionUpgrade
+					id="ModuleTag_EnhancedKamikazeModelCondition"
+					AddConditionFlags="PLAYER_POWER_1">
+				<TriggeredBy>Upgrade_JapanEnhancedKamikaze</TriggeredBy>
+			</ModelConditionUpgrade>
+			<!-- -->
+
+			<!-- replace the one in BaseInfantry -->
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				xai:joinAction="Replace"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>
+
+			<!-- fires AOE weapon when suicided via Self Destruct-->
+			<FireWeaponWhenDead
+				id="ModuleTag_SelfDestructWeapon"
+				InitiallyActive="true"
+				DeathWeapon="JapanScoutInfantryBombDieWeapon">
+				<DieMuxData DeathTypes="SUICIDED"
+DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>
+
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="200.0" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_BurstDroneAttach">
+				<ModelConditionSound Sound="JAP_BurstDrone_SelfDestructPreludeMS" RequiredFlags="USER_1" />
+				<ModelConditionSound Sound="JAP_BurstDrone_Attach" RequiredFlags="ATTACHED" />
+			</ModelConditionAudioLoopClientBehavior>
+			<!-- <ModelConditionAudioLoopClientBehavior id="ModuleTag_BurstDroneDetach">
+				<ModelConditionSound Sound="JAP_BurstDrone_Detach" RequiredFlags="MOVING WALKING CLIMBING" />
+			</ModelConditionAudioLoopClientBehavior> no worky sound also play when you move the unit right after it detached -->
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_BurstDrone_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_BurstDrone_VoiceSelect" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_BurstDrone_VoiceSelect" AudioType="voiceMove" />
+			<AudioEntry Sound="JAP_BurstDrone_VoiceSelectMS" AudioType="voiceSelect" />
+			<NamedEntry Sound="JAP_BurstDrone_VoiceSelect" Name="VoiceAttach" />
+			<NamedEntry Sound="JAP_BurstDrone_VoiceSelfDestructMS" Name="VoiceSelfDestruct" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="JAP_BurstDrone_IdleLoop" AudioType="soundAmbient" />
+			<AudioEntry Sound="JAP_BurstDrone_MoveByLoop" AudioType="soundMoveLoop" />
+			<AudioEntry Sound="JAP_BurstDrone_MoveStart" AudioType="soundMoveStart" />
+		</AudioArraySound>
+		<EvaEventArray>
+			<EvaEntry EvaEvent="BuildingConstructionStarted" EvaType="productionStarted" />
+		</EvaEventArray>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="150"
+			ShroudClearingRange="=$SCOUT_SHROUD_CLEAR" />
+		<!-- uncrushable -->
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="99"
+		/>
+	</GameObject>
+</AssetDeclaration>

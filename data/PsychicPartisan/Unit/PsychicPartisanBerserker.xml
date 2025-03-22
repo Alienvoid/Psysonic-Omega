@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Footprint decal -->
+		<Include type="all" source="art:FXSovietSickleFP.xml"/>
+		<Include
+			type="all"
+			source="ART:FXCorrupterStream.xml" />
+		<Include
+			type="all"
+			source="ART:SUAntiInfantryVehicle_D.xml" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_FULL_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:SUAntiInfantryVehicle_ABTA.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_STAND.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_IDLE.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_MELEEatk.w3x" />
+		<Include
+			type="all"
+			source="ART:SUAntiInfantryVehicle_BATA.w3x" />
+		<Include
+			type="all"
+			source="ART:SUAntiInfantryVehicle_BIDA.w3x" />
+			<Include
+			type="all"
+			source="ART:SUAntiInfantryVehicle_BIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_DIE.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_RUN.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_JUMPpre.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_JUMPmidair.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_JUMPafter.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_RUNleft.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_RUNright.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_SHIELDatk.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_SHIELDidle.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_SHIELDleft.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_SHIELDright.w3x" />
+		<Include
+			type="all"
+			source="ART:UU_ENIGMA_INSECTA_SHIELDup.w3x" />
+
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="all"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerHeroic.xml" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- AKA 'The Sickle' -->
+	<GameObject
+		id="PsychicPartisanBerserker"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_PsychicPartisanBerserker"
+		ButtonImage="Button_PsychicPartisanBerserker"
+		Side="PsychicPartisan"
+		SubGroupPriority="305"
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="20"		
+		BuildTime="17"
+		CommandSet="PsychicPartisanBerserkerCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT T2_UNIT MACHINE"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="176"
+		EditorName="PsychicPartisanBerserker"
+		Description="Desc:PsychicPartisanBerserker"
+		TypeDescription="Type:PsychicPartisanBerserker">
+		<GameDependency>
+			<RequiredObject>PsychicPartisanVIPBunker</RequiredObject>
+		</GameDependency>
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanBerserker</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1750"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="PsychicPartisanBerserkerArmor"
+			DamageFX="VehicleDamageFX" />
+		<ArmorSet
+			Armor="PsychicPartisanBerserkerDeployedArmor"
+			DamageFX="VehicleDamageFX"
+			Conditions="AS_TOWER" />
+		<LocomotorSet
+			id="DefaultLocomotorSet"
+			Locomotor="SovietAntiInfantryVehicleLocomotor"
+			Condition="NORMAL"
+			Speed="110.0" />
+		<LocomotorSet
+			Locomotor="SovietAntiInfantryVehicleLocomotor"
+			Condition="NORMAL_UPGRADED"
+			Speed="0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_EYE01"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="UU_ENIGMA_FULL_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE_DT18" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="BONE_DT18" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="BONE_DT18" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="BONE_DT18" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="BONE_EYE01" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="BONE_EYE01" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="UU_ENIGMA_FULL_SKN" />
+				</ModelConditionState>        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="UU_ENIGMA_FULL_SKN" />
+				  <ParticleSysBone
+						BoneName="BONE_LT12"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="BONE_LT12"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="BONE_LT12"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="UU_ENIGMA_FULL_SKN" />
+					<ParticleSysBone
+						BoneName="BONE_LT12"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>            
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="UU_ENIGMA_FULL_SKN" />
+				  <ParticleSysBone
+						BoneName="BONE_LT12"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="BONE_LT12"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="BONE_LT12"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>   
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					AllowRepeatInRandomPick="true"
+					StateName="STATE_bored">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_IDLE"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="100"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Jumping" then
+						CurDrawableSetTransitionAnimState("TRANS_JumpToIdle")
+						end
+					</Script>
+				</AnimationState>
+
+         <!-- changing from ground to air -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 USER_3">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_SHIELDup"
+						AnimationMode="ONCE"
+						AnimationAbsoluteTime="1.5s"/>
+				</AnimationState>
+		
+				<!-- changing from air to ground -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_3"
+					StateName="STATE_AirToGround">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_SHIELDup"
+						AnimationAbsoluteTime="1s"
+						AnimationMode="ONCE_BACKWARDS"/>
+				</AnimationState>
+		
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_SHIELDidle"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="100"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_B">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_JUMPpre"
+						AnimationMode="ONCE" 
+						AnimationSpeedFactorMin="1.0"
+						AnimationSpeedFactorMax="1.0"/>
+				</AnimationState>
+				<!-- anims for leap power -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="THROWN_PROJECTILE"
+					StateName="STATE_Jumping">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_JUMPmidair"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"/>
+				</AnimationState>
+
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 MOVING TURN_LEFT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_SHIELDleft"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"/>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 MOVING TURN_RIGHT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_SHIELDright"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 TURN_LEFT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_SHIELDleft"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"/>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1 TURN_RIGHT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_SHIELDright"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING TURN_LEFT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_RUNleft"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING TURN_RIGHT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_RUNright"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="TURN_LEFT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_RUNleft"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="TURN_RIGHT">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_RUNright"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING BACKING_UP"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_RUN"
+						AnimationMode="LOOP_BACKWARDS"
+						AnimationBlendTime="15"
+						Distance="50" />
+					<FXEvent
+						Frame="6"
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy05" />
+					<FXEvent
+						Frame="16"
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy04" />
+					<FXEvent
+						Frame="19"
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy02" />
+					<FXEvent
+						Frame="30"
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy03" />
+
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_RUN"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"
+						Distance="50" />
+					<FXEvent
+						Frame="6"
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy05" />
+					<FXEvent
+						Frame="16" 
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy04" />
+					<FXEvent
+						Frame="19"
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy02" />
+					<FXEvent
+						Frame="30"
+						FireWhenSkipped="true"
+						Effect="FX_SovietSickleFootprint"
+						Bone="Dummy03" />
+			
+				</AnimationState>
+				
+                <AnimationState
+                    ParseCondStateType="PARSE_NORMAL"
+                    ConditionsYes="USER_1 USING_WEAPON_C">
+                    <Animation
+                        AnimationName="UU_ENIGMA_INSECTA_SHIELDatk"
+                        AnimationMode="LOOP"/>
+                </AnimationState>
+
+                <AnimationState
+                    ParseCondStateType="PARSE_NORMAL"
+                    ConditionsYes="USING_WEAPON_A"
+                    StateName="STATE_SelectedPose">
+                    <Animation
+                        AnimationName="UU_ENIGMA_INSECTA_MELEEatk"
+                        AnimationMode="LOOP"/>
+                </AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_DIE"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<!-- SELECTED -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					StateName="STATE_SelectedPose"
+					Flags="RESTART_ANIM_WHEN_COMPLETE" >
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_STAND"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="100"  />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Jumping" then
+						CurDrawableSetTransitionAnimState("TRANS_JumpToIdle")
+						end
+					</Script>
+				</AnimationState>
+				<!-- TRANSITIONS -->
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="SUAntiInfantryVehicle_BATA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="SUAntiInfantryVehicle_ABTA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_JumpToIdle">
+					<Animation
+						AnimationName="UU_ENIGMA_INSECTA_JUMPafter"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0"/>
+				</AnimationState>
+			</ScriptedModelDraw>
+
+
+      <!-- include Headlight draw module.
+  <ScriptedModelDraw
+              id="ModuleTag_Draw_HeadLight"
+              AttachToBoneInAnotherModule="BONE_EYE01"
+              OkToChangeModelColor="true">
+    <ModelConditionState
+      ParseCondStateType="PARSE_DEFAULT">
+      <Model
+        Name="" />
+    </ModelConditionState>
+    <ModelConditionState
+      ParseCondStateType="PARSE_NORMAL"
+      ConditionsYes="NIGHT">
+      <Model
+        Name="EX_Headlights" />
+    </ModelConditionState>
+  </ScriptedModelDraw> -->
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="true"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanBerserkerGlaiveWeapon"
+						ForbiddenObjectStatus="DEPLOYED" />
+					<Weapon
+						Ordering="TERTIARY_WEAPON"
+						Template="PsychicPartisanBerserkerDeployedGunWeapon"
+						ObjectStatus="DEPLOYED" />
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="PsychicPartisanBerserkerLeapWeapon"
+						ForbiddenObjectStatus="DEPLOYED" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<Physics
+				id="ModuleTag_Physics" />
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4.5s">
+				<DieMuxData
+					DeathTypes="ALL" 
+					DeathTypesForbidden="ERASED"/>
+			</SlowDeath>
+			<!--<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>-->
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MediumVehicleDie" />
+			</FXListBehavior>
+
+			
+			<SpecialPower
+				id="ModuleTag_ToggleSiegeArtillery"
+				SpecialPowerTemplate="SpecialPower_ToggleCannonMode"
+				UpdateModuleStartsAttack="true" />
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleSiegeArtilleryUpdate"
+				SpecialPowerTemplate="SpecialPower_ToggleCannonMode"
+                TriggerAttributeModifier="AttributeModifier_BerserkerTransformation"
+                AttributeModifierDuration="1.5s"
+				Options="BUSY_DURING_UNPACK">
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT"
+						MaxZDifferenceFromTarget="100"
+						OnlyUseWhenHaveTarget="false"
+						>
+						<StateWeapon
+							Weapon="PsychicPartisanBerserkerLeapWeapon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+				<!-- Deploy Siege Weapon -->
+				<ToggleState
+					ObjectStatus="SWITCHED_WEAPONS DEPLOYED TRANSFORMATION_TOGGLE_STATE IMMOBILE_ALLOW_ROTATE PENDING_CONSTRUCTION"
+                    ModelConditions="USER_1"
+                    ArmorSet="AS_TOWER">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_WEAPON"
+						NeverUseInState="RETREAT"
+						NeverUseDuringTask="REPAIRING REVERSING DODGING"
+						NeverUseWhenHealthIsBelow="450"
+						EnemyMustBeInVisionRange="true"
+						MaxZDifferenceFromTarget="1000"
+						OnlyUseWhenHaveTarget="true">
+						<StateWeapon
+							Weapon="PsychicPartisanBerserkerDeployedGunWeapon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+			</ToggleStatusSpecialAbilityUpdate>
+			
+			
+			<SpecialPower
+				id="ModuleTag_TeslaNova"
+				SpecialPowerTemplate="SpecialPower_BerserkerStrideBreaker"
+				UpdateModuleStartsAttack="true" />
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ModuleTag_TeslaNovaUpdate"
+				SpecialPowerTemplate="SpecialPower_BerserkerStrideBreaker"
+				SpecialWeapon="PsychicPartisanBerserkerStrideBreakerNova"
+				UnpackTime="0s"
+				PackTime="0s"
+				FaceTarget="false"
+				StartAbilityRange="999999.0"/>
+			<CircularDamageUpdate
+				id="ModuleTag_CircularDamage"
+				MaxRadius="110"
+				SweepFXList="FX_JapanSentinalBlast"
+				ArcDistance="50"
+				SweepWeapon="PsychicPartisanBerserkerStrideBreakerNovaImpact">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ENEMIES NEUTRAL"
+					Include="VEHICLE INFANTRY TIME_BOMB CAVALRY MACHINE STRUCTURE"/>
+			</CircularDamageUpdate>
+			
+			<SpecialPower
+				id="ModuleTag_Leap"
+				SpecialPowerTemplate="SpecialPower_TriggerBerserkerLeap"
+				UpdateModuleStartsAttack="true" />
+			<!-- UnpackTime should match leap animation length -->
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_LeapUpdate"
+				SpecialWeapon="SovietAntiInfantryVehicleLeapWeapon"
+				SpecialPowerTemplate="SpecialPower_TriggerBerserkerLeap"
+        		Options="FAIL_WITH_INVALID_APPROACH"         
+				UnpackTime="0.66s"
+				PackTime="0s"
+				TriggerSound="SOV_Sickle_MoveLeapMS"
+				SetObjectStatusOnTrigger="IGNORE_AI_COMMAND"
+				ClearObjectStatusOnExit="IGNORE_AI_COMMAND"
+				StartAbilityRange="320.0"
+				WhichSpecialWeapon="1" />
+			<BezierProjectile
+				id="ModuleTag_Projectile"
+				Flags="CRUSH_STYLE NO_DETONATE DETONATE_CALLS_KILL"
+				FirstHeightMin="150"
+				FirstHeightMax="160"
+				SecondHeightMin="100"
+				SecondHeightMax="110"
+				FirstPercentIndent="40%"
+				SecondPercentIndent="60%"
+				BounceCount="0"
+				FinalStuckTime="1.0s"
+				GroundHitWeapon="SovietAntiInfantryVehicleLandWeapon"
+				GroundHitFX="FX_SOV_Sickle_MoveLand"/>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+				
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="5"
+				UpdatePeriod="0.2s"
+				AffectsSelf="true"
+				InvisibilityTemplate="SACOMStealthBomberInvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES"
+					StatusBitFlags="PLAYER_POWER_1">
+					<IncludeThing>PsychicPartisanBerserker</IncludeThing>
+				</BroadcastObjectFilter>
+			</InvisibilityBroadcastUpdate>
+			
+            <!-- Enhanced Kamikaze Player Power -->
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+            <!-- -->
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"
+					RotateToTargetWhenAiming="true" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="900" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_Sickle_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior
+				id="ModuleTag_ASCB">
+				<Sound Sound="SOV_Sickle_Footstep" Animation="SUAntiInfantryVehicle_WLKA" Frame="6 16 19 30" />
+				<Sound Sound="SOV_Sickle_Footstep" Animation="SUAntiInfantryVehicle_WLKB" Frame="6 16 19 30" />
+				<Sound Sound="SOV_Sickle_Footstep" Animation="SUAntiInfantryVehicle_TRNL" Frame="15 30" />
+				<Sound Sound="SOV_Sickle_Footstep" Animation="SUAntiInfantryVehicle_TRNR" Frame="15 30" />
+				<Sound Sound="SOV_Sickle_Footstep" Animation="SUAntiInfantryVehicle_JMPC" Frame="2 4" />
+				<Sound Sound="SOV_Sickle_Footstep" Animation="SUAntiInfantryVehicle_JMPA" Frame="31" />
+			</AnimationSoundClientBehavior>
+			<!--<ModelConditionAudioLoopClientBehavior id="ModuleTag_Leaping">
+				<ModelConditionSound Sound="SOV_Sickle_VoiceLeap" RequiredFlags="THROWN_PROJECTILE" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_IronCurtain">
+				<ModelConditionSound Sound="SOV_IronCurtain_Loop" RequiredFlags="IRONCURTAIN" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+-->
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="20.0"
+				Height="20.0"
+				ContactPointGeneration="INFANTRY" />
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="PSY_Berserker_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="PSY_Berserker_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="PSY_Berserker_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="PSY_Berserker_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="PSY_Berserker_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="PSY_Berserker_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="PSY_Berserker_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="PSY_Berserker_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<NamedEntry Sound="PSY_Berserker_VoiceSpecialAttack" Name="VoicePsyonicBlast" />
+		</AudioArrayVoice> 
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_Sickle_MoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="SOV_Sickle_MoveLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="360"
+			ShroudClearingRange="500" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushEqualLevelProps="true"
+			CrushableLevel="30">
+			<!-- cusher level boost when we leap, so we can land on vehicle -->
+			<ExtraCrushLevels
+				CrusherLevel="41"
+				CrushableLevel="20"
+				ModelConditionMatch="SPECIAL_WEAPON_ONE" />
+		</CrusherInfo>
+	</GameObject>
+</AssetDeclaration>

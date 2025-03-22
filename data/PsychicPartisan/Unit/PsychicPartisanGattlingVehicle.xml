@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="all"
+			source="ART:JUGattlingVehicle_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:JUGattlingVehicle_ATK.w3x" />
+		<Include
+			type="all"
+			source="ART:JUGattlingVehicle_D.xml" />
+	<Include
+		type="all"
+		source="ART:jbgattlingtower_D.xml" />	
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:FXJapanTracer.xml" />
+    <Include type="all"	source="ART:FXJapanTankProjectile_Veteran.xml" />
+	</Includes>
+	<!-- aka Deca Cannon -->
+	<GameObject
+		id="PsychicPartisanGattlingVehicle"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_PsychicPartisanGattlingVehicle"
+		ButtonImage="Button_PsychicPartisanGattlingVehicle"
+		Side="PsychicPartisan"
+		SubGroupPriority="20"
+		EditorSorting="UNIT"
+		BuildTime="7"
+		CommandSet="PsychicPartisanGattlingVehicleCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="PsychicPartisanGattlingVehicle"
+		Description="Desc:PsychicPartisanGattlingVehicle"
+		TypeDescription="Type:PsychicPartisanGattlingVehicle"
+		HealthBoxHeightOffset="25">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanGattlingVehicle</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="700"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="BaseTankArmor"
+			DamageFX="VehicleDamageFX" />
+		<!-- 25% faster than the apoc tank -->
+		<LocomotorSet
+			Locomotor="PsychicPartisanGattlingVehicleLocomotor"
+			Condition="NORMAL"
+			Speed="75.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="FXTracksL FXTracksR fx_weapon_01 fx_weapon_02 Bone_Barrel01 Bone_Barrel02 Bone_Tread_Front_Left Bone_Tread_Front_Right Bone_Tread_Back_Left Bone_Tread_Back_Right"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="FXTracksL"
+				TrackMarksRightBone="FXTracksR">
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Front_Left"
+					RightTrack="Bone_Tread_Front_Right"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Back_Left"
+					RightTrack="Bone_Tread_Back_Right"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="JUGattlingVehicle_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Bone_Barrel" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="Bone_Barrel" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<Turret
+						TurretNameKey="Bone_Turret"
+						TurretPitch="Bone_Turret_Pitch"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JUGattlingVehicle_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="JUGattlingVehicle_SKN" />
+					<Texture
+						Original="JUGattlingVehicle"
+						New="JUGattlingVehicle_D" />
+					<Texture
+						Original="jbgattlingtower"
+						New="jbgattlingtower_D" />
+						
+          <ParticleSysBone
+           BoneName="FXDamage01"
+           FXParticleSystemTemplate="VehicleDamageSmoke"
+           FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FXDamage01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FXDamage01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="JUGattlingVehicle_SKN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_A USER_1">
+					<Animation
+						AnimationName="JUGattlingVehicle_ATK"
+						AnimationMode="LOOP"
+						AnimationBlendTime="1"
+						AnimationSpeedFactorMin="1.8"
+						AnimationSpeedFactorMax="2.2" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_01"
+						FXParticleSystemTemplate="JapanTenguFlyGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Weapon_02"
+						FXParticleSystemTemplate="JapanTenguFlyGlow"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_A">
+					<Animation
+						AnimationName="JUGattlingVehicle_ATK"
+						AnimationMode="LOOP"
+						AnimationBlendTime="1"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+				</AnimationState>
+			</TruckDraw>
+            <TracerModelDraw
+				id="ModuleTag_TracerModelDraw"
+				MinLength="30.0"
+				MaxLength="30.0"
+				Width="15.0"
+				MinSpeed="40"
+				MaxSpeed="40"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXJapanTracer"
+				UseAdditiveBlending="true" >
+                <HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+                <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+                <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+            </TracerModelDraw>
+            <TracerModelDraw
+				id="ModuleTag_TracerModelDrawVeterancy"
+				MinLength="20.0"
+				MaxLength="20.0"
+				Width="15.0"
+				MinSpeed="40"
+				MaxSpeed="40"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.5"
+				MaxTracersPerFrame="0.5"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXJapanTankProjectile_Veteran"
+				UseAdditiveBlending="true" >
+                <HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+                <TailColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+                <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+            </TracerModelDraw>
+			
+            <TracerModelDraw
+				id="ModuleTag_TracerModelDraw02"
+				MinLength="30.0"
+				MaxLength="30.0"
+				Width="15.0"
+				MinSpeed="40"
+				MaxSpeed="40"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				Texture="FXJapanTracer"
+				UseAdditiveBlending="true" >
+                <HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+                <TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+                <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+            </TracerModelDraw>
+            <TracerModelDraw
+				id="ModuleTag_TracerModelDrawVeterancy02"
+				MinLength="20.0"
+				MaxLength="20.0"
+				Width="15.0"
+				MinSpeed="40"
+				MaxSpeed="40"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.5"
+				MaxTracersPerFrame="0.5"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				Texture="FXJapanTankProjectile_Veteran"
+				UseAdditiveBlending="true" >
+                <HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+                <TailColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+                <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+            </TracerModelDraw>
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanGattlingVehicleWeapon"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="PsychicPartisanGattlingVehicleWeapon_AntiAircraft"/>
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="0d"
+						AllowsPitch="true"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="10.0"
+						MaxIdleScanAngle="90.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true">
+							<ObjectVisionRange
+					            id="ObjectVisionRange_Aircraft"
+					            Range="140">
+                                <Filter
+                                    Rule="ANY"
+                                    Include="INFANTRY VEHICLE AIRCRAFT SMALL_MISSILE"
+                                    StatusBitFlags="AIRBORNE_TARGET"/>
+                            </ObjectVisionRange>
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>				
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="JUGattlingVehicle_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+
+
+			<DestroyDie
+			id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanVehicleDie" />
+			</FXListBehavior>
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+			<SpecialPower
+				id="ModuleTag_SpecialPower"
+				SpecialPowerTemplate="SpecialPower_GattlingOverheat"
+				UpdateModuleStartsAttack="true"
+				AttributeModifier="AttributeModifier_PsychicPartisanGattlingOverheat"
+				AttributeModifierAffectsSelf="true"
+			/>
+			<SpecialAbilityUpdate
+				id="ModuleTag_SpecialAbilityUpdate"
+				SpecialPowerTemplate="SpecialPower_GattlingOverheat"
+				UnpackTime="0s"
+				Options="RECONSTITUTE_STORED_COMMAND"
+			/>
+			
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+			
+			<FireWeaponWhenDead
+				id="ModuleTag_GattlingVehicleDeathWeapon"
+				DeathWeapon="PsychicPartisanGattlingVehicleDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>
+            <!-- Enhanced Kamikaze Player Power -->
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+            <!-- -->
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="550" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_TeslaTank_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_EMDisruptors">
+				<ModelConditionSound Sound="SOV_TeslaTrooper_EMDisruptorsLoopMS" RequiredFlags="WEAPONSTATE_ONE" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_EMdisruptorsOn">
+				<Override RequiredFlags="WEAPONSTATE_ONE">
+					<AudioArrayVoice>
+						<AudioEntry Sound="SOV_TeslaTrooper_VoiceMoveSpecial" AudioType="voiceMove" />
+						<AudioEntry Sound="SOV_TeslaTrooper_VoiceAttackSpecial" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="21.6"
+				MinorRadius="14.4"
+				Height="12.0"
+				ContactPointGeneration="VEHICLE" />
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="PsychicPartisan_GattlingVehicle_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="SOV_TeslaTank_MoveLoopMS"
+				AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="SOV_TeslaTank_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="SOV_HammerTank_IdleLoop"
+				AudioType="soundAmbient" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+			<!-- <AudioEntry Sound="AudioEvent:MammothTankTurretMoveLoop" AudioType="soundTurretMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="310"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="20"
+			CrushableLevel="20"
+			CrushWeapon="SovietCrushWeapon"
+			CrushDecelerationPercent="80%" />
+	</GameObject>
+</AssetDeclaration>

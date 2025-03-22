@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:JUCombatFortress_skn.w3x" />
+		<Include
+			type="all"
+			source="ART:JUCombatFortress_idla.w3x" />
+		<Include
+			type="all"
+			source="ART:JUAntiVehicleVehicleTech1_TRANS.w3x" />
+			<Include
+			type="all"
+			source="ART:JUAntiVehicleVehicleTech1_TRANS2.w3x" />
+    <Include
+		type="all"
+		source="ART:JUAntiVehicleVehicleTech1_D.xml" />		
+    <Include
+		type="all"
+		source="ART:JUCombatFortress_D.xml" />		
+    <Include
+		type="all"
+		source="ART:JUFortressShip_D.xml" />	
+		<Include
+			type="all"
+			source="ART:JUCombatFortress_turret_d.xml" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<Include
+			type="all"
+			source="ART:FXInvisBone.w3x" />
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanCombatFortress"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_PsychicPartisanCombatFortress"
+		ButtonImage="Button_PsychicPartisanCombatFortress"
+		Side="PsychicPartisan"
+		SubGroupPriority="410"
+		EditorSorting="UNIT"
+		BuildTime="10"
+		CommandSet="PsychicPartisanCombatFortressCommandSet"
+		KindOf="PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE AMPHIBIOUS CAN_BE_FAVORITE_UNIT T2_UNIT TRANSPORT"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="PsychicPartisanCombatFortress"
+		Description="Desc:PsychicPartisanCombatFortress"
+		TypeDescription="Type:PsychicPartisanCombatFortress"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanCombatFortress</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1000"/>
+		</ObjectResourceInfo>
+		<GameDependency>
+			<RequiredObject>PsychicPartisanVIPBunker</RequiredObject>
+		</GameDependency>
+		<ArmorSet
+			Armor="JapanAntiVehicleVehicleTech1Armor"
+			DamageFX="VehicleDamageFX" />
+		<ArmorSet
+			Armor="JapanAntiVehicleVehicleTech1EnergizedArmor"
+			DamageFX="VehicleDamageFX"
+			Conditions="PLAYER_UPGRADE" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorTANK"
+			Condition="NORMAL"
+			Speed="75.0" />
+		<LocomotorSet
+			Locomotor="JapanAntiVehicleVehicleTech1_WaterLocomotor"
+			Condition="NORMAL"
+			Speed="75.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TankDraw
+				id="ModuleTag_Draw"
+
+				OkToChangeModelColor="true"
+					
+				InitialRecoilSpeed="0.5"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+								
+				ExtraPublicBone="Bone_Chassis FX_Muzzle01 FX_Muzzle02 FX_Muzzle03 FX_Muzzle04 FX_Muzzle05 FX_Muzzle06 Bone_Barrel02 Bone_Barrel01">
+
+					
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="JUCombatFortress_skn" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Bone_Barrel" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<Turret
+						TurretNameKey="Bone_Turret"
+						TurretPitch="Bone_TurretPitch"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JUCombatFortress_skn" />
+				</ModelConditionState>					
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED USER_5">
+					<Model
+						Name="JUCombatFortress_skn" />
+					<ParticleSysBone
+						BoneName="FXTracksB"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED USER_5">
+					<Model
+						Name="JUCombatFortress_skn" />
+					<Texture
+						Original="JUCombatFortress"
+						New="JUCombatFortress_D" />
+					<Texture
+						Original="JUFortressShip"
+						New="JUFortressShip_D" />
+					<Texture
+						Original="JUAntiVehicleVehicleTech1"
+						New="JUAntiVehicleVehicleTech1_D" />
+          <ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="USER_5">
+					<Model
+						Name="JUCombatFortress_skn"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="JUCombatFortress_skn" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="JUCombatFortress_skn" />
+					<Texture
+						Original="JUCombatFortress"
+						New="JUCombatFortress_D" />
+					<Texture
+						Original="JUFortressShip"
+						New="JUFortressShip_D" />
+					<Texture
+						Original="JUAntiVehicleVehicleTech1"
+						New="JUAntiVehicleVehicleTech1_D" />				
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+				</ModelConditionState>
+								
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="JUCombatFortress_idla"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>									
+
+			</TankDraw>
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+      <ScriptedModelDraw
+				id="ModuleTag_FX"
+        AttachToBoneInAnotherModule="Bone_Turret">
+        <!-- TEMPORARY Energized Armor FX -->
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6">
+					<Model
+						Name="FXInvisBone" />
+					
+					<ParticleSysBone
+						BoneName="invisbone01"
+						FXParticleSystemTemplate="JapanTankNano"
+						FollowBone="true" />
+				</ModelConditionState>
+				<!-- These blank states are here to prevent contrail drawing during Stratofighter 
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PACKING_TYPE_1 UNPACKING USER_1"/>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PACKING_TYPE_1 PACKING USER_1"/>-->
+			</ScriptedModelDraw>
+      <ScriptedModelDraw
+              id="ModuleTag_ParticlesDraw" >
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="FXInvisBone" />
+        </ModelConditionState>
+
+        <AnimationState
+					ParseCondStateType="PARSE_DEFAULT"/>
+
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER MOVING">
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="StingrayWaterWake"
+						FollowBone="false" />
+        </AnimationState>
+
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="SmallShipWakeIdle"
+						FollowBone="false" />
+        </AnimationState>
+
+      </ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<!-- This weapon is always around, but the weapon template itself prevents it
+							 from being able to be fired once it's upgraded. -->
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanCombatFortressCannon"/>
+					<TurretSettings
+						TurretTurnRate="480"
+						TurretPitchRate="360"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="90%"
+						MinIdleScanTime="1.0s"
+						MaxDeflectionClockwise="120d"
+						MaxDeflectionAntiClockwise="120d"
+						MaxIdleScanTime="6.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="360.0">
+                        <TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true">
+                        </TurretAITargetChooserData>
+                    </TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="JUCombatFortress_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanVehicleDie" />
+			</FXListBehavior>
+
+			<AutoHealBehavior
+				id="ModuleTag_ActiveArmorHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="0s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+	
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED NO_ATTACK"
+				ContainMax="5"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="true"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="false"
+				HealthRegenPercentPerSec="2"
+				ConditionForEntry="INVALID">
+				<PassengerFilter
+					Rule="ANY"
+					Include="INFANTRY" />
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+				<PassengerData
+					BonePrefix="NONE">
+					<Filter
+						Rule="NONE"
+						Include="INFANTRY" />
+				</PassengerData>
+			</TransportContain>
+			
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+			<!-- -->
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="900" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MoveLoop">
+				<ModelConditionSound Sound="Tank_Land_MoveLoop" RequiredFlags="MOVING" ExcludedFlags="OVER_WATER DYING" />
+				<ModelConditionSound Sound="SOV_Bullfrog_MoveLoopWaterMS" RequiredFlags="MOVING OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="JAP_Tsunami_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_WaterSounds">
+				<Override RequiredFlags="OVER_WATER">
+					<AudioArrayVoice>
+						<AudioEntry Sound="JAP_TsunamiTank_Water_VoiceSelectMS" AudioType="voiceSelect" />
+						<AudioEntry Sound="JAP_TsunamiTank_Water_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+						<AudioEntry Sound="JAP_TsunamiTank_Water_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+					</AudioArrayVoice>
+					<AudioArraySound>
+						<AudioEntry Sound="JAP_Tsunami_MoveStartWater" AudioType="soundMoveStart" />
+					</AudioArraySound>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<AnimationSoundClientBehavior id="AnimationSoundCB" >
+				<Sound Sound="JAP_MCV_Animation_WTRANS1_1" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleVehicleTech1_TRANS" Frame="18" />	
+				<Sound Sound="JAP_MCV_Animation_WTRANS1_2" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleVehicleTech1_TRANS" Frame="31" />	
+				<Sound Sound="JAP_MCV_Animation_WTRANS2_1" RequiredMC="OVER_WATER" Animation="JUAntiVehicleVehicleTech1_TRANS" Frame="17" />	
+				<Sound Sound="JAP_MCV_Animation_WTRANS2_2" RequiredMC="OVER_WATER" Animation="JUAntiVehicleVehicleTech1_TRANS" Frame="1" />	
+			</AnimationSoundClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="28.0"
+				MinorRadius="15.0"
+				Height="16.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="2.0"
+					y="0.0"
+					z="0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_TsunamiTank_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_TsunamiTank_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_TsunamiTank_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="JAP_TsunamiTank_VoiceMoveToLand" AudioType="voiceMoveWaterToLand" />
+			<AudioEntry Sound="JAP_TsunamiTank_VoiceMoveToWater" AudioType="voiceMoveLandToWater" />
+			<AudioEntry Sound="JAP_TsunamiTank_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="JAP_TsunamiTank_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="JAP_TsunamiTank_Land_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_TsunamiTank_Land_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="JAP_TsunamiTank_Land_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> 
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="JAP_Tsunami_MoveStartLand"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<!-- <AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+	<CrusherInfo 
+			CrushableLevel="20" 
+			CrusherLevel="20" 
+			CrushDecelerationPercent="80%">
+	<ExtraCrushLevels CrusherLevel="1" CrushableLevel="20" ModelConditionMatch="OVER_WATER"/>	
+	</CrusherInfo>
+	</GameObject>
+
+	<GameObject
+		id="PsychicPartisanCombatFortress_Naval"
+		inheritFrom="PsychicPartisanCombatFortress"
+		EditorName="PsychicPartisanCombatFortress_Naval"
+		ProductionQueueType="WATERCRAFT">
+		<EquivalentTo>PsychicPartisanCombatFortress</EquivalentTo>
+	</GameObject>
+	
+</AssetDeclaration>

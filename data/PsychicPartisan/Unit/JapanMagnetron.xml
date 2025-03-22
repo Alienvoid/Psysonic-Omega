@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="all"
+			source="ART:JUMagnetron_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:JUMagnetron_IDLA.w3x" />
+		<Include
+			type="all"
+			source="ART:JUMagnetron_D.xml" />
+		<Include
+			type="all"
+			source="ART:JUMagnetron_Turret_D.xml" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka The Tesla Tank -->
+	<GameObject
+		id="JapanMagnetron"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_JapanMagnetron"
+		ButtonImage="Button_JapanMagnetron"
+		Side="Japan"
+		SubGroupPriority="20"
+		EditorSorting="UNIT"		
+		BuildTime="13"
+		CommandSet="JapanMagnetronCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="JapanMagnetron"
+		Description="Desc:JapanMagnetron"
+		TypeDescription="Type:JapanMagnetron"
+		HealthBoxHeightOffset="25">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanMagnetron</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_PsychicPartisanTech2</NeededUpgrade>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiVehicleVehicleTech2Armor"
+			DamageFX="VehicleDamageFX" />
+		<!-- 25% faster than the apoc tank -->
+		<LocomotorSet
+			Locomotor="JapanMagnetronLocomotor"
+			Condition="NORMAL"
+			Speed="75" />
+    <LocomotorSet
+      id="DefaultWaterLocomotor"
+			Locomotor="JapanMagnetronWaterLocomotor"
+			Condition="NORMAL"
+			Speed="75" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TankDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="FX_Damage01 FX_Laser01 FX_Laser02">
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="JUMagnetron_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Laser" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_Laser" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_Laser" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Laser" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_Laser" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_Laser" />
+					<Turret
+						TurretNameKey="TURRET"
+						TurretID="1" />
+						
+					<ParticleSysBone
+						BoneName="FX_Laser01"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Spark"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Laser01"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Glow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Laser02"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Spark"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Laser02"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Glow"
+						FollowBone="true" />
+					
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JUMagnetron_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="JUMagnetron_SKN" />
+					<Texture
+						Original="JUMagnetron"
+						New="JUMagnetron_D" />
+					<Texture
+						Original="JUMagnetron_Turret"
+						New="JUMagnetron_Turret_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+						
+					<ParticleSysBone
+						BoneName="FX_Laser01"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Spark"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Laser01"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Glow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Laser02"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Spark"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Laser02"
+						FXParticleSystemTemplate="JAP_Mgtron_TB_Glow"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="JUMagnetron_SKN" />
+				</ModelConditionState>
+				<!-- short circuit -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WEAPONSTATE_ONE">
+					<Model
+						Name="JUMagnetron_SKN" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JAP_MentalSup_End"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JAP_MentalSup_ring"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED WEAPONSTATE_ONE">
+					<Model
+						Name="JUMagnetron_SKN" />
+					<Texture
+						Original="JUMagnetron"
+						New="JUMagnetron_D" />
+					<Texture
+						Original="JUMagnetron_Turret"
+						New="JUMagnetron_Turret_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JAP_MentalSup_End"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="JAP_MentalSup_ring"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="JUMagnetron_IDLA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2"
+						AnimationBlendTime="8"/>
+				</AnimationState>
+			</TankDraw>
+			
+			
+			<LaserDraw
+				id="ModuleTag_LaserDrawOuter"
+				Texture1_UTile="1"
+				Texture1_VTile="1.3"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-0.8"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXHarpoonBeam</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXCloud01</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>1.000000</Value>
+              <Value>3.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDrawMid"
+				Texture1_UTile="1"
+				Texture1_VTile="1.2"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-1"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.5"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-1.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="10"
+				WeaponSlotID="1"
+				LaserStateID="1">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXHarpoonBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXCloud01</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>1.000000</Value>
+              <Value>3.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDrawInner"
+				Texture1_UTile="1"
+				Texture1_VTile="1.25"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-1.3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".9"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-1.5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="12"
+				WeaponSlotID="1"
+				LaserStateID="1">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXHarpoonBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXCloud01</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>1.000000</Value>
+              <Value>3.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+	  
+	  
+			<LaserDraw
+				id="ModuleTag_LaserDrawOuter2"
+				Texture1_UTile="1"
+				Texture1_VTile="1.3"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-0.8"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				WeaponSlotID="1"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXHarpoonBeam</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXCloud01</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>1.000000</Value>
+              <Value>3.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDrawMid2"
+				Texture1_UTile="1"
+				Texture1_VTile="1.2"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-1"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.5"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-1.3"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="10"
+				WeaponSlotID="1"
+				LaserStateID="2">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXHarpoonBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXCloud01</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>1.000000</Value>
+              <Value>3.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDrawInner2"
+				Texture1_UTile="1"
+				Texture1_VTile="1.25"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-1.3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".9"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-1.5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="12"
+				WeaponSlotID="1"
+				LaserStateID="2">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXHarpoonBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXCloud01</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>3.000000</Value>
+              <Value>1.000000</Value>
+              <Value>3.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawSoviet.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanMagnetronPsysonicMagneticBeam" 
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="JapanMagnetronPsysonicMagneticBeam_AntiStructure" 
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>
+					<!--<Weapon
+						Ordering="TERTIARY_WEAPON"
+						Template="JapanMagnetronPsysonicMagneticBeamLifter"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/> -->
+					<TurretSettings
+						TurretTurnRate="360"
+						TurretPitchRate="20"
+						AllowsPitch="true"
+						PitchHeight="99%"
+						MinimumPitch="-20d"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="10.0"
+						MaxIdleScanAngle="90.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>				
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			
+			<OCLSpecialPower
+				id="ModuleTag_BombingRun"
+				SpecialPowerTemplate="SpecialPowerMagnetronLift"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_JapanMagneticLifter"				
+				CreateLocation="USE_SECONDARY_OBJECT_LOCATION">
+				<NearestSecondaryObjectFilter
+					Relationship="SAME_PLAYER">
+					<IncludeThing>SovietConstructionYard</IncludeThing>
+				</NearestSecondaryObjectFilter>
+			</OCLSpecialPower>
+			<OCLMonitorUpdate
+				id="ModuleTag_BombingRunMonitor"
+				Options="MASTER RELEASE_WHEN_MASTER_CHANGES_TARGET"				
+				/>
+			<LaserState
+				id="ModuleTag_LaserState01"
+				LaserId="1"
+				OriginBoneName="FX_Laser01"
+				>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_End</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_End02</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_End03</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_Light</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_Glow03</LaserEndParticleSystem>
+			</LaserState>
+			<LaserState
+				id="ModuleTag_LaserState02"
+				LaserId="2"
+				OriginBoneName="FX_Laser02"
+				>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_End</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_End02</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_End03</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_Light</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JAP_Mgtron_TB_Glow03</LaserEndParticleSystem>
+			</LaserState>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="JUMagnetron_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+
+
+			<DestroyDie
+			id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_SovietShipVehicleDie" />
+				<Event
+					Index="onDeath"
+					FX="FX_LargeBuildingDieExplosionRumble" />
+			</FXListBehavior>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+			<!-- The special power that is used by the weapon -->
+			<SpecialPower
+				id="ModuleTag_WeaponScrambler"
+				SpecialPowerTemplate="SpecialPower_WeaponScrambler"
+				TriggerFX="FX_None"
+				UpdateModuleStartsAttack="false" />
+			<GrapplingHookUpdate
+				id="ModuleTag_GrapplingHook"
+				PullRate="80.0"
+				MinBounceDelay="0.25s"
+				MaxBounceDelay="0.5s"
+				BouncePercentage="5%"
+				SingleFireWeapon="DummyWeaponWarhead"
+				ContinuousFireWeapon="DummyWeaponWarhead"
+				ContinuousFireWeaponDelay="0.25s">
+				<ObjectStatusValidation
+					ForbiddenStatus="GENERIC_TOGGLE_STATE"/>
+				<KeepAliveObjectFilter
+					Rule="ANY"
+					Include="VEHICLE TIME_BOMB"
+				/>
+			</GrapplingHookUpdate>
+			
+			<LiftObjectUpdate
+				id="ModuleTag_PsyonicCrushLiftUpdate"
+				CrusherModifiesVelocity="false"
+				LiftVelocity="45.0"
+				MaxElevationFromGround="45.0"
+				TimeIncrement="0.3s"
+				MaxTimeLifted="8.0s"
+				MaxStructureShakeVelocity="0.25"
+			/>
+			
+			<SpecialPower
+				id="ModuleTag_ToggleShortCircuit"
+				SpecialPowerTemplate="SpecialPower_ToggleMentalSuppression"
+				UpdateModuleStartsAttack="true" />
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleShortCircuitUpdate"
+				SpecialPowerTemplate="SpecialPower_ToggleMentalSuppression"
+				Options="RECONSTITUTE_STORED_COMMAND">
+
+				<ToggleState>
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT"
+						OnlyUseWhenHaveTarget="true"
+						MaxZDifferenceFromTarget="20.0"
+						NeverUseInState="RETREAT"
+						NeverUseWhenTargetIsAnyKindOf="INFANTRY AIRCRAFT"
+						NumOtherAttackersOnTarget="0">
+					</SkirmishAiInfo>
+				</ToggleState>
+
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE"
+					ModelConditions="WEAPONSTATE_ONE">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_AOE_ATTACK">
+						<StateWeapon
+							Weapon="JapanMagnetronMentalSuppression"
+							AoeAttackEmanationLocation="EMANATE_FROM_SELF"
+							IsDisablingAttack="true"
+							AffectsFriendlies="true"
+							AffectsSelf="false"/>
+					</SkirmishAiInfo>
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>
+			
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.13s"
+				AliveOnly="true"
+				ActiveWhenDisabled="HELD">
+				<FireWeaponNugget
+					WeaponName="JapanMagnetronMentalSuppression"
+					OneShot="false" />
+				<ObjectStatusValidation
+					RequiredStatus="GENERIC_TOGGLE_STATE" />
+			</FireWeaponUpdate>
+
+			<xi:include
+				href="DATA:Includes/SovietCrushUpgradePlayerPower.xml" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_EMDisruptors">
+				<ModelConditionSound Sound="SOV_TeslaTrooper_EMDisruptorsLoopMS" RequiredFlags="WEAPONSTATE_ONE" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="20.0"
+				MinorRadius="14.0"
+				Height="12.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="-7.0"
+					y="0.0"
+					z="0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_Magnetron_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_Magnetron_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_Magnetron_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="JAP_Magnetron_VoiceAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="JAP_Magnetron_VoiceSelect" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="JAP_Magnetron_VoiceSelect" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_Magnetron_VoiceSelect" AudioType="voiceSelectBattle" />
+			<!-- <AudioEntry Sound="SOV_TeslaTank_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> -->
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="SOV_TeslaTank_MoveLoopMS"
+				AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="SOV_TeslaTank_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="SOV_HammerTank_IdleLoop"
+				AudioType="soundAmbient" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+			<!-- <AudioEntry Sound="AudioEvent:MammothTankTurretMoveLoop" AudioType="soundTurretMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="610"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="50"
+			CrushableLevel="50"
+			CrushWeapon="DummyWeaponWarhead"
+			CrushDecelerationPercent="0%">
+		</CrusherInfo>
+	</GameObject>
+</AssetDeclaration>

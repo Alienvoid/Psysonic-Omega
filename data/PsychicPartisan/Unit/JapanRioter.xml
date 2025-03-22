@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="instance" source="ART:FXLaserStandard.xml" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_SKN.w3x" />
+		<Include type="all" source="ART:NUS_INFANTRYW_AIDA.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_AIFA.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_AIFB.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_AIFC.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_AIFD.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_AIFE.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_ATKA.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_ATKB.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_BATA.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_DIEA.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_DIEB.w3x" />
+		<Include type="all" source="ART:NUS_INFANTRYW_DIEC.w3x" />
+		<Include type="all" source="ART:NUS_INFANTRYW_DIED.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_RUNA.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_RUNB.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_RUNC.w3x" />
+		<Include type="all"	source="ART:NUS_INFANTRYW_FLYA.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+		<Include type="all"	source="ART:Decal_Psysonic.xml" />
+
+
+    <!-- FX Includes -->
+    <Include type="all"	source="ART:FXTracer.xml" />
+    <Include type="all"	source="ART:FXTracerHeroic.xml" />
+
+    <!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<!-- aka The Peacekeeper -->
+	<GameObject
+		id="JapanRioter"
+		Scale="0.6"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_JapanRioter"
+		ButtonImage="Button_JapanRioter"
+		Side="Japan"
+		SubGroupPriority="360" 
+		EditorSorting="UNIT"	
+		BuildTime="1"
+		CommandSet="JapanRioterCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="104"
+		EditorName="JapanRioter"
+		Description="Desc:JapanRioter"
+		TypeDescription="Type:JapanRioter"
+		UnitTypeIcon="RioterIcon"
+		HealthBoxHeightOffset="33">
+
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanRioter</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="150"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedLegionnaireInfantryArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="50" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="NUS_INFANTRYW_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fxweapon" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fxweapon" />
+					<ParticleSysBone
+						BoneName="fx_molotov"
+						FXParticleSystemTemplate="Soviet_Mol_PropFX"
+						FollowBone="true" />
+          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_1">
+					<Model
+						Name="NPSkeleton_SKN" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Model
+						Name="NPRadiation" />
+						<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="RadiationPuddle"
+						FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationSplash"
+            FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationLightSmall"
+            FollowBone="true" />          
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_bored"
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="NUS_INFANTRYW_AIFC"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="100"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="NUS_INFANTRYW_AIFD"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					<Animation
+						AnimationName="NUS_INFANTRYW_AIFE"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"
+						AnimationPriority="10"/>
+					
+				</AnimationState>
+			
+				<!-- meta impact anims -->
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_FLAILING"
+					StateName="STATE_stunned_flailing">
+					<Animation
+						AnimationName="NUS_INFANTRYW_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED">
+					<Animation
+						AnimationName="NUS_INFANTRYW_FLYA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+          <Animation
+						AnimationName="NUS_INFANTRYW_FLYA"
+						AnimationMode="ONCE" 
+						AnimationSpeedFactorMin="1.0"
+						AnimationSpeedFactorMax="1.0"/>
+          <!-- Shared Particle Systems -->
+          <ParticleSysBone
+						BoneName="none"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetLight"
+						FollowBone="true" />
+          <!-- FX_Jet1 Particle Systems -->
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetTrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSmoke"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="fxjumpjet01"
+						FXParticleSystemTemplate="AlliedLegionnaireLeapJetSparkles"
+						FollowBone="true" />
+          <Script>
+            CurDrawableShowSubObjectPermanently("fxjumpjet01")
+          </Script>
+        </AnimationState>
+
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5 OVER_WATER">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				<!-- radiation death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Animation
+						AnimationName="NPRadiation_DIEA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+					<!-- dying when running -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING_WASMOVING">
+					<Animation
+						AnimationName="NUS_INFANTRYW_DIEC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+
+				<!-- default death -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="NUS_INFANTRYW_DIEA"
+						AnimationMode="ONCE" />
+						<Animation
+						AnimationName="NUS_INFANTRYW_DIEB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				
+				
+				<AnimationState
+					  ParseCondStateType="PARSE_NORMAL"
+					  ConditionsYes="MOVING FIRING_A"
+					  Flags="RANDOMSTART">
+					<Animation
+						AnimationName="NUS_INFANTRYW_RUNA"
+						AnimationMode="LOOP"
+						Distance="75" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					StateName="STATE_Run"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="NUS_INFANTRYW_RUNA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"
+						Distance="40" />
+					<Animation
+						AnimationName="NUS_INFANTRYW_RUNB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"
+						Distance="40" />
+					<Animation
+						AnimationName="NUS_INFANTRYW_RUNC"
+						AnimationMode="LOOP"
+						AnimationBlendTime="10"
+						Distance="40" />
+				</AnimationState>
+				
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A">
+					<Animation
+						AnimationName="NUS_INFANTRYW_ATKA"
+						AnimationMode="LOOP" />
+					<Animation
+						AnimationName="NUS_INFANTRYW_ATKB"
+						AnimationMode="LOOP" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="RELOADING_A">
+					<Animation
+						AnimationName="NUS_INFANTRYW_AIDA"
+						AnimationMode="MANUAL" />
+				</AnimationState>
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Selected">
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="NUS_INFANTRYW_AIDA"
+						AnimationMode="ONCE"
+						AnimationPriority="100"
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="NUS_INFANTRYW_AIFA"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="NUS_INFANTRYW_AIFB"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+					<!--<Animation
+						AnimNickName="ATNB"
+						AnimationName="NUS_INFANTRYW_AIFC"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="NUS_INFANTRYW_AIFD"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />
+					<Animation
+						AnimNickName="ATNB"
+						AnimationName="NUS_INFANTRYW_AIFE"
+						AnimationMode="ONCE"
+						AnimationPriority="10"
+						AnimationBlendTime="15"
+						AnimationMustCompleteBlend="true" />-->
+
+				</AnimationState>
+				
+
+
+				<!--<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_boredToAttention">
+					<Animation
+						AnimationName="NUS_INFANTRYW_BATA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				
+
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="NUS_INFANTRYW_BATA"
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>-->
+
+
+				
+			</ScriptedModelDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawJapan.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+				
+			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanRioterMolotovCocktail"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED IRRADIATED ERASED"/>
+                <Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+            </SlowDeath>
+     
+            <SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="LASERED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ELECTROCUTED BURNED STABBED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ELECTROCUTED LASERED STABBED IRRADIATED ERASED"/>
+                <Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDieFire" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED IRRADIATED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ELECTROCUTED LASERED BURNED STABBED ERASED"/>
+				<Sound Type="INITIAL" List="ALL_PeaceKeeper_VoiceDie" />
+			</SlowDeath>
+
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+		
+			<SpecialPower
+				id="ModuleTag_PsyonicBlast"
+				SpecialPowerTemplate="SpecialPower_EnhanceDrug"
+				UpdateModuleStartsAttack="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_EnhanceDrug"
+				SpecialWeapon="AlliedEnhanceDrugWeapon"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="0s"/>
+			
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_JapanFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>	
+			<AttributeModifierAuraUpdate
+					id="ModuleTag_AttributeModifierAuraUpdate"
+					AttributeModifierName="JapanRioter_AttributeModifier"
+			   		RefreshDelay="1.0s"
+			 		Range="5"
+					AllowSelf="true"
+					InitiallyActive="true">
+					<ObjectFilter
+       					Rule="NONE">
+						<IncludeThing>JapanRioter</IncludeThing>
+					</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.5s">
+				<FireWeaponNugget
+					WeaponName="JapanRioterDummyWeapon"
+					FireDelay="0.1s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanRioterDeathWeapon"
+				DeathWeapon="JapanRioterDemoralizeEffectTrigger"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					RotateToTargetWhenAiming="true"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="100.0" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="ALL_PeaceKeeper_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="ALL_PeaceKeeper_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="RiotShieldOnVoices">
+				<Override RequiredFlags="USER_6">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_PeaceKeeper_VoiceMoveShield" AudioType="voiceMove" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceCreate"
+				AudioType="voiceFullyCreated" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceGarrison"
+				AudioType="voiceGarrison" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceRetreat"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="NOD_RifleMilitant_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+		</AudioArrayVoice>
+<!--
+		<AudioArraySound>
+			<AudioEntry Sound="AudioEvent:TEMP_PredatorMoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="AudioEvent:PredatorAmbientLoop" AudioType="soundAmbient" />
+		</AudioArraySound>
+-->
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"/>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="10"
+			CrusherLevel="0"
+		/>
+	</GameObject>
+</AssetDeclaration>

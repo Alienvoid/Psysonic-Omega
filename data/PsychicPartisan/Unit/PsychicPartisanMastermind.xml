@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:Japan/Unit/JapanMastermind.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanMastermind"
+		inheritFrom="JapanMastermind"
+		Side="PsychicPartisan"
+		EditorSorting="UNIT"
+		EditorName="JapanMastermind"
+		Description="Desc:JapanMastermind"
+		TypeDescription="Type:JapanMastermind">
+		<EquivalentTo>JapanMastermind</EquivalentTo>
+		<GameDependency
+			xai:joinAction="Replace">
+			<RequiredObject>PsychicPartisanTechStructure</RequiredObject>
+		</GameDependency>
+	
+	</GameObject>
+</AssetDeclaration>

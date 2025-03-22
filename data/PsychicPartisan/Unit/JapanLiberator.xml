@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xai="uri:ea.com:eala:asset:instance"  xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:juliberator_skn.w3x" />
+		<Include type="all"	source="ART:juliberator_IDLA.w3x" />
+		<Include type="all"	source="ART:juliberator_MOVA.w3x" />
+		<Include type="all"	source="ART:juliberator_MOVB.w3x" />
+		<Include type="all"	source="ART:juliberator_fp.w3x" />	
+		<Include type="all"	source="ART:exliberatorshield.w3x" />	
+		<Include type="all"	source="ART:juliberator_D.xml" />
+		<Include
+			type="all"
+			source="ART:FXJapanLaser.xml" />
+		<Include
+			type="all"
+			source="ART:FXLaserJapanOverlay.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka Hind aka Twinblade -->
+	<GameObject
+		id="JapanLiberator"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_JapanLiberator"
+		ButtonImage="Button_JapanLiberator"
+		Side="Japan"
+		SubGroupPriority="720"
+		EditorSorting="UNIT"
+		TransportSlotCount="20"
+		BuildTime="20"
+		CommandSet="JapanLiberatorCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE FIGHTER_AIRCRAFT SCORE AIRCRAFT VEHICLE ASSAULT_AIRCRAFT LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LIMITED_PRODUCTION_AIRCRAFT"
+		RadarPriority="UNIT"
+		ProductionQueueType="AIRCRAFT"
+		ThreatLevel="10"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="JapanLiberator"
+		Description="Desc:JapanLiberator"
+		TypeDescription="Type:JapanLiberator"
+		HealthBoxHeightOffset="35">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanLiberator</DisplayName>
+		<GameDependency>
+			<NeededUpgrade>Upgrade_JapanAirPortTech3</NeededUpgrade>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiGroundAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />
+		<LocomotorSet
+			Locomotor="JapanLiberatorLocomotor"
+			Condition="NORMAL"
+			Speed="150.0" />
+
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FX_WEAPON Turret01 NUARMAG_SK">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="juliberator_skn" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<!--Tertiary weapon is Rocketpod-->
+					<Turret
+						TurretNameKey="Turret01"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="juliberator_FP" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="juliberator_SKN" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="HelicopterMovingWaterWake"
+						FollowBone="false" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="juliberator_SKN" />
+					<Texture
+						Original="juliberator"
+						New="juliberator_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED OVER_WATER">
+					<Model
+						Name="juliberator_SKN" />
+					<Texture
+						Original="juliberator"
+						New="juliberator_D" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="HelicopterMovingWaterWake"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="juliberator_SKN" />
+					<Texture
+						Original="juliberator"
+						New="juliberator_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="ChopperDamageFire"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED OVER_WATER">
+					<Model
+						Name="juliberator_SKN" />
+					<Texture
+						Original="juliberator"
+						New="juliberator_D" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="HelicopterMovingWaterWake"
+						FollowBone="false" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="ChopperDamageFire"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="juliberator_IDLA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				<ParticleSysBone
+					BoneName="FX_ENGINE01"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+				<ParticleSysBone
+					BoneName="FX_ENGINE02"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+				</AnimationState>
+
+			    <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BACKING_UP MOVING">
+					<Animation
+						AnimationName="juliberator_MOVB"
+						AnimationMode="LOOP" 
+						AnimationBlendTime="15"/>
+                  <ParticleSysBone
+                    BoneName="FX_ENGINE01"
+                    FXParticleSystemTemplate="JapanTenguFlyGlow"
+                    FollowBone="true"/>
+				<ParticleSysBone
+					BoneName="FX_ENGINE01"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+                  <ParticleSysBone
+                    BoneName="FX_ENGINE02"
+                    FXParticleSystemTemplate="JapanTenguFlyGlow"
+                    FollowBone="true"/>
+				<ParticleSysBone
+					BoneName="FX_ENGINE02"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+					<Animation
+						AnimationName="juliberator_MOVA"
+						AnimationMode="LOOP" 
+						AnimationBlendTime="15"/>
+                  <ParticleSysBone
+                    BoneName="FX_ENGINE01"
+                    FXParticleSystemTemplate="JapanTenguFlyGlow"
+                    FollowBone="true"/>
+				<ParticleSysBone
+					BoneName="FX_ENGINE01"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+                  <ParticleSysBone
+                    BoneName="FX_ENGINE02"
+                    FXParticleSystemTemplate="JapanTenguFlyGlow"
+                    FollowBone="true"/>
+				<ParticleSysBone
+					BoneName="FX_ENGINE02"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+				</AnimationState>
+				
+
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A USER_2">
+          <Animation
+						AnimationName="juliberator_IDLA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Light_Vet"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Charge_Vet"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Hit_Vet"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Glow_Vet"
+						FollowBone="true" />
+						
+				<ParticleSysBone
+					BoneName="FX_ENGINE01"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+				<ParticleSysBone
+					BoneName="FX_ENGINE02"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+        </AnimationState>
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREATTACK_A">
+          <Animation
+						AnimationName="juliberator_IDLA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Light"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Charge"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Hit"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="FX_Weapon01"
+						FXParticleSystemTemplate="WaveForce_Glow"
+						FollowBone="true" />
+				<ParticleSysBone
+					BoneName="FX_ENGINE01"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+				<ParticleSysBone
+					BoneName="FX_ENGINE02"
+					FXParticleSystemTemplate="AllianceSmallFireDistortion"
+					FollowBone="true" />
+        </AnimationState>
+  			<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WALKING">
+					<Animation
+						AnimationName="juliberator_IDLA"
+						AnimationMode="MANUAL"
+						AnimationBlendTime="15" />
+				</AnimationState>
+
+			</ScriptedModelDraw>
+			
+			
+			<ScriptedModelDraw
+				id="ModuleTag_DrawShield"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6">
+					<Model
+						Name="exliberatorshield" />
+				</ModelConditionState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+
+			</ScriptedModelDraw>
+
+      <LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".5"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".7"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s" 
+				FadeOutTime="0.25s"
+				LaserWidth="30"
+				LaserStateID="401">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXJapanLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>4.000000</Value>
+              <Value>4.000000</Value>
+              <Value>4.000000</Value>
+            </Float>
+          </Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />						
+			</LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".9"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".4"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s"
+				FadeOutTime="0.5s"
+				LaserWidth="30"
+				LaserStateID="401">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>5.000000</Value>
+              <Value>5.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />
+      </LaserDraw>
+      
+      <!-- VETERAN LASERS -->
+      <LaserDraw
+				id="ModuleTag_LaserDraw_Veteran"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".5"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".7"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s"
+				FadeOutTime="0.25s"
+				LaserWidth="30"
+				LaserStateID="401">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXLaserOverlay</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>4.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_02" />
+      </LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDraw_Veteran"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".9"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".4"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s"
+				FadeOutTime="0.5s"
+				LaserWidth="30"
+				LaserStateID="401">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_02" />
+      </LaserDraw>
+			
+      <LaserDraw
+				id="ModuleTag_AntiInfantryLaserDraw3"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".02"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".25"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="6"
+				LaserStateID="1">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXLaserStandard</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>EXAlliedTargetLaserGrad</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>2.000000</Value>
+              <Value>2.000000</Value>
+              <Value>2.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+		</Draws>
+		
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanLiberatorBeamWeapon"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE" />
+					<!--<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="JapanLiberatorTargetedLaser"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>-->
+					<TurretSettings
+						TurretTurnRate="200"
+						AllowsPitch="false"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="0.0">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<!-- gravity mult of 30 is temporary -->
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+
+      <LaserState
+				id="ModuleTag_LaserState"
+				LaserId="401" >
+        <LaserEndParticleSystem>JapanOniLaserHitFlash</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitLight</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitMolt</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitSpark</LaserEndParticleSystem>
+      </LaserState>
+	  
+		<ConvergingLaserState
+				id="ModuleTag_SweepLaserState"
+				Radius="100.0"
+				LaserId="1"
+				AngleRotation="5d"
+				ConvergingAngle="5d" 
+				ModelConditions="FIRING_OR_PREATTACK_A" 
+				Lifetime="4.0s">
+        <LaserStartParticleSystem>Allied_Target_Laser</LaserStartParticleSystem>
+        <LaserEndParticleSystem>Allied_Orbital_LaserEnd</LaserEndParticleSystem>
+      </ConvergingLaserState>
+      <!--<LaserState
+        id="ModuleTag_LaserState"                                
+        LaserId="1"
+		OriginBoneName="FX_WEAPON" >
+        <LaserEndParticleSystem>Allied_Orbital_LaserEnd</LaserEndParticleSystem>
+      </LaserState>-->
+
+			<!--<ChargeWeaponUpdate
+				id="ModuleTag_ChargeWeapon"
+				ChargeTime="5.0s"
+				OverChargeTime="2.0s"
+				OverChargePercent="40%">
+				<ObjectStatusValidation
+					ForbiddenStatus="IS_FIRING_WEAPON IS_RELOADING_WEAPON"/>
+			</ChargeWeaponUpdate>-->
+
+			<PrematureDischargeSpecialPower
+				id="ModuleTag_FireKiCannonSpecialPower"
+				SpecialPowerTemplate="SpecialPower_JapanBaseDefenseAdvanced_FireKiCannon"/>
+
+            <CreateObjectDie
+				id="ModuleTag_AirDeath"
+				CreationList="JULiberator_Dying_OCL">
+                <DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+                <UpgradeForbidden>Upgrade_JapanEnhancedKamikaze</UpgradeForbidden>
+            </CreateObjectDie>
+
+            <CreateObjectDie
+				id="ModuleTag_AirKamikazeDeath"
+				CreationList="JULiberator_EnhancedKamikaze_Dying_OCL">
+                <DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+                <UpgradeRequired>Upgrade_JapanEnhancedKamikaze</UpgradeRequired>
+            </CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_TwinbladeDie" />
+			</FXListBehavior>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			
+			<AutoHealBehavior
+				id="ModuleTag_ActiveArmorHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="0s"
+				HealingAmount="3"
+				HealingDelay=".25s">
+				<ObjectStatusValidation
+					RequiredStatus="GENERIC_TOGGLE_STATE" />
+			</AutoHealBehavior>
+			
+			<ActivateModuleSpecialPower
+				id="ModuleTag_SpecialPower"
+				SpecialPowerTemplate="SpecialPower_ToggleEnergizedArmor"
+				UpdateModuleStartsAttack="true"
+				AttributeModifier="AttributeModifier_JapanLiberatorShield"
+				AttributeModifierAffectsSelf="true">
+				<Modules
+					ModuleId="ModuleTag_ActiveArmorHeal"
+					TriggerAtTargetPosition="false"
+					TriggerType="SELF_POSITION" />
+			</ActivateModuleSpecialPower>
+			<SpecialAbilityUpdate
+				id="ModuleTag_SpecialAbilityUpdate"
+				SpecialPowerTemplate="SpecialPower_ToggleEnergizedArmor"
+				Options="RECONSTITUTE_STORED_COMMAND"
+			/>
+			
+			<ReturnToProducerSpecialPower
+				id="ModuleTag_ReturnToProducerSpecialPower"
+				SpecialPowerTemplate="SpecialPowerReturnToProducer"
+				AttributeModifier="AttributeModifier_ReturnToBase"
+				AttributeModifierAffectsSelf="true"
+				SetModelCondition="USER_1"
+				SetModelConditionTime="30s"/>
+      <TrackIncomingWeaponFireBehavior
+				id="TrackIncomingWeaponFireForEnergizedArmor" />
+      <TrackDamage
+				id="TrackDamageForEnergizedArmor"
+				TimeToTrack="2s"
+				InstantWeaponsOnly="true" />
+			
+            <!-- Enhanced Kamikaze Player Power -->
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+            <xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+            <!-- -->
+		</Behaviors>
+		<AI>
+			<!-- This should really be a 'AIUpdate' but there are some small issues. -->
+			<JetAIUpdate
+				id="ModuleTag_JetAIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				KeepsParkingSpaceWhenAirborne="true"
+				OutOfAmmoDamagePerSecond="1.5"
+				ReturnToBaseWhenVictimDead="true"
+				StateMachine="HelicopterAIStateMachine">
+				<UnitAITargetChooserData 
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1200" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_Flying">
+				<ModelConditionSound Sound="SOV_Hind_MoveLand" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="SOV_Hind_MoveLift" RequiredFlags="TAKING_OFF" />
+				<ModelConditionSound Sound="SOV_Hind_MoveLoop" RequiredFlags="FLYING MOVING" ExcludedFlags="DAMAGED REALLYDAMAGED DYING" />
+				<ModelConditionSound Sound="SOV_Hind_MoveDamagedLoop" RequiredFlags="FLYING MOVING DAMAGED" ExcludedFlags="REALLYDAMAGED DYING" />
+				<ModelConditionSound Sound="SOV_Hind_MoveReallyDamagedLoop" RequiredFlags="FLYING MOVING REALLYDAMAGED" ExcludedFlags="DAMAGED DYING" />
+				<ModelConditionSound Sound="SOV_Hind_IdleLoop" RequiredFlags="FLYING" ExcludedFlags="DAMAGED REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Hind_IdleDamagedLoop" RequiredFlags="FLYING DAMAGED" ExcludedFlags="REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Hind_IdleReallyDamagedLoop" RequiredFlags="FLYING REALLYDAMAGED" ExcludedFlags="DAMAGED MOVING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="45.0"
+				MinorRadius="45.0"
+				Height="15.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="-4" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Twinblade_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_Hind_MoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="SOV_Hind_MoveLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<VisionInfo
+			VisionRange="910"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+</AssetDeclaration>

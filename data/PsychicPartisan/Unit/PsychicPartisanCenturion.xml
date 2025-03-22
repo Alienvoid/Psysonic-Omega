@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all" source="ART:NUVEHICLEV_AIDA.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_AIFC.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_ATKA.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_BATA.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_BIDA.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_BIFA.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_BIFB.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_BIFC.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_DIEA.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_DIED.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_MOVA.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_MOVD.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_SKN.w3x" />
+		<Include type="all" source="ART:NUVEHICLEV_SHIELD_CTR.w3x" />
+		<Include type="all" source="ART:NUVehicleV_D.xml" />
+		<Include type="instance" source="ART:FXJapanLaser.xml" />
+		<Include type="instance" source="ART:FXLaserOverlay.xml" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka The Tesla Tank -->
+	<GameObject
+		id="PsychicPartisanCenturion"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_PsychicPartisanCenturion"
+		ButtonImage="Button_PsychicPartisanCenturion"
+		Side="PsychicPartisan"
+		SubGroupPriority="20"
+		EditorSorting="UNIT"
+		BuildTime="20"
+		CommandSet="PsychicPartisanCenturionCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT T2_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="PsychicPartisanCenturion"
+		Description="Desc:PsychicPartisanCenturion"
+		TypeDescription="Type:PsychicPartisanCenturion"
+		HealthBoxHeightOffset="25">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanCenturion</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2000"/>
+		</ObjectResourceInfo>
+		<GameDependency>
+			<RequiredObject>PsychicPartisanVIPBunker</RequiredObject>
+		</GameDependency>
+		<ArmorSet
+			Armor="PsychicPartisanCenturionArmor"
+			DamageFX="VehicleDamageFX" />
+		<!-- 25% faster than the apoc tank -->
+		<LocomotorSet
+			Locomotor="PsychicPartisanCenturionLocomotor"
+			Condition="NORMAL"
+			Speed="75.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+
+		<Draws>
+			<ScriptedModelDraw 
+				id="ModuleTag_Draw" 
+				ExtraPublicBone="fxmuzzle barrel turret pitch shield"
+				OkToChangeModelColor="true" 
+				InitialRecoilSpeed="0.5" 
+				MaxRecoilDistance="5.0" 
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0">
+				<ModelConditionState 
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="NUVEHICLEV_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fxmuzzle" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="barrel" />
+					<WeaponMuzzleFlash
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fxmuzzle" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fxmuzzle" />
+						
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fxmuzzle" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="barrel" />
+					<WeaponMuzzleFlash
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fxmuzzle" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fxmuzzle" />
+					<Turret
+						TurretNameKey="turret"
+						TurretPitch="pitch"
+						TurretID="1" />
+				</ModelConditionState>
+				<ModelConditionState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="REALLYDAMAGED">
+					<Model Name="NUVEHICLEV_SKN" />
+					<Texture
+						Original="NUVehicleV"
+						New="NUVehicleV_D" />
+					<ParticleSysBone BoneName="leftleg" FXParticleSystemTemplate="GDIPredDamagedFire" FollowBone="true" />
+					<ParticleSysBone BoneName="leftleg" FXParticleSystemTemplate="GDIPredDamagedFireDistortion" FollowBone="true" />
+					<ParticleSysBone BoneName="leftleg" FXParticleSystemTemplate="GDIPredDamagedSmoke" FollowBone="true" />
+				</ModelConditionState>
+
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="NUVEHICLEV_SKN" />
+					<Texture
+						Original="NUVehicleV"
+						New="NUVehicleV_D" />
+					<ParticleSysBone
+						BoneName="leftleg"
+						FXParticleSystemTemplate="GDIDebrisSmallFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="leftleg"
+						FXParticleSystemTemplate="GDIDebrisSmallFireDistortion"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="leftleg"
+						FXParticleSystemTemplate="GDIDebrisSmallSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model Name="NUVEHICLEV_SKN" />
+				</ModelConditionState>
+
+
+
+		
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="MOVING REALLYDAMAGED"
+					Flags="MAINTAIN_FRAME_ACROSS_STATES">
+          <Animation
+			AnimationName="NUVEHICLEV_MOVD"
+			AnimationMode="LOOP"
+			Distance="45" />
+        </AnimationState>
+
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="MOVING" 
+					Flags="MAINTAIN_FRAME_ACROSS_STATES">
+          <Animation
+			AnimationName="NUVEHICLEV_MOVA"
+			AnimationMode="LOOP"
+			Distance="45" />
+        </AnimationState>
+
+
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="DYING">
+          <Animation 
+						AnimationName="NUVEHICLEV_DIEA" 
+						AnimationMode="ONCE" />
+        </AnimationState>
+
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="USING_WEAPON_A FIRING_OR_PREATTACK_A">
+          <Animation 
+						AnimationName="NUVEHICLEV_ATKA" 
+						AnimationMode="ONCE"  />
+        </AnimationState>
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="UNPACKING USER_2">
+          <Animation 
+						AnimationName="NUVEHICLEV_ATKA" 
+						AnimationMode="ONCE"  />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Light"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Charge"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Hit"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Glow"
+						FollowBone="true" />
+        </AnimationState>
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="UNPACKING">
+          <Animation 
+						AnimationName="NUVEHICLEV_ATKA" 
+						AnimationMode="ONCE"  />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Light"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Charge"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Hit"
+						FollowBone="true" />
+		                        <ParticleSysBone
+						BoneName="fxmuzzle"
+						FXParticleSystemTemplate="WaveForce_Glow"
+						FollowBone="true" />
+        </AnimationState>
+
+        <!--<AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="ATTACKING" >
+          <Animation 
+						AnimationName="NUVEHICLEV_ATKA" 
+						AnimationMode="MANUAL" />
+        </AnimationState>-->
+
+        <!-- SELECTED -->
+
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="SELECTED DAMAGED" 
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Selected">
+          <Animation 
+						AnimationName="NUVEHICLEV_AIDA" 
+						AnimationMode="ONCE" 
+						AnimationPriority="85" 
+						AnimationBlendTime="10"
+						AnimationSpeedFactorMin="0.9" 
+						AnimationSpeedFactorMax="1.1" />
+          <Script>
+            Prev = CurDrawablePrevAnimationState()
+            if Prev == "STATE_bored" then
+            CurDrawableSetTransitionAnimState("TRANS_IdleToSelected") end
+          </Script>
+        </AnimationState>
+        
+        
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="SELECTED" 
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Selected">
+          <Animation 
+						AnimationName="NUVEHICLEV_AIDA" 
+						AnimationMode="ONCE" 
+						AnimationPriority="85" 
+						AnimationBlendTime="10"
+						AnimationSpeedFactorMin="0.9" 
+						AnimationSpeedFactorMax="1.1" />
+          <Script>
+            Prev = CurDrawablePrevAnimationState()
+            if Prev == "STATE_bored" then
+            CurDrawableSetTransitionAnimState("TRANS_IdleToSelected") end
+          </Script>
+        </AnimationState>
+
+        <AnimationState 
+					ParseCondStateType="PARSE_TRANSITION" 
+					StateName="TRANS_IdleToSelected">
+          <Animation 
+						AnimationName="NUVEHICLEV_BATA" 
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15" 
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+        </AnimationState>
+        <AnimationState 
+					ParseCondStateType="PARSE_TRANSITION" 
+					StateName="TRANS_SelectedToIdle">
+          <Animation 
+						AnimationName="NUVEHICLEV_BATA" 
+						AnimationMode="ONCE_BACKWARDS" 
+						AnimationBlendTime="15" 
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+        </AnimationState>
+
+
+        <AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+          ConditionsYes="REALLYDAMAGED" 
+					StateName="STATE_bored" 
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+          <Animation 
+						AnimationName="NUVEHICLEV_BIDA" 
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15" 
+						AnimationPriority="90"
+						AnimationSpeedFactorMin="0.8" 
+						AnimationSpeedFactorMax="1.2" />
+          <Script>
+            Prev = CurDrawablePrevAnimationState()
+            if Prev == "STATE_Selected" or Prev == "ATNB" or Prev == "STATE_Run" then
+            CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+            end
+          </Script>
+        </AnimationState>
+
+
+
+        <AnimationState 
+					ParseCondStateType="PARSE_DEFAULT" 
+					StateName="STATE_bored" 
+					AllowRepeatInRandomPick="true"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+          <Animation 
+						AnimationName="NUVEHICLEV_BIDA" 
+						AnimationMode="ONCE" 
+						AnimationBlendTime="15" 
+						AnimationPriority="40"
+						AnimationSpeedFactorMin="0.8" 
+						AnimationSpeedFactorMax="1.2" />
+          <Animation 
+            AnimationName="NUVEHICLEV_BIFA" 
+            AnimationMode="ONCE" 
+            AnimationBlendTime="15" 
+            AnimationPriority="40"
+            AnimationSpeedFactorMin="0.8" 
+            AnimationSpeedFactorMax="1.2" />
+          <Animation 
+            AnimationName="NUVEHICLEV_BIFB" 
+            AnimationMode="ONCE" 
+            AnimationBlendTime="15" 
+            AnimationPriority="30"
+            AnimationSpeedFactorMin="0.8" 
+            AnimationSpeedFactorMax="1.2" />
+          <Animation 
+            AnimationName="NUVEHICLEV_BIFC" 
+            AnimationMode="ONCE" 
+            AnimationBlendTime="15" 
+            AnimationPriority="30"
+            AnimationSpeedFactorMin="0.8" 
+            AnimationSpeedFactorMax="1.2" />
+          <Script>
+            Prev = CurDrawablePrevAnimationState()
+            if Prev == "STATE_Selected" or Prev == "ATNB" or Prev == "STATE_Run" then
+            CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+            end
+
+          </Script>
+        </AnimationState>
+
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_Torso1"
+				AttachToBoneInAnotherModule="shield">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="NUVEHICLEV_SHIELD" />
+				</ModelConditionState>
+				
+			</ScriptedModelDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".5"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".7"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s" 
+				FadeOutTime="0.25s"
+				LaserWidth="30"
+				WeaponSlotID="9"
+				LaserStateID="401">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXJapanLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>4.000000</Value>
+              <Value>4.000000</Value>
+              <Value>4.000000</Value>
+            </Float>
+          </Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />						
+			</LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".9"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".4"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s"
+				FadeOutTime="0.5s"
+				LaserWidth="30"
+				WeaponSlotID="9"
+				LaserStateID="401">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>5.000000</Value>
+              <Value>5.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />
+      </LaserDraw>
+	  
+      <!-- VETERAN LASERS -->
+      <LaserDraw
+				id="ModuleTag_LaserDraw_Veteran"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".5"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".7"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s"
+				FadeOutTime="0.25s"
+				LaserWidth="30"
+				WeaponSlotID="9"
+				LaserStateID="401">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXLaserOverlay</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>4.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_02" />
+      </LaserDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDraw_Veteran"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".9"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile="1.2"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".4"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+        FadeInTime="0.1s"
+				FadeOutTime="0.5s"
+				LaserWidth="30"
+				WeaponSlotID="9"
+				LaserStateID="401">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXJapanLaser</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_02" />
+      </LaserDraw>
+		</Draws>
+
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanCenturionCannonWeapon"/>
+					<TurretSettings
+						MaxDeflectionAntiClockwise="180d"
+						MaxDeflectionClockwise="180d"
+						TurretTurnRate="200"
+						TurretPitchRate="40"
+						AllowsPitch="true"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData 
+							ActiveWhenPerformingSpecialAbility="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>				
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			
+
+
+			
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="1.5"
+				DestructionDelay="7.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" /> 
+			</SlowDeath>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_SovietShipVehicleDie" />
+				<Event
+					Index="onDeath"
+					FX="FX_LargeBuildingDieExplosionRumble" />
+			</FXListBehavior>
+
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+			
+      <LaserState
+				id="ModuleTag_LaserState"
+				LaserId="401"
+				OriginBoneName="fxmuzzle">
+        <LaserEndParticleSystem>JapanOniLaserHitFlash</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitLight</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitMolt</LaserEndParticleSystem>
+        <LaserEndParticleSystem>JapanOniLaserHitSpark</LaserEndParticleSystem>
+      </LaserState>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<SubObjectsUpgrade
+				id="ModuleTag_JapanAntiStructureVehicle_subobject">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+				<Nugget
+					Upgrade="Upgrade_Veterancy_HEROIC">
+				</Nugget>
+				<CustomAnimAndDuration	AnimState="USER_2"/>	
+			</SubObjectsUpgrade>
+
+			<SpecialPower
+				id="ModuleTag_ShrinkRaySpecialPower"
+				SpecialPowerTemplate="SpecialPower_WaveforceCannon"
+				UpdateModuleStartsAttack="true"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ShrinkRaySpecialAbilityUpdate"
+				SpecialPowerTemplate="SpecialPower_WaveforceCannon"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="9"
+				SpecialWeapon="PsychicPartisanCenturionWaveforceCannon"
+				StartAbilityRange="600"
+				UnpackTime="4.0s"
+				PackTime="0.1s"
+			/>
+
+
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+			<!-- -->
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1750" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="JAP_SteelRonin_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+		<ModelConditionAudioLoopClientBehavior id="WeaponBuildUpToFire">
+			<ModelConditionSound Sound="JAP_Waveforce_WeaponBuildUpToFire" RequiredFlags="UNPACKING" ExcludedFlags="DYING" />
+		</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="20.0"
+				MinorRadius="14.0"
+				Height="12.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="-7.0"
+					y="0.0"
+					z="0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="PsychicPartisan_Centurion_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<VisionInfo
+			VisionRange="345"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="30"
+			CrushableLevel="31"
+			CrushWeapon="SovietCrushWeapon"
+			CrushDecelerationPercent="80%" />
+	</GameObject>
+</AssetDeclaration>

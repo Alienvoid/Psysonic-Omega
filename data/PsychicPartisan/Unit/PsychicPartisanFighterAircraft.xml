@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:JU_ESCORT_A_ATKFULL.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_ATKPRE.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_ATKAFTER.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_BOX.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_FP.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_TAKEOFF.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_DIE.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_FLY.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_IDLE.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_SKILLB.w3x" />
+		<Include type="all"	source="ART:JU_ESCORT_A_SELECT.w3x" />
+		
+		<Include type="all"	source="ART:JU_ESCORT_SKN.w3x" />
+		
+		<Include type="all" source="ART:AUFighterAircraft_D.xml" />			
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />	
+		<Include type="all"	source="ART:FXAlienLaser_skyblue_overshoot.xml" />
+		<Include type="all"	source="ART:FXRailTracer.xml" />	
+		<Include type="all"	source="ART:FXTiberiumLaserHeroic.xml" />
+		<Include type="all"	source="ART:FXAlliedFutureLaser.xml" />
+		<Include type="all"	source="ART:FXTachyonLanceLaser.xml" />	
+    <Include type="all" source="ART:FXTiberiumLaser.xml" />
+    <Include type="all" source="ART:FXJapanTracer.xml" />
+    <Include type="all" source="ART:FXJapanTankProjectile_Veteran.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanFighterAircraft"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_PsychicPartisanFighterAircraft"
+		ButtonImage="Button_PsychicPartisanFighterAircraft"
+		Side="PsychicPartisan"
+		SubGroupPriority="610" 
+		EditorSorting="UNIT"
+		BuildTime="16"
+		CommandSet="PsychicPartisanFighterAircraftCommandSet"
+		KindOf="PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT VEHICLE FIGHTER_AIRCRAFT LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT LIMITED_PRODUCTION_AIRCRAFT"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="PsychicPartisanFighterAircraft"
+		Description="Desc:PsychicPartisanFighterAircraft"
+		TypeDescription="Type:PsychicPartisanFighterAircraft"
+		HealthBoxHeightOffset="10">
+		<DisplayName
+		
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanFighterAircraft</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1600"/>
+		</ObjectResourceInfo>
+		<GameDependency>
+			<RequiredObject>PsychicPartisanTechStructure</RequiredObject>
+		</GameDependency>
+		<ArmorSet
+			Armor="PsychicPartisanFighterAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			id="PsychicPartisanFighterAircraftLocomotor"
+			Locomotor="PsychicPartisanFighterAircraftLocomotor"
+			Condition="NORMAL"
+			Speed="320" />
+		<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="30" />
+
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="B_FIRE B_REALCENTER B_CORE01 B_AXIS01 B_AXIS02 B_AXIS03">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JU_ESCORT_SKN" />
+
+
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_FIRE" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_FIRE" />
+						
+					<!--<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="BONE_MUZZLE_" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="BONE_MUZZLE_" />-->
+					<Turret
+						TurretNameKey="B_REALCENTER"
+						TurretID="1" />
+				</ModelConditionState>
+				
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JU_ESCORT_FP" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="JU_ESCORT_SKN" />
+					<ParticleSysBone
+						BoneName="B_CORE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+         
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="JU_ESCORT_SKN" />
+					<ParticleSysBone
+						BoneName="B_CORE01"
+						FXParticleSystemTemplate="JapanTankNano"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="B_CORE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="B_CORE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="B_CORE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="JU_ESCORT_A_BOX"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="TAKING_OFF">
+					<Animation
+						AnimationName="JU_ESCORT_A_TAKEOFF"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="LANDING">
+					<Animation
+						AnimationName="JU_ESCORT_A_TAKEOFF"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A FLYING">
+					<Animation
+						AnimationName="JU_ESCORT_A_ATKFULL"
+						AnimationMode="ONCE"/>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING ATTACKING FLYING">
+					<Animation
+						AnimationName="JU_ESCORT_A_FLY"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"/>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACKING FLYING">
+					<Animation
+						AnimationName="JU_ESCORT_A_IDLE"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"/>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING FLYING">
+					<Animation
+						AnimationName="JU_ESCORT_A_FLY"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED FLYING"
+					StateName="STATE_SELECTED">
+					<Animation
+						AnimationName="JU_ESCORT_A_IDLE"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.5"
+						AnimationSpeedFactorMax="0.5"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="B_REALCENTER"
+						FXParticleSystemTemplate="PsychicOrderAirShipGlow"
+						FollowBone="true" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_IDLE" then
+						CurDrawableSetTransitionAnimState("TRANS_IdleToSelected")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING"
+					StateName="STATE_IDLE">
+					<Animation
+						AnimationName="JU_ESCORT_A_IDLE"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.25"
+						AnimationSpeedFactorMax="0.5"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="B_REALCENTER"
+						FXParticleSystemTemplate="PsychicOrderAirShipGlow"
+						FollowBone="true" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_SELECTED" then
+						CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING REALLYDAMAGED">
+					<Animation
+						AnimationName="JUPrincessEscort_FLYB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="B_REALCENTER"
+						FXParticleSystemTemplate="PsychicOrderAirShipGlow"
+						FollowBone="true" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COMING_OUT_OF_FACTORY"
+					StateName="STATE_built">
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXChronoSphere"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXChronoSphereLightning"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedTimeBombChronoCircles"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="ChronoSphereFallout"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="ChronoSphereFlash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXChronoSphereFogMist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="ChronoSphereDistort"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXMedChronoLightning"
+						FollowBone="true" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING"
+					StateName="STATE_teleporting">
+					<Animation
+						AnimationName="JU_ESCORT_A_SELECT"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+					<ParticleSysBone
+						BoneName="B_REALCENTER"
+						FXParticleSystemTemplate="PsychicOrderAirShipGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="B_REALCENTER"
+						FXParticleSystemTemplate="ABGatewayCenterDarkMatter"
+						FollowBone="true" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+					  AnimationName="JU_ESCORT_A_SELECT"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="JU_ESCORT_A_SELECT"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+			</ScriptedModelDraw>
+			
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".8"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="20"
+				FadeInTime="0s"
+				FadeOutTime="0.5s"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlienLaser_skyblue_overshoot</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTachyonLanceLaser</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>2.400000</Value>
+							<Value>2.400000</Value>
+							<Value>3.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw2"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".8"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="20"
+				FadeInTime="0s"
+				FadeOutTime="0.5s"
+				WeaponSlotID="1"
+				LaserStateID="2">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXAlienLaser_skyblue_overshoot</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXTachyonLanceLaser</Value>
+						</Texture>
+						<Float Name="ColorEmissive">
+							<Value>0.000000</Value>
+							<Value>3.745095</Value>
+							<Value>5.000000</Value>
+						</Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+
+	  
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanFighterAircraftTachyonLance"
+						ForbiddenObjectStatus="WEAPON_UPGRADED_01" />
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanFighterAircraftTachyonLance_Veteran"
+						ObjectStatus="WEAPON_UPGRADED_01" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-30d"
+						AllowsPitch="false"
+						TurretPitchRate="360"						
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="0.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+
+			</WeaponSetUpdate>
+
+			<LaserState
+        id="ModuleTag_LaserState"
+        OriginBoneName="BONE_WeaponA"
+        LaserId="1" >
+				<LaserStartParticleSystem>TachyonLance_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>TachyonLance_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>TachyonLance_Mote</LaserStartParticleSystem>
+			</LaserState>
+
+			<LaserState
+				id="ModuleTag_LaserState2"
+				OriginBoneName="BONE_WeaponA"
+				LaserId="2" >
+				<LaserStartParticleSystem>TachyonLance_Glow</LaserStartParticleSystem>
+				<LaserStartParticleSystem>TachyonLance_Light</LaserStartParticleSystem>
+				<LaserStartParticleSystem>TachyonLance_Mote</LaserStartParticleSystem>
+			</LaserState>
+			
+			<!-- gravity mult of 30 is temporary -->
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+				
+				
+			<CreateObjectDie
+				id="ModuleTag_LandDeath"
+				CreationList="JUPrincessEscort_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="TOPPLED"
+					ExemptStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+
+			<CreateObjectDie
+				id="ModuleTag_AirDeath"
+				CreationList="JUPrincessEscort_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="TOPPLED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+				<UpgradeForbidden>Upgrade_JapanEnhancedKamikaze</UpgradeForbidden>
+			</CreateObjectDie>
+
+			<CreateObjectDie
+				id="ModuleTag_AirKamikazeDeath"
+				CreationList="JUPrincessEscort_EnhancedKamikaze_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="TOPPLED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+				<UpgradeRequired>Upgrade_JapanEnhancedKamikaze</UpgradeRequired>
+			</CreateObjectDie>
+			<!--  -->
+			
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="8"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_PSY_PrincessEscortDie" />
+			</FXListBehavior>			
+			<!--Please make sure the model condition duration matches the attribute mod duration-->
+	
+			<!-- The Chronoshift Teleport Jump -->
+			<ActivateModuleSpecialPower
+				id="ModuleTag_TriggerTeleport"
+				SpecialPowerTemplate="SpecialPower_PsionicLeap"
+				AttributeModifier="AttributeModifier_PsionicLeap"
+				AttributeModifierAffectsSelf="true">
+			</ActivateModuleSpecialPower>
+
+			<TeleportSpecialAbilityUpdate
+				id="ModuleTag_TeleportSpecialAbility"
+				SpecialPowerTemplate="SpecialPower_PsionicLeap"
+				UnpackTime="2.0s"
+				PackTime="0.1s"
+				BusyDuration="2.0s"
+				MaxDistance="999999"
+				UnpackingVariation="1"
+				HeightToTeleportTo="300"
+				UnpackSound="ALL_Chronosphere_Die"
+				Options="IGNORE_FACING_CHECK" />
+
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="30.0s">
+				<FireWeaponNugget
+					WeaponName="PsychicPartisanPrincessEscortShieldWeapon"
+					FireDelay="0.5s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate2">
+				<FireWeaponNugget
+					WeaponName="PsychicPartisanPrincessEscortShieldWeapon"
+					FireDelay="0.5s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<StatusBitsUpgrade
+				id="ModuleTag_StatusBitUpgrade"
+				StatusToSet="SHIELDBODY_ENABLED">
+				<TriggeredBy>Upgrade_AllFactionUpgrade</TriggeredBy>
+			</StatusBitsUpgrade>
+			<!-- These help the AI decide when to use SUPERSONIC! -->
+			<TrackIncomingWeaponFireBehavior
+					 id="TrackIncomingWeaponFireForSupersonic" />
+			<TrackDamage
+					 id="TrackDamageForSupersonic"
+					 TimeToTrack="1s"
+					 InstantWeaponsOnly="true" />
+
+			<ProductionUpdate
+				id="ModuleTag_PU" />
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE CAN_ATTACK"
+				ContainMax="3"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="false"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID">
+				<InitialPayload
+					Name="PsychicPartisanFlak"
+					Count="3" />
+				<PassengerFilter
+					Rule="NONE">
+					<IncludeThing>PsychicPartisanFlak</IncludeThing>
+				</PassengerFilter>
+				<PassengerData
+					BonePrefix="B_AXIS">
+					<Filter
+						Rule="NONE">
+						<IncludeThing>PsychicPartisanFlak</IncludeThing>
+					</Filter>
+				</PassengerData>
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+			</TransportContain>	
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+			<!-- -->
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_JetAIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				KeepsParkingSpaceWhenAirborne="true"
+				OutOfAmmoDamagePerSecond="1.5"
+				ReturnToBaseWhenVictimDead="true"
+				StateMachine="HelicopterAIStateMachine">
+				<UnitAITargetChooserData 
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ShieldBody
+				id="ModuleTag_Body"
+				MaxHealth="800"
+				ShieldAmount="450"
+				ShieldArmor="PsychicPartisanFighterAircraftArmor"
+				ShieldRechargeIdleTime="15s"
+				ShieldActiveModelCondition="USER_1"
+				ShieldEnabledFX="FX_AlienShieldEnabled"
+				ShieldTakeDamageFX="FX_AlienShieldHit"
+				ShieldDepleteFX="FX_AlienShieldDeplete" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior
+				id="ModuleTag_FlyingLoop">
+				<ModelConditionSound
+					Sound="ALL_Apollo_IdleLoop"
+					RequiredFlags="FLYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="16.0"
+				
+				MinorRadius="16.0"
+				Height="8.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceReturn" AudioType="voiceEnter" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="PSY_PrincessEscort_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+			<NamedEntry Sound="PSY_PrincessEscort_VoiceReturn" Name="ReturnToProducer" />
+			<NamedEntry Sound="PSY_PrincessEscort_VoiceRetreat" Name="ReturnToProducerWhileUnderAttack" />
+			<NamedEntry Sound="PSY_PrincessEscort_VoiceSpecialAttackMS" Name="VoicePsyonicBlast" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+		 	<AudioEntry
+				Sound="ALL_Apollo_MoveLoop"
+				AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="ALL_Apollo_MoveStart"
+				AudioType="soundMoveStart" />
+		</AudioArraySound>
+
+		<VisionInfo
+			VisionRange="820"
+			ShroudClearingRange="700" />
+	</GameObject>
+</AssetDeclaration>

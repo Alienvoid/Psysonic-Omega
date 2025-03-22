@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<!-- aka Tank Buster -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all" source="ART:RUatrt_a_die.w3x" />
+		<Include type="all" source="ART:RUatrt_a_shoot.w3x" />
+		<Include type="all" source="ART:RUatrt_a_stand.w3x" />
+		<Include type="all" source="ART:RUatrt_a_walk.w3x" />
+		<Include type="all" source="ART:RUatrt_skn.w3x" />
+		
+    <Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+    <Include type="all" source="ART:FXObeliskLaser.xml" />
+    <Include type="all" source="ART:FXLaserOverlay.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+  
+	<GameObject
+		id="PsychicPartisanAntiVehicleInfantry"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_PsychicPartisanAntiVehicleInfantry"
+		ButtonImage="Button_PsychicPartisanAntiVehicleInfantry"
+		Side="PsychicPartisan"
+		SubGroupPriority="345"
+		EditorSorting="UNIT"
+		BuildTime="5"
+		HealthBoxHeightOffset="30"
+		CommandSet="PsychicPartisanAntiVehicleInfantryCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE"
+		ThreatLevel="10"
+		WeaponCategory="MISSILE"
+		VoicePriority="100"
+		EditorName="PsychicPartisanAntiVehicleInfantry"
+		Description="Desc:PsychicPartisanAntiVehicleInfantry"
+		TypeDescription="Type:PsychicPartisanAntiVehicleInfantry"
+		UnitTypeIcon="RiderIcon">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanAntiVehicleInfantry</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="450"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanAntiVehicleInfantryArmor"
+			DamageFX="InfantryDamageFX" />
+		<ArmorSet
+			Armor="JapanAntiVehicleInfantryArmor_SpiderHole"
+			DamageFX="InfantryDamageFX"
+			Conditions="IN_SPIDER_HOLE" />
+		<LocomotorSet
+			id="ModuleTag_Locomotor_Normal"
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="90" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+    <Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="B_WEAPONA_FX B_WEAPONB_FX">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="RUATRT_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPON" />
+					<WeaponRecoilBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPON" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPON" />
+					<WeaponFireFXBone
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="B_WEAPON" />
+					<WeaponRecoilBone
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="B_WEAPON" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="B_WEAPON" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPON" />
+					<WeaponLaunchBone
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="B_WEAPON" />
+				</ModelConditionState>		
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1">
+					<Model
+						Name="RUATRT_SKN" />
+					<ParticleSysBone
+						BoneName="ATRT_RBL_RIG_BND_ANKLERIGHT"
+						FXParticleSystemTemplate="JapEngineer_Run"
+						FollowBone="True" />
+					<ParticleSysBone
+						BoneName="ATRT_RBL_RIG_BND_ANKLELEFT"
+						FXParticleSystemTemplate="JapEngineer_Run"
+						FollowBone="True" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<!-- no anim -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					AllowRepeatInRandomPick="true"
+					StateName="STATE_Idle">
+					<Animation
+						AnimationName="RUatrt_a_stand"
+						AnimationMode="ONCE"
+						AnimationPriority="1" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Selected" then
+							CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FRONTCRUSHED">
+					<Animation
+						AnimationName="RUatrt_a_die"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BACKCRUSHED">
+					<Animation
+						AnimationName="RUatrt_a_die"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="RUatrt_a_die"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING USING_WEAPON_A">
+					<Animation
+						AnimationName="RUatrt_a_walk"
+						AnimationMode="LOOP"
+						Distance="25" />
+				</AnimationState>
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A">
+          <Animation
+						AnimationName="RUatrt_a_shoot"
+						AnimationMode="LOOP"/>
+        </AnimationState>
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="RUatrt_a_walk"
+						AnimationMode="LOOP"
+						Distance="25" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ATTACKING"
+					Flags="MAINTAIN_FRAME_ACROSS_STATES">
+					<Animation
+						AnimationName="RUatrt_a_shoot"/>
+				</AnimationState>
+				<!-- SELECTED -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					StateName="STATE_Selected"
+					Flags="RESTART_ANIM_WHEN_COMPLETE">
+					<Animation
+						AnimationName="RUatrt_a_stand"
+						AnimationMode="ONCE"
+						AnimationPriority="15"
+						AnimationBlendTime="5"
+						AnimationMustCompleteBlend="true" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Idle" then
+							CurDrawableSetTransitionAnimState("TRANS_IdleToSelected")
+						end
+					</Script>
+				</AnimationState>
+				<!-- TRANSITIONS -->
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="RUatrt_a_stand"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="RUatrt_a_stand"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_6">
+					<Model
+						Name="NPSkeleton_SKN" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Model
+						Name="NPRadiation" />
+						<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="RadiationPuddle"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="RadiationSplash"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="RadiationLightSmall"
+						FollowBone="true" />          
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_Psysonic"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+      <LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".3"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1.4"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>5.000000</Value>
+              <Value>2.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />
+			</LaserDraw>
+
+      <LaserDraw
+				id="ModuleTag_LaserDraw_Veteran"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".3"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1.4"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="8"
+				LaserStateID="1">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXObeliskLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXLaserOverlay</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />
+      </LaserDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="false"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanAntiVehicleInfantryPlasmaBazooka"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			
+			<Physics id="ModuleTag_Physics" />
+			
+			<LaserState id="ModuleTag_LaserState" LaserId="1" />
+			
+			<SlowDeath
+				id="ModuleTag_Death"
+				DeathFlags="DEATH_1"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4.5s">
+				<DieMuxData
+					DeathTypes="ALL" 
+					DeathTypesForbidden="ERASED ELECTROCUTED BURNED STABBED IRRADIATED"/>
+				<Sound
+					Type="INITIAL"
+					List="JAP_Tankbuster_VoiceDie" />
+			</SlowDeath>
+			<SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_6"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="ERASED IRRADIATED"/>
+				<Sound Type="INITIAL" List="JAP_Tankbuster_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ERASED"
+					ExemptStatus="OVER_WATER"/>
+				<Sound Type="INITIAL" List="JAP_Tankbuster_VoiceDie" />
+			</SlowDeath>
+			
+			<MovementSpecialPower
+				id="ModuleTag_SpecialPower"
+				SpecialPowerTemplate="SpecialPower_PsychicPartisanAntiVehicleInfantrySprint"
+				AttributeModifier="AttributeModifier_PsychicPartisanCavalrySprint"
+				AttributeModifierAffectsSelf="true"
+				MovementType="NONE"
+				Duration="10s"
+				BusyDurationOnExit="0s"
+			/>
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_AlliesFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+      <ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+        <TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+      </ModelConditionUpgrade>
+
+      <StatusBitsUpgrade
+        id="ModuleTag_VeterancyUpgrade"
+        StatusToSet="WEAPON_UPGRADED_01">
+        <TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+      </StatusBitsUpgrade>
+		<AutoHealBehavior
+			id="Upgrade_AutoHeal"
+			InitiallyActive="true"
+			HealOnlyIfNotInCombat="true"
+			HealOnlyIfNotUnderAttack="true"				
+			HealingAmount="5"
+			HealingDelay="0.8s"/>
+
+    </Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="350" />
+		</Body>
+
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="JAP_Tankbuster_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="JAP_Tankbuster_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_Underground">
+				<Override RequiredFlags="USER_6">
+					<AudioArrayVoice>
+						<AudioEntry Sound="JAP_Tankbuster_VoiceAttackSpecial" AudioType="voiceAttack" />
+						<AudioEntry Sound="JAP_Tankbuster_VoiceSelectSpecialMS" AudioType="voiceSelect" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<AnimationSoundClientBehavior
+				id="AnimationSoundCB" >	
+<!--
+				<Sound Sound="JAP_Tankbuster_BurrowIn1" Animation="JUAntiVehicleInfantry_CRCHA" Frame="1" />					
+				<Sound Sound="JAP_Tankbuster_BurrowIn2" Animation="JUAntiVehicleInfantry_CRCHA" Frame="24" />		
+				<Sound Sound="JAP_Tankbuster_BurrowIn1" Animation="JUAntiVehicleInfantry_CRCHB" Frame="1" />					
+				<Sound Sound="JAP_Tankbuster_BurrowIn2" Animation="JUAntiVehicleInfantry_CRCHB" Frame="14" />		
+				<Sound Sound="JAP_Tankbuster_BurrowIn1" Animation="JUAntiVehicleInfantry_CSTDB" Frame="1" />
+				<Sound Sound="JAP_Tankbuster_BurrowIn2" Animation="JUAntiVehicleInfantry_CSTDB" Frame="14" />
+				<Sound Sound="JAP_Tankbuster_BurrowOut" Animation="JUAntiVehicleInfantry_CSTND" Frame="1" />
+				<Sound Sound="JAP_Tankbuster_BurrowOut2" Animation="JUAntiVehicleInfantry_CSTND" Frame="14" />
+-->
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiVehicleInfantry_DTBA" Frame="25" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiVehicleInfantry_DTBB" Frame="25" />
+				
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_CDTA" Frame="8" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_CDTB" Frame="9" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTBA" Frame="28" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTBB" Frame="40" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTFA" Frame="107" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTFB" Frame="65" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTKA" Frame="51" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTKB" Frame="70" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTPA" Frame="53" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTPB" Frame="55" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTSA" Frame="17" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_DTSB" Frame="12" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_LNDA" Frame="7" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_MCND" Frame="4" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_RNDA" Frame="30" />
+				<Sound Sound="BodyfallGenericDirt" ExcludedMC="OVER_WATER" Animation="JUAntiVehicleInfantry_RNDB" Frame="27" />
+			</AnimationSoundClientBehavior>				
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceCreate"
+				AudioType="voiceCreated" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceGarrison"
+				AudioType="voiceGarrison" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceRetreat"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="PsychicPartisan_Fanatics_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+		</AudioArrayVoice>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="310"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="20">
+		</CrusherInfo>
+	</GameObject>
+
+
+</AssetDeclaration>
