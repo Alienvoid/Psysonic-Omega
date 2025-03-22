@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:suaatank_skn.w3x" />		
+		<Include
+			type="all"
+			source="ART:suaatank_idla.w3x" />					
+		<Include
+			type="all"
+			source="ART:suaatank_D.xml" />					
+		<Include
+			type="all"
+			source="ART:SUBattleMaster_D.xml" />		
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<Include
+			type="instance"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="instance"
+			source="ART:FXTracerHeroic.xml" />
+		<Include
+			type="all"
+			source="ART:exsinewave.xml" />
+		<Include
+			type="all"
+			source="ART:FXobelisklaser.xml" />
+	</Includes>
+	<!-- aka Zhukov aka Bullfrog -->
+	<GameObject
+		id="SovietAntiAirVehicleTech1"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SovietAntiAirVehicleTech1"
+		ButtonImage="Button_SovietAntiAirVehicleTech1"
+		Side="Soviet"
+		SubGroupPriority="715"
+		EditorSorting="UNIT"
+		BuildTime="14"
+		CommandSet="SovietAntiAirVehicleTech1CommandSet"
+		KindOf="PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="SovietAntiAirVehicleTech1"
+		Description="Desc:SovietAntiAirVehicleTech1"
+		TypeDescription="Type:SovietAntiAirVehicleTech1"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SovietAntiAirVehicleTech1</DisplayName>
+		<GameDependency>
+			<RequiredObject>SovietPowerPlantAdvanced</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiAirVehicleTech1Armor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="ModuleTag_Locomotor_Air" 
+			Locomotor="SovietAntiVehicleVehicleTech1Locomotor"
+			Condition="NORMAL"
+			Speed="80.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="1"
+				MaxRecoilDistance="4.0"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="FX_TREADREARL FX_TREADREARR FX_WEAPON01 FX_WEAPON02 FX_WEAPON03 FX_WEAPON04 FX_WeaponB_01 FX_RADAR BONE_TREADL BONE_TREADR BONE_TURRET BONE_TURRETPitch BONE_BARREL01 BONE_BARREL02 BONE_BARREL03 BONE_BARREL04"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="FX_TREADREARL"
+				TrackMarksRightBone="FX_TREADREARR">
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+				<TreadScrollingMap
+					LeftTrack="BONE_TREADL"
+					RightTrack="BONE_TREADR"
+					SpeedMultiplier="0.06"
+					TreadDriveSpeedFraction="10%"/>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="SUAATank_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Bone_Barrel"/>
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="Bone_Barrel"/>
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WEAPON" />
+						
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_WEAPONB" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_WEAPONB" />
+						
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_RADAR" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_RADAR" />
+					<Turret
+						TurretNameKey="BONE_TURRET"
+						TurretPitch="BONE_TURRETPitch"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUAATank_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="USER_1 REALLYDAMAGED">
+					<Model
+						Name="SUAATank_SKN" />
+					<Texture
+						Original="SUBattleMaster"
+						New="SUBattleMaster_D" />
+					<Texture
+						Original="SUAATank"
+						New="SUAATank_D" />
+					<ParticleSysBone
+						BoneName="BONE_TURRETPitch"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_TURRETPitch"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_TURRETPitch"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_RADAR"
+						FXParticleSystemTemplate="Soviet_Target_Laser"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="USER_1">
+					<Model
+						Name="SUAATank_SKN" />
+					<ParticleSysBone
+						BoneName="FX_RADAR"
+						FXParticleSystemTemplate="Soviet_Target_Laser"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUAATank_SKN" />
+					<Texture
+						Original="SUBattleMaster"
+						New="SUBattleMaster_D" />
+					<Texture
+						Original="SUAATank"
+						New="SUAATank_D" />
+					<ParticleSysBone
+						BoneName="BONE_TURRETPitch"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_TURRETPitch"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="BONE_TURRETPitch"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="SUAATank_SKN" />
+				</ModelConditionState>
+			</TruckDraw>
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawSoviet.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+				
+			<!-- Used for the Phalanx Gun -->
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="22"
+				MaxSpeed="32"
+				SweepSpeed="3.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame="0.4"
+				MaxTracersPerFrame="0.4"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracer"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="0.75"
+					b="0.65"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01 GENERIC_TOGGLE_STATE" />
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawVeterancy"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="0.5"
+				SpreadAngle="0.5"
+				MinTracersPerFrame="0.4"
+				MaxTracersPerFrame="0.4"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="0.75"
+					b="0.65"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01"
+					ForbiddenStatus="GENERIC_TOGGLE_STATE" />
+			</TracerModelDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw_Air"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="22"
+				MaxSpeed="32"
+				SweepSpeed="3.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame="0.4"
+				MaxTracersPerFrame="0.4"
+				FrameLifeTime="25"
+				WeaponSlotType="SECONDARY_WEAPON"
+				Texture="FXTracer"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="0.75"
+					b="0.65"
+					a="0.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01 GENERIC_TOGGLE_STATE" />
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawVeterancy_Air"
+				MinLength="10.0"
+				MaxLength="25.0"
+				Width="15.0"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="0.5"
+				SpreadAngle="0.5"
+				MinTracersPerFrame="0.4"
+				MaxTracersPerFrame="0.4"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="0.0"
+					b="0.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="0.75"
+					b="0.65"
+					a="0.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01"
+					ForbiddenStatus="GENERIC_TOGGLE_STATE" />
+			</TracerModelDraw>
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="1"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="10"
+				WeaponSlotID="1"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXobelisklaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>exsinewave</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>1.000000</Value>
+              <Value>5.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+		</Draws>
+		
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_LEAST_MOVEMENT"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietAntiAirVehicleTech1FlakCannon"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE" />
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietAntiAirVehicleTech1FlakCannon_Air"
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="TERTIARY_WEAPON"
+						Template="SovietAntiAirVehicleTech1AAMissile"
+						ObjectStatus="GENERIC_TOGGLE_STATE"/>
+						
+					<TurretSettings
+						TurretTurnRate="360"
+						TurretPitchRate="360"
+						AllowsPitch="true"
+						MinimumPitch="-15d"
+						PitchHeight="75%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="360.0"
+						ComeToHaltJiggle="2d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="false" 
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY">
+							<ObjectVisionRange
+								id="ObjectVisionRange_Aircraft"
+								Range="270">
+								<Filter
+									Rule="ANY"
+									Include="INFANTRY VEHICLE AIRCRAFT"
+									StatusBitFlags="AIRBORNE_TARGET"/>
+							</ObjectVisionRange>	
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<WeaponSlotHardpoint
+					ID="2">
+					<!-- This weapon is always around, but the weapon template itself prevents it
+							 from being able to be fired once it's upgraded. -->
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietAntiAirVehicleTech1TargetPainter"
+						ObjectStatus="GENERIC_TOGGLE_STATE"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LaserState
+				id="ModuleTag_LaserState"
+				LaserId="1" >
+        <LaserEndParticleSystem>Soviet_Target_LaserEnd</LaserEndParticleSystem>
+      </LaserState>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUAATank_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MediumVehicleDie" />
+			</FXListBehavior>
+			
+			<SpecialPower
+				id="ModuleTag_ActivateTargetPainterTrigger"
+				SpecialPowerTemplate="SpecialPower_ToggleTargetPainter"
+				UpdateModuleStartsAttack="true" />
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ActivateTargetPainterTriggerUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				SpecialPowerTemplate="SpecialPower_ToggleTargetPainter">
+				<ToggleState EnterStateSound="ALL_Guardian_PainterOff">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT">
+						<StateWeapon
+							Weapon="SovietAntiAirVehicleTech1FlakCannon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE"
+					ModelConditions="USER_1"
+					EnterStateSound="ALL_Guardian_PainterOn">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_TRANSFORM">
+						<StateWeapon
+							Weapon="SovietAntiAirVehicleTech1AAMissile" />
+					</SkirmishAiInfo>
+				</ToggleState>
+			</ToggleStatusSpecialAbilityUpdate>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<xi:include
+				href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					RotateToTargetWhenAiming="false">
+						<ObjectVisionRange
+							id="ObjectVisionRange_Aircraft"
+							Range="270">
+							<Filter
+								Rule="ANY"
+								Include="INFANTRY VEHICLE AIRCRAFT"
+								StatusBitFlags="AIRBORNE_TARGET"/>
+						</ObjectVisionRange>
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_MoveLoop">
+				<ModelConditionSound Sound="Tank_Land_MoveLoop" RequiredFlags="MOVING" ExcludedFlags="OVER_WATER DYING" />
+				<ModelConditionSound Sound="SOV_Bullfrog_MoveLoopWaterMS" RequiredFlags="MOVING OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_Bullfrog_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_MagneticSatelliteSuckedAway">
+				<ModelConditionSound Sound="SOV_MagneticSatellite_SuckedAwayWater" RequiredFlags="SUCKED_UP_HIGH OVER_WATER" />
+				<ModelConditionSound Sound="SOV_MagneticSatellite_SuckedAway" RequiredFlags="SUCKED_UP_HIGH" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_WaterEntrySplash">
+				<ModelConditionSound Sound="SOV_Miner_WaterSplashMS" RequiredFlags="OVER_WATER" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_WaterSoundOverrides">
+				<Override RequiredFlags="OVER_WATER">
+					<AudioArrayVoice>
+						<AudioEntry Sound="SOV_Bullfrog_VoiceSelectWaterMS" AudioType="voiceSelect" />
+						<AudioEntry Sound="SOV_Bullfrog_VoiceSelectBattleWaterMS" AudioType="voiceSelectBattle" />
+						<AudioEntry Sound="SOV_Bullfrog_VoiceSelectUnderFireWaterMS" AudioType="voiceSelectUnderFire" />
+					</AudioArrayVoice>
+					<AudioArraySound>
+						<AudioEntry Sound="SOV_Bullfrog_IdleLoopWater" AudioType="soundAmbient" />
+						<AudioEntry Sound="SOV_Bullfrog_MoveStartWater" AudioType="soundMoveStart" />
+						<!-- <AudioEntry Sound="SOV_Bullfrog_MoveLoopWaterMS" AudioType="soundMoveLoop" /> -->
+					</AudioArraySound>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape 
+				Type="BOX"
+				MajorRadius="26.0"
+				MinorRadius="14.0"
+				Height="28.0"
+				ContactPointGeneration="VEHICLE" />
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Bullfrog_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceMoveToLand" AudioType="voiceMoveWaterToLand" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceMoveToWater" AudioType="voiceMoveLandToWater" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceSelectLandMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceSelectBattleLandMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Bullfrog_VoiceSelectUnderFireLandMS" AudioType="voiceSelectUnderFire" />
+			<NamedEntry Sound="SOV_Bullfrog_VoiceEvacuate" Name="VoiceEject" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="SOV_Bullfrog_MoveStartLand"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="SOV_Bullfrog_IdleLoopWater"
+				AudioType="soundAmbient" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+			<!-- <AudioEntry Sound="AudioEvent:MammothTankTurretMoveLoop" AudioType="soundTurretMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="260"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="1"
+			CrushEqualLevelProps="true"
+			CrushableLevel="20" />
+	</GameObject>
+	
+	
+</AssetDeclaration>

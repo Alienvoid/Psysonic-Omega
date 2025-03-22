@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		<Include
+			type="all"
+			source="ART:GURflMan_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflManU_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_BIDA.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_BIDB.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_BIDC.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_BIFA.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_BIFB.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_BIFC.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_BIFD.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_BIDB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_BIDC.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_DIEA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_DIEB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_DIEC.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_DIGA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_ATRA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_RUNA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_RUNB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_RUNC.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_AIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_AIDB.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_AIFA.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_AIFB.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_AIFC.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_ATKA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SATA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SIDA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SIFA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SIFB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SDVA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SDVB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SMVA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_KDIA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_KDIB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_KDIC.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_KAKA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_KAIA.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_KAFA.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_KAFB.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_KAFC.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_KAIB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_CDTA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_CDTB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_SDIA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_BATA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_BATB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_ABTA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_ABTA2.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_FLYA.w3x" />
+    <Include
+			type="all"
+			source="ART:GURflMan_FLYB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_LNDA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_CHRA.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_CHRB.w3x" />
+		<Include
+			type="all"
+			source="ART:GURflMan_CHRC.w3x" />
+		<Include
+			type="all"
+			source="ART:GUGar_Rifl.w3x" />
+		<Include type="all"	source="ART:NPSkeleton_SKN.w3x" />
+		<Include type="all"	source="ART:NPRadiation.w3x" />
+		<Include type="all"	source="ART:NPRadiation_DIEA.w3x" />
+		<Include type="all"	source="ART:NPRadiation_WDIEA.w3x" />
+    <Include type="all"	source="ART:FXObeliskLaser.xml" />
+    <Include type="all"	source="ART:FXLaserOverlay.xml" />
+    <Include type="all"	source="ART:FXJapanOverlay_Vet.xml" />
+		<Include type="all"	source="ART:FXTracerNOD.xml" />
+		<Include type="all"	source="ART:FXTracerHeroic.xml" />
+			
+		<Include type="all"	source="ART:FXShotgunFlash.w3x" />
+		<Include
+			type="all"
+			source="ART:Decal_LeadershipBuff.xml" />
+	
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<GameObject
+		id="SovietExecuter"
+		Scale="1.25"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_SovietExecuter"
+		ButtonImage="Button_SovietExecuter"
+		Side="Soviet"
+		SubGroupPriority="350"
+		EditorSorting="UNIT"		
+		BuildTime="4"
+		HealthBoxHeightOffset="30"
+		CommandSet="SovietExecuterCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="104"
+		EditorName="SovietExecuter"
+		Description="Desc:SovietExecuter"
+		TypeDescription="Type:SovietExecuter"
+		UnitTypeIcon="ExecuterIcon">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SovietExecuter</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietExecuterArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			id="HumanLocomotor"
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="50" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.1"
+				MaxRecoilDistance="0.1"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="B_WEAPONA_FX">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="GURflManU_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponRecoilBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="GUGar_Rifl" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+					<WeaponRecoilBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="" />
+					<WeaponMuzzleFlash
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_WEAPONA_FX" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_1">
+					<Model
+						Name="NPSkeleton_SKN" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Model
+						Name="NPRadiation" />
+						<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="RadiationPuddle"
+						FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationSplash"
+            FollowBone="true" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="RadiationLightSmall"
+            FollowBone="true" />          
+				</ModelConditionState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<!-- no anim -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					AllowRepeatInRandomPick="true"
+					StateName="STATE_bored">
+					<Animation
+						AnimationName="GURflMan_BIDA"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationPriority="80"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+          <Animation
+						AnimationName="GURflMan_BIDB"
+						AnimationMode="ONCE"
+						AnimationPriority="80"
+            AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+          <Animation
+						AnimationName="GURflMan_BIDC"
+						AnimationMode="ONCE"
+						AnimationPriority="80"
+            AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="GURflMan_BIFA"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationPriority="1" />
+          <Animation
+						AnimationName="GURflMan_BIFB"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationPriority="1" />
+          <Animation
+						AnimationName="GURflMan_BIFC"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationPriority="1" />
+					<Animation
+						AnimationName="GURflMan_BIFD"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationPriority="1" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Suppressed" then
+						CurDrawableSetTransitionAnimState("TRANS_fromSuppressed")
+						end
+						if Prev == "STATE_SelectedPose" then
+						CurDrawableSetTransitionAnimState("TRANS_SelectedToIdle")
+						end
+						if Prev == "STATE_stunned_flailing" then
+						CurDrawableSetTransitionAnimState("STATE_stunned_landing")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STUNNED_FLAILING"
+					StateName="STATE_stunned_flailing">
+					<Animation
+						AnimationName="GURflMan_FLYA"
+						AnimationMode="LOOP" />
+          <Animation
+						AnimationName="GURflMan_FLYB"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					StateName="STATE_stunned_landing">
+					<Animation
+						AnimationName="GURflMan_LNDA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FRONTCRUSHED">
+					<Animation
+						AnimationName="GURflMan_CDTA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BACKCRUSHED">
+					<Animation
+						AnimationName="GURflMan_CDTB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED DYING"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="GURflMan_SDIA"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER DYING"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="GURflMan_KDIA"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="GURflMan_KDIB"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="GURflMan_KDIC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="GURflMan_DIEA"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="GURflMan_DIEB"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="GURflMan_DIEC"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PREPARING PACKING_TYPE_1">
+					<Animation
+						AnimationName="GURflMan_DIGA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+						
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED MOVING"
+					StateName="STATE_Suppressed"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GURflMan_SMVA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED USING_WEAPON_A"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="GURflMan_SATA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SUPPRESSED"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Suppressed">
+					<Animation
+						AnimationName="GURflMan_SIDA"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="GURflMan_SIFA"
+						AnimationMode="ONCE" />
+					<Animation
+						AnimationName="GURflMan_SIFB"
+						AnimationMode="ONCE" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev ~= "STATE_Suppressed" and Prev ~= "TRANS_toSuppressed" then
+							CurDrawableSetTransitionAnimState("TRANS_toSuppressed")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toSuppressed">
+					<Animation
+						AnimationName="GURflMan_SDVA"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="GURflMan_SDVB"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_fromSuppressed"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="GURflMan_SDVA"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="GURflMan_SDVB"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER USING_WEAPON_A"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="GURflMan_KAKA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="COVER"
+					Flags="RESTART_ANIM_WHEN_COMPLETE"
+					StateName="STATE_Cover">
+					<Animation
+						AnimationName="GURflMan_KAIA"
+						AnimationMode="ONCE"
+            AnimationBlendTime="20" />
+					<Animation
+						AnimationName="GURflMan_KAIB"
+						AnimationMode="ONCE"
+            AnimationBlendTime="20" />
+          <Animation
+						AnimationName="GURflMan_KAFA"
+						AnimationMode="ONCE"
+            AnimationBlendTime="5" />
+          <Animation
+						AnimationName="GURflMan_KAFB"
+						AnimationMode="ONCE"
+            AnimationBlendTime="5" />
+          <Animation
+						AnimationName="GURflMan_KAFC"
+						AnimationMode="ONCE"
+            AnimationBlendTime="5" />
+					<!--		<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev ~= "STATE_Suppressed" and Prev ~= "TRANS_toSuppressed" then
+						CurDrawableSetTransitionAnimState("TRANS_toSuppressed")
+						end
+					</Script> -->
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING USING_WEAPON_A">
+					<Animation
+						AnimationName="GURflMan_ATRA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A"
+					FrameForPristineBonePositions="4">
+          <Animation
+						AnimationName="GURflMan_ATKA"
+						AnimationMode="ONCE" />
+        </AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					Flags="RANDOMSTART">
+					<Animation
+						AnimationName="GURflMan_RUNA"
+						AnimationMode="LOOP"
+            AnimationBlendTime="15"
+						Distance="75" />
+					<Animation
+						AnimationName="GURflMan_RUNB"
+						AnimationMode="LOOP"
+            AnimationBlendTime="15"
+						Distance="75" />
+          <Animation
+						AnimationName="GURflMan_RUNC"
+						AnimationMode="LOOP"
+            AnimationBlendTime="15"
+						Distance="75" />
+				</AnimationState>
+                <AnimationState
+                    ParseCondStateType="PARSE_NORMAL"
+                    ConditionsYes="ATTACKING"
+                    StateName="STATE_SelectedPose">
+                    <Animation
+                        AnimationName="GURflMan_ATKA"
+                        AnimationMode="MANUAL" />
+                </AnimationState>
+                <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ENGAGED">
+					<Animation
+						AnimationName="GURflMan_AIDA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="EMOTION_CELEBRATING"
+          Flags="RESTART_ANIM_WHEN_COMPLETE" >
+					<Animation
+						AnimationName="GURflMan_CHRA"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+          <Animation
+						AnimationName="GURflMan_CHRB"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+					<Animation
+						AnimationName="GURflMan_CHRC"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.8"
+						AnimationSpeedFactorMax="1.2" />
+				</AnimationState>
+				<!-- SELECTED -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED"
+					StateName="STATE_SelectedPose"
+          Flags="RESTART_ANIM_WHEN_COMPLETE" >
+					<Animation
+						AnimationName="GURflMan_AIDA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+					<Animation
+						AnimationName="GURflMan_AIDB"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5" />
+          <Animation
+						AnimationName="GURflMan_AIFA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="10" />
+          <Animation
+						AnimationName="GURflMan_AIFB"
+						AnimationMode="ONCE"
+            AnimationBlendTime="10" />
+          <Animation
+						AnimationName="GURflMan_AIFC"
+						AnimationMode="ONCE"
+						AnimationBlendTime="5" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_bored" then
+							CurDrawableSetTransitionAnimState("TRANS_IdleToSelected")
+						end
+					</Script>
+				</AnimationState>
+				
+				<!-- parachuting anims -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="LAUNCHED USER_5"
+					StateName="STATE_ShieldParachuteLaunch">
+					<Animation
+						AnimationName="GURflMan_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING USER_5"
+					StateName="GURflMan_BIDA">
+					<Animation
+						AnimationName="SUAntiInfantryInfantry_MMCNC"
+						AnimationMode="LOOP" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_ShieldParachuteLaunch" then
+						CurDrawableSetTransitionAnimState("TRANS_ShieldtoParachuting")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_ShieldtoParachuting" >
+					<Animation
+						AnimationName="SUAntiInfantryInfantry_MMCNB"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_ShieldfromParachuting" >
+					<Animation
+						AnimationName="SUAntiInfantryInfantry_MMCND"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<!-- TRANSITIONS -->
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_IdleToSelected">
+					<Animation
+						AnimationName="GURflMan_BATA"
+						AnimationMode="ONCE"
+            AnimationBlendTime="5"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+          <Animation
+						AnimationName="GURflMan_BATB"
+						AnimationMode="ONCE"
+            AnimationBlendTime="5"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_SelectedToIdle">
+					<Animation
+						AnimationName="GURflMan_ABTA2"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+          <Animation
+						AnimationName="GURflMan_ABTA"
+						AnimationMode="ONCE"
+            AnimationBlendTime="15"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+				</AnimationState>
+			</ScriptedModelDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_FactionDecal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_COS"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INVISIBLE_STEALTH">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="30"
+						SizeY="30"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						UseHouseColor="true"
+						LocalPlayerOnly="true"
+						IsRotatingWithObject="false"
+						Texture="Decal_COS"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PARACHUTING">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model Name="FXInvisBone" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Selected_Repair_Decal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="300"
+						SizeY="300"
+						OpacityStart="0.5"
+						OpacityFadeOutTime="1s"
+						OpacityPeak="0.5"
+						OpacityEnd="0.5"
+						OverrideLODVisibility="true"
+						IsRotatingWithObject="false"
+						MaxHeight="200"
+						UseHouseColor="true"
+						Texture="Decal_LeadershipBuff" 
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawVeterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="0"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="4"
+				LaserStateID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXObeliskLaser</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXLaserOverlay</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+      <!-- VETERAN LASER DRAW -->
+      <LaserDraw
+				id="ModuleTag_LaserDraw_Vet"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="0"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".03"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="0"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="4"
+				LaserStateID="2">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXObeliskLaser</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXJapanOverlay_Vet</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>5.000000</Value>
+              <Value>1.000000</Value>
+              <Value>1.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawAllied.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietExecuterADK45"
+					/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietExecuterCallBombingRun" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+      <LaserState
+        id="ModuleTag_LaserState"                                
+        LaserId="1" >
+        <LaserEndParticleSystem>Allied_Target_LaserEnd</LaserEndParticleSystem>
+      </LaserState>
+      <LaserState
+        id="ModuleTag_LaserState_Vet"
+        LaserId="2" >
+        <LaserEndParticleSystem>Allied_Target_LaserEnd</LaserEndParticleSystem>
+        <LaserEndParticleSystem>SovietNatashaLaserEnd_VetSparks</LaserEndParticleSystem>
+      </LaserState>
+			<Physics
+				id="ModuleTag_Physics" />
+			<OCLSpecialPower
+				id="ModuleTag_BombingRun"
+				SpecialPowerTemplate="SpecialPowerMigBombingRun"
+				UpdateModuleStartsAttack="false"
+				AvailableAtStart="true"
+				OCL="OCL_SovietMigBombingRun"				
+				CreateLocation="USE_SECONDARY_OBJECT_LOCATION">
+				<NearestSecondaryObjectFilter
+					Relationship="SAME_PLAYER">
+					<IncludeThing>SovietConstructionYard</IncludeThing>
+				</NearestSecondaryObjectFilter>
+			</OCLSpecialPower>
+			<OCLMonitorUpdate
+				id="ModuleTag_BombingRunMonitor"
+				Options="MASTER RELEASE_WHEN_MASTER_CHANGES_TARGET"				
+				/>
+
+			<!-- standard death -->
+			<SlowDeath
+				id="ModuleTag_Death"
+				SinkDelay="3s"
+				SinkRate="2.4"
+				DestructionDelay="4s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED IRRADIATED"
+					ExemptStatus="WEAPON_UPGRADED_02"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+
+			<!-- dying when switched to sword ability -->
+			<SlowDeath
+				id="ModuleTag_BanzaiDeath"
+				DeathFlags="DEATH_10"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED IRRADIATED"
+					RequiredStatus="WEAPON_UPGRADED_02"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+
+			<SlowDeath
+				id="ModuleTag_TeslaDeath"
+				DeathFlags="DEATH_1"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="ELECTROCUTED"
+					DeathTypesForbidden="ERASED LASERED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDieShock" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_LaserDeath"
+				DeathFlags="DEATH_2"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="LASERED"
+					DeathTypesForbidden="ERASED ELECTROCUTED BURNED STABBED IRRADIATED"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_FireDeath"
+				DeathFlags="DEATH_3"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="BURNED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED STABBED IRRADIATED"/>
+                <Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDieFire" />
+            </SlowDeath>
+            
+            <SlowDeath
+				id="ModuleTag_SwordDeath"
+				DeathFlags="DEATH_4"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+                <DieMuxData
+					DeathTypes="STABBED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED IRRADIATED"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+			
+			<SlowDeath
+				id="ModuleTag_RadiationDeath"
+				DeathFlags="DEATH_5"
+				SinkDelay="7s"
+				SinkRate="2.4"
+				DestructionDelay="8.5s">
+				<DieMuxData
+					DeathTypes="IRRADIATED"
+					DeathTypesForbidden="ERASED ELECTROCUTED LASERED BURNED STABBED"
+					ExemptStatus="OVER_WATER"/>
+				<Sound Type="INITIAL" List="JAP_ImperialWarrior_VoiceDie" />
+			</SlowDeath>
+
+<!--
+			<LargeGroupAudioUpdate
+				id="LGAU">
+				<Key>GDI_RifleSoldier</Key>
+			</LargeGroupAudioUpdate>
+-->
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+
+			<SpecialPower
+				id="ModuleTag_ExecutionSpecialPower"
+				SpecialPowerTemplate="SpecialPower_SovietExecution"
+				UpdateModuleStartsAttack="true"
+			/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_SovietExecution"
+				SpecialWeapon="SovietExecuterExecution"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="2s"/>
+				<!-- ActiveLoopSound="JAP_ImperialWarrior_Weapon_SwordSheathFakeLoop" no worky didn't loop at all -->
+
+			<!-- Allied Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_AlliesFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_SovietFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</ModelConditionUpgrade>	
+				
+			<AttributeModifierAuraUpdate
+					id="ModuleTag_AttributeModifierAuraUpdate"
+					AttributeModifierName="AttributeModifier_ExecuterBuff"
+			   		RefreshDelay="1.0s"
+			 		Range="150"
+					InitiallyActive="true">
+					<ObjectFilter
+       					Rule="ANY"
+       					Relationship="ALLIES"
+						Include="INFANTRY">
+					</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			
+			<FireWeaponWhenDead
+				id="ModuleTag_Moraleenhanced"
+				InitiallyActive="true"
+				DeathWeapon="SovietInfantryMoraleEnhanceWeapon">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED"/>
+			</FireWeaponWhenDead>	
+			<AttributeModifierUpgrade
+				id="ModuleTag_SovietNationalismPropagandaUpgrade"
+				AttributeModifier="AttributeMod_SovietNationalismPropagandaAttribute">
+				<TriggeredBy>Upgrade_SovietNationalismPropaganda</TriggeredBy>
+			</AttributeModifierUpgrade>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="280.0" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceDieFall">
+				<ModelConditionSound Sound="JAP_ImperialWarrior_VoiceDieYurikoFall" RequiredFlags="IMPENDING_DOOM" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_YurikoVoiceUp">
+				<ModelConditionSound Sound="JAP_ImperialWarrior_VoiceDieYurikoUp" RequiredFlags="STUNNED_FLAILING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<AnimationSoundClientBehavior id="ModuleTag_ASCB">
+				<Sound Sound="SOV_Bear_ParachuteOpen" Animation="SUCommando_MCNB" Frame="3" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_DTBA" Frame="25" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_DTBB" Frame="25" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_RNDA" Frame="25" />
+				<Sound Sound="BodyfallGeneric" Animation="JUAntiInfantryInfantry_RNDB" Frame="25" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_RUNA" Frame="1 13 25 37" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_RUNC" Frame="7 18 29 40" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_SRUNA" Frame="5 15 25" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_SRUNB" Frame="5 15 25" />
+				<Sound Sound="FootstepDirt" Animation="JUAntiInfantryInfantry_SRUNC" Frame="5 15 25" />
+				
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_CDTA" Frame="7" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_CDTB" Frame="6" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTBA" Frame="22" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTBB" Frame="24" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTFA" Frame="75" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTFB" Frame="64" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTKA" Frame="30" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTKB" Frame="38" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTPA" Frame="79" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTPB" Frame="81" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTSA" Frame="10" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_DTSB" Frame="8" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_LNDA" Frame="5" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_MCND" Frame="4" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_RNDA" Frame="33" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_RNDB" Frame="24" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SCDTA" Frame="6" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SCDTB" Frame="7" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTBA" Frame="10" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTBB" Frame="95" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTFA" Frame="116" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTFB" Frame="84" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTKB" Frame="23" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTPA" Frame="104" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTPB" Frame="83" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDTSA" Frame="8" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SDVA" Frame="21" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SLNDA" Frame="4" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SMCND" Frame="4" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SRNDA" Frame="35" />
+				<Sound Sound="BodyfallGenericArmorMS" ExcludedMC="OVER_WATER" Animation="JUAntiInfantryInfantry_SRNDB" Frame="24" />
+			</AnimationSoundClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="BonzaiChargeVoice">
+				<Override RequiredFlags="USER_1">
+					<AudioArrayVoice>
+						<AudioEntry Sound="JAP_ImperialWarrior_VoiceAttackBonzaiCharge" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_SwordUnsheath">
+				<ModelConditionSound Sound="JAP_ImperialWarrior_Weapon_SwordUnsheathMS" RequiredFlags="USER_1" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceAttackMS"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceCreate"
+				AudioType="voiceCreated" />
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceGarrisonMS"
+				AudioType="voiceGarrison" />
+      <AudioEntry
+				Sound="GDI_RifleSoldier_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceMoveMS"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceMoveMS"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceRetreatMS"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="GDI_RifleSoldier_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+      <NamedEntry
+				Sound="GDI_RifleSoldier_VoiceDigIn"
+				Name="InitiateMoveToPositionAndEvacuate" />
+		</AudioArrayVoice>
+<!--
+		<AudioArraySound>
+			<AudioEntry Sound="AudioEvent:TEMP_PredatorMoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="AudioEvent:PredatorAmbientLoop" AudioType="soundAmbient" />
+		</AudioArraySound>
+-->
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" 
+		/>
+		<VisionInfo
+			VisionRange="360"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"
+		/>
+	</GameObject>
+</AssetDeclaration>

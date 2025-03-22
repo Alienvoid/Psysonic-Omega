@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xai="uri:ea.com:eala:asset:instance"  xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:SUOsprey_skn.w3x" />
+		<Include type="all"	source="ART:SUOsprey_IDLA.w3x" />
+		<Include type="all"	source="ART:SUOsprey_MOVA.w3x" />
+		<Include type="all"	source="ART:SUOsprey_D.xml" />
+		<Include type="all"	source="ART:FXNewTracerHeroic.xml" />
+		<Include type="all"	source="ART:FXNewTracer.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka Hind aka Twinblade -->
+	<GameObject
+		id="SovietOsprey"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SovietRavager"
+		ButtonImage="Button_SovietRavager"
+		Side="Soviet"
+		SubGroupPriority="720"
+		EditorSorting="UNIT"
+		TransportSlotCount="20"
+		BuildTime="10"
+		CommandSet="EmptyCommandSet"
+		KindOf="PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SCORE AIRCRAFT VEHICLE PASS_EXPERIENCE_TO_SLAVER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS ASSAULT_AIRCRAFT"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="SovietOsprey"
+		Description="Desc:SovietOsprey"
+		TypeDescription="Type:SovietOsprey"
+		HealthBoxHeightOffset="35"
+		UnitIntro="Soviet_Twinblade_UnitIntro">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SovietOsprey</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="100"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiGroundAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<!--<LocomotorSet
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />-->
+		<LocomotorSet
+			Locomotor="SovietOspreyLocomotor"
+			Condition="NORMAL"
+			Speed="150.0" />
+
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="MUZZLEFX CHASSIS">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUOsprey_skn" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon_" />
+					<Turret
+						TurretNameKey="CHASSIS"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUOsprey_SKN" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUOsprey_SKN" />
+					<Texture
+						Original="SUOsprey"
+						New="SUOsprey_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUOsprey_SKN" />
+					<Texture
+						Original="SUOsprey"
+						New="SUOsprey_D" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="ChopperDamageFire"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="SUOsprey_IDLA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+          <Animation
+						AnimationName="SUOsprey_MOVA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+        </AnimationState>  
+
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+          <Animation
+						AnimationName="SUOsprey_IDLA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="HelicopterMovingWaterWake"
+						FollowBone="false" />
+        </AnimationState>        
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER MOVING">
+          <Animation
+						AnimationName="SUOsprey_MOVA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="HelicopterMovingWaterWake"
+						FollowBone="false" />
+        </AnimationState>
+        
+
+  			<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WALKING">
+					<Animation
+						AnimationName="SUOsprey_IDLA"
+						AnimationMode="MANUAL"
+						AnimationBlendTime="15" />
+				</AnimationState>
+
+			</ScriptedModelDraw>
+
+		</Draws>
+		
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietOspreyTorpedoWeapon" />
+					<TurretSettings
+						TurretTurnRate="200"
+						TurretPitchRate="0"
+						AllowsPitch="true"
+						NaturalTurretAngle="0d"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="0.0">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<!-- gravity mult of 30 is temporary -->
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<ProductionUpdate
+				id="ModuleTag_Production"
+				MaxQueueEntries="1" />
+
+
+			
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUOsprey_Collapse_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="330"
+				GuardMaxRange="330"
+				GuardWanderRange="330"
+				AttackRange="330"
+				DieOnMastersDeath="true" />
+		</Behaviors>
+		<AI>
+			<!-- This should really be a 'AIUpdate' but there are some small issues. -->
+			<JetAIUpdate
+				id="ModuleTag_AIUpdate"
+				NeedsRunway="false"
+				KeepsParkingSpaceWhenAirborne="false"
+				AutoAcquireEnemiesWhenIdle="YES"
+				CirclesForAttack="true"
+				SpawnOffsetRadius="160.0"
+				StateMachine="JetAIStateMachine">
+				<UnitAITargetChooserData 
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="280" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_Flying">
+				<ModelConditionSound Sound="SOV_Hind_MoveLand" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="SOV_Hind_MoveLift" RequiredFlags="TAKING_OFF" />
+				<ModelConditionSound Sound="SOV_Hind_MoveLoop" RequiredFlags="FLYING MOVING" ExcludedFlags="DAMAGED REALLYDAMAGED DYING" />
+				<ModelConditionSound Sound="SOV_Hind_MoveDamagedLoop" RequiredFlags="FLYING MOVING DAMAGED" ExcludedFlags="REALLYDAMAGED DYING" />
+				<ModelConditionSound Sound="SOV_Hind_MoveReallyDamagedLoop" RequiredFlags="FLYING MOVING REALLYDAMAGED" ExcludedFlags="DAMAGED DYING" />
+				<ModelConditionSound Sound="SOV_Hind_IdleLoop" RequiredFlags="FLYING" ExcludedFlags="DAMAGED REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Hind_IdleDamagedLoop" RequiredFlags="FLYING DAMAGED" ExcludedFlags="REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Hind_IdleReallyDamagedLoop" RequiredFlags="FLYING REALLYDAMAGED" ExcludedFlags="DAMAGED MOVING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="16.0"
+				MinorRadius="11.0"
+				Height="8.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="-4" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Twinblade_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Twinblade_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_Hind_MoveStart" AudioType="soundMoveStart" />
+			<!-- <AudioEntry Sound="SOV_Hind_MoveLoop" AudioType="soundMoveLoop" /> -->
+		</AudioArraySound>
+
+		<VisionInfo
+			VisionRange="350"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+</AssetDeclaration>

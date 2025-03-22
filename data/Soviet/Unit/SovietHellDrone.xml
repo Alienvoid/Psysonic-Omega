@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:SUHellDrone_SKN.w3x" />
+		<Include type="all"	source="ART:FXLightningMJ02.xml" />
+		<Include type="all"	source="ART:FXGradRandom.xml" />
+		
+		<Include type="instance" source="DATA:BaseObjects/BaseObject.xml" />
+	</Includes>
+	<GameObject
+		id="SovietHellDrone"
+		inheritFrom="BaseObject"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SCORE AIRCRAFT VEHICLE PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		EditorName="SovietHellDrone"
+		Description="Desc:SovietHellDrone">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:SovietHellDrone</DisplayName>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+
+		<LocomotorSet
+			Locomotor="SovietHellDrone_Locomotor"
+			Condition="NORMAL"
+			Speed="150.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUHellDrone_SKN" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponA" />
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="SovietHellDroneTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUHellDrone_SKN" />
+					<Texture
+						Original="SUHellDrone"
+						New="SUHellDrone_D" />
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="AlliedJetTrail"
+						FollowBone="true"
+						PersistID="1"
+						FXAction="SPAWN" />
+					<ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="SovietHellDroneTrailGlow"
+						FollowBone="true"
+						PersistID="2"
+						FXAction="SPAWN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+
+			<LaserDraw
+				id="ModuleTag_Laser"
+				Texture1_UTile="1"
+				Texture1_VTile=".7"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="1.8"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".01"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".5"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="10"
+				LaserStateID="0"
+				WeaponSlotID="1">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLightningMJ02</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXGradRandom</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietHellDroneTeslaBeamWeapon" />					
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<SweepingLaserState
+				id="ModuleTag_LaserState"
+				Radius="15.0"
+				SweepFXList="FX_SOV_ElectroRay"
+				VeteranSweepFXList="FX_SOV_ElectroRay"
+				SweepFXTimeout="0.25s"
+				LaserId="0" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUHellDrone_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="=$SOVIET_REPAIR_DRONE_LEASH_DISTANCE"
+				GuardMaxRange="=$SOVIET_REPAIR_DRONE_LEASH_DISTANCE"
+				GuardWanderRange="300"
+				AttackRange="175"
+				UseSlaverAsControlForEvaObjectSightedEvents="false" />
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				StanceTemplate="Generic" />
+		</Behaviors>		
+		<AI>		
+			<JetAIUpdate
+				id="ModuleTag_JetAI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				CirclesForAttack="true"
+				StateMachine="JetAIStateMachine"
+				DefaultLocomotorSet="NORMAL">
+				<UnitAITargetChooserData />
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="200.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+			<EvaEventArray>
+				<EvaEntry EvaEvent="" EvaType="dieOwner" />
+				<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+				<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+			</EvaEventArray>
+
+		<VisionInfo
+			VisionRange="225"
+			ShroudClearingRange="200" />
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:AUDrone.w3x" />
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:AUDrone_02.xml" />				
+		<Include type="all"	source="ART:AUDrone_02_D.xml" />
+		<Include type="all"	source="ART:FXTracerNOD.xml" />
+		<Include type="all"	source="ART:FXTracerHeroic.xml" />
+	</Includes>
+	<GameObject
+		id="SovietCounterMeasuresActivater_Fighter"
+		inheritFrom="BaseVehicle"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS INFANTRY CAN_ATTACK AIRCRAFT PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS"
+		RadarPriority="UNIT"
+		ProductionQueueType="INFANTRY"
+		UnitCategory="INFANTRY"
+		WeaponCategory="CANNON"
+		TransportSlotCount="1"
+		EditorName="SovietCounterMeasuresActivater"
+		UnitTypeIcon="RiflemenIcon"
+		Description="Desc:SovietCounterMeasuresActivater">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:SovietCounterMeasuresActivater</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="AlliedDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="275.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="AUDrone" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="AUBomb" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="AUBomb" />
+				</ModelConditionState>			
+			</ScriptedModelDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawVeterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+	  </Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietFighterAircraftAutoCannon"/>
+				</WeaponSlotHardpoint>
+				<WeaponSlotHardpoint
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietAircraftCountermeasuresWeapon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<LifetimeUpdate
+				id="Moduletag_LifetimeUpdate"
+				MinLifetime="0.1s"
+				MaxLifetime="0.1s" />
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="AUDrone_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>	
+		</Behaviors>		
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+                    RotateToTargetWhenAiming="true">
+					<ObjectVisionRange
+						id="ObjectVisionRange_Aircraft"
+						Range="500">
+						<Filter
+							Rule="ANY"
+							Include="INFANTRY VEHICLE AIRCRAFT"
+							StatusBitFlags="AIRBORNE_TARGET"/>
+					</ObjectVisionRange>	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="400.0"/>
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="450"
+			ShroudClearingRange="20" />
+	</GameObject>
+</AssetDeclaration>

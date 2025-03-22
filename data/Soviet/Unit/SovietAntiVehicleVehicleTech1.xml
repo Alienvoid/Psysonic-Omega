@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="all"
+			source="ART:SUBattleMaster_skn.w3x" />
+		<Include
+			type="all"
+			source="ART:SUBattleMaster_D.xml" />
+	<Include
+		type="all"
+		source="ART:GUVehicleV_D.xml" />	
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include
+			type="all"
+			source="ART:FXLaserStandard.xml" />
+		<Include
+			type="all"
+			source="ART:EXAlliedTargetLaserGrad.xml" />
+	</Includes>
+	<!-- aka Tenho Tank -->
+	<GameObject
+		id="SovietAntiVehicleVehicleTech1"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SovietBattlemastertank"
+		ButtonImage="Button_SovietBattlemastertank"
+		Side="Soviet"
+		SubGroupPriority="20"
+		EditorSorting="UNIT"		
+		BuildTime="7"
+		CommandSet="SovietTenhoTankCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="SovietBattleMasterTank"
+		Description="Desc:SovietBattleMasterTank"
+		TypeDescription="Type:SovietBattleMasterTank"
+		HealthBoxHeightOffset="25">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SovietBattleMasterTank</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="700"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiVehicleVehicleTech1Armor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="SovietAntiVehicleVehicleTech1Locomotor"
+			Condition="NORMAL"
+			Speed="80.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.5"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="FX_TREAD_02 FX_TREAD_01 FX_WEAPONA01 FX_WeaponB_01 FX_LASER01 FX_ExhaustL FX_ExhaustR Bone_Tread_Left Bone_Tread_Right BONE_TURRET Bone_Barrel"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="FX_TREAD_02"
+				TrackMarksRightBone="FX_TREAD_01">
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Left"
+					RightTrack="Bone_Tread_Right"
+					SpeedMultiplier="0.06"
+					TreadDriveSpeedFraction="10%"/>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="SUBattleMaster_skn" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPONA01" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Bone_Barrel"/>
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPONA01" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponB_01" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponB_01" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_LASER01" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="TERTIARY_WEAPON"
+						BoneName="FX_LASER01" />
+					<Turret
+						TurretNameKey="BONE_TURRET"
+						TurretPitch="Bone_Barrel"
+						TurretID="1" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUBattleMaster_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					RetainSubObjects="true"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUBattleMaster_skn" />
+					<Texture
+						Original="SUBattleMaster"
+						New="SUBattleMaster_D" />
+					<Texture
+						Original="GUVehicleV"
+						New="GUVehicleV_D" />
+          <ParticleSysBone
+           BoneName="FX_Damage_01"
+           FXParticleSystemTemplate="VehicleDamageSmoke"
+           FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="SUBattleMaster_skn" />
+				</ModelConditionState>
+			</TruckDraw>
+      <LaserDraw
+				id="ModuleTag_AntiInfantryLaserDraw3"
+				Texture1_UTile="1"
+				Texture1_VTile=".5"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate=".2"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".02"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate=".25"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="3"
+				LaserStateID="1">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXLaserStandard</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>EXAlliedTargetLaserGrad</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>2.000000</Value>
+              <Value>2.000000</Value>
+              <Value>2.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawSoviet.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietAntiVehicleVehicleTech1CannonWeapon"
+						ForbiddenObjectStatus="WEAPON_UPGRADED_02"/>
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietAntiVehicleVehicleTech1Cannon_Veteran"
+						ObjectStatus="WEAPON_UPGRADED_02" />
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="Leech_FlakMissile"/>
+					<TurretSettings
+						TurretTurnRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>				
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			
+      <LaserState
+        id="ModuleTag_LaserState"                                
+        LaserId="1"
+		OriginBoneName="FX_LASER01" >
+        <LaserEndParticleSystem>Allied_Orbital_LaserEnd</LaserEndParticleSystem>
+      </LaserState>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUBattleMaster_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+
+
+			<DestroyDie
+			id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_SovietShipVehicleDie" />
+				<Event
+					Index="onDeath"
+					FX="FX_LargeBuildingDieExplosionRumble" />
+			</FXListBehavior>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<SpecialPower
+				id="ModuleTag_SmokeGrenadeSpecialPower"
+				SpecialPowerTemplate="SpecialPower_TenhoSmokeGrenade"
+				UpdateModuleStartsAttack="true"
+				CanAffectObjectFilter="GenericSpecialPowerObjectFilter"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ArrowBarrageSpecialPowerUpdate"
+				SpecialWeapon="SovietTenhoSmokeGrenadeLauncher"
+				SpecialPowerTemplate="SpecialPower_TenhoSmokeGrenade"
+				WhichSpecialWeapon="1" 
+				FaceTarget="true"
+				UnpackTime="0s"
+				PackTime="0s"
+				StartAbilityRange="350.0"
+				UnpackSound=""/>	
+
+			<AttributeModifierUpgrade
+				id="ModuleTag_ArmorUpgrade"
+				AttributeModifier="AttributeMod_SovietArmorUpgradeAttribute">
+				<TriggeredBy>Upgrade_SovietTenhoArmor</TriggeredBy>
+			</AttributeModifierUpgrade>
+			<xi:include
+				href="DATA:Includes/SovietCrushUpgradePlayerPower.xml" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="525" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_TeslaTank_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_EMDisruptors">
+				<ModelConditionSound Sound="SOV_TeslaTrooper_EMDisruptorsLoopMS" RequiredFlags="WEAPONSTATE_ONE" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_EMdisruptorsOn">
+				<Override RequiredFlags="WEAPONSTATE_ONE">
+					<AudioArrayVoice>
+						<AudioEntry Sound="SOV_TeslaTrooper_VoiceMoveSpecial" AudioType="voiceMove" />
+						<AudioEntry Sound="SOV_TeslaTrooper_VoiceAttackSpecial" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="20.0"
+				MinorRadius="14.0"
+				Height="12.0"
+				ContactPointGeneration="VEHICLE">
+				<Offset
+					x="-7.0"
+					y="0.0"
+					z="0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceCreate"
+				AudioType="voiceCreated" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceMoveHelopad"
+				AudioType="voiceEnter" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceRetreat"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="SOV_Tenho_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+			<NamedEntry
+				Sound="SOV_Tenho_VoiceScan"
+				Name="VoicePulseScan" />
+			<NamedEntry
+				Sound="SOV_Tenho_VoiceLaunchSensorPod"
+				Name="VoiceSensorPod" />
+      <NamedEntry
+				Sound="SOV_Tenho_VoiceMoveHelopad"
+				Name="ReturnToProducer" />
+			<NamedEntry
+				Sound="SOV_Tenho_VoiceRetreat"
+				Name="ReturnToProducerWhileUnderAttack" />
+			<AudioEntry Sound="SOV_Tenho_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="SOV_HammerTank_Land_MoveLoopMS"
+				AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="SOV_HammerTank_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="SOV_HammerTank_IdleLoop"
+				AudioType="soundAmbient" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+			<!-- <AudioEntry Sound="AudioEvent:MammothTankTurretMoveLoop" AudioType="soundTurretMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="550"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="20" 
+			CrusherLevel="20" 
+			CrushWeapon="SovietCrushWeapon"
+			CrushDecelerationPercent="80%" />
+	</GameObject>
+</AssetDeclaration>

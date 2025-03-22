@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<!-- aka Apocolypse tank -->
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"	
+			source="ART:Decal_Rig_CO.xml" />
+		<Include
+			type="all"
+			source="ART:SUMARV_D.xml" />
+		<Include
+			type="all"
+			source="ART:SUMARV_Turret_D.xml" />
+		<Include
+			type="all"
+			source="ART:SUAntiVehicleVehicleTech3_FX.w3x" />
+		<Include
+			type="all"
+			source="ART:SUMARV_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:SUAntiVehicleVehicleTech3_FX.w3x" />
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+    <Include
+     type="instance"
+     source="ART:FXBeamAlpha.xml" />
+    <Include
+			type="instance"
+			source="ART:FXHarpoonBeam.xml" />
+    <Include
+			type="instance"
+			source="ART:FXCloud01.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka Mammoth -->
+	<GameObject
+		id="SovietMARV"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SovietMARV"
+		ButtonImage="Button_SovietMARV"
+		Side="Soviet"
+		SubGroupPriority="450"
+		EditorSorting="UNIT"
+		BuildTime="30"
+		CommandSet="SovietMARVCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT T3_UNIT UNIQUE_UNIT HUGE_VEHICLE COMMANDO"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="SovietMARV"
+		Description="Desc:SovietMARV"
+		TypeDescription="Type:SovietMARV"
+		HealthBoxHeightOffset="30"
+		UnitIntro="Soviet_ApocTank_UnitIntro"
+		MaxSimultaneousOfType="1">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SovietMARV</DisplayName>
+		<GameDependency>
+			<RequiredObject>SovietTechStructure</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="3000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiVehicleVehicleTech3Armor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="SovietAntiVehicleVehicleTech3Locomotor"
+			Condition="NORMAL"
+			Speed="60" />
+
+		<!-- TargetDuringCrush="true" so that we use our harpoons when crushing.
+			   CrushSpeedBonus gives a bonus because we can usually harpoon the enemy; it's a little 
+				 less than the pull-rate because of time to fire, time to get in range, etc. -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			TargetDuringCrush="true"
+			CrushSpeedBonus="150"/>
+
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				InitialRecoilSpeed="0.75"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="1.5"
+				ExtraPublicBone="Bone_Tread_Back_Right Bone_Tread_Back_Left Bone_Tread_Front_Right Bone_Tread_Front_Left fx_weapon01 fx_weapon02 FXTracksL FXTracksR Barrel01 Barrel02"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="FXTracksL"
+				TrackMarksRightBone="FXTracksR">
+				<TreadTerrainParticles>SovietTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Front_Left"
+					RightTrack="Bone_Tread_Front_Right"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_Tread_Back_Left"
+					RightTrack="Bone_Tread_Back_Right"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+														
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="SUMARV_SKN" />		
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Barrel" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weapon" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fx_weaponB" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fx_weaponB" />
+					<Turret
+						TurretNameKey="Turret"
+						TurretPitch="Turret_Pitch"
+						TurretID="1" />						
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUMARV_SKN" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUMARV_SKN" />
+					<Texture
+						Original="SUMARV"
+						New="SUMARV_D" />
+					<Texture
+						Original="SUMARV_Turret"
+						New="SUMARV_Turret_D" />
+				</ModelConditionState>
+				        
+
+			</TruckDraw>
+
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+
+
+   
+      <ScriptedModelDraw
+				id="ModuleTag_Draw_FX"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUAntiVehicleVehicleTech3_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUAntiVehicleVehicleTech3_FX" />
+          <ParticleSysBone
+            BoneName="FX_BONE01"
+            FXParticleSystemTemplate="VehicleDamageSmoke"
+            FollowBone="true" />
+  
+        </ModelConditionState>
+        <ModelConditionState
+			ParseCondStateType="PARSE_NORMAL"
+			ConditionsYes="REALLYDAMAGED">
+			<Model
+				Name="SUAntiVehicleVehicleTech3_FX" />
+			<ParticleSysBone
+				BoneName="FX_BONE01"
+				FXParticleSystemTemplate="VehicleDamageSmoke"
+				FollowBone="true" />
+			<ParticleSysBone
+				BoneName="FX_BONE01"
+				FXParticleSystemTemplate="VehicleDamageFire"
+				FollowBone="true" />
+			<ParticleSysBone
+				BoneName="FX_BONE01"
+				FXParticleSystemTemplate="VehicleDamageFire02"
+				FollowBone="true" />
+			</ModelConditionState>
+		</ScriptedModelDraw>
+
+		<ScriptedModelDraw
+			id="ModuleTag_FX"
+			OkToChangeModelColor="true"
+			AttachToBoneInAnotherModule="FX_Harpoon"
+			ExtraPublicBone="InvisBone01">
+			<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+				Name="FXInvisBone" />      
+			</ModelConditionState>
+
+			<ModelConditionState
+				ParseCondStateType="PARSE_NORMAL"
+				ConditionsYes="WEAPONSTATE_ONE">
+				<Model
+					Name="FXInvisBone" />
+				<ParticleSysBone
+					BoneName="InvisBone01"
+					FXParticleSystemTemplate="Sov_Apoc_TB_Spark"
+					FollowBone="true" />
+				<ParticleSysBone
+					BoneName="InvisBone01"
+					FXParticleSystemTemplate="Sov_Apoc_TB_Glow"
+					FollowBone="true" />
+        </ModelConditionState>
+      </ScriptedModelDraw>
+	  
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Selected_Repair_Decal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SELECTED">
+					<Model Name="FXInvisBone" /> 
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="=$SOVIET_REPAIR_DRONE_HOME_DECAL_SIZE"
+						SizeY="=$SOVIET_REPAIR_DRONE_HOME_DECAL_SIZE"
+						OverrideLODVisibility="true"
+						MaxHeight="200"
+						IsRotatingWithObject="false"
+						UseHouseColor="true"
+						Texture="Decal_Rig_CO"
+						LocalPlayerOnly="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>	
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawSoviet.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />		
+	</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_LEAST_MOVEMENT"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietMARVCannon"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietMARVMissileLauncher"/>
+					<TurretSettings
+						TurretTurnRate="80"
+						MinimumPitch="-20d"
+						AllowsPitch="true"
+						PitchHeight="85%"
+						TurretPitchRate="80"
+						IdleTurnRateModifier="10%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="4.0s"
+						MinIdleScanAngle="30.0"
+						MaxIdleScanAngle="50.0"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+				
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="25"
+				HealingDelay=".5s">
+			</AutoHealBehavior>		
+
+			<!--
+			<AutoHealBehavior
+				id="ModuleTag_BloodThirster"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="0s"
+				HealingAmount="125"
+				HealingDelay=".5s">
+				<ObjectStatusValidation
+					RequiredStatus="GENERIC_TOGGLE_STATE" />
+			</AutoHealBehavior>
+			-->
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUMARV_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+
+			<xi:include
+				href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />
+
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_ApocalypseDie" />
+				<Event
+					Index="onDeath"
+					FX="FX_LargeBuildingDieExplosionRumble" />
+			</FXListBehavior>
+
+			<ModelConditionUpgrade
+				id="ModuleTag_AllFactionUpgrade"
+				AddConditionFlags="USER_5">
+				<TriggeredBy>Upgrade_AllFactionUpgrade</TriggeredBy>
+			</ModelConditionUpgrade>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+			<AssignSlavesTargetObjectSpecialPower
+				id="ModuleTag_SpecialPowerRepairVehicle"
+				SpecialPowerTemplate="SpecialPower_TargetedRepairVehicle" />
+			<SpawnBehavior
+				id="ModuleTag_SpawnRepairDrones"
+				SpawnNumberData="6"
+				InitialBurst="6"
+				SpawnReplaceDelayData="10s"
+				SpawnedRequireSpawner="true"
+				KillSpawnsOnCaptured="true"
+				SpawnInsideBuilding="true"
+				KillSpawnsOnDisabled="true"
+                SpawnOnUnpack="true">
+				<Die
+					DeathTypes="ALL" />
+				<SpawnTemplate>SovietTeslaRepairDrone</SpawnTemplate>
+			</SpawnBehavior>
+			
+			<PassiveAreaEffectBehavior
+				id="ModuleTag_PassiveHealWhenNotAttacking"
+				EffectRadius="300.0"
+				SurveyDelayFrames="1" 
+				HealingPercentPerSecond="4%"
+				AffectWoundedOnly="true"
+				AffectUnderAttack="true"
+				NonStackable="true"
+				HealFX="FX_Repair"
+				DisabledTypesToProcess="HELD">
+				<AllowFilter
+					Rule="ANY"
+					Relationship="ALLIES"
+					Include="VEHICLE HUGE_VEHICLE"
+					Exclude="AIRCRAFT" />
+			</PassiveAreaEffectBehavior>
+			
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeModifier_SovietMARVBuff"
+			   	RefreshDelay="1.0s"
+			 	Range="300"
+				InitiallyActive="true">
+				<ObjectFilter
+       				Rule="ANY"
+       				Relationship="ALLIES"
+					Include="VEHICLE">
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			
+			
+			<!--<SpecialPower
+				id="ModuleTag_Recovery"
+				SpecialPowerTemplate="SpecialPower_Recovery"
+				UpdateModuleStartsAttack="true" />
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ModuleTag_RecoveryUpdate"
+				SpecialPowerTemplate="SpecialPower_Recovery"
+				SpecialWeapon="SovietMARVRecovery"
+				UnpackTime="0s"
+				PackTime="0s"
+				FaceTarget="false"
+				StartAbilityRange="0.0"/>-->
+			
+			<SpecialPower
+				id="ModuleTag_TeslaNova"
+				SpecialPowerTemplate="SpecialPower_MARVTeslaNova"
+				UpdateModuleStartsAttack="true" />
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ModuleTag_TeslaNovaUpdate"
+				SpecialPowerTemplate="SpecialPower_MARVTeslaNova"
+				SpecialWeapon="SovietMARVTeslaNova"
+				UnpackTime="0s"
+				PackTime="0s"
+				FaceTarget="false"
+				StartAbilityRange="0.0"/>
+			<CircularDamageUpdate
+				id="ModuleTag_CircularDamage"
+				MaxRadius="225"
+				SweepFXList="FX_TeslaNovaDeath"
+				ArcDistance="50"
+				SweepWeapon="SovietMARVTeslaNovaImpact">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES ENEMIES NEUTRAL"
+					Include="VEHICLE INFANTRY TIME_BOMB"/>
+			</CircularDamageUpdate>
+			<xi:include
+				href="DATA:Includes/SovietCrushUpgradePlayerPower.xml" />
+				
+		<!--<LUAEventList
+			id="ModuleTag_LUAEventList"
+			EventListName="MARVDamagedToHealFunctions"
+		/>				-->
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="3500" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_Apocalypse_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_HarpoonEnabled">
+				<Override RequiredFlags="WEAPONSTATE_ONE">
+					<AudioArrayVoice>
+						<AudioEntry Sound="SOV_Apocalypse_VoiceAttackSpecial" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_HarpoonLoop">
+				<ModelConditionSound Sound="SOV_ApocalypseTank_HarpoonLoop" RequiredFlags="WEAPONSTATE_ONE ATTACKING" ExcludedFlags="MOVING"/>
+				<ModelConditionSound Sound="SOV_Apocalypse_WeaponStartup" RequiredFlags="WEAPONSTATE_ONE" /> <!-- currently AudioEvent is empty -->
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="25.0"
+				MinorRadius="18.0"
+				Height="24.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="SOV_Marv_VoiceAttack"
+				AudioType="voiceAttack" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceCreate"
+				AudioType="voiceCreated" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceMoveHelopad"
+				AudioType="voiceEnter" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceMove"
+				AudioType="voiceGuard" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceMove"
+				AudioType="voiceMove" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceMoveAttack"
+				AudioType="voiceAttackAfterMoving" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceRetreat"
+				AudioType="voiceRetreatToCastle" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceSelectMS"
+				AudioType="voiceSelect" />
+			<AudioEntry
+				Sound="SOV_Marv_VoiceSelectBattleMS"
+				AudioType="voiceSelectBattle" />
+			<NamedEntry
+				Sound="SOV_Marv_VoiceScan"
+				Name="VoicePulseScan" />
+			<NamedEntry
+				Sound="SOV_Marv_VoiceLaunchSensorPod"
+				Name="VoiceSensorPod" />
+      <NamedEntry
+				Sound="SOV_Marv_VoiceMoveHelopad"
+				Name="ReturnToProducer" />
+			<NamedEntry
+				Sound="SOV_Marv_VoiceRetreat"
+				Name="ReturnToProducerWhileUnderAttack" />
+			<AudioEntry Sound="SOV_Marv_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="SOV_Apocalypse_IdleLoop"
+				AudioType="soundAmbient" />
+			<AudioEntry
+				Sound="SOV_Apocalypse_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="SOV_Apocalypse_MoveLoop"
+				AudioType="soundMoveLoop" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="550"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+		<CrusherInfo
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance"
+			id="id_CrusherInfo"
+			CrusherLevel="30"
+			CrushableLevel="31"
+			CrushWeapon="SovietCrushWeapon" 
+			CrushDecelerationPercent="80%">
+			<ExtraCrushLevels CrusherLevel="20" CrushableLevel="21" ModelConditionMatch="SHRINK_EFFECT" />
+		</CrusherInfo>
+	</GameObject>
+</AssetDeclaration>

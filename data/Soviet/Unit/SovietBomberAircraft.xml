@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:SUkirov_D.xml" />		
+		<Include type="all"	source="ART:SUBomberAircraft_SKN.w3x" />
+    <Include type="all"	source="ART:SUBomberAircraft_FP.w3x" />
+		<Include type="all"	source="ART:SUBomberAircraft_DYING.w3x" />			
+		<Include type="all"	source="ART:SUBomberAircraft_IDLA.w3x" />
+		<Include type="all"	source="ART:SUBomberAircraft_BOMBS.w3x" />
+		<Include type="all"	source="ART:SULaputaAirShip_IDLA.W3X" />
+		<Include type="all"	source="ART:SULaputaAirShip_IDLB.W3X" />
+		<Include type="all"	source="ART:SULaputaAirShip_B2A.W3X" />
+		<Include type="all"	source="ART:SULaputaAirShip_A2B.W3X" />
+		<Include type="all"	source="ART:SULaputaAirShip_SKN.W3X" />
+		<Include type="all"	source="ART:SULaputaAirShip_FP.W3X" />
+		<Include type="all"	source="ART:AUAntiAirShip.xml" />	
+		<Include type="all"	source="ART:AUAntiAirShip_NRM.xml" />			
+		<Include type="all"	source="ART:AUAntiAirShip_SPM.xml" />		
+		<Include type="all"	source="ART:FXTracerNOD.xml" />
+		<Include type="all"	source="ART:FXTracerHeroic.xml" />	
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka Soviet Kirov (the Hindenberg unit)-->
+	<GameObject
+		id="SovietBomberAircraft"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SovietLaputaAirShip"
+		ButtonImage="Button_SovietLaputaAirShip"
+		Side="Soviet"
+		SubGroupPriority="620"
+		EditorSorting="UNIT"		
+		BuildTime="25"
+		CommandSet="SovietLaputaAirshipCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE SCORE AIRCRAFT HUGE_VEHICLE VEHICLE BOMBER_AIRCRAFT T3_UNIT LINE_OF_SIGHT_IGNORES_BUILDINGS LEAVE_PARKING_ON_BUILD_COMPLETE CAN_BE_FAVORITE_UNIT PRODUCED_AT_HELIPAD SKIRMISH_AI_ATTEMPT_TO_DODGE CARPET_BOMBER"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="SovietBomberAircraft"
+		Description="Desc:SovietLaputaAirship"
+		TypeDescription="Type:SovietLaputaAirship"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SovietLaputaAirship</DisplayName>
+		<GameDependency>
+			<RequiredObject>SovietPowerPlantAdvanced</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="2500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietBomberAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			id="TaxiingLocomotor"
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />
+		<LocomotorSet
+			id="DefaultLocomotor"
+			Locomotor="SovietBomberAircraftLocomotor"
+			Condition="NORMAL"
+			Speed="40" />
+		<LocomotorSet
+			Locomotor="SovietBomberAircraftLocomotor"
+			Condition="NORMAL_UPGRADED"
+			Speed="40" />
+		<LocomotorSet
+			Locomotor="SovietLaputaAirshipLocomotor_AntiGround"
+			Condition="SUPERSONIC"
+			Speed="55" />
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE"
+      DodgeSafetyDistance="150.0">
+      <DodgeWithUnits Rule="ALL"
+       StatusBitFlagsExclude="AIRBORNE_TARGET"
+       Relationship="ENEMIES">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				ExtraPublicBone="b_turtel03 b_turtel04"
+				
+				OkToChangeModelColor="true" >
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SULaputaAirShip_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weaponA" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weaponA" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fx_weaponA" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fx_weaponA" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weaponB" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="fx_weaponB" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fx_weaponB" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="fx_weaponB" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponC" />
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponC" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponC" />
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponC" />
+					<WeaponFireFXBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponD" />
+					<WeaponLaunchBone
+						WeaponSlotID="4"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponD" />
+					<WeaponFireFXBone
+						WeaponSlotID="4"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponD" />
+					<WeaponLaunchBone
+						WeaponSlotID="4"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponD" />
+					<WeaponFireFXBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponE" />
+					<WeaponLaunchBone
+						WeaponSlotID="5"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WeaponE" />
+					<WeaponFireFXBone
+						WeaponSlotID="5"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponE" />
+					<WeaponLaunchBone
+						WeaponSlotID="5"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WeaponE" />
+					<Turret
+						TurretNameKey="objb_tur1"
+						TurretPitch="b_turtel01"
+						TurretID="1" />
+					<Turret
+						TurretNameKey="objb_tur2"
+						TurretPitch="b_turtel02"
+						TurretID="2" />
+					<Turret
+						TurretNameKey="objb_tur3"
+						TurretPitch="b_turtel03"
+						TurretID="3" />
+					<Turret
+						TurretNameKey="objb_tur4"
+						TurretPitch="b_turtel04"
+						TurretID="4" />
+					<Turret
+						TurretNameKey="objb_tur5"
+						TurretPitch="b_turtel05"
+						TurretID="5" />
+				</ModelConditionState>
+
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SULaputaAirShip_FP" />
+				</ModelConditionState>
+                
+                <!--FX FOR VENT HYDROGEN DAMAGED-->
+                <ModelConditionState
+                 ParseCondStateType="PARSE_NORMAL"
+                 ConditionsYes="USER_1 REALLYDAMAGED">
+                    <Model
+                      Name="SULaputaAirShip_SKN" />
+                    <Texture
+						Original="SUkirov"
+						New="SUkirov_D" />
+                    <ParticleSysBone
+                        BoneName="bone_engine05"
+                        FXParticleSystemTemplate="Soviet_KirovVentHydro"
+                        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine05"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="bone_engine05"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine05"
+                        FXParticleSystemTemplate="VehicleDamageFire02"
+                        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine07"
+                        FXParticleSystemTemplate="Soviet_KirovVentHydro"
+                        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine07"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="bone_engine07"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine07"
+                        FXParticleSystemTemplate="VehicleDamageFire02"
+                        FollowBone="true" />
+                </ModelConditionState>
+
+                <!--FX FOR VENT HYDROGEN-->
+                <ModelConditionState
+                  ParseCondStateType="PARSE_NORMAL"
+                  ConditionsYes="USER_1">
+                  <Model
+                    Name="SULaputaAirShip_SKN" />
+                  <ParticleSysBone
+			        BoneName="bone_engine05"
+			        FXParticleSystemTemplate="Soviet_KirovVentHydro"
+                    FollowBone="true" />
+                  <ParticleSysBone
+			        BoneName="bone_engine07"
+			        FXParticleSystemTemplate="Soviet_KirovVentHydro"
+                    FollowBone="true" />
+                </ModelConditionState>
+        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SULaputaAirShip_SKN" />
+					<Texture
+						Original="SUkirov"
+						New="SUkirov_D" />
+                    <ParticleSysBone
+                        BoneName="bone_engine05"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="bone_engine05"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                  <ParticleSysBone
+						BoneName="bone_engine05"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine06"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="bone_engine06"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                  <ParticleSysBone
+						BoneName="bone_engine06"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine07"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="bone_engine07"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                  <ParticleSysBone
+						BoneName="bone_engine07"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="bone_engine08"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="bone_engine08"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                  <ParticleSysBone
+						BoneName="bone_engine08"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SULaputaAirShip_SKN" />
+					<ParticleSysBone
+						BoneName="bone_engine08"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				                
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_AntiAirMode">
+					<Animation
+						AnimationName="SULaputaAirShip_IDLA"
+						AnimationMode="LOOP" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev ~= "STATE_AntiAirMode" and Prev ~= "TRANS_toAntiAirMode" then CurDrawableSetTransitionAnimState("TRANS_toAntiAirMode")	end;
+					</Script>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1"
+					Flags="START_FRAME_FIRST"
+					StateName="STATE_AntiGroundMode">
+					<Animation
+						AnimationName="SULaputaAirShip_IDLB"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev ~= "STATE_AntiGroundMode" and Prev ~= "TRANS_toAntiGroundMode" then CurDrawableSetTransitionAnimState("TRANS_toAntiGroundMode")	end;
+					</Script>
+				</AnimationState>	
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toAntiGroundMode">
+					<Animation
+						AnimationName="SULaputaAirShip_A2B"
+						AnimationMode="ONCE"/>
+				</AnimationState>		
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toAntiAirMode">
+					<Animation
+						AnimationName="SULaputaAirShip_B2A"
+						AnimationMode="ONCE"/>
+				</AnimationState>	
+				
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+						id="ModuleTag_Draw_Light01"
+						AttachToBoneInAnotherModule="b_turtel03"
+						OkToChangeModelColor="true">
+				<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+						id="ModuleTag_Draw_Light02"
+						AttachToBoneInAnotherModule="b_turtel04"
+						OkToChangeModelColor="true">
+				<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="EX_Headlights" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw01"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw01Veterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw01AG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw01VeterancyAG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw02"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw02Veterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw02AG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw02VeterancyAG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw03"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw03Veterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="3"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw03AG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw03VeterancyAG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="3"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw04"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="4"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw04Veterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="4"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw04AG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="4"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw04VeterancyAG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="4"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw05"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="5"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw05Veterancy"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="5"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw05AG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="5"
+				Texture="FXTracerNOD"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSoviet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_01" />						
+			</TracerModelDraw>
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw05VeterancyAG"
+				MinLength="50.0"
+				MaxLength="50.0"
+				Width="3"
+				MinSpeed="30"
+				MaxSpeed="30"
+				SweepSpeed="1.0"
+				SpreadAngle="10.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="SECONDARY_WEAPON"
+				WeaponSlotID="5"
+				Texture="FXTracerHeroic"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietVet">
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_01" />					
+			</TracerModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<!--Front Left-->
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietSharkFlakCannon"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietSharkAntiSurfaceCannon"
+						ObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<TurretSettings
+						MaxDeflectionClockwise="20d"
+						MaxDeflectionAntiClockwise="130d"
+						TurretTurnRate="360"
+						TurretPitchRate="100"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="75%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY">
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+				<WeaponSlotTurret
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietSharkFlakCannon"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietSharkAntiSurfaceCannon"
+						ObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<TurretSettings
+						MaxDeflectionClockwise="130d"
+						MaxDeflectionAntiClockwise="20d"
+						TurretTurnRate="360"
+						TurretPitchRate="100"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="75%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY">
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+				
+				<WeaponSlotTurret
+					ID="3">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietSharkFlakCannon"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietSharkAntiSurfaceCannon"
+						ObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<TurretSettings
+						MaxDeflectionClockwise="20d"
+						MaxDeflectionAntiClockwise="190d"
+						TurretTurnRate="360"
+						TurretPitchRate="100"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="75%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY">
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+				<WeaponSlotTurret
+					ID="4">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietSharkFlakCannon"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietSharkAntiSurfaceCannon"
+						ObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<TurretSettings
+						MaxDeflectionClockwise="190d"
+						MaxDeflectionAntiClockwise="20d"
+						TurretTurnRate="360"
+						TurretPitchRate="100"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="75%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY">
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				
+				<WeaponSlotTurret
+					ID="5">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietSharkFlakCannon"
+						ForbiddenObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<Weapon
+						Ordering="SECONDARY_WEAPON"
+						Template="SovietSharkAntiSurfaceCannon"
+						ObjectStatus="TRANSFORMATION_TOGGLE_STATE"/>
+					<TurretSettings
+						NaturalTurretAngle="180d"
+						MaxDeflectionClockwise="120d"
+						MaxDeflectionAntiClockwise="120d"
+						TurretTurnRate="360"
+						TurretPitchRate="100"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="75%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY">
+						</TurretAITargetChooserData>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<!--<WeaponSlotTurret
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SovietSharkAntiSurfaceCannon" />
+					<TurretSettings
+						MaxDeflectionClockwise="180d"
+						MaxDeflectionAntiClockwise="180d"
+						TurretTurnRate="360"
+						TurretPitchRate="100"
+						AllowsPitch="true"
+						MinimumPitch="-60d"
+						PitchHeight="75%"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanPickDynamicTargets="true"
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>-->
+			</WeaponSetUpdate>
+			<SpecialPower
+					id="ModuleTag_SpecialPower_ToggleAfterburners"
+					SpecialPowerTemplate="SpecialPower_ToggleAfterburners"/>
+			<!--<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleAfterburnersUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				SpecialPowerTemplate="SpecialPower_ToggleAfterburners">
+				<ToggleState
+					EnterStateSound="SOV_Kirov_CastroBurnersOff">
+					<SkirmishAiInfo
+					   ToggleHint="TOGGLE_DEFAULT" />
+				</ToggleState>
+
+				<ToggleState
+					ObjectStatus="TRANSFORMATION_TOGGLE_STATE SHROUD_REVEAL_TO_ALL"
+					ModelConditions="LOCOMOTOR_NORMAL_UPGRADED"
+					EnterStateSound="SOV_Kirov_CastroBurnersOn">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_ALWAYS"
+						OnlyUseWhenHaveTarget="true"
+						NeverUseWhenFurtherThanNUnitsFromTarget="1000"
+						NeverUseWhenCloserThanNUnitsFromTarget="50"
+						NeverUseWhenHealthIsBelow="2000"/>
+					<Module
+						ModuleId="ModuleTag_Afterburners"
+						TriggerAtTargetPosition="false"
+						TriggerType="SELF_POSITION"/>
+					<Module
+						ModuleId="ModuleTag_LoseHealthUpdate"
+						TriggerAtTargetPosition="false"
+						TriggerType="SELF_POSITION"/>
+
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>-->
+			
+			
+			<!-- Transform -->
+			<SpecialPower
+				id="ModuleTag_SpecialPower"
+				SpecialPowerTemplate="SpecialPower_LaputaAirship_Transform"
+				UpdateModuleStartsAttack="true"
+			/>
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleTransformUpdate"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				SpecialPowerTemplate="SpecialPower_LaputaAirship_Transform"
+				UnpackTime="0.0s"
+				PackTime="0.0s"
+				TriggerAttributeModifier="AttributeModifier_LaputaAirshipTransformation"
+				AttributeModifierDuration="8.0s">
+				
+				<ToggleState
+					LocomotorSet="NORMAL"
+					EnterStateSound="SOV_Kirov_CastroBurnersOn" >
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT"
+						NeverUseWhenClear="true">
+						<StateWeapon
+							Weapon="SovietSharkFlakCannon" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+				<ToggleState
+					ObjectStatus="TRANSFORMATION_TOGGLE_STATE"
+					LocomotorSet="SUPERSONIC"
+					ModelConditions="USER_1"
+					EnterStateSound="SOV_Kirov_CastroBurnersOff" >
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_TRANSFORM">
+						<StateWeapon
+							Weapon="SovietSharkAntiSurfaceCannon" />
+					</SkirmishAiInfo>
+	      
+				</ToggleState>
+			</ToggleStatusSpecialAbilityUpdate>
+
+
+			<SwitchLocomotorUpdate
+				id="ModuleTag_Afterburners"
+				LocomotorSet="NORMAL_UPGRADED"
+				UpdatePeriod="1.0s"
+				MinimumHealth="10%"/>
+
+			<LoseHealthUpdate
+				id="ModuleTag_LoseHealthUpdate"
+				HealthTrigger="0%"
+				DamagePerSecond="150.0">
+				<ObjectStatusValidation
+					RequiredStatus="TRANSFORMATION_TOGGLE_STATE" />
+			</LoseHealthUpdate>
+
+			<AssignSlavesTargetObjectSpecialPower
+				id="ModuleTag_SpecialPowerRepairVehicle"
+				SpecialPowerTemplate="SpecialPower_TargetedRepairVehicle" />
+			<SpawnBehavior
+				id="ModuleTag_SpawnRepairDrones"
+				SpawnNumberData="2"
+				InitialBurst="2"
+				SpawnReplaceDelayData="100s"
+				SpawnedRequireSpawner="true"
+				KillSpawnsOnCaptured="true"
+				SpawnInsideBuilding="true"
+				KillSpawnsOnDisabled="true"
+                SpawnOnUnpack="true">
+				<Die
+					DeathTypes="ALL" />
+				<SpawnTemplate>SovietHellDrone</SpawnTemplate>
+			</SpawnBehavior>
+
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+
+			<Physics
+				id="ModuleTag_Physics"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SULaputaAirship_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					ForceUseDoFXObj="true"
+					FX="FX_SOV_KirovExplode" />
+			</FXListBehavior>
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="HelicopterAIStateMachine">
+				<UnitAITargetChooserData
+					RotateToTargetWhenAiming="false"
+					CanPickDynamicTargets="false"
+					CheckVisionRange="true">
+				</UnitAITargetChooserData>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="6000" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_FlyingLoops">
+				<ModelConditionSound Sound="SOV_Kirov_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="SOV_Kirov_Lift" RequiredFlags="TAKING_OFF" />
+				<ModelConditionSound Sound="SOV_Kirov_IdleLoop" RequiredFlags="FLYING" ExcludedFlags="DAMAGED REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Kirov_IdleDamagedLoop" RequiredFlags="FLYING DAMAGED" ExcludedFlags="REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Kirov_IdleReallyDamagedLoop" RequiredFlags="FLYING REALLYDAMAGED" ExcludedFlags="DAMAGED MOVING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="36.3"
+				MinorRadius="11.0"
+				Height="21.5"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Kirov_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Kirov_VoiceHelp" AudioType="voiceFear" />
+			<AudioEntry Sound="SOV_Kirov_VoiceCreateMS" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Kirov_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Kirov_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Kirov_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Kirov_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Kirov_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Kirov_IdleLoop" AudioType="soundAmbient" /> -->
+			<!-- <AudioEntry Sound="" AudioType="soundAmbientDamaged" /> -->
+			<!-- <AudioEntry Sound="" AudioType="soundAmbientReallyDamaged" /> -->
+			<AudioEntry Sound="SOV_Kirov_MoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="SOV_Kirov_MoveLoop" AudioType="soundMoveLoop" />
+			<AudioEntry Sound="SOV_Kirov_MoveLoopDamaged" AudioType="soundMoveLoopDamaged" />
+			<AudioEntry Sound="SOV_Kirov_Deflate" AudioType="soundOnReallyDamaged" />
+		</AudioArraySound>
+
+		<VisionInfo
+			VisionRange="430"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+</AssetDeclaration>
