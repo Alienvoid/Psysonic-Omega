@@ -1,1 +1,3770 @@
+// Giga-Fortress Core
+Name:JapanFortressShipEgg
+	"Giga-Fortress Core"
+End
 
+// Maps
+	"AP:MAP_MP_2_Feasel1_EP1\"Au Revoir Reservoir"
+End
+
+Desc:AbilityCenturion
+	"Pre-charge the main cannon to shoot a long and percise waveforce beam towards targeted object."
+End
+
+Desc:AbilityDecoySplit
+	"Create holographic illusions which look identical to itself, they can be used as decoys to distract attention. (only persist for a short while)"
+End
+
+Desc:AbilityPsychicPartisanAntiVehicleInfantrySprint
+	"Gain movement and attack speed boost for 5 seconds!"
+End
+
+Desc:AbilityPsychicPartisanGattlingOverheat
+	"Overload the Barrels so it's capable of dumping bullets astonishingly. CAN ONLY BE USED FOR ONCE."
+End
+
+Desc:AbilityPsychicPartisanMagicBallDetonation
+	"All the Psychic Complexities will be detonated, prompting to disastrous expension."
+End
+
+Desc:AbilityPsychicShield
+	"Uphold a Psychic Shelter that distorts light rays by mental power, making this warrior invisible and undiscourageable for a while."
+End
+
+Desc:AbilityUnPackJapanKingOfMechaEgg
+	"Unpack the Nano-core and depoly the Shogun Executioner in the battle field! \nBe aware that the Shogun Executioner is very vulnerable during the assembly process."
+End
+
+Desc:AbilityUnPackJapanPlasmaDefenderEgg
+	"Initiates nano-unfurling sequence, converting to a simple automatic defense device."
+End
+
+Desc:AbilityUnPackJapanVIPBunkerEgg
+	"Initiates nano-unfurling sequence, converting to a Field Psysonic Academy."
+End
+
+Desc:AlliedAmily
+	"A young but excellant commando who is equipped with devastating proton gun and chrono-shift device."
+End
+
+Desc:AlliedAntiInfantryAircraft
+	"A kind of killing machine that shred group of infantries in moments with dual 20mm cannons."
+End
+
+Desc:AlliedArcAngelAircraft
+	"Huge levitating spacecrafts that could repair the Allied Airforce by drones and ion storm. A squadron of Mounted Archery drones are also carried and can be sent to clear the enemies."
+End
+
+Desc:AlliedArtilleryVehicle
+	"A new masterpiece from Future Tech. \nIt can kill infantries by machine guns or provide long range firepower projection."
+End
+
+Desc:AlliedBattleShipAircraft
+	"A huge Airship for destorying anything hostile."
+End
+
+Desc:AlliedColdPlant
+	"A solid building that efficiently provides clean energy to the Alliance base by cold fusion reaction, which is also the symbol of energy progress."
+End
+
+Desc:AlliedCommandoTech3
+	"A girl who has more powerful psysonic-ability than Omega-Yuriko. She can decimate a military base in few seconds."
+End
+
+Desc:AlliedDesignatedMarksman
+	"Armed with minimized proton cannon and exo-skeletons, these agile and powerful troopers are capable of confront enemy tank battalions easily."
+End
+
+Desc:AlliedEnforcer
+	"These soldiers wearing exo-skeleton can shatter low-flying aircraft or human bodies in a blink.\nThey can go through most of the terrains in the battlefield without water."
+End
+
+Desc:AlliedEnhanceDrug
+	"Special medicine can improve rangers' combat ability for a short while, but it will cause damage and could be deadly when they're in danger."
+End
+
+Desc:AlliedFutureTank
+	"Hulking unmanned war machines whose neutron scramblers can annihilate entire tank platoons."
+End
+
+Desc:AlliedFutureTankLaserWeapon
+	"Fires ultrahigh-energy beams toward a target point, likely incinerating anything in the way."
+End
+
+Desc:AlliedGravityStabilizer
+	"A subtle building used to compensate the planetary gravity and teleport airforce units to the battlefield."
+End
+
+Desc:AlliedHydra
+	"A high speed and versatile amphibious hover vehicle that could shatter enemy squadrons in a blink or shut down hostile weapons."
+End
+
+Desc:AlliedHypersonicBomber
+	"A hypersonic aircraft carrying devastating Fuel Air Bomb symbolises absolute dominance of Commune Airpower.\nIt can also cause splash damage to garrisoned troops."
+End
+
+Desc:AlliedIonStorm
+	"Drop an ion seed in the air. It will soon indicate the formation of a devastating storm."
+End
+
+Desc:AlliedLegionnaireInfantry
+	"The soldiers who don't have any mind and hearts.\nThey can freeze a piece of enemy as soon as possible by their ice-cannon."
+End
+
+Desc:AlliedMotherShip
+	"A scientific spacecraft equipped with unbelievable time machine and Ion Storm generator.\n It is used to expand the border of human knowledge... or the enemies' psycho limit."
+End
+
+Desc:AlliedNanoBuzzers
+	"Allies' early attempt to replicate Japan's nanoswarm tech.\nThey can be either surgery assistants or effective slaughter.\nCan rapidly clear battalions of soldiers even if they hide in buildings."
+End
+
+Desc:AlliedStormRider
+	"An agile aircraft that is armed with two plasma cannons to cut any targets into pieces."
+End
+
+Desc:AlliedProtonTower
+	"Basic defense facility that launches accelerated protons to burn enemies."
+End
+
+Desc:AlliedRDFacilities
+	"This self-supporting structure is used to research and develop the latest weapon of la Commune."
+End
+
+Desc:AlliedSniper
+	"These calm sharpshooters hide themselves in optical camouflage and shoot enemies in silence."
+End
+
+Desc:AlliedSupportAircraft
+	"Flying ice statue makers with the best laser CIWS array. \nThey make good match ups with Orcas."
+End
+
+Desc:AlliedKodiak
+	"A magnificent combat spacecraft armed with auto-cannons, plasma launchers and devastating Proton Catalystic Cannon.\nA pair of experimental Chronoshift Engines is also onboard."
+End
+
+Desc:AlliedWormHole
+	"This mysterious physical phenomenon often relates to infinite possibilities."
+End
+
+Desc:AlliedXwing
+	"What else you think it is?"
+End
+
+Desc:AntiSubmarineSonarSpecialPower
+	"Release an oriented, mixed pulse of  electric and sonic wave, which completely interdict all sonar system underwater for a short while. Submarines will have no choice but to emerge."
+End
+
+Desc:ARFUAssultCarrier
+	"A team of unmaned fighters hidden in the ship. The carrier can go into warp-speed too."
+End
+
+Desc:ARFUFighterAircraft
+	"With the shape like sea-wing,the most powerful fighter in the world is born! Nothing can stop them in the sky."
+End
+
+Desc:ARFUItalyInfantry
+	"Italy Mercenary is one of the best mercenary force in the world as wel as they are furnished well. They won't punished by war exhaustion but we should pay more cash."
+End
+
+Desc:ARFUMedicAircraft
+	"A ship with many high-technology facilities.It can heal infantries and repair vehicles."
+End
+
+Desc:AlliedMirageTank
+	"Protected by force shield, these high-tech vehicles are able to eliminate a battalion of hostile units using the devastating prism cannon, or conceal the allied from enemies by Gap Generator."
+End
+
+Desc:ARFUPoliceForce
+	"The flag guards are soldiers who can deal with enemy's infantry effectively. Even if they are the same as the Peace Keeper..."
+End
+
+Desc:ARFUShockTrooper
+	"These 'volunteers' are used for fighting in all kinds of battle fields including anti-air mission.There are nothing they can't do except swimming."
+End
+
+Desc:ARFUSupportVehicle
+	"This heavy vehicle can use to point out enemy or protect your army effectly. However it doesn't have any weapons."
+End
+
+Desc:ATSTChargeMode
+	"Uphold the tesla shield and inject overwhelming power to the engine. It will significantly increase the velocity but shorten the attack range of Scout Walker. \nDon't let the shield break unexpectedly!"
+End
+
+Desc:BladeSensorPodSpecialPower
+	"Launch a pair of explosive Thermobaric Rockets to wipe out the enemies!"
+End
+
+Desc:BuzzersEMPShock
+	"Overcharge the Buzzer's energy system to release an electric shock that deactivates enemies within the radius and the Buzzer itself for a period of time."
+End
+
+Desc:ChronoLeap
+	"Open the Chrono senors and teleport this unit to a designated place."
+End
+
+Desc:ChronoReinforcement
+	"Create a mysterious spherical area where time flows very slowly. Any units or structures in the area will not move or be damaged."
+End
+
+Desc:CryoLeapSpecialPower
+	"Rush enemy by their rockets!"
+End
+
+Desc:CryoWarHeadSpecialPower
+	"If you want to freeze stuff quickly, order the launchers to load cryogenic warheads."
+End
+
+Desc:CryoWarHeadSpecialPowerOff
+	"It 's important to meet its obligations for Umayyad Missile Launchers so that you can press the button to let them load the Neutron Warhead."
+End
+
+Desc:DefenceModeSpecialPower
+	"Let the Titan act stronger, more powerful but slower."
+End
+
+Desc:DesolatorWeaponMode
+	"Change Weapon mode into glop gun. It 'll infect a vehicle or structure so that the desolator's poison spray can attack it."
+End
+
+Desc:DesolatorWeaponModeOff
+	"Change Weapon mode into poison spray.It 'll kill enemy infantries or vehicles and structure that infected quickly"
+End
+
+Desc:DestroyerRocketBarrages
+	"Generate a smoky area with magnetic dust to interfere enemies radar system and give the ship a chance to escape from danger."
+End
+
+Desc:EagleEyesSpecialPower
+	"Open the Venom's eyes and clean the shroud!"
+End
+
+Desc:EmergencyRepair
+	"Immediately generate a nano field and repair your damaged vehicles in a blink!"
+End
+
+Desc:EMPMissileSpecialPower
+	"Launch a missile with EMP warhead, might disable targeted vehicle for a while."
+End
+
+Desc:FactionARFU
+	"A.R.F.U."
+End
+
+Desc:FireRushSpecialPower
+	"Burn and crush everying in the way."
+End
+
+Desc:ForceShieldSpecialPower
+	"Use the force shield to protect the Orca."
+End
+
+Desc:GravityFieldSpecialPower
+	"Make a space-time distortion area and all things in it will be appealed to the area.They 'll spin in circles and go down."
+End
+
+//Desc:IllusionSpecialPower
+//	"Temporarily broadcast the mental ability to make your troops invisible!"
+//End
+
+Desc:IllusionSpecialPower
+	"Control the mindd of enemies ground units in the designated area immediately!"
+End
+
+Desc:ItalyInfantryChargeSpecialPower
+	"Italy Mercenaries can shift quickly from one position to another one. However, they can't adopt their weapon while they are shifting."
+End
+
+Desc:JapanAirport
+	"This tall and elegant building is designed to maintain and deploy the Imperial Airforce."
+End
+
+Desc:JapanAirportEgg
+	"Special drones that unfurl into the Air Tower, which is used to deploy the Imperial Airforce."
+End
+
+Desc:JapanArcherInfantry
+	"These girls who didn't join the RocketAngels fight in a more 'traditional' way."
+End
+
+Desc:JapanBetaYuriko
+	"The special variant clone of that mysterious girl, who can take control of enemies' mind."
+End
+
+Desc:JapanBioReactor
+	"This building can leech psysonic-power generating by human bodies and convert to electricity. Surplus energy radiate outward can even heal infantries."
+End
+
+Desc:JapanBioReactorEgg
+	"Special drones that unfurl into Bio Reactor, small and efficient power generators."
+End
+
+Desc:JapanChinook
+	"This heavy aircraft is the pride of Japanese Aeronautics Industry. It can lift tons of cargos easily and send them to the destination quickly and safely."
+End
+
+Desc:JapanDevourer
+	"Speed and firepower over armor, these hover vehicles can attack more aggressively than its predecessor.\nNano drones will be activated to protect the chassis, if necessary."
+End
+
+Desc:JapanFortressShip
+	"Self-aware sea fortresses filled with unconscionable weapon systems and other dark secrets."
+End
+
+Desc:JapanFortressShip_Air
+	"Incredibly destructive flying siege weapons --symbols of the Empire's defiance."
+End
+
+Desc:JapanFortressShipEgg
+	"Special drones that unfurl into the Giga-Fortress, a massive and heavily-armed warship."
+End
+
+Desc:JapanFortressShipEggUnpackSpecialPower
+	"Initiates transformation sequence into the massive Giga-Fortress. Must be on water."
+End
+
+Desc:JapanFortressShipTransformAircraftMode
+	"Switches to aerial form, whose infamous Gods' Breath device could tear the Earth asunder."
+End
+
+Desc:JapanFortressShipTransformShipMode
+	"Switches back to floating form, whose myriad weapons could make the seas boil over."
+End
+
+Desc:JapanGattlingTower
+	"One of the most useful base defenses, capable of making the enemies take a shower of energy beams. Need some time to warm up before reaching maximum rate of fire."
+End
+
+Desc:JapanGattlingTowerEgg
+	"Special drones that unfurl into Gattling Defender Turrets."
+End
+
+Desc:JapanKingOfMechaEgg
+	"Unpack the Nano-core to depoly the Mecha King in the battle field."
+End
+
+Desc:JapanLiberator
+	"Amazing aircraft signs the air-superiority of Psychic Legion.\nLike an airborne artillery, its Wave-Force Weapon rips up enemies wings from distance easily."
+End
+
+Desc:JapanLiberatorShield
+	"Activate Nanoswarm Field to protect the aircraft from dangerous AA Fire. Weapon must be shut down to save energy."
+End
+
+Desc:JapanMagnetron
+	"By guiding magnetic field with psysonic-power, Magnetron can pull vehicle closer for further proccess or even shake buildings apart from distance."
+End
+
+Desc:JapanMastermind
+	"Mysterious vehicle that brings a huge artificial brain under heavy protection.\nCareful don't let it overload for too long."
+End
+
+Desc:JapanMindControlTower
+	"The tall and unstable tower is able to control multiple targets' minds and cause damage to those who dare to get too close to it."
+End
+
+Desc:JapanMindControlTowerEgg
+	"Special drones that unfurl into Psychic Tower, which can turn most intruders into our own assets."
+End
+
+Desc:JapanPlasmaDefender
+	"Simple yet effective, these primative towers use oriented induction heating to weaken incoming metalic vehicles."
+End
+
+Desc:JapanPlasmaDefenderEgg
+	"Special drones that unfurl into Induction Towers, simple base defenses that might just save you from the first wave of tank rush."
+End
+
+Desc:JapanRadarBoat
+	"With these ships in the Imperial naval forces, the fleet can significantly extend the firepower and detect potential risk."
+End
+
+Desc:JapanRazorDrone
+	"These annoying artificial creatures can lead to unstoppable chaos inside the enemy team."
+End
+
+Desc:JapanRioter
+	"They were loyal citizens untill they decided to rise up and stand against the authorities for many reasons. They are weak but their death will greatly demoralize the army."
+End
+
+Desc:JapanSentinelVehicle
+	"Sentinels as cold and heartless as their pilots, built to cut down enemy tank divisions."
+End
+
+Desc:JapanSpitter
+	"Equipped with devastating toxic thrower, Spitter can melt the flesh and eradicate garrisoned infantries hiding in the buildings."
+End
+
+Desc:JapanTankBunker
+	"Combat Vehicles can be well protected by this simple structure with better firepower support."
+End
+
+Desc:JapanVIPBunker
+	"This mysterious building can interlink human minds and put the most unbelievablel tricks of Psychic Legion into practise."
+End
+
+Desc:JapanVIPBunkerEgg
+	"Special drones that unfurl into Field Psysonic Academy, vital for using further fascinating technology from the Psychic Legion."
+End
+
+Desc:LaserGlaiveBlastSpecialPower
+	"Passive: Steel Ronin deals more damage when in low health. Units Damaged by Steel Ronin will be slowed. Whenever this unit destorys a vehicle by attack, nearby allied advanced mecha units will be healed. \n Active: Launch Laser Glaive Blast to attack the targets in a line and restore health of Steel Ronin based on the number of hit unit."
+End
+
+Desc:LeapDeploySpecialPower
+	"Leaps up and crashes down on the target area or foe. Becomes entrenched and immobile."
+End
+
+Desc:LightningArmorSpecialPower
+	"Send the ship into Chronorift for a few seconds."
+End
+
+Desc:ListenSpecialPower
+	"Shutdown the noisy engine to monitor and jam enemies' communication. \nWill disrupt their orientation and point out their weaknesses."
+End
+
+Desc:MARVTeslaNovaSpecialPower
+	"Overload the Tesla Reactor and release enormous deadly energy to the air."
+End
+
+Desc:MastermindAOEMindControlSpecialPower
+	"Permanently control a group of enemies at once."
+End
+
+Desc:MentalSuppressionSpecialPower
+	"Overload the psysonic device and it will release psysonic wave steadily. Any infantries without protection and near Magnetron will be neutralized."
+End
+
+Desc:MentalSuppressionSpecialPowerOff
+	"Psysonic device shall lead the Magnetic Beam normally so that it can scratch vehicles."
+End
+
+Desc:MLRSBombardSpecialPower
+	"Select an area within the vision of Executers and bombard!"
+End
+
+Desc:NeutronMissileSpecialPower
+	"Launch a Neutron Missile to the designated area, clearing all the garrisoned infantries and vehicle pilots."
+End
+
+Desc:NivilianAntiAirVehicleTech1
+	"Two 20mm-AP cannons can be dangerous for aircraft pilots or infantries."
+End
+
+Desc:NivilianAntiInfantryInfantry
+	"The guys who called 'Niref' are basical soldiers of the Holy Federation of Nivilian.They are armed by ADK-54 and honour words.(Although they usually escaped from the battle fields.)"
+End
+
+Desc:NivilianAntiStructureVehicle
+	"A Big cannon with a 2-barrel turret.It can lunch many 152mm shells in few seconds."
+End
+
+Desc:NivilianAntiVehicleVehicleTech1
+	"Nivilian used Master for attacking enemy ground target."
+End
+
+Desc:NivilianAntiVehicleVehicleTech2
+	"It's used to destory enemy's armor legion and defence Nivilian base."
+End
+
+Desc:NivilianAntiVehicleVehicleTech3
+	"Lady-Huge Wave is the emperor the ground.Nothing target is unattackable for it on the ground."
+End
+
+Desc:NivilianArtilleryVehicle
+	"Nivilian used Master artilleries for attacking enemy ground target."
+End
+
+Desc:NivilianFighterAircraft
+	"Venom is used for attacking enemy's light-armor objects.AA Rockets is its best weapon.It can open the shroud,too."
+End
+
+Desc:NivilianFireBird
+	"Quick and uncontrolable.She'll lunch the MIRV missile when the union need it."
+End
+
+Desc:NivilianFlag
+	"To let more men drive the airplane, the kind of simple fighter was made by Nivilian.It's powerful and it can object all kinds of targets."
+End
+
+Desc:NivilianFlameTank
+	"Surprise!The flame tank can burn everying it meet.And it can destory enemy infantries in fast."
+End
+
+Desc:NivilianLightTransportVehicle
+	"Civilian transports can give infantries a drive and let them go into the place you choose."
+End
+
+Desc:AlliedStormRiderEvade
+	"Storm Knight can perform highly demanding maneuver to evade the incoming attack. Watch out!"
+End
+
+Desc:ParadropReinforcement
+	"Send transports to targeted area and drop battalions of soldiers!"
+End
+
+Desc:PlayerPowerCallSupportHunterKillerTeam
+	"Send an airborne squadron to the targeted location immediately."
+End
+
+Desc:PlayerPowerPsychicScan
+	"Immediately reveal all organic enemies according to their bio-signatures."
+End
+
+Desc:PlayerPowerSpyPlane
+	"Deploy a Spy Plane at the targeted region, revealing enemy presence."
+End
+
+Desc:PlayerPowerSupersonicAttack
+	"Call two Hypersonic Aircrafts dive down from clouds and shatter all nearby enemy aircrafts in sonic boom."
+End
+
+Desc:PlayerPowerUprising
+	"Rally a group of violent yet fearless demonstrators and affect their subconsciousness with psychic power. \nThey will clash with enemies and demoralize the soldiers."
+End
+
+Desc:PsychicPartisan_JapanMechaKingEgg
+	"Special drones that unfurl into the Shogun Executioner --one of the most lethal weapon on the earth."
+End
+
+Desc:PsychicPartisanAntiVehicleInfantry
+	"These fanatic and strong men are enhanced by medication and brainwashed by Psychic Power, prepared to initiate an astonishing strike by bomb."
+End
+
+Desc:PsychicPartisanBarricade
+	"Beyond this simple building is the hell where people are fighting for their heaven."
+End
+
+Desc:PsychicPartisanBetaYuriko
+	"Rarer and more powerful variant of clones who can control human's mind distantly on land or water."
+End
+
+Desc:PsychicPartisanCenturion
+	"Seriously scarred but battle hardend, these tenacious veterans dedicate their last years of life to fight in shielded mecha suits."
+End
+
+Desc:PsychicPartisanCombatFortress
+	"Heavily armoured hovercraft armed with powerful 88mm self-defense cannon, in which footmen are allowed to attack."
+End
+
+Desc:PsychicPartisanECTrooper
+	"Emotionless soldiers revived from corpses with cybernetic components, using powerful flamethrower."
+End
+
+Desc:PsychicPartisanGattlingVehicle
+	"Affordable but formidable weapon modified from civilian vehicles, armed with devastating Gattling Guns."
+End
+
+Desc:PsychicPartisanInfiltrationInfantry
+	"Ninjas who voluntarily accepted genetic modification to gain surprising strength and acuity. They use AP Shiruken and Wave-force sword to lacerate armour."
+End
+
+Desc:PsychicPartisanMagicBall
+	"Unstable and mysterious area filled with Psychic Power. Watch out carefully, anyone nearby could be in risk."
+End
+
+Desc:PsychicPartisanMechaKingEgg
+	"Special drones that unfurl into the Shogun Executioner --one of the most devastating weapons on the earth."
+End
+
+Desc:PsychicPartisanPatmos
+	"Lightweight autonomous vehicle equipped with Synthetic Psychic Power Generator, can eradicate valuable targets percisely from distance.\nHuman eyes can't notice their presense until their weapons activated."
+End
+
+Desc:RadarBoatCallCruiseMissileSpecialPower
+	"Call for Cruise Missiles with jammer warhead to strike the enemies!"
+End
+
+Desc:RazorDroneReproductionSpecialPower
+	"Order Exploder to tore open enemies head and turn their brains into another Exploder!"
+End
+
+Desc:RoarSpecialPower2
+	"Shake the ground and destory enemy!"
+End
+
+Desc:RocketEnhancedShellGrenadeSpecialPower
+	"Passive: Rhino's auto attack can critically strike for additional damage with 40% critical strike chance. \nActive:Launch a Rocket-assisted Projectile with 50% higher attack range and 25% lower damage."
+End
+
+Desc:SACOMAntiAirVehicle
+	"Subtle and fragile jeeps armed with devastating short-range plasma weapon and advanced radar system. It can also surpress infantry units by laser."
+End
+
+Desc:SACOMAntiSubmarineAircraft
+	"A reliable escort for naval fleet. The Cormorant can finish submersible threats with acute sensor array and a swarm of rocket before possible ambush happens."
+End
+
+Desc:SACOMAntiInfantryInfantry
+	"Armed with an improved machinegun and smoke grenades, these cruel and well-trained soldiers are absolutely loyal to General Nikita."
+End
+
+Desc:SACOMAntiStructureVehicle
+	"Tactical missile system that can accurately track and destroy the foes of the Commonwealth."
+End
+
+Desc:SACOMAntiVehicleVehicleTech2
+	"Lightweight but well designed vehicles armed with AP ammo.\nThey have enough range and structual strength for confronting enemies tanks, but more fragile facing rockets and grenades."
+End
+
+Desc:SACOMATST
+	"Agile walker that is able to trek various environments and cope with different kinds of foes by tesla weapon."
+End
+
+Desc:SACOMBaseDefenseAir
+	"Solid and fairely reliable missile launcher that fills the sky with deadly Booming AA Missiles instantly."
+End
+
+Desc:SACOMCarryall
+	"Equipped with Target Painter and Field Broadcast Device, these helicopters shall significantly ascend the combat ability of SACOM troops."
+End
+
+Desc:SACOMFighterAircraft
+	"These fast and agile fighters that are armed with auto-cannon and anti-air missiles can clear clustered units under light-armour-protection."
+End
+
+Desc:SACOMListener
+	"Fragile but sensitive vehicle that detects and jams undercover enemies."
+End
+
+Desc:SACOMSpectreGunship
+	"Huge and monstrous aircraft armed with Vertical Launching System, Railgun and Chain Guns, being able to quickly reach the battlefield by afterburner."
+End
+
+Desc:SACOMStealthBomber
+	"Agile tactical bombers that carry large amounts of Tesla bombs which are devastating for vehicles and infantries, but they only deals little damage to buildings."
+End
+
+Desc:SACOMSuperFighter
+	"Armed with experimental Tesla Micro Missiles and Plasma Stealth System, Raptor is known as one of the most chilling and intricate war machine in the sky."
+End
+
+Desc:AOEShield
+	"Generate a shield that protect the entire aerial fleet from enemies anti-air weapons."
+End
+
+Desc:SnakeECMLauncher
+	"Let Snakes make a number of electric cloud to jamm enemy weapon's radar."
+End
+
+Desc:SovietAdaptiveArmor
+	"Give them greater chance resisting different kinds of incoming attack.\nHowever it may also slightly decrease their mobility."
+End
+
+Desc:SovietAntiVehicleAircraft
+	"Armed plane that can destory enemy's armor in few seconds by auto-cannon."
+End
+
+Desc:SovietBattleMasterTank
+	"Comparing to its competitor, this tank is less advanced but more versatile and could be superior in quantity."
+End
+
+Desc:SovietBladeSensorPod
+	"This is a Sensor pod for secretly examine the situation around."
+End
+
+Desc:SovietCarryall
+	"A kind of rapid but fragile aircraft that helps footmen and vehicles pass through the battlefield swiftly."
+End
+
+Desc:SovietDesolatorInfantry
+	"They are Strong and powerful.Nothing can stop them on the ground----you get the idea!"
+End
+
+Desc:SovietDestroyer
+	"Armed with numerous missiles and AA-cannons, this new member of National Soviet navy shall protect motherland's shores and coasts well with honour and pride."
+End
+
+Desc:SovietExecuter
+	"These higher ranked footmen with machinegun and the authority to call air strike are nightmare towards both the enemies and allies."
+End
+
+Desc:SovietFighterAircraft
+	"A more flexible version of MiG which can perform hit-and-run on enemies in air, ground or sea --hopefully before they retaliate."
+End
+
+Desc:SovietFrogtieAircraft
+	"Outdated, slow but powerful aircrafts equipped with numerous napalm bombs that are very effective against buildings and infantries. The pilots of these aircrafts dare to sacrifice themselves for their cause."
+End
+
+Desc:SovietGaussCannon
+	"A huge cannon that integrates the most sophisticated and fragile electronic devices. Few aircraft can undertake its oneshot."
+End
+
+Desc:SovietGunshipAfterburner
+	"By injecting additional fuel into the jet pipe downstream of the turbine, the velocity of this aircraft will be greatly increased."
+End
+
+Desc:SovietHeavyWalkerDeployedTurret
+	"A immobile reaper.It's unmoveable but stronger."
+End
+
+Desc:SovietHeavyWalkerDeployedTurret
+	"Legless and entrenched, these failed prototypes still can deal death to whatever draws near."
+End
+
+Desc:SovietHeavyWalkerVehicle
+	"Bigger, tougher relatives of the Sickle that can barely lift all their rockets and grenades."
+End
+
+Desc:SovietHowitzer
+	"COS relies on these heavy artilleries before the most powerful firepower support unit entering the battlefield."
+End
+
+Desc:SovietHumvee
+	"Paratrooper uses these light vehicles to transport infantries and equipment."
+End
+
+Desc:SovietLogisticCentre
+	"This building symbolises high-rank military restriction and oppresion to local people. It provide COS Army with high-tech weapon and logistic support."
+End
+
+Desc:SovietMARV
+	"This is the most powerful and devastating vehicle on the earth. It is driven by Tesla Reactor and equipped with Coil Cannon and Missile Launcher."
+End
+
+Desc:SovietMissileman
+	"Paratrooper of COS highly relies on those cold and strong soldiers armed with portable missile launcher."
+End
+
+Desc:SovietMLRS
+	"The MLRS is the symbol of the most advanced technology and the absolute power of the Commonwealth. Its rockets shall drop like a storm once deployed."
+End
+
+Desc:SovietScud
+	"This vehicle carrying devastating neutron warhead is the biggest threat to our civilization."
+End
+
+Desc:SovietSpectreGunship
+	"Equipped with countless rocket pods and missiles, this weird aircraft has been recognized as the symbol of fear and destruction."
+End
+
+Desc:SovietStalker
+	"Footmen can take this armed amphibious vehicle to the frontline although its container is hot and wet."
+End
+
+Desc:SovietTitan
+	"The Commonwealth counts on these large but agile walkers to smash enemy tank formation."
+End
+
+Desc:SovietWarWolf
+	"Sensitive and agile half-robotic scouts that symbols the coming of the unstoppable COS Army."
+End
+
+Desc:StealthBomberEvadeSpecialPower
+	"Generate ionized gas to cover the aircraft so that it will be invisible for a while. It will slow down the velocity."
+End
+
+Desc:TenhoSmokeGrenadeSpecialPower
+	"Launch a special shell that will release smoke, which might slow down enemies. "
+End
+
+Desc:TimeStopSpecialPower
+	"Stop local time for a while such that you have the best chance to launch an attack and eradicate them!"
+End
+
+Desc:ToggleAlliedAmilyDown
+	"Turn off the Jet pack and Amily shall be back to the earth."
+End
+
+Desc:ToggleAlliedAmilyLift
+	"Passive: This unit's Chronosphere device is automatically restoring and recycling the usable material in the battlefield. \nActive: Swiftly shuttle the battlefield by chronosphere device!"
+End
+
+Desc:ToggleAlliedArtilleryAutoCannon
+	"Packup the Pacifier back to hover mode"
+End
+
+Desc:ToggleAlliedArtillerySiegeWeapon
+	"Depoly the Pacifier and use the huge cannon!"
+End
+
+Desc:ToggleAlliedSpotTargetBombard
+	"Allied Artillery Satellite will attack the aera that you choose in the engineers' vision range."
+End
+
+Desc:ToggleARFUShockCannon
+	"Switch back to the Shock cannon so that Volunteer Grenadier can harm enemy distantly."
+End
+
+Desc:ToggleARFUShockGrende
+	"Switch to normal grende weapon and throw it to destory enemies!"
+End
+
+Desc:ToggleAlliedSubmarineDown
+	"Turn off the Rocket Control Radar and use torpedo to eliminate enemies' ship!"
+End
+
+Desc:ToggleAlliedSubmarineLift
+	"Turn on the Rocket Control Radar and fire High Explosive rocket!"
+End
+
+Desc:ToggleExecution
+	"Use mind-altering substances to improve the will-to-fight of the nearby soldiers! It can be slightly addictive, but they need to first survive the next battle."
+End
+
+Desc:ToggleLaserPainter
+	"Turn on the SLC system and shut down the cannons."
+End
+
+Desc:ToggleNivilianArtilleryCannon
+	"Switch to the 120mm cannon and let the tank move again."
+End
+
+Desc:ToggleNivilianArtillerySiegeWeapon
+	"Switch to the Plasma cannon and let the tank stop to attack."
+End
+
+Desc:ToggleNivilianMammothAutoCannon
+	"Turn on the Dragon cannons and shut down the SLC."
+End
+
+Desc:ToggleNivilianMSTACannon
+	"Make the cannon attack enemies in normal speed."
+End
+
+Desc:ToggleNivilianMSTACrazyAttack
+	"Fire the cannon in crazy frequency."
+End
+
+Desc:TogglePanzerShield
+	"Develop the Nano-shield to protect Panzer itself."
+End
+
+Desc:ToggleRadarBoatRadarMode
+	"Broadcast a sequence of subconscious signal which can interfere and jam people's mind recognition such that they cannot distinguish allies and enemies."
+End
+
+Desc:ToggleToxicSnipe
+	"Fire a subtle bullet filled with toxic matter. If the target is killed, the dead body will release infective toxic fog!"
+End
+
+Desc:ToxicGrenadeSpecialPower
+	"Use deadly toxic grenade "
+End
+
+Desc:ToxicGrenadeSpecialPowerOff
+	"Switches to using reliable and precise ARN-94 Assault Rifle to attack the enemy!"
+End
+
+Desc:ToxicMissileSpecialPower
+	"Launch a missile with toxic warhead."
+End
+
+Desc:UpgradeJapanAirPortTech2
+	"Expands this facility to the next level, unlocking new aircraft for production."
+End
+
+Desc:UpgradeJapanAirPortTech3
+	"Completes expansion of this facility, unlocking the latest airforce units."
+End
+
+Desc:WarWolfShieldSpecialPower
+	"Overload the energy generator of the War Wolf to generate a field of electric charges that absorbs damage and slows down the enemies."
+End
+
+Desc:WormHoleSpecialPower
+	"Create a pair of chrono-singularities and they will become wormholes that allow your troops shuttle the map."
+End
+
+DialogEvent:MAIn_FutureTank
+	"*Future Tank X-1s are heavily armored, computer-controlled combat vehicles that are virtually unmatched on the ground.  Their experimental cannons can easily cut through even the toughest armor, while their Riot Beam special weapon lets them turn the tables on enemies attacking in mass."
+End
+
+DialogEvent:MIIn_CombatFortress
+	"*DialogEvent:MIIn_CombatFortress"
+End
+
+DialogEvent:MIIn_Exploder
+	"*DialogEvent:MIIn_Exploder"
+End
+
+DialogEvent:MIIn_GigaFortress
+	"*Giga-Fortresses are among the most powerful weapons the Empire has ever developed.  In their primary form, their multiple cannons and photon rocket launchers are enough to overwhelm entire naval strike groups.  They may also switch to a secondary form, a devastating long-range artillery platform that can fly wherever it pleases."
+End
+
+DialogEvent:MIIn_Patmos
+	"*DialogEvent:MIIn_Patmos"
+End
+
+DialogEvent:MIIn_PsychicBeacon
+	"*DialogEvent:MIIn_PsychicBeacon"
+End
+
+DialogEvent:MSIn_Axis
+	"*DialogEvent:MSIn_Axis"
+End
+
+DialogEvent:MSIn_Cormorant
+	"*DialogEvent:MSIn_Cormorant"
+End
+
+DialogEvent:MSIn_Excuter
+	"*DialogEvent:MSIn_Excuter"
+End
+
+DialogEvent:MSIn_MLRS
+	"*DialogEvent:MSIn_MLRS"
+End
+
+DialogEvent:MSIn_Reaper1
+	"*Reapers are bigger, tougher predecessors of the Sickle.  They are equipped with multiple grenade and rocket launchers, and are effective against multiple smaller targets, including aircraft.  Their special ability is to jump, but their legs tend to break on impact.  As such, Reapers still serve well as fixed gun emplacements."
+End
+
+DialogEvent:MSIn_Titan
+	"*DialogEvent:MSIn_Titan"
+End
+
+HOTKEYNAME:SIDEBARBUTTONSLOT13
+	"Slot 13"
+End
+
+HOTKEYNAME:SIDEBARBUTTONSLOT14
+	"Slot 14"
+End
+
+HOTKEYNAME:SIDEBARBUTTONSLOT15
+	"Slot 15"
+End
+
+INI:FactionAlliancedeCommune
+	"Alliance Of Commune"
+End
+
+INI:FactionAllies
+	"Alliance Of Commune"
+End
+
+INI:FactionCommonwealth
+	"CPA"
+End
+
+INI:FactionPsychicPartisan
+	"Psychic Order"
+End
+
+INI:FactionSACOM
+	"SACOM"
+End
+
+INI:FactionSoviet
+	"CPA"
+End
+
+MAP:MAP_MP_2_Feasel10_EP1
+	"Rival Schools"
+End
+
+MAP:MAP_MP_2_Feasel12_EP1
+	"Mir's Landing"
+End
+
+MAP:MAP_MP_2_Feasel2_EP1
+	"Island Arena"
+End
+
+MAP:MAP_MP_2_Feasel3_EP1
+	"Hard Lesson"
+End
+
+MAP:MAP_MP_2_Feasel4_EP1_SK
+	"Soundless Hill"
+End
+
+MAP:MAP_MP_2_Feasel5_EP1
+	"Pure Oniage"
+End
+
+MAP:MAP_MP_2_Feasel6_EP1
+	"Grinder Gulch"
+End
+
+MAP:MAP_MP_2_Feasel7_EP1
+	"Kodiak Lake"
+End
+
+MAP:MAP_MP_2_Feasel8_EP1
+	"Twisted Terrace"
+End
+
+MAP:MAP_MP_2_Feasel9_EP1
+	"Killington Cove"
+End
+
+MAP:MAP_MP_3_Feasel1_EP1
+	"Islandgrad"
+End
+
+MAP:MAP_MP_3_Feasel2_EP1
+	"Fried River"
+End
+
+MAP:MAP_MP_4_Feasel10_EP1
+	"Shogun's Alley"
+End
+
+MAP:MAP_MP_4_Feasel11_EP1
+	"Bear Zamok"
+End
+
+MAP:MAP_MP_4_Feasel12_EP1
+	"Assassin's Road"
+End
+
+MAP:MAP_MP_4_Feasel13_EP1
+	"Desolation"
+End
+
+MAP:MAP_MP_4_Feasel2_EP1
+	"Oil Slick"
+End
+
+MAP:MAP_MP_4_Feasel3_EP1
+	"Florazon Basin"
+End
+
+MAP:MAP_MP_4_Feasel4_EP1
+	"Battlebase Quartus"
+End
+
+MAP:MAP_MP_4_Feasel5_EP1_SK
+	"Honor Bound"
+End
+
+MAP:MAP_MP_4_Feasel6_EP1
+	"Trench Warfare"
+End
+
+MAP:MAP_MP_4_Feasel7_EP1
+	"Jungle Stalkers"
+End
+
+MAP:MAP_MP_4_Feasel8_EP1
+	"Isla Nooblar"
+End
+
+MAP:MAP_MP_4_Feasel9_EP1
+	"Corporate Warfare"
+End
+
+MAP:MAP_MP_6_Feasel1_EP1
+	"Apocalypse Mountain"
+End
+
+MAP:MAP_MP_6_Feasel2_EP1
+	"Battlebase Hexis"
+End
+
+MAP:MAP_MP_6_Feasel3_EP1
+	"Holdout Keep"
+End
+
+MAP:Portress
+	"Portress"
+End
+
+Name:AbilityCenturion
+	"Name:AbilityCenturion(TBD)"
+End
+
+Name:AbilityDecoySplit
+	"Shadow Split"
+End
+
+Name:AbilityPsychicPartisanAntiVehicleInfantrySprint
+	"Sprint!"
+End
+
+Name:AbilityPsychicPartisanGattlingOverheat
+	"Overload Mode"
+End
+
+Name:AbilityPsychicPartisanMagicBallDetonation
+	"Detonate"
+End
+
+Name:AbilityPsychicShield
+	"Psychic Shelter"
+End
+
+Name:AbilityUnPackJapanKingOfMechaEgg
+	"Unpack"
+End
+
+Name:AbilityUnPackJapanPlasmaDefenderEgg
+	"Unfurl"
+End
+
+Name:AbilityUnPackJapanVIPBunkerEgg
+	"Unfurl"
+End
+
+Name:AlliedAmily
+	"A.v.H. Commando"
+End
+
+Name:AlliedAntiInfantryAircraft
+	"Typhoon"
+End
+
+Name:AlliedArcAngelAircraft
+	"Arch Angel Platform"
+End
+
+Name:AlliedArtilleryVehicle
+	"Pacifier FAV"
+End
+
+Name:AlliedBattleShipAircraft
+	"Air Battleship"
+End
+
+Name:AlliedColdPlant
+	"Cold Fusion Reactor"
+End
+
+Name:AlliedCommandoTech3
+	"Alice Hearn"
+End
+
+Name:AlliedDesignatedMarksman
+	"Designated Marksman"
+End
+
+Name:AlliedEnforcer
+	"Enforcer"
+End
+
+Name:AlliedEnhanceDrug
+	"Stimulant"
+End
+
+Name:AlliedFutureTank
+	"Future Tank X-1"
+End
+
+Name:AlliedFutureTankLaserWeapon
+	"Riot Beam"
+End
+
+Name:AlliedGravityStabilizer
+	"Gravity Stabilizer"
+End
+
+Name:AlliedHydra
+	"Hydra"
+End
+
+Name:AlliedHypersonicBomber
+	"Aurora Bomber"
+End
+
+Name:AlliedIonStorm
+	"Ion Storm"
+End
+
+Name:AlliedLegionnaireInfantry
+	"Legionnaire Infantry"
+End
+
+Name:AlliedMotherShip
+	"Chronos"
+End
+
+Name:AlliedNanoBuzzers
+	"Nano Buzzer"
+End
+
+Name:AlliedStormRider
+	"Storm Knight"
+End
+
+Name:AlliedProtonTower
+	"Proton Turret"
+End
+
+Name:AlliedRDFacilities
+	"R&D Facilities"
+End
+
+Name:AlliedSniper
+	"Sniper"
+End
+
+Name:AlliedKodiak
+	"Sky Cruiser Kodiak"
+End
+
+Name:AlliedWormHole
+	"Wormhole"
+End
+
+Name:AlliedXwing
+	"Starfighter"
+End
+
+Name:AntiSubmarineSonarSpecialPower
+	"ASW Force Reveal"
+End
+
+Name:ArcherArrowBarrageSpecialPower
+	"Arrow Barrage"
+End
+
+Name:ARFUAssultCarrier
+	"Assult Carrier"
+End
+
+Name:ARFUFighterAircraft
+	"Fairy"
+End
+
+Name:ARFUMedicAircraft
+	"Thunder"
+End
+
+Name:AlliedMirageTank
+	"Mirage Tank MkII"
+End
+
+Name:ARFUPoliceForce
+	"Leibstandarte"
+End
+
+Name:ARFUShockTrooper
+	"Volunteer Grenadier"
+End
+
+Name:ARFUSupportVehicle
+	"Hopenes"
+End
+
+Name:ATSTChargeMode
+	"Charge Mode"
+End
+
+Name:BladeSensorPodSpecialPower
+	"Thermobaric Rocket"
+End
+
+Name:BuzzersEMPShock
+	"Electric Shock"
+End
+
+Name:ChronoLeap
+	"Chrono Leap"
+End
+
+Name:ChronoReinforcement
+	"Chrono Stasis Field"
+End
+
+Name:CryoLeapSpecialPower
+	"Cryo Leap"
+End
+
+Name:CryoWarHeadSpecialPower
+	"Load Cryo Warhead"
+End
+
+Name:CryoWarHeadSpecialPowerOff
+	"Load Neutron Warhead"
+End
+
+Name:DefenceModeSpecialPower
+	"Defence Mode"
+End
+
+Name:DesolatorWeaponMode
+	"Glop Gun"
+End
+
+Name:DesolatorWeaponModeOff
+	"Poison Spray"
+End
+
+Name:DestroyerRocketBarrages
+	"Jamming Smoke"
+End
+
+Name:EagleEyesSpecialPower
+	"Eagle Eyes"
+End
+
+Name:EmergencyRepair
+	"Emergency Repair"
+End
+
+Name:EMPMissileSpecialPower
+	"Launch EMP Missile"
+End
+
+Name:FireRushSpecialPower
+	"Fire Rush"
+End
+
+Name:ForceShieldSpecialPower
+	"ForceShield"
+End
+
+Name:GravityFieldSpecialPower
+	"Gravity Field"
+End
+
+//Name:IllusionSpecialPower
+//	"Illusion Generator"
+//End
+
+Name:IllusionSpecialPower
+	"Psychic Amplifier"
+End
+
+Name:ItalyInfantryChargeSpecialPower
+	"Strategic Shift"
+End
+
+Name:JapanAirport
+	"Air Tower"
+End
+
+Name:JapanAirportEgg
+	"Air Tower Core"
+End
+
+Name:JapanArcherInfantry
+	"Archer"
+End
+
+Name:JapanBetaYuriko
+	"Beta Yuriko"
+End
+
+Name:JapanBioReactor
+	"Bio Reactor"
+End
+
+Name:JapanBioReactorEgg
+	"Bio Reactor Core"
+End
+
+Name:JapanChinook
+	"Otaka Shuttle"
+End
+
+Name:JapanDevourer
+	"Tsunami Devourer"
+End
+
+Name:JapanFortressShip
+	"Giga Fortress"
+End
+
+Name:JapanFortressShip_Air
+	"Giga-Fortress"
+End
+
+Name:JapanFortressShipEggUnpackSpecialPower
+	"Unfurl"
+End
+
+Name:JapanFortressShipTransformAircraftMode
+	"Sky Fortress Mode"
+End
+
+Name:JapanFortressShipTransformShipMode
+	"Sea Fortress Mode"
+End
+
+Name:JapanGattlingTower
+	"Gatling Defender"
+End
+
+Name:JapanGattlingTowerEgg
+	"Gatling Defender Core"
+End
+
+Name:JapanKingOfMechaEgg
+	"Mecha King Core"
+End
+
+Name:JapanLiberator
+	"Liberator"
+End
+
+Name:JapanLiberatorShield
+	"Nanoswarm Shield"
+End
+
+Name:JapanMagnetron
+	"Magnetron"
+End
+
+Name:JapanMastermind
+	"Mastermind"
+End
+
+Name:JapanMindControlTower
+	"Psychic Tower"
+End
+
+Name:JapanMindControlTowerEgg
+	"Psychic Tower Core"
+End
+
+Name:JapanPlasmaDefender
+	"Plasma Defender"
+End
+
+Name:JapanPlasmaDefenderEgg
+	"Plasma Defender Core"
+End
+
+Name:JapanRadarBoat
+	"Psychic Sensor Ship"
+End
+
+Name:JapanRazorDrone
+	"Exploder"
+End
+
+Name:JapanRioter
+	"Demonstrator"
+End
+
+Name:JapanSentinelVehicle
+	"Steel Ronin"
+End
+
+Name:JapanSpitter
+	"Spitter"
+End
+
+Name:JapanTankBunker
+	"Tank Bunker"
+End
+
+Name:JapanVIPBunker
+	"Field Psychic Academy"
+End
+
+Name:JapanVIPBunkerEgg
+	"Psychic Academy Core"
+End
+
+Name:LaserGlaiveBlastSpecialPower
+	"Laser Glaive Blast"
+End
+
+Name:LeapDeploySpecialPower
+	"Leap"
+End
+
+Name:LeapDeploySpecialPower
+	"Proto Jump"
+End
+
+Name:LightningArmorSpecialPower
+	"Lightning Armor"
+End
+
+Name:ListenSpecialPower
+	"Jammer Signal Generator"
+End
+
+Name:MARVTeslaNovaSpecialPower
+	"Electronic Nova"
+End
+
+Name:MastermindAOEMindControlSpecialPower
+	"Area of Effect Mind Control"
+End
+
+Name:MentalSuppressionSpecialPower
+	"Mental Suppression"
+End
+
+Name:MentalSuppressionSpecialPowerOff
+	"Psysonic-Magnetic Beam"
+End
+
+Name:MLRSBombardSpecialPower
+	"Spot Target Bombard"
+End
+
+Name:NeutronMissileSpecialPower
+	"Neutron Missile"
+End
+
+Name:NivilianAntiAirVehicleTech1
+	"Assasin"
+End
+
+Name:NivilianAntiInfantryInfantry
+	"Niref"
+End
+
+Name:NivilianAntiStructureVehicle
+	"Joel"
+End
+
+Name:NivilianAntiVehicleVehicleTech1
+	"Master"
+End
+
+Name:NivilianAntiVehicleVehicleTech2
+	"Titan"
+End
+
+Name:NivilianAntiVehicleVehicleTech3
+	"Lady-Huge Wave"
+End
+
+Name:NivilianFighterAircraft
+	"Venom"
+End
+
+Name:NivilianFireBird
+	"Fire Bird"
+End
+
+Name:NivilianFlag
+	"Flag"
+End
+
+Name:NivilianFlameTank
+	"Flame Tank"
+End
+
+Name:NivilianLightTransportVehicle
+	"Joint Transport Vehicle"
+End
+
+Name:AlliedStormRiderEvade
+	"Evade!"
+End
+
+Name:ParadropReinforcement
+	"Paratrooper"
+End
+
+Name:PlayerPowerCallSupportHunterKillerTeam
+	"Special Airborne Team"
+End
+
+Name:PlayerPowerPsychicScan
+	"Psychic Scan"
+End
+
+Name:PlayerPowerSpyPlane
+	"Spy Plane Surveillance"
+End
+
+Name:PlayerPowerSupersonicAttack
+	"Hypersonic Attack"
+End
+
+Name:PlayerPowerUprising
+	"Uprising"
+End
+
+Name:PsychicPartisan_JapanMechaKingEgg
+	"Shogun Executioner Core"
+End
+
+Name:PsychicPartisanAntiVehicleInfantry
+	"Fanatics"
+End
+
+Name:PsychicPartisanBarricade
+	"Barricade"
+End
+
+Name:PsychicPartisanBetaYuriko
+	"Gamma Isomer"
+End
+
+Name:PsychicPartisanCenturion
+	"Centurion"
+End
+
+Name:PsychicPartisanCombatFortress
+	"Combat Fortress"
+End
+
+Name:PsychicPartisanECTrooper
+	"Patriot"
+End
+
+Name:PsychicPartisanGattlingVehicle
+	"Deca-Cannon"
+End
+
+Name:PsychicPartisanInfiltrationInfantry
+	"Mutant Shinobi"
+End
+
+Name:PsychicPartisanMagicBall
+	"Psychic Complexity"
+End
+
+Name:PsychicPartisanMechaKingEgg
+	"Shogun Executioner Core"
+End
+
+Name:PsychicPartisanPatmos
+	"Patmos"
+End
+
+Name:RadarBoatCallCruiseMissileSpecialPower
+	"Cruise Missile Strike"
+End
+
+Name:RazorDroneReproductionSpecialPower
+	"Proliferation"
+End
+
+Name:RoarSpecialPower2
+	"Roar"
+End
+
+Name:RocketEnhancedShellGrenadeSpecialPower
+	"Rocket-assisted Projectile"
+End
+
+Name:SACOMAntiAirVehicle
+	"Avenger"
+End
+
+Name:SACOMAntiSubmarineAircraft
+	"Cormorant"
+End
+
+Name:SACOMAntiInfantryInfantry
+	"Paratrooper"
+End
+
+Name:SACOMAntiStructureVehicle
+	"Axe Missile Launcher"
+End
+
+Name:SACOMAntiVehicleVehicleTech2
+	"Rhino"
+End
+
+Name:SACOMATST
+	"Tesla Bot"
+End
+
+Name:SACOMBaseDefenseAir
+	"Sky Shield System"
+End
+
+Name:SACOMCarryall
+	"Support Carryall"
+End
+
+Name:SACOMFighterAircraft
+	"Goldfinch"
+End
+
+Name:SACOMListener
+	"Listener ESV"
+End
+
+Name:SACOMSpectreGunship
+	"Frost Gunship"
+End
+
+Name:SACOMStealthBomber
+	"Perun"
+End
+
+Name:SACOMSuperFighter
+	"Raptor"
+End
+
+Name:AOEShield
+	"All-Fleet Shield Generator"
+End
+
+Name:SnakeECMLauncher
+	"Electric Cloud Launcher"
+End
+
+Name:SovietAdaptiveArmor
+	"Enable Adaptive Armor"
+End
+
+Name:SovietAntiVehicleAircraft
+	"Glass Snake"
+End
+
+Name:SovietBattleMasterTank
+	"Tenho MBT"
+End
+
+Name:SovietBladeSensorPod
+	"Sensor Pod"
+End
+
+Name:SovietCarryall
+	"Carryall"
+End
+
+Name:SovietDesolatorInfantry
+	"Desolator"
+End
+
+Name:SovietDestroyer
+	"Pearl Destroyer"
+End
+
+Name:SovietExecuter
+	"Executor"
+End
+
+Name:SovietFighterAircraft
+	"Firefox"
+End
+
+Name:SovietFrogtieAircraft
+	"Skyfire"
+End
+
+Name:SovietGaussCannon
+	"Shinki AA Coilgun"
+End
+
+Name:SovietGunshipAfterburner
+	"Enable Afterburner"
+End
+
+Name:SovietHeavyWalkerDeployedTurret
+	"Reaper Turret"
+End
+
+Name:SovietHeavyWalkerVehicle
+	"Reaper"
+End
+
+Name:SovietHowitzer
+	"Howitzer"
+End
+
+Name:SovietHumvee
+	"ORV"
+End
+
+Name:SovietLogisticCentre
+	"Logistic Centre"
+End
+
+Name:SovietMARV
+	"Mammoth Super Tank"
+End
+
+Name:SovietMissileman
+	"Missileman"
+End
+
+Name:SovietMLRS
+	"M.L.R.S."
+End
+
+Name:SovietScud
+	"Tailwind"
+End
+
+Name:SovietSpectreGunship
+	"Arsenal Gunship"
+End
+
+Name:SovietStalker
+	"Stalker APC"
+End
+
+Name:SovietTitan
+	"All-Terrain Storm Tank"
+End
+
+Name:SovietWarWolf
+	"Bionic War Wolf"
+End
+
+Name:StealthBomberEvadeSpecialPower
+	"Plasma Generator"
+End
+
+Name:TenhoSmokeGrenadeSpecialPower
+	"Smoke Grenade"
+End
+
+Name:TimeStopSpecialPower
+	"Spacetime Freeze"
+End
+
+Name:ToggleAlliedAmilyDown
+	"Turn off the Jet pack"
+End
+
+Name:ToggleAlliedAmilyLift
+	"Teleport"
+End
+
+Name:ToggleAlliedArtilleryAutoCannon
+	"Pack"
+End
+
+Name:ToggleAlliedArtillerySiegeWeapon
+	"Depoly Artillery"
+End
+
+Name:ToggleAlliedSpotTargetBombard
+	"Spot target bombard"
+End
+
+Name:ToggleARFUShockCannon
+	"Shock Cannon"
+End
+
+Name:ToggleARFUShockGrende
+	"Shock Grende"
+End
+
+Name:ToggleAlliedSubmarineDown
+	"Use Torpedo"
+End
+
+Name:ToggleAlliedSubmarineLift
+	"Use Rocket"
+End
+
+Name:ToggleExecution
+	"Courage Pills"
+End
+
+Name:ToggleLaserPainter
+	"Stinger Laser Cannon"
+End
+
+Name:ToggleNivilianArtilleryCannon
+	"Switch to 120mm cannon"
+End
+
+Name:ToggleNivilianArtillerySiegeWeapon
+	"Switch to Plasma cannon"
+End
+
+Name:ToggleNivilianMammothAutoCannon
+	"Dragon Cannon"
+End
+
+Name:ToggleNivilianMSTACannon
+	"Normal Attack"
+End
+
+Name:ToggleNivilianMSTACrazyAttack
+	"Crazy Attack"
+End
+
+Name:TogglePanzerShield
+	"Nano-Shield"
+End
+
+Name:ToggleRadarBoatRadarMode
+	"Psychic Interference"
+End
+
+Name:ToggleToxicSnipe
+	"Toxic Snipe"
+End
+
+Name:ToxicGrenadeSpecialPower
+	"Toxic Grenade"
+End
+
+Name:ToxicGrenadeSpecialPowerOff
+	"Assault Rifle"
+End
+
+Name:ToxicMissileSpecialPower
+	"Toxic Missile"
+End
+
+Name:UpgradeJapanAirPortTech2
+	"Air Tower Upgrade"
+End
+
+Name:UpgradeJapanAirPortTech3
+	"Air Tower Breakthrough"
+End
+
+Name:WarWolfShieldSpecialPower
+	"Counter Pulse"
+End
+
+Name:WormHoleSpecialPower
+	"Wormhole"
+End
+
+Type:AlliedAmily
+	"Chrono-commando"
+End
+
+Type:AlliedAntiInfantryAircraft
+	"Advanced Anti-Personnel Aircraft"
+End
+
+Type:AlliedArcAngelAircraft
+	"Aerial Fleet Support"
+End
+
+Type:AlliedArtilleryVehicle
+	"Advanced Artillery"
+End
+
+Type:AlliedCommandoTech3
+	"Advanced Psysonic Commando"
+End
+
+Type:AlliedDesignatedMarksman
+	"Armoured Anti-Vehicle Infantry"
+End
+
+Type:AlliedEnforcer
+	"Armoured Anti-Air Infantry"
+End
+
+Type:AlliedFutureTank
+	"Advanced Anti-Surface Robot"
+End
+
+Type:AlliedHydra
+	"Anti-Aircraft Vehicle"
+End
+
+Type:AlliedHypersonicBomber
+	"Advanced Anti-Surface Bomber"
+End
+
+Type:AlliedLegionnaireInfantry
+	"Advanced Support Infantry"
+End
+
+Type:AlliedMotherShip
+	"Ultimate Weapon"
+End
+
+Type:AlliedNanoBuzzers
+	"Anti-Personnel/Garrison Scout"
+End
+
+Type:AlliedStormRider
+	"Multirole Assult Aircraft"
+End
+
+Type:AlliedSniper
+	"Advanced Anti-Personnel Infantry"
+End
+
+Type:AlliedKodiak
+	"Air Dominance Vehicle"
+End
+
+Type:AlliedWormHole
+	"Transport Structure"
+End
+
+Type:AlliedXwing
+	"Air superiority fighter"
+End
+
+Type:ARFUFighterAircraft
+	"Advanced Air-superiority Fighter"
+End
+
+Type:ARFUMedicAircraft
+	"Advanced Support Aircraft"
+End
+
+Type:ARFUNiki
+	"Battle Tank"
+End
+
+Type:AlliedMirageTank
+	"Advanced Anti-Surface Tank"
+End
+
+Type:ARFUPoliceForce
+	"Support Infantry"
+End
+
+Type:ARFUShockTrooper
+	"Anti-Personnel & Vehicle Footman"
+End
+
+Type:ARFUSupportVehicle
+	"Support Vehicle"
+End
+
+Type:ChronoReinforcement
+	"Split Battlefield"
+End
+
+Type:EmergencyRepair
+	"Instant Support Power"
+End
+
+Type:JapanAirport
+	"Aircraft Production"
+End
+
+Type:JapanAirportEgg
+	"Portable Aircraft Production"
+End
+
+Type:JapanArcherInfantry
+	"Anti-Air / Anti-Surface"
+End
+
+Type:JapanBetaYuriko
+	"Special Weapon Support"
+End
+
+Type:JapanBioReactor
+	"Energy Structure"
+End
+
+Type:JapanBioReactorEgg
+	"Portable Energy Structure"
+End
+
+Type:JapanChinook
+	"Transport Aircraft"
+End
+
+Type:JapanFortressShip
+	"Advanced Anti-Surface / Anti-Air Navy"
+End
+
+Type:JapanFortressShip_Air
+	"Advanced Bombardment Aircraft"
+End
+
+Type:JapanFortressShipEgg
+	"Portable Heavy Artillery Unit"
+End
+
+Type:JapanGattlingTower
+	"Multirole Base Defense"
+End
+
+Type:JapanGattlingTowerEgg
+	"Portable Multirole Base Defense"
+End
+
+Type:JapanKingOfMechaEgg
+	"Epic Object Core"
+End
+
+Type:JapanLiberator
+	"Advanced Air-Superiority Aircraft"
+End
+
+Type:JapanMagnetron
+	"Support Vehicle"
+End
+
+Type:JapanMastermind
+	"Advanced Support Vehicle"
+End
+
+Type:JapanMindControlTower
+	"Advanced Base Defense"
+End
+
+Type:JapanMindControlTowerEgg
+	"Portable Advanced Base Defense"
+End
+
+Type:JapanPlasmaDefender
+	"Basic Base Defense"
+End
+
+Type:JapanPlasmaDefenderEgg
+	"Portable Anti-Armor Base Defense"
+End
+
+Type:JapanRadarBoat
+	"Advanced Naval Support"
+End
+
+Type:JapanRazorDrone
+	"Support Scout"
+End
+
+Type:JapanRioter
+	"Battlefield Spoiler"
+End
+
+Type:JapanSentinelVehicle
+	"Anti-Armor Robot"
+End
+
+Type:JapanSpitter
+	"Anti-garrison/Anti-structure Infantry"
+End
+
+Type:JapanTankBunker
+	"Supportive Base Defense"
+End
+
+Type:JapanVIPBunker
+	"Tech Structure"
+End
+
+Type:JapanVIPBunkerEgg
+	"Portable Tech Structure"
+End
+
+Type:NivilianAntiAirVehicleTech1
+	"Anti-Aircraft Tank"
+End
+
+Type:NivilianAntiInfantryInfantry
+	"Anti-Personnel Infantry"
+End
+
+Type:NivilianAntiStructureVehicle
+	"Heavy Firing Support"
+End
+
+Type:NivilianAntiStructureVehicle
+	"Light Fighter"
+End
+
+Type:NivilianAntiVehicleVehicleTech1
+	"Anti-Vehicle/Structure Tank"
+End
+
+Type:NivilianAntiVehicleVehicleTech2
+	"Anti-Vehicle Tank"
+End
+
+Type:NivilianAntiVehicleVehicleTech3
+	"Advanced Anti-Vehicle Tank"
+End
+
+Type:NivilianArtilleryVehicle
+	"Anti-Ground Artillery"
+End
+
+Type:NivilianFighterAircraft
+	"Light Striker/Fighter"
+End
+
+Type:NivilianFireBird
+	"Advanced Anti-Vehicle Aircraft"
+End
+
+Type:NivilianFlag
+	"Short Range Support Bomber"
+End
+
+Type:NivilianFlameTank
+	"Anti-Personnel/Structure Vehicle"
+End
+
+Type:ParadropReinforcement
+	"Emergency Reinforcement"
+End
+
+Type:PlayerPowerCallSupportHunterKillerTeam
+	"Quick Reaction Force"
+End
+
+Type:PlayerPowerPsychicScan
+	"Intelligence Support Power"
+End
+
+Type:PlayerPowerSpyPlane
+	"Field Reconnaissance Support Power"
+End
+
+Type:PlayerPowerSupersonicAttack
+	"Air Superiority Support Power"
+End
+
+Type:PlayerPowerUprising
+	"Field Support Power"
+End
+
+Type:PsychicPartisan_JapanMechaKingEgg
+	"Portable Ultimate Weapon"
+End
+
+Type:PsychicPartisanAntiVehicleInfantry
+	"Portable Bombardment"
+End
+
+Type:PsychicPartisanBarricade
+	"Provisional Shelter"
+End
+
+Type:PsychicPartisanBetaYuriko
+	"Special Weapon Support"
+End
+
+Type:PsychicPartisanCenturion
+	"Advanced Anti-Surface Robot"
+End
+
+Type:PsychicPartisanCombatFortress
+	"Heavy Amphibious Transport"
+End
+
+Type:PsychicPartisanECTrooper
+	"Advanced Anti-Surface"
+End
+
+Type:PsychicPartisanGattlingVehicle
+	"Anti-Air Vehicle"
+End
+
+Type:PsychicPartisanInfiltrationInfantry
+	"Anti-Surface Infiltrator"
+End
+
+Type:PsychicPartisanMagicBall
+	"Stealth Minefield"
+End
+
+Type:PsychicPartisanMechaKingEgg
+	"Portable Ultimate Weapon"
+End
+
+Type:PsychicPartisanPatmos
+	"Bombardment"
+End
+
+Type:SACOMAntiAirVehicle
+	"Anti-Air Vehicle"
+End
+
+Type:SACOMAntiSubmarineAircraft
+	"Heavy Anti-Submarine Aircraft"
+End
+
+Type:SACOMAntiStructureVehicle
+	"Precise Bombardment"
+End
+
+Type:SACOMAntiVehicleVehicleTech2
+	"Anti-Armor Vehicle"
+End
+
+Type:SACOMATST
+	"Anti-Personnel/Anti-Armor Robot"
+End
+
+Type:SACOMBaseDefenseAir
+	"Anti-Air Base Defense"
+End
+
+Type:SACOMCarryall
+	"Supportive Transport"
+End
+
+Type:SACOMFighterAircraft
+	"Air-superiority Fighter"
+End
+
+Type:SACOMListener
+	"Support vehicle"
+End
+
+Type:SACOMSpectreGunship
+	"Air Dominance Vehicle"
+End
+
+Type:SACOMStealthBomber
+	"Anti-Vehicle/Infantry Aircraft"
+End
+
+Type:SACOMSuperFighter
+	"Ultimate Weapon"
+End
+
+Type:SovietAntiVehicleAircraft
+	"Anti-Vehicle Aircraft"
+End
+
+Type:SovietBattleMasterTank
+	"Anti-Armor/Anti-Air Tank"
+End
+
+Type:SovietBladeSensorPod
+	"Fixed Scout/Detector"
+End
+
+Type:SovietCarryall
+	"Armed Transport Aircraft"
+End
+
+Type:SovietDesolatorInfantry
+	"Advanced Anti-Ground Infantry"
+End
+
+Type:SovietDestroyer
+	"Multirole Warship"
+End
+
+Type:SovietExecuter
+	"Advanced Support Infantry"
+End
+
+Type:SovietFighterAircraft
+	"Multirole Assult Aircraft"
+End
+
+Type:SovietFrogtieAircraft
+	"Anti-Structure Bomber"
+End
+
+Type:SovietGaussCannon
+	"Advanced Anti-Air Base Defense"
+End
+
+Type:SovietHeavyWalkerDeployedTurret
+	"Advanced Base Defense"
+End
+
+Type:SovietHeavyWalkerVehicle
+	"Multirole Walker"
+End
+
+Type:SovietHowitzer
+	"Light Artillery"
+End
+
+Type:SovietHumvee
+	"Anti-Aircraft/Anti-Personnel Transport"
+End
+
+Type:SovietMARV
+	"Ultimate Weapon"
+End
+
+Type:SovietMissileman
+	"Anti-aircraft/vehicle infantry"
+End
+
+Type:SovietMLRS
+	"Siege Vehicle"
+End
+
+Type:SovietScud
+	"Advanced Bombardment"
+End
+
+Type:SovietSpectreGunship
+	"Air Dominance Vehicle"
+End
+
+Type:SovietStalker
+	"Anti-Personnel Transport"
+End
+
+Type:SovietTitan
+	"Anti-Armor Mech"
+End
+
+UPGRADE:SelectLoadout01
+	"Load Antiair Missile"
+End
+
+UPGRADE:SelectLoadOut01Description
+	"Use powerful anti-air missile to counter enemy aircraft!"
+End
+
+UPGRADE:SelectLoadout02
+	"Load Smart Bomb"
+End
+
+UPGRADE:SelectLoadOut02Description
+	"Smart bombs can destory enemy land target percisely."
+End
+
+UpgradeDesc:SovietTenhoArmor
+	"By purchasing more expensive production tools, defensiveness of Tenho MBT can be enhanced at the cost of sacrificing speed."
+End
+
+UpgradeDesc:UpgradeJapanAirPortTech2
+	"Expands this facility to the next level, unlocking new aircraft for production."
+End
+
+UpgradeDesc:UpgradeJapanAirPortTech3
+	"Completes expansion of this facility, unlocking the latest airforce units."
+End
+
+UpgradeName:JapanAirPortTech2
+	"Air Tower Upgrade"
+End
+
+UpgradeName:JapanAirPortTech3
+	"Air Tower Breakthrough"
+End
+
+UpgradeName:SovietTenhoArmor
+	"Additional Armor"
+End
+
+UpgradeType:SovietTenhoArmor
+	"Unit parameters upgrade"
+End
+
+Name:SACOMGhostBomberAircraft
+	"Ghost"
+End
+
+Type:SACOMGhostBomberAircraft
+	"Anti-Building Aircraft"
+End
+
+Desc:SACOMGhostBomberAircraft
+	"Armed with two long range tactical missiles, these heavy bombers are capable of splinting the foes' base defense system into pieces distantly."
+End
+
+Name:SACOMMedic
+	"National Police"
+End
+
+Type:SACOMMedic
+	"Heavy Anti-Personnel"
+End
+
+Desc:SACOMMedic
+	"Reliable heavy armoured infantries who are equipped with shotgun and electronic suppressor. They are eligible to preveil over the hostile infantries and undertake much damage in the field."
+End
+
+Name:ToggleElectronicSuppressorUpgrade
+	"Use Electronic Suppressor"
+End
+
+Desc:ToggleElectronicSuppressorUpgrade
+	"Activate the Electronic Suppressor to neutralize all the infantries in the vicinity!"
+End
+
+Name:ToggleElectronicSuppressorOff
+	"Use Shotgun"
+End
+
+Desc:ToggleElectronicSuppressorOff
+	"Turn off the Electronic Suppressor and use the powerful shotgun to tackle with the foes!"
+End
+
+Name:SACOMAntiStructureShip
+	"Corvus"
+End
+
+Type:SACOMAntiStructureShip
+	"Heavy Anti-Air/Bombardment"
+End
+
+Desc:SACOMAntiStructureShip
+	"Formidable and astonishing armoured carrier vessel which takes a squadron of Harrier Fighters. It is recognized as the proud of the National Soviet Navy."
+End
+
+Name:SACOMMortar
+	"Howitzer Pit"
+End
+
+Type:SACOMMortar
+	"Anti-Surface Base Defense"
+End
+
+Desc:SACOMMortar
+	"Whilst not accurate, these long-range howitzers are capable to decimate clustered enemies by high-explosive shells."
+End
+
+Name:SACOMHunterAircraft
+	"Cobra"
+End
+
+Type:SACOMHunterAircraft
+	"Multirole Assault Aircraft"
+End
+
+Desc:SACOMHunterAircraft
+	"Slow, steady and versatile aircraft which is modified from outdated MiG fighter. Be careful, it is more than vulnerable than what it looks like."
+End
+
+Name:PsychicPartisanAntiVehicleVehicleTech3
+	"Jarilo"
+End
+
+Type:PsychicPartisanAntiVehicleVehicleTech3
+	"Ultimate Anti-Armor Robot"
+End
+
+Desc:PsychicPartisanAntiVehicleVehicleTech3
+	"Dread battlewalkers that can deconstruct and reconstruct metal material by unknown beam."
+End
+
+
+// Mortar Cycle
+	
+Name:SovietMortarCycle
+	"Mortar Cycle"
+End
+
+Desc:SovietMortarCycle
+	"These souped-up bikes would be even faster if not for all the explosives they carry."
+End
+
+Type:SovietMortarCycle
+	"Light Bombardment"
+End
+
+Name:ToggleSovietMortarCycleMolotov
+	"Molotov Flurry"
+End
+
+Desc:ToggleSovietMortarCycleMolotov
+	"Packs up the Mortar so the sidecar gunner can resume dishing out explosive cocktails."
+End
+
+Name:ToggleSovietMortarCycleMortar
+	"Porta-Mortar"
+End
+
+Desc:ToggleSovietMortarCycleMortar
+	"Unpacks a light artillery piece for use against medium-to-long-range targets."
+End
+
+DialogEvent:MSIn_MortarCycle
+	"*Mortar Cycles are light artillery vehicles that excel at hit-and-run attacks versus enemy fortifications or slower forces.  They may quickly switch between using Molotov cocktails to burn their foes to a crisp, or raining down explosive shells with their mortar attack."
+End
+
+APT:PLAYERPOWERSHEADERALLIES
+	"FUTURETECH RESEARCH UNION"
+End
+
+APT:PLAYERPOWERSHEADERJAPAN
+	"SHIRO TECHNOLOGY CORPORATION"
+End
+
+APT:PLAYERPOWERSHEADERSOVIET
+	"MINISTRY of EXPERIMENTAL SCIENCE"
+End
+
+Name:SovietLabourCamp
+	"Labour Camp"
+End
+
+Type:SovietLabourCamp
+	"Economy Building"
+End
+
+Desc:SovietLabourCamp
+	"Labour Camp is used to educate those who dare to compel the order or thought of National-Sovietism by coercive labour, which also fuels the war machine of COS."
+End
+
+Name:SACOMPurificationCamp
+	"Purification Camp"
+End
+
+Type:SACOMPurificationCamp
+	"Advanced Economy Building"
+End
+
+Desc:SACOMPurificationCamp
+	"To utterly remove the existence of subhuman, SACOM builds up Purification Camps with grinders and toxic rooms, which efficiently make full use of the values of subhuman bodies."
+End
+
+Name:SovietDetentionCamp
+	"Labour Camp"
+End
+
+Desc:SovietDetentionCamp
+	"In this confined and damp building, the arrested dissenters and rebels are educated to labour to support the great National Soviet cause."
+End
+
+Type:SovietDetentionCamp
+	"Economy Building"
+End
+
+Name:SACOMDetentionCamp
+	"Experimental Camp"
+End
+
+Desc:SACOMDetentionCamp
+	"This building is mainly used to test the toxic technology developed by the ministry of experimental science."
+End
+
+Type:SACOMDetentionCamp
+	"Economy Building"
+End
+
+Name:PsychicPartisanInitiate
+	"Initiate"
+End
+
+Desc:PsychicPartisanInitiate
+	"They were loyal soldiers who sacrificed their lifes for their countries, or mortals who unfortunately died of war. But now they are fighting for the Greater Cause via cybernetic implantation."
+End
+
+Type:PsychicPartisanInitiate
+	"Anti-Personnel"
+End
+
+Desc:AbilityInitiateDefensiveMode
+	"Uphold a psychic shield that slowly fades as time goes by. Enemies that are in the vicinity will be burnt by the shield."
+End
+
+Name:AbilityInitiateDefensiveMode
+	"Psychic Shield"
+End
+
+Type:PsychicPartisanAntiVehicleInfantryTech3
+	"Flying Anti-Air / Anti-Surface"
+End
+
+Desc:PsychicPartisanAntiVehicleInfantryTech3
+	"These lonely but loyal bodies are permanently trapped in the flying powersuits, and their mind is used to generate psychic power that can crumble any enemies of Yuria."
+End
+
+Name:PsychicPartisanAntiVehicleInfantryTech3
+	"Psychic Angel"
+End
+
+Type:PsychicPartisanAntiVehicleInfantryTech3_transformed
+	"Special Weapons Support"
+End
+
+Desc:PsychicPartisanAntiVehicleInfantryTech3_transformed
+	"The most wonderful dream, and the most cruel reality. All the suffering will come to an end in their hands, even though the price is death."
+End
+
+Name:PsychicPartisanAntiVehicleInfantryTech3_transformed
+	"Dream Weaver"
+End
+
+Desc:PsychicStormSpecialPower
+	"Switches to using the Spiritual Power to create a stasis field where enemies will gradually fall into wonderful dreams. When the field fades, they will be addicted to the dreams and rebel against the hateful reality."
+End
+
+Name:PsychicStormSpecialPower
+	"Weave Dream"
+End
+
+Desc:PsychicAttackSpecialPower
+	"Switches to using psychic power to tear the enemies from their insides directly."
+End
+
+Name:PsychicAttackSpecialPower
+	"Brain Storm"
+End
+
+Type:AlliedFairyFighter
+	"Air Superiority Fighter"
+End
+
+Desc:AlliedFairyFighter
+	"Air superiority fighters that can chronoleap to anywhere of the battlefield and cut the herd of hostile aircrafts to ribbons.\n Their Proton cannons are powerful weapon against large aircrafts, and they can also intercept hostile missiles by point defense system."
+End
+
+Name:AlliedFairyFighter
+	"Fairy Fighter"
+End
+
+Type:AlliedCryoAircraft
+	"Special Weapons Support"
+End
+
+Desc:AlliedCryoAircraft
+	"High-tech VTOL vehicles that can quell dangerous situations by freezing or shrinking hostiles. \nThey can also effectively intercept hostile missiles by point defense system."
+End
+
+Name:AlliedCryoAircraft
+	"Cryo Assistant"
+End
+
+Name:SovietLaputaAirship
+	"Laputa Airship"
+End
+
+Type:SovietLaputaAirship
+	"Air Dominance Vehicle"
+End
+
+Desc:SovietLaputaAirship
+	"Large airships that flush out enemies by heavy auto-cannons and squadrons of Hellfire drones."
+End
+
+Name:IonStormSpecialPower
+	"Ion Storm"
+End
+
+Desc:IonStormSpecialPower
+	"Generate an Ion Storm around the ship, in which Communal Airforce units can absorb energy to repair themselves and increase the combat efficiency."
+End
+
+Type:AlliedTransporter
+	"Anti-Air / Anti-Vehicle Transport"
+End
+
+Desc:AlliedTransporter
+	"Agile hovercrafts that can ship allied soldiers and melt armors by plasma disc launcher."
+End
+
+Name:AlliedTransporter
+	"Seeker ACV"
+End
+
+Type:PsychicPartisanCommandoTech1
+	"Psychic Commando"
+End
+
+Desc:PsychicPartisanCommandoTech1
+	"A perfectly designed war machine that is made for combat, capable of crumbling everything with an unstoppable Psychic Storm."
+End
+
+Name:PsychicPartisanCommandoTech1
+	"Epsilon Isomer"
+End
+
+Type:AlliedSubmarine
+	"Multirole Submarine"
+End
+
+Name:AlliedSubmarine
+	"Orcinus Orca"
+End
+
+Desc:AlliedSubmarine
+	"AU uses these submarines to ambush enemy's supply lines and ships. If you like, it can launch missiles and ruin enemy's base."
+End
+
+Type:SovietAntiAirVehicleTech1
+	"Heavy Anti-Air Vehicle"
+End
+
+Name:SovietAntiAirVehicleTech1
+	"Gladiator"
+End
+
+Desc:SovietAntiAirVehicleTech1
+	"Anti-Air relatives of the Tenho that can clear the sky by fearsome quad-barrel anti-air cannon and missiles."
+End
+
+Name:ActivateAATankTargetPainter
+	"Watchkeeper System"
+End
+
+Desc:ActivateAATankTargetPainter
+	"Switches to using radar guided missile to destroy the enemy aircraft. The target marked by radar will receive more damage from other anti-air fire."
+End
+
+Name:ActivateAATankTargetPainterOff
+	"Quad-Auto-Cannons"
+End
+
+Desc:ActivateAATankTargetPainterOff
+	"Switches to using 30mm auto-cannons that makes the sky clear and bright."
+End
+
+Type:AlliedEconomyStructure
+	"Advanced Economy Building"
+End
+
+Name:AlliedEconomyStructure
+	"Research Station"
+End
+
+Desc:AlliedEconomyStructure
+	"These sophisticated buildings where many researchers live in make people believe that it is worthy to buy the war bond."
+End
+
+Type:SACOMSupplyZone
+	"Economy Building"
+End
+
+Name:SACOMSupplyZone
+	"Supply Drop Zone"
+End
+
+Desc:SACOMSupplyZone
+	"A drop-off point that allows SACOM forces to receive essential supplies periodically from transport planes, consisting of water, food, industrial tools and medals."
+End
+
+Name:ActivateCruiseMissileMode
+	"Cruise Missile Mode"
+End
+
+Desc:ActivateCruiseMissileMode
+	"Switches to using Cruise Missile that flies longer but slower, which cannot track moving targets."
+End
+
+Name:ActivateCruiseMissileModeOff
+	"Precision-Guided Mode"
+End
+
+Desc:ActivateCruiseMissileModeOff
+	"Switches to using Precision-Guided Missile which can track moving targets."
+End
+
+Type:JapanPowerCore
+	"Advanced Energy Structure"
+End
+
+Name:JapanPowerCore
+	"Wave-Force Reactor"
+End
+
+Desc:JapanPowerCore
+	"Large and dangerous building that consistently provides incredibly large amounts of energy to the Imperial fortress."
+End
+
+Type:JapanPowerCoreEgg
+	"Portable Advanced Energy Structure"
+End
+
+Name:JapanPowerCoreEgg
+	"Wave-Force Reactor Core"
+End
+
+Desc:JapanPowerCoreEgg
+	"Special drones that unfurl into Power Core that consistently provides incredibly large amounts of energy."
+End
+
+Type:SACOMAerialCommandCruiser
+	"Aerial Fleet Support"
+End
+
+Name:SACOMAerialCommandCruiser
+	"Harrier"
+End
+
+Desc:SACOMAerialCommandCruiser
+	"Aerial Command Cruisers that provide radar and drones support for the SACOM aerial fleet, increasing the combat ability of nearby SACOM airborne units."
+End
+
+Name:ActivateShortCircuitTank
+	"Electric Vortex"
+End
+
+Desc:ActivateShortCircuitTank
+	"Switches to short-range tesla coil to gradually decompose the nearby enemies."
+End
+
+Type:SACOMAerialCommandCenter
+	"Technology Structure"
+End
+
+Name:SACOMAerialCommandCenter
+	"Command Centre"
+End
+
+Desc:SACOMAerialCommandCenter
+	"A group of arrogant high commanders are making grand plans for the campaign in this clean and bright building."
+End
+
+Name:StealthFighterEvadeSpecialPower
+	"Advanced Plasma Generator"
+End
+
+Desc:StealthFighterEvadeSpecialPower
+	"Generate ionized gas to cover Raptor and make it invisible for a while. Raptor will also accelerate and be repaired during this period."
+End
+
+Name:AbilityJapanAntiInfantryInfantryCarbine
+	"Carbine"
+End
+
+Desc:AbilityAntiInfantryInfantryCarbine
+	"Switches to using reliable waveforce carbine to eliminate the enemies distantly."
+End
+
+Type:PsychicPartisanVIPBunker
+	"Technology Building"
+End
+
+Name:PsychicPartisanVIPBunker
+	"Control Beacon"
+End
+
+Desc:PsychicPartisanVIPBunker
+	"By erecting this bizzare building, this region has been utterly controlled by Psychic Order. All the civilians resources are now mobilized to fuel the war machine!"
+End
+
+Type:PsychicPartisanAcademy
+	"Technology Structure"
+End
+
+Name:PsychicPartisanAcademy
+	"Synaptic Nexus"
+End
+
+Desc:PsychicPartisanAcademy
+	"This building filled with flesh, blood and machines efficiently uses the neural structure of sentient creatures to explore knowledge that humans cannot understand."
+End
+
+Name:PsychicPartisanTechStructureEgg
+	"Synaptic Nexus Core"
+End
+
+Type:PsychicPartisanTechStructureEgg
+	"Portable Technology Structure"
+End
+
+Desc:PsychicPartisanTechStructureEgg
+	"Special drones that unfurl into the Battle Lab, which unlocks advanced technology and units."
+End
+
+Name:SACOMAntiAirMissileVehicle
+	"Banner"
+End
+
+Type:SACOMAntiAirMissileVehicle
+	"Advanced Anti-Air Vehicle"
+End
+
+Desc:SACOMAntiAirMissileVehicle
+	"These fragile vehicles can launch multiple types of long-range anti-air missiles to intercept the enemy aircraft. But be careful that they cannot lock on small targets."
+End
+
+Name:ToggleEMPAAMissile
+	"EMP Missile"
+End
+
+Desc:ToggleEMPAAMissile
+	"Switches to launching EMP missile that paralyzes all aircraft in an area! Be careful, it is lethal to undefended small aircraft!"
+End
+
+Name:ToggleHEAAMissile
+	"Quick Maneuver Missile"
+End
+
+Desc:ToggleHEAAMissile
+	"Switches to launching Quick Maneuver Missile that can travel longer, faster, harder to intercept, and deal more damage to the single target!"
+End
+
+Type:PlayerPowerParticleUplinkCannon
+	"Precision Strike"
+End
+
+Desc:PlayerPowerParticleUplinkCannon
+	"Fire a sustained particle beam to burn the designated location!"
+End
+
+Name:PlayerPowerParticleUplinkCannon
+	"Particle Uplink Cannon"
+End
+
+Type:ParticleUplinkCannonEffect
+	"Precision Strike"
+End
+
+Desc:ParticleUplinkCannonEffect
+	"This beam can burn out everything it touches. Be careful and stay away!"
+End
+
+Name:ParticleUplinkCannonEffect
+	"High-energy Particle Beam"
+End
+
+Type:SACOMBaseDefenseGround
+	"Anti-Infantry Base Defense"
+End
+
+Desc:SACOMBaseDefenseGround
+	"Comprehensive facility that commmands and maintains a large group of Killer Drones."
+End
+
+Name:SACOMBaseDefenseGround
+	"Drone Hive"
+End
+
+Desc:CVMissleSpecialPower
+	"Launch a devastating Basalt long-range cruise missile to the designated target! "
+End
+
+Name:CVMissleSpecialPower
+	"Basalt Missile"
+End
+
+Type:PsychicPartisanBerserker
+	"Anti-Surface Robot"
+End
+
+Desc:PsychicPartisanBerserker
+	"Mysterious robot that can shatter armour and utilize the enemy's material to repair itself. Very tough in small-scale combat."
+End
+
+Name:PsychicPartisanBerserker
+	"Berserker"
+End
+
+Name:BerserkerStrideBreakerSwitchToCannon
+	"Cannon Mode"
+End
+
+Desc:BerserkerStrideBreakerSwitchToCannon
+	"Switches to using the cannon and shield to hold the frontline."
+End
+
+Name:BerserkerStrideBreakerSwitchToMelee
+	"Melee Mode"
+End
+
+Desc:BerserkerStrideBreakerSwitchToMelee
+	"Switches to deadly and agile melee mode that can shred through the heaviest armor in the blink of an eye."
+End
+
+Type:PsychicPartisanVIPBunkerEgg
+	"Portable Technology Structure"
+End
+
+Name:PsychicPartisanVIPBunkerEgg
+	"Control Beacon Core"
+End
+
+Desc:PsychicPartisanVIPBunkerEgg
+	"Special drones that unfurl into Control Beacon, capable of providing war funds and unlocking technology by controlling the local civilians."
+End
+
+Name:AbilityUnPackPsychicPartisanVIPBunkerEgg
+	"Unfurl"
+End
+
+Desc:AbilityUnPackPsychicPartisanVIPBunkerEgg
+	"Initiates nano-unfurling sequence, converting to a Control Beacon."
+End
+
+Type:SACOMAirDropPod
+	"Armed Personal Container"
+End
+
+Name:SACOMAirDropPod
+	"Drop Pod"
+End
+
+Desc:SACOMAirDropPod
+	"High-tech container that protects the paratrooper from small arms, capable of clearing the enemies by machineguns."
+End
+
+Type:PsychicPartisanScoutInfantry
+	"Flying Scout"
+End
+
+Name:PsychicPartisanScoutInfantry
+	"Dreamfly"
+End
+
+Desc:PsychicPartisanScoutInfantry
+	"The tiny artificial creatures that faithfully transmit intelligence for Psychic Order, are capable of disturbing the human mind."
+End
+
+
+Type:PsychicPartisanAntiInfantryVehicle_air
+	"Air Superiority Fighter"
+End
+
+Name:PsychicPartisanAntiInfantryVehicle_air
+	"Disruptor Tengu Fighter"
+End
+
+Desc:PsychicPartisanAntiInfantryVehicle_air
+	"With a pair of short-range disruptors, this Tengu Fighter is much more effective against large aircraft. Its weapon can penertrate shield and cause dirct damage to the target's armor."
+End
+
+Type:PsychicPartisanAntiInfantryVehicle_ground
+	"Multirole Robot"
+End
+
+Name:PsychicPartisanAntiInfantryVehicle_ground
+	"Disruptor Mecha Tengu"
+End
+
+Desc:PsychicPartisanAntiInfantryVehicle_ground
+	"This Mecha Tengu has been equipped with a pair of short-range disruptors, making it much more effective against any targets."
+End
+
+Type:PlayerPowerPeopleVanguard
+	"Emergent Mobilization"
+End
+
+Name:PlayerPowerPeopleVanguard
+	"People Vanguard"
+End
+
+Desc:PlayerPowerPeopleVanguard
+	"Deploy a squadron of poorly but fanatic trained militia to help defend your base!"
+End
+
+Type:SovietPeopleVanguardInfantry
+	"Light Anti-Infantry/Anti-Garrisoned"
+End
+
+Name:SovietPeopleVanguardInfantry
+	"People Vanguard"
+End
+
+Desc:SovietPeopleVanguardInfantry
+	"At the most desperate moment, every young and aged, child and woman, shall shoulder the glourious responsibility of defending the dignity of their nation. Those armed and united people shall sacrifice for their future, or for nothing."
+End
+
+Type:CivilianTank
+	"Anti-Armor Tank"
+End
+
+Name:CivilianTank
+	"Smilodon Tank"
+End
+
+Desc:CivilianTank
+	"This main battle tank with sharp and cool shape is one of the most popular armor vehicles on the Earth, making people believe they are protected."
+End
+
+
+Type:PlayerPowerSacrifice
+	"Empower Unit"
+End
+
+Name:PlayerPowerSacrifice
+	"Consecration"
+End
+
+Desc:PlayerPowerSacrifice
+	"Consecrating a group of infantry and absorbing their minds to permanently empower the Epsilon Isomer! "
+End
+
+UpgradeType:AlliedPowerPlantTurbine
+	"Extra Power"
+End
+
+UpgradeName:AlliedPowerPlantTurbine
+	"Advanced Fuels"
+End
+
+UpgradeDesc:AlliedPowerPlantTurbine
+	"Upgrade to use cleaner and higher energy to fuel this powerplant!"
+End
+
+UpgradeType:SovietNationalismPropaganda
+	"Infantry Empowerment"
+End
+
+UpgradeName:SovietNationalismPropaganda
+	"National Sovietism"
+End
+
+UpgradeDesc:SovietNationalismPropaganda
+	"National Sovietism, which perfectly combines the glory of national traditions and socialism, will be the most solid thought weapon of our soldiers. It greatly inspires the proletarian nations to rise and fight against the evil nations for their living spaces.\n Improves all infantry's attack and armor."
+End
+
+Name:SovietNationalismPropaganda
+	"National Sovietism"
+End
+
+DESCRIPTION:SovietNationalismPropaganda
+	"National Sovietism, which perfectly combines the glory of national traditions and socialism, will be the most solid thought weapon of our soldiers. It greatly inspires the proletarian nations to rise and fight against the evil nations for their living spaces.\n Improves all infantry's attack speed and armor."
+End
+
+Type:SovietStatue
+	"Infantry Tech Structure"
+End
+
+Name:SovietStatue
+	"National Soviet Tower"
+End
+
+Desc:SovietStatue
+	"In the most desperate moments, it was the Holy Spirit and the great leader of our glorious nation who led us onto the right path. Through the tower, may his voice inspire us, the faithful lambs, to fight against the evil bourgeois nation!"
+End
+
+Type:PlayerPowerPatrioticPropaganda
+	"Boost Morale"
+End
+
+Name:PlayerPowerPatrioticPropaganda
+	"Patriotism Propaganda"
+End
+
+Desc:PlayerPowerPatrioticPropaganda
+	"We are fighting against the shameful traitors, corrupted bourgeois nations and morally corrupt lunatics, and we are fighting for expanding living space for all the proletarian nations. Every loyal patriotic soldier should know the above great cause!"
+End
+
+Type:SACOMAntiVehicleVehicleTech3
+	"Short-range Bombardment"
+End
+
+Name:SACOMAntiVehicleVehicleTech3
+	"Smilodon Artillery"
+End
+
+Desc:SACOMAntiVehicleVehicleTech3
+	"Heavily armoured vehicle that uses powerful short-range howitzer to help SACOM paratrooper clear the tough targets, being able to carry and heal infantries."
+End
+
+Type:SACOMAntiNavyShipTech2
+	"Anti-ship Submarine"
+End
+
+Name:SACOMAntiNavyShipTech2
+	"Typhoon Attack Submarine"
+End
+
+Desc:SACOMAntiNavyShipTech2
+	"Medium, slow and cheap submarines designed to intercept enemies' transport vessels, featuring powerful torpedo and thin armor."
+End
+
+Type:PsychicPartisanAntiStructureShip
+	"Advanced Bombardment Ship"
+End
+
+Name:PsychicPartisanAntiStructureShip
+	"Menacing Battlecruiser"
+End
+
+Desc:PsychicPartisanAntiStructureShip
+	"Fragile and expensive experimental warship designed to hunt small vessels, being able to repair itself by nano drones."
+End
+
+Type:PsychicPartisanAirportEgg
+	"Portable Aircraft Production"
+End
+
+Name:PsychicPartisanAirportEgg
+	"Psionic Teleporter Core"
+End
+
+Desc:PsychicPartisanAirportEgg
+	"Special drones that unfurl into the Psionic Teleporter, which is used to deploy the Psychic Order Airforce."
+End
+
+Type:PsychicPartisanAirport
+	"Aircraft Production"
+End
+
+Name:PsychicPartisanAirport
+	"Psionic Teleporter"
+End
+
+Desc:PsychicPartisanAirport
+	"Mysteries building that seems can teleport distant aircraft to the battlefield by unknown power."
+End
+
+Type:PsychicPartisanFighterAircraft
+	"Advanced Air-Superiority Aircraft"
+End
+
+Name:PsychicPartisanFighterAircraft
+	"Princess Escort"
+End
+
+Desc:PsychicPartisanFighterAircraft
+	"This extremely agile aircraft driven by psionic power is equipped with a mysterious weapon called Waveforce Lance. Do not get too close to it."
+End
+
+UpgradeName:PsychicPartisanTech2
+	"Gravity Stabilization"
+End
+
+UpgradePrereq:PsychicPartisanTech2
+	"Build a Control Beacon such that we can leverage the psionic power to subtly modify the gravity and teleport advanced forces to the field."
+End
+
+UpgradeType:PsychicPartisanTech2
+	"Unlock Technology"
+End
+
+UpgradeDesc:PsychicPartisanTech2
+	"Stabilizing gravity field by psionic power to teleport advanced forces to the field."
+End
+
+UpgradeName:PsychicPartisanTech3
+	"Singularity Renormalization"
+End
+
+UpgradePrereq:PsychicPartisanTech3
+	"Build a Synaptic Nexus to finish the construction of Psionic Teleporter."
+End
+
+UpgradeType:PsychicPartisanTech3
+	"Unlock Technology"
+End
+
+UpgradeDesc:PsychicPartisanTech3
+	"With the help of hyper-computation, we can further stabilize the psionic singularity and teleport things with much greater mass."
+End
+
+Name:UpgradePsychicPartisanTech2
+	"Gravity Stabilization"
+End
+
+Desc:UpgradePsychicPartisanTech2
+	"Stabilizing gravity field by psionic power to teleport advanced forces to the field."
+End
+
+
+Name:UpgradePsychicPartisanTech3
+	"Singularity Renormalization"
+End
+
+Desc:UpgradePsychicPartisanTech3
+	"With the help of hyper-computation, we can further stabilize the psionic singularity and teleport things with much greater mass."
+End
+
+Name:PsionicLeap
+	"Psionic Leap"
+End
+
+Desc:PsionicLeap
+	"Use the psionic power of the pilot to tear a small rift of a higher plane, which allows the vehicle to move to another location from our reference frame."
+End
+
+Name:PsychicPartisanSuperWeapon
+	"Nanoswarm Hive EX"
+End
+
+Desc:PsychicPartisanSuperWeapon
+	"This device can send billions of chaotic and uncontrolable nano swarms to a location."
+End
+
+Type:PsychicPartisanSuperWeapon
+	"Superweapon"
+End
+
+Name:PlayerPowerNanoStorm
+	"Nano Storm"
+End
+
+Desc:PlayerPowerNanoStorm
+	"Create a permanent region where numerous nano swarms protect and repair the allies' buildings."
+End
+
+Type:PlayerPowerNanoStorm
+	"Blocking Terrain"
+End
+
+Name:SuperweaponTimerNanoStorm
+	"Nano Storm"
+End
+
+Desc:SACOMAirfield
+	"Built by lighter and cheaper material, these airfields can be used to quickly deploy SACOM aircraft to the battlefield."
+End
+
+Type:SACOMAirfield
+	"Aircraft Production"
+End
+
+Name:SACOMAirfield
+	"Simplified Airfield"
+End
+
+Desc:SACOMWarFactory
+	"SACOM uses high-tech light-weight material to build their warfactory, which can efficiently assembly deploy ground vehicles."
+End
+
+Type:SACOMWarFactory
+	"Vehicle Production"
+End
+
+Name:SACOMWarFactory
+	"Simplified Warfactory"
+End
+
+Desc:SACOMNavalYard
+	"These structures built by light-weight alloy are authorized to build and maintain the latest supportive ships for SACOM."
+End
+
+Type:SACOMNavalYard
+	"Navy Production"
+End
+
+Name:SACOMNavalYard
+	"Simplified Naval Yard"
+End
+
+Desc:SACOMPowerPlant
+	"SACOM relies on these light structures, which consumes cleaner fuel, to provide engergy to other facilities."
+End
+
+Type:SACOMPowerPlant
+	"Power Structure"
+End
+
+Name:SACOMPowerPlant
+	"Simplified Reactor"
+End
+
+Desc:SACOMRefinery
+	"Ore Collectors toil between these fragile buildings and ore gathering points, filling SACOM coffers."
+End
+
+Type:SACOMRefinery
+	"Resource Structure"
+End
+
+Name:SACOMRefinery
+	"Simplified Ore Refinery"
+End
+
+Desc:SACOMBarracks
+	"All SACOM special forces are trained and deployed in this facility made of high-tech light-weight alloy."
+End
+
+Type:SACOMBarracks
+	"Infantry Production"
+End
+
+Name:SACOMBarracks
+	"Simplified Barracks"
+End
+
+Name:FactionNRA
+	"NRA"
+End
+
+Desc:NRAAntiInfantryInfantry
+	"These loyal and fanatical soldiers armed with machine guns and grenades formed the basis of the NRA."
+End
+
+Type:NRAAntiInfantryInfantry
+	"Anti-Infantry / Anti-Armor"
+End
+
+Name:NRAAntiInfantryInfantry
+	"National Guard"
+End
+
+Desc:NRAAntiVehicleInfantry
+	"These agile soldiers can travel through the battlefield by rocket pack and use micro particle cannon to cut off any armor."
+End
+
+Type:NRAAntiVehicleInfantry
+	"Flying Anti-Armor / Anti-Air"
+End
+
+Name:NRAAntiVehicleInfantry
+	"Air Cavalry"
+End
+
+Desc:NRAAntiVehicleVehicleTech1
+	"Stalwart but slow main battle tanks that can effectively detain enemy's armor offense by 125mm smoothbore cannon."
+End
+
+Type:NRAAntiVehicleVehicleTech1
+	"Anti-Armor/Infantry Tank"
+End
+
+Name:NRAAntiVehicleVehicleTech1
+	"Cheetah Tank"
+End
+
+Desc:NRAAntiStructureVehicle
+	"Subtle and fragile vehicles that can accurately shatter enemies infantry and buildings by long-range beam emitter."
+End
+
+Type:NRAAntiStructureVehicle
+	"Heavy Bombardment / Anti-Air"
+End
+
+Name:NRAAntiStructureVehicle
+	"Torch Tank"
+End
+
+Desc:NRAAntiVehicleVehicleTech3
+	"Sturdy and bulky superheavy tanks that can instantly eliminate an area of enemy armor units by ion gun."
+End
+
+Type:NRAAntiVehicleVehicleTech3
+	"Advanced Anti-Armor Tank"
+End
+
+Name:NRAAntiVehicleVehicleTech3
+	"Conqueror Tank"
+End
+
+Desc:NRAFighterAircraft
+	"Swift and sophisticated fighters that can easily shoot down enemy aircraft by multiple weapons."
+End
+
+Type:NRAFighterAircraft
+	"Air Superiority Fighter"
+End
+
+Name:NRAFighterAircraft
+	"Dragon Fighter"
+End
+
+Name:ShotgunCartridgeSpecialPower
+	"Shotshell"
+End
+
+Desc:ShotgunCartridgeSpecialPower
+	"Switches to firing a shotshell to suppress all the infantry within the area! Be aware that the shotshell contradicts the laser gun."
+End
+
+Name:ShotgunCartridgeSpecialPowerOff
+	"Main Cannon"
+End
+
+Desc:ShotgunCartridgeSpecialPowerOff
+	"Switches to the trusty 125mm smoothbore cannon and laser gun to take down enemies with pinpoint accuracy."
+End
+
+Name:ToggleIonStreamSpecialPower
+	"Ion Stream"
+End
+
+Desc:ToggleIonStreamSpecialPower
+	"Switches to using the high-temperature ion stream to bake the enemies gradually!"
+End
+
+Name:ToggleIonStreamSpecialPowerOff
+	"Ion Railgun"
+End
+
+Desc:ToggleIonStreamSpecialPowerOff
+	"Switches to using the electromagnetic rails to accelerate a bag of high-intensity particles to attack the enemies! This is very effective against armour and force shields."
+End
+
+Desc:NRABomberAircraft
+	"This slow and steady strategic bomber carrying dangerous and deadly weapons of massive destruction is regarded as the last hope of NRA."
+End
+
+Type:NRABomberAircraft
+	"Heavy bombardment"
+End
+
+Name:NRABomberAircraft
+	"Phoenix Bomber"
+End
+
+Name:SpecialPowerHypersonicMissile
+	"Iron Cloud Missile"
+End
+
+Desc:SpecialPowerHypersonicMissile
+	"Fire a hypersonic missile that carries the Iron Cloud warhead, which can temporarily block all communication of an area."
+End
+
+Name:NRASupportAircraft
+	"Sky Temple Airship"
+End
+
+Type:NRASupportAircraft
+	"Special Weapon Support"
+End
+
+Desc:NRASupportAircraft
+	"A monstrous airship that carries various cruel and bizarre special weapons to support the field operation. No wonder it is regarded as the symbol of brutality by the liberal media."
+End
+
+Name:NRAAntiAirVehicleTech1
+	"Crossbow Tank"
+End
+
+Type:NRAAntiAirVehicleTech1
+	"Anti-Aircraft Tank"
+End
+
+Desc:NRAAntiAirVehicleTech1
+	"A medium tank armed with a pair of powerful phase laser guns and an anti-air radar, capable of causing devastating burst damage to any light aircraft."
+End
+
+Name:NRAAntiInfantryVehicle
+	"Lynx APC"
+End
+
+Type:NRAAntiInfantryVehicle
+	"Anti-Armor Transport"
+End
+
+Desc:NRAAntiInfantryVehicle
+	"Medium amphibious infantry transport equipped with an anti-tank missile launcher, which can cause burst damage to any armor targets."
+End
+
+Name:PsychicPartisanMiner
+	"Psionic Harvester"
+End
+
+Type:PsychicPartisanMiner
+	"Resource Gatherer"
+End
+
+Desc:PsychicPartisanMiner
+	"This mysterious drone manipulated by unknown power can collect numerous ore with the well protection of energy shield."
+End
+
+Name:ToggleHarvesterStealth
+	"Stealth Mode"
+End
+
+Desc:ToggleHarvesterStealth
+	"Make this harvester invisible at the expense of speed."
+End
+
+Name:ToggleHarvesterStealthOff
+	"Normal Mode"
+End
+
+Desc:ToggleHarvesterStealthOff
+	"Deactivate the stealth field and this harvester shall work normally."
+End
+
+Name:ToggleAntiMissileMode
+	"Anti-missile Mode"
+End
+
+Desc:ToggleAntiMissileMode
+	"Adjust the radar and battery to focus on enemy incoming missiles."
+End
+
+Name:ToggleAntiMissileModeoff
+	"Anti-aircraft Mode"
+End
+
+Desc:ToggleAntiMissileModeoff
+	"Adjust the radar and battery to focus on enemy aircrafts."
+End
+
+Type:PsychicPartisanConstructionYard
+	"Production Center"
+End
+
+Desc:PsychicPartisanConstructionYard
+	"Psychic Order relies on this building that utilizes psionic power to breakthrough the plane and teleport the remote forces to the battlefield."
+End
+
+Name:PsychicPartisanConstructionYard
+	"Teleport Platform"
+End
+
+Type:PsychicPartisanMCV
+	"Mobile Construction Vehicle"
+End
+
+Desc:PsychicPartisanMCV
+	"A lonely but friendly mind voluntarily maintained this slow and unarmed vessel by psionic power, guiding the other believers to the righteous path."
+End
+
+Name:PsychicPartisanMCV
+	"Explorer"
+End
+
+Desc:AbilitySovietHarvesterDroneTeslaRing
+	"Unleash the energy stored in the Tesla engine, significantly boosting the moving speed and causing damage to the nearby enemies!"
+End
+
+Name:AbilitySovietHarvesterDroneTeslaRing
+	"Tesla Maelstrom"
+End
+
+Desc:ToggleNRAAntiStructureShipICBM
+	"Switches to floating on the surface, which allows this submarine to attack enemy bases by devastating long-range ballistic missiles!"
+End
+
+Name:ToggleNRAAntiStructureShipICBM
+	"Strategic Strike Mode"
+End
+
+Desc:ToggleNRAAntiStructureShipTorpedo
+	"Switches to diving into the deep water, which allows this submarine to attack enemy vessels by powerful supercavitating torpedos!"
+End
+
+Name:ToggleNRAAntiStructureShipTorpedo
+	"Naval Combat Mode"
+End
+
+Type:NRAAntiStructureShip
+	"Heavy Bombardment / Anti-Armor Ship"
+End
+
+Desc:NRAAntiStructureShip
+	"This giant submarine is built to launch a strategic counterattack and save the culture in the most desperate moment of the nation. It can destroy entire cities with devastating long-range ballistic missiles."
+End
+
+Name:NRAAntiStructureShip
+	"Inspur Attack Sub"
+End
+
+Desc:ReckonMissleSpecialPower
+	"Fire a long-range reconnaissance missile to the target and reveal the enemies along the path!"
+End
+
+Name:ReckonMissleSpecialPower
+	"Reconnaissance Missile"
+End
+
+Type:NRAAntiAirShip
+	"Anti-Air Support Ship"
+End
+
+Desc:NRAAntiAirShip
+	"An old-style vessel armed with modern combat network and reconnaissance system, capable of clearing a the sky by missiles and spectrum gun."
+End
+
+Name:NRAAntiAirShip
+	"Wanghai Frigate"
+End
+
+Type:NRABaseDefense
+	"Anti-Armor Base Defense"
+End
+
+Desc:NRABaseDefense
+	"Special base defense tower that fires pulse projectile to paralyze enemy vehicles, which is lethal to conventionally powered light aircraft."
+End
+
+Name:NRABaseDefense
+	"Pulse Cannon"
+End
+
+Type:NRAEconomyStructure
+	"Economy Building"
+End
+
+Desc:NRAEconomyStructure
+	"Carefully censored battlefield news is faithfully made and transmitted in this chartered building, which helps earn more domestic and international support. Additional bounty will be granted by destroying enemy critical units and buildings!"
+End
+
+Name:NRAEconomyStructure
+	"Media Center"
+End
+
+Type:NRAAntiGroundAircraft
+	"Anti-Surface Bomber"
+End
+
+Desc:NRAAntiGroundAircraft
+	"Tough close-support aircraft that excel at tactical strikes against enemy buildings and infantries by incendiary munitions."
+End
+
+Name:NRAAntiGroundAircraft
+	"Yunlong Bomber"
+End
+
+Type:NRABaseDefenseAir
+	"Anti-Air Base Defense"
+End
+
+Desc:NRABaseDefenseAir
+	"This Affordable Light Indigenous Air-Superiority system is the keystone of the NRA aerial frontline, in which a squadron of UACVs is well maintained and ready to sortie."
+End
+
+Name:NRABaseDefenseAir
+	"A.L.I.A.S."
+End
+
+Desc:AbilityNRARocketeerStaticBeam
+	"The next attack of this unit will fire a bolt that deals additional damage and significantly reduces the target's movement speed."
+End
+
+Name:AbilityNRARocketeerStaticBeam
+	"Stasis Beam"
+End
