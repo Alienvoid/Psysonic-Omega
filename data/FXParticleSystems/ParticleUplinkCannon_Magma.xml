@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXexplo03.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="EXexplo03" PerParticleAttachedSystem="" Type="GPU_PARTICLE" Priority="ALWAYS_RENDER" SystemLifetime="1" id="ParticleUplinkCannon_Magma">
+		<Lifetime High="200" Low="200"/>
+		<Size High="20" Low="20"/>
+		<BurstDelay High="50" Low="50"/>
+		<BurstCount High="5" Low="5"/>
+		<Alphas>
+			<Alpha Frame="1" High="1" Low="1" RelativeAge="0"/>
+			<Alpha Frame="2" High="0.75" Low="0.75" RelativeAge="25"/>
+			<Alpha Frame="3" High="0.0" Low="0.0" RelativeAge="100"/>
+			<Alpha Frame="4" High="0" Low="0" RelativeAge="200"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="25">
+				<Color b="0.325490" g="0.596078" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="3" Low="3"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.2" Low="0.2"/>
+				<DriftVelocity x="0" y="0" z="0.0"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Length="0" Radius="10">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.0" Low="0.0"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="5.0" Low="-5.0"/>
+				<AngularDampingXY High="0" Low="0"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare01_KW.xml" type="instance"/>
+		<Include source="art:FXFracTileNRM.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" Type="GPU_PARTICLE" id="NUBlkHndPurifyingStrmGlow">
+		<Lifetime High="25" Low="15"/>
+		<Size High="35" Low="20"/>
+		<BurstDelay High="1" Low="1"/>
+		<BurstCount High="5" Low="5"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="20">
+				<Color b="0.980392" g="0.788235" r="0.552941"/>
+			</Color>
+			<Color Frame="3" RelativeAge="75">
+				<Color b="1" g="0" r="0"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.02">
+				<VelocityDamping High="0.99" Low="0.99"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXFracTileNRM" MiscValue1="0.1" MiscValue2="0.05" MiscValue3="45" MiscValue4="1" RandTex="1" Shader="gpuparticledistort.fx" SingleRow="1" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Spline>
+				<StartPoint x="0" y="0" z="0"/>
+				<EndPoint x="0" y="0" z="0"/>
+			</Spline>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.25" Low="-0.25"/>
+					<y High="3" Low="3"/>
+					<z High="0.25" Low="-0.25"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="1.5" Low="0.5"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularRateZ High="0.2" Low="-0.2"/>
+				<AngularDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

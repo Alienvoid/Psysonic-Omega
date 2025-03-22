@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:exlnzflar2.xml" type="instance"/>
+		<Include source="art:fxfractilenrm.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="exlnzflar2" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="1" Type="GPU_PARTICLE" id="NRAICBMExplosionFlash_Vet">
+		<Lifetime High="150" Low="150"/>
+		<Size High="10" Low="10"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.0" g="0.0" r="0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="2">
+				<Color b="0.816666" g="0.766666" r="0.966666"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="3" Low="3"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+				<DriftVelocity x="0.0" y="0" z="0.3"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXFracTileNRM" GeometryType="CENTERED_QUAD" MiscValue1="0.15" MiscValue2="0.1" MiscValue3="45" MiscValue4="0.4" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="false">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="-0.0" Low="-0.0"/>
+				<OtherSpeed High="-0.0" Low="-0.0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default Rotation="ROTATE_IN_WORLD_SPACE">
+				<SizeRate High="20" Low="20"/>
+				<SizeRateDamping High="0.8" Low="0.8"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularRateZ High="0.01" Low="-0.01"/>
+				<AngularDamping High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

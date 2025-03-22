@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXFractal01NRM.xml" type="instance"/>
+	</Includes>	<FXParticleSystemTemplate ParticleTexture="FXFractal01NRM" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ALPHA" SortLevel="1" Type="GPU_PARTICLE" id="NUBlkHndPurifyingStrmDistort">
+		<Lifetime High="50" Low="30"/>
+		<Size High="35" Low="25"/>
+		<BurstDelay High="2" Low="2"/>
+		<BurstCount High="1" Low="1"/>
+		<InitialDelay High="3" Low="3"/>
+		<Alphas>
+			<Alpha Frame="2" High="0.35" Low="0.35" RelativeAge="1"/>
+			<Alpha Frame="3" High="0.35" Low="0.35" RelativeAge="70"/>
+			<Alpha Frame="4" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="10">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="70">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default Gravity="-0.1">
+				<VelocityDamping High="0.96" Low="0.95"/>
+				<DriftVelocity x="0.1" y="0" z="0.1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu Shader="GPUParticleDistortion.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Spline>
+				<StartPoint x="0" y="0" z="0"/>
+				<EndPoint x="0" y="0" z="0"/>
+			</Spline>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.25" Low="-0.25"/>
+					<y High="3" Low="0.5"/>
+					<z High="0.25" Low="-0.25"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.75" Low="0"/>
+				<SizeRateDamping High="0.6" Low="0.5"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0.1" Low="-0.1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

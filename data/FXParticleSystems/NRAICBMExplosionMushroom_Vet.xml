@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXexplo03.xml" type="instance"/>
+		<Include source="art:FXFracTileNRM.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="EXexplo03" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SystemLifetime="1" SortLevel="2" Type="GPU_PARTICLE" id="NRAICBMExplosionMushroom_Vet">
+		<Lifetime High="240" Low="240"/>
+		<Size High="16" Low="8"/>
+		<BurstDelay High="1" Low="1"/>
+		<BurstCount High="28" Low="28"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.356862" g="0.4" r="1.0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="74.999999">
+				<Color b="0.356862" g="0.4" r="1.0"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100.00000">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.9"/>
+				<DriftVelocity x="0.0" y="0" z="0.6"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXFracTileNRM" GeometryType="CENTERED_QUAD" MiscValue1="0.15" MiscValue2="0.15" MiscValue3="45" MiscValue4="0.5" RandTex="1" Shader="GpuParticleDistort.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="true" Radius="9"/>
+		</Volume>
+		<Velocity>
+			<Cylindrical>
+				<Radial High="3" Low="3"/>
+				<Normal High="3.12" Low="3.12"/>
+			</Cylindrical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="10" Low="10"/>
+				<SizeRateDamping High="0.8" Low="0.8"/>
+				<AngleZ High="0.1" Low="-0.1"/>
+				<AngularRateZ High="0.02" Low="-0.02"/>
+				<AngularDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>
