@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXSmoke01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXSmoke01" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ALPHA" SortLevel="2" SystemLifetime="180" Type="GPU_PARTICLE" id="FXIonCannonPreExplosionDustA">
+		<Lifetime High="100" Low="100"/>
+		<Size High="100" Low="50"/>
+		<BurstCount High="2" Low="2"/>
+		<InitialDelay High="10" Low="10"/>
+		<Alphas>
+			<Alpha Frame="2" High="0.35" Low="0.35" RelativeAge="50"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.729412" g="0.780392" r="0.819608"/>
+			</Color>
+			<Color Frame="2" RelativeAge="15">
+				<Color b="0.729412" g="0.780392" r="0.819608"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0.729412" g="0.780392" r="0.819608"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+				<DriftVelocity x="0" y="0" z="0.3"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu GeometryType="CENTERED_QUAD" Shader="GPUParticleLit.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="300">
+				<Offset x="0" y="0" z="10"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="0.1" Low="-0.5"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularRateZ High="0.01" Low="-0.01"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

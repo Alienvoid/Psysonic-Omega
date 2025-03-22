@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXGDIShellTrail.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXGDIShellTrail" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" Type="TRAIL" id="GDIShellTrail">
+		<Lifetime High="1e+007" Low="99999"/>
+		<Size High="5" Low="5"/>
+		<BurstDelay High="1000" Low="1000"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors HouseColorSaturation="0.3">
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.384314" g="0.521569" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Wind AngleChangeMax="0.1" AngleChangeMin="0.05" FullStrengthDist="5" PingPongEndAngleMin="5.49779" PingPongStartAngleMax="0.1" Strength="1" TurbulenceAmplitude="0.01" TurbulenceFrequency="5"/>
+		<Physics>
+			<Default ParticlesAttachToBone="true">
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="20"/>
+		</Draw>
+		<Volume>
+			<Line>
+				<StartPoint x="0" y="0" z="5"/>
+				<EndPoint x="0" y="0" z="5"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="1" Low="1"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="-0.1" Low="-0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXGDIShellTrail" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" Type="TRAIL" id="GDIShellTrailVet">
+		<Lifetime High="99999" Low="99999"/>
+		<Size High="10" Low="10"/>
+		<BurstDelay High="1000" Low="1000"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors HouseColorSaturation="0.3">
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0" g="0.207843" r="0.917647"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Wind AngleChangeMax="0.1" AngleChangeMin="0.05" FullStrengthDist="5" PingPongEndAngleMin="5.49779" PingPongStartAngleMax="0.1" Strength="1" TurbulenceAmplitude="0.01" TurbulenceFrequency="5"/>
+		<Physics>
+			<Default ParticlesAttachToBone="true">
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="20"/>
+		</Draw>
+		<Volume>
+			<Line>
+				<StartPoint x="0" y="0" z="5"/>
+				<EndPoint x="0" y="0" z="5"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="1" Low="1"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="-0.1" Low="-0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

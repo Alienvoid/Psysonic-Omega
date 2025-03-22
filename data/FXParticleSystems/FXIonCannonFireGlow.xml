@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXIonCannonFire.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXIonCannonFire" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SystemLifetime="120" Type="GPU_PARTICLE" id="FXIonCannonFireGlow">
+		<Lifetime High="20" Low="15"/>
+		<Size High="90" Low="45"/>
+		<BurstCount High="2" Low="2"/>
+		<InitialDelay High="160" Low="160"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="10">
+				<Color b="0.156863" g="0.34902" r="0.541176"/>
+			</Color>
+			<Color Frame="3" RelativeAge="70">
+				<Color b="0.392157" g="0.380392" r="0.839216"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+				<DriftVelocity x="0" y="0" z="3"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="45">
+				<Offset x="0" y="0" z="10"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.5" Low="0.5"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

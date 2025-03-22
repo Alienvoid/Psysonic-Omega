@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXSmokeCloud.xml" type="instance"/>
+		<Include source="art:FXLenzFlare02.xml" type="instance"/>
+		<Include source="art:FXLightning03.xml" type="instance"/>
+		<Include source="art:FXSphereNRM.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXSmokeCloud" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ALPHA" Type="GPU_PARTICLE" id="IonStormCarrierClouds">
+		<Lifetime High="120" Low="120"/>
+		<Size High="20" Low="20"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="0.5" Low="0.5" RelativeAge="29"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.403922" g="0.403922" r="0.403922"/>
+			</Color>
+			<Color Frame="2" RelativeAge="30">
+				<Color b="0.341176" g="0.341176" r="0.341176"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0.376471" g="0.376471" r="0.376471"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.97" Low="0.97"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXSphereNRM" GeometryType="TWO_CONCENTRIC_QUADS" Shader="GPUParticleLit.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="70">
+				<Offset x="0" y="0" z="20"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="1" Low="-1"/>
+				<OtherSpeed High="0.5" Low="-0.5"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.3" Low="0.3"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" Type="GPU_PARTICLE" id="IonStormCarrierGlow">
+		<Lifetime High="20" Low="10"/>
+		<Size High="100" Low="30"/>
+		<BurstDelay High="15" Low="0"/>
+		<BurstCount High="3" Low="1"/>
+		<InitialDelay High="60" Low="60"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.182353" g="0.901961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="50">
+				<Color b="0.248627" g="0.900392" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="0" Low="-1"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="80">
+				<Offset x="0" y="0" z="30"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="0.25" Low="0.1"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLightning03" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Type="GPU_PARTICLE" id="IonStormCarrierLightning">
+		<Lifetime High="10" Low="5"/>
+		<Size High="80" Low="30"/>
+		<BurstDelay High="10" Low="5"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="0.311765" r="0.390196"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default ParticlesAttachToBone="true">
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity/>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="2.0" Low="2.0"/>
+				<SizeRateDamping High="0.99" Low="0.80"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

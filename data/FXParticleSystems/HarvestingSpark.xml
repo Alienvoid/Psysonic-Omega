@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- 多个粒子向内聚集的特效 -->
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01" PerParticleAttachedSystem="" Priority="VERY_LOW_OR_ABOVE" Type="GPU_PARTICLE" id="HarvestingSpark">
+		<Lifetime High="35" Low="40"/>
+		<Size High="5" Low="3"/>
+		<BurstDelay High="3" Low="1"/>
+		<BurstCount High="15" Low="10"/>
+
+		<Colors>
+			<Color Frame="2" RelativeAge="9.999999">
+				<Color r="0.86" g="0.65" b="0.5"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="10" Low="5"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.65" Low="0.65"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Length="5" Radius="40" IsHollow="True">
+				<Offset x="25" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<!-- Outward模块可以控制粒子向内或向外运动 -->
+			<Outward>
+				<Speed High="-15" Low="-12"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default Rotation="ROTATE_IN_WORLD_SPACE">
+				<SizeRate High="-0.1" Low="-0.1"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

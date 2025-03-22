@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SystemLifetime="40" id="FXObeliskHitGlow">
+		<Lifetime High="20" Low="15"/>
+		<Size High="20" Low="10"/>
+		<BurstDelay High="1" Low="1"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="1" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="2" RelativeAge="10">
+				<Color b="0.156863" g="0.34902" r="0.541176"/>
+			</Color>
+			<Color Frame="3" RelativeAge="70">
+				<Color b="0.392157" g="0.380392" r="0.839216"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Cylinder>
+				<Offset x="0" y="0" z="2"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.5" Low="0.5"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:fx_debris01.xml" type="instance"/>
+		<Include source="art:FXLenzFlare04.xml" type="instance"/>
+		<Include source="art:fxspherenrm.xml" type="instance"/>
+		<Include source="art:FXFireball4x4" type="instance"/>
+	</Includes>
+
+	<FXParticleSystemTemplate ParticleTexture="FXSphereNRM" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" Shader="ALPHA" SystemLifetime="1" Type="GPU_PARTICLE" id="GDIMissleHitDistortion">
+		<Lifetime High="15" Low="15"/>
+		<Size High="5" Low="5"/>
+		<BurstCount High="1" Low="1"/>
+		<InitialDelay High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.75" Low="0.75" RelativeAge="0"/>
+			<Alpha Frame="2" High="0.1" Low="0.1" RelativeAge="50"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+			<Alpha Frame="4" High="0" Low="0" RelativeAge="200"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="15">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="4" RelativeAge="200">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXSphereNRM" Shader="GPUParticleDistortion.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder>
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="15" Low="15"/>
+				<SizeRateDamping High="0.7" Low="0.7"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularRateZ High="0.02" Low="-0.02"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXFireball4x4" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ALPHA" SystemLifetime="2" Type="GPU_PARTICLE" id="GDIMissleHitFire">
+		<Lifetime High="15" Low="15"/>
+		<Size High="10" Low="10"/>
+		<BurstCount High="10" Low="5"/>
+		<InitialDelay High="2" Low="2"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="1" RelativeAge="9"/>
+			<Alpha Frame="3" High="0.25" Low="0.25" RelativeAge="75"/>
+			<Alpha Frame="4" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="10">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="75">
+				<Color b="0.341176" g="0.341176" r="0.341176"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0.0901961" g="0.160784" r="0.376471"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.9"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu FramesPerRow="4" SpeedMultiplier="1" TotalFrames="16"/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="false" Radius="5"/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="2" Low="-2"/>
+					<y High="2" Low="-2"/>
+					<z High="2" Low="-2"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="1" Low="1"/>
+				<SizeRateDamping High="0.95" Low="0.95"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0.1" Low="-0.1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="true" ParticleTexture="FXLenzFlare04" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SystemLifetime="1" id="GDIMissleHitFlash">
+		<Lifetime High="5" Low="5"/>
+		<Size High="60" Low="60"/>
+		<BurstCount High="7" Low="7"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="20">
+				<Color b="0.176471" g="0.32549" r="0.490196"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.75" Low="0.7"/>
+				<DriftVelocity x="0.1" y="0" z="0"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="20">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="6" Low="2"/>
+				<SizeRateDamping High="0.9" Low="0.85"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0.05" Low="-0.05"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="true" ParticleTexture="FXLenzFlare04" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SystemLifetime="1" id="GDIMissleHitGlow">
+		<Lifetime High="20" Low="20"/>
+		<Size High="40" Low="40"/>
+		<BurstCount High="7" Low="7"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.25" Low="0.1" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.513726" g="0.678431" r="0.952941"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.75" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="false" Radius="20"/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="6" Low="2"/>
+				<SizeRateDamping High="0.9" Low="0.85"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0.05" Low="-0.05"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>
