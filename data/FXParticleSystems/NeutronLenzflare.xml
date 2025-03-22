@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare03.xml" type="instance"/>
+		<Include source="art:fxdisotrtionfractal01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare03" PerParticleAttachedSystem="" SystemLifetime="3" Priority="ALWAYS_RENDER" SortLevel="1" Type="GPU_PARTICLE" id="NeutronLenzflare">
+		<Lifetime High="40" Low="40"/>
+		<Size High="35" Low="35"/>
+		<BurstCount High="1" Low="1"/>
+		<InitialDelay High="23" Low="23"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.95" g="0.88" r="0.35"/>
+			</Color>
+			<Color Frame="2" RelativeAge="80">
+				<Color b="0.85" g="0.78" r="0.25"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+			<ColorScale High="3.0" Low="2.0"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.0">
+				<VelocityDamping High="0.98" Low="0.98"/>
+				<DriftVelocity x="0" y="0" z="0.0"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXDisotrtionFractal01" MiscValue1="0.1" MiscValue2="0.1" MiscValue3="45" MiscValue4="0.1" Shader="GpuParticleDistort.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Line IsHollow="true">
+				<StartPoint x="0" y="0" z="8"/>
+				<EndPoint x="0" y="0" z="8"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="0" Low="0"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default Rotation="ROTATE_IN_WORLD_SPACE">
+				<SizeRate High="3.5" Low="2.5"/>
+				<SizeRateDamping High="0.99" Low="0.95"/>
+				<AngleZ High="1" Low="0"/>
+				<AngularRateZ High="0.1" Low="-0.1"/>
+				<AngularDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

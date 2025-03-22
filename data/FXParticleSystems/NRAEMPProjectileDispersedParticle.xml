@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXLenzFlare01" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="2" Type="GPU_PARTICLE" id="NRAEMPProjectileDispersedParticle">
+		<Lifetime High="25" Low="10"/>
+		<Size High="7" Low="5"/>
+		<BurstCount High="10" Low="8"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="1" RelativeAge="50"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="9.999999">
+				<Color b="0.905882" g="0.745098" r="0.888235"/>
+			</Color>
+			<Color Frame="3" RelativeAge="50">
+				<Color b="1" g="0.617647" r="0.7"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+			<ColorScale High="2.5" Low="1.5"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.95" Low="0.85"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="true" Radius="5"/>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="2" Low="1"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="-0.07" Low="-0.07"/>
+				<SizeRateDamping High="1.1" Low="1.1"/>
+				<AngleZ High="-0.5" Low="-1.5"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

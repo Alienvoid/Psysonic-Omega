@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXLeaflets1.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="EXLeaflets1" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" Shader="ALPHA" SystemLifetime="1" Type="GPU_PARTICLE" id="LeafletParticles1">
+		<Lifetime High="300" Low="300"/>
+		<Size High="40" Low="30"/>
+		<BurstCount High="200" Low="200"/>
+		<Alphas>
+			<Alpha Frame="1" High="1.0" Low="1.0" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="250"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.843137" g="0.960784" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="15.000003">
+				<Color b="0.42" g="0.48" r="0.5"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default Gravity="-0.01">
+				<VelocityDamping High="0.99" Low="0.97"/>
+				<DriftVelocity x="0" y="0" z="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder>
+				<Offset x="0" y="0" z="-10"/>
+			</Cylinder>
+			<!--<Line>
+				<StartPoint x="-20" y="-5" z="-10"/>
+				<EndPoint x="20" y="5" z="-10"/>
+			</Line>-->
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="5.0" Low="1.5"/>
+					<y High="1.5" Low="-1.5"/>
+					<z High="-1.5" Low="-5.0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.0" Low="0.0"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularRateZ High="0.03" Low="-0.03"/>
+				<AngularDamping High="1.01" Low="0.99"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

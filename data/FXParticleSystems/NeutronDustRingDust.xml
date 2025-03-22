@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXCloud01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="EXCloud01" PerParticleAttachedSystem="" SystemLifetime="3" Priority="ALWAYS_RENDER" Shader="ALPHA" SortLevel="1" Type="PARTICLE" id="NeutronDustRingDust">
+		<Lifetime High="100" Low="100"/>
+		<Size High="15" Low="1"/>
+		<BurstDelay High="25" Low="25"/>
+		<BurstCount High="50" Low="50"/>
+		<InitialDelay High="0" Low="0"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.0" Low="0.0" RelativeAge="0"/>
+			<Alpha Frame="2" High="0.5" Low="0.5" RelativeAge="5"/>
+			<Alpha Frame="3" High="0.5" Low="0.5" RelativeAge="25"/>
+			<Alpha Frame="4" High="0.0" Low="0.0" RelativeAge="50"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.623529" g="0.733333" r="0.874509"/>
+			</Color>
+			<Color Frame="2" RelativeAge="300">
+				<Color b="0.082352" g="0.345098" r="0.741176"/>
+			</Color>
+			<ColorScale High="2" Low="0.5"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.0">
+				<VelocityDamping High="0.98" Low="0.98"/>
+				<DriftVelocity x="0" y="0" z="0.0"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="15.0">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="2.0" Low="2.0"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.25" Low="0.15"/>
+				<SizeRateDamping High="1.02" Low="1.01"/>
+				<AngleZ High="1" Low="0"/>
+				<AngularRateZ High="0.01" Low="-0.01"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

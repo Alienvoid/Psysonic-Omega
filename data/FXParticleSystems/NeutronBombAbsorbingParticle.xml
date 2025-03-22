@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare01.xml" type="instance"/>
+		<Include source="art:fxdisotrtionfractal01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXLenzFlare01" PerParticleAttachedSystem="" SystemLifetime="1" Priority="ALWAYS_RENDER" SortLevel="2" Type="GPU_PARTICLE" id="NeutronBombAbsorbingParticle">
+		<Lifetime High="25" Low="25"/>
+		<Size High="13" Low="12"/>
+		<BurstCount High="35" Low="20"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="1" RelativeAge="50"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="9.999999">
+				<Color b="0.805882" g="0.745098" r="0.588235"/>
+			</Color>
+			<Color Frame="3" RelativeAge="50">
+				<Color b="1" g="0.717647" r="0.5"/>
+			</Color>
+			<Color Frame="4" RelativeAge="90">
+				<Color b="1.0" g="0.78" r="0.25"/>
+			</Color>
+			<Color Frame="5" RelativeAge="100">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+			<ColorScale High="1.25" Low="1.0"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.02">
+				<VelocityDamping High="1.25" Low="1.25"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXDisotrtionFractal01" MiscValue1="0.1" MiscValue2="0.1" MiscValue3="45" MiscValue4="0.1" Shader="GpuParticleDistort.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="true" Radius="65"/>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="-0.05" Low="-0.05"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="1.7" Low="1.7"/>
+				<SizeRateDamping High="1.1" Low="1.1"/>
+				<AngleZ High="-0.5" Low="-1.5"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXAlienBlood.xml" type="instance"/>
+	</Includes>	<FXParticleSystemTemplate ParticleTexture="FXAlienBlood" PerParticleAttachedSystem="MutantSlave" Priority="ALWAYS_RENDER" SystemLifetime="1" id="MutantMaster">
+		<Lifetime High="30" Low="30"/>
+		<Size High="1" Low="1"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.0705882" g="0.0705882" r="0.0705882"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0.0901961" g="0.0901961" r="0.0901961"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default Gravity="-0.2">
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Line>
+				<StartPoint x="0" y="0" z="0"/>
+				<EndPoint x="0" y="0" z="0"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="5" Low="3"/>
+					<y High="1" Low="-1"/>
+					<z High="3" Low="2"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event>
+			<Collision EventFX="FX_MutantSplash" KillAfterEvent="false" OrientFXToTerrain="true" PerParticle="true">
+				<HeightOffset High="0" Low="0"/>
+			</Collision>
+		</Event>
+		<Update>
+			<Default>
+				<SizeRate High="0.5" Low="0.5"/>
+				<SizeRateDamping High="0.95" Low="0.95"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare03_KW.xml" type="instance"/>
+		<Include source="art:FXDisotrtionFractal01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="true" ParticleTexture="FXLenzFlare03_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Type="GPU_PARTICLE" id="NRA_Crystal_Beam_End_Vet" SystemLifetime="10">
+		<Lifetime High="50" Low="30"/>
+		<Size High="40" Low="30"/>
+		<BurstDelay High="8" Low="7"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.568627" g="0.666666" r="0.227450"/>
+			</Color>
+			<Color Frame="2" RelativeAge="50">
+				<Color b="1" g="1" r="0.282353"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="1.5" Low="1"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.95" Low="0.9"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXDisotrtionFractal01" MiscValue1="0.1" MiscValue2="0.07" MiscValue3="45" MiscValue4="0.25" Shader="GpuParticleDistort.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder>
+				<Offset x="0" y="0" z="3"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="0.9" Low="0.85"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0.05" Low="-0.05"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

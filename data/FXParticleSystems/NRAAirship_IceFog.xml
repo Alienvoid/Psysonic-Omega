@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:fxwaterfall.xml" type="instance"/>
+		<Include source="art:FXDustAnim.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXDustAnim" PerParticleAttachedSystem="" Priority="HIGH_OR_ABOVE" Shader="ALPHA" SystemLifetime="0" Type="GPU_PARTICLE" id="NRAAirship_IceFog">
+		<Lifetime High="120" Low="120"/>
+		<Size High="2" Low="0.5"/>
+		<BurstCount High="2" Low="1"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.15" Low="0.12" RelativeAge="0"/>
+			<Alpha Frame="2" High="0.15" Low="0.12" RelativeAge="14"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.996078" g="0.784314" r="0.721569"/>
+			</Color>
+			<Color Frame="2" RelativeAge="14.999999">
+				<Color b="0.996078" g="0.784314" r="0.721569"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="1" g="0.701961" r="0.658824"/>
+			</Color>
+			<ColorScale High="1" Low="0.5"/>
+		</Colors>
+		<Wind AngleChangeMax="10" AngleChangeMin="-10" FullStrengthDist="1" Motion="PING_PONG" PingPongEndAngleMin="5.49779" Strength="1" TurbulenceAmplitude="0.01" TurbulenceFrequency="0.1"/>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.99" Low="0.99"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXDistortionFractal01" FramesPerRow="3" MiscValue1="0.1" MiscValue2="0.1" MiscValue3="90" MiscValue4="0.025" RandTex="1" SpeedMultiplier="0.001" TotalFrames="9"/>
+		</Draw>
+		<Volume>
+			<Line>
+				<StartPoint x="0" y="0" z="0"/>
+				<EndPoint x="0" y="0" z="0"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="3.25" Low="-3.25"/>
+					<y High="3.25" Low="-3.25"/>
+					<z High="-9" Low="-11"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default Rotation="ROTATE_IN_WORLD_SPACE">
+				<SizeRate High="4.0" Low="2.0"/>
+				<SizeRateDamping High="0.95" Low="0.92"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularRateZ High="0.05" Low="0.05"/>
+				<AngularDamping High="1" Low="1"/>
+				<AngleXY High="0.1" Low="-0.1"/>
+				<AngularRateXY High="0.025" Low="-0.025"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>
