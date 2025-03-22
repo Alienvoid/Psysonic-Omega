@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXexplo02.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="true" IsGroundAligned="false" IsParticleUpTowardsEmitter="false" ParticleTexture="EXexplo02" PerParticleAttachedSystem="NapalmExplosionSmoke" Priority="ALWAYS_RENDER" Shader="ADDITIVE" SortLevel="1" SystemLifetime="5" Type="GPU_PARTICLE" id="TomahawkExplosion">
+		<Lifetime High="100" Low="100"/>
+		<Size High="40" Low="30"/>
+		<StartSizeRate High="0.0" Low="0.0"/>
+		<BurstDelay High="1.0" Low="1.0"/>
+		<BurstCount High="2" Low="2"/>
+		<InitialDelay High="0" Low="0"/>
+		<Alphas>
+			<Alpha Frame="1" High="1.0" Low="1.0" RelativeAge="0"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="10">
+				<Color b="0.5" g="0.5" r="0.78431"/>
+			</Color>
+			<Color Frame="3" RelativeAge="30">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+			<ColorScale High="1" Low="1"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="1.0" ParticlesAttachToBone="true">
+				<VelocityDamping High="0.4" Low="0.3"/>
+				<DriftVelocity x="0.0" y="0.0" z="0.1"/>
+			</Default>
+		</Physics>
+		<Draw>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="false" Radius="6"/>
+		</Volume>
+		<Velocity>
+			<Spherical>
+				<Speed High="35" Low="20"/>
+			</Spherical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.6" Low="0.1"/>
+				<SizeRateDamping High="0.98" Low="0.95"/>
+				<AngleZ High="15" Low="-15"/>
+				<AngularRateZ High="0.0" Low="0.05"/>
+				<AngularDampingXY High="0.99" Low="0.99"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

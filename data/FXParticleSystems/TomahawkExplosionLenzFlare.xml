@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXLnzFlar2.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="false" IsGroundAligned="true" IsParticleUpTowardsEmitter="false" ParticleTexture="EXLnzFlar2" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ADDITIVE" SortLevel="1" SystemLifetime="1" Type="GPU_PARTICLE" id="TomahawkExplosionLenzFlare">
+		<Lifetime High="10" Low="10"/>
+		<Size High="30" Low="30"/>
+		<StartSizeRate High="0.0" Low="0.0"/>
+		<BurstDelay High="1.0" Low="1.0"/>
+		<BurstCount High="2" Low="1"/>
+		<InitialDelay High="0" Low="0"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.0" Low="0.0" RelativeAge="0"/>
+			<Alpha Frame="2" High="0.0" Low="0.0" RelativeAge="10"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.352941" g="0.352941" r="0.3921567"/>
+			</Color>
+			<Color Frame="2" RelativeAge="30">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+			<ColorScale High="0" Low="0"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.0" ParticlesAttachToBone="true">
+				<VelocityDamping High="1.0" Low="1.0"/>
+				<DriftVelocity x="0.0" y="0.0" z="0.1"/>
+			</Default>
+		</Physics>
+		<Draw>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="0.0">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="0.0" Low="0.0"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="35.0" Low="15.0"/>
+				<SizeRateDamping High="0.99" Low="0.96"/>
+				<AngleZ High="0" Low="0"/>
+				<AngularRateZ High="0.0" Low="0.0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXexplo05.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsGroundAligned="false" ParticleTexture="EXexplo05" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" Shader="ADDITIVE" SystemLifetime="5" Type="GPU_PARTICLE" id="SpectreGunshipExplosionLight">
+		<Lifetime High="5" Low="5"/>
+		<Size High="45" Low="45"/>
+		<StartSizeRate High="0.0" Low="0.0"/>
+		<BurstDelay High="0" Low="0"/>
+		<BurstCount High="4" Low="2"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.349019" g="0.725490" r="1.0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.2">
+				<VelocityDamping High="0.8" Low="0.8"/>
+				<DriftVelocity x="0" y="0" z="0"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu Shader="gpuparticle.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Line IsHollow="true">
+				<StartPoint x="0" y="0" z="20"/>
+				<EndPoint x="0" y="0" z="20"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Outward>
+				<Speed High="0" Low="0"/>
+				<OtherSpeed High="0" Low="0"/>
+			</Outward>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="45.0" Low="10.0"/>
+				<SizeRateDamping High="0.8" Low="0.75"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="0" Low="0"/>
+				<AngularDamping High="1.0" Low="1.0"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

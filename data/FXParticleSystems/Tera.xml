@@ -1,0 +1,1729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare01_KW.xml" type="instance"/>
+		<Include source="art:FXLenzFlare02.xml" type="instance"/>
+		<Include source="art:FXLenzFlare03_KW.xml" type="instance"/>
+		<Include source="art:FXLenzFlare04.xml" type="instance"/>
+		<Include source="art:FXSparks.xml" type="instance"/>
+		<Include source="art:FXRing01.xml" type="instance"/>
+		<Include source="art:FXNukeMarkA.xml" type="instance"/>
+		<Include source="art:FXCloudCR01.xml" type="instance"/>
+		<Include source="art:FXSphereNRM.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="15" Type="TRAIL" id="TeraGlowRadialHeroic">
+		<Lifetime High="3" Low="1"/>
+		<Size High="3" Low="1"/>
+		<BurstCount High="8" Low="8"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.5" Low="0.25" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.360784" g="0.160784" r="0.886275"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="2"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="1" RadiusRate="4">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="1" Low="-1"/>
+					<y High="1" Low="-1"/>
+					<z High="10" Low="1"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.1" Low="0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" Type="TRAIL" id="TeraGlowRingA">
+		<Lifetime High="6" Low="6"/>
+		<Size High="5" Low="1"/>
+		<BurstCount High="20" Low="20"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.5" Low="0.25" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.976471" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.6" Low="0.5"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="2"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="1" RadiusRate="3">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="5" Low="-5"/>
+					<y High="5" Low="-5"/>
+					<z High="30" Low="15"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.1" Low="0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="12" Type="TRAIL" id="TeraGlowRingA_Lg">
+		<Lifetime High="12" Low="12"/>
+		<Size High="5" Low="1"/>
+		<BurstCount High="20" Low="20"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.5" Low="0.25" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.976471" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.6" Low="0.5"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="2"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Length="50" Radius="2" RadiusRate="3">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="5" Low="-5"/>
+					<y High="5" Low="-5"/>
+					<z High="30" Low="15"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.1" Low="0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" Type="TRAIL" id="TeraGlowRingAHeroic">
+		<Lifetime High="6" Low="6"/>
+		<Size High="5" Low="1"/>
+		<BurstCount High="20" Low="20"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.5" Low="0.25" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.6" Low="0.5"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="2"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="1" RadiusRate="3">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="5" Low="-5"/>
+					<y High="5" Low="-5"/>
+					<z High="30" Low="15"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.1" Low="0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXNukeMarkA" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" Shader="ALPHA" SystemLifetime="3" Type="GPU_PARTICLE" id="TeraMuzzleFireDistort">
+		<Lifetime High="5" Low="4"/>
+		<Size High="25" Low="15"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="0.2" Low="0.2" RelativeAge="9"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+			<Alpha Frame="4" High="0" Low="0" RelativeAge="200"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="15">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="4" RelativeAge="200">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.99" Low="0.98"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXSphereNRM" Shader="GPUParticleDistortion.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Line>
+				<StartPoint x="10" y="0" z="0"/>
+				<EndPoint x="0" y="0" z="0"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="3" Low="-3"/>
+					<y High="3" Low="-3"/>
+					<z High="3" Low="-3"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="2" Low="1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0.02" Low="-0.02"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXNukeMarkA" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" Shader="ALPHA" SystemLifetime="3" Type="GPU_PARTICLE" id="TeraMuzzleFireDistort2">
+		<Lifetime High="5" Low="4"/>
+		<Size High="32" Low="20"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="0.2" Low="0.2" RelativeAge="9"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+			<Alpha Frame="4" High="0" Low="0" RelativeAge="200"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0" g="0.25098" r="0.501961"/>
+			</Color>
+			<Color Frame="2" RelativeAge="15">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="4" RelativeAge="200">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.99" Low="0.98"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXSphereNRM" Shader="GPUParticleDistortion.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Line>
+				<StartPoint x="10" y="0" z="0"/>
+				<EndPoint x="0" y="0" z="0"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="3" Low="-3"/>
+					<y High="3" Low="-3"/>
+					<z High="3" Low="-3"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="2" Low="1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0.02" Low="-0.02"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare04" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SystemLifetime="1" Type="GPU_PARTICLE" id="TeraMuzzleFireFlash">
+		<Lifetime High="3" Low="3"/>
+		<Size High="24" Low="14"/>
+		<BurstCount High="2" Low="2"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="33">
+				<Color b="0.984314" g="0.709804" r="0.721569"/>
+			</Color>
+			<Color Frame="3" RelativeAge="66">
+				<Color b="0.890196" g="0.54902" r="0.541176"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.75" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="1" Low="1"/>
+				<SizeRateDamping High="0.99" Low="0.95"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare03_KW" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SystemLifetime="1" Type="GPU_PARTICLE" id="TeraMuzzleFireFlash2">
+		<Lifetime High="3" Low="3"/>
+		<Size High="22" Low="12"/>
+		<BurstCount High="2" Low="2"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="33">
+				<Color b="0.423529" g="0.623529" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="66">
+				<Color b="0" g="0.376471" r="0.74902"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.75" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="1" Low="1"/>
+				<SizeRateDamping High="0.99" Low="0.95"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="true" ParticleTexture="FXLenzFlare04" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SystemLifetime="1" id="TeraMuzzleFireFlashHeroic">
+		<Lifetime High="5" Low="5"/>
+		<Size High="24" Low="14"/>
+		<BurstCount High="2" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="1" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="33">
+				<Color b="0.529412" g="0.517647" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="66">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.75" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="1" Low="1"/>
+				<SizeRateDamping High="0.99" Low="0.95"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="5" Type="TRAIL" id="TeraMuzzleFireGlowA">
+		<Lifetime High="3" Low="3"/>
+		<Size High="5" Low="1"/>
+		<BurstDelay High="1" Low="1"/>
+		<BurstCount High="5" Low="2"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.5" Low="0.25" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.976471" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.5"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="2"/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="6" Low="-6"/>
+					<y High="6" Low="-6"/>
+					<z High="6" Low="-6"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.1" Low="0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="6" Type="TRAIL" id="TeraMuzzleFireGlowA2">
+		<Lifetime High="10" Low="10"/>
+		<Size High="6" Low="2"/>
+		<BurstCount High="12" Low="12"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.5" Low="0.25" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.25098" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.5"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="2"/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="5" Low="-5"/>
+					<y High="5" Low="-5"/>
+					<z High="5" Low="-5"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.1" Low="0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="5" Type="TRAIL" id="TeraMuzzleFireGlowAHeroic">
+		<Lifetime High="5" Low="5"/>
+		<Size High="5" Low="1"/>
+		<BurstCount High="3" Low="3"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.5" Low="0.25" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.5"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="2"/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="5" Low="-5"/>
+					<y High="5" Low="-5"/>
+					<z High="5" Low="-5"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.1" Low="0.1"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXCloudCR01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="3" Type="GPU_PARTICLE" id="TeraMuzzleFireSmoke">
+		<Lifetime High="20" Low="10"/>
+		<Size High="20" Low="6"/>
+		<BurstCount High="5" Low="1"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="1">
+				<Color b="0.976471" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="3" RelativeAge="66">
+				<Color b="0.843137" g="0.45098" r="0.443137"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default Swirly="true">
+				<VelocityDamping High="0.99" Low="0.98"/>
+				<DriftVelocity x="0.15" y="0" z="0.15"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="5">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.1" Low="-0.1"/>
+					<y High="0.1" Low="-0.1"/>
+					<z High="0.1" Low="-0.1"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXCloudCR01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="3" Type="GPU_PARTICLE" id="TeraMuzzleFireSmoke2">
+		<Lifetime High="20" Low="10"/>
+		<Size High="25" Low="7"/>
+		<BurstCount High="5" Low="1"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="1">
+				<Color b="0.25098" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="66">
+				<Color b="0.843137" g="0.45098" r="0.443137"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default Swirly="true">
+				<VelocityDamping High="0.99" Low="0.98"/>
+				<DriftVelocity x="0.2" y="0" z="0.2"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="5">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.1" Low="-0.1"/>
+					<y High="0.1" Low="-0.1"/>
+					<z High="0.1" Low="-0.1"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXCloudCR01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="3" Type="GPU_PARTICLE" id="TeraMuzzleFireSmokeHeroic">
+		<Lifetime High="25" Low="15"/>
+		<Size High="20" Low="6"/>
+		<BurstCount High="5" Low="1"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="1">
+				<Color b="0.384314" g="0.368627" r="1"/>
+			</Color>
+			<Color Frame="3" RelativeAge="66">
+				<Color b="0.505882" g="0.32549" r="0.607843"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.99" Low="0.98"/>
+				<DriftVelocity x="0.15" y="0" z="0.15"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="5">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.1" Low="-0.1"/>
+					<y High="0.1" Low="-0.1"/>
+					<z High="0.1" Low="-0.1"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="2" id="TeraRingA">
+		<Lifetime High="10" Low="10"/>
+		<Size High="15" Low="10"/>
+		<BurstCount High="2" Low="2"/>
+		<InitialDelay High="6" Low="6"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="3" Low="0"/>
+					<y High="1" Low="0"/>
+					<z High="1" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8" Low="6"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="2" id="TeraRingA_Lg">
+		<Lifetime High="20" Low="20"/>
+		<Size High="15" Low="10"/>
+		<BurstCount High="2" Low="2"/>
+		<InitialDelay High="8" Low="8"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="6" Low="0"/>
+					<y High="1" Low="0"/>
+					<z High="1" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8" Low="6"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="2" id="TeraRingAHeroic">
+		<Lifetime High="10" Low="10"/>
+		<Size High="15" Low="10"/>
+		<BurstCount High="2" Low="2"/>
+		<InitialDelay High="8" Low="8"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="3" Low="0"/>
+					<y High="1" Low="0"/>
+					<z High="1" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8" Low="6"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="2" id="TeraRingB">
+		<Lifetime High="7" Low="7"/>
+		<Size High="12" Low="12"/>
+		<BurstCount High="2" Low="2"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="0.701961" r="0.717647"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="6" Low="6"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8.5" Low="7"/>
+				<SizeRateDamping High="0.96" Low="0.91"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="2" id="TeraRingBEcho">
+		<Lifetime High="28" Low="28"/>
+		<Size High="30" Low="30"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.9"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="9" Low="8"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="2" id="TeraRingBEcho_Lg">
+		<Lifetime High="28" Low="28"/>
+		<Size High="30" Low="30"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="0.611765" r="0.631373"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.9"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="9" Low="8"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="1" id="TeraRingBEchoHeroic">
+		<Lifetime High="28" Low="28"/>
+		<Size High="30" Low="30"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.423529" g="0.235294" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.9" Low="0.9"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="9" Low="8"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="2" id="TeraRingBHeroic">
+		<Lifetime High="7" Low="7"/>
+		<Size High="12" Low="12"/>
+		<BurstCount High="2" Low="2"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.423529" g="0.235294" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8.5" Low="7"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="1" id="TeraRingBlastA">
+		<Lifetime High="10" Low="10"/>
+		<Size High="25" Low="20"/>
+		<BurstCount High="3" Low="2"/>
+		<InitialDelay High="8" Low="8"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="1" g="0.615686" r="0.615686"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity/>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="20" Low="6"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXRing01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SortLevel="1" SystemLifetime="1" id="TeraRingBlastAHeroic">
+		<Lifetime High="10" Low="10"/>
+		<Size High="25" Low="20"/>
+		<BurstCount High="3" Low="2"/>
+		<InitialDelay High="8" Low="8"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.8" Low="0.7"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity/>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="20" Low="6"/>
+				<SizeRateDamping High="0.95" Low="0.9"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularRateZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="6" id="TeraSpark">
+		<Lifetime High="7" Low="4"/>
+		<Size High="40" Low="30"/>
+		<BurstDelay High="2" Low="1"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.980392" g="0.596078" r="0.635294"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="5" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="7" id="TeraSparkA">
+		<Lifetime High="7" Low="5"/>
+		<Size High="13" Low="12"/>
+		<BurstDelay High="2" Low="1"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.980392" g="0.596078" r="0.635294"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="6" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="7" id="TeraSparkAHeroic">
+		<Lifetime High="7" Low="5"/>
+		<Size High="13" Low="12"/>
+		<BurstDelay High="2" Low="1"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="5" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+
+
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="8" id="TeraSparkBlast">
+		<Lifetime High="10" Low="5"/>
+		<Size High="15" Low="5"/>
+		<BurstCount High="3" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.980392" g="0.596078" r="0.635294"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="true" Radius="7"/>
+		</Volume>
+		<Velocity>
+			<Spherical>
+				<Speed High="8" Low="8"/>
+			</Spherical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" id="TeraSparkBlastA">
+		<Lifetime High="10" Low="5"/>
+		<Size High="35" Low="20"/>
+		<BurstCount High="4" Low="2"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.980392" g="0.596078" r="0.635294"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="true" Radius="25"/>
+		</Volume>
+		<Velocity>
+			<Spherical>
+				<Speed High="20" Low="20"/>
+			</Spherical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" id="TeraSparkBlastAHeroic">
+		<Lifetime High="10" Low="5"/>
+		<Size High="35" Low="20"/>
+		<BurstCount High="4" Low="2"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="true" Radius="25"/>
+		</Volume>
+		<Velocity>
+			<Spherical>
+				<Speed High="20" Low="20"/>
+			</Spherical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="8" id="TeraSparkBlastHeroic">
+		<Lifetime High="10" Low="5"/>
+		<Size High="15" Low="5"/>
+		<BurstCount High="3" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="true" Radius="7"/>
+		</Volume>
+		<Velocity>
+			<Spherical>
+				<Speed High="8" Low="8"/>
+			</Spherical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="8" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" id="TeraSparkC">
+		<Lifetime High="10" Low="5"/>
+		<Size High="30" Low="22.5"/>
+		<BurstDelay High="2" Low="2"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.25098" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default ParticlesAttachToBone="true"/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="5" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXSparks" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" id="TeraSparkC2">
+		<Lifetime High="10" Low="5"/>
+		<Size High="30" Low="15"/>
+		<BurstDelay High="2" Low="2"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="3"/>
+			<Alpha Frame="3" High="0.75" Low="1" RelativeAge="4"/>
+			<Alpha Frame="4" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default ParticlesAttachToBone="true">
+				<DriftVelocity x="0" y="0" z="2"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="5" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" id="TeraSparkRingA">
+		<Lifetime High="10" Low="5"/>
+		<Size High="10" Low="7.5"/>
+		<BurstCount High="4" Low="2"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.980392" g="0.596078" r="0.635294"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="2" RadiusRate="3">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="5" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="18" id="TeraSparkRingA_Lg">
+		<Lifetime High="12" Low="5"/>
+		<Size High="20" Low="15"/>
+		<BurstCount High="7" Low="3"/>
+		<Alphas>
+			<Alpha Frame="1" High="0.001" Low="0.001" RelativeAge="0"/>
+			<Alpha Frame="2" High="0.05" Low="0.25" RelativeAge="4"/>
+			<Alpha Frame="3" High="1" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.329412" g="0.219608" r="0.235294"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="6" RadiusRate="4">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="5" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="10" id="TeraSparkRingAHeroic">
+		<Lifetime High="10" Low="5"/>
+		<Size High="10" Low="7.5"/>
+		<BurstCount High="5" Low="3"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="0.75" RelativeAge="4"/>
+			<Alpha Frame="3" High="0" Low="-0.5" RelativeAge="9"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.501961" g="0.501961" r="1"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default/>
+		</Physics>
+		<Draw>
+			<Default/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Radius="1" RadiusRate="3">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="5" Low="5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="1" Low="-1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>
