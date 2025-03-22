@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXexplo03.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="false" IsParticleUpTowardsEmitter="false" IsGroundAligned="false" ParticleTexture="EXexplo03" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" Shader="ADDITIVE" SystemLifetime="10" Type="GPU_PARTICLE" id="BattleMasterTransitionExplosionSmall">
+		<Lifetime High="100" Low="100"/>
+		<Size High="4" Low="4"/>
+		<StartSizeRate High="0.0" Low="0.0"/>
+		<BurstDelay High="99999" Low="99999"/>
+		<BurstCount High="5" Low="5"/>
+		<Alphas>
+			<Alpha Frame="1" High="1.0" Low="1.0" RelativeAge="0"/>
+			<Alpha Frame="2" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.643137" g="0.752941" r="1.0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="-3" Low="-5"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.25">
+				<VelocityDamping High="0.95" Low="0.95"/>
+				<DriftVelocity x="0" y="0" z="0"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu Shader="gpuparticle.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="false" Radius="3.0"/>
+		</Volume>
+		<Velocity>
+			<Cylindrical>
+				<Radial High="2" Low="2"/>
+				<Normal High="0.0" Low="0.0"/>
+			</Cylindrical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.67" Low="0.3"/>
+				<SizeRateDamping High="1.0" Low="1.0"/>
+				<AngleZ High="7" Low="0"/>
+				<AngularRateZ High="0" Low="0"/>
+				<AngularDamping High="0.98" Low="0.96"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXSPHEREA.w3x" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate Drawable="FXSPHEREA" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SystemLifetime="5" Type="DRAWABLE" id="AUMothershipLaserHitSphere">
+		<Lifetime High="40" Low="40"/>
+		<Size High="1" Low="1"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="1" High="1" Low="1" RelativeAge="0"/>
+			<Alpha Frame="2" High="1" Low="1" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="2" RelativeAge="10">
+				<Color b="1" g="0.509804" r="0.635294"/>
+			</Color>
+			<Color Frame="3" RelativeAge="50">
+				<Color b="0.839216" g="1" r="0.658824"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.95" Low="0.95"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<RenderObject>
+				<ObjectSet RenderGroup=""/>
+				<ObjectSet RenderGroup=""/>
+				<ObjectSet RenderGroup=""/>
+			</RenderObject>
+		</Draw>
+		<Volume>
+			<Cylinder>
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<RenderObject Rotation="ROTATE_IN_WORLD_SPACE">
+				<AngleZ High="7" Low="-7"/>
+				<AngularDamping High="1" Low="1"/>
+				<StartSize>
+					<x High="0.04" Low="0.04"/>
+					<y High="0.04" Low="0.04"/>
+					<z High="1" Low="1"/>
+				</StartSize>
+				<SizeRate>
+					<x High="0.3" Low="0.3"/>
+					<y High="0.3" Low="0.3"/>
+					<z High="0" Low="0"/>
+				</SizeRate>
+				<SizeDamping>
+					<x High="0.95" Low="0.95"/>
+					<y High="0.95" Low="0.95"/>
+					<z High="1" Low="1"/>
+				</SizeDamping>
+			</RenderObject>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

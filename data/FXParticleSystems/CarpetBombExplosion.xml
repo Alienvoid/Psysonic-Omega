@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXFireEmbr.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="true" IsGroundAligned="false" IsParticleUpTowardsEmitter="false" ParticleTexture="EXFireEmbr" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ADDITIVE" SortLevel="1" SystemLifetime="1" Type="GPU_PARTICLE" id="CarpetBombExplosion">
+		<Lifetime High="15" Low="15"/>
+		<Size High="2" Low="2"/>
+		<BurstDelay High="0" Low="0"/>
+		<BurstCount High="1" Low="1"/>
+		<InitialDelay High="0" Low="0"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.25" g="0.5" r="1.0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0.0" g="0.0" r="0"/>
+			</Color>
+			<ColorScale High="0" Low="0"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.0" ParticlesAttachToBone="true">
+				<VelocityDamping High="0.9" Low="0.85"/>
+				<DriftVelocity x="0" y="0" z="0.75"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Sphere IsHollow="false" Radius="0"/>
+		</Volume>
+		<Velocity>
+			<Spherical>
+				<Speed High="0" Low="0"/>
+			</Spherical>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="2" Low="2"/>
+				<SizeRateDamping High="1.0" Low="1.0"/>
+				<AngleZ High="0.0" Low="0.0"/>
+				<AngularRateZ High="0.0" Low="0.0"/>
+				<AngularDamping High="0.0" Low="0.0"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXSmokNew1.xml" type="instance"/>
+		<Include source="art:FXFracTileNRM.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="EXSmokNew1" PerParticleAttachedSystem="" SystemLifetime="15" Priority="ALWAYS_RENDER" Shader="ALPHA" SortLevel="1" Type="GPU_PARTICLE" id="DaisyExplosionSmoke">
+		<Lifetime High="55" Low="15"/>
+		<Size High="8" Low="5"/>
+		<BurstCount High="2" Low="1"/>
+		<InitialDelay High="23" Low="23"/>
+		<Alphas>
+			<Alpha Frame="2" High="1" Low="1" RelativeAge="50"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<Color Frame="2" RelativeAge="10">
+				<Color b="0.752941" g="0.752941" r="0.752941"/>
+			</Color>
+			<Color Frame="3" RelativeAge="20">
+				<Color b="0.752941" g="0.752941" r="0.752941"/>
+			</Color>
+			<Color Frame="4" RelativeAge="90">
+				<Color b="0.0" g="0.0" r="0.0"/>
+			</Color>
+			<ColorScale High="2" Low="1"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="0.0">
+				<VelocityDamping High="1" Low="1"/>
+				<DriftVelocity x="0" y="0" z="-0.1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder IsHollow="true" Length="0" Radius="1">
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="1" Low="-1"/>
+					<y High="1" Low="-1"/>
+					<z High="0.1" Low="-0.1"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default Rotation="ROTATE_IN_WORLD_SPACE">
+				<SizeRate High="25" Low="12"/>
+				<SizeRateDamping High="0.9" Low="0.8"/>
+				<AngleZ High="0.5" Low="-0.5"/>
+				<AngularDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

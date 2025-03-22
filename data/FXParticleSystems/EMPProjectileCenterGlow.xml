@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:fxlenzflare01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Type="GPU_PARTICLE" id="EMPProjectileCenterGlow">
+		<Lifetime High="15" Low="10"/>
+		<Size High="20" Low="15"/>
+		<BurstCount High="1" Low="1"/>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.988235" g="0.707843" r="0.794118"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0.494118" g="0.303921" r="0.3"/>
+			</Color>
+			<Color Frame="2" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="2.5" Low="2.5"/>
+		</Colors>
+		<Physics>
+			<Default ParticlesAttachToBone="true">
+				<VelocityDamping High="1" Low="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu Shader="gpuparticle.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity/>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.5" Low="0.5"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="3" Low="-3"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

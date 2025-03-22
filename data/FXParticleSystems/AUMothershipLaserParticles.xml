@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare01_KW.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate EmitterSound="ALI_Buzzers_Combine" ParticleTexture="FXLenzFlare01_KW" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="90" Type="GPU_PARTICLE" id="AUMothershipLaserParticles">
+		<Lifetime High="50" Low="50"/>
+		<Size High="5" Low="5"/>
+		<BurstCount High="3" Low="3"/>
+		<InitialDelay High="120" Low="120"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="33">
+				<Color b="0.988235" g="0.447059" r="0.67451"/>
+			</Color>
+			<Color Frame="3" RelativeAge="66">
+				<Color b="0.490196" g="0.333333" r="0.00784314"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1.01" Low="1.01"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder Length="200" Radius="20">
+				<Offset x="0" y="0" z="-100"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.1" Low="-0.1"/>
+					<y High="0.1" Low="-0.1"/>
+					<z High="-0.1" Low="-0.1"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

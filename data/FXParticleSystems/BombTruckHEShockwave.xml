@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:EXFireRing.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate IsEmitAboveGroundOnly="false" IsGroundAligned="true" IsParticleUpTowardsEmitter="false" ParticleTexture="EXFireRing" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ADDITIVE" SortLevel="1" SystemLifetime="2" Type="GPU_PARTICLE" id="BombTruckHEShockwave">
+		<Lifetime High="8" Low="8"/>
+		<Size High="30" Low="30"/>
+		<BurstDelay High="2" Low="2"/>
+		<BurstCount High="2" Low="2"/>
+		<InitialDelay High="0" Low="0"/>
+		<Alphas>
+			<Alpha Frame="1" High="1" Low="1" RelativeAge="0"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.25" g="0.5" r="1"/>
+			</Color>
+			<ColorScale High="0" Low="0"/>
+		</Colors>
+		<Physics>
+			<Default Gravity="1.0" ParticlesAttachToBone="true">
+				<VelocityDamping High="0.5" Low="0.5"/>
+				<DriftVelocity x="0" y="0" z="0.0"/>
+			</Default>
+		</Physics>
+		<Draw>
+		</Draw>
+		<Volume>
+			<Line IsHollow="false">
+				<StartPoint x="0" y="0" z="8"/>
+				<EndPoint x="0" y="0" z="8"/>
+			</Line>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.0" Low="0.0"/>
+					<y High="0.0" Low="0.0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="40" Low="25"/>
+				<SizeRateDamping High="0.7" Low="0.7"/>
+				<AngleZ High="0" Low="0"/>
+				<AngularRateZ High="0.1" Low="-0.1"/>
+				<AngularDampingXY High="0.85" Low="0.8"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>
