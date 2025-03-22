@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<!-- aka Axis Missile Launcher -->
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:SUTomahawk_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:SUTomahawk_IDLA.w3x" />
+		<Include
+			type="all"
+			source="ART:SUTomahawk_ATKA.w3x" />
+		<Include
+			type="all"
+			source="ART:SUTomahawk_PREA.w3x" />			
+		<Include
+			type="all"
+			source="ART:SUTomahawk_MOVA.w3x" />	
+		<Include
+			type="all"
+			source="ART:SUHowitzer_D.xml" />
+		<Include
+			type="all"
+			source="ART:SUHowitzer_Turret_D.xml" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- A.k.a. V4 Rocket Launcher -->
+	<GameObject
+		id="SACOMAntiStructureVehicle"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SACOMTomahawk"
+		ButtonImage="Button_SACOMTomahawk"
+		Side="SACOM"
+		SubGroupPriority="465"
+		EditorSorting="UNIT"
+		BuildTime="14"
+		CommandSet="SACOMAntiStructureVehicleCommandSet"
+		KindOf="PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT T3_UNIT SIEGE_WEAPON"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="SACOMAntiStructureVehicle"
+		Description="Desc:SACOMAntiStructureVehicle"
+		TypeDescription="Type:SACOMAntiStructureVehicle"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SACOMAntiStructureVehicle</DisplayName>
+		<GameDependency>
+			<RequiredObject>SACOMAerialCommandCenter</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiStructureVehicleArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="SACOMAntiStructureVehicleLocomotor"
+			Condition="NORMAL"
+			Speed="50.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+      ConquerMetricsDpsBonusAgainstDefenses="5.0"
+      OutOfRangePenalty="3.0"
+      CanFireUpCliffs="true"/>
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+
+				
+				ExtraPublicBone="fxheadlight_L fxheadlight_R Bone_Turret Bone_TreadsLeft Bone_TreadsRight Bone_Tire12 Bone_Tire11 Bone_Tire05 Bone_Tire06 Bone_Tire10 Bone_Tire04 Bone_Tire09 Bone_Tire03 Bone_Tire08 Bone_Bone_Tire02 Bone_Tire07 Bone_Tire01"
+
+				TrackMarks="EXTnkTrack"
+
+				LeftFrontTireBone="Bone_Tire12"
+				RightFrontTireBone="Bone_Tire06"
+
+				MidLeftFrontTireBone="Bone_Tire11"
+				MidRightFrontTireBone="Bone_Tire05"
+				
+				MidLeftMidTireBone="Bone_Tire10"
+				MidRightMidTireBone="Bone_Tire04"
+
+				MidLeftRearTireBone="Bone_Tire09"
+				MidRightRearTireBone="Bone_Tire03"
+
+				LeftRearTireBone2="Bone_Tire08"
+				RightRearTireBone2="Bone_Tire02"
+
+				LeftRearTireBone="Bone_Tire07"
+				RightRearTireBone="Bone_Tire01"
+				
+				TireRotationMultiplier="0.2"
+				PowerslideRotationAddition="1.25">
+				
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="Bone_TreadsLeft"
+					RightTrack="Bone_TreadsRight"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+									
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="SUTomahawk_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<Turret
+						TurretNameKey="Bone_Turret"
+						TurretID="1" />		
+				</ModelConditionState>
+			
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WEAPONSTATE_ONE">
+					<Model
+						Name="SUTomahawk_SKN" />
+					<ParticleSysBone
+						BoneName="FX_LASER"
+						FXParticleSystemTemplate="Allied_Target_Laser"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WEAPONSTATE_ONE REALLYDAMAGED">
+					<Model
+						Name="SUTomahawk_SKN" />
+					<Texture
+						Original="SUHowitzer"
+						New="SUHowitzer_D" />
+					<Texture
+						Original="SUHowitzer_Turret"
+						New="SUHowitzer_Turret_D" />
+					<ParticleSysBone
+						BoneName="FX_LASER"
+						FXParticleSystemTemplate="Allied_Target_Laser"
+						FollowBone="true" />
+					<ParticleSysBone
+					   BoneName="FX_DAMAGE01"
+					   FXParticleSystemTemplate="VehicleDamageSmoke"
+					   FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="FX_DAMAGE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="FX_DAMAGE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WEAPONSTATE_ONE DAMAGED">
+					<Model
+						Name="SUTomahawk_SKN" />
+					<ParticleSysBone
+						BoneName="FX_DAMAGE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_LASER"
+						FXParticleSystemTemplate="Allied_Target_Laser"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUTomahawk_SKN" />
+					<Texture
+						Original="SUHowitzer"
+						New="SUHowitzer_D" />
+					<Texture
+						Original="SUHowitzer_Turret"
+						New="SUHowitzer_Turret_D" />
+					<ParticleSysBone
+					   BoneName="FX_DAMAGE01"
+					   FXParticleSystemTemplate="VehicleDamageSmoke"
+					   FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="FX_DAMAGE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="FX_DAMAGE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUTomahawk_SKN" />
+					<ParticleSysBone
+						BoneName="FX_DAMAGE01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_idle">
+					<Animation
+						AnimationName="SUTomahawk_IDLA"
+						AnimationMode="LOOP"
+						AnimationBlendTime="30" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Firing" then
+						CurDrawableSetTransitionAnimState("TRANS_fromFiring")
+						end
+					</Script>
+				</AnimationState>
+				
+				<!-- Regular Missles -->
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING"
+					StateName="STATE_idle">
+					<Animation
+						AnimationName="SUTomahawk_MOVA"
+						AnimationMode="LOOP" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_Firing" then
+						CurDrawableSetTransitionAnimState("TRANS_fromFiring")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USING_WEAPON_A FIRING_OR_PREATTACK_A"
+					StateName="STATE_Firing">
+					<!-- AnimationAbsoluteTime should match weapon reload time approximately. -->
+					<Animation
+						AnimationName="SUTomahawk_ATKA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0"
+						AnimationAbsoluteTime="5.0s"/>
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_idle" then
+						CurDrawableSetTransitionAnimState("TRANS_toFiring")
+						end
+					</Script>
+				</AnimationState>
+										
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toFiring" >
+					<Animation
+						AnimationName="SUTomahawk_PREA"
+						AnimationMode="ONCE"/>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_fromFiring"
+					Flags="START_FRAME_LAST" >
+					<Animation
+						AnimationName="SUTomahawk_PREA"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>				
+			</TruckDraw>
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+			<!-- include parachute draw module. -->
+			<xi:include
+				href="DATA:Includes/ParachuteDrawSoviet.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+    </Draws>
+    <Behaviors>
+      <WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMTomahawkV4RocketLauncher" 
+						ForbiddenObjectStatus="GENERIC_TOGGLE_STATE" />
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMTomahawkV4RocketLauncher_CruiseMode"
+						ObjectStatus="GENERIC_TOGGLE_STATE" />
+					<TurretSettings
+						TurretTurnRate="90"
+						TurretPitchRate="20"
+						AllowsPitch="false"
+						PitchHeight="99%"
+						MinimumPitch="-20d"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUTomahawk_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MediumVehicleDie" />
+			</FXListBehavior>
+			
+			
+			<SpecialPower
+				id="ModuleTag_RadarLock"
+				SpecialPowerTemplate="SpecialPower_RadarLock"
+				UpdateModuleStartsAttack="true"/>
+			<ToggleStatusSpecialAbilityUpdate
+				id="ModuleTag_ToggleRadarLock"
+				Options="RECONSTITUTE_STORED_COMMAND"
+				SpecialPowerTemplate="SpecialPower_RadarLock">
+				<ToggleState
+					GenericLuaEventParameter="laser_off">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_DEFAULT">
+						<StateWeapon
+							Weapon="SACOMTomahawkV4RocketLauncher" />
+					</SkirmishAiInfo>
+				</ToggleState>
+				<!-- NOTE: Use the ModelConditions attibute in the following Toggle state to put some animation on the Infantry during Radar Lock -->
+				<ToggleState
+					ObjectStatus="GENERIC_TOGGLE_STATE"
+					ModelConditions="WEAPONSTATE_ONE"
+					AttributeModifier="AttributeModifier_CruiseModeVisionBonus"
+					GenericLuaEventParameter="laser_on">
+					<SkirmishAiInfo
+						ToggleHint="TOGGLE_WEAPON"
+            OnlyUseWhenHaveTarget="true">
+						<StateWeapon
+							Weapon="SACOMTomahawkV4RocketLauncher_CruiseMode" />
+					</SkirmishAiInfo>
+				</ToggleState>
+
+			</ToggleStatusSpecialAbilityUpdate>
+
+		<xi:include
+			href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />
+
+		<xi:include
+			href="DATA:Includes/SovietCrushUpgradePlayerPower.xml" />
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="SACOMAntiStructureVehicleFunctions" />
+	</Behaviors>
+	<AI>
+		<AIUpdate
+			id="ModuleTag_AI"
+			AutoAcquireEnemiesWhenIdle="YES"
+			StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="350" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="SOV_V4_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_SOV_V4_VoiceAttackSpecial">
+				<Override RequiredFlags="USER_6">
+					<AudioArrayVoice>
+						<AudioEntry Sound="SOV_V4_VoiceAttackSpecial" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="30.0"
+				MinorRadius="23.0"
+				Height="24.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Tomahawk_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Tomahawk_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Tomahawk_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Tomahawk_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Tomahawk_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Tomahawk_VoiceSelect" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Tomahawk_VoiceSelect" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Tomahawk_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+			
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<!--<AudioEntry	Sound="SOV_V4MissileLauncher_MoveByLoop" AudioType="soundMoveLoop" />-->
+			<AudioEntry Sound="SOV_V4_Land_MoveLoopMS" AudioType="soundMoveLoop" />
+			<AudioEntry	Sound="SOV_V4MissileLauncher_MoveStart" AudioType="soundMoveStart" />
+			<AudioEntry	Sound="SOV_V4MissileLauncher_IdleLoop" AudioType="soundAmbient" />
+			<AudioEntry	Sound="VehicleCrush" AudioType="soundCrushing" />	
+			<!-- <AudioEntry Sound="AudioEvent:MammothTankTurretMoveLoop" AudioType="soundTurretMoveLoop" /> -->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="710"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="20"
+			CrushEqualLevelProps="true"
+			CrushableLevel="20"
+			CrushWeapon="SovietCrushWeapon"
+			CrushDecelerationPercent="80%" />
+	</GameObject>
+</AssetDeclaration>

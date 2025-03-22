@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:SUHarrier_D.xml" />
+		<Include type="all"	source="ART:SUHarrier_IDLA.W3X" />
+		<Include type="all"	source="ART:SUHarrier_OPN.W3X" />
+		<Include type="all"	source="ART:SUHarrier_SKN.W3X" />
+		<Include type="all"	source="ART:SUHarrier_FP.W3X" />
+		<Include type="all"	source="ART:FXInvisBone.W3X" />
+		<Include
+			type="all"
+			source="ART:FXAOEShield.w3x" />
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include
+			type="all"
+			source="ART:Decal_LeadershipBuff.xml" />
+	</Includes>
+	<!-- aka SACOM Harrier-->
+	<GameObject
+		id="SACOMAerialCommandCruiser"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SACOMHarrier"
+		ButtonImage="Button_SACOMHarrier"
+		Side="SACOM"
+		SubGroupPriority="620"
+		EditorSorting="UNIT"		
+		BuildTime="30"
+		CommandSet="SACOMAerialCommandCruiserCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE HUGE_VEHICLE SCORE AIRCRAFT VEHICLE BOMBER_AIRCRAFT T3_UNIT LINE_OF_SIGHT_IGNORES_BUILDINGS LEAVE_PARKING_ON_BUILD_COMPLETE CAN_BE_FAVORITE_UNIT PRODUCED_AT_HELIPAD SKIRMISH_AI_ATTEMPT_TO_DODGE CARPET_BOMBER"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="SACOMAerialCommandCruiser"
+		Description="Desc:SACOMAerialCommandCruiser"
+		TypeDescription="Type:SACOMAerialCommandCruiser"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SACOMAerialCommandCruiser</DisplayName>
+		<GameDependency>
+			<RequiredObject>SACOMTechStructure</RequiredObject>
+		</GameDependency>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="3000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SACOMAerialCommandCruiserArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			id="TaxiingLocomotor"
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />
+		<LocomotorSet
+			id="DefaultLocomotor"
+			Locomotor="SACOMHarrierAerialCommandCruiserLocomotor"
+			Condition="NORMAL"
+			Speed="180" />
+		<LocomotorSet
+			Locomotor="SACOMHarrierAerialCommandCruiserLocomotor"
+			Condition="NORMAL_UPGRADED"
+			Speed="180" />
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="Runway0Park0Han Runway0Park1Han Runway1Park0Han RunwayTakeOff Runway1Park1Han BONE_REARCHASSIS">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="SUHarrier_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Runway0Park0Han" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="Runway0Park0Han" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="RunwayTakeOff" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="RunwayTakeOff" />
+					<ParticleSysBone
+						BoneName="FXCon_R"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXCon_L"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<!-- include special model states. -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="IRONCURTAIN">
+    <Model
+			Name="SUHarrier_SKN" />
+					<ParticleSysBone
+						BoneName="FXCon_R"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXCon_L"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+    <Material
+			ShaderName="ObjectsIronCurtain.fx"
+			TechniqueName="Default">
+      <Constants>
+        <Texture Name="DiffuseTexture">
+          <Value>SUHarrier</Value>
+        </Texture>
+        <Texture Name="NormalMap">
+          <Value>SUHarrier_NRM</Value>
+        </Texture>
+        <Texture Name="SpecMap">
+          <Value>SUHarrier_SPM</Value>
+        </Texture>
+        <Float Name="EnvMult">
+          <Value>1.000000</Value>
+        </Float>
+        <Bool Name="AlphaTestEnable">
+          <Value>false</Value>
+        </Bool>
+      </Constants>
+    </Material>
+  </ModelConditionState>
+
+  <ModelConditionState
+		ParseCondStateType="PARSE_NORMAL"
+		ConditionsYes="CHRONORIFT">
+    <Model
+			Name="SUHarrier_SKN" />
+    <Material
+			ShaderName="ObjectsChronoRift.fx"
+			TechniqueName="Default">
+      <Constants>
+        <Texture Name="DiffuseTexture">
+          <Value>SUHarrier</Value>
+        </Texture>
+        <Texture Name="NormalMap">
+          <Value>SUHarrier_NRM</Value>
+        </Texture>
+        <Texture Name="SpecMap">
+          <Value>SUHarrier_SPM</Value>
+        </Texture>
+        <Float Name="EnvMult">
+          <Value>1.000000</Value>
+        </Float>
+        <Bool Name="AlphaTestEnable">
+          <Value>false</Value>
+        </Bool>
+      </Constants>
+    </Material>
+  </ModelConditionState>  
+  
+	<ModelConditionState
+		ParseCondStateType="PARSE_NORMAL"
+		ConditionsYes="FROZEN">
+		<Model
+			Name="SUHarrier_SKN" />
+		<Material
+			ShaderName="ObjectsFrozen.fx"
+			TechniqueName="Default">
+			<Constants>
+				<Texture Name="DiffuseTexture">
+					<Value>SUHarrier</Value>
+				</Texture>
+				<Texture Name="NormalMap">
+					<Value>SUHarrier_NRM</Value>
+				</Texture>
+				<Texture Name="SpecMap">
+					<Value>SUHarrier_SPM</Value>
+				</Texture>
+				<Float Name="EnvMult">
+					<Value>1.000000</Value>
+				</Float>
+				<Bool Name="AlphaTestEnable">
+					<Value>false</Value>
+				</Bool>
+			</Constants>
+		</Material>
+	</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUHarrier_SKN" />
+					<ParticleSysBone
+						BoneName="FXCon_R"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXCon_L"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXDamage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FXDamage02"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUHarrier_SKN" />
+					<Texture
+						Original="SUHarrier"
+						New="SUHarrier_D" />
+					<ParticleSysBone
+						BoneName="FXCon_R"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FXCon_L"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />	
+					<ParticleSysBone
+						BoneName="FXDamage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FXDamage02"
+						FXParticleSystemTemplate="AlliedVehicleDamageSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FXDamage01"
+						FXParticleSystemTemplate="AlliedVehicleDamageFire"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FXDamage02"
+						FXParticleSystemTemplate="AlliedVehicleDamageFire"
+						FollowBone="true"/>
+				</ModelConditionState>
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="SUHarrier_IDLA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="UNPACKING">
+					<Animation
+						AnimationName="SUHarrier_OPN"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="PACKING">
+					<Animation
+						AnimationName="SUHarrier_OPN"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_A">
+					<Animation
+						AnimationName="SUHarrier_OPN"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="RELOADING_A">
+					<Animation
+						AnimationName="SUHarrier_OPN"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_OR_PREATTACK_B">
+					<Animation
+						AnimationName="SUHarrier_OPN"
+						AnimationMode="ONCE" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="RELOADING_B">
+					<Animation
+						AnimationName="SUHarrier_OPN"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>
+
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Decal"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="1200"
+						SizeY="1200"
+						OverrideLODVisibility="true"
+						IsRotatingWithObject="false"
+						MaxHeight="300"
+						OpacityStart="0.1"
+						OpacityFadeOutTime="1s"
+						OpacityPeak="0.1"
+						OpacityEnd="0.1"
+						UseHouseColor="true"
+						Texture="Decal_LeadershipBuff" 
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING">
+					<Model Name="FXInvisBone" />
+					<ShadowInfo
+						Type="ADDITIVE_DECAL"
+						SizeX="1200"
+						SizeY="1200"
+						OverrideLODVisibility="true"
+						IsRotatingWithObject="false"
+						MaxHeight="300"
+						OpacityStart="0.1"
+						OpacityFadeOutTime="1s"
+						OpacityPeak="0.1"
+						OpacityEnd="0.1"
+						UseHouseColor="true"
+						Texture="Decal_LeadershipBuff" 
+						LocalPlayerOnly="true"
+					/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			<ScriptedModelDraw
+				id="ModuleTag_DrawShield"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_10">
+					<Model Name="FXAOEShield" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAerialCommandCruiserInvaderDrones" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<ProductionUpdate
+				id="ModuleTag_PU" />
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED CAN_ATTACK"
+				ContainMax="1"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="false"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID">
+				<InitialPayload
+					Name="SovietCounterMeasuresActivater"
+					Count="1" />
+				<PassengerFilter
+					Rule="NONE">
+					<IncludeThing>SovietCounterMeasuresActivater</IncludeThing>
+				</PassengerFilter>
+				<PassengerData
+					BonePrefix="BONE_REARCHASSIS">
+					<Filter
+						Rule="NONE">
+						<IncludeThing>SovietCounterMeasuresActivater</IncludeThing>
+					</Filter>
+				</PassengerData>
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+			</TransportContain>
+			
+			<SpecialPower
+				id="ModuleTag_AOEShieldSpecialPower"
+				SpecialPowerTemplate="SpecialPower_AOEShield"
+				UpdateModuleStartsAttack="true" />
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ModuleTag_AOEShieldUpdate"
+				SpecialPowerTemplate="SpecialPower_AOEShield"
+				SpecialWeapon="SACOMAerialCommandCenterAOEShieldWeapon"
+				UnpackTime="0s"
+				PackTime="0s"
+				FaceTarget="false"
+				StartAbilityRange="0.0"/>
+			<!--<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeMod_AOEShieldBuff"
+			   	RefreshDelay="1.0s"
+			 	Range="600"
+				InitiallyActive="true"
+				RequiredObjectStatusFlags="OUT_OF_PHASE">
+				<ObjectFilter
+       				Rule="ANY"
+       				Relationship="ALLIES"
+					Include="AIRCRAFT"
+					StatusBitFlags="AIRBORNE_TARGET">
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>-->
+			
+			<SpawnBehavior
+				id="ModuleTag_SpawnRepairDrones"
+				InitialDelay="3s"
+				SpawnNumberData="3"
+				InitialBurst="3"
+				FadeInTime="0.5s"
+				SpawnReplaceDelayData="15s"
+				ShareUpgrades="true"
+				SpawnedRequireSpawner="true"
+				KillSpawnsOnCaptured="true"
+				PassExperienceToSpawned="true"
+				SpawnInsideBuilding="false"
+				KillSpawnsOnDisabled="true">
+				<Die
+					DeathTypes="ALL" />
+				<SpawnTemplate>SACOMInvaderDrone</SpawnTemplate>
+			</SpawnBehavior>
+			
+			<AutoHealBehavior
+				id="Upgrade_SelfHealing"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="5"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+
+			<Physics
+				id="ModuleTag_Physics"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUHarrier_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					ForceUseDoFXObj="true"
+					FX="FX_SOV_KirovExplode" />
+			</FXListBehavior>
+			
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeMod_SACOMAerialCommandCruiserBuff"
+			   	RefreshDelay="1.0s"
+			 	Range="600"
+				InitiallyActive="true">
+				<ObjectFilter
+       				Rule="ANY"
+       				Relationship="ALLIES"
+					Include="AIRCRAFT"
+					StatusBitFlags="AIRBORNE_TARGET">
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			
+			<StatusBitsUpgrade
+				id="ModuleTag_StatusBitUpgradeReaper"
+				StatusToSet="SHIELDBODY_ENABLED">
+				<TriggeredBy>Upgrade_AlliesFaction</TriggeredBy>
+			</StatusBitsUpgrade>
+			<StatusBitsUpgrade
+				id="ModuleTag_StatusBitUpgradeTraveler"
+				StatusToSet="SHIELDBODY_ENABLED">
+				<TriggeredBy>Upgrade_SovietFaction</TriggeredBy>
+			</StatusBitsUpgrade>
+			<StatusBitsUpgrade
+				id="ModuleTag_StatusBitUpgradeScrin"
+				StatusToSet="SHIELDBODY_ENABLED">
+				<TriggeredBy>Upgrade_JapanFaction</TriggeredBy>
+			</StatusBitsUpgrade>
+			<StatusBitsUpgrade
+				id="ModuleTag_StatusBitUpgradeGDI"
+				StatusToSet="SHIELDBODY_ENABLED">
+				<TriggeredBy>Upgrade_AllFactionUpgrade</TriggeredBy>
+			</StatusBitsUpgrade>
+			<ShieldBodyUpdate
+				id="ModuleTag_ShieldBodyUpdate" />
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_JetAIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				NeedsRunway="false"
+				ParkingOffset="200.0"
+				OutOfAmmoDamagePerSecond="1.5"
+				CirclesForAttack="true"
+				StateMachine="JetAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="true"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+					CheckVisionRange="true"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ShieldBody
+				id="ModuleTag_Body"
+				MaxHealth="2800"
+				ShieldAmount="600"
+				ShieldArmor="SACOMAOEShieldArmor"
+				ShieldRechargeIdleTime="30s"
+        		ShieldEnabledFX="FX_AlienShieldEnabled" 
+				ShieldTakeDamageFX="FX_AlienShieldHit"
+        		ShieldDepleteFX="FX_AlienShieldDeplete"
+				ShieldActiveModelCondition="USER_10" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_FlyingLoops">
+				<ModelConditionSound Sound="SOV_Kirov_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="SOV_Kirov_Lift" RequiredFlags="TAKING_OFF" />
+				<ModelConditionSound Sound="SOV_Kirov_IdleLoop" RequiredFlags="FLYING" ExcludedFlags="DAMAGED REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Kirov_IdleDamagedLoop" RequiredFlags="FLYING DAMAGED" ExcludedFlags="REALLYDAMAGED MOVING" />
+				<ModelConditionSound Sound="SOV_Kirov_IdleReallyDamagedLoop" RequiredFlags="FLYING REALLYDAMAGED" ExcludedFlags="DAMAGED MOVING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="36.3"
+				MinorRadius="11.0"
+				Height="21.5"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Kirov_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Kirov_VoiceHelp" AudioType="voiceFear" />
+			<AudioEntry Sound="SOV_Kirov_VoiceCreateMS" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Kirov_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Kirov_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Kirov_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Kirov_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Kirov_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_CenturyBomber_MoveStart" AudioType="soundMoveStart" />
+			<AudioEntry Sound="ALL_CenturyBomber_MoveLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<VisionInfo
+			VisionRange="350"
+			ShroudClearingRange="600" />
+	</GameObject>
+</AssetDeclaration>

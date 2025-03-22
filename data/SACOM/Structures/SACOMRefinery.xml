@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:SBRefinery_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:SBRefinery_FX.w3x" />
+		<Include
+			type="all"
+			source="ART:SBRefinery_BLD.w3x" />			
+		<Include
+			type="all"
+			source="ART:SBRefinery_Scaffold.w3x" />	
+		<Include
+			type="all"
+			source="ART:SBRefinery_particles.w3x" />
+		<Include
+			type="all"
+			source="ART:SBRefinery_ARM_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:SBRefinery_ARM_UNLOAD.w3x" />
+		<Include
+			type="all"
+			source="ART:SBRefinery_ARM_EMPTY.w3x" />
+		<Include
+			type="all"
+			source="ART:SBRefinery_ARM_BLD.w3x" />
+		<Include
+			type="all"
+			source="ART:SBRefinery_Platform.w3x" />	
+		<Include
+			type="all"
+			source="ART:SBRefinery_Platform_BLD.w3x" />				
+		<Include
+			type="all"
+			source="ART:Ore_Gold_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_SBRU.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_SBRE.w3x" />
+		<Include
+			type="all"
+			source="ART:Ore_Gold_IDLA.w3x" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:Soviet/Structures/SovietRefinery.xml" />
+	</Includes>
+	<GameObject
+		id="SACOMRefinery"
+		inheritFrom="SovietRefinery"
+		Side="SACOM"
+		EditorSorting="STRUCTURE"
+		EditorName="SACOMRefinery"
+		Description="Desc:SACOMRefinery"
+		TypeDescription="Type:SACOMRefinery">
+		<EquivalentTo>SovietRefinery</EquivalentTo>
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SACOMRefinery</DisplayName>
+		<GameDependency 
+			xai:joinAction="Replace">
+			<RequiredObject>SACOMPowerPlant</RequiredObject>
+		</GameDependency>
+		<Draws>
+			<ScriptedModelDraw
+				xai:joinAction="Replace"
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="DockStart DockAction DockEnd QUE01 QUE02 QUE03 QUE04 QUE05 QUE06 BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SBRefinery_SKN" />
+
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="SBRefinery_SKN" />
+					<Texture
+						Original="SBBuilding_Holes"
+						New="SBBuilding_FP" />
+					<Texture
+						Original="SBBuilding_Filler"
+						New="SBBuilding_FP" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING JUST_BUILT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="SBRefinery_SKN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="SBRefinery_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0"
+						AnimationAbsoluteTime="2s"/>
+				</AnimationState>				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="SBRefinery_BLD"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Med"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Lights"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="Con_Flash"
+						FollowBone="true" />
+				</AnimationState>				
+			</ScriptedModelDraw>
+			
+			
+<!-- Draw Arm -->
+
+			<ScriptedModelDraw
+				xai:joinAction="Replace"
+				id="ModuleTag_Draw_Arm"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_TABLE">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SBRefinery_ARM_SKN" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_HINT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+	
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="SBRefinery_ARM_SKN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="SBRefinery_ARM_UNLOAD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("Table")
+						CurDrawableHideSubObjectPermanently("Table_Water")
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_Unload" then
+						CurDrawableSetTransitionAnimState("TRANS_Unload")
+						end
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="SBRefinery_ARM_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0"
+						AnimationAbsoluteTime="2s"/>
+				</AnimationState>					
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="SBRefinery_ARM_BLD"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("Table_Water")
+						CurDrawableHideSubObjectPermanently("Table")
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_Unload" then
+						CurDrawableSetTransitionAnimState("TRANS_Unload")
+						end
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					StateName="STATE_Unload"
+					ConditionsYes="OVER_WATER DOCKING_ACTIVE">
+					<Animation
+						AnimationName="SBRefinery_ARM_UNLOAD"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("Table_Water")
+						CurDrawableHideSubObjectPermanently("Table")
+					</Script>							
+				</AnimationState>											
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="SBRefinery_ARM_BLD"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("Table")
+						CurDrawableHideSubObjectPermanently("Table_Water")
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_Unload" then
+						CurDrawableSetTransitionAnimState("TRANS_Unload")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					StateName="STATE_Unload"
+					ConditionsYes="DOCKING_ACTIVE">
+					<Animation
+						AnimationName="SBRefinery_ARM_UNLOAD"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("Table")
+						CurDrawableHideSubObjectPermanently("Table_Water")
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="SBRefinery_ARM_UNLOAD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("Table_Water")
+						CurDrawableHideSubObjectPermanently("Table")
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_Unload" then
+						CurDrawableSetTransitionAnimState("TRANS_Unload")
+						end
+					</Script>							
+				</AnimationState>					
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_Unload">
+					<Animation
+						AnimationName="SBRefinery_ARM_EMPTY"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+				</AnimationState>								
+			</ScriptedModelDraw>
+			
+<!-- Draw Ore -->
+			
+			<ScriptedModelDraw
+				xai:joinAction="Replace"
+				id="ModuleTag_Draw_Ore"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="Ore_Gold_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_HINT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="Ore_Gold_SBRE"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState();
+						if Prev == "STATE_Unload" then
+						CurDrawableSetTransitionAnimState("TRANS_Unload")
+						end
+					</Script>
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					StateName="STATE_Unload"
+					ConditionsYes="DOCKING_ACTIVE">
+					<Animation
+						AnimationName="Ore_Gold_SBRU"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_Unload">
+					<Animation
+						AnimationName="Ore_Gold_SBRE"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+				</AnimationState>
+			</ScriptedModelDraw>
+					
+<!-- DRAW SCAFFOLD -->
+
+			<ScriptedModelDraw
+				xai:joinAction="Replace"
+				id="ModuleTag_Draw_Scaffold"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_HINT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="SBRefinery_Scaffold" />
+				</ModelConditionState>				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING JUST_BUILT">
+					<Model
+						Name="" />
+				</ModelConditionState>				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="SBRefinery_Scaffold" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="SBRefinery_Scaffold"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+				</AnimationState>						
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="SBRefinery_Scaffold"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />
+				</AnimationState>
+			</ScriptedModelDraw>
+
+<!-- DRAW PLATFORM -->
+			
+			<ScriptedModelDraw
+				xai:joinAction="Replace"
+				id="ModuleTag_Draw_Platform"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SBRefinery_Platform" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_HINT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Model
+						Name="SBRefinery_Platform_BLD"/>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="ABPowerPlantWakeSplash"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="SBRefinery_Platform_BLD"/>				
+				</ModelConditionState>
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD OVER_WATER">
+					<Model
+						Name="SBRefinery_Platform_BLD"/>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="ABPowerPlantWakeSplash"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="SBRefinery_Platform_BLD"/>
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING ">
+					<Animation
+						AnimationName="SBRefinery_Platform_BLD"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("Table")
+						CurDrawableShowSubObjectPermanently("Table_Water")
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>	
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupFlashes"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupSparksSeed"
+						FollowBone="true" />          
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="SBRefinery_Platform_BLD"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("Table_Water")
+						CurDrawableShowSubObjectPermanently("Table")
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>	
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupFlashes"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantBuildupSparksSeed"
+						FollowBone="true" />          
+				</AnimationState>
+
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD OVER_WATER"
+					Flags="START_FRAME_LAST" >
+					<Animation
+						AnimationName="SBRefinery_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"
+						AnimationBlendTime="0"  />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST" >
+					<Animation
+						AnimationName="SBRefinery_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"
+						AnimationBlendTime="0"  />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>							
+			</ScriptedModelDraw>
+
+<!-- DRAW PARTICLES -->
+
+			<ScriptedModelDraw
+				xai:joinAction="Replace"
+				id="ModuleTag_Draw_FX">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SBRefinery_FX" />
+					<ParticleSysBone
+						BoneName="FX_Smoke01"
+						FXParticleSystemTemplate="SovietFactorySmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Smoke02"
+						FXParticleSystemTemplate="SovietFactorySmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Glow01"
+						FXParticleSystemTemplate="SACOMPowerGlow"
+						FollowBone="true" />						
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="SBRefinery_FX" />
+				</ModelConditionState>				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SBRefinery_FX" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SBRefinery_FX" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_BONE02"
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_BONE02"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_BONE03"
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_BONE03"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_GLOW01"
+						FXParticleSystemTemplate="GenericDStateSmoke"
+						FollowBone="true"/>
+					<ParticleSysBone
+						BoneName="FX_GLOW01"
+ 						FXParticleSystemTemplate="GenericDStateFire"
+						FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>						
+	
+		</Draws>
+
+		<Behaviors>
+			<StructureUnpackUpdate
+			xai:joinAction="Replace"
+				id="ModuleTag_StructureUnpackUpdate"
+				UnpackTime="10s" />
+		</Behaviors>
+		<Body>
+			<ActiveBody
+			xai:joinAction="Replace"
+				id="ModuleTag_StructureBody"
+				MaxHealth="1250" />
+		</Body>
+	</GameObject>
+</AssetDeclaration>

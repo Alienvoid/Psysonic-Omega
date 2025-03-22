@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:sutankdestroyer_skn.w3x" />
+		<Include
+			type="all"
+			source="ART:sutankdestroyer_atk.w3x" />
+		<Include
+			type="all"
+			source="ART:SUAntiVehicleVehicleTech1_FX.w3x" />
+		<Include
+			type="all"
+			source="ART:sutankdestroyer_D.xml" />
+		<Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="instance"
+			source="ART:EXTnkTrack.xml" />
+		<Include
+			type="all"
+			source="ART:FXObeliskLaser.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- AKA Guardian Tank aka The Chieftain -->
+	<GameObject
+		id="SACOMAntiVehicleVehicleTech2"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SACOMTankDestroyer"
+		ButtonImage="Button_SACOMTankDestroyer"
+		Side="SACOM"
+		SubGroupPriority="425" 
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="25"
+		BuildTime="8"
+		CommandSet="SACOMAntiVehicleVehicleTech2CommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT T2_UNIT"
+		WeaponCategory="CANNON"
+		VoicePriority="188"
+		EditorName="SACOMAntiVehicleVehicleTech2"
+		Description="Desc:SACOMAntiVehicleVehicleTech2"
+		TypeDescription="Type:SACOMAntiVehicleVehicleTech2">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SACOMAntiVehicleVehicleTech2</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="800"/>
+		</ObjectResourceInfo>
+		<GameDependency>
+			<RequiredObject>SACOMAerialCommandCenter</RequiredObject>
+		</GameDependency>
+		
+		<ArmorSet
+			Armor="SACOMTankDestroyerArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			Locomotor="SACOMTankDestroyerLocomotorTANK"
+			Condition="NORMAL"
+			Speed="57.5" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				LeftFrontTireBone="Bone_Tracks_Left"
+				RightFrontTireBone="Bone_Tracks_Right"
+				TireRotationMultiplier="0.0"		
+				InitialRecoilSpeed="0.5"
+				MaxRecoilDistance="5"
+				RecoilDamping="2.0"
+				RecoilSettleSpeed="3.0"
+				ExtraPublicBone="bone_tread_l bone_tread_r Bone_Tracks_Left Bone_Tracks_Right"
+				TrackMarks="EXTnkTrack"
+				TrackMarksLeftBone="bone_tread_l"
+				TrackMarksRightBone="bone_tread_r">
+
+				<TreadTerrainParticles>DefaultTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<TreadScrollingMap
+					LeftTrack="bone_tread_l"
+					RightTrack="bone_tread_r"
+					SpeedMultiplier="-0.06"
+					TreadDriveSpeedFraction="10%"/>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="sutankdestroyer_skn" />
+					<!-- main cannon -->
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+					<WeaponRecoilBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_Weapon" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="sutankdestroyer_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="sutankdestroyer_skn" />
+					<Texture
+						Original="sutankdestroyer"
+						New="sutankdestroyer_D" />
+				</ModelConditionState>
+
+						
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FIRING_A"
+					Flags="START_FRAME_FIRST">
+				<Animation
+						AnimationName="SUTankDestroyer_ATK"
+						AnimationMode="ONCE"
+						AnimationSpeedFactorMin="0.0"
+						AnimationSpeedFactorMax="1.2" />						
+				</AnimationState>
+				
+			</TruckDraw>
+
+			<!-- include Headlight draw module. -->
+			<xi:include
+				href="DATA:Includes/HeadlightDraw1.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw1/child::*)" />
+
+			<!-- DRAW PARTICLES -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_FX"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUAntiVehicleVehicleTech1_FX" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUAntiVehicleVehicleTech1_FX" />
+					<ParticleSysBone
+            			BoneName="FX_BONE01"
+            			FXParticleSystemTemplate="VehicleDamageSmoke"
+            			FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUAntiVehicleVehicleTech1_FX" />
+					<ParticleSysBone
+           				BoneName="FX_BONE01"
+           				FXParticleSystemTemplate="VehicleDamageSmoke"
+           				FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_BONE01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAntiVehicleVehicleTech2CannonWeapon"/>
+				</WeaponSlotHardpoint>
+      </WeaponSetUpdate>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUTankDestroyer_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_AlliedChieftanDie" />
+			</FXListBehavior>
+
+			<!-- the target painter trigger -->
+			<SpecialPower
+				id="ModuleTag_SmokeGrenadeSpecialPower"
+				SpecialPowerTemplate="SpecialPower_RocketEnhancedShell"
+				UpdateModuleStartsAttack="true"
+				CanAffectObjectFilter="GenericSpecialPowerObjectFilter"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_ArrowBarrageSpecialPowerUpdate"
+				SpecialWeapon="SACOMRocketEnhancedShellLauncher"
+				SpecialPowerTemplate="SpecialPower_RocketEnhancedShell"
+				UnpackTime="1s"
+				PackTime="1s"
+				StartAbilityRange="525.0"
+				UnpackSound=""/>	
+
+		<xi:include
+			href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />
+
+		<xi:include
+			href="DATA:Includes/SovietCrushUpgradePlayerPower.xml" />
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="600" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
+				<ModelConditionSound Sound="ALL_GuardianTank_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionSoundSelectorClientBehavior id="ModuleTag_PaintTargetVoice">
+				<Override RequiredFlags="USER_1">
+					<AudioArrayVoice>
+						<AudioEntry Sound="ALL_Guardian_VoiceAttackPaintTarget" AudioType="voiceAttack" />
+					</AudioArrayVoice>
+				</Override>
+			</ModelConditionSoundSelectorClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_PaintLoop">
+				<ModelConditionSound Sound="ALL_Guardian_PainterWeaponLoop" RequiredFlags="USING_WEAPON_B" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_PaintStart">
+				<ModelConditionSound Sound="ALL_Guardian_PainterWeaponStart" RequiredFlags="USING_WEAPON_B" ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry>
+			<Shape
+				Type="BOX"
+				MajorRadius="20.0"
+				MinorRadius="12.0"
+				Height="17.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Rhino_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Rhino_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Rhino_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Rhino_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Rhino_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Rhino_Land_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Rhino_Land_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Rhino_Land_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> 
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_Guardian_MoveStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+			<AudioEntry
+				Sound="Tank_Land_MoveLoop"
+				AudioType="soundMoveLoop" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="360"
+			ShroudClearingRange="=$TANK_SHROUD_CLEAR" />
+	<CrusherInfo 
+			CrushableLevel="20" 
+			CrusherLevel="20" 
+			CrushDecelerationPercent="80%" />
+	</GameObject>
+</AssetDeclaration>

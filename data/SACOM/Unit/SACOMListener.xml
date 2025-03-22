@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Footprint decal -->
+		<Include type="all" source="art:FXSovietSickleFP.xml"/>
+		<Include
+			type="all"
+			source="ART:SUStalker_D.xml" />
+		<Include
+			type="all"
+			source="ART:SUMLRS_D.xml" />
+		<Include
+			type="all"
+			source="ART:AVHumvee_diffuse_Damage.xml" />
+		<Include
+			type="all"
+			source="ART:SUListener_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:SUListener_IDLA.w3x" />
+		<Include
+			type="all"
+			source="ART:SUStalker_MOVA.w3x" />
+		<Include type="all"	source="ART:FXECMAREA.w3x" />	
+		<Include type="all"	source="ART:FXHealingAura_DIE.w3x" />	
+
+		<Include type="all"	source="ART:SUSurveyor_Pontoons_SKN.w3x" />
+		<Include type="all"	source="ART:SUSurveyor_Pontoons_IDLA.w3x" />
+		<Include type="all"	source="ART:SUSurveyor_Pontoons_TRANS.w3x" />
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="all"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerHeroic.xml" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- AKA 'The Sickle' -->
+	<GameObject
+		id="SACOMListener"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SACOMListener"
+		ButtonImage="Button_SACOMListener"
+		Side="SACOM"
+		SubGroupPriority="305"
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="20"		
+		BuildTime="9"
+		CommandSet="SACOMListenerCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT AMPHIBIOUS"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="176"
+		EditorName="SACOMListener"
+		Description="Desc:SACOMListener"
+		TypeDescription="Type:SACOMListener">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SACOMListener</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="900"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiInfantryVehicleArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="DefaultLocomotorSet"
+			Locomotor="SovietStalkerLocomotor"
+			Condition="NORMAL"
+			Speed="80.0" />
+   		<LocomotorSet
+ 			Locomotor="SovietStalkerWaterLocomotor"
+ 			Condition="NORMAL"
+ 			Speed="70.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				TrackMarks="EXTireTrack2"
+				TrackMarksOnlyWhenCorneringQuickly="false"
+				TrackMarksLeftBone="TIRE01"
+				TrackMarksRightBone="TIRE05"
+
+				LeftFrontTireBone="TIRE01"
+				RightFrontTireBone="TIRE05"
+
+				MidLeftMidTireBone="TIRE02"
+				MidRightMidTireBone="TIRE06"
+
+				MidLeftRearTireBone="TIRE03"
+				MidRightRearTireBone="TIRE07"
+
+				LeftRearTireBone="TIRE04"
+				RightRearTireBone="TIRE08"
+
+				TireRotationMultiplier="0.2"
+				PowerslideRotationAddition="1.25">
+				<TreadTerrainParticles>AmphibiousTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="SUListener_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="radar" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="radar" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUListener_SKN" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>     
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUListener_SKN" />
+					<Texture
+						Original="SUStalker"
+						New="SUStalker_D" />
+					<Texture
+						Original="SUMLRS"
+						New="SUMLRS_D" />
+					<Texture
+						Original="AVHumvee_diffuse"
+						New="AVHumvee_diffuse_Damage" />
+				  <ParticleSysBone
+						BoneName="B_Turret01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="B_Turret01"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="B_Turret01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUListener_SKN" />
+				</ModelConditionState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="SUListener_IDLA"
+						AnimationMode="LOOP" />
+				  <ParticleSysBone
+						BoneName="radar"
+						FXParticleSystemTemplate="SACOMListenerRadarWave"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="radar"
+						FXParticleSystemTemplate="AirRadarEffect"
+						FollowBone="true" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_1">
+					<Animation
+						AnimationName="SUListener_IDLA"
+						AnimationMode="LOOP" />
+				  <ParticleSysBone
+						BoneName="radar"
+						FXParticleSystemTemplate="SACOMListenerListenWave"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER USER_1">
+					<Animation
+						AnimationName="SUListener_IDLA"
+						AnimationMode="LOOP" />
+				  <ParticleSysBone
+						BoneName="radar"
+						FXParticleSystemTemplate="SACOMListenerListenWave"
+						FollowBone="true" />
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Animation
+						AnimationName="SUListener_IDLA"
+						AnimationMode="LOOP" />
+				  <ParticleSysBone
+						BoneName="radar"
+						FXParticleSystemTemplate="SACOMListenerRadarWave"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="radar"
+						FXParticleSystemTemplate="AirRadarEffect"
+						FollowBone="true" />
+				</AnimationState>
+			</TruckDraw>
+			
+			
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw3.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw3/child::*)" />
+
+      <!-- DRAW PARTICLES -->
+
+ 
+
+			<TruckDraw
+				id="ModuleTag_Draw_Water"
+				TireRotationMultiplier="0.1"
+				OkToChangeModelColor="true">
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUSurveyor_Pontoons_SKN" />				
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Model
+						Name="SUSurveyor_Pontoons_SKN" />
+						<ParticleSysBone
+							BoneName="None"
+							FXParticleSystemTemplate="SmallShipWakeIdle"
+							FollowBone="false" />
+				</ModelConditionState>
+								
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_OnLAND">
+					<Animation
+						AnimationName=""
+						AnimationMode="MANUAL"/>
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_OnWater" and Prev ~= "TRANS_toLand" then CurDrawableSetTransitionAnimState("TRANS_toLand")	end;
+					</Script>
+				</AnimationState>					
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING OVER_WATER"
+					StateName="STATE_OnWater">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_IDLA" 
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_OnLAND" and Prev ~= "TRANS_toWater" then CurDrawableSetTransitionAnimState("TRANS_toWater")	end;
+					</Script>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AUMCVWaterWake"
+						FollowBone="false" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER"
+					Flags="START_FRAME_LAST"
+					StateName="STATE_OnWater">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_TRANS"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+					<Script>
+						Prev = CurDrawablePrevAnimationState()
+						if Prev == "STATE_OnLAND" and Prev ~= "TRANS_toWater" then CurDrawableSetTransitionAnimState("TRANS_toWater")	end;
+					</Script>
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="StingrayWaterWake"
+						FollowBone="false" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					StateName="TRANS_toWater">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_TRANS"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawablePlaySound("SOV_Miner_WaterSplashMS")
+					</Script>  
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_TRANSITION"
+					Flags="START_FRAME_LAST"
+					StateName="TRANS_toLand">
+					<Animation
+						AnimationName="SUSurveyor_Pontoons_TRANS"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawablePlaySound("AmphibiousWaterUnitToLand_ScrapeTreadsOut")
+					</Script>    
+				</AnimationState>
+				
+			</TruckDraw>
+			<!-- Draw the Healing Aura seperately so we dont have to re-export all this units anims -->
+			<!-- <ScriptedModelDraw
+				id="ModuleTag_DrawHealingAura"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXECMAREA" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_Bored">
+					<Animation
+						AnimationName="FXECMAREA"
+						AnimationMode="ONCE" />
+				</AnimationState>	
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="FXHealingAura_DIE"
+						AnimationMode="ONCE" />
+				</AnimationState>				
+			</ScriptedModelDraw>	 -->
+
+		</Draws>
+		<Behaviors>
+
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="500" />
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUListener_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MediumVehicleDie" />
+			</FXListBehavior>
+			
+			<SpecialPower
+				id="ModuleTag_Listen"
+				SpecialPowerTemplate="SpecialPower_Listen"
+				UpdateModuleStartsAttack="true" 
+				TriggerFX="FX_None"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_RoarUpdate"
+				SpecialPowerTemplate="SpecialPower_Listen"
+				SpecialWeapon="SACOMListenerListenWeapon"
+				UnpackTime="0s"
+				PackTime="2s"
+				FreezeAfterTriggerDuration="2s"
+				StartAbilityRange="0.0"/>
+				
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				AttributeModifierName="AttributeMod_AirDetectionBuff"
+				RefreshDelay="0.75s"
+				Range="750"
+				AllowSelf="true"
+				InitiallyActive="true">
+				<ObjectFilter
+					Rule="ANY"
+					Relationship="ALLIES"
+					Include="VEHICLE INFANTRY AIRCRAFT"
+                    StatusBitFlags="AIRBORNE_TARGET"
+					StatusBitFlagsExclude="NOT_IN_WORLD"
+					>
+					<ExcludeThing>AlliedArcAngelAircraft</ExcludeThing>
+				</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="5"
+				UpdatePeriod="4.3s"
+				AffectsSelf="true"
+				InvisibilityTemplate="SACOMListenerInvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+			<IncludeThing>SACOMListener</IncludeThing>
+				</BroadcastObjectFilter>
+			</InvisibilityBroadcastUpdate>
+
+			<xi:include
+				href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					RotateToTargetWhenAiming="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="600" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="20.0"
+				Height="20.0"
+				ContactPointGeneration="INFANTRY" />
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Listener_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Listener_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Listener_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Listener_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Listener_VoiceSelectBattleMS" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Listener_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+			<NamedEntry Sound="SOV_Listener_VoiceListen" Name="VoicePsyonicBlast" />
+		</AudioArrayVoice> 
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_MultiGunnerIFV_MovStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />	
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"
+			ShroudClearingHeight="500" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrusherLevel="10"
+			CrushEqualLevelProps="true"
+			CrushableLevel="20">
+		</CrusherInfo>
+	</GameObject>
+</AssetDeclaration>

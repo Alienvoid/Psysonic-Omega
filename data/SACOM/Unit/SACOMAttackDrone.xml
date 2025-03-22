@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all"	source="ART:SUSeaMig_SKN.w3x" />
+		<Include type="all"	source="ART:SUSeaMig_MOVA.w3x" />
+		<Include type="all"	source="ART:SUHypersonicBomber_D.xml" />
+		<Include type="all"	source="ART:FXAOEShield.w3x" />
+		
+			
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+		<Include type="all"	source="ART:FXInvisBone.w3x" />
+		<Include type="all"	source="ART:FX_MigBones.w3x" />
+	</Includes>
+	<GameObject
+		id="SACOMAttackDrone"
+		inheritFrom="BaseVehicle"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT VEHICLE PASS_EXPERIENCE_TO_PRODUCER NO_COLLIDE SKIP_IDLE_WHEN_CAPTURED LINE_OF_SIGHT_IGNORES_BUILDINGS MACHINE"
+		RadarPriority="UNIT"
+		ProductionQueueType="VEHICLE"
+		UnitCategory="VEHICLE"
+		WeaponCategory="CANNON"
+		EditorName="SACOMAttackDrone"
+		Description="Desc:SACOMAttackDrone">
+		<DisplayName xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">NAME:SACOMAttackDrone</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="10" />
+		</ObjectResourceInfo>
+		
+		<ArmorSet
+			Armor="SACOMAttackDroneArmor"
+			DamageFX="AircraftDamageFX" />
+		
+		<LocomotorSet
+			Locomotor="SACOMAttackDroneLocomotor"
+			Condition="NORMAL"
+			Speed="230.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FX_WEAPON_01 FX_JET_EXHAUST_01">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUSeaMig_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON_" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON_" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WEAPON_" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="SECONDARY_WEAPON"
+						BoneName="FX_WEAPON_" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUSeaMig_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUSeaMig_SKN" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUSeaMig_SKN" />
+					
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="LOCOMOTOR_TAXIING">
+					<Model
+						Name="SUSeaMig_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="LOCOMOTOR_TAXIING DAMAGED">
+					<Model
+						Name="SUSeaMig_SKN" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="LOCOMOTOR_TAXIING REALLYDAMAGED">
+					<Model
+						Name="SUSeaMig_SKN" />
+					
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Damage_01"
+						FXParticleSystemTemplate="AircraftDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				<!-- Evasive Maneuvers FX -->
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_6">
+					<Model
+						Name="SUSeaMig_SKN" />
+					<ParticleSysBone
+						BoneName="FX_WING_01"
+						FXParticleSystemTemplate="Soviet_MigContrail_Eavade"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_WING_02"
+						FXParticleSystemTemplate="Soviet_MigContrail_Eavade"
+						FollowBone="true" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimNickName="HVRA"
+						AnimationName="SUSeaMig_MOVA"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin="0.9"
+						AnimationSpeedFactorMax="1.1" />
+					<Script>
+            			CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_01")
+            			CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_02")
+          			</Script>						
+				</AnimationState>
+                <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="WALKING"
+					Flags="START_FRAME_LAST">
+                    <Animation
+						AnimNickName="HVRA"
+						AnimationName="SUSeaMig_MOVA"
+						AnimationMode="ONCE" />
+					<Script>
+            			CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_01")
+            			CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_02")
+          			</Script>
+                </AnimationState>
+
+                <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="LOCOMOTOR_TAXIING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimNickName="HVRA"
+						AnimationName="SUSeaMig_MOVA"
+						AnimationMode="ONCE" />
+					<Script>
+						CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_01")
+						CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_02")
+					</Script>
+				 </AnimationState>
+
+        <AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+          <Animation
+						AnimationName="SUSeaMig_MOVA"
+						AnimationMode="LOOP" />
+					<ParticleSysBone
+						BoneName="FX_WING_01"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_WING_02"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+          <Script>
+            CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_01")
+            CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_02")
+          </Script>
+				</AnimationState>
+
+		<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="ACCELERATE">
+					<Animation
+						AnimationName="SUSeaMig_MOVA"
+						AnimationMode="ONCE" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_01"
+						FXParticleSystemTemplate="SovietFoxFighterEngineGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_ENGINE_02"
+						FXParticleSystemTemplate="SovietFoxFighterEngineGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_WING_01"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_WING_02"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+          <Script>
+            CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_01")
+            CurDrawableShowSubObjectPermanently("FX_Jet_Exhaust_02")
+          </Script>
+        </AnimationState>				
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_DrawShield"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_10">
+					<Model Name="FXAOEShield" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAttackDroneMissile"/>
+        </WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="true"/>
+				
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAir"
+				CreationList="SUSeaMig_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					RequiredStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieGround"
+				CreationList="SUSeaMig_Collapse_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED"
+					ExemptStatus="AIRBORNE_TARGET" />
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_ALL_JetFighter_Die" />
+			</FXListBehavior>
+			<SlavedUpdate
+				id="ModuleTag_SlavedUpdate"
+				LeashRange="1300"
+				AttackRange="1300"
+				DieOnMastersDeath="true"
+				UseSlaverAsControlForEvaObjectSightedEvents="false" />		
+			<ShieldBodyUpdate
+				id="ModuleTag_ShieldBodyUpdate" />			
+		</Behaviors>		
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AI"
+				NeedsRunway="false"
+				KeepsParkingSpaceWhenAirborne="false"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="StrafingRunAIStateMachine"
+				CirclesForAttack="true"
+				SpawnOffsetRadius="160.0">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false" />
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ShieldBody
+				id="ModuleTag_Body"
+				MaxHealth="110"
+				ShieldAmount="600"
+				ShieldArmor="SACOMAOEShieldArmor"
+				ShieldRechargeIdleTime="0s"
+				ShieldEnabledFX="FX_AlienShieldEnabled" 
+				ShieldTakeDamageFX="FX_AlienShieldHit"
+				ShieldDepleteFX="FX_AlienShieldDeplete"
+				ShieldActiveModelCondition="USER_10" />
+		</Body>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior id="ModuleTag_LandLaunch">
+				<ModelConditionSound Sound="ALL_JetFighter_Land" RequiredFlags="LANDING" />
+				<ModelConditionSound Sound="ALL_JetFighter_Launch" RequiredFlags="TAKING_OFF" />
+			</ModelConditionAudioLoopClientBehavior>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<!-- <AudioEntry Sound="SOV_Apocalypse_MoveStart" AudioType="soundMoveStart" /> -->
+			<AudioEntry Sound="ALL_JetFighter_moveByLoop" AudioType="soundMoveLoop" />
+		</AudioArraySound>
+
+		<EvaEventArray>
+			<EvaEntry EvaEvent="" EvaType="dieOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedOwner" />
+			<EvaEntry EvaEvent="" EvaType="damagedAlly" />
+		</EvaEventArray>
+		
+		<VisionInfo
+			VisionRange="380"
+			ShroudClearingRange="20" />
+	</GameObject>
+</AssetDeclaration>

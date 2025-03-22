@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Footprint decal -->
+		<Include type="all" source="art:FXSovietSickleFP.xml"/>
+		<Include
+			type="all"
+			source="ART:SUAvenger_D.xml" />
+		<Include
+			type="all"
+			source="ART:SUAvenger_SKN.w3x" />
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<Include
+			type="all"
+			source="ART:FXTracer.xml" />
+		<Include
+			type="all"
+			source="ART:FXTracerHeroic.xml" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- AKA 'Avenger' -->
+	<GameObject
+		id="SACOMAntiAirVehicle"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SACOMAvenger"
+		ButtonImage="Button_SACOMAvenger"
+		Side="SACOM"
+		SubGroupPriority="305"
+		EditorSorting="UNIT"
+		HealthBoxHeightOffset="20"		
+		BuildTime="14"
+		CommandSet="SovietStalkerCommandSet"
+		KindOf="SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS SCORE VEHICLE CAN_BE_FAVORITE_UNIT"
+		ThreatLevel="10"
+		WeaponCategory="GUN"
+		VoicePriority="176"
+		EditorName="SACOMAntiAirVehicle"
+		Description="Desc:SACOMAntiAirVehicle"
+		TypeDescription="Type:SACOMAntiAirVehicle">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SACOMAntiAirVehicle</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1400"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietAntiAirShipArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="DefaultLocomotorSet"
+			Locomotor="TestReactiveLocomotorWHEELS"
+			Condition="NORMAL"
+			Speed="60.0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<TruckDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="CHASSIS TURRETEL TURRET_01 TURRET_02"
+				TrackMarks="EXTireTrack2"
+				TrackMarksOnlyWhenCorneringQuickly="false"
+				TrackMarksLeftBone="TIREFX_L"
+				TrackMarksRightBone="TIREFX_R"
+
+				LeftFrontTireBone="Tire_LeftFront"
+				RightFrontTireBone="Tire_RightFront"
+
+				LeftRearTireBone="Tire_LeftRear"
+				RightRearTireBone="Tire_RightRear"
+
+				TireRotationMultiplier="0.2"
+				PowerslideRotationAddition="1.25">
+				<TreadTerrainParticles>AmphibiousTankTerrainParticleMapping</TreadTerrainParticles>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT"
+					RetainSubObjects="true">
+					<Model
+						Name="SUAvenger_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPONA_" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPONA_" />
+					<!--Anti-air Turret-->
+					<Turret
+						TurretNameKey="TURRET_01"
+						TurretPitch="TURRETEL"
+						TurretID="1" />
+					<!--Front Turret-->
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPONB01" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPONB01" />
+					<Turret
+						TurretNameKey="TURRET_02"
+						TurretID="2" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUAvenger_SKN" />
+					<ParticleSysBone
+						BoneName="FX_DAMAGE03"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>     
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUAvenger_SKN" />
+					<Texture
+						Original="SUAvenger"
+						New="SUAvenger_D" />
+				  <ParticleSysBone
+						BoneName="FX_DAMAGE03"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="FX_DAMAGE03"
+						FXParticleSystemTemplate="VehicleDamageFire"
+						FollowBone="true" />
+				  <ParticleSysBone
+						BoneName="FX_DAMAGE03"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUAvenger_SKN" />
+				</ModelConditionState>
+
+			</TruckDraw>
+			
+			
+      <!-- include Headlight draw module. -->
+      <xi:include
+				href="DATA:Includes/HeadlightDraw2.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:HeadlightDraw2/child::*)" />
+
+      <!-- DRAW PARTICLES -->
+
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw"
+				MinLength="30.0"
+				MaxLength="30.0"
+				Width="6.0"
+				MinSpeed="40"
+				MaxSpeed="40"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXJapanShogunProjectile"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					ForbiddenStatus="WEAPON_UPGRADED_02" />
+			</TracerModelDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDrawVet"
+				MinLength="30.0"
+				MaxLength="30.0"
+				Width="6.0"
+				MinSpeed="40"
+				MaxSpeed="40"
+				SweepSpeed="1.0"
+				SpreadAngle="2.0"
+				MinTracersPerFrame="0.2"
+				MaxTracersPerFrame="0.3"
+				FrameLifeTime="35"
+				WeaponSlotType="PRIMARY_WEAPON"
+				Texture="FXJapanShogunProjectile_Veteran"
+				UseAdditiveBlending="true" >
+				<HeadColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+				<TailColor
+					r="1.0"
+					g="1.0"
+					b="1.0"
+					a="1.0" />
+        <ObjectStatusValidation
+					RequiredStatus="WEAPON_UPGRADED_02" />
+			</TracerModelDraw>
+			
+			<LaserDraw
+				id="ModuleTag_LaserDraw"
+				Texture1_UTile="1"
+				Texture1_VTile="1"
+				Texture1_UScrollRate="0"
+				Texture1_VScrollRate="-.3"
+				Texture1_NumFrames="1"
+				Texture1_FrameRate="30"
+				Texture2_UTile="1"
+				Texture2_VTile=".5"
+				Texture2_UScrollRate="0"
+				Texture2_VScrollRate="-.6"
+				Texture2_NumFrames="1"
+				Texture2_FrameRate="30"
+				LaserWidth="7"
+				WeaponSlotID="2" 
+				LaserStateID="1">
+					<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXBeam</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXBeam</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+              <Value>5.000000</Value>
+            </Float>
+          </Constants>
+        </FXShader>
+      </LaserDraw>
+			<xi:include
+				href="DATA:Includes/ParachuteDrawSoviet.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<!-- AA -->
+				<WeaponSlotTurret
+					ID="1"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_LEAST_MOVEMENT"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAvengerPlasmaWeapon" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="0d"
+						AllowsPitch="true"
+						PitchHeight="90%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="10.0"
+						MaxIdleScanAngle="90.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<!-- Front -->
+				<WeaponSlotTurret
+					ID="2"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_LEAST_MOVEMENT"
+					AllowInterleavedFiring="true">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAvengerLockDownGun" />
+					<TurretSettings
+						MaxDeflectionClockwise="120d"
+						MaxDeflectionAntiClockwise="120d"
+						TurretTurnRate="360"
+						AllowsPitch="false"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="10.0"
+						MaxIdleScanAngle="90.0"
+						ComeToHaltJiggle="3d">
+						<TurretAITargetChooserData
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+							CanAcquireDynamicIfAssignedOutOfRange="true" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+
+			<LaserState
+				id="ModuleTag_LaserState"
+				LaserId="1" >
+					<LaserEndParticleSystem>SACOMLockDownHit</LaserEndParticleSystem>
+			</LaserState>
+			<Physics
+				id="ModuleTag_Physics" />
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUAvenger_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+			</CreateObjectDie>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MediumVehicleDie" />
+			</FXListBehavior>
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="500" />
+
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED NO_ATTACK"
+				ContainMax="1"				
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="true"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID">
+				<PassengerFilter
+					Rule="ANY"
+					Include="INFANTRY" />
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+				<PassengerData
+					BonePrefix="BONEGARRISON">
+					<Filter
+						Rule="NONE"
+						Include="INFANTRY" />
+				</PassengerData>
+			</TransportContain>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_02">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+
+			<xi:include
+				href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					RotateToTargetWhenAiming="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="400" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="20.0"
+				Height="20.0"
+				ContactPointGeneration="INFANTRY" />
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_Avenger_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_Avenger_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_Avenger_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_Avenger_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_Avenger_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_Avenger_VoiceSelect" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_Avenger_VoiceSelect" AudioType="voiceSelectBattle" />
+			<AudioEntry Sound="SOV_Avenger_VoiceSelectUnderFire" AudioType="voiceSelectUnderFire" />
+			
+			<!-- <AudioEntry Sound="ALL_Pacifier_VoiceDeploy" AudioType="voiceDeploy" /> -->
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_MultiGunnerIFV_MovStart"
+				AudioType="soundMoveStart" />
+			<AudioEntry
+				Sound="VehicleCrush"
+				AudioType="soundCrushing" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="350"
+			ShroudClearingRange="=$LIGHT_VEHICLE_SHROUD_CLEAR" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushEqualLevelProps="true"
+			CrusherLevel="0"
+			CrushableLevel="20" />
+	</GameObject>
+</AssetDeclaration>

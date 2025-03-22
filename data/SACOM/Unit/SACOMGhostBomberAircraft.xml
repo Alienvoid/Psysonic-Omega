@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:FXAOEShield.w3x" />
+		<Include type="all"	source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:SUGhostBomber_FLYA.W3X" />
+		<Include type="all"	source="ART:SUGhostBomber_SKN.W3X" />
+		<Include type="all"	source="ART:SUGhostBomber_MOVA.W3X" />
+		<Include type="all"	source="ART:SUGhostBomber_FP.W3X" />			
+		<Include type="all"	source="ART:SUGhostBomber_D.xml" />		
+		<Include type="all"	source="ART:FXTracerNOD.xml" />
+		<Include type="all"	source="ART:FXTracerHeroic.xml" />	
+    <Include
+			type="instance"
+			source="ART:EX_Headlights.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />
+	</Includes>
+	<!-- aka Bosun Bomber-->
+	<GameObject
+		id="SACOMGhostBomberAircraft"
+		inheritFrom="BaseVehicle"
+		SelectPortrait="Portrait_SACOMGhostBomberAircraft"
+		ButtonImage="Button_SACOMGhostBomberAircraft"
+		Side="SACOM"
+		SubGroupPriority="620"
+		EditorSorting="UNIT"
+		BuildTime="10"
+		CommandSet="SovietFighterAircraftCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS CAN_ATTACK T2_UNIT SELECTABLE SCORE AIRCRAFT BOMBER_AIRCRAFT HUGE_VEHICLE VEHICLE ASSAULT_AIRCRAFT LINE_OF_SIGHT_IGNORES_BUILDINGS CAN_BE_FAVORITE_UNIT SCORE LIMITED_PRODUCTION_AIRCRAFT"
+		RadarPriority="UNIT"
+		ThreatLevel="10"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		WeaponCategory="MISSILE"
+		VoicePriority="148"
+		EditorName="SACOMGhostBomberAircraft"
+		Description="Desc:SACOMGhostBomberAircraft"
+		TypeDescription="Type:SACOMGhostBomberAircraft"
+		HealthBoxHeightOffset="20">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SACOMGhostBomberAircraft</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1000"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="SovietFighterAircraftArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			id="TaxiingLocomotor"
+			Locomotor="BasicHelicopterTaxiLocomotor"
+			Condition="TAXIING"
+			Speed="10" />
+		<LocomotorSet
+			id="DefaultLocomotor"
+			Locomotor="SACOMGhostBomberAircraftLocomotor"
+			Condition="NORMAL"
+			Speed="150" />
+		<LocomotorSet
+			Locomotor="SACOMGhostBomberAircraftLocomotor"
+			Condition="NORMAL_UPGRADED"
+			Speed="200" />
+		<!-- Need ConquerMetricsOverrideDefendingAntiMask or else the TAXIING locomotor will make the AI try to build anti-ground units against this -->
+
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true"
+			ConquerMetricsOverrideDefendingAntiMask="ANTI_AIRBORNE_VEHICLE" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				ExtraPublicBone="BONE_CHASSIS"
+				
+				OkToChangeModelColor="true" >
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUGhostBomber_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_WEAPON" />
+				</ModelConditionState>
+
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="SUGhostBomber_FP" />
+				</ModelConditionState>
+                
+                <!--FX FOR VENT HYDROGEN DAMAGED-->
+                <ModelConditionState
+                 ParseCondStateType="PARSE_NORMAL"
+                 ConditionsYes="LOCOMOTOR_NORMAL_UPGRADED REALLYDAMAGED">
+                    <Model
+                      Name="SUGhostBomber_SKN" />
+                    <Texture
+						Original="SUGhostBomber"
+						New="SUGhostBomber_D" />
+                    <ParticleSysBone
+                        BoneName="FX_Damage01"
+                        FXParticleSystemTemplate="Soviet_KirovVentHydro"
+                        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="FX_Damage01"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="FX_Damage01"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="FX_Damage01"
+                        FXParticleSystemTemplate="VehicleDamageFire02"
+                        FollowBone="true" />
+                </ModelConditionState>
+
+                <!--FX FOR VENT HYDROGEN-->
+                <ModelConditionState
+                  ParseCondStateType="PARSE_NORMAL"
+                  ConditionsYes="LOCOMOTOR_NORMAL_UPGRADED">
+                  <Model
+                    Name="SUGhostBomber_SKN" />
+                  <ParticleSysBone
+			        BoneName="FX_Damage01"
+			        FXParticleSystemTemplate="Soviet_KirovVentHydro"
+                    FollowBone="true" />
+                </ModelConditionState>
+        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+					<Model
+						Name="SUGhostBomber_SKN" />
+                    <Texture
+						Original="SUGhostBomber"
+						New="SUGhostBomber_D" />
+                    <ParticleSysBone
+                        BoneName="FX_Damage01"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="FX_Damage01"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                  <ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="FX_Damage02"
+                        FXParticleSystemTemplate="VehicleDamageSmoke"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="FX_Damage02"
+				        FXParticleSystemTemplate="VehicleDamageFire"
+				        FollowBone="true" />
+                  <ParticleSysBone
+						BoneName="FX_Damage02"
+						FXParticleSystemTemplate="VehicleDamageFire02"
+						FollowBone="true" />
+				</ModelConditionState>
+
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+					<Model
+						Name="SUGhostBomber_SKN" />
+					<ParticleSysBone
+						BoneName="FX_Damage01"
+						FXParticleSystemTemplate="VehicleDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+				                
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING MOVING">
+					<Animation
+						AnimationName="SUGhostBomber_MOVA"
+						AnimationMode="LOOP" />
+                    <ParticleSysBone
+                        BoneName="FX_ENGINE01"
+                        FXParticleSystemTemplate="AlliedJetTrail"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="FX_ENGINE01"
+				        FXParticleSystemTemplate="AlliedJetTrailGlow"
+				        FollowBone="true" />
+                    <ParticleSysBone
+                        BoneName="FX_ENGINE02"
+                        FXParticleSystemTemplate="AlliedJetTrail"
+                        FollowBone="true" />
+                    <ParticleSysBone
+				        BoneName="FX_ENGINE02"
+				        FXParticleSystemTemplate="AlliedJetTrailGlow"
+				        FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_WINGTIP01"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_WINGTIP02"
+						FXParticleSystemTemplate="FireHawkConTrail"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FLYING">
+					<Animation
+						AnimationName="SUGhostBomber_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+			</ScriptedModelDraw>
+
+			<ScriptedModelDraw
+				id="ModuleTag_DrawShield"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="USER_10">
+					<Model Name="FXAOEShield" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMGhostBomberAircraftMissilePodWeapon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="2"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="30" />
+			<!--Please make sure the model condition duration matches the attribute mod duration-->
+			<ReturnToProducerSpecialPower
+				id="ModuleTag_ReturnToProducerSpecialPower"
+				SpecialPowerTemplate="SpecialPowerReturnToProducer"
+				AttributeModifier="AttributeModifier_ReturnToBase"
+				AttributeModifierAffectsSelf="true"
+				SetModelCondition="USER_1"
+				SetModelConditionTime="30s"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUGhostBomberAircraft_Dying_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					ExemptStatus="PARKED_AT_AIRFIELD"/>
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDieAtAirfield"
+				CreationList="SUGhostBomberAircraft_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					RequiredStatus="PARKED_AT_AIRFIELD"/>
+			</CreateObjectDie>
+			<DynamicsUpdate
+				id="ModuleTag_DefaultDynamicsUpdate"
+				xai:joinAction="Remove" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					ForceUseDoFXObj="true"
+					FX="FX_SOV_KirovExplode" />
+			</FXListBehavior>
+			<ProductionUpdate
+				id="ModuleTag_PU" />
+			<TransportContain
+				id="ModuleTag_Contain"
+				ObjectStatusOfContained="UNSELECTABLE ENCLOSED CAN_ATTACK"
+				ContainMax="1"
+				AllowEnemiesInside="false"
+				AllowAlliesInside="true"
+				AllowNeutralInside="false"
+				AllowOwnPlayerInsideOverride="true"
+				ShowPips="false"
+				EnterSound="VehicleEnter"
+				ExitSound="VehicleExit"
+				KillPassengersOnDeath="true"
+				ConditionForEntry="INVALID">
+				<InitialPayload
+					Name="SovietCounterMeasuresActivater"
+					Count="1" />
+				<PassengerFilter
+					Rule="NONE">
+					<IncludeThing>SovietCounterMeasuresActivater</IncludeThing>
+				</PassengerFilter>
+				<PassengerData
+					BonePrefix="BONE_CHASSIS">
+					<Filter
+						Rule="NONE">
+						<IncludeThing>SovietCounterMeasuresActivater</IncludeThing>
+					</Filter>
+				</PassengerData>
+				<DieMuxData
+					DeathTypes="ALL" DeathTypesForbidden="ERASED" />
+			</TransportContain>	
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierParkingAircraftNoCountermeasures" 
+				InitiallyActive="true"
+				AttributeModifierName="AttributeModifier_ParkingAircraftNoCountermeasures"
+				RefreshDelay="0.5s"
+				AllowSelf="false"
+				AffectContainedOnly="true">
+				<ObjectFilter
+					Rule="ALL"
+					StatusBitFlagsExclude="AIRBORNE_TARGET"/>
+			</AttributeModifierAuraUpdate>
+			<ShieldBodyUpdate
+				id="ModuleTag_ShieldBodyUpdate" />
+		</Behaviors>
+		<AI>
+			<JetAIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="NO"
+				NeedsRunway="false"
+				KeepsParkingSpaceWhenAirborne="true"
+				OutOfAmmoDamagePerSecond="1.5"
+				CirclesForAttack="true"
+				ReturnToBaseWhenVictimDead="true"
+				StateMachine="JetAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					CanPickDynamicTargetType="ATTACK_MOVE AGGRESSIVE_STANCE"
+					CheckVisionRange="true"/>
+			</JetAIUpdate>
+		</AI>
+		<Body>
+			<ShieldBody
+				id="ModuleTag_Body"
+				MaxHealth="320"
+				ShieldAmount="600"
+				ShieldArmor="SACOMAOEShieldArmor"
+				ShieldRechargeIdleTime="0s"
+				ShieldEnabledFX="FX_AlienShieldEnabled" 
+				ShieldTakeDamageFX="FX_AlienShieldHit"
+				ShieldDepleteFX="FX_AlienShieldDeplete"
+				ShieldActiveModelCondition="USER_10" />
+		</Body>
+		<ClientBehaviors>
+		</ClientBehaviors>
+		<Geometry
+			IsSmall="false">
+			<Shape
+				Type="BOX"
+				MajorRadius="18.0"
+				MinorRadius="30.0"
+				Height="20.0"
+				ContactPointGeneration="VEHICLE"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_GhostBomber_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_GhostBomber_VoiceMoveAttack" AudioType="voiceAttackAfterMoving" />
+			<AudioEntry Sound="SOV_GhostBomber_VoiceCreate" AudioType="voiceCreated" />
+			<AudioEntry Sound="SOV_GhostBomber_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_GhostBomber_VoiceRetreat" AudioType="voiceRetreatToCastle" />
+			<AudioEntry Sound="SOV_GhostBomber_VoiceSelectMS" AudioType="voiceSelect" />
+			<AudioEntry Sound="SOV_GhostBomber_VoiceSelectUnderFireMS" AudioType="voiceSelectUnderFire" /> 
+			<NamedEntry Sound="SOV_GhostBomber_VoiceMoveReload" Name="ReturnToProducer" />
+			<NamedEntry Sound="SOV_GhostBomber_VoiceRetreat" Name="ReturnToProducerWhileUnderAttack" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry
+				Sound="ALL_Vindicator_MovStart"
+				AudioType="soundMoveStart" />
+		</AudioArraySound>
+
+		<VisionInfo
+			VisionRange="760"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+</AssetDeclaration>
