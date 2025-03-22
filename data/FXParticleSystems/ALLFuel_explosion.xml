@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:fxfire03.xml" type="instance"/>
+		<Include source="art:fxsmoke2x2_01_nrm.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="fxfire03" PerParticleAttachedSystem="" Type="GPU_PARTICLE" Priority="ALWAYS_RENDER" SortLevel="1" SystemLifetime="1" id="ALLFuel_explosion">
+		<Lifetime High="15" Low="15"/>
+		<Size High="25" Low="15"/>
+		<BurstCount High="1" Low="1"/>
+		<InitialDelay High="8" Low="8"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="3">
+				<Color b="0.192157" g="0.470588" r="0.67451"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0.101961" g="0.117647" r="0.14902"/>
+			</Color>
+			<ColorScale High="2" Low="2"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+				<DriftVelocity x="0.1" y="0" z="0"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu FramesPerRow="6" SpeedMultiplier="2.2" TotalFrames="36"/>
+		</Draw>
+		<Volume>
+			<Cylinder Radius="130">
+				<Offset x="0" y="0" z="80"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="10" Low="-10"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Update>
+			<Default>
+				<SizeRate High="6" Low="2.0"/>
+				<SizeRateDamping High="0.99" Low="0.99"/>
+				<AngleZ High="7" Low="-7"/>
+				<AngularDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

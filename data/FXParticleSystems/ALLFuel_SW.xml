@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Includes>
-		<Include source="art:fxlenzflare02.xml" type="instance"/>
+		<Include source="art:FXFireBlast04.xml" type="instance"/>
 	</Includes>
-	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" Type="GPU_PARTICLE" id="ABGatewayCenterAccelerant">
-		<Lifetime High="20" Low="10"/>
-		<Size High="20" Low="5"/>
-		<BurstCount High="6" Low="4"/>
+	<FXParticleSystemTemplate IsGroundAligned="true" ParticleTexture="FXFireBlast04" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SystemLifetime="1" Type="GPU_PARTICLE" id="ALLFuel_SW">
+		<Lifetime High="20" Low="20"/>
+		<Size High="120" Low="80"/>
 		<Colors>
 			<Color Frame="2" RelativeAge="50">
-				<Color b="1" g="0.666667" r="0.368627"/>
+				<Color b="0.215686" g="0.301961" r="0.356863"/>
 			</Color>
 			<Color Frame="3" RelativeAge="100">
 				<Color b="0" g="0" r="0"/>
@@ -17,19 +16,22 @@
 		</Colors>
 		<Physics>
 			<Default>
-				<VelocityDamping High="1.1" Low="1.1"/>
+				<VelocityDamping High="1" Low="1"/>
 			</Default>
 		</Physics>
 		<Draw>
 			<Gpu SpeedMultiplier="1"/>
 		</Draw>
 		<Volume>
-			<Sphere IsHollow="false" Radius="10"/>
+			<Line>
+				<StartPoint x="0" y="0" z="15"/>
+				<EndPoint x="0" y="0" z="15"/>
+			</Line>
 		</Volume>
 		<Velocity>
 			<Ortho>
 				<Position>
-					<x High="-2" Low="-1"/>
+					<x High="0" Low="0"/>
 					<y High="0" Low="0"/>
 					<z High="0" Low="0"/>
 				</Position>
@@ -38,9 +40,8 @@
 		<Event/>
 		<Update>
 			<Default>
-				<SizeRate High="0.5" Low="0"/>
-				<SizeRateDamping High="0.85" Low="0.8"/>
-				<AngleZ High="-0.5" Low="-1.5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="7" Low="0"/>
 				<AngularDampingXY High="1" Low="1"/>
 			</Default>
 		</Update>

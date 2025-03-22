@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Includes>
-		<Include source="art:fxlenzflare02.xml" type="instance"/>
+		<Include source="art:FXLenzFlare02.xml" type="instance"/>
 	</Includes>
-	<FXParticleSystemTemplate IsParticleUpTowardsEmitter="true" ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" Type="GPU_PARTICLE" id="ABGatewayCenterAccelerant">
-		<Lifetime High="20" Low="10"/>
-		<Size High="20" Low="5"/>
-		<BurstCount High="6" Low="4"/>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare02" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" SortLevel="1" Type="GPU_PARTICLE" id="AlienVehicleExplodeGlow">
+		<Lifetime High="15" Low="15"/>
+		<Size High="40" Low="30"/>
+		<BurstCount High="1" Low="1"/>
 		<Colors>
-			<Color Frame="2" RelativeAge="50">
-				<Color b="1" g="0.666667" r="0.368627"/>
+			<Color Frame="2" RelativeAge="30">
+				<Color b="0.835294" g="0.415686" r="0.458824"/>
 			</Color>
 			<Color Frame="3" RelativeAge="100">
 				<Color b="0" g="0" r="0"/>
 			</Color>
+			<ColorScale High="1" Low="-1"/>
 		</Colors>
 		<Physics>
 			<Default>
-				<VelocityDamping High="1.1" Low="1.1"/>
+				<VelocityDamping High="1" Low="1"/>
 			</Default>
 		</Physics>
 		<Draw>
 			<Gpu SpeedMultiplier="1"/>
 		</Draw>
 		<Volume>
-			<Sphere IsHollow="false" Radius="10"/>
+			<Sphere IsHollow="false" Radius="25"/>
 		</Volume>
 		<Velocity>
 			<Ortho>
 				<Position>
-					<x High="-2" Low="-1"/>
+					<x High="0" Low="0"/>
 					<y High="0" Low="0"/>
 					<z High="0" Low="0"/>
 				</Position>
@@ -38,9 +39,9 @@
 		<Event/>
 		<Update>
 			<Default>
-				<SizeRate High="0.5" Low="0"/>
-				<SizeRateDamping High="0.85" Low="0.8"/>
-				<AngleZ High="-0.5" Low="-1.5"/>
+				<SizeRate High="0.5" Low="-0.5"/>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngleZ High="3" Low="-3"/>
 				<AngularDampingXY High="1" Low="1"/>
 			</Default>
 		</Update>
