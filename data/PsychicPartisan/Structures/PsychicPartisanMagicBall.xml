@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:JBMAGICBALL_SKN.w3x" />				
+		<Include type="all"	source="ART:JBMAGICBALL_BLD.w3x" />				
+		<Include type="all"	source="DATA:GlobalData/GlobalDefines.xml" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanMagicBall"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_PsychicPartisanMagicBall"
+		ButtonImage="Button_PsychicPartisanMagicBall"
+		Side="PsychicPartisan"
+		HealthBoxHeightOffset="20"
+		EditorSorting="STRUCTURE"		
+		BuildTime="15"
+		EnergyProduction="0"
+		CommandSet="PsychicPartisanMagicBallCommandSet"
+		KindOf="+TIBERIUM_BASED +FS_CASH_PRODUCER"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="225d"
+		CampnessValue="=$CAMPNESS_DEFENSIVE_STRUCTURE"
+		ProductionQueueType="OTHER_STRUCTURE"
+		BuildPlacementTypeFlag="TIBERIUM_FIELD"
+		BuildInProximityToSamePlayerStucture="false"
+		BuildOnRequiredObjectKindOf="TIBERIUM_FIELD HARVESTABLE"
+		EditorName="PsychicPartisanMagicBall"
+		WeaponCategory="GUN"
+		TypeDescription="Type:PsychicPartisanMagicBall"
+		Description="Desc:PsychicPartisanMagicBall">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:PsychicPartisanMagicBall</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1500"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="AlliedPrimaryBaseDefenseArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="SIDE" />
+		<Draws>
+			<!-- DRAW GUN -->
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Gun"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="FX_CENTER">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JBMAGICBALL_SKN" />
+					<WeaponFireFXBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_CENTER" />
+					<WeaponLaunchBone
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="FX_CENTER" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="JBMAGICBALL_SKN" />
+				</ModelConditionState>        
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="JBMAGICBALL_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="JBMAGICBALL_SKN" />
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="FX_CENTER"
+						FXParticleSystemTemplate="AlliedEnergyBallGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_CENTER"
+						FXParticleSystemTemplate="ABGatewayIdleCenterDist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_CENTER"
+						FXParticleSystemTemplate="ABGatewayIdleCenterFlare"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_CENTER"
+						FXParticleSystemTemplate="ABGatewayIdleCenterGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_CENTER"
+						FXParticleSystemTemplate="ABGatewayIdleCenterDarkMatter"
+						FollowBone="true" />	
+				</AnimationState>
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+				</AnimationState>									
+
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING ">
+				</AnimationState>									
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+				</AnimationState>					
+			</ScriptedModelDraw>
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanMagicBallDummy"
+						/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+      
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="5"
+				UpdatePeriod="0.2s"
+				AffectsSelf="false" 
+				InvisibilityTemplate="AlliedAntiVehicleVehicleTech3InvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE">
+					<ExcludeThing>PsychicPartisanMagicBall</ExcludeThing>
+				</BroadcastObjectFilter>
+				<ObjectStatusValidation
+					RequiredStatus="GENERIC_TOGGLE_STATE" />
+			</InvisibilityBroadcastUpdate>
+			
+			<SpecialPower
+				id="ModuleTag_PsyonicBlast"
+				SpecialPowerTemplate="SpecialPower_PsychicPartisanMagicBallDetonation"                
+				UpdateModuleStartsAttack="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_PsychicPartisanMagicBallDetonation"
+				SpecialWeapon="PsychicPartisanMagicBallSuicideWeapon"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="0s"/>
+
+			<Physics
+				id="ModuleTag_Physics"/>
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction">
+				<DieMuxData
+					DeathTypes="ALL"
+DeathTypesForbidden="ERASED" />
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="SovietRefineryHit"
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_None" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData 
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+				<Event Index="onDeath" FX="FX_None" />
+			</FXListBehavior>
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanRazorDroneDeathWeapon"
+				DeathWeapon="PsychicPartisanMagicBallDetonationWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>
+			<TiberiumGrowthModBehavior
+				id="ModuleTag_TiberiumGrowth"
+				GreenTiberiumMultiplier="1.50"
+				BlueTiberiumMultiplier="1.50">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</TiberiumGrowthModBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</DestroyDie>
+			
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpack"
+				UnpackTime="0.1s" />
+			<!-- Temp -->
+
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/GenericAlliedBuildingSuicideNoSpawn.xml" />			
+			<xi:include
+				href="DATA:Includes/InfantryFighting/IF_SecondaryObjectListener.xml" />
+			<xi:include
+				href="DATA:Includes/InfantryFighting/IF_SubObjectsUpgrade.xml" />
+			
+			<LUAEventList
+				id="ModuleTag_LUAEventList"
+				EventListName="AlliedBaseDefenseFunctions"
+			/>
+						
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="DisguiseWhenIdleAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY">	
+				</UnitAITargetChooserData>	
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="2000" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+			<PlacementShape
+				Type= "BOX"
+				MajorRadius = "15.0"
+				MinorRadius = "15.0"
+				Height = "3.0" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</PlacementShape>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "4.02"
+				MinorRadius = "5.25141"
+				Height = "19.227"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+			<Shape 
+				Type= "BOX"
+				MajorRadius = "8.93276"
+				MinorRadius = "8.02577"
+				Height = "7.9023"
+				ContactPointGeneration = "STRUCTURE" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "12.9889" />
+			</Shape>
+			<Shape
+				Type= "BOX"
+				MajorRadius = "7.5"
+				MinorRadius = "10.0"
+				Height = "6.09" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry
+				Sound="AudioEvent:ALL_TurretSelect"
+				AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+<!--
+			<AudioEntry Sound="HumanFaction_SmallBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_SmallBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="500" />
+	</GameObject>
+</AssetDeclaration>

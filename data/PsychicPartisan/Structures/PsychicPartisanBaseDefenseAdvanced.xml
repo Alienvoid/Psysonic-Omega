@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="all"
+			source="ART:SS_PSYCHICINHIBITOR_CTR.w3x" />				
+		<Include
+			type="all"
+			source="ART:SS_PSYCHICINHIBITOR_BLD.w3x" />
+		<Include
+			type="all"
+			source="ART:SS_PSYCHICINHIBITOR_BLD2.w3x" />
+		<Include
+			type="all"
+			source="ART:SS_PSYCHICINHIBITOR.w3x" />
+		<Include
+          type="all"
+          source="ART:JBBaseDefenseAdvanced_FX.w3x" />
+		<Include
+			type="all"
+			source="ART:JBBaseDefenseAdvanced_Platform_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:JBBaseDefenseAdvanced_Platform_BLD.w3x" />
+		<Include
+			type="all"
+			source="ART:JBBaseDefense_FX.w3x" />	
+		<Include
+			type="all"	
+			source="ART:JUnano_unpack.w3x" />
+		<Include
+			type="all"	
+			source="ART:JUnano_skn.w3x" />					
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseStructure.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanBaseDefenseAdvanced"
+		inheritFrom="BaseStructure"
+		SelectPortrait="Portrait_JapanMindControlTower"
+		ButtonImage="Button_JapanMindControlTower"
+		Side="PsychicPartisan"
+		EditorSorting="STRUCTURE"
+		EnergyProduction="-50"
+		CommandSet="JapanPsychicTowerCommandSet"	
+		KindOf="-NOT_AUTOACQUIRABLE +CAN_ATTACK +FS_BASE_DEFENSE +POWERED +CAN_SEE_THROUGH_STRUCTURE +LINE_OF_SIGHT_IGNORES_BUILDINGS +ACTIVATE_AFTER_UNPACK"
+		RadarPriority="STRUCTURE"
+		PlacementViewAngle="45d"
+		ProductionQueueType="OTHER_STRUCTURE"
+		BuildPlacementTypeFlag="OTHER_STRUCTURE"
+		EditorName="PsychicPartisanBaseDefenseAdvanced"
+		WeaponCategory="CANNON"
+		CampnessValue="=$CAMPNESS_DEFENSIVE_STRUCTURE"
+		TypeDescription="Type:JapanMindControlTower"
+		Description="Desc:JapanMindControlTower">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:JapanMindControlTower</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1200"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="JapanBaseDefenseAdvancedArmor"
+			DamageFX="FactionStructureDamageFX" />
+		<SkirmishAIInformation
+			BaseBuildingLocation="DEFENSE" >
+			<ConstructionBaseSelectionCriteria
+				ExcludedBaseTypes="NO_BUILD_RADIUS"
+				PreferredBaseTypes="ENEMIES_IN_BASE UNDER_ATTACK"
+				SortOrder="PREFER_MOST_RECENTLY_ATTACKED" />
+		</SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="BoneGarrisonWall01 BoneGarrisonWall02 BoneGarrisonWall03 BoneGarrisonWall04 BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06 BONE_CONTACT_POINT_07 BONE_CONTACT_POINT_08 BONE_CONTACT_POINT_09 BONE_CONTACT_POINT_10 BONE_CONTACT_POINT_11 BONE_CONTACT_POINT_12 BONE_CONTACT_POINT_13 BONE_CONTACT_POINT_14 BONE_CONTACT_POINT_15 BONE_CONTACT_POINT_16 BONE_CONTACT_POINT_17 BONE_CONTACT_POINT_18	BONE_CONTACT_POINT_19 BONE_CONTACT_POINT_20 BONEGARRISON01 BONEGARRISON02 BONEGARRISON03 BONEGARRISON04 BONEGARRISON05 BONEGARRISON06 BONEGARRISON07 BONEGARRISON08 BONEGARRISON09 BONEGARRISON10 BONEGARRISON11 BONEGARRISON12">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SS_PsychicInhibitor" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="SS_PsychicInhibitorLight"/>	
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="DNA_STRAND" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="DNA_STRAND" />
+				</ModelConditionState>
+
+				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FROZEN">
+					<Model
+						Name="SS_PsychicInhibitor" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedCryoFrozenMistLarge"
+						FollowBone="true"/>
+					<Material
+					  ShaderName="ObjectsFrozen.fx"
+					  TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>SS_PsychicInhibitor</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>SS_PsychicInhibitor_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>SS_PsychicInhibitor_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR">
+					<Model
+						Name="SS_PsychicInhibitor" />
+					<Material ShaderName="ObjectsGeneric.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>SS_PsychicInhibitor</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>SS_PsychicInhibitor_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>SS_PsychicInhibitor_SPM</Value>
+							</Texture>
+							<Float Name="BumpScale">
+								<Value>1.000000</Value>
+							</Float>
+							<Float Name="AmbientColor">
+								<Value>0.400000</Value>
+								<Value>0.400000</Value>
+								<Value>0.400000</Value>
+							</Float>
+							<Float Name="DiffuseColor">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Float Name="SpecularColor">
+								<Value>0.800000</Value>
+								<Value>0.800000</Value>
+								<Value>0.800000</Value>
+							</Float>
+							<Float Name="SpecularExponent">
+								<Value>50.000000</Value>
+							</Float>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+						</Constants>
+					</Material>						
+				</ModelConditionState>				
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="SS_PsychicInhibitor" />
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="SS_PsychicInhibitor" />
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>
+				</ModelConditionState>									
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="SS_PsychicInhibitor"
+						AnimationMode="LOOP"/>
+					<Script>
+						CurDrawableShowSubObjectPermanently("GEOSPHERE01")
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="BUILD_PLACEMENT_CURSOR"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="SS_PsychicInhibitor_BLD"
+						AnimationMode="ONCE"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("GEOSPHERE01")
+					</Script>							
+				</AnimationState>					
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="SS_PsychicInhibitor_BLD2"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("GEOSPHERE01")
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FROZEN">
+					<Script>
+						CurDrawableHideSubObjectPermanently("GEOSPHERE01")
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="SS_PsychicInhibitor_BLD2"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("GEOSPHERE01")
+					</Script>						
+				</AnimationState>								
+			</ScriptedModelDraw>
+
+<!-- DRAW BUILD UP -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Buildup"
+				ExtraPublicBone="BONE_CONTACT_POINT_01 BONE_CONTACT_POINT_02 BONE_CONTACT_POINT_03 BONE_CONTACT_POINT_04 BONE_CONTACT_POINT_05 BONE_CONTACT_POINT_06"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="SS_PsychicInhibitor" />
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>SS_PsychicInhibitor</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>SS_PsychicInhibitor_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>SS_PsychicInhibitor_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="SS_PsychicInhibitor" />
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>SS_PsychicInhibitor</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>SS_PsychicInhibitor_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>SS_PsychicInhibitor_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>
+				</ModelConditionState>					
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="SS_PsychicInhibitor_BLD"
+						AnimationMode="MATCH_UNPACKING"
+						AnimationBlendTime="0" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("GEOSPHERE01")
+					</Script>							
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="SS_PsychicInhibitor_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("GEOSPHERE01")
+					</Script>						
+				</AnimationState>					
+			</ScriptedModelDraw>
+
+<!-- DRAW PLATFORM -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JBBaseDefenseAdvanced_Platform_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Model
+						Name="JBBaseDefenseAdvanced_Platform_SKN" />
+<!-- particle system template not found							
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBBaseDefenseAdvancedWakeSplash"
+						FollowBone="true" />
+-->						
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>				          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD">
+					<Model
+						Name="JBBaseDefenseAdvanced_Platform_SKN" />
+<!-- particle system template not found							
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBBaseDefenseAdvancedWakeSplash"
+						FollowBone="true" />
+-->						
+					<Material ShaderName="BasicW3DHolographic.fx" TechniqueName="Default">
+						<Constants>
+							<Float Name="ColorAmbient">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorDiffuse">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorSpecular">
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="Shininess">
+								<Value>0.000000</Value>
+							</Float>
+							<Float Name="ColorEmissive">
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+								<Value>1.000000</Value>
+							</Float>
+							<Texture Name="Texture_0">
+								<Value>FXJapanBuildMask</Value>
+							</Texture>
+							<Bool Name="DepthWriteEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="AlphaTestEnable">
+								<Value>false</Value>
+							</Bool>
+							<Bool Name="CullingEnable">
+								<Value>true</Value>
+							</Bool>
+							<Int Name="BlendMode">
+								<Value>1</Value>
+							</Int>
+						</Constants>
+					</Material>				          
+				</ModelConditionState>				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Animation
+						AnimationName="JBBaseDefenseAdvanced_Platform_BLD"
+						AnimationMode="MATCH_UNPACKING" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupFroth"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="AlliedPowerPlantWaterBuildupMist"
+						FollowBone="true" />
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD OVER_WATER"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBBaseDefenseAdvanced_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+				</AnimationState>						
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+						CurDrawableHideSubObjectPermanently("Bib")
+					</Script>
+				</AnimationState>																				
+			</ScriptedModelDraw>
+
+<!-- DRAW BUILD UP PLATFORM -->
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Platform_Buildup"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER STRUCTURE_UNPACKING">
+					<Model
+						Name="JBBaseDefenseAdvanced_Platform_SKN" />
+<!-- particle system template not found							
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBBaseDefenseAdvancedWakeSplash"
+						FollowBone="true" />
+-->						
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBPlatform</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBPlatform_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBPlatform_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>						          
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER SOLD">
+					<Model
+						Name="JBBaseDefenseAdvanced_Platform_SKN" />
+<!-- particle system template not found							
+					<ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="JBBaseDefenseAdvancedWakeSplash"
+						FollowBone="true" />
+-->						
+					<Material ShaderName="BuildingsJapanBuildup.fx" TechniqueName="Default">
+						<Constants>
+							<Texture Name="DiffuseTexture">
+								<Value>JBPlatform</Value>
+							</Texture>
+							<Texture Name="NormalMap">
+								<Value>JBPlatform_NRM</Value>
+							</Texture>
+							<Texture Name="SpecMap">
+								<Value>JBPlatform_SPM</Value>
+							</Texture>
+							<Float Name="EnvMult">
+								<Value>1.000000</Value>
+							</Float>
+							<Bool Name="AlphaTestEnable">
+								<Value>true</Value>
+							</Bool>
+						</Constants>
+					</Material>						          
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Script>
+						CurDrawableShowSubObjectPermanently("Bib")
+						CurDrawableHideSubObjectPermanently("Platform")
+						CurDrawableHideSubObjectPermanently("Platform_FX")
+					</Script>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"  
+					ConditionsYes="STRUCTURE_UNPACKING OVER_WATER">
+					<Animation
+						AnimationName="JBBaseDefenseAdvanced_Platform_BLD"
+						AnimationMode="MATCH_UNPACKING" />
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD OVER_WATER"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="JBBaseDefenseAdvanced_Platform_BLD"
+						AnimationMode="ONCE_BACKWARDS"
+						AnimationAbsoluteTime="2s"/>
+					<Script>
+						CurDrawableHideSubObjectPermanently("Bib")
+						CurDrawableShowSubObjectPermanently("Platform")
+						CurDrawableShowSubObjectPermanently("Platform_FX")
+					</Script>						
+				</AnimationState>					
+			</ScriptedModelDraw>
+
+<!-- draw for Egg unpacking -->
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Egg"
+				OkToChangeModelColor="true"
+				StaticModelLODMode="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Model
+						Name="JUnano_skn" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="SOLD">
+					<Model
+						Name="" />
+				</ModelConditionState>	        				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="STRUCTURE_UNPACKING">
+					<Animation
+						AnimationName="JUnano_unpack"
+						AnimationMode="MATCH_UNPACKING" />						
+				</AnimationState>
+			</ScriptedModelDraw>
+
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_Weapon01SetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanMindControlDummyWeapon"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="350" />
+
+			<Physics
+				id="ModuleTag_Physics"/>
+			
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				StanceTemplate="OffensiveStructures" />
+
+			<SpawnBehavior
+				id="ModuleTag_SpawnJapanMindController"
+				SpawnNumberData="3"
+				InitialBurst="3"
+				SpawnReplaceDelayData="10s"
+				SpawnedRequireSpawner="true"
+				KillSpawnsOnCaptured="true"
+				SpawnInsideBuilding="true"
+				KillSpawnsOnDisabled="true">
+				<Die
+					DeathTypes="ALL" />
+				<SpawnTemplate>JapanMindController</SpawnTemplate>
+			</SpawnBehavior>
+			<BuildingDestructionBehavior
+				id="ModuleTag_BuildingDestruction">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+				<Item
+					BonePrefix="BONE_CONTACT_POINT_"
+					FX="JapanStructureHit"
+
+					FlingVelocity="100.0"/>
+			</BuildingDestructionBehavior>
+			<FXListBehavior
+				xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event
+					Index="onDeath"
+					FX="FX_YU_Hotel02_Explode" />
+				<Event
+					Index="onDeath"
+					FX="FX_LargeBuildingDieExplosionRumble" />
+			</FXListBehavior>
+			<FXListBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_DieSound">
+				<DieMuxData 
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+				<Event 
+					Index="onDeath" 
+					FX="FX_SmallBuildingDieExplosion" />
+			</FXListBehavior>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SS_PsychicInhibitor_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<CreateObjectDie
+				id="ModuleTag_Platform_CreateObjectDie"
+				CreationList="JBBaseDefense_Platform_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED"
+					RequiredStatus="OVER_WATER" />
+			</CreateObjectDie>
+						
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED ERASED" />
+			</DestroyDie>	
+
+			<AttributeModifierAuraUpdate
+					id="ModuleTag_AttributeModifierAuraUpdate"
+					AttributeModifierName="AttributeMod_PsychicTowerUnattackable"
+			   		RefreshDelay="1.0s"
+			 		Range="150"
+					InitiallyActive="true">
+					<ObjectFilter
+       					Rule="ANY"
+       					Relationship="ALLIES"
+						Include="VEHICLE INFANTRY STRUCTURE">
+						<ExcludeThing>PsychicPartisanBaseDefenseAdvanced</ExcludeThing>
+					</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+
+
+			<StructureUnpackUpdate
+				id="ModuleTag_StructureUnpack"
+				UnpackTime="8s" />
+			<xi:include
+				href="DATA:Includes/GenericBuildingRepair.xml" />
+			<xi:include
+				href="DATA:Includes/RepairAlliesEngineerContain.xml" />			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="OffensiveStructureAIStateMachine">
+				<UnitAITargetChooserData/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1500" />
+		</Body>
+		<Geometry
+			IsSmall="false">
+      <Shape 
+           Type= "BOX"
+           MajorRadius = "13.035"
+           MinorRadius = "13.3526"
+           Height = "69.9389"
+           ContactPointGeneration = "STRUCTURE" >
+        <Offset
+            x = "0.0"
+            y = "0.0"
+            z = "0.0" />
+      </Shape>
+    </Geometry>
+		<ClientBehaviors>
+			<ModelConditionAudioLoopClientBehavior xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance" id="ModuleTag_StructureConstructionAudio">
+				<ModelConditionSound
+					Sound="JAP_Nanocore_DeployStructureLand"
+					RequiredFlags="STRUCTURE_UNPACKING"
+					ExcludedFlags="OVER_WATER"/>
+				<ModelConditionSound
+					Sound="JAP_Nanocore_DeployStructureWaterMS"
+					RequiredFlags="STRUCTURE_UNPACKING OVER_WATER"/>
+				<ModelConditionSound 
+					Sound="JAP_WaveforceBattery_WeaponBuildUpToFire" 
+					RequiredFlags="FIRING_OR_PREATTACK_A" 
+					ExcludedFlags="DYING" />
+			</ModelConditionAudioLoopClientBehavior>
+			
+      <AnimationSoundClientBehavior id="ModuleTag_ASCB">
+            <Sound Sound="JAP_WaveforceBattery_WeaponChargeLight1st" ExcludedMC="FIRING_OR_RELOADING_A" Animation="JBBaseDefenseAdvanced_FX" Frame="9 20 29 41 51" />
+            <Sound Sound="JAP_WaveforceBattery_WeaponChargeLight2ndToLast" ExcludedMC="FIRING_OR_RELOADING_A" Animation="JBBaseDefenseAdvanced_FX" Frame="60" />
+            <Sound Sound="JAP_WaveforceBattery_WeaponChargeLightLast" ExcludedMC="FIRING_OR_RELOADING_A" Animation="JBBaseDefenseAdvanced_FX" Frame="71" />                    
+      </AnimationSoundClientBehavior>
+		</ClientBehaviors>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_WaveForceBattery_Select" AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+		<AudioEntry Sound="JAP_Nanocore_DeployLoop" AudioType="soundUnderConstruction" />
+<!--
+			<AudioEntry Sound="HumanFaction_MediumBuilding_LightDamageMS" AudioType="soundOnDamaged" />
+			<AudioEntry Sound="HumanFaction_MediumBuilding_HeavyDamageMS" AudioType="soundOnReallyDamaged" />
+-->
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="408"
+			ShroudClearingRange="500" />
+		<ProjectedBuildabilityInfo
+			Radius="75"
+			RadiusY="75"
+			BuildPlacementTypes="OTHER_STRUCTURE" />
+	</GameObject>
+</AssetDeclaration>
