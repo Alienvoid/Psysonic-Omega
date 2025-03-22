@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<AttributeModifierUpgrade xmlns="uri:ea.com:eala:asset"
+				id="ModuleTag_SovietNationalismPropagandaUpgrade"
+				AttributeModifier="AttributeMod_SovietNationalismPropagandaAttribute">
+		<TriggeredBy>Upgrade_SovietNationalismPropaganda</TriggeredBy>
+</AttributeModifierUpgrade>

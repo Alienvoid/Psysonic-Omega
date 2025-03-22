@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<TechUpgradeReceiver xmlns="uri:ea.com:eala:asset"
+	id="ModuleTag_SubmareineReceiver"
+	Radius="5.0"
+	DistanceType="CIRCULAR"
+	FXLineBoneName="NONE"
+	RadarDrawModule="ModuleTag_Draw_UPGRADE"
+	RadarRotateSpeed="0.1r"
+	RadarRotateOffset="0.9r">
+	<TriggeredBy>Upgrade_ForceFloating</TriggeredBy>
+	<ObjectFilter
+		Rule="ANY"
+		Relationship="ALLIES ENEMIES" >
+		<IncludeThing>ForceFloater</IncludeThing>
+	</ObjectFilter>
+</TechUpgradeReceiver>

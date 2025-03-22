@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+	</Includes>
+
+	<ObjectFilterAsset
+		id="GenericSpecialPowerObjectFilter">
+		<Filter
+			Rule="ALL"
+			Relationship="ENEMIES ALLIES NEUTRAL"
+			Exclude="ORE_NODE DEBRIS" 
+			StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET NOT_IN_WORLD">
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="GenericNoObjectSpecialPowerObjectFilter">
+		<Filter
+			Rule="NONE"/>
+	</ObjectFilterAsset>
+	
+	<ObjectFilterAsset
+		 id="GenericAllObjectSpecialPowerObjectFilter">
+		<Filter
+			Rule="ALL"
+			Exclude="ORE_NODE DEBRIS">
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+	
+	<ObjectFilterAsset
+		 id="GenericAllObjectExceptInfantrySpecialPowerObjectFilter">
+		<Filter
+			Rule="ALL"
+			Exclude="ORE_NODE DEBRIS INFANTRY">
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		id="BalloonBombSpecialPowerObjectFilter">
+		<Filter
+			Rule="ALL"
+			Relationship="ENEMIES ALLIES NEUTRAL"
+			Exclude="ORE_NODE DEBRIS"
+			StatusBitFlagsExclude="SUBMERGED NOT_IN_WORLD">
+			<ExcludeThing>JapanBalloonBomb</ExcludeThing>
+			<ExcludeThing>JapanRisingBalloon</ExcludeThing>
+			<ExcludeThing>JapanFallingBalloonBomb</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="GenericNoStructureSpecialPowerObjectFilter">
+		<Filter
+			Rule="ALL"
+			Relationship="ENEMIES ALLIES NEUTRAL"
+			Exclude="STRUCTURE ORE_NODE DEBRIS"
+			StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET">
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="AlliedChronosphereSpecialPowerObjectFilter">
+		<Filter
+				Rule="ANY"
+				Include="INFANTRY VEHICLE AIRCRAFT"
+				StatusBitFlagsExclude="SUBMERGED NOT_IN_WORLD">
+			<IncludeThing>AlliedTimeBombLvl1</IncludeThing>
+			<IncludeThing>AlliedTimeBombLvl2</IncludeThing>
+			<IncludeThing>AlliedTimeBombLvl3</IncludeThing>
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+	 id="AlliedChronoRiftSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Include="INFANTRY VEHICLE STRUCTURE PROJECTILE AIRCRAFT"
+			Exclude="ORE_NODE DEBRIS"
+			StatusBitFlagsExclude="AIRBORNE_TARGET UNDER_IRON_CURTAIN IN_NANOHIVE NOT_IN_WORLD">
+			<IncludeThing>AlliedTimeBombLvl1</IncludeThing>
+			<IncludeThing>AlliedTimeBombLvl2</IncludeThing>
+			<IncludeThing>AlliedTimeBombLvl3</IncludeThing>
+			<ExcludeThing>NanoSwarmHiveEffect</ExcludeThing>
+			<ExcludeThing>NanoField</ExcludeThing>
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+	 id="AlliedCryoSatelliteSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Include="INFANTRY VEHICLE HUGE_VEHICLE AIRCRAFT STRUCTURE TIME_BOMB"
+			Exclude="=$ALL_BRIDGE_KINDOF +' ORE_NODE DEBRIS'" 
+			StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET PARACHUTING NOT_IN_WORLD">
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+	
+	<ObjectFilterAsset
+		 id="AlliedAntiStructureShipEMPMissleSpecialPowerObjectFilter">
+		<Filter
+			Rule="ALL"
+			Exclude="UNATTACKABLE INFANTRY CIVILIAN_BUILDING DEBRIS"
+			StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET">
+			<IncludeThing>SovietScoutVehicle</IncludeThing>
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="SovietMagneticSingularitySpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Include="VEHICLE INFANTRY STRUCTURE"
+      Exclude="UNATTACKABLE"
+			StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET UNDER_IRON_CURTAIN" />
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="SovietMagneticSatelliteSpecialPowerObjectFilter_Base">
+		<Filter
+			id="SovietMagneticSatelliteSpecialPowerObjectFilter_Base"
+			Rule="ANY"
+			Include="VEHICLE CAVALRY"
+			StatusBitFlagsExclude="SUBMERGED UNDER_IRON_CURTAIN">
+			<IncludeThing>SovietScoutVehicle</IncludeThing>
+			<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>			
+			<ExcludeThing>JapanBalloonBomb</ExcludeThing>
+			<ExcludeThing>JapanFallingBalloonBomb</ExcludeThing>
+			<ExcludeThing>JapanEmperorMecha</ExcludeThing>
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="SovietMagneticSatelliteSpecialPowerObjectFilter_LVL1"
+		 inheritFrom="SovietMagneticSatelliteSpecialPowerObjectFilter_Base">
+		<Filter
+			id="SovietMagneticSatelliteSpecialPowerObjectFilter_Base"
+			Exclude="T2_UNIT T3_UNIT"/>
+	</ObjectFilterAsset>
+	
+	<ObjectFilterAsset
+		 id="SovietMagneticSatelliteSpecialPowerObjectFilter_LVL2"
+		 inheritFrom="SovietMagneticSatelliteSpecialPowerObjectFilter_Base">
+		<Filter
+			id="SovietMagneticSatelliteSpecialPowerObjectFilter_Base"
+			Exclude="T3_UNIT"/>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="SovietMagneticSatelliteSpecialPowerObjectFilter_LVL3"
+		 inheritFrom="SovietMagneticSatelliteSpecialPowerObjectFilter_Base">
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="SovietKickbacksSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Include="INFANTRY VEHICLE HUGE_VEHICLE STRUCTURE"
+			Exclude="=$ALL_BRIDGE_KINDOF +' ORE_NODE DEBRIS'"
+			StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET NOT_IN_WORLD">
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="SovietIronCurtainSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Include="VEHICLE STRUCTURE"
+			Exclude="=$ALL_BRIDGE_KINDOF +' ORE_NODE DEBRIS UNATTACKABLE'"
+			StatusBitFlagsExclude="SUBMERGED AIRBORNE_TARGET UNATTACKABLE NOT_IN_WORLD"/>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="JapanPointDefenseDroneSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Relationship="ALLIES"
+			Include="=$POINT_DEFENSE_DRONE_INCLUDE_KINDOF"
+			Exclude="=$POINT_DEFENSE_DRONE_EXCLUDE_KINDOF"
+			StatusBitFlagsExclude="=$POINT_DEFENSE_DRONE_EXCLUDE_OBJECTSTATUS">
+			<ExcludeThing>JapanPointDefenseDrone</ExcludeThing>
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+
+	<ObjectFilterAsset
+		 id="JapanEmperorsResolveSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Include="INFANTRY VEHICLE HUGE_VEHICLE SHIP"
+			Exclude="STRUCTURE"
+			StatusBitFlagsExclude="=$EMPERORS_RAGE_TARGET_OBJSTATUS_TO_EXCLUDE">
+			<ExcludeThing>FakeMiner</ExcludeThing>
+			<ExcludeThing>FakeRefinery</ExcludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+	
+	<ObjectFilterAsset
+		 id="JapanEmergencyRepairSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Relationship="ALLIES"
+			Include="VEHICLE HUGE_VEHICLE SHIP SUBMARINE"
+			Exclude="STRUCTURE"
+			StatusBitFlagsExclude="IN_NANOHIVE NOT_IN_WORLD">
+		</Filter>
+	</ObjectFilterAsset>
+	
+	<ObjectFilterAsset
+		 id="PsychicPartisanSupersonicAttackSpecialPowerObjectFilter">
+		<Filter
+			Rule="ANY"
+			Include="AIRCRAFT"
+			Exclude="STRUCTURE"
+			StatusBitFlags="AIRBORNE_TARGET"
+			StatusBitFlagsExclude="UNDER_IRON_CURTAIN IN_NANOHIVE NOT_IN_WORLD">
+		</Filter>
+	</ObjectFilterAsset>
+	
+	<ObjectFilterAsset
+		 id="PsychicPartisanSacrificeSpecialPowerObjectFilter">
+		<Filter
+			Rule="NONE"
+			Relationship="ALLIES"
+			StatusBitFlagsExclude="SUBMERGED">
+			<IncludeThing>PsychicPartisanArcherInfantry</IncludeThing>
+			<IncludeThing>PsychicPartisanEngineer</IncludeThing>
+			<IncludeThing>JapanRioter</IncludeThing>
+			<IncludeThing>PsychicPartisanInitiate</IncludeThing>
+			<IncludeThing>PsychicPartisanECTrooper</IncludeThing>
+			<IncludeThing>PsychicPartisanBetaYuriko</IncludeThing>
+			<IncludeThing>PsychicPartisanInfiltrationInfantry</IncludeThing>
+			<IncludeThing>PsychicPartisanAntiVehicleInfantry</IncludeThing>
+			<IncludeThing>PsychicPartisanAntiVehicleInfantryTech3</IncludeThing>
+			<IncludeThing>PsychicPartisanECTrooper</IncludeThing>
+		</Filter>
+	</ObjectFilterAsset>
+	
+</AssetDeclaration>
