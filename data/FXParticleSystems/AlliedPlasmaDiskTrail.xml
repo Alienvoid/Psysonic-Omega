@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXLenzFlare01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXLenzFlare01" PerParticleAttachedSystem="" Priority="MEDIUM_OR_ABOVE" SystemLifetime="40" Type="TRAIL" id="AlliedPlasmaDiskTrail">
+		<Lifetime High="10" Low="10"/>
+		<Size High="25" Low="20"/>
+		<BurstDelay High="2" Low="2"/>
+		<BurstCount High="1" Low="1"/>
+		<InitialDelay High="3" Low="3"/>
+		<Colors>
+			<Color Frame="2" RelativeAge="25">
+				<Color b="0.282353" g="0.109804" r="0.172549"/>
+			</Color>
+			<Color Frame="3" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.95" Low="0.95"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Trail TrailLife="10"/>
+		</Draw>
+		<Volume>
+			<Point/>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="30" Low="10"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRateDamping High="1" Low="1"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>
