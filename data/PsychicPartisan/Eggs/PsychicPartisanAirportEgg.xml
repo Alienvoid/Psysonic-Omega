@@ -9,7 +9,7 @@
 			source="ART:Allied_Place_Holder.xml" />			
 		<Include
 			type="all"
-			source="ART:JUEgg.w3x" />
+			source="ART:JUnano_SKN.w3x" />
 		<Include
 			type="all"
 			source="ART:JUnano_float.w3x" />
@@ -28,31 +28,28 @@
 			source="DATA:BaseObjects/BaseEgg.xml" />
 	</Includes>
 	<GameObject
-		id="PsychicPartisanMechaKingEgg"
+		id="PsychicPartisanAirportEgg"
 		inheritFrom="BaseEgg"
-		SelectPortrait="Portrait_JapanMechaKing"
-		ButtonImage="Button_JapanMechaKing"
-		Side="PsychicPartisan"	
-		SubGroupPriority="816"			
+		SelectPortrait="Portrait_PsychicPartisanAirfield"
+		ButtonImage="Button_PsychicPartisanAirfield"
+		Side="PsychicPartisan"
+		SubGroupPriority="816"
 		CommandSet="JapanWarFactoryEggCommandSet"
 		KindOf="=$EGG_KINDOFS"
 		PlacementViewAngle="-45d"
-		BuildTime="100"
-		ProductionQueueType="OTHER_STRUCTURE"
-		EditorName="PsychicPartisanMechaKingEgg"
-		Description="Desc:PsychicPartisanMechaKingEgg"
-		TypeDescription="Type:PsychicPartisanMechaKingEgg"
+		ProductionQueueType="MAIN_STRUCTURE"
+		EditorName="PsychicPartisanAirportEgg"
+		Description="Desc:PsychicPartisanAirportEgg"
+		TypeDescription="Type:PsychicPartisanAirportEgg"
 		HealthBoxHeightOffset="60"
-		UnitIntro="Japan_Nanocore_UnitIntro"
-		MaxSimultaneousOfType="1">
-		<EquivalentTo>PsychicPartisanMechaKing</EquivalentTo>
+		UnitIntro="Japan_Nanocore_UnitIntro">
 		<DisplayName
-			xai:joinAction="Replace">Name:PsychicPartisanMechaKingEgg</DisplayName>
+			xai:joinAction="Replace">Name:PsychicPartisanAirportEgg</DisplayName>
 		<GameDependency>
-			<RequiredObject>JapanTechStructure</RequiredObject>
+			<RequiredObject>PsychicPartisanRefinery</RequiredObject>
 		</GameDependency>
 		<ObjectResourceInfo>
-			<BuildCost Account="=$ACCOUNT_ORE" Amount="20000"/>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1000"/>
 		</ObjectResourceInfo>
 		<ArmorSet
 			Armor="JapanEggArmor"
@@ -60,20 +57,100 @@
 		<LocomotorSet
 			Locomotor="JapanEggLocomotor"
 			Condition="NORMAL"
-			Speed="65.0" />
+			Speed="90.0" />
 		<LocomotorSet
 			Locomotor="JapanEggWaterLocomotor"
 			Condition="NORMAL"
-			Speed="65.0" />
+			Speed="90.0" />
 		<Draws>
 			<TruckDraw
 				id="ModuleTag_Draw"
-				ExtraPublicBone="BONE_FX1"
+				ExtraPublicBone="B_ANIM005"
 				OkToChangeModelColor="true">
 				<ModelConditionState
 					ParseCondStateType="PARSE_DEFAULT">
 					<Model
-						Name="JUEgg" />
+						Name="JUnano_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Model
+						Name="JUnano_SKN" />
+				</ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DAMAGED">
+          <Model
+						Name="JUnano_SKN" />
+					<Texture
+						Original="EXJapanBarraks"
+						New="EXJapanNewBuildingEggs3" />
+          <ParticleSysBone
+						BoneName="B_ANIM005"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="REALLYDAMAGED">
+          <Model
+						Name="JUnano_SKN" />
+					<Texture
+						Original="EXJapanBarraks"
+						New="EXJapanNewBuildingEggs3" />
+          <Texture
+						Original="JUnano_SKN"
+						New="JUnano_D" />
+          <ParticleSysBone
+						BoneName="B_ANIM005"
+						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="B_ANIM005"
+						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="B_ANIM005"
+						FXParticleSystemTemplate="JapanVehicleDamagedFire"
+						FollowBone="true" />
+        </ModelConditionState>
+        <ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="OVER_WATER">
+          <Model
+						Name="JUnano_SKN" />
+          <ParticleSysBone
+						BoneName="ROOTTRANSFORM"
+						FXParticleSystemTemplate="SVAntiAirShipWaterWake"
+						FollowBone="true" />
+        </ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="JUnano_float"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"/>
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="MOVING">
+					<Animation
+						AnimationName="JUnano_float"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15"/>						
+				</AnimationState>
+			</TruckDraw>
+			
+			
+			<TruckDraw
+				id="ModuleTag_DrawFlag"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="junano_icon" />
 					<Texture
 						Original="EXJapanBarraks"
 						New="EXJapanNewBuildingEggs3" />
@@ -82,138 +159,37 @@
 					ParseCondStateType="PARSE_NORMAL"
 					ConditionsYes="FORMATION_PREVIEW">
 					<Model
-						Name="JUEgg" />
+						Name="junano_icon" />
 					<Texture
 						Original="EXJapanBarraks"
 						New="EXJapanNewBuildingEggs3" />
 				</ModelConditionState>
-        <ModelConditionState
-					ParseCondStateType="PARSE_NORMAL"
-					ConditionsYes="DAMAGED">
-          <Model
-						Name="JUEgg" />
-					<Texture
-						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
-          <ParticleSysBone
-						BoneName="FXBone01"
-						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
-						FollowBone="true" />
-        </ModelConditionState>
-        <ModelConditionState
-					ParseCondStateType="PARSE_NORMAL"
-					ConditionsYes="REALLYDAMAGED">
-          <Model
-						Name="JUEgg" />
-					<Texture
-						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
-          <Texture
-						Original="JUEgg"
-						New="JUEgg_D" />
-          <ParticleSysBone
-						BoneName="FXBone01"
-						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
-						FollowBone="true" />
-          <ParticleSysBone
-						BoneName="FXBone01"
-						FXParticleSystemTemplate="JapanVehicleDamagedSparks"
-						FollowBone="true" />
-          <ParticleSysBone
-						BoneName="FXBone01"
-						FXParticleSystemTemplate="JapanVehicleDamagedFire"
-						FollowBone="true" />
-        </ModelConditionState>
-        <ModelConditionState
-					ParseCondStateType="PARSE_NORMAL"
-					ConditionsYes="OVER_WATER">
-          <Model
-						Name="JUEgg" />
-					<Texture
-						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
-          <ParticleSysBone
-						BoneName="ROOTTRANSFORM"
-						FXParticleSystemTemplate="SVAntiAirShipWaterWake"
-						FollowBone="true" />
-        </ModelConditionState>
 				<AnimationState
 					ParseCondStateType="PARSE_DEFAULT"
 					Flags="START_FRAME_LAST">
 					<Script>
 						CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-						CurDrawableShowSubObjectPermanently("BarracksEgg")
+						CurDrawableHideSubObjectPermanently("BarracksEgg")
 						CurDrawableHideSubObjectPermanently("NavalYardEgg")
 						CurDrawableHideSubObjectPermanently("PowerPlantEgg")
 						CurDrawableHideSubObjectPermanently("RefineryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
 						CurDrawableHideSubObjectPermanently("WarFactoryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+						CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
 						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
 					</Script>						
 				</AnimationState>
-
-				<AnimationState
-					ParseCondStateType="PARSE_NORMAL"
-					ConditionsYes="MOVING">
-					<Script>
-						CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-						CurDrawableShowSubObjectPermanently("BarracksEgg")
-						CurDrawableHideSubObjectPermanently("NavalYardEgg")
-						CurDrawableHideSubObjectPermanently("PowerPlantEgg")
-						CurDrawableHideSubObjectPermanently("RefineryEgg")
-						CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
-						CurDrawableHideSubObjectPermanently("WarFactoryEgg")
-						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
-						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
-					</Script>						
-				</AnimationState>
-        <AnimationState
-          ParseCondStateType="PARSE_NORMAL"
-          ConditionsYes="DAMAGED">
-          <Script>
-            CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-            CurDrawableShowSubObjectPermanently("BarracksEgg")
-            CurDrawableHideSubObjectPermanently("NavalYardEgg")
-            CurDrawableHideSubObjectPermanently("PowerPlantEgg")
-            CurDrawableHideSubObjectPermanently("RefineryEgg")
-            CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
-            CurDrawableHideSubObjectPermanently("WarFactoryEgg")
-            CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
-          </Script>
-        </AnimationState>
-        <AnimationState
-					ParseCondStateType="PARSE_NORMAL"
-					ConditionsYes="REALLYDAMAGED">
-          <Script>
-            CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-            CurDrawableShowSubObjectPermanently("BarracksEgg")
-            CurDrawableHideSubObjectPermanently("NavalYardEgg")
-            CurDrawableHideSubObjectPermanently("PowerPlantEgg")
-            CurDrawableHideSubObjectPermanently("RefineryEgg")
-            CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
-            CurDrawableHideSubObjectPermanently("WarFactoryEgg")
-            CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
-          </Script>
-        </AnimationState>
 			</TruckDraw>
+			
 		</Draws>
 		<Behaviors>
 			<Physics
 				id="ModuleTag_Physics" />
 			<CreateObjectDie
 				id="ModuleTag_CreateObjectDie"
-				CreationList="JUEgg_Die_OCL">
+				CreationList="JUnano_Die_OCL">
 				<DieMuxData
 					DeathTypes="ALL" 
 DeathTypesForbidden="ERASED"/>
@@ -244,7 +220,7 @@ DeathTypesForbidden="ERASED"/>
 				PackTime="3.0s"
 				StartAbilityRange="2.0"
 				ReplaceOptions="CHECK_BUILD_ASSISTANT DISABLE_DURING_REPLACE CLEAR_LOCATION">
-				<ReplacementTemplate>PsychicPartisanMechaKingDummy</ReplacementTemplate>
+				<ReplacementTemplate>PsychicPartisanAirport</ReplacementTemplate>
 			</ReplaceSelfSpecialAbility>
 			
 			<!-- Enhanced Kamikaze Player Power -->

@@ -12,47 +12,34 @@
 			source="ART:JUEgg.w3x" />
 		<Include
 			type="all"
-			source="ART:JUnano_float.w3x" />
-		<Include
-			type="all"
-			source="ART:junano_icon.w3x" />
-		<Include
-			type="all"
-			source="ART:JUnano_D.xml" />
-		<Include
-			type="all"
-			source="ART:EXJapanNewBuildingEggs3.xml" />
+			source="ART:EXJapanPlasmaDefender.xml" />
 		<!-- Base Object -->
 		<Include
 			type="instance"
 			source="DATA:BaseObjects/BaseEgg.xml" />
 	</Includes>
 	<GameObject
-		id="PsychicPartisanMechaKingEgg"
+		id="PsychicPartisanPlasmaDefenderEgg"
 		inheritFrom="BaseEgg"
-		SelectPortrait="Portrait_JapanMechaKing"
-		ButtonImage="Button_JapanMechaKing"
-		Side="PsychicPartisan"	
-		SubGroupPriority="816"			
-		CommandSet="JapanWarFactoryEggCommandSet"
-		KindOf="=$EGG_KINDOFS"
-		PlacementViewAngle="-45d"
-		BuildTime="100"
-		ProductionQueueType="OTHER_STRUCTURE"
-		EditorName="PsychicPartisanMechaKingEgg"
-		Description="Desc:PsychicPartisanMechaKingEgg"
-		TypeDescription="Type:PsychicPartisanMechaKingEgg"
+		SelectPortrait="Portrait_JapanPlasmaDefender"
+		ButtonImage="Button_JapanPlasmaDefender"
+		Side="Japan"
+		SubGroupPriority="819"
+		CommandSet="JapanPlasmaDefenderEggCommandSet"
+		KindOf="=$BASE_DEFENSE_EGG_KINDOFS"
+		EditorName="PsychicPartisanPlasmaDefenderEgg"
+		Description="Desc:JapanPlasmaDefenderEgg"
+		TypeDescription="Type:JapanPlasmaDefenderEgg"
+		PlacementViewAngle="225d"
 		HealthBoxHeightOffset="60"
-		UnitIntro="Japan_Nanocore_UnitIntro"
-		MaxSimultaneousOfType="1">
-		<EquivalentTo>PsychicPartisanMechaKing</EquivalentTo>
+		UnitIntro="Japan_Nanocore_UnitIntro">
 		<DisplayName
-			xai:joinAction="Replace">Name:PsychicPartisanMechaKingEgg</DisplayName>
+			xai:joinAction="Replace">Name:JapanPlasmaDefenderEgg</DisplayName>
 		<GameDependency>
-			<RequiredObject>JapanTechStructure</RequiredObject>
+			<RequiredObject>PsychicPartisanConstructionYard</RequiredObject>
 		</GameDependency>
 		<ObjectResourceInfo>
-			<BuildCost Account="=$ACCOUNT_ORE" Amount="20000"/>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1000"/>
 		</ObjectResourceInfo>
 		<ArmorSet
 			Armor="JapanEggArmor"
@@ -60,15 +47,28 @@
 		<LocomotorSet
 			Locomotor="JapanEggLocomotor"
 			Condition="NORMAL"
-			Speed="65.0" />
+			Speed="90.0" />
 		<LocomotorSet
 			Locomotor="JapanEggWaterLocomotor"
 			Condition="NORMAL"
-			Speed="65.0" />
+			Speed="90.0" />
+    <SkirmishAIInformation
+      BaseBuildingLocation="DEFENSE" >
+      <ConstructionBaseSelectionCriteria
+				ExcludedBaseTypes="NO_BUILD_RADIUS"
+				PreferredBaseTypes="ENEMIES_IN_BASE UNDER_ATTACK"
+				SortOrder="PREFER_MOST_RECENTLY_ATTACKED" />
+    </SkirmishAIInformation>
 		<Draws>
 			<TruckDraw
 				id="ModuleTag_Draw"
-				ExtraPublicBone="BONE_FX1"
+				LeftFrontTireBone="Bone_LFTire"
+				RightFrontTireBone="Bone_RFTire"
+				MidLeftRearTireBone="Bone_LMTire"
+				MidRightRearTireBone="Bone_RMTire"
+				LeftRearTireBone="Bone_LRTire"
+				RightRearTireBone="Bone_RRTire"
+				TireRotationMultiplier="0.1"
 				OkToChangeModelColor="true">
 				<ModelConditionState
 					ParseCondStateType="PARSE_DEFAULT">
@@ -76,7 +76,7 @@
 						Name="JUEgg" />
 					<Texture
 						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
+						New="EXJapanPlasmaDefender" />
 				</ModelConditionState>
 				<ModelConditionState
 					ParseCondStateType="PARSE_NORMAL"
@@ -85,7 +85,7 @@
 						Name="JUEgg" />
 					<Texture
 						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
+						New="EXJapanPlasmaDefender" />
 				</ModelConditionState>
         <ModelConditionState
 					ParseCondStateType="PARSE_NORMAL"
@@ -94,7 +94,7 @@
 						Name="JUEgg" />
 					<Texture
 						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
+						New="EXJapanPlasmaDefender" />
           <ParticleSysBone
 						BoneName="FXBone01"
 						FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
@@ -107,7 +107,7 @@
 						Name="JUEgg" />
 					<Texture
 						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
+						New="EXJapanPlasmaDefender" />
           <Texture
 						Original="JUEgg"
 						New="JUEgg_D" />
@@ -131,25 +131,26 @@
 						Name="JUEgg" />
 					<Texture
 						Original="EXJapanBarraks"
-						New="EXJapanNewBuildingEggs3" />
+						New="EXJapanPlasmaDefender" />
           <ParticleSysBone
 						BoneName="ROOTTRANSFORM"
 						FXParticleSystemTemplate="SVAntiAirShipWaterWake"
 						FollowBone="true" />
         </ModelConditionState>
-				<AnimationState
+        
+        <AnimationState
 					ParseCondStateType="PARSE_DEFAULT"
 					Flags="START_FRAME_LAST">
 					<Script>
 						CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-						CurDrawableShowSubObjectPermanently("BarracksEgg")
+						CurDrawableHideSubObjectPermanently("BarracksEgg")
 						CurDrawableHideSubObjectPermanently("NavalYardEgg")
 						CurDrawableHideSubObjectPermanently("PowerPlantEgg")
 						CurDrawableHideSubObjectPermanently("RefineryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
 						CurDrawableHideSubObjectPermanently("WarFactoryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+						CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
 						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
 					</Script>						
@@ -160,31 +161,32 @@
 					ConditionsYes="MOVING">
 					<Script>
 						CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-						CurDrawableShowSubObjectPermanently("BarracksEgg")
+						CurDrawableHideSubObjectPermanently("BarracksEgg")
 						CurDrawableHideSubObjectPermanently("NavalYardEgg")
 						CurDrawableHideSubObjectPermanently("PowerPlantEgg")
 						CurDrawableHideSubObjectPermanently("RefineryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
 						CurDrawableHideSubObjectPermanently("WarFactoryEgg")
 						CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-						CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+						CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
 						CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
 						CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
-					</Script>						
+					</Script>								
 				</AnimationState>
+
         <AnimationState
           ParseCondStateType="PARSE_NORMAL"
           ConditionsYes="DAMAGED">
           <Script>
             CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-            CurDrawableShowSubObjectPermanently("BarracksEgg")
+            CurDrawableHideSubObjectPermanently("BarracksEgg")
             CurDrawableHideSubObjectPermanently("NavalYardEgg")
             CurDrawableHideSubObjectPermanently("PowerPlantEgg")
             CurDrawableHideSubObjectPermanently("RefineryEgg")
             CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
             CurDrawableHideSubObjectPermanently("WarFactoryEgg")
             CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+            CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
             CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
           </Script>
@@ -194,18 +196,19 @@
 					ConditionsYes="REALLYDAMAGED">
           <Script>
             CurDrawableHideSubObjectPermanently("ConstructionYardEgg")
-            CurDrawableShowSubObjectPermanently("BarracksEgg")
+            CurDrawableHideSubObjectPermanently("BarracksEgg")
             CurDrawableHideSubObjectPermanently("NavalYardEgg")
             CurDrawableHideSubObjectPermanently("PowerPlantEgg")
             CurDrawableHideSubObjectPermanently("RefineryEgg")
             CurDrawableHideSubObjectPermanently("SuperWeaponEgg")
             CurDrawableHideSubObjectPermanently("WarFactoryEgg")
             CurDrawableHideSubObjectPermanently("SuperWeaponAdvancedEgg")
-            CurDrawableHideSubObjectPermanently("BaseDefenseEgg")
+            CurDrawableShowSubObjectPermanently("BaseDefenseEgg")
             CurDrawableHideSubObjectPermanently("BaseDefenseAdvancedEgg")
             CurDrawableHideSubObjectPermanently("EconomicStructureEgg")
           </Script>
         </AnimationState>
+
 			</TruckDraw>
 		</Draws>
 		<Behaviors>
@@ -221,8 +224,8 @@ DeathTypesForbidden="ERASED"/>
 			<DestroyDie
 				id="ModuleTag_Die">
 				<DieMuxData
-					DeathTypes="ALL"
-DeathTypesForbidden="ERASED" />
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
 			</DestroyDie>
 			<FXListBehavior
 				id="ModuleTag_FXList">
@@ -233,10 +236,10 @@ DeathTypesForbidden="ERASED"/>
 					Index="onDeath"
 					FX="FX_JapanVehicleDie" />
 			</FXListBehavior>
-			
+
 			<xi:include
 				href="DATA:Includes/GenericUnpackPower.xml" />
-			
+
 			<ReplaceSelfSpecialAbility
 				id="ModuleTag_ReplaceSelf"
 				SpecialPowerTemplate="SpecialPower_UnpackReplaceSelf"
@@ -244,45 +247,46 @@ DeathTypesForbidden="ERASED"/>
 				PackTime="3.0s"
 				StartAbilityRange="2.0"
 				ReplaceOptions="CHECK_BUILD_ASSISTANT DISABLE_DURING_REPLACE CLEAR_LOCATION">
-				<ReplacementTemplate>PsychicPartisanMechaKingDummy</ReplacementTemplate>
+				<ReplacementTemplate>PsychicPartisanPlasmaDefender</ReplacementTemplate>
 			</ReplaceSelfSpecialAbility>
-			
+
 			<!-- Enhanced Kamikaze Player Power -->
 			<xi:include
 				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
 			<xi:include
 				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
 			<!-- -->
-			
+
 		</Behaviors>
 		<Body>
 			<ActiveBody
 				id="ModuleTag_Body"
-				MaxHealth="400.0" />
+				MaxHealth="200.0" />
 		</Body>
 		<ClientBehaviors>
 			<ModelConditionAudioLoopClientBehavior id="ModuleTag_ShrunkenVoice">
-				<ModelConditionSound Sound="JAP_Nanocore2_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
+				<ModelConditionSound Sound="JAP_Nanocore1_VoiceShrunken" RequiredFlags="SHRINK_EFFECT" />
 			</ModelConditionAudioLoopClientBehavior>
 		</ClientBehaviors>
 		<Geometry
 			IsSmall="true">
 			<Shape
 				Type="BOX"
-				MajorRadius="35.0"
-				MinorRadius="20.0"
+				MajorRadius="20.0"
+				MinorRadius="10.0"
 				Height="25.0"
 				ContactPointGeneration="VEHICLE" />
 		</Geometry>
 		<AudioArrayVoice>
-			<AudioEntry Sound="JAP_Nanocore2_VoiceCreateMechaBay" AudioType="voiceCreated" />
-			<AudioEntry Sound="JAP_Nanocore2_VoiceHelpMe" AudioType="voiceFear" />
-			<AudioEntry Sound="JAP_Nanocore2_VoiceMove" AudioType="voiceMove" />
-			<AudioEntry Sound="JAP_Nanocore2_VoiceSelectMechaBayMS" AudioType="voiceSelect" />
-			<NamedEntry Sound="JAP_Nanocore2_VoiceMoveSpecial" Name="VoiceDeploy" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceCreateDefender" AudioType="voiceCreated" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceHelpMe" AudioType="voiceFear" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceMove" AudioType="voiceMove" />
+			<AudioEntry Sound="JAP_Nanocore1_VoiceSelectDefenderMS" AudioType="voiceSelect" />
+			<NamedEntry Sound="JAP_Nanocore1_VoiceMoveSpecial" Name="VoiceDeploy" />
 		</AudioArrayVoice>
 		<VisionInfo
 			VisionRange="100"
 			ShroudClearingRange="200" />		
 	</GameObject>
+	
 </AssetDeclaration>
