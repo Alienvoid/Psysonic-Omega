@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+			type="all"
+			source="ART:FX_Bomb.w3x" />
+  </Includes>
+  <GameObject
+		id="SovietScudMIRVMiniRocketProjectile"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED BALLISTIC_MISSILE">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FX_Bomb" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"/>
+					<!--<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietCountermeasuresTrailSmoke"/>-->
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion" />
+			</FXListBehavior>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="PING_PONG_SIDEWAYS_DRIFT DETONATE_CALLS_KILL ORIENT_TO_FLIGHT_PATH"
+				FirstHeightMin="1"
+				FirstHeightMax="1"
+				SecondHeightMin="5"
+				SecondHeightMax="5"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				GroundHitFX="FX_SOV_V4Explosion"
+				SidewaysDrift="25"
+				FlightPathAdjustDistPerSecond="55.0"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="20.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_V4MissileLauncher_MIRVincoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+  <GameObject
+    inheritFrom="SovietScudMIRVMiniRocketProjectile"
+		id="SovietScudMIRVMiniRocketProjectile_Veteran">
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+        xai:joinAction="Replace">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="FX_Bomb" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"/>
+        </ModelConditionState>
+      </ScriptedModelDraw>
+    </Draws>
+    <Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion_Vet" />
+      </FXListBehavior>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

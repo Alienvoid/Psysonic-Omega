@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+	</Includes>
+	<GameObject
+		id="SovietGaussCannonEMSingularityNode"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE SIMPLE_OBJECT_PROP SKIRMISH_AI_ATTEMPT_TO_DODGE PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="SovietGaussCannonEMSingularityNode">
+		<DisplayName>SovietGaussCannonEMSingularityNode</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="220.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+          <ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="TeslaSingularityCoreFlare"
+              FollowBone="true"/>
+          <ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="TeslaSingularityCoreLightning"
+              FollowBone="true"/>
+          <ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="AlliedFutureTankHit_Light"
+              FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="1.5s"
+				MaxLifetime="1.5s" />
+				
+			<FireWeaponUpdate
+				id="ModuleTag_FireOneShotWeaponUpdate">
+				<FireWeaponNugget
+					WeaponName="SovietGaussCannonEMSWeapon_OneShotWeapon"
+					FireDelay="0.0s"
+					OneShot="true">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			
+			<FireWeaponUpdate
+				id="ModuleTag_FireIncrementalWeaponUpdate"
+				FireInterval="0.25s">
+				<FireWeaponNugget
+					WeaponName="SovietGaussCannonEMSWeapon_IncrementalWeapon"
+					FireDelay="0.0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="1.0">
+			</Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="ALL_FutureTank_Weapon_NeutronScramblerImpactSmall" AudioType="soundAmbient"/>
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

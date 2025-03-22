@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- The default tank projectile -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXShell.w3x" />
+		<Include
+			type="all"
+			source="ART:FXTankShellHeroic.w3x" />			
+	</Includes>
+	<GameObject
+		id="SovietHowitzerMIRVShell"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SovietHowitzerShell">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_SovietHowitzerShellScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXShell" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="GDIShellTrail"
+						FollowBone="true" />	
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  IgnoreProjectileState="true"
+			  MinLifetime="1.2s"
+			  MaxLifetime="1.4s" />
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_V4MissileLauncher_MIRVmissileSplit" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id= "BezierPorgectile"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="45"
+				FirstHeightMax="65"
+				SecondHeightMin="75"
+				SecondHeightMax="95"
+				FirstPercentIndent="20"
+				SecondPercentIndent="70"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="0">
+			</BezierProjectile>
+			<FireWeaponWhenDead
+				id="ModuleTag_FinalWeapon"
+				InitiallyActive="true"
+				ContinueToBezierDestination="true"
+				DeathWeapon="SovietAntiStructureVehicleMIRVLauncher">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="NOD_Specter_ProjectileFlyBy" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+</AssetDeclaration>

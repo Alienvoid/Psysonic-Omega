@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXLightningMJ02.xml" />
+		<Include
+			type="all"
+			source="ART:FXLightningMJ02_Yellow.xml" />
+		<Include
+			type="all"
+			source="ART:FXGradRandom.xml" />
+	</Includes>
+	<GameObject
+		id="SovietHeavyAntiVehicleInfantryTeslaGunNodeBase"
+		KindOf="DEFLECT_BY_SPECIAL_POWER INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<ArmorSet
+			Armor="NoArmor"/>
+		<Draws>
+		
+      <LaserDraw
+        id="ModuleTag_Laser"
+        Texture1_UTile="1"
+        Texture1_VTile="1"
+        Texture1_UScrollRate="0"
+        Texture1_VScrollRate="2"
+        Texture1_NumFrames="1"
+        Texture1_FrameRate="30"
+        Texture2_UTile="1"
+        Texture2_VTile=".01"
+        Texture2_UScrollRate="0"
+        Texture2_VScrollRate=".8"
+        Texture2_NumFrames="1"
+        Texture2_FrameRate="30"
+				WeaponSlotID="1"
+				LaserStateID="1"
+        LaserWidth="10">
+        <FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+          <Constants>
+            <Texture
+							Name="Texture1">
+              <Value>FXLightningMJ02</Value>
+            </Texture>
+            <Texture
+							Name="Texture2">
+              <Value>FXGradRandom</Value>
+            </Texture>
+            <Float Name="ColorEmissive">
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+            </Float>
+          </Constants>
+				</FXShader>
+			</LaserDraw>
+			
+			<LaserDraw
+				id="ModuleTag_Laser02"
+				Texture1_UTile="1"
+        Texture1_VTile=".7"
+        Texture1_UScrollRate="0"
+        Texture1_VScrollRate="1.8"
+        Texture1_NumFrames="1"
+        Texture1_FrameRate="30"
+        Texture2_UTile="1"
+        Texture2_VTile=".01"
+        Texture2_UScrollRate="0"
+        Texture2_VScrollRate=".5"
+        Texture2_NumFrames="1"
+        Texture2_FrameRate="30"
+				WeaponSlotID="1"
+				LaserStateID="1"
+				LaserWidth="10">
+				<FXShader
+					ShaderName="Laser.fx"
+					TechniqueIndex="0">
+					<Constants>
+						<Texture
+							Name="Texture1">
+							<Value>FXLightningMJ02</Value>
+						</Texture>
+						<Texture
+							Name="Texture2">
+							<Value>FXGradRandom</Value>
+						</Texture>
+            <Float Name="ColorEmissive">
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+              <Value>10.000000</Value>
+            </Float>
+					</Constants>
+				</FXShader>
+			</LaserDraw>
+			
+		</Draws>
+		<Behaviors>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+			<LaserScatterUpdate
+				id="ModuleTag_LaserScatterUpdate"  
+				LaserLifetime="0.5s" />
+			<SweepingLaserState
+				id="ModuleTag_LaserState"
+				Radius="15.0"
+				SweepFXList="FX_SOV_ElectroRay"
+				VeteranSweepFXList="FX_SOV_ElectroRay"
+				SweepFXTimeout="0.25s"
+				LaserId="0" />
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+	<GameObject
+		id="SovietHeavyAntiVehicleInfantryTeslaGunNodeRegular"
+		inheritFrom="SovietHeavyAntiVehicleInfantryTeslaGunNodeBase" >
+		<Behaviors>
+			<!-- This manages the Scattering effect -->
+			<WeaponScatterEffectUpdate
+					 id="Regular_ScatterEffect"
+					 WeaponTemplate="SovietHeavyAntiVehicleInfantryTeslaGunNode">
+				<ScatterSettings ScatterAmount="2" ScatterDelay="0.0s" />
+				<Filter
+					Rule="ALL" />
+			</WeaponScatterEffectUpdate>
+		</Behaviors>
+	</GameObject>
+	<GameObject
+		id="SovietHeavyAntiVehicleInfantryTeslaGunNodeEnd"
+		inheritFrom="SovietHeavyAntiVehicleInfantryTeslaGunNodeBase" >
+		<Behaviors>
+			<!-- This manages the Scattering effect -->
+			<WeaponScatterEffectUpdate
+					 id="Base_ScatterEffect"
+					 WeaponTemplate="SovietHeavyAntiVehicleInfantryTeslaGunNodeEnd">
+				<ScatterSettings ScatterAmount="2" ScatterDelay="0.0s" />
+				<Filter
+					Rule="ALL" />
+			</WeaponScatterEffectUpdate>
+		</Behaviors>
+	</GameObject>
+
+	<GameObject
+		id="SovietHeavyAntiVehicleInfantryTeslaGunNodeRegular_Vet"
+		inheritFrom="SovietHeavyAntiVehicleInfantryTeslaGunNodeBase" >
+		<Draws>
+				<LaserDraw
+					id="ModuleTag_Laser"
+					xai:joinAction="Replace"
+					Texture1_UTile="1"
+					Texture1_VTile="1"
+					Texture1_UScrollRate="0"
+					Texture1_VScrollRate="2"
+					Texture1_NumFrames="1"
+					Texture1_FrameRate="30"
+					Texture2_UTile="1"
+					Texture2_VTile=".01"
+					Texture2_UScrollRate="0"
+					Texture2_VScrollRate=".8"
+					Texture2_NumFrames="1"
+					Texture2_FrameRate="30"
+					WeaponSlotID="1"
+					LaserStateID="1"
+					LaserWidth="10">
+					<FXShader
+						ShaderName="Laser.fx"
+						TechniqueIndex="0">
+						<Constants>
+							<Texture
+								Name="Texture1">
+								<Value>FXLightningMJ02_Yellow</Value>
+							</Texture>
+							<Texture
+								Name="Texture2">
+								<Value>FXGradRandom</Value>
+							</Texture>
+							<Float Name="ColorEmissive">
+								<Value>10.000000</Value>
+								<Value>10.000000</Value>
+								<Value>10.000000</Value>
+							</Float>
+						</Constants>
+					</FXShader>
+				</LaserDraw>
+						
+					<LaserDraw
+						id="ModuleTag_Laser02"
+						xai:joinAction="Replace"
+						Texture1_UTile="1"
+						Texture1_VTile=".7"
+						Texture1_UScrollRate="0"
+						Texture1_VScrollRate="1.8"
+						Texture1_NumFrames="1"
+						Texture1_FrameRate="30"
+						Texture2_UTile="1"
+						Texture2_VTile=".01"
+						Texture2_UScrollRate="0"
+						Texture2_VScrollRate=".5"
+						Texture2_NumFrames="1"
+						Texture2_FrameRate="30"
+						WeaponSlotID="1"
+						LaserStateID="1"
+						LaserWidth="10">
+						<FXShader
+							ShaderName="Laser.fx"
+							TechniqueIndex="0">
+							<Constants>
+								<Texture
+									Name="Texture1">
+									<Value>FXLightningMJ02_Yellow</Value>
+								</Texture>
+								<Texture
+									Name="Texture2">
+									<Value>FXGradRandom</Value>
+								</Texture>
+								<Float Name="ColorEmissive">
+									<Value>10.000000</Value>
+									<Value>10.000000</Value>
+									<Value>10.000000</Value>
+								</Float>
+							</Constants>
+						</FXShader>
+					</LaserDraw>
+			
+		</Draws>
+		<Behaviors>
+			<!-- This manages the Scattering effect -->
+			<WeaponScatterEffectUpdate
+					 id="Regular_ScatterEffect"
+					 WeaponTemplate="SovietHeavyAntiVehicleInfantryTeslaGunNode_Vet">
+				<ScatterSettings ScatterAmount="2" ScatterDelay="0.0s" />
+				<Filter
+					Rule="ALL" />
+			</WeaponScatterEffectUpdate>
+		</Behaviors>
+	</GameObject>
+	<GameObject
+		id="SovietHeavyAntiVehicleInfantryTeslaGunNodeEnd_Vet"
+		inheritFrom="SovietHeavyAntiVehicleInfantryTeslaGunNodeBase" >
+				<Draws>
+				<LaserDraw
+					id="ModuleTag_Laser"
+					xai:joinAction="Replace"
+					Texture1_UTile="1"
+					Texture1_VTile="1"
+					Texture1_UScrollRate="0"
+					Texture1_VScrollRate="2"
+					Texture1_NumFrames="1"
+					Texture1_FrameRate="30"
+					Texture2_UTile="1"
+					Texture2_VTile=".01"
+					Texture2_UScrollRate="0"
+					Texture2_VScrollRate=".8"
+					Texture2_NumFrames="1"
+					Texture2_FrameRate="30"
+					WeaponSlotID="1"
+					LaserStateID="1"
+					LaserWidth="10">
+					<FXShader
+						ShaderName="Laser.fx"
+						TechniqueIndex="0">
+						<Constants>
+							<Texture
+								Name="Texture1">
+								<Value>FXLightningMJ02_Yellow</Value>
+							</Texture>
+							<Texture
+								Name="Texture2">
+								<Value>FXGradRandom</Value>
+							</Texture>
+							<Float Name="ColorEmissive">
+								<Value>10.000000</Value>
+								<Value>10.000000</Value>
+								<Value>10.000000</Value>
+							</Float>
+						</Constants>
+					</FXShader>
+				</LaserDraw>
+						
+					<LaserDraw
+						id="ModuleTag_Laser02"
+						xai:joinAction="Replace"
+						Texture1_UTile="1"
+						Texture1_VTile=".7"
+						Texture1_UScrollRate="0"
+						Texture1_VScrollRate="1.8"
+						Texture1_NumFrames="1"
+						Texture1_FrameRate="30"
+						Texture2_UTile="1"
+						Texture2_VTile=".01"
+						Texture2_UScrollRate="0"
+						Texture2_VScrollRate=".5"
+						Texture2_NumFrames="1"
+						Texture2_FrameRate="30"
+						WeaponSlotID="1"
+						LaserStateID="1"
+						LaserWidth="10">
+						<FXShader
+							ShaderName="Laser.fx"
+							TechniqueIndex="0">
+							<Constants>
+								<Texture
+									Name="Texture1">
+									<Value>FXLightningMJ02_Yellow</Value>
+								</Texture>
+								<Texture
+									Name="Texture2">
+									<Value>FXGradRandom</Value>
+								</Texture>
+								<Float Name="ColorEmissive">
+									<Value>10.000000</Value>
+									<Value>10.000000</Value>
+									<Value>10.000000</Value>
+								</Float>
+							</Constants>
+						</FXShader>
+					</LaserDraw>
+				</Draws>
+		<Behaviors>
+			<!-- This manages the Scattering effect -->
+			<WeaponScatterEffectUpdate
+					 id="Base_ScatterEffect"
+					 WeaponTemplate="SovietHeavyAntiVehicleInfantryTeslaGunNodeEnd_Vet">
+				<ScatterSettings ScatterAmount="2" ScatterDelay="0.0s" />
+				<Filter
+					Rule="ALL" />
+			</WeaponScatterEffectUpdate>
+		</Behaviors>
+	</GameObject>
+</AssetDeclaration>

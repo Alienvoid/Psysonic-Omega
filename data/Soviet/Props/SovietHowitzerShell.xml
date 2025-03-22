@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- The default tank projectile -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXShell.w3x" />
+		<Include
+			type="all"
+			source="ART:FXTankShellHeroic.w3x" />			
+	</Includes>
+	<GameObject
+		id="SovietHowitzerShell"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SovietHowitzerShell">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_SovietHowitzerShellScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXShell" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietHowitzerShellTrail"
+						FollowBone="true" />	
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id= "BezierPorgectile"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="45"
+				FirstHeightMax="65"
+				SecondHeightMin="75"
+				SecondHeightMax="95"
+				FirstPercentIndent="20"
+				SecondPercentIndent="70"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="0">
+			</BezierProjectile>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="NOD_Specter_ProjectileFlyBy" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+	 <GameObject
+		inheritFrom="SovietHowitzerShell"
+		id="SovietHowitzerShell_Veteran"	
+		EditorName="SovietHowitzerShell_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_SovietHowitzerShellVeteranSMDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXTankShellHeroic" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietHowitzerShellTrailHeroic"
+						FollowBone="true" />	
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<BezierProjectile
+				id= "BezierPorgectile_veteran"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="45"
+				FirstHeightMax="65"
+				SecondHeightMin="75"
+				SecondHeightMax="95"
+				FirstPercentIndent="20"
+				SecondPercentIndent="70"
+				GroundHitFX="FX_SOV_V4Explosion_Vet"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="0">
+			</BezierProjectile>
+		</Behaviors>		
+	</GameObject>
+	
+</AssetDeclaration>

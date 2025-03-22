@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="instance" source="DATA:BaseObjects/BaseProjectile.xml" />		 
+	</Includes>
+	<GameObject
+		id="SovietCountermeasures"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE PRELOAD"
+		EditorName="SovietCountermeasures">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="NONE" />
+				<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietCountermeasuresTrailFire"/>
+				<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietCountermeasuresTrailFireLight"/>
+				<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietCountermeasuresTrailSmoke"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AllianceSmallFireDistortion"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+				Index="onDeath"
+				FX="FX_NONE" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="20"
+				SecondHeightMin="20"
+				SecondHeightMax="20"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="0"
+				GroundHitFX="FX_NONE" />
+				
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.1s">
+				<FireWeaponNugget
+					WeaponName="SovietCountermeasuresMissileJammerWeapon"
+					FireDelay="0.0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="150" />
+	</GameObject>
+
+	
+</AssetDeclaration>

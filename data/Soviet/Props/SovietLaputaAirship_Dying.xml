@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:SULaputaAirShip_SKN.W3X" />
+	  <Include type="all"	source="ART:SUkirov_D.xml" />    
+	</Includes>
+	<GameObject
+		id="SovietLaputaAirship_Dying"
+		EditorName="SovietLaputaAirship_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SULaputaAirShip_SKN" />
+					<Texture
+						Original="SUkirov"
+						New="SUkirov_D" />
+					<ParticleSysBone
+						BoneName="FX_Rfan"
+						FXParticleSystemTemplate="ChopperDamageFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="FX_Rfan"
+						FXParticleSystemTemplate="ChopperDamageSmoke"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<ProjectileUpdate
+				id="ModuleTag_BombUpdate"
+				StateMachine="BombProjectile"
+				MinDetonationHeight="12"
+				MinTargetDistance="5">
+				<Movement>
+					<MoveToGround
+						Acceleration="0.1"
+						TerminalVelocity="2.5"
+						ForwardVelocityDamping="5%"/>
+				</Movement>
+			</ProjectileUpdate>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SULaputaAirship_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_DeathWeapon"
+				DeathWeapon="NormalAircraftDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>	
+			<ShipSlowDeath
+				id="ModuleTag_Rotate"
+				DestructionDelay="10s">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</ShipSlowDeath>
+			<xi:include
+				href="DATA:Includes/SovietTerrorDroneSpawnUpgradePlayerPower.xml" />   		
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionMediumNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />		
+	</GameObject>
+</AssetDeclaration>

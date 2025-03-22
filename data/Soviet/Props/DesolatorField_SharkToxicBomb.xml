@@ -4,14 +4,14 @@
 	<Includes>
 	</Includes>
 	<GameObject
-		id="DesolatorField_DesolatorBomb"
+		id="DesolatorField_SharkToxicBomb"
 		Side="Soviet"
 		EditorSorting="SYSTEM"
 		TransportSlotCount="0"
 		IsTrainable="false"
 		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE INERT INERT_SHROUD_REVEALER SKIRMISH_AI_ATTEMPT_TO_DODGE"
-		EditorName="DesolatorField_DesolatorBomb">
-		<DisplayName>DesolatorField_DesolatorBomb</DisplayName>
+		EditorName="DesolatorField_SharkToxicBomb">
+		<DisplayName>DesolatorField_SharkToxicBomb</DisplayName>
 		<ArmorSet
 			Armor="NoArmor" />
     <SkirmishAIInformation
@@ -27,21 +27,21 @@
 					ParseCondStateType="PARSE_DEFAULT">
 					<Model Name="" />
 					<ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator" />
+						FXParticleSystemTemplate="Soviet_SharkToxicGas" />
           <ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator02" />
+						FXParticleSystemTemplate="Soviet_SharkToxicGas02" />
           <ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator03" />
+						FXParticleSystemTemplate="Soviet_SharkToxicGas03" />
           <ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator04" />
+						FXParticleSystemTemplate="Soviet_SharkToxicGas04" />
 				</ModelConditionState>
 			</ScriptedModelDraw>
 		</Draws>
 		<Behaviors>
 			<LifetimeUpdate
 				id="Moduletag_LifetimeUpdate"
-				MinLifetime="60s"
-				MaxLifetime="60s" />
+				MinLifetime="120s"
+				MaxLifetime="120s" />
       
       <FXListBehavior
         id="ModuleTag_FXLists">
@@ -49,7 +49,7 @@
 					DeathTypes="ALL" />
         <Event
 					Index="onCreate"
-					FX="FX_SovDesolatorDecal" />
+					FX="FX_SovSharkToxicBombDecal" />
       </FXListBehavior>
       
 			<DestroyDie
@@ -62,7 +62,7 @@
 				id="ModuleTag_FireWeaponUpdate"
 				FireInterval="0.1s">
 				<FireWeaponNugget
-					WeaponName="Weapon_DesolatorBombFieldUpdate" />
+					WeaponName="Weapon_SharkToxicBombFieldUpdate" />
 			</FireWeaponUpdate>
 			
 		</Behaviors>

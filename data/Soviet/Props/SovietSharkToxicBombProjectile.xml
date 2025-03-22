@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:SUSupportBomberBomb.w3x" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+	</Includes>
+	<GameObject
+		id="SovietSharkToxicBombProjectile"
+		inheritFrom="BaseProjectile" 
+		Side="Soviet"
+		EditorSorting="SYSTEM"		
+		EditorName="SovietSharkToxicBombProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+      <FXListBehavior
+        id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_None" />
+      </FXListBehavior>
+			<ProjectileUpdate
+				id="ModuleTag_BombUpdate"
+				StateMachine="BombProjectile"
+				MinDetonationHeight="100"
+				MinTargetDistance="5">
+				<Movement>
+					<MoveToGround
+						Acceleration="10.0"
+						TerminalVelocity="10.0"
+						RotationSpeedPerSecond="30d"/>
+				</Movement>
+			</ProjectileUpdate>
+		</Behaviors>
+	</GameObject>
+
+</AssetDeclaration>

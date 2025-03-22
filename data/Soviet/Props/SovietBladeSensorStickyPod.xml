@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="all"
+			source="ART:GUSensor.w3x" />
+		<Include
+			type="all"
+			source="ART:FXspotlight.w3x" />
+	</Includes>
+	<GameObject
+		id="SovietBladeSensorStickyPod"
+		SelectPortrait="Portrait_NeutralSensorPod"
+		ButtonImage="Button_NeutralSensorPod"
+		Side="Soviet"
+		EditorSorting="UNIT"
+		TransportSlotCount="0"
+		CommandSet="EmptyCommandSet"
+		IsTrainable="false"
+		KindOf="PRELOAD SELECTABLE NO_COLLIDE UNATTACKABLE NOT_AUTOACQUIRABLE IGNORE_FOR_VICTORY IGNORES_SELECT_ALL CYCLE_SELECTION"
+		RadarPriority="UNIT"
+		TypeDescription="Type:SovietBladeSensorPod"
+		Description="Desc:SovietBladeSensorPod"
+		EditorName="SovietBladeSensorStickyPod">
+		<DisplayName>Name:SovietBladeSensorPod</DisplayName>
+		<ArmorSet
+			Armor="NoArmor"
+			DamageFX="NormalDamageFX" />
+		<LocomotorSet
+			Locomotor="HumanLocomotor"
+			Condition="NORMAL"
+			Speed="0.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="GUSensor" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			<SpotlightDraw
+				id="ModuleTag_Spotlight"
+				AttachToBoneInAnotherModule="GDISENSOR"
+				RefreshTime="2.0s"
+				SweepTime="1.0s">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXspotlight" />
+				</ModelConditionState>
+			</SpotlightDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics" />
+			<InvisibilityBroadcastUpdate
+				id="ModuleTag_BroadcastInvisibility"
+				BroadcastRange="5"
+				UpdatePeriod="4.3s"
+				AffectsSelf="true"
+				InvisibilityTemplate="AlliedCryoShipInvisibilityBroadcastTemplate">
+				<BroadcastObjectFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+			<IncludeThing>SovietBladeSensorStickyPod</IncludeThing>
+				</BroadcastObjectFilter>
+			</InvisibilityBroadcastUpdate>
+			<StealthDetectorUpdate
+				id="ModuleTag_StealthDetect"
+				DetectionRange="300" />
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="300s"
+				MaxLifetime="300s" />
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate">
+				<FireWeaponNugget
+					WeaponName="SovietSensorPodAttachWeapon"
+					FireDelay="0.0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Range="10.0"
+				Flags="STICK_TO_PARENT TELEPORT USE_GEOMETRY DETACH_WHEN_PARENT_HEALED">
+				<ObjectFilter
+					Rule="ALL">
+				</ObjectFilter>
+			</AttachUpdate>
+			<DestroyDie
+				id="ModuleTag_DestroyDie">
+				<DieMuxData
+					DeathTypes="ALL" 
+				/>
+			</DestroyDie>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="100" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"></Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="GDI_Orca_SensorPodGroundImpact" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />
+		<CrusherInfo
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

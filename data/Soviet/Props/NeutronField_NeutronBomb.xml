@@ -4,14 +4,14 @@
 	<Includes>
 	</Includes>
 	<GameObject
-		id="DesolatorField_DesolatorBomb"
+		id="NeutronField_NeutronBomb"
 		Side="Soviet"
 		EditorSorting="SYSTEM"
 		TransportSlotCount="0"
 		IsTrainable="false"
 		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE INERT INERT_SHROUD_REVEALER SKIRMISH_AI_ATTEMPT_TO_DODGE"
-		EditorName="DesolatorField_DesolatorBomb">
-		<DisplayName>DesolatorField_DesolatorBomb</DisplayName>
+		EditorName="NeutronField_NeutronBomb">
+		<DisplayName>NeutronField_NeutronBomb</DisplayName>
 		<ArmorSet
 			Armor="NoArmor" />
     <SkirmishAIInformation
@@ -27,30 +27,18 @@
 					ParseCondStateType="PARSE_DEFAULT">
 					<Model Name="" />
 					<ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator" />
+						FXParticleSystemTemplate="Soviet_Neutron" />
           <ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator02" />
-          <ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator03" />
-          <ParticleSysBone
-						FXParticleSystemTemplate="Soviet_Desolator04" />
+						FXParticleSystemTemplate="Soviet_Neutron02" />
 				</ModelConditionState>
 			</ScriptedModelDraw>
 		</Draws>
 		<Behaviors>
 			<LifetimeUpdate
 				id="Moduletag_LifetimeUpdate"
-				MinLifetime="60s"
-				MaxLifetime="60s" />
+				MinLifetime="3s"
+				MaxLifetime="3s" />
       
-      <FXListBehavior
-        id="ModuleTag_FXLists">
-        <DieMuxData
-					DeathTypes="ALL" />
-        <Event
-					Index="onCreate"
-					FX="FX_SovDesolatorDecal" />
-      </FXListBehavior>
       
 			<DestroyDie
 				id="ModuleTag_DieDestroy">
@@ -62,8 +50,25 @@
 				id="ModuleTag_FireWeaponUpdate"
 				FireInterval="0.1s">
 				<FireWeaponNugget
-					WeaponName="Weapon_DesolatorBombFieldUpdate" />
+					WeaponName="Weapon_NeutronFieldUpdate" />
 			</FireWeaponUpdate>
+			
+			
+			<SpecialPower
+				id="ModuleTag_PsyonicBlast"
+				SpecialPowerTemplate="SpecialPower_Bribe"                
+				UpdateModuleStartsAttack="true"/>
+			<WeaponFireSpecialAbilityUpdate
+				id="ModuleTag_PsyonicBlastUpdate"
+				SpecialPowerTemplate="SpecialPower_Bribe"
+				SpecialWeapon="JapanCommandoTech1PsyonicBlast"
+                Options="BUSY_DURING_PACK"
+				UnpackTime="0s"
+                PackTime="1s"/>
+			<ActivateSpecialPowerOnCreate
+				id="ModuleTag_ActivateToggleSpiderHole">
+				<SpecialPowerTemplate>SpecialPower_Bribe</SpecialPowerTemplate>
+			</ActivateSpecialPowerOnCreate>
 			
 		</Behaviors>
 		<Body>

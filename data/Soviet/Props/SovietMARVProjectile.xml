@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- The default tank projectile -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXSovietShell.w3x" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+	</Includes>
+	<GameObject
+		id="FXSovietMARVProjectile"
+		EditorSorting="SYSTEM"
+		Side="SOVIET"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED PRELOAD"
+		EditorName="FXSovietMARVProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="RailgunCenterGlow"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="BlueTeslaSpark"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="WhiteTeslaSpark"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="TeslaBolt01"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="TeslaBolt02"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+					<Event
+						Index="onTerrainCollision"
+						FX="FX_SOV_MARVExplosion"/>
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="25"
+				SecondPercentIndent="66"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="0"
+				GroundHitFX="FX_SOV_MARVExplosion"/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+	<GameObject
+		inheritFrom="FXSovietMARVProjectile"
+		id="FXSovietMARVProjectile_Veteran"
+		EditorName="FXSovietMARVProjectile_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXSovietShell" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="RailgunCenterGlow_Yellow"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YellowTeslaSpark"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="WhiteTeslaSpark"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="TeslaBolt01_Yellow"/>
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="TeslaBolt02_Yellow"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<BezierProjectile
+				xai:joinAction="Replace"
+				id="ModuleTag_BezierProjectileBehavior"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="25"
+				SecondPercentIndent="66"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="0"
+				GroundHitFX="FX_SOV_MARVExplosion_Vet"/>
+			<FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_MARVExplosion_Vet" />
+      </FXListBehavior>
+      
+		</Behaviors>
+	</GameObject>
+
+</AssetDeclaration>

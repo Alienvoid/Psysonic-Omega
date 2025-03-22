@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:SUSCUDMISSILE_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:FXNodTankShell.w3x" />
+	</Includes>
+	<GameObject
+		id="SovietScudHERocketProjectile"
+		Side="Soviet"
+		ThreatLevel="10"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE BALLISTIC_MISSILE SMALL_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SovietScudHERocketProjectile">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUSCUDMISSILE_SKN" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"/>
+          
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  IgnoreProjectileState="true"
+			  MinLifetime="6.0s"
+			  MaxLifetime="6.5s" />
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_V4MissileLauncher_MIRVmissileSplit" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_FinalWeapon"
+				InitiallyActive="true"
+				ContinueToBezierDestination="true"
+				DeathWeapon="SovietScudMIRVLauncher">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<CreateObjectDie
+				id="ModuleTag_CreateMirvBits"
+				CreationList="OCL_SovietScudMirvBits">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="1100"
+				FirstHeightMax="1200"
+				SecondHeightMin="1100"
+				SecondHeightMax="1200"
+				FirstPercentIndent="0"
+				SecondPercentIndent="30"
+				GroundHitFX="FX_OrbitalDebrisLvl1"
+				FlightPathAdjustDistPerSecond="100.0"
+				Acceleration="0.25"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="300.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_V4MissileLauncher_MissileIncoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			ShroudClearingRange="25"
+			VisionRange="0" />
+	</GameObject>
+
+  <!-- VETERAN -->
+
+  <GameObject
+    inheritFrom="SovietScudHERocketProjectile"
+		id="SovietScudHERocketProjectile_Veteran">
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+        xai:joinAction="Replace">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="SUSCUDMISSILE_SKN" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"/>
+        </ModelConditionState>
+      </ScriptedModelDraw>
+    </Draws>
+    <Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion_Vet" />
+      </FXListBehavior>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

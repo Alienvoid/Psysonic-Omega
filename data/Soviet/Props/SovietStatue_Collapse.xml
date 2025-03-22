@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:SBStatue_COL.w3x" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="SovietStatue_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="SovietStatue_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="5"
+			Explodiness="0.5">
+			<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="SBStatue_COL" />
+			</ModelConditionState>
+			<AnimationState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Script>
+					CurDrawableHideSubObjectPermanently("Table_Water")
+					CurDrawableShowSubObjectPermanently("Table")
+				</Script>							
+			</AnimationState>				
+			<AnimationState
+				ParseCondStateType="PARSE_NORMAL"
+				ConditionsYes="OVER_WATER">
+				<Script>
+					CurDrawableShowSubObjectPermanently("Table_Water")
+					CurDrawableHideSubObjectPermanently("Table")
+				</Script>							
+			</AnimationState>				
+			<BoneVolumes>
+			
+			<BoneVolume BoneName="Bone_D_01" Mass="919" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.02985" HalfSizeY="4.66418" HalfSizeZ="4.82901" >
+		<Translation x="-0.27953" y="4.4275" z="118.319" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="276" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.42537" HalfSizeY="4.25373" HalfSizeZ="2.64925" >
+		<Translation x="9.06626" y="-4.01271" z="116.533" />
+		<Rotation x="-0.868165" y="-0.408822" z="0.119861" w="-0.254534" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="403" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="1.9403" HalfSizeY="9.02985" HalfSizeZ="2.27612" >
+		<Translation x="15.0688" y="-8.97418" z="124.549" />
+		<Rotation x="0.815137" y="0.0949593" z="-0.139696" w="0.554094" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="40116" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="14.9864" HalfSizeY="21.7409" HalfSizeZ="12.1605" >
+		<Translation x="-1.6017" y="14.9934" z="91.8171" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="4998" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.62687" HalfSizeY="17.2881" HalfSizeZ="6.17212" >
+		<Translation x="-3.02891" y="-3.10294e-006" z="70.9869" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="3686" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.58209" HalfSizeY="17.2388" HalfSizeZ="5.89552" >
+		<Translation x="3.53825" y="10.774" z="71.3601" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="28779" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="14.6269" HalfSizeY="13.8806" HalfSizeZ="14.0" >
+		<Translation x="-0.278023" y="-0.105815" z="50.374" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="56635" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="24.1791" HalfSizeY="9.25373" HalfSizeZ="25.0" >
+		<Translation x="-0.738737" y="1.08816" z="29.932" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_09" Mass="87000" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="28.806" HalfSizeY="28.6567" HalfSizeZ="10.4092" >
+		<Translation x="0.0" y="0.0" z="0.0" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	<Behaviors/>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_Refinery_Die" AudioType="soundAmbient" />
+		</AudioArraySound>
+</GameObject>
+</AssetDeclaration>

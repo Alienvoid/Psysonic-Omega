@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FX_Bomb.w3x" />
+		<Include
+			type="all"
+			source="ART:SUMirvRocket_Missle.w3x" />
+	</Includes>
+	<!--KindOf="PROJECTILE BALLISTIC_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT CAN_CAST_REFLECTIONS"-->
+	<GameObject
+		id="SovietAntiStructureShipV4GuidedRocketProjectile"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		CommandSet="EmptyCommandSet"
+		TransportSlotCount="0"
+		Scale="0.75"
+		ThreatLevel="10"
+		RadarPriority="UNIT"
+		ProductionQueueType="AIRCRAFT"
+		UnitCategory="AIRCRAFT"
+		KindOf="PROJECTILE SMALL_MISSILE BALLISTIC_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED CAN_CAST_REFLECTIONS CAN_ATTACK AIRCRAFT CAN_CAST_REFLECTIONS"
+		EditorName="SovietAntiStructureShipV4GuidedRocketProjectile">
+		<ArmorSet
+			Armor="JapanFinalSquadronAircraftArmor" />
+		<!--<LocomotorSet
+			Locomotor="JapanFinalSquadronAircraftLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />-->
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUMirvRocket_Missle" />
+          
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"/>
+
+			<StancesBehavior
+				id="ModuleTag_Stance"				
+				StanceTemplate="OnlyAggressive" />
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_MLRSRocketImpact" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="70"
+				FirstHeightMax="70"
+				SecondHeightMin="200"
+				SecondHeightMax="200"
+				FirstPercentIndent="5"
+				SecondPercentIndent="50"
+				GroundHitFX="FX_MLRSRocketImpact"
+				FlightPathAdjustDistPerSecond="100.0"
+				Acceleration="0.12"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_Dreadnought_MissileIncoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			ShroudClearingRange="25"
+			VisionRange="0" />
+	</GameObject>
+
+  <!-- VETERAN -->
+
+  <GameObject
+    inheritFrom="SovietAntiStructureShipV4GuidedRocketProjectile" 
+		id="SovietAntiStructureShipV4GuidedRocketProjectile_Veteran">
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+        xai:joinAction="Replace">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="SUMirvRocket_Missle" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight_Vet"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"/>
+        </ModelConditionState>
+      </ScriptedModelDraw>
+    </Draws>
+    <Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_DreadnoughtV4Explosion_Vet" />
+      </FXListBehavior>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

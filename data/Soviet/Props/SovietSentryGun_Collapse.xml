@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:SBSentryGun_COL.w3x" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="SovietSentryGun_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="SovietSentryGun_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="60"
+			Explodiness="4">
+			<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="SBSentryGun_COL" />
+			</ModelConditionState>
+			<BoneVolumes>
+			<BoneVolume BoneName="Bone_D_01" Mass="1605" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="11.2967" HalfSizeY="6.35115" HalfSizeZ="2.21045" >
+		<Translation x="6.11454" y="-0.0124696" z="12.7559" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="161" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.56829" HalfSizeY="2.10654" HalfSizeZ="2.94869" >
+		<Translation x="2.80828" y="-6.62152" z="14.2414" />
+		<Rotation x="0.608532" y="-0.360124" z="-0.608532" w="0.360124" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="161" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.56829" HalfSizeY="2.10654" HalfSizeZ="2.94869" >
+		<Translation x="2.80828" y="6.622" z="14.2414" />
+		<Rotation x="0.608532" y="-0.360124" z="-0.608532" w="0.360124" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="709" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="6.53191" HalfSizeY="8.58967" HalfSizeZ="1.24941" >
+		<Translation x="-0.832508" y="0.0395877" z="6.41243" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="596" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.20586" HalfSizeY="3.74822" HalfSizeZ="3.0194" >
+		<Translation x="-12.5745" y="0.0916463" z="0.0" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="596" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.20586" HalfSizeY="3.74822" HalfSizeZ="3.0194" >
+		<Translation x="0.0" y="12.6227" z="0.0" />
+		<Rotation x="0.0" y="0.0" z="-0.707107" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="596" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.20586" HalfSizeY="3.74822" HalfSizeZ="3.0194" >
+		<Translation x="12.575" y="0.0916463" z="0.0" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="117" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.55087" HalfSizeY="1.14529" HalfSizeZ="3.95645" >
+		<Translation x="-0.028466" y="0.0916396" z="9.34657" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_09" Mass="43" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="1.58287" HalfSizeY="1.52766" HalfSizeZ="1.76693" >
+		<Translation x="-0.0676625" y="15.4658" z="0.71015" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_10" Mass="43" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="1.58287" HalfSizeY="1.52766" HalfSizeZ="1.76693" >
+		<Translation x="0.099046" y="-15.481" z="0.71015" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_11" Mass="43" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="1.58287" HalfSizeY="1.52766" HalfSizeZ="1.76693" >
+		<Translation x="-15.4341" y="-0.0525365" z="0.71015" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_12" Mass="43" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="1.58287" HalfSizeY="1.52766" HalfSizeZ="1.76693" >
+		<Translation x="15.4118" y="0.0278873" z="0.71015" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_13" Mass="21" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.416469" HalfSizeY="6.8457" HalfSizeZ="0.72882" >
+		<Translation x="5.97528" y="-0.0368451" z="7.39939" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_14" Mass="596" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.20586" HalfSizeY="3.74822" HalfSizeZ="3.0194" >
+		<Translation x="0.0" y="-12.6103" z="0.0" />
+		<Rotation x="0.0" y="0.0" z="-0.707107" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_15" Mass="824" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.9077" HalfSizeY="4.86748" HalfSizeZ="3.41061" >
+		<Translation x="0.0" y="0.0" z="2.78352" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_16" Mass="53" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.25124" HalfSizeY="2.22102" HalfSizeZ="1.05317" >
+		<Translation x="6.84783" y="3.76242" z="14.4359" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_17" Mass="53" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.25124" HalfSizeY="2.22102" HalfSizeZ="1.05317" >
+		<Translation x="6.84783" y="-3.762" z="14.4359" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_18" Mass="1664" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="11.8425" HalfSizeY="11.8424" HalfSizeZ="1.17203" >
+		<Translation x="0.0" y="0.0" z="1.52136" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+
+
+			</BoneVolumes>
+				<Lifetime
+					Delay="5s"
+					FadeTime="4s" />
+					
+		</DynamicsDraw>
+	</Draws>
+	<Behaviors/>
+<!--
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_TeslaCoil_Die" AudioType="soundAmbient" />
+		</AudioArraySound>
+-->
+</GameObject>
+</AssetDeclaration>

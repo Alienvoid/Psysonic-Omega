@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include 
+			type="all" 
+			source="DATA:GlobalData/GlobalDefines.xml" />
+	</Includes>
+	<GameObject
+		id="SovietWarWolfSlowEffect"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE INERT_SHROUD_REVEALER PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="SovietWarWolfSlowEffect">
+		<DisplayName>SovietWarWolfSlowEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Beam">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="NONE" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietTesla_EMP" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="5.0s"
+				MaxLifetime="5.0s" />
+			
+			<AttributeModifierAuraUpdate
+					id="ModuleTag_AttributeModifierAuraUpdate"
+					AttributeModifierName="AttributeModifier_WarWolfDebuffEffect"
+			   		RefreshDelay="1.0s"
+			 		Range="50"
+					InitiallyActive="true">
+					<ObjectFilter
+       					Rule="ANY"
+       					Relationship="ENEMIES"
+						Include="INFANTRY VEHICLE STRUCTURE">
+					</ObjectFilter>
+			</AttributeModifierAuraUpdate>
+
+			
+			<DestroyObjectsUpdate
+				id="ModuleTag_DestroyObjectsUpdate"
+				Radius="50">
+				<ObjectFilter Rule="NONE" Include="CIVILIAN_UNIT"/>
+			</DestroyObjectsUpdate>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>		
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="9999999.0" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="50.0"
+				Height="300.0"/>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+
+  
+  
+</AssetDeclaration>

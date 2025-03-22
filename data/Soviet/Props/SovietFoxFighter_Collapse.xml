@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:SUFoxFighter_COL.w3x" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="SovietFoxFighter_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="SovietFoxFighter_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+				Collision="NONINTERCOLLIDING"
+				FlingPerturbation="5"
+				Explodiness="2">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUFoxFighter_COL" />
+
+				<xi:include
+					href="DATA:Includes/VehicleCollapseParticles/SovietVehicleCollapseParticles.xml"
+					xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:SovietVehicleCollapseParticles/child::*)" />
+					
+				</ModelConditionState>
+
+				<BoneVolumes>
+
+<BoneVolume BoneName="Bone_D_01" Mass="1401" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="14.7761" HalfSizeY="4.32836" HalfSizeZ="2.16418" >
+		<Translation x="-8.43283" y="-0.207265" z="-1.34839" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="80" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="9.25373" HalfSizeY="6.9403" HalfSizeZ="0.123881" >
+		<Translation x="-13.1583" y="10.58" z="1.02287" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="80" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="9.25373" HalfSizeY="6.9403" HalfSizeZ="0.123881" >
+		<Translation x="-13.1583" y="-10.5804" z="1.02287" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="14" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.40623" HalfSizeY="4.10352" HalfSizeZ="0.0791538" >
+		<Translation x="-18.7536" y="-5.759" z="4.90598" />
+		<Rotation x="0.434881" y="0.0" z="0.0" w="0.900488" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="14" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.40623" HalfSizeY="4.10352" HalfSizeZ="0.0791538" >
+		<Translation x="-18.7536" y="5.75928" z="4.90598" />
+		<Rotation x="0.434881" y="0.0" z="0.0" w="0.900488" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="10" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.21642" HalfSizeY="2.83582" HalfSizeZ="0.0373135" >
+		<Translation x="0.9462" y="7.47931" z="1.02569" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="10" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.21642" HalfSizeY="2.83582" HalfSizeZ="0.0373135" >
+		<Translation x="0.9462" y="-7.40919" z="1.02569" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="923" Spinniness="3.0" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="7.16418" HalfSizeY="4.4403" HalfSizeZ="2.86876" >
+		<Translation x="13.7447" y="-0.0206918" z="-1.45393" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	
+	<Behaviors>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="4s"
+			MaxLifetime="5s" />	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			DestructionDelay="8s">
+			<!-- <Sound Type="INITIAL" List="RA3VehicleExplosionSmall" /> play as it starts to sink -->
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+	</Behaviors>
+		<AudioArraySound>
+			<AudioEntry Sound="RA3VehicleExplosionMediumNoDelay" AudioType="soundAmbient" />
+		</AudioArraySound>
+</GameObject>
+</AssetDeclaration>

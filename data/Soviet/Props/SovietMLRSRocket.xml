@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- The default tank projectile -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:EXMLRSRocket.w3x" />		
+	</Includes>
+	<GameObject
+		id="SovietMLRSRocket"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED SMALL_MISSILE"
+		EditorName="SovietMLRSRocket">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_SovietMLRSRocketScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXMLRSRocket" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietSonicGrenadeGlow"
+						FollowBone="true" />
+          <ParticleSysBone
+                      BoneName="NONE"
+                      FXParticleSystemTemplate="SovietMLRSRocketTrailSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedBomberDyingFireLight"
+						FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_MLRSRocketImpact" />
+        <Event
+          Index="onTerrainCollision"
+          FX="FX_MLRSRocketImpact"/>
+      </FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id= "BezierPorgectile"
+				Flags="ORIENT_TO_FLIGHT_PATH DONT_TRACK_TARGET DETONATE_CALLS_KILL"
+				FirstHeightMin="50"
+				FirstHeightMax="50"
+				SecondHeightMin="50"
+				SecondHeightMax="50"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="0">
+			</BezierProjectile>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="20.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="NOD_Specter_ProjectileFlyBy" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+	 <GameObject
+		inheritFrom="SovietMLRSRocket"
+		id="SovietMLRSRocket_Veteran"	
+		EditorName="SovietMLRSRocket_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_SovietMLRSRocketVeteranSMDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXMLRSRocket" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietSonicGrenadeGlow"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire_Vet"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight_Vet"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"
+						FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_Soviet_FrogtieMissileHit" />
+			</FXListBehavior>
+			<BezierProjectile
+				id= "BezierPorgectile_veteran"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="50"
+				FirstHeightMax="50"
+				SecondHeightMin="50"
+				SecondHeightMax="50"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				GroundHitFX="FX_Soviet_FrogtieMissileHit"
+				FlightPathAdjustDistPerSecond="0">
+			</BezierProjectile>
+		</Behaviors>		
+	</GameObject>
+	
+</AssetDeclaration>
