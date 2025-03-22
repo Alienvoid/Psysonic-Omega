@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset">
+	<SpecialPowerTemplate
+		id="SpecialPower_JapanFortressShipTransformMode"
+		ReloadTime="15s"
+		TargetType="NONE"
+		Flags="NOT_WHILE_BENEATH_BRIDGE NOT_ON_BRIDGE NOT_IN_NANOSWARM" 
+		PreventConditions="BOOBY_TRAPPED IS_BEING_DRAGGED IMMOBILE_ALLOW_ROTATE MARCH_OF_DEATH" >
+	</SpecialPowerTemplate>
+	
+	<SpecialPowerTemplate
+		id="SpecialPower_ActivateLaser"
+		TargetType="LOCATION"
+		RadiusCursorRadius="60"
+		Flags="FOGGED_SHROUDED_CELLS_OK CAN_NOT_BE_SCRAMBLED IGNORE_MAP_EXTENTS NOT_IN_NANOSWARM WATER_OK"
+		WaypointModeTerminal="false"/>
+</AssetDeclaration>
