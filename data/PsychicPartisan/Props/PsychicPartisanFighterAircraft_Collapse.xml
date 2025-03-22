@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:JU_ESCORT_COL.w3x" />
+    <Include
+		type="all"
+		source="ART:JU_ESCORT_SKN.w3x" />	
+    <Include
+		type="all"
+		source="ART:JU_ESCORT_A_DIE.w3x" />	
+    <Include
+		type="all"
+		source="ART:JU_ESCORT_A_IDLE.w3x" />	
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanFighterAircraft_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="PsychicPartisanFighterAircraft_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="15"
+			Explodiness="8" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JU_ESCORT_COL" />
+
+				<xi:include
+					href="DATA:Includes/VehicleCollapseParticles/JapanVehicleCollapseParticles.xml"
+					xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:JapanVehicleCollapseParticles/child::*)" />
+											
+				</ModelConditionState>
+
+			<BoneVolumes>
+				
+<BoneVolume BoneName="Bone_D_01" Mass="424" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.0725" HalfSizeY="4.70297" HalfSizeZ="4.29892" >
+		<Translation x="-0.346114" y="-0.176616" z="9.44982" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="424" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.0725" HalfSizeY="4.70297" HalfSizeZ="4.29892" >
+		<Translation x="-1.03457" y="9.53983" z="-7.49497" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="424" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.0725" HalfSizeY="4.70297" HalfSizeZ="4.29892" >
+		<Translation x="-1.03457" y="-9.54" z="-7.49497" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="1683" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="6.45428" HalfSizeY="6.07283" HalfSizeZ="4.24097" >
+		<Translation x="-2.49872" y="0.0" z="9.59103" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="1683" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="6.45428" HalfSizeY="6.07283" HalfSizeZ="4.24097" >
+		<Translation x="-2.49872" y="9.63306" z="-7.53894" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="1683" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="6.45428" HalfSizeY="6.07283" HalfSizeZ="4.24097" >
+		<Translation x="-2.49872" y="-9.633" z="-7.53894" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="791" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.91107" HalfSizeY="4.59423" HalfSizeZ="3.46583" >
+		<Translation x="2.47662" y="-4.3258" z="2.59352" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="259" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.79642" HalfSizeY="3.37642" HalfSizeZ="2.71356" >
+		<Translation x="-4.37189" y="0.0" z="0.0" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_09" Mass="2007" Spinniness="10" AngularDrag="0.01" LinearDrag="0.01" ContactTag="DEBRIS" >
+	<Box HalfSizeX="4.35885" HalfSizeY="9.17005" HalfSizeZ="4.96007" >
+		<Translation x="1.66521" y="0.878232" z="0.153015" />
+		<Rotation x="0.5" y="0.0" z="0.0" w="0.866025" />
+	</Box>
+</BoneVolume>
+
+				
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	
+	<Behaviors>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"/>	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			Fade="true"
+			FadeTime="1s"
+			FadeDelay="1s"
+			DestructionDelay="8s">
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+	</Behaviors>
+	
+</GameObject>
+
+
+	<GameObject
+		id="PsychicPartisanFighterAircraft_Collapse2"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="PsychicPartisanFighterAircraft_Collapse2">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="B_FIRE B_REALCENTER B_CORE01 B_AXIS01 B_AXIS02 B_AXIS03">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JU_ESCORT_SKN" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="JU_ESCORT_A_IDLE"
+						AnimationMode="LOOP"
+						AnimationBlendTime="15" />
+				</AnimationState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="JU_ESCORT_A_DIE"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+				</AnimationState>
+			</ScriptedModelDraw>
+		
+		</Draws>
+	
+	<Behaviors>
+		<LifetimeUpdate
+			id="ModuleTag_LifeTime"
+			MinLifetime="4s"
+			MaxLifetime="5s" />	
+		<SlowDeath
+			id="ModuleTag_Death"
+			SinkDelay="1s"
+			SinkRate="1.5"
+			DestructionDelay="8s">
+			<DieMuxData
+				DeathTypes="ALL" />
+		</SlowDeath>
+	</Behaviors>
+	
+</GameObject>
+</AssetDeclaration>

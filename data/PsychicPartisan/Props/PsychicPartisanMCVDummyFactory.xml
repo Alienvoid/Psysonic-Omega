@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:PUMCV_DUMMYFACTORY.w3x" />	
+		
+		
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+	</Includes>
+	
+	<GameObject
+		id="PsychicPartisanMCVDummyFactory"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		UnitCategory="STRUCTURE"
+		KindOf="NO_COLLIDE SUMMONED NOT_AUTOACQUIRABLE UNATTACKABLE STRUCTURE CONSTRUCTION_YARD MCV"
+		CommandSet="PsychicPartisanMCVDummyFactoryCommandSet"
+		
+		EditorName="PsychicPartisanMCVDummyFactory">
+		<DisplayName>PsychicPartisanMCVDummyFactory</DisplayName>
+		<ArmorSet
+			Armor="JapanPointDefenseDroneArmor" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<!--Shield Draw Module-->
+			<ScriptedModelDraw
+				id="ModuleTag_Shield"
+				ExtraPublicBone="Runway0Park0Han Runway0Park1Han Runway1Park0Han Runway1Park1Han Runway2Park0Han RUNWAY2PARK1HAN BONE_PRODUCE">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="PUMCV_DUMMYFACTORY" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">	
+				</AnimationState>			
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="1.01s"
+				MaxLifetime="1.01s" />
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			<AutoHealBehavior
+				id="Upgrade_AutoHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				HealingAmount="25"
+				HealingDelay="0.5s"/>
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="5000" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

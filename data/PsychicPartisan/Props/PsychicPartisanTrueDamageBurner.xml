@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- temp Magnetic Bomb -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXNodTankShell.w3x" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanTrueDamageBurner"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE HIDE_IF_FOGGED CAN_ATTACK ATTACH_ATTACK"
+		EditorName="PsychicPartisanTrueDamageBurner">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicPartisanTrueDamageBurnerMeleeWeapon"
+						ObjectStatus="ATTACHED"  />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="5.0s"
+				MaxLifetime="5.0s" />			
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_NONE" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate">
+				<FireWeaponNugget
+					WeaponName="PsychicPartisanTrueDamageBurnerAttachWeapon"
+					FireDelay="0.0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<AttachUpdate
+				id="ModuleTag_AttachUpdate"				
+				Range="10"
+				Flags="STICK_TO_PARENT USE_GEOMETRY TELEPORT">
+				<ObjectFilter
+					Rule="ANY"
+					Include="VEHICLE INFANTRY AIRCRAFT"
+					Exclude="PROJECTILE UNATTACKABLE"/>
+			</AttachUpdate>
+			
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+</AssetDeclaration>

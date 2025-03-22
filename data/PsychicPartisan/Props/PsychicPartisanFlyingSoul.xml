@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FX_Bomb.w3x" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanFlyingSoul"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED CAN_CAST_REFLECTIONS UNATTACKABLE"
+		EditorName="PsychicPartisanFlyingSoul">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+          
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="PsychicPartisanSoulGlow"/>
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="PsychicPartisanPatmosProjectileLight"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_None" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="70"
+				FirstHeightMax="70"
+				SecondHeightMin="200"
+				SecondHeightMax="200"
+				FirstPercentIndent="5"
+				SecondPercentIndent="50"
+				FlightPathAdjustDistPerSecond="100.0"
+				Acceleration="0.25"
+				SidewaysDrift="300"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="1000.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_Dreadnought_MissileIncoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+</AssetDeclaration>

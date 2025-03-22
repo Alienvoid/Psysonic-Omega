@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+
+		<Include
+			type="all"
+			source="ART:PUTitanMCV_col.w3x" />
+		<Include
+			type="all"
+			source="ART:pumcv_titan_d.xml" />			
+	</Includes>
+	<GameObject
+		id="PsychicPartisanMCV_Dying"
+		EditorName="PsychicPartisanMCV_Dying"
+		Description="Desc:PsychicPartisanMCV_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED UNATTACKABLE">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="Bone_D_01 Bone_D_02 Bone_D_03 Bone_D_04 Bone_D_05 Bone_D_06 Bone_D_07 Bone_D_08 Bone_D_09 Bone_D_10 Bone_D_11 Bone_D_12 Bone_D_13 Bone_D_14 Bone_D_15 Bone_D_16 Bone_D_1">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="PUTitanMCV_col" />
+					<Texture
+						Original="pumcv_titan"
+						New="pumcv_titan_d" />
+
+        <ParticleSysBone
+          BoneName="Bone_D_01"
+          FXParticleSystemTemplate="JapanVehicleDamagedFire"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_01"
+          FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_01"
+          FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_01"
+          FXParticleSystemTemplate="JapanVehicleDamagedLight"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_01"
+          FXParticleSystemTemplate="AlliedCarrierDestructionDebrisBubbles"
+          FollowBone="true"
+          OnlyIfOnWater="true"/>
+
+        <ParticleSysBone
+          BoneName="Bone_D_02"
+          FXParticleSystemTemplate="JapanVehicleDamagedFire"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_02"
+          FXParticleSystemTemplate="JapanVehicleDamagedSparks"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_02"
+          FXParticleSystemTemplate="JapanVehicleDamagedSmoke"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_02"
+          FXParticleSystemTemplate="JapanVehicleDamagedLight"
+          FollowBone="true"
+          OnlyIfOnLand="true"/>
+        <ParticleSysBone
+          BoneName="Bone_D_02"
+          FXParticleSystemTemplate="AlliedCarrierDestructionDebrisBubbles"
+          FollowBone="true"
+          OnlyIfOnWater="true"/>												
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="0"
+				MaxYRotationVelocity="50"
+				MaxZRotationVelocity="200"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="YUMCV_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanLiberatorDeathWeapon"
+				DeathWeapon="JapanAntiInfantryVehicleAirborneDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanVehicleDie" />
+			</FXListBehavior>
+			<!-- Enhanced Kamikaze Player Power -->
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeStatus.xml" />
+			<xi:include
+				href="DATA:Includes/JapanEnhancedKamikazeUpgradeDeathWeapon.xml" />
+			<!-- -->
+			
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_PropBody" />
+		</Body>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionMediumNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />
+	</GameObject>
+</AssetDeclaration>

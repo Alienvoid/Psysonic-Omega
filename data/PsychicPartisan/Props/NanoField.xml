@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		
+		<Include type="all"	source="ART:exnanofield.w3x" />	
+		<Include type="all"	source="ART:exnanofield_active.w3x" />	
+		<!-- Base Object -->
+	</Includes>
+	
+	<GameObject
+		id="NanoField"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE INERT_SHROUD_REVEALER PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="NanoField">
+		<DisplayName>NanoField</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="exnanofield" />
+					
+					<ParticleSysBone
+						BoneName="bone_center"
+						FXParticleSystemTemplate="FXNanoStormCloud"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone01"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone02"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone03"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone04"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone05"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone06"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone07"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone08"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone09"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone10"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone11"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="bone12"
+						FXParticleSystemTemplate="NanoFieldBuzzers"
+						FollowBone="true" />
+				</ModelConditionState>	
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="exnanofield_active"
+						AnimationMode="LOOP"
+						AnimationSpeedFactorMin = "0.9"
+						AnimationSpeedFactorMax = "1.1"/>
+				</AnimationState>	
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<DieOnProducerDeathUpdate
+				id="ModuleTag_DieWhenProducerDies"
+				DieOnProducerDisabled="true"/>
+			
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="1.0s">
+				<FireWeaponNugget
+					WeaponName="Weapon_NanoFieldUpdate"
+					FireDelay="0.1s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+
+			
+			<DestroyObjectsUpdate
+				id="ModuleTag_DestroyObjectsUpdate"
+				Radius="300">
+				<ObjectFilter Rule="NONE" Include="CIVILIAN_UNIT"/>
+			</DestroyObjectsUpdate>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>		
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="999999.0" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="50.0"
+				Height="300.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="JAP_NanoSwarm_ShieldLoop" AudioType="soundAmbient"/>
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="127" />
+	</GameObject>
+</AssetDeclaration>

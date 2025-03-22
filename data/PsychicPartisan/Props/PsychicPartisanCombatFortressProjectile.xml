@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXAlliedShell.w3x" />
+    
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+	</Includes>
+	<GameObject
+		id="PsychicPartisanCombatFortressProjectile"
+		inheritFrom="BaseProjectile" 
+		Side="PsychicPartisan" 
+		KindOf="-NO_COLLIDE"
+		EditorName="PsychicPartisanCombatFortressProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />         
+        </ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FireWeaponCollide
+				id="ModuleTag_FireWeaponCollide"
+				CollideWeapon="PsychicPartisanCombatFortressCannonWarhead"
+				FireOnce="true"
+				Flags="DESTROY_SELF_ON_COLLIDE DO_NOT_COLLIDE_WITH_PRODUCER" 
+				WhereToFire="TARGET_POSITION"/>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="0"
+				SecondPercentIndent="0"
+				GroundHitFX="FX_JapanTankMiss"
+				MaxDistanceReachedFX="FX_JapanTankMiss"
+				FlightPathAdjustDistPerSecond="50.0"
+				MaxDistanceToTravel="2000.0"
+				/>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onTerrainCollision"
+					FX="FX_JapanTankMiss"/>
+
+			</FXListBehavior>
+		</Behaviors>
+	</GameObject>
+
+  <!-- VETERAN -->
+
+  <GameObject
+		inheritFrom="PsychicPartisanCombatFortressProjectile"
+    id="PsychicPartisanCombatFortressProjectile_Veteran"
+		EditorName="PsychicPartisanCombatFortressProjectile_Veteran">
+    <Behaviors>
+		<BezierProjectile
+			id="ModuleTag_BezierProjectileBehavior"
+				xai:joinAction="Replace"
+			Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+			FirstHeightMin="0"
+			FirstHeightMax="0"
+			SecondHeightMin="0"
+			SecondHeightMax="0"
+			FirstPercentIndent="0"
+			SecondPercentIndent="0"
+			GroundHitFX="FX_JapanTankMiss_Vet"
+			MaxDistanceReachedFX="FX_JapanTankMiss_Vet"
+			FlightPathAdjustDistPerSecond="0.0"
+			MaxDistanceToTravel="2000.0"
+			/>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+				xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onTerrainCollision"
+					FX="FX_JapanTankMiss_Vet"/>
+      </FXListBehavior>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

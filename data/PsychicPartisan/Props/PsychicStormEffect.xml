@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:fxpsychicdreamfield.w3x" />
+		<Include
+			type="all"
+			source="ART:fxpsychicdreamfield_appear.w3x" />
+		<Include 
+			type="all" 
+			source="DATA:GlobalData/GlobalDefines.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicStormEffect"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE INERT_SHROUD_REVEALER PASS_EXPERIENCE_TO_PRODUCER CAN_ATTACK PATH_THROUGH_INFANTRY NO_COLLIDE"
+		EditorName="PsychicStormEffect">
+		<DisplayName>PsychicStormEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Beam">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="fxpsychicdreamfield" />
+					<ParticleSysBone
+						BoneName="ROOTTRANSFORM"
+						FXParticleSystemTemplate="PsychicStormCoreDistortion"
+						FollowBone="true" />
+						
+					<ParticleSysBone
+						BoneName="ROOTTRANSFORM"
+						FXParticleSystemTemplate="PsychicStormCoreMagicFlare"
+						FollowBone="true" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					Flags="START_FRAME_FIRST">
+					<Animation
+						AnimationName="fxpsychicdreamfield_appear"
+						AnimationMode="ONCE"/>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING"
+					Flags="START_FRAME_LAST">
+					<Animation
+						AnimationName="fxpsychicdreamfield_appear"
+						AnimationMode="ONCE_BACKWARDS" />
+				</AnimationState>	
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1"
+					AllowInterleavedFiring="false"
+					InterleavedStyle="INTERLEAVE_FIRST_AVAILABLE"
+					WeaponChoiceCriteria="PREFER_MOST_DAMAGE">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="PsychicStormFieldWeapon" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="3.2s"
+				MaxLifetime="3.2s" />
+			
+			<!--<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.5s">
+				<FireWeaponNugget
+					WeaponName="PsychicStormFieldWeapon"
+					FireDelay="0.1s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>-->
+			<SlowDeath
+				id="ModuleTag_Death"
+				DestructionDelay="1s">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</SlowDeath>	
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				StanceTemplate="OnlyAggressive"/>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="YES"				
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"
+					CanPickDynamicTargets="true"
+					CanOnlyAttackTargetsInFront="true"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="9999999.0" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="75.0"
+				Height="75.0"/>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="100"
+			ShroudClearingRange="0" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+
+  
+  
+</AssetDeclaration>

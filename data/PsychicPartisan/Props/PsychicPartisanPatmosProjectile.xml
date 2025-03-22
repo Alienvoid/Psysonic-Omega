@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXPatmosPROJECTILE02_CTR.w3x" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanPatmosProjectile"
+		inheritFrom="BaseProjectile"
+		Side="PsychicPartisan"
+		EditorName="PsychicPartisanPatmosProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="FXPatmosPROJECTILE02" />
+          <ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="PsychicPartisanPatmosProjectileLight"
+              FollowBone="true"/>
+        </ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_PsychicPartisanEnergyBallHit" />
+			</FXListBehavior>
+
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="20"
+				SecondPercentIndent="50"
+				FlightPathAdjustDistPerSecond="100.0"
+				GroundHitFX="FX_PsychicPartisanEnergyBallHit"
+				MaxDistanceToTravel="600.0"/>
+
+		</Behaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+	</GameObject>
+</AssetDeclaration>

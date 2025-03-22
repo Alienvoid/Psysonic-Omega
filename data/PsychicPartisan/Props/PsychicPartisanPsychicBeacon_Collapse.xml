@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:JBPsychicBeacon_COL.w3x" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanPsychicBeacon_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="PsychicPartisanPsychicBeacon_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="20"
+			Explodiness="4">
+			<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="JBPsychicBeacon_COL" />
+			</ModelConditionState>
+			<BoneVolumes>
+			<BoneVolume BoneName="Bone_D_01" Mass="36573" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="20.1976" HalfSizeY="15.9003" HalfSizeZ="11.2478" >
+		<Translation x="6.4339" y="11.1356" z="7.1865" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="22055" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="7.26352" HalfSizeY="11.8716" HalfSizeZ="25.2615" >
+		<Translation x="26.3673" y="-10.7376" z="17.4339" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="42607" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="26.7869" HalfSizeY="12.6056" HalfSizeZ="12.4624" >
+		<Translation x="1.85004" y="-0.467323" z="4.58137" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="765" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.30009" HalfSizeY="4.97779" HalfSizeZ="2.86491" >
+		<Translation x="-34.3498" y="-13.925" z="4.01216" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="765" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.30009" HalfSizeY="4.97779" HalfSizeZ="2.86491" >
+		<Translation x="14.2432" y="-34.3133" z="4.01216" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="765" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.30009" HalfSizeY="4.97779" HalfSizeZ="2.86491" >
+		<Translation x="14.2432" y="34.313" z="4.01216" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="765" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="5.30009" HalfSizeY="4.97779" HalfSizeZ="2.86491" >
+		<Translation x="-34.3498" y="13.9253" z="4.01216" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="17695" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="18.049" HalfSizeY="8.73799" HalfSizeZ="11.0817" >
+		<Translation x="5.71767" y="-2.32952" z="6.61913" />
+		<Rotation x="0.0" y="0.0" z="-0.258819" w="0.965926" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_09" Mass="621904" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="41.5289" HalfSizeY="42.947" HalfSizeZ="34.4386" >
+		<Translation x="0.0" y="0.0" z="75.9775" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_10" Mass="94162" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="54.2327" HalfSizeY="3.0927" HalfSizeZ="55.4476" >
+		<Translation x="54.4631" y="0.0" z="3.00139" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_11" Mass="14812" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="31.6025" HalfSizeY="28.5638" HalfSizeZ="1.62064" >
+		<Translation x="1.64862" y="7.08362" z="3.931" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	<Behaviors/>
+		<AudioArraySound>
+			<AudioEntry Sound="JAP_DefenderVX_Die" AudioType="soundAmbient" />
+		</AudioArraySound>
+</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="instance" source="DATA:BaseObjects/BaseInfantry.xml" />
+
+	</Includes>
+
+  <GameObject
+		id="JapanMastermindAOEMindControlEffect"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_AlliedAntiNavalScout"
+		ButtonImage="Button_AlliedAntiNavalScout_on"
+		Side="Japan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		CommandSet="JapanMastermindAOEMindControlEffectCommandSet"
+		KindOf="CAN_ATTACK CAN_CAST_REFLECTIONS UNATTACKABLE SUMMONED IGNORES_SELECT_ALL NO_COLLIDE CAN_BE_FAVORITE_UNIT"
+		EditorName="JapanMastermindAOEMindControlEffect">
+		<DisplayName>JapanMastermindAOEMindControlEffect</DisplayName>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="EmptyDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_Draw">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureCircle"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSparks"
+						FollowBone="true" />
+						
+					<!--<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanMindCtrlHit_Base"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanMindCtrlHit_Dist"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanMindCtrlHit_Glow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanMindCtrlHit_Rays"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanMindCtrlHit_Smoke"
+						FollowBone="true" />-->
+        </ModelConditionState>
+
+
+      </ScriptedModelDraw>
+    </Draws>    
+		<Behaviors>
+			<!--<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanMastermindAOEMindControlEffectWeapon" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>-->
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanMasterMindAOEPsichoControlWeaponTrigger" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="20.0s"
+				MaxLifetime="20.0s" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<!--<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="OCL_AttachAOEMindControlEffectBackward">
+				<DieMuxData
+					DeathTypes="ALL" 
+DeathTypesForbidden="ERASED"/>
+			</CreateObjectDie>-->
+			
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT INSTANT_TELEPORT_ON_PARENT_TELEPORT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED">
+			</AttachUpdate>
+
+			<SpecialPower
+				id="ModuleTag_ManipulatorDevice"
+				SpecialPowerTemplate="SpecialPower_ManipulateObject"
+				AvailableAtStart="true"
+				UpdateModuleStartsAttack="true" />
+			<ActivateModuleSpecialAbilityUpdate
+				id="ModuleTag_ManipulatorDeviceUpdate"
+				SpecialPowerTemplate="SpecialPower_ManipulateObject"
+				StartAbilityRange="20"
+				AwardXPForTriggering="300"
+				Options="CHECK_SPECIALPOWER_REQUIREMENTS_DURING_UPDATE">
+				<SpecialPowerModules
+					ModuleId="ModuleTag_ManipulatorDeviceWorker"
+					TriggerType="TARGET_OBJECT" />
+			</ActivateModuleSpecialAbilityUpdate>
+			<TemporaryOwnerSpecialPower
+				id="ModuleTag_ManipulatorDeviceWorker"
+				SpecialPowerTemplate="SpecialPowerDummyTriggered3"
+				UpdateModuleStartsAttack="false"
+				/>
+	  
+			<StancesBehavior
+				id="ModuleTag_Stance"
+				StanceTemplate="OnlyAggressive" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+	  <VisionInfo
+		  VisionRange="200"
+		  ShroudClearingRange="50" />
+	  <CrusherInfo
+		  id="id_CrusherInfo"
+		  CrushableLevel="0" />
+  </GameObject>
+
+
+  <GameObject
+		id="JapanMastermindAOEMindControllerCaster"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_AlliedAntiNavalScout"
+		ButtonImage="Button_AlliedAntiNavalScout_on"
+		Side="Japan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="CAN_ATTACK CAN_CAST_REFLECTIONS UNATTACKABLE SUMMONED IGNORES_SELECT_ALL NO_COLLIDE CAN_BE_FAVORITE_UNIT"
+		EditorName="JapanMastermindAOEMindControllerCaster">
+		<DisplayName>JapanMastermindAOEMindControllerCaster</DisplayName>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="EmptyDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_Draw">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureCircle"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSparks"
+						FollowBone="true" />
+        </ModelConditionState>
+
+
+      </ScriptedModelDraw>
+    </Draws>   
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanMasterMindAOEPsichoControlWeaponTrigger" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="1.0s"
+				MaxLifetime="1.0s" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+				
+			<ActivateSpecialPowerOnCreate
+				id="ModuleTag_ActivateToggleSpiderHole">
+				<SpecialPowerTemplate>SpecialPower_AOEMindControl</SpecialPowerTemplate>
+			</ActivateSpecialPowerOnCreate>
+			<SpecialPower
+				id="ModuleTag_Bribe"
+				SpecialPowerTemplate="SpecialPower_AOEMindControl"
+				UpdateModuleStartsAttack="true" />			
+			<DominateEnemySpecialPower
+				id="ModuleTag_BribeUpdate"				
+				Options="LOSE_STEALTH_ON_TRIGGER BUSY_DURING_PACK"
+				SpecialPowerTemplate="SpecialPower_AOEMindControl"			
+				UnpackTime="0s"
+				PackTime="0s"
+				StartAbilityRange="0.0"
+				DominateRadius="100"
+				TriggerFX="FX_None"
+				DominatedFX="FX_None"
+				PermanentlyConvert="true">
+				<AttributeModifierAffects
+					Rule="ANY"
+					Relationship="ENEMIES"
+					Include="VEHICLE INFANTRY"/>
+			</DominateEnemySpecialPower>
+	  
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+	  <VisionInfo
+		  VisionRange="200"
+		  ShroudClearingRange="0" />
+	  <CrusherInfo
+		  id="id_CrusherInfo"
+		  CrushableLevel="0" />
+  </GameObject>
+  
+  <GameObject
+		id="JapanMastermindAOEMindControllerBackward"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_AlliedAntiNavalScout"
+		ButtonImage="Button_AlliedAntiNavalScout_on"
+		Side="Japan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="CAN_ATTACK CAN_CAST_REFLECTIONS UNATTACKABLE SUMMONED IGNORES_SELECT_ALL NO_COLLIDE CAN_BE_FAVORITE_UNIT"
+		EditorName="JapanMastermindAOEMindControllerBackward">
+		<DisplayName>JapanMastermindAOEMindControllerBackward</DisplayName>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="EmptyDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_Draw">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureCircle"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="YurikoLureSparks"
+						FollowBone="true" />
+        </ModelConditionState>
+
+
+      </ScriptedModelDraw>
+    </Draws>   
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="JapanMasterMindAOEPsichoControlWeaponTrigger" />
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="1.0s"
+				MaxLifetime="1.0s" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+				
+			<ActivateSpecialPowerOnCreate
+				id="ModuleTag_ActivateToggleSpiderHole">
+				<SpecialPowerTemplate>SpecialPower_AOEMindControl</SpecialPowerTemplate>
+			</ActivateSpecialPowerOnCreate>
+			<SpecialPower
+				id="ModuleTag_Bribe"
+				SpecialPowerTemplate="SpecialPower_AOEMindControl"
+				UpdateModuleStartsAttack="true" />			
+			<DominateEnemySpecialPower
+				id="ModuleTag_BribeUpdate"				
+				Options="LOSE_STEALTH_ON_TRIGGER BUSY_DURING_PACK"
+				SpecialPowerTemplate="SpecialPower_AOEMindControl"			
+				UnpackTime="0s"
+				PackTime="0s"
+				StartAbilityRange="0.0"
+				DominateRadius="15"
+				TriggerFX="FX_AlliedBribe"
+				DominatedFX="FX_AlliedBribeHit"
+				PermanentlyConvert="true">
+				<AttributeModifierAffects
+					Rule="ANY"
+					Relationship="ENEMIES"
+					Include="VEHICLE INFANTRY"/>
+			</DominateEnemySpecialPower>
+	  
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+	  <VisionInfo
+		  VisionRange="20"
+		  ShroudClearingRange="0" />
+	  <CrusherInfo
+		  id="id_CrusherInfo"
+		  CrushableLevel="0" />
+  </GameObject>
+	
+</AssetDeclaration>

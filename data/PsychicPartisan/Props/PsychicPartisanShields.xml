@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:FXYURIKOSHIELDUPGRADE_CTR.w3x" />
+		<Include type="all"	source="ART:FXPSYCHICANGELSHIELD.w3x" />	
+		<Include type="all"	source="ART:FXPRINCESSESCORTSHIELD.w3x" />	
+		<Include type="all"	source="ART:JUHARVESTERDRONE_SHIELD.w3x" />	
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanInitiateShield"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED INFANTRY NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="PsychicPartisanInitiateShield">
+		<DisplayName>PsychicPartisanInitiateShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_PsychicShield"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXPSYCHICANGELSHIELD" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">	
+				</AnimationState>
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<Script>
+						CurDrawableHideSubObjectPermanently("Shield")
+					</Script>						
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.1s">
+				<FireWeaponNugget
+					WeaponName="PsychicPartisanInitiateShieldFadingAndBurningWeapon" />
+			</FireWeaponUpdate>
+			
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="15s"
+				MaxLifetime="15s"
+				DeathType="ERASED" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="150" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	<GameObject
+		id="PsychicPartisanAscendedAngelShield"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED INFANTRY NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="PsychicPartisanAscendedAngelShield">
+		<DisplayName>PsychicPartisanAscendedAngelShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_PsychicShield"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="FXPSYCHICANGELSHIELD" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="INSIDE_GARRISON">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">	
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="29.5s"
+				MaxLifetime="29.5s"
+				DeathType="ERASED" />
+			
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="5"
+				HealingDelay=".5s">
+			</AutoHealBehavior>
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="600" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	
+	<GameObject
+		id="PsychicPartisanYurikoShield"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED INFANTRY NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="PsychicPartisanYurikoShield">
+		<DisplayName>PsychicPartisanYurikoShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<!--Shield Draw Module-->
+			<ScriptedModelDraw
+				id="ModuleTag_Shield"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXYurikoShieldUpgrade" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">	
+				</AnimationState>					
+							
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<!-- Do nothing until activated -->
+					<Script>
+						CurDrawableHideSubObjectPermanently("Shield")
+					</Script>						
+				</AnimationState>				
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="15s"
+				MaxLifetime="15s"
+				DeathType="ERASED" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			<AutoHealBehavior
+				id="Upgrade_AutoHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				HealingAmount="25"
+				HealingDelay="0.5s"/>
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="2500" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	<GameObject
+		id="PsychicPartisanPrincessEscortShield"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED INFANTRY NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="PsychicPartisanPrincessEscortShield">
+		<DisplayName>PsychicPartisanPrincessEscortShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<!--Shield Draw Module-->
+			<ScriptedModelDraw
+				id="ModuleTag_Shield">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXPrincessEscortShield" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">	
+				</AnimationState>					
+							
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<!-- Do nothing until activated -->
+					<Script>
+						CurDrawableHideSubObjectPermanently("Shield")
+					</Script>						
+				</AnimationState>				
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT TELEPORT_AND_ALIGN_WITH_PARENT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="29s"
+				MaxLifetime="29s"
+				DeathType="ERASED" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			<AutoHealBehavior
+				id="Upgrade_AutoHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				HealingAmount="5"
+				HealingDelay="0.5s"/>
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="520" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+	
+	<GameObject
+		id="PsychicPartisanHarvesterDroneShield"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED INFANTRY NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="PsychicPartisanPrincessEscortShield">
+		<DisplayName>PsychicPartisanPrincessEscortShield</DisplayName>
+		<ArmorSet
+			Armor="ForceShieldArmor"
+			DamageFX="AircraftDamageFX" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<!--Shield Draw Module-->
+			<ScriptedModelDraw
+				id="ModuleTag_Shield">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="JUHARVESTERDRONE_SHIELD" />
+				</ModelConditionState>
+				
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">	
+				</AnimationState>					
+							
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="FORMATION_PREVIEW">
+					<!-- Do nothing until activated -->
+					<Script>
+						CurDrawableHideSubObjectPermanently("GEOSPHERE01")
+					</Script>						
+				</AnimationState>				
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT TELEPORT_AND_ALIGN_WITH_PARENT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="IN_SHIELD_SPHERE">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="29s"
+				MaxLifetime="29s"
+				DeathType="ERASED" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			<AutoHealBehavior
+				id="Upgrade_AutoHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				HealingAmount="5"
+				HealingDelay="0.5s"/>
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1000" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

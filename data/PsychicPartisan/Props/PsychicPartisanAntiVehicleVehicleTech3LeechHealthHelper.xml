@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+	</Includes>
+	<GameObject
+		id="PsychicPartisanAntiVehicleVehicleTech3LeechHealthHelper"
+		Side="Japan"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE INERT INERT_SHROUD_REVEALER SKIRMISH_AI_ATTEMPT_TO_DODGE"
+		EditorName="PsychicPartisanAntiVehicleVehicleTech3LeechHealthHelper">
+		<DisplayName>PsychicPartisanAntiVehicleVehicleTech3LeechHealthHelper</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="400.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="Moduletag_LifetimeUpdate"
+				MinLifetime="1.1s"
+				MaxLifetime="1.1s" />
+      
+      
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			
+			<PassiveAreaEffectBehavior
+				id="ModuleTag_PassiveHealWhenAttacking"
+				EffectRadius="25.0"
+				SurveyDelayFrames="4"
+				HealingPercentPerSecond="5%"
+				AffectWoundedOnly="true"
+				AffectUnderAttack="true"
+				NonStackable="true"
+				HealFX=""
+				DisabledTypesToProcess="HELD">
+				<AllowFilter
+					Rule="NONE"
+					Relationship="ALLIES">
+					<IncludeThing>PsychicPartisanAntiVehicleVehicleTech3</IncludeThing>
+				</AllowFilter>
+			</PassiveAreaEffectBehavior>
+			
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="1.0"
+				Height="1.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

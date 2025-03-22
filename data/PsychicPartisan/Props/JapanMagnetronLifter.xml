@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="ART:FXMagneticSatellite.w3x" />
+		<Include type="all" source="ART:FXMagneticSatelliteCursor.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseObject.xml" />
+	</Includes>
+	<GameObject
+		id="JapanMagnetronLifter"
+		inheritFrom="BaseObject"
+		Side="Soviet"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE CAN_CAST_REFLECTIONS PATH_THROUGH_INFANTRY NO_COLLIDE AI_NEEDS_PLAYER_POWER_UPDATE SKIRMISH_AI_ATTEMPT_TO_DODGE SHOW_BEHIND_OCCLUDERS"
+		EditorName="JapanMagnetronLifter"
+		Description="Desc:JapanMagnetronLifter"
+		TypeDescription="Type:JapanMagnetronLifter">
+		<DisplayName>JapanMagnetronLifter</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<LocomotorSet
+			id="ModuleTag_Locomotor"
+			Locomotor="SovietMagneticSatelliteEffectLocomotor"
+			Speed="50" />
+		<SkirmishAIInformation
+		  DodgeSafetyDistance="300.0">
+			<DodgeWithUnits Rule="NONE"
+			  Include="VEHICLE">
+				<IncludeThing>SovietScoutVehicle</IncludeThing>
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</DodgeWithUnits>
+		</SkirmishAIInformation>
+
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MagneticSatellite_Die" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanRazorDroneDeathWeapon"
+				DeathWeapon="JapanMagnetronPsysonicMagneticBeamLifter_OneShot"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  xai:joinAction="Replace"
+			  MinLifetime="0.1s"
+			  MaxLifetime="0.1s" />
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+			</AIUpdate>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="50.0"
+				Height="50.0"></Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_MagneticSatellite_Attack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_MagneticSatellite_MoveStart" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_MagneticSatellite_Select" AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<VisionInfo
+			VisionRange="50"
+			ShroudClearingRange="100" />
+
+	</GameObject>
+</AssetDeclaration>

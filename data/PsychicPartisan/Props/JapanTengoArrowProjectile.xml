@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="instance" source="DATA:BaseObjects/BaseProjectile.xml" />
+		<Include
+			type="all"
+			source="ART:EXJapanArrowShard.w3x" />
+    <Include
+			type="all"
+			source="ART:EXJapanArrowShard_Vet.w3x" />
+	</Includes>
+	<GameObject
+		id="JapanTengoArrowProjectile"
+		inheritFrom="BaseProjectile"
+		Side="Japan"
+		EditorSorting="SYSTEM"
+		KindOf="+DEFLECT_BY_SPECIAL_POWER -PROJECTILE"
+		EditorName="JapanTengoArrowProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="EXJapanArrowShard" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanArrowMIRVRHigh"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="JapanArrowMIRVRLow"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanTenguArrowMIRVBitHit" />
+			</FXListBehavior>
+
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="-10"
+				FirstHeightMax="10"
+				SecondHeightMin="-10"
+				SecondHeightMax="10"
+				FirstPercentIndent="0"
+				SecondPercentIndent="66"
+				GroundHitFX="FX_JapanTenguArrowMIRVBitHit"
+				MaxDistanceReachedFX="FX_JapanTenguArrowMIRVBitHit"
+				SidewaysDrift="10"
+				FlightPathAdjustDistPerSecond="100.0"
+				MaxDistanceToTravel="10000.0"
+				/>
+			
+		</Behaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+	</GameObject>
+	<GameObject
+		inheritFrom="JapanTengoArrowProjectile"
+		id="JapanTengoArrowProjectile_Veteran"
+		EditorName="JapanTengoArrowProjectile_Veteran">
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+        xai:joinAction="Replace">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="EXJapanArrowShard_Vet" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXJapanMIRVTrail_VetHIGH"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="FXJapanMIRVTrail_VetLOW"
+						FollowBone="true" />
+        </ModelConditionState>
+      </ScriptedModelDraw>
+    </Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanTenguArrowMIRVBitHitVet" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				xai:joinAction="Replace"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="-10"
+				FirstHeightMax="10"
+				SecondHeightMin="-10"
+				SecondHeightMax="10"
+				FirstPercentIndent="0"
+				SecondPercentIndent="66"
+				GroundHitFX="FX_JapanTenguArrowMIRVBitHitVet"
+				MaxDistanceReachedFX="FX_JapanTenguArrowMIRVBitHitVet"
+				SidewaysDrift="1"
+				FlightPathAdjustDistPerSecond="100.0"
+				MaxDistanceToTravel="2600.0"
+				/>
+		</Behaviors>
+	</GameObject>	
+</AssetDeclaration>

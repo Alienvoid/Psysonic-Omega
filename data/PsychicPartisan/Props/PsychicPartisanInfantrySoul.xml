@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Tags></Tags>
+	<Includes>
+		<Include 
+			type="all" 
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include type="all"	source="ART:NPMutation_SKN.w3x" />	
+		<Include type="all"	source="ART:NPMutation_DIEA.w3x" />	
+	</Includes>
+	<GameObject
+		id="PsychicPartisanInfantrySoul"
+		Side="PsychicPartisan"
+		EditorSorting="SYSTEM"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE INERT_SHROUD_REVEALER PASS_EXPERIENCE_TO_PRODUCER CAN_ATTACK MACHINE"
+		EditorName="PsychicPartisanInfantrySoul">
+		<DisplayName>PsychicPartisanInfantrySoul</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw_Beam">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="NPMutation_SKN" />
+					
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="NPMutation_DIEA"
+						AnimationMode="ONCE"
+						AnimationBlendTime="10" />
+					<ParticleSysBone
+						BoneName="b_melt01"
+						FXParticleSystemTemplate="PsychicSoulFormingGlow"
+						FollowBone="true" />	
+					<ParticleSysBone
+						BoneName="b_melt10"
+						FXParticleSystemTemplate="PsychicSoulFormingGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="b_melt30"
+						FXParticleSystemTemplate="PsychicSoulFadingGlow"
+						FollowBone="true" />	
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<WeaponSlotHardpoint
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SacrificeFlyingSoulTrigger"/>
+				</WeaponSlotHardpoint>
+			</WeaponSetUpdate>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="3.33s"
+				MaxLifetime="3.34s"
+				DeathType="SUICIDED"/>
+			
+			<FireWeaponWhenDead
+				id="ModuleTag_JapanRazorDroneDeathWeapon"
+				DeathWeapon="SacrificeEffectTrigger"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="SUICIDED"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>
+			
+			<DestroyObjectsUpdate
+				id="ModuleTag_DestroyObjectsUpdate"
+				Radius="500">
+				<ObjectFilter Rule="NONE" Include="CIVILIAN_UNIT"/>
+			</DestroyObjectsUpdate>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>		
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					RotateToTargetWhenAiming="false"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="9999999.0" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="50.0"
+				Height="300.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="PSY_ControlBeacon_Grind" AudioType="soundCreated"/>
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="999999"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+
+  
+  
+</AssetDeclaration>

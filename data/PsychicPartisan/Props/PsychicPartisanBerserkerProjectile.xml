@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:EXBERSERKERSHELL_CTR.w3x" />
+		<Include
+			type="all"
+			source="ART:EXBERSERKERSHELL_VET_CTR.w3x" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml" />
+	</Includes>
+	<GameObject
+		id="PsychicPartisanBerserkerProjectile"
+		inheritFrom="BaseProjectile"
+		Side="PsychicPartisan"
+		EditorName="PsychicPartisanBerserkerProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="EXBERSERKERSHELL" />
+          <ParticleSysBone
+              BoneName="NONE"
+              FXParticleSystemTemplate="PsychicPartisanPatmosProjectileLight"
+              FollowBone="true"/>
+        </ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanAntiStructureGunHit" />
+			</FXListBehavior>
+
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="20"
+				SecondPercentIndent="50"
+				FlightPathAdjustDistPerSecond="100.0"
+				GroundHitFX="FX_JapanAntiStructureGunHit"
+				MaxDistanceToTravel="600.0"/>
+
+		</Behaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+	</GameObject>
+  <!-- VETERAN -->
+
+  <GameObject
+		inheritFrom="PsychicPartisanBerserkerProjectile"
+		id="PsychicPartisanBerserkerProjectile_Veteran"
+		EditorName="PsychicPartisanBerserkerProjectile_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				xai:joinAction="Replace"
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+							Name="EXBERSERKERSHELL_VET" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="PsychicPartisanPatmosProjectileLight"
+						FollowBone="true"/>
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+    <Behaviors>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				xai:joinAction="Replace"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="20"
+				SecondPercentIndent="50"
+				FlightPathAdjustDistPerSecond="100.0"
+				GroundHitFX="FX_JapanAntiStructureGunHit_Vet"
+				MaxDistanceToTravel="600.0"/>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+				xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onTerrainCollision"
+					FX="FX_JapanAntiStructureGunHit_Vet"/>
+      </FXListBehavior>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="instance" source="DATA:BaseObjects/BaseProjectile.xml" />
+		<Include
+			type="all"
+			source="ART:FXJapanTankProjectile.w3x" />
+	</Includes>
+		<GameObject
+		id="JapanPlasmaDefenderProjectile"
+		inheritFrom="BaseProjectile"
+		Side="Japan"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="JapanPlasmaDefenderProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXJapanTankProjectile" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_JapanFortressShipCannonProjectileHit" />
+			</FXListBehavior>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="0"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="100.0"
+				GroundHitFX="FX_JapanFortressShipCannonProjectileHit"/>
+		</Behaviors>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+	</GameObject>
+</AssetDeclaration>
