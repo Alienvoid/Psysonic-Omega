@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:fxsmoke01.xml" type="instance"/>
+		<Include source="art:fxdisotrtionfractal01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate ParticleTexture="FXSmoke01" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="ALPHA" SortLevel="2" Type="GPU_PARTICLE" id="SovietDestroyerJammingSmoke">
+		<Lifetime High="35" Low="35"/>
+		<Size High="75" Low="50"/>
+		<BurstDelay High="1" Low="1"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="2" High="0.5" Low="0.5" RelativeAge="9"/>
+			<Alpha Frame="3" High="0.5" Low="0.5" RelativeAge="25"/>
+			<Alpha Frame="4" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="1" RelativeAge="0">
+				<Color b="0.720784" g="0.720784" r="0.720784"/>
+			</Color>
+			<Color Frame="2" RelativeAge="25">
+				<Color b="0.782157" g="0.782157" r="0.782157"/>
+			</Color>
+			<Color Frame="3" RelativeAge="50">
+				<Color b="0.584118" g="0.584118" r="0.584118"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0.605882" g="0.605882" r="0.605882"/>
+			</Color>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="1" Low="1"/>
+				<DriftVelocity x="0" y="0" z="1"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<Gpu DetailTexture="FXDisotrtionFractal01" GeometryType="CENTERED_QUAD" MiscValue1="0.1" MiscValue2="0.04" MiscValue3="45" MiscValue4="0.05" Shader="GpuParticleDistort.fx" SpeedMultiplier="1"/>
+		</Draw>
+		<Volume>
+			<Cylinder>
+				<Offset x="0" y="0" z="5"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0.1" Low="-0.1"/>
+					<y High="0.1" Low="-0.1"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<Default>
+				<SizeRate High="0.5" Low="0.5"/>
+				<SizeRateDamping High="0.94" Low="0.94"/>
+				<AngleZ High="4" Low="0"/>
+				<AngularDampingXY High="1" Low="1"/>
+			</Default>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>

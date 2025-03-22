@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Includes>
+		<Include source="art:FXSONICSPHEREA.w3x" type="instance"/>
+		<Include source="art:FXDistortionFractal01.xml" type="instance"/>
+	</Includes>
+	<FXParticleSystemTemplate Drawable="FXSONICSPHEREA" PerParticleAttachedSystem="" Priority="ALWAYS_RENDER" Shader="W3D_EMISSIVE" SystemLifetime="8" Type="DRAWABLE" id="SonicAirExplosionSphere">
+		<Lifetime High="40" Low="35"/>
+		<Size High="1.5" Low="0.75"/>
+		<BurstDelay High="2" Low="2"/>
+		<BurstCount High="1" Low="1"/>
+		<Alphas>
+			<Alpha Frame="1" High="1" Low="1" RelativeAge="0"/>
+			<Alpha Frame="2" High="1" Low="1" RelativeAge="50"/>
+			<Alpha Frame="3" High="0" Low="0" RelativeAge="100"/>
+		</Alphas>
+		<Colors>
+			<Color Frame="2" RelativeAge="13">
+				<Color b="1" g="0.47451" r="0.12549"/>
+			</Color>
+			<Color Frame="3" RelativeAge="56">
+				<Color b="0.501961" g="0.823529" r="1"/>
+			</Color>
+			<Color Frame="4" RelativeAge="100">
+				<Color b="0" g="0" r="0"/>
+			</Color>
+			<ColorScale High="5" Low="3"/>
+		</Colors>
+		<Physics>
+			<Default>
+				<VelocityDamping High="0.95" Low="0.95"/>
+			</Default>
+		</Physics>
+		<Draw>
+			<RenderObject>
+				<ObjectSet/>
+				<ObjectSet/>
+				<ObjectSet/>
+			</RenderObject>
+		</Draw>
+		<Volume>
+			<Cylinder>
+				<Offset x="0" y="0" z="0"/>
+			</Cylinder>
+		</Volume>
+		<Velocity>
+			<Ortho>
+				<Position>
+					<x High="0" Low="0"/>
+					<y High="0" Low="0"/>
+					<z High="0" Low="0"/>
+				</Position>
+			</Ortho>
+		</Velocity>
+		<Event/>
+		<Update>
+			<RenderObject Rotation="ROTATE_Z">
+				<AngularDamping High="1" Low="1"/>
+				<StartSize>
+					<x High="0.1" Low="0.1"/>
+					<y High="0.1" Low="0.1"/>
+					<z High="0.01" Low="0.01"/>
+				</StartSize>
+				<SizeRate>
+					<x High="0.25" Low="0.25"/>
+					<y High="0.25" Low="0.25"/>
+					<z High="0.08" Low="0.08"/>
+				</SizeRate>
+				<SizeDamping>
+					<x High="0.89" Low="0.85"/>
+					<y High="0.89" Low="0.85"/>
+					<z High="0.95" Low="0.93"/>
+				</SizeDamping>
+			</RenderObject>
+		</Update>
+	</FXParticleSystemTemplate>
+</AssetDeclaration>
