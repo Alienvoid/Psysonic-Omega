@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+	</Includes>
+  <GameObject
+		id="ForceFloater"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE INERT INERT_SHROUD_REVEALER"
+		EditorName="ForceFloater">
+		<DisplayName>ForceFloater</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+			
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_Draw">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="" />
+        </ModelConditionState>
+
+
+      </ScriptedModelDraw>
+    </Draws>   
+		<Behaviors>
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="TELEPORT STICK_TO_PARENT DIE_WHEN_DETACH_ALWAYS"
+				CloseEnoughRange="1.0" />
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="10.0s"
+				MaxLifetime="10.0s" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<GrantUpgradeCreate
+				id="ModuleTag_AddAlliedRadarDishUpgrade"
+				UpgradeToGrant="Upgrade_ForceFloating" />
+			<TechUpgrade
+				id="ModuleTag_TechUpgrade_Tech2"
+				Radius="5.0"
+				DistanceType="CIRCULAR">
+				<TriggeredBy>Upgrade_ForceFloating</TriggeredBy>
+				<ObjectFilter
+					Rule="ANY"
+					Include="SUBMARINE"
+					Relationship="ENEMIES"
+					StatusBitFlagsExclude="SURFACED UNDER_IRON_CURTAIN NOT_IN_WORLD">
+					<IncludeThing>SovietAntiNavyShipTech2</IncludeThing>
+					<IncludeThing>SACOMAntiNavyShipTech2</IncludeThing>
+				</ObjectFilter>
+			</TechUpgrade>
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+	  <VisionInfo
+		  VisionRange="0"
+		  ShroudClearingRange="0" />
+	  <CrusherInfo
+		  id="id_CrusherInfo"
+		  CrushableLevel="0" />
+  </GameObject>
+</AssetDeclaration>

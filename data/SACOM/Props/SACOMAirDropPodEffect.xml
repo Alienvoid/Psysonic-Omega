@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseObject.xml" />
+	</Includes>
+	<GameObject
+		id="SACOMAirDropPodEffect"
+		inheritFrom="BaseObject" 
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE INERT"
+		EditorName="SACOMAirDropPodEffect"
+		Description="Desc:SACOMAirDropPodEffect"
+		TypeDescription="Type:SACOMAirDropPodEffect"		
+		UnitTypeIcon="RiflemenIcon">
+		<DisplayName>SACOMAirDropPodEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="BeaconFlare"/>
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="BeaconSmoke"/>
+        </ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="ModuleTag_LifetimeUpdate"
+				MinLifetime="30.0s"
+				MaxLifetime="30.0s" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BombardAreaUpdate
+				id="ModuleTag_BalloonBombs"
+				WeaponName="SACOMAirDropPodWeapon"
+				MaxShots="1">
+				<TimeDelayRange
+					Low="0.25s"
+					High="1.0s"/>
+				<RadiusSpreadRange
+					Low="0"
+					High="50"/>						
+			</BombardAreaUpdate>
+		</Behaviors>		
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine"/>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="5.0"
+				Height="5.0"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="JAP_BalloonBomb_Flare" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

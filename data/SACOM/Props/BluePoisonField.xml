@@ -1,1 +1,87 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+	</Includes>
+	<GameObject
+		id="BluePoisonField"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE NO_COLLIDE INERT INERT_SHROUD_REVEALER SKIRMISH_AI_ATTEMPT_TO_DODGE"
+		EditorName="BluePoisonField">
+		<DisplayName>BluePoisonField</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="400.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model Name="" />
+					<ParticleSysBone
+						FXParticleSystemTemplate="BluePoison" />
+          <ParticleSysBone
+						FXParticleSystemTemplate="BluePoison02" />
+          <ParticleSysBone
+						FXParticleSystemTemplate="BluePoison03" />
+          <ParticleSysBone
+						FXParticleSystemTemplate="BluePoison04" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+				id="Moduletag_LifetimeUpdate"
+				MinLifetime="6s"
+				MaxLifetime="6s" />
+      
+      <FXListBehavior
+        id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onCreate"
+					FX="FX_SovBluePoisonDecal" />
+      </FXListBehavior>
+      
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
 
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.1s">
+				<FireWeaponNugget
+					WeaponName="Weapon_BluePoisonFieldUpdate" />
+			</FireWeaponUpdate>
+			
+		</Behaviors>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="1.0"
+				Height="1.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

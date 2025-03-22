@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- The default tank projectile -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXArtShell.w3x" />
+	</Includes>
+	<GameObject
+		id="SACOMTankDestroyerShell"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED PRELOAD PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="SACOMTankDestroyerShell">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXArtShell" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="GDIShellTrail"
+						FollowBone="true" />						
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+		
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_Hind_MissleExplosionGround" />
+				<Event
+					Index="onTerrainCollision"
+					FX="FX_SOV_Hind_MissleExplosionGround"/>
+			</FXListBehavior>
+
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			
+			<ProjectileUpdate
+				id="ModuleTag_ProjectileUpdate"
+				StateMachine="StraightLineProjectile">
+				<Movement>
+					<MoveInStraightLine
+						MuzzleVelocity="750.0" 
+						Acceleration="0.50"
+						TerminalVelocity="750.0"/>
+				</Movement>
+			</ProjectileUpdate>
+			<!-- Determines how long the projectile will live before it runs out of fuel and detonates-->
+			<LifetimeUpdate
+				id="ModuleTag_Lifetime"
+				DeathType="EXPLODED"
+				MinLifetime="3s"
+				MaxLifetime="3s" />
+				
+			<FireWeaponCollide
+				id="ModuleTag_FireWeaponCollide"
+				CollideWeapon="SACOMTankDestroyerProjectileExtraDamageWeapon"
+				FireOnce="false"
+				Flags="DO_NOT_COLLIDE_WITH_PRODUCER" 
+				WhereToFire="TARGET_POSITION"/>
+				  
+			<FireWeaponWhenDead
+				id="ModuleTag_CriticalHit"
+				InitiallyActive="true"
+				DeathWeapon="SACOMAntiVehicleVehicleTech2CannonWarhead">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<WeaponFireProbability
+					DeathType="ALL"
+					ChancePercentage="20" />
+			</FireWeaponWhenDead>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+	<GameObject
+		id="SACOMTankDestroyerShell_Vet"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SovietDefaultTankShell">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXArtShell" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="GDIShellTrail_Vet"
+						FollowBone="true" />						
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+		
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_Hind_MissleExplosionGround_Vet" />
+				<Event
+					Index="onTerrainCollision"
+					FX="FX_SOV_Hind_MissleExplosionGround_Vet"/>
+			</FXListBehavior>
+
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				FirstHeightMin="0"
+				FirstHeightMax="0"
+				SecondHeightMin="0"
+				SecondHeightMax="0"
+				FirstPercentIndent="25"
+				SecondPercentIndent="66"
+				CurveFlattenMinDist="300"
+				FlightPathAdjustDistPerSecond="100"
+				GroundHitFX="FX_SOV_Hind_MissleExplosionGround_Vet"/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+</AssetDeclaration>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+    <Include
+		type="all"
+		source="ART:SBPatriot_COL.w3x" />	
+		<Include
+			type="all"
+			source="ART:SBPatriot_D.xml" />
+    <Include
+		type="instance"
+		source="DATA:BaseObjects/BaseCollapsingObject.xml" />
+	</Includes>
+	<GameObject
+		id="SACOMBaseDefenseAir_Collapse"
+		inheritFrom="BaseCollapsingObject" 
+		EditorName="SACOMBaseDefenseAir_Collapse">
+		<Draws>
+			<DynamicsDraw 
+			id="ModuleTag_Draw" 
+			Collision="NONINTERCOLLIDING"
+			FlingPerturbation="50"
+			Explodiness="3">
+			<ModelConditionState
+				ParseCondStateType="PARSE_DEFAULT">
+				<Model
+					Name="SBPatriot_COL" />
+				<Texture
+					Original="SBPatriot"
+					New="SBPatriot_D" />
+			</ModelConditionState>
+			<BoneVolumes>
+			<BoneVolume BoneName="Bone_D_01" Mass="10" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.801342" HalfSizeY="0.649362" HalfSizeZ="0.911811" >
+		<Translation x="2.45448" y="-0.00756562" z="28.6542" />
+		<Rotation x="0.689977" y="-0.154697" z="0.154697" w="0.689977" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_02" Mass="10" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.726488" HalfSizeY="1.32477" HalfSizeZ="0.643915" >
+		<Translation x="7.49723" y="3.5317" z="22.361" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_03" Mass="10" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.726488" HalfSizeY="1.32477" HalfSizeZ="0.643915" >
+		<Translation x="7.49723" y="-3.532" z="22.361" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_04" Mass="13" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.726488" HalfSizeY="1.32477" HalfSizeZ="1.34425" >
+		<Translation x="5.57188" y="0.0100798" z="19.7255" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_05" Mass="10" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="0.523499" HalfSizeY="1.32477" HalfSizeZ="1.51686" >
+		<Translation x="-0.700134" y="-7.02156" z="24.6508" />
+		<Rotation x="0.5" y="-0.5" z="-0.5" w="0.5" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_06" Mass="114" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.01382" HalfSizeY="2.24912" HalfSizeZ="1.66435" >
+		<Translation x="-0.549834" y="-8.79813" z="17.7753" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_07" Mass="2499" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="13.0765" HalfSizeY="4.49378" HalfSizeZ="4.20132" >
+		<Translation x="1.33292" y="11.411" z="25.3443" />
+		<Rotation x="0.696639" y="-0.121217" z="0.121217" w="0.696639" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_08" Mass="2499" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="13.0765" HalfSizeY="4.49378" HalfSizeZ="4.20132" >
+		<Translation x="1.33292" y="-11.411" z="25.3443" />
+		<Rotation x="0.696639" y="-0.121217" z="0.121217" w="0.696639" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_09" Mass="12261" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="10.5954" HalfSizeY="15.6815" HalfSizeZ="7.28857" >
+		<Translation x="-4.98176" y="-0.00353146" z="7.28857" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_10" Mass="3578" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="7.03654" HalfSizeY="8.20504" HalfSizeZ="6.12191" >
+		<Translation x="1.58923" y="-5.21946e-007" z="22.9093" />
+		<Rotation x="0.0" y="0.0" z="0.0" w="1.0" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_11" Mass="1334" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="2.71221" HalfSizeY="8.55049" HalfSizeZ="5.68291" >
+		<Translation x="8.6832" y="-5.68291" z="6.02275" />
+		<Rotation x="0.667837" y="-0.232366" z="0.232366" w="0.667837" />
+	</Box>
+</BoneVolume>
+<BoneVolume BoneName="Bone_D_12" Mass="114" Spinniness="3.0" ContactTag="DEBRIS" >
+	<Box HalfSizeX="3.01382" HalfSizeY="2.24912" HalfSizeZ="1.66435" >
+		<Translation x="-0.549834" y="8.72884" z="17.7753" />
+		<Rotation x="0.707107" y="0.0" z="0.0" w="0.707107" />
+	</Box>
+</BoneVolume>
+
+
+
+			</BoneVolumes>
+			<Lifetime
+				Delay="5s"
+				FadeTime="4s" />
+		</DynamicsDraw>
+	</Draws>
+	<Behaviors/>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_FlakCannon_Die" AudioType="soundAmbient" />
+		</AudioArraySound>
+</GameObject>
+</AssetDeclaration>

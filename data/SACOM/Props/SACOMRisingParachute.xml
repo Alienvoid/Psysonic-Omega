@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:NPParachute_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:NPParachute_FALL.w3x" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+	</Includes>
+	<GameObject
+		id="SACOMRisingParachute"
+		KindOf="NOT_AUTOACQUIRABLE UNATTACKABLE INERT"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		EditorName="SACOMRisingParachute"
+		Description="Desc:SACOMRisingParachute"
+		TypeDescription="Type:SACOMRisingParachute">
+		<DisplayName>Name:SACOMRisingParachute</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<LocomotorSet
+			id="defaultLocomotor"
+			Locomotor="JapanBalloonRisingBalloonLocomotor"
+			Condition="NORMAL"
+			Speed="25.0" />
+
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="NPParachute_SKN" />
+          
+				<ParticleSysBone
+						BoneName="b_parachute09"
+						FXParticleSystemTemplate="JapanBalloonDestructionFire"
+						FollowBone="true" />          
+				<ParticleSysBone
+						BoneName="b_parachute09"
+						FXParticleSystemTemplate="JapanBalloonDestructionLight"
+						FollowBone="true" />
+				<ParticleSysBone
+						BoneName="b_parachute09"
+						FXParticleSystemTemplate="JapanBalloonDestructionSmoke"
+						FollowBone="true" />          
+				<ParticleSysBone
+						BoneName="b_parachute09"
+						FXParticleSystemTemplate="JapanBalloonDestructionSparks"
+						FollowBone="true" />					
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_Idle">
+					<Animation
+						AnimationName="NPParachute_FALL"
+						AnimationMode="LOOP"/>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Animation
+						AnimationName="NPParachute_FALL"
+						AnimationMode="LOOP"/>
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>			
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				GravityMultiplier="-1.0" />
+			<SlowDeath
+				id="ModuleTag_Death"
+				DestructionDelay="0.01s"
+				Fade="true"
+				FadeTime="1.0s"
+				FadeDelay="0.01s">
+				<DieMuxData
+					DeathTypes="SUICIDED" />
+			</SlowDeath>
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="0.1s"
+				MaxLifetime="0.1s"
+				DeathType="SUICIDED" />
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				AutoAcquireEnemiesWhenIdle="NO"
+				StateMachine="UnitAIStateMachine"/>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+	</GameObject>	
+</AssetDeclaration>

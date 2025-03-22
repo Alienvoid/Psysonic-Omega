@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:EXSovietRocket.w3x" />
+	</Includes>
+	<GameObject
+		id="SACOMSuperFighterMissileProjectile"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SACOMSuperFighterMissileProjectile">
+		<ArmorSet
+			Armor="ProjectileArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXSovietRocket" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="orcamissiletrail"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SACOMSuperFighterGlow"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+				Index="onDeath"
+				FX="FX_Soviet_MolCocktailBIGHit" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="75"
+				FirstHeightMax="175"
+				SecondHeightMin="75"
+				SecondHeightMax="175"
+				FirstPercentIndent="0"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="100.0"
+				SidewaysDrift="100"
+				GroundHitFX="FX_Soviet_MolCocktailBIGHit"
+				MaxDistanceReachedFX="FX_Soviet_MolCocktailBIGHit" />
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="50.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+	<GameObject
+		inheritFrom="SACOMSuperFighterMissileProjectile"
+		id="SACOMSuperFighterMissileProjectile_Veteran"
+		EditorName="SACOMSuperFighterMissileProjectile_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXSovietRocket" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="orcamissiletrailHeroic"
+						FollowBone="true" />
+          <ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SACOMSuperFighterGlow_Vet"
+						FollowBone="true" />
+					<ParticleSysBone
+							BoneName="NONE"
+							FXParticleSystemTemplate="SovietV4Trail_Vet"
+							FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+      <FXListBehavior
+	  xai:joinAction="Replace"
+      id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+				Index="onDeath"
+				FX="FX_Soviet_MolCocktailBIGHit" />
+      </FXListBehavior>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				xai:joinAction="Replace"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="75"
+				FirstHeightMax="175"
+				SecondHeightMin="75"
+				SecondHeightMax="175"
+				FirstPercentIndent="0"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="100.0"
+				SidewaysDrift="100"
+				GroundHitFX="FX_Soviet_MolCocktailBIGHit" />
+		</Behaviors>
+	</GameObject>
+</AssetDeclaration>

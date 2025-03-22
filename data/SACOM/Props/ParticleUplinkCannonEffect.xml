@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="ART:FXCRYOSATELLITEBEAMLVL1.w3x" />
+		<Include type="all" source="ART:EXParticleUplinkBeam_SKN.w3x" />
+		<Include type="all" source="ART:FXMagneticSatelliteCursor.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseObject.xml" />
+	</Includes>
+	<GameObject
+		id="ParticleUplinkCannonEffect"
+		inheritFrom="BaseObject"
+		SelectPortrait="Portrait_SACOMParticleUplinkCannon"
+		ButtonImage="Button_SACOMParticleUplinkCannon"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE SELECTABLE NOT_AUTOACQUIRABLE CAN_CAST_REFLECTIONS PATH_THROUGH_INFANTRY NO_COLLIDE AI_NEEDS_PLAYER_POWER_UPDATE SKIRMISH_AI_ATTEMPT_TO_DODGE SHOW_BEHIND_OCCLUDERS"
+		EditorName="ParticleUplinkCannonEffect"
+		Description="Desc:ParticleUplinkCannonEffect"
+		TypeDescription="Type:ParticleUplinkCannonEffect">
+		<DisplayName>ParticleUplinkCannonEffect</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<LocomotorSet
+			id="ModuleTag_Locomotor"
+			Locomotor="SovietMagneticSatelliteEffectLocomotor"
+			Speed="75" />
+		<SkirmishAIInformation
+		  DodgeSafetyDistance="300.0">
+			<DodgeWithUnits Rule="NONE"
+			  Include="VEHICLE">
+				<IncludeThing>SovietScoutVehicle</IncludeThing>
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+			</DodgeWithUnits>
+		</SkirmishAIInformation>
+    <Draws>
+	
+      <ScriptedModelDraw
+		id="ModuleTag_DrawBeam"
+        NoRotate="true">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="EXParticleUplinkBeam_SKN" />
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="FXMagneticSatelliteWakeLevel1"/>
+        </ModelConditionState>
+      </ScriptedModelDraw>
+
+	
+      <ScriptedModelDraw
+				id="ModuleTag_Draw"
+        NoRotate="true">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="FXMagneticSatelliteCursor" />
+        </ModelConditionState>
+
+				
+        <AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="FXMagneticSatelliteCursor"
+						AnimationMode="LOOP" />
+        </AnimationState>
+
+        <AnimationState
+            ParseCondStateType="PARSE_NORMAL"
+            ConditionsYes="OVER_WATER">
+					<Animation
+						AnimationName="FXMagneticSatelliteCursor"
+						AnimationMode="LOOP" />            
+          <!-- If over water play these -->
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="FXMagneticSatelliteMistLevel1"/>
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="FXMagneticSatelliteWakeLevel1"/>
+        </AnimationState>
+
+        <AnimationState
+            ParseCondStateType="PARSE_NORMAL"
+            ConditionsYes="USER_1">
+					<Animation
+						AnimationName="FXMagneticSatelliteCursor"
+						AnimationMode="LOOP" />            
+          <!-- If over land (aka USER_1) play these -->
+          <ParticleSysBone
+            BoneName="None"
+            FXParticleSystemTemplate="FXMagneticSatelliteMotesLevel1"/>
+        </AnimationState>
+      </ScriptedModelDraw>
+    </Draws>
+
+		<Behaviors>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  xai:joinAction="Replace"
+			  MinLifetime="10.0s"
+			  MaxLifetime="10.0s" />
+			  
+			<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate"
+				FireInterval="0.2s">
+				<FireWeaponNugget
+					WeaponName="ParticleUplinkCannonEffectWeapon"
+					FireDelay="0.0s"
+					OneShot="false">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_MagneticSatellite_Die" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+			</AIUpdate>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="50.0"
+				Height="600.0"/>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+		<AudioArraySound>
+			<AudioEntry Sound="SACOM_ParticleUplinkCannon3_LoopMS" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<AudioArrayVoice>
+			<AudioEntry Sound="SOV_MagneticSatellite_Attack" AudioType="voiceAttack" />
+			<AudioEntry Sound="SOV_MagneticSatellite_MoveStart" AudioType="voiceMove" />
+			<AudioEntry Sound="SOV_MagneticSatellite_Select" AudioType="voiceSelect" />
+		</AudioArrayVoice>
+		<VisionInfo
+			VisionRange="50"
+			ShroudClearingRange="100" />
+
+	</GameObject>
+
+</AssetDeclaration>

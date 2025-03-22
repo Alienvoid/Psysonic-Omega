@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all"	source="ART:SUCruiseMissile_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:FXNodTankShell.w3x" />
+	</Includes>
+	<GameObject
+		id="SACOMTomahawkCruiseMissile"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SACOMTomahawkCruiseMissile">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUCruiseMissile_SKN" />
+          <ParticleSysBone
+						BoneName="FX_MISSILEFIRE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_MISSILEFIRE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_MISSILEFIRE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"
+						FollowBone="true"/>
+          
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<!--<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  MinLifetime="1.0s"
+			  MaxLifetime="1.0s" />-->
+      <FXListBehavior
+				id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion" />
+      </FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL DONT_TRACK_TARGET"
+				FirstHeightMin="100"
+				FirstHeightMax="100"
+				SecondHeightMin="208"
+				SecondHeightMax="208"
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				GroundHitFX="FX_SOV_V4Explosion"
+				FlightPathAdjustDistPerSecond="0.0"
+				Acceleration="0.2"
+				/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="262.5" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<AudioArraySound>
+			<AudioEntry Sound="SOV_V4MissileLauncher_MissileIncoming" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+
+  <!-- VETERAN -->
+
+  <GameObject
+    inheritFrom="SACOMTomahawkCruiseMissile"
+		id="SACOMTomahawkCruiseMissile_Veteran">
+    <Draws>
+      <ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+        xai:joinAction="Replace">
+        <ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <Model
+						Name="SUCruiseMissile_SKN" />
+          <ParticleSysBone
+						BoneName="FX_MISSILEFIRE"
+						FXParticleSystemTemplate="SovietShipV4TrailFire_Vet"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_MISSILEFIRE"
+						FXParticleSystemTemplate="SovietShipV4TrailFireLight_Vet"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_MISSILEFIRE"
+						FXParticleSystemTemplate="SovietShipV4TrailSmoke"
+						FollowBone="true"/>
+        </ModelConditionState>
+      </ScriptedModelDraw>
+    </Draws>
+    <Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_V4Explosion_Vet" />
+      </FXListBehavior>
+    </Behaviors>
+  </GameObject>
+
+</AssetDeclaration>

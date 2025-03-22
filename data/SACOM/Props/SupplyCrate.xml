@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<!-- aka Soviet Conscript -->
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+
+		<Include
+			type="all"
+			source="ART:NPMoneyCrate.w3x" />		
+		<!-- Base Object -->
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseInfantry.xml" />
+	</Includes>
+	<GameObject
+		id="SupplyCrate"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_Neutral_Crate_Money"
+		ButtonImage="Button_Neutral_Crate_Money"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		BuildTime="2"
+		CommandSet="EmptyCommandSet"
+		KindOf="SELECTABLE CAN_CAST_REFLECTIONS PARACHUTABLE CRATE UNATTACKABLE NOT_AUTOACQUIRABLE"
+		WeaponCategory="GUN"
+		EditorName="SupplyCrate"
+		Description="Desc:SupplyCrate"
+		TypeDescription="Type:SupplyCrate"
+		HealthBoxHeightOffset="30">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SupplyCrate</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="200"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="InfantryDamageFX" />
+		<LocomotorSet
+			Locomotor="TESTCrateLocomotor"
+			Condition="NORMAL"
+			Speed="0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="NPMoneyCrate" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+			<xi:include
+				href="DATA:Includes/ParachuteDrawSoviet.xml"
+				xpointer="xmlns(n=uri:ea.com:eala:asset) xpointer(/n:ParachuteDraws/child::*)" />
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics" />
+			<HeightDieUpdate
+				id="ModuleTag_HeightDieUpdate"
+				TargetHeight="1"
+				SnapToGroundOnDeath="true"/>
+			<CrateCollide
+				id="ModuleTag_CrateCollide" />
+							
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>	
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="OCL_SupplyCrateSpawn">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<StatusBitsUpgrade
+				id="ModuleTag_VeterancyUpgrade"
+				StatusToSet="WEAPON_UPGRADED_01">
+				<TriggeredBy>Upgrade_Veterancy_HEROIC</TriggeredBy>
+			</StatusBitsUpgrade>
+			<!-- Soviet Parachute Behaviors -->
+			<ModelConditionUpgrade
+				id="ModuleTag_JapanFaction"
+				AddConditionFlags="USER_8">
+				<TriggeredBy>Upgrade_JapanFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+			<ModelConditionUpgrade
+				id="ModuleTag_AlliesFaction"
+				AddConditionFlags="USER_9">
+				<TriggeredBy>Upgrade_AlliesFaction</TriggeredBy>
+			</ModelConditionUpgrade>
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape 
+				Type= "CYLINDER"
+				MajorRadius = "5.0"
+				MinorRadius = "5.0"
+				Height = "15.0"
+				ContactPointGeneration = "SQUAD_MEMBER" >
+				<Offset
+					x = "0.0"
+					y = "0.0"
+					z = "0.0" />
+			</Shape>
+		</Geometry>
+		<EvaEventArray
+				xai:joinAction="Remove" >
+		</EvaEventArray>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" />
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR" />
+	</GameObject>
+	
+	<GameObject
+		id="SupplyCrateMoneyGiver"
+		inheritFrom="BaseInfantry"
+		SelectPortrait="Portrait_JapanBetaYuriko"
+		ButtonImage="Button_JapanBetaYuriko"
+		Side="Soviet"
+		EditorSorting="SYSTEM"		
+		BuildTime="7"
+		HealthBoxHeightOffset="30"
+		CommandSet="EmptyCommandSet"
+		KindOf="CAN_ATTACK CAN_CAST_REFLECTIONS UNATTACKABLE"
+		EditorName="SupplyCrateMoneyGiver"
+		Description="Desc:SupplyCrateMoneyGiver"
+		TypeDescription="Type:SupplyCrateMoneyGiver">
+		<DisplayName
+			xai:joinAction="Replace" xmlns:xai="uri:ea.com:eala:asset:instance">Name:SupplyCrateMoneyGiver</DisplayName>
+		<ObjectResourceInfo>
+			<BuildCost Account="=$ACCOUNT_ORE" Amount="1"/>
+		</ObjectResourceInfo>
+		<ArmorSet
+			Armor="InvulnerableArmor"
+			DamageFX="EmptyDamageFX" />
+		<ArmorSet
+			Conditions="PLAYER_UPGRADE"
+			Armor="JapanAntiInfantryInfantryArmorUpgraded"
+			DamageFX="NormalDamageFX" />
+		<LocomotorSet
+			id="HumanLocomotor"
+			Locomotor="TestReactiveLocomotorHUMAN"
+			Condition="NORMAL"
+			Speed="0" />
+		<SkirmishAIInformation
+			UnitBuilderStandardCombatUnit="true" />
+		<Draws>
+
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="" />					
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<LifetimeUpdate
+				id="ModuleTag_Lifetime"
+				MinLifetime="0.2s"
+				MaxLifetime="0.2s" />		
+			<!-- standard death -->
+
+			<AutoDepositUpdate
+				id="ModuleTag_AutoDeposit"
+				DepositInterval="0.15s"
+				GiveNoXP="true"
+				Flags="ACTIVE_WHEN_REPAIRING">
+				<Deposit
+					Account="=$ACCOUNT_ORE" Amount="500"/>
+			</AutoDepositUpdate>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>	
+
+				<!-- ActiveLoopSound="JAP_ImperialWarrior_Weapon_SwordSheathFakeLoop" no worky didn't loop at all -->
+				
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="300.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="7.0"
+				Height="13.0"
+				ContactPointGeneration="SQUAD_MEMBER"/>
+		</Geometry>
+		<ShadowInfo
+			Type="DECAL"
+			SizeX="14"
+			SizeY="14"
+			Texture="ShadowI" 
+		/>
+		<VisionInfo
+			VisionRange="380"
+			ShroudClearingRange="=$STANDARD_SHROUD_CLEAR"
+		/>
+		
+		<EvaEventArray
+				xai:joinAction="Remove" >
+		</EvaEventArray>
+		
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="50" />
+	</GameObject>
+</AssetDeclaration>

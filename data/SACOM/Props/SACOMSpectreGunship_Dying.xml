@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		
+		<Include
+			type="all"
+			source="ART:SUFrostGunship_COL.w3x" />
+
+		<Include
+			type="all"
+			source="ART:SUFrostGunship_D.xml" />
+						
+	</Includes>
+	<GameObject
+		id="SACOMSpectreGunship_Dying"
+		EditorName="SACOMSpectreGunship_Dying"
+		Description="Desc:SACOMSpectreGunship_Dying"
+		KindOf="PROJECTILE INERT NO_COLLIDE HIDE_IF_FOGGED">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true" >
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUFrostGunship_COL" />
+					<Texture
+						Original="SUFrostGunship"
+						New="SUFrostGunship_D" />
+           <ParticleSysBone
+						BoneName="FXDamage01"
+						FXParticleSystemTemplate="AlliedBomberDyingFire"
+						FollowBone="true"/>
+          <ParticleSysBone
+           BoneName="FXDamage01"
+           FXParticleSystemTemplate="AlliedBomberDyingFireLight"
+           FollowBone="true"/>       
+
+        </ModelConditionState>
+     
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<Physics
+				id="ModuleTag_Physics"
+				TumbleRandomly="true"
+				MaxXRotationVelocity="50"
+				MaxYRotationVelocity="50"
+				MaxZRotationVelocity="0"
+				KillWhenRestingOnGround="true"/>
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUSpectreGunship02_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie>
+			<FireWeaponWhenDead
+				id="ModuleTag_AlliedBomberDeathWeapon"
+				DeathWeapon="BomberAircraftDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</FireWeaponWhenDead>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+      <FXListBehavior
+				id="ModuleTag_FXList">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_AlliedBomberDie" />
+      </FXListBehavior>      
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100" />
+		</Body>
+	<AudioArraySound>
+		<AudioEntry Sound="RA3VehicleExplosionLargeNoDelay" AudioType="soundAmbient" />
+	</AudioArraySound>	
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="300" />		
+	</GameObject>
+</AssetDeclaration>

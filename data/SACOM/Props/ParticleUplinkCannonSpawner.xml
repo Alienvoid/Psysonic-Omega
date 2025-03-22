@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="ART:FXMagneticSatellite.w3x" />
+		<!-- Base Object -->
+		<Include type="instance" source="DATA:BaseObjects/BaseObject.xml" />
+	</Includes>
+	<GameObject
+		id="ParticleUplinkCannonSpawner"
+		inheritFrom="BaseObject" 
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="UNATTACKABLE NOT_AUTOACQUIRABLE CAN_CAST_REFLECTIONS PATH_THROUGH_INFANTRY NO_COLLIDE AI_NEEDS_PLAYER_POWER_UPDATE SKIRMISH_AI_ATTEMPT_TO_DODGE"
+		EditorName="ParticleUplinkCannonSpawner"
+		Description="Desc:ParticleUplinkCannonSpawner"
+		TypeDescription="Type:ParticleUplinkCannonSpawner"		
+		SelectPortrait="Portrait_Neutral_MagneticSatellite"
+		ButtonImage="Portrait_Neutral_MagneticSatellite"
+		UnitTypeIcon="RiflemenIcon">
+		<DisplayName>ParticleUplinkCannonSpawner</DisplayName>
+		<ArmorSet
+			Armor="NoArmor" />
+		<LocomotorSet
+			Locomotor="SovietMagneticSatelliteEffectLocomotor"
+			Condition="NORMAL"
+			Speed="0" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="300.0">
+      <DodgeWithUnits Rule="NONE"
+        Include="VEHICLE">
+        <IncludeThing>SovietScoutVehicle</IncludeThing>
+				<IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="BeaconFlare"/>
+          <ParticleSysBone
+						BoneName="None"
+						FXParticleSystemTemplate="BeaconSmoke"/>          
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  xai:joinAction="Replace"
+			  MinLifetime="3.0s"
+			  MaxLifetime="3.0s" />
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>				
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="OCL_ParticleUplinkCannon">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</CreateObjectDie> 
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+			</AIUpdate>
+		</AI>
+		<Body>
+			<PropBody
+				id="ModuleTag_Body" />
+		</Body>
+		<Geometry>
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="50.0"
+				Height="50.0"></Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+
+</AssetDeclaration>

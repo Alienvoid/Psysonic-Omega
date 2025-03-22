@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:SUKirovBomb.w3x" />
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+	</Includes>
+	<GameObject
+		id="SACOMAutoCannonProjectile"
+		inheritFrom="BaseProjectile" 
+		Side="SACOM"
+		EditorSorting="SYSTEM"		
+		EditorName="SACOMAutoCannonProjectile">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SUKirovBomb" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXList">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_SOV_KirovV4Explosion" />
+				<Event
+					Index="onTerrainCollision"
+					FX=""/>
+			</FXListBehavior>
+			<ProjectileUpdate
+				id="ModuleTag_BombUpdate"
+				StateMachine="BombProjectile"
+				MinDetonationHeight="10"
+				MinTargetDistance="5">
+				<Movement>
+					<MoveToGround
+						Acceleration="1.0"
+						TerminalVelocity="10.0"
+						RotationSpeedPerSecond="0d"
+						ForwardVelocityDamping="99%"/>
+				</Movement>
+			</ProjectileUpdate>
+		</Behaviors>
+	</GameObject>
+
+  <!-- VETERAN -->
+
+  <GameObject
+		inheritFrom="SACOMAutoCannonProjectile"
+		id="SACOMAutoCannonProjectile_Veteran">
+    <Draws>
+    </Draws>
+    <Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXList"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_KirovV4Explosion_Vet" />
+      </FXListBehavior>
+    </Behaviors>
+  </GameObject>
+</AssetDeclaration>

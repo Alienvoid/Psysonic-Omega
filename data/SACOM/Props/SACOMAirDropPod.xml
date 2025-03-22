@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include type="all" source="DATA:GlobalData/GlobalDefines.xml" /> 
+		
+		<Include
+			type="all"
+			source="ART:SU_DROPPOD_HRC.w3x" />
+		<Include
+			type="all"
+			source="ART:SU_DROPPOD_Aopen.w3x" />
+		<Include
+			type="all"
+			source="ART:SU_DROPPOD_OPN.w3x" />
+		<Include
+			type="all"
+			source="ART:SU_DROPPOD_Aclose.w3x" />
+			
+		<Include
+			type="all"
+			source="ART:NPParachute_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:NPParachute_OPEN.w3x" />
+		<Include
+			type="all"
+			source="ART:NPParachute_FALL.w3x" />
+		<Include
+			type="all"
+			source="ART:NPParachute_LAND.w3x" />
+			
+		<!--<Include
+			type="all"
+			source="ART:EXDummyPoint_SKN.w3x" />-->
+			
+		<Include
+			type="instance"
+			source="DATA:BaseObjects/BaseProjectile.xml"/>
+		<Include type="instance" source="DATA:BaseObjects/BaseVehicle.xml" />		
+	</Includes>
+	<GameObject
+		id="SACOMAirDropPod"
+		KindOf="SELECTABLE AIRCRAFT VEHICLE SKIRMISH_AI_ATTEMPT_TO_DODGE CAN_ATTACK"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="1"
+		IsTrainable="false"
+		EditorName="SACOMAirDropPod"
+		Description="Desc:SACOMAirDropPod"
+		TypeDescription="Type:SACOMAirDropPod"
+		SelectPortrait="Portrait_SACOMAirDropPod"
+		ButtonImage="Button_SACOMAirDropPod">
+		<DisplayName>NAME:SACOMAirDropPod</DisplayName>
+		<ArmorSet
+			Armor="JapanBalloonArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="defaultLocomotor" 
+			Locomotor="SACOMAirdropPodLocomotor"
+			Condition="NORMAL"
+			Speed="50.0" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="100.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SU_DROPPOD_HRC" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire01" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire02" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire03" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire01" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire02" />
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire03" />
+					<!-- front -->
+					<Turret
+						TurretNameKey="B_TURRET01"
+						TurretPitch="B_pitch01"
+						TurretID="1" />
+					<!-- right -->
+					<Turret
+						TurretNameKey="B_TURRET02"
+						TurretPitch="B_pitch02"
+						TurretID="2" />
+					<!-- left -->
+					<Turret
+						TurretNameKey="B_TURRET03"
+						TurretPitch="B_pitch03"
+						TurretID="3" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_Idle">
+					<Animation
+						AnimationName="SU_DROPPOD_Aclose"
+						AnimationMode="ONCE"/>
+				</AnimationState>				
+			</ScriptedModelDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw01"
+				MinLength="25.0"
+				MaxLength="50.0"
+				Width="6.0"
+				MinSpeed="18"
+				MaxSpeed="40"
+				SweepSpeed="2.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame=".3"
+				MaxTracersPerFrame=".5"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracer"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietLarge">
+				<HeadColor r="1.0" g="1.0" b="1.0" a="1.0" />
+				<TailColor r="0.0" g="0.0" b="0.0" a="0.0" />
+			</TracerModelDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw02"
+				MinLength="25.0"
+				MaxLength="50.0"
+				Width="6.0"
+				MinSpeed="18"
+				MaxSpeed="40"
+				SweepSpeed="2.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame=".3"
+				MaxTracersPerFrame=".5"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracer"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietLarge">
+				<HeadColor r="1.0" g="1.0" b="1.0" a="1.0" />
+				<TailColor r="0.0" g="0.0" b="0.0" a="0.0" />
+			</TracerModelDraw>
+			
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw03"
+				MinLength="25.0"
+				MaxLength="50.0"
+				Width="6.0"
+				MinSpeed="18"
+				MaxSpeed="40"
+				SweepSpeed="2.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame=".3"
+				MaxTracersPerFrame=".5"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="3"
+				Texture="FXTracer"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietLarge">
+				<HeadColor r="1.0" g="1.0" b="1.0" a="1.0" />
+				<TailColor r="0.0" g="0.0" b="0.0" a="0.0" />
+			</TracerModelDraw>
+		</Draws>
+		<Behaviors>
+				  
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<!-- front -->
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAirdropPodAutoCannon" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						MaxDeflectionAntiClockwise="120d"
+						MaxDeflectionClockwise="120d"
+						NaturalTurretAngle="0d"
+						RecenterWhenOutOfTurnRange="false"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<!-- right -->
+				<WeaponSlotTurret
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAirdropPodAutoCannon" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						MaxDeflectionAntiClockwise="120d"
+						MaxDeflectionClockwise="120d"
+						NaturalTurretAngle="240d"
+						RecenterWhenOutOfTurnRange="false"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<!-- left -->
+				<WeaponSlotTurret
+					ID="3">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAirdropPodAutoCannon" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						MaxDeflectionAntiClockwise="120d"
+						MaxDeflectionClockwise="120d"
+						NaturalTurretAngle="120d"
+						RecenterWhenOutOfTurnRange="false"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<HeightDieUpdate
+				id="ModuleTag_HeightDieUpdate"
+				TargetHeight="200.0"
+				TargetHeightIncludesStructures="true"/>
+				
+			<!-- killed via collision. Just nuke ourselves and fire the AOE weapon. Don't spawn a falling bomb because we
+			want to damage whatever hit us -->
+			<FireWeaponWhenDead
+				id="ModuleTag_BalloonBombDeathWeapon_Collided"
+				InitiallyActive="true"
+				DeathWeapon="JapanBalloonBombWarhead">
+				<DieMuxData
+					DeathTypes="SUICIDED"/>
+			</FireWeaponWhenDead>
+
+			<!-- killed in the air -->
+
+			<!-- spawn a rising balloon as long as you were nuked in the air, regardless of 
+			whether you were shot down or hit an aircraft -->
+			<CreateObjectDie
+				id="ModuleTag_CreateFallingAirdropPod"
+				CreationList="OCL_SACOMFallingAirdropPod">
+				<DieMuxData
+					DeathTypes="ALL"
+					RequiredStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			
+			<FireWeaponCollide
+				id="ModuleTag_FireWeaponCollide"
+				CollideWeapon="JapanBalloonBombSuicideWeapon"
+				FireOnce="true"
+				Flags="DESTROY_SELF_ON_COLLIDE DO_NOT_COLLIDE_WITH_PRODUCER"
+				WhereToFire="OWNER_POSITION"/>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					RotateToTargetWhenAiming="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="500"/>
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="6.0"
+				Height="30.0"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_BalloonBomb_VoiceSelect" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_BalloonBomb_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_BalloonBomb_VoiceMove" AudioType="voiceMove" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="JAP_BalloonBomb_Ambient" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="100" />
+	</GameObject>
+
+	
+	<!-- Falling Bomb, drops to ground and explodes -->
+	
+	<GameObject
+		id="SACOMFallingAirdropPod"
+		inheritFrom="BaseVehicle"
+		CommandSet="SovietStalkerCommandSet"
+		KindOf="CAN_CAST_REFLECTIONS SELECTABLE AIRCRAFT VEHICLE SKIRMISH_AI_ATTEMPT_TO_DODGE CAN_ATTACK TRANSPORT"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="1"
+		IsTrainable="false"
+		EditorName="SACOMFallingAirdropPod"
+		Description="Desc:SACOMAirDropPod"
+		TypeDescription="Type:SACOMAirDropPod"
+		SelectPortrait="Portrait_SACOMAirDropPod"
+		ButtonImage="Button_SACOMAirDropPod">
+		<DisplayName>NAME:SACOMAirDropPod</DisplayName>
+		<ArmorSet
+			Armor="JapanBalloonArmor"
+			DamageFX="VehicleDamageFX" />
+		<LocomotorSet
+			id="DefaultLocomotorSet"
+			Locomotor="SACOMFallingAirdropPodLocomotor"
+			Condition="NORMAL"
+			Speed="0.0" />
+    <SkirmishAIInformation
+      DodgeSafetyDistance="100.0">
+      <DodgeWithUnits Rule="ALL"
+        StatusBitFlagsExclude="AIRBORNE_TARGET">
+      </DodgeWithUnits>
+    </SkirmishAIInformation>
+		<Draws>
+		
+		
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				OkToChangeModelColor="true"
+				ExtraPublicBone="b_para">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="SU_DROPPOD_HRC" />
+					<WeaponFireFXBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire01" />
+					<WeaponFireFXBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire02" />
+					<WeaponFireFXBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire03" />
+					<WeaponLaunchBone
+						WeaponSlotID="1"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire01" />
+					<WeaponLaunchBone
+						WeaponSlotID="2"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire02" />
+					<WeaponLaunchBone
+						WeaponSlotID="3"
+						WeaponSlotType="PRIMARY_WEAPON"
+						BoneName="B_fire03" />
+					<!-- front -->
+					<Turret
+						TurretNameKey="B_TURRET01"
+						TurretPitch="B_pitch01"
+						TurretID="1" />
+					<!-- right -->
+					<Turret
+						TurretNameKey="B_TURRET02"
+						TurretPitch="B_pitch02"
+						TurretID="2" />
+					<!-- left -->
+					<Turret
+						TurretNameKey="B_TURRET03"
+						TurretPitch="B_pitch03"
+						TurretID="3" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING DEATH_5">
+					<Model
+						Name="SU_DROPPOD_HRC" />        
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="SU_DROPPOD_Aclose"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"/>
+				</AnimationState>	
+				<AnimationState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DEATH_5 DYING">
+					<Animation
+						AnimationName="SU_DROPPOD_OPN"
+						AnimationMode="ONCE"
+						AnimationBlendTime="30"/>
+				</AnimationState>
+			</ScriptedModelDraw>
+			
+			<ScriptedModelDraw
+				id="ModuleTag_DrawParachute"
+				AttachToBoneInAnotherModule="b_para"
+				OkToChangeModelColor="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="NPParachute_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DEATH_5 DYING">
+					<Model
+						Name="NPParachute_SKN" />
+				</ModelConditionState>
+				<ModelConditionState
+					ParseCondStateType="PARSE_NORMAL"
+					ConditionsYes="DYING">
+					<Model
+						Name="" />
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT"
+					StateName="STATE_Idle">
+					<Animation
+						AnimationName="NPParachute_OPEN"
+						AnimationMode="ONCE"
+						AnimationBlendTime="15"/>
+				</AnimationState>
+				<AnimationState 
+					ParseCondStateType="PARSE_NORMAL" 
+					ConditionsYes="DEATH_5 DYING">
+					<Animation 
+						AnimationName="NPParachute_LAND" 
+						AnimationMode="ONCE"
+						AnimationBlendTime="15" />
+				</AnimationState>
+			
+			</ScriptedModelDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw01"
+				MinLength="25.0"
+				MaxLength="50.0"
+				Width="6.0"
+				MinSpeed="18"
+				MaxSpeed="40"
+				SweepSpeed="2.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame=".3"
+				MaxTracersPerFrame=".5"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="1"
+				Texture="FXTracer"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietLarge">
+				<HeadColor r="1.0" g="1.0" b="1.0" a="1.0" />
+				<TailColor r="0.0" g="0.0" b="0.0" a="0.0" />
+			</TracerModelDraw>
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw02"
+				MinLength="25.0"
+				MaxLength="50.0"
+				Width="6.0"
+				MinSpeed="18"
+				MaxSpeed="40"
+				SweepSpeed="2.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame=".3"
+				MaxTracersPerFrame=".5"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="2"
+				Texture="FXTracer"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietLarge">
+				<HeadColor r="1.0" g="1.0" b="1.0" a="1.0" />
+				<TailColor r="0.0" g="0.0" b="0.0" a="0.0" />
+			</TracerModelDraw>
+			
+			
+			<TracerModelDraw
+				id="ModuleTag_TracerModelDraw03"
+				MinLength="25.0"
+				MaxLength="50.0"
+				Width="6.0"
+				MinSpeed="18"
+				MaxSpeed="40"
+				SweepSpeed="2.0"
+				SpreadAngle="5.0"
+				MinTracersPerFrame=".3"
+				MaxTracersPerFrame=".5"
+				FrameLifeTime="25"
+				WeaponSlotType="PRIMARY_WEAPON"
+				WeaponSlotID="3"
+				Texture="FXTracer"
+				UseAdditiveBlending="true"
+				TracerHitFx="FX_BulletHitSovietLarge">
+				<HeadColor r="1.0" g="1.0" b="1.0" a="1.0" />
+				<TailColor r="0.0" g="0.0" b="0.0" a="0.0" />
+			</TracerModelDraw>
+		</Draws>
+		<Behaviors>
+				  
+			<WeaponSetUpdate
+				id="ModuleTag_WeaponSetUpdate">
+				<!-- front -->
+				<WeaponSlotTurret
+					ID="1">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAirdropPodAutoCannon" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						MaxDeflectionAntiClockwise="120d"
+						MaxDeflectionClockwise="120d"
+						NaturalTurretAngle="0d"
+						RecenterWhenOutOfTurnRange="false"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$FAST_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<!-- right -->
+				<WeaponSlotTurret
+					ID="2">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAirdropPodAutoCannon" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						MaxDeflectionAntiClockwise="120d"
+						MaxDeflectionClockwise="120d"
+						NaturalTurretAngle="240d"
+						RecenterWhenOutOfTurnRange="false"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true"
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY" />
+					</TurretSettings>
+				</WeaponSlotTurret>
+				<!-- left -->
+				<WeaponSlotTurret
+					ID="3">
+					<Weapon
+						Ordering="PRIMARY_WEAPON"
+						Template="SACOMAirdropPodAutoCannon" />
+					<TurretSettings
+						TurretTurnRate="360"
+						MinimumPitch="-60d"
+						AllowsPitch="true"
+						PitchHeight="10%"
+						TurretPitchRate="180"
+						MinIdleScanTime="1.0s"
+						MaxIdleScanTime="5.0s"
+						MinIdleScanAngle="0.0"
+						MaxIdleScanAngle="90.0"
+						MaxDeflectionAntiClockwise="120d"
+						MaxDeflectionClockwise="120d"
+						NaturalTurretAngle="120d"
+						RecenterWhenOutOfTurnRange="false"
+						ComeToHaltJiggle="1d">
+						<TurretAITargetChooserData
+							CanAcquireDynamicIfAssignedOutOfRange="true" 
+							IdleScanDelay="=$MEDIUM_IDLE_SCAN_DELAY"/>
+					</TurretSettings>
+				</WeaponSlotTurret>
+			</WeaponSetUpdate>
+			
+			<!--<FreefallUpdate
+				id="ModuleTag_FreefallUpdate"
+				ModelConditionsToSet="FREEFALL"
+				InitialVelocity="0"
+				Acceleration="1"
+				TerminalVelocity="15"/>
+			
+			<HeightDieUpdate
+				id="ModuleTag_HeightDieUpdate"
+				TargetHeight="2.0"
+				TargetHeightIncludesStructures="true"/>-->
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="2.5s"
+				MaxLifetime="2.5s"
+				DeathType="SUICIDED" />
+				
+			<SlowDeath
+				id="ModuleTag_Death"
+				DeathFlags="DEATH_5"
+				DestructionDelay="3.5s"
+				Fade="true"
+				FadeTime="2.0s"
+				FadeDelay="0.1s">
+				<DieMuxData
+					DeathTypes="SUICIDED" />
+			</SlowDeath>
+
+			<CreateObjectDie
+				id="ModuleTag_CreateInfantry"
+				CreationList="OCL_SACOMEliteInfantry">
+				<DieMuxData
+					DeathTypes="SUICIDED"
+					ExemptStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			
+			<CreateObjectDie
+				id="ModuleTag_CreateObjectDie"
+				CreationList="SUAirdropPod_Die_OCL">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="SUICIDED"/>
+			</CreateObjectDie>
+			
+			<Physics
+				id="ModuleTag_Physics" />
+
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AI"
+				AutoAcquireEnemiesWhenIdle="YES"
+				StateMachine="UnitAIStateMachine">
+				<UnitAITargetChooserData
+					CanPickDynamicTargets="false"
+					RotateToTargetWhenAiming="false" />
+			</AIUpdate>
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="200"/>
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="CYLINDER"
+				MajorRadius="6.0"
+				Height="30.0"/>
+		</Geometry>
+		<AudioArrayVoice>
+			<AudioEntry Sound="JAP_BalloonBomb_VoiceSelect" AudioType="voiceSelect" />
+			<AudioEntry Sound="JAP_BalloonBomb_VoiceAttack" AudioType="voiceAttack" />
+			<AudioEntry Sound="JAP_BalloonBomb_VoiceMove" AudioType="voiceMove" />
+		</AudioArrayVoice>
+		<AudioArraySound>
+			<AudioEntry Sound="JAP_BalloonBomb_Ambient" AudioType="soundAmbient" />
+		</AudioArraySound>
+		<VisionInfo
+			VisionRange="300"
+			ShroudClearingRange="100" />
+	</GameObject>
+	
+	<GameObject
+		id="SACOMAirdropPod_Missileman"
+		inheritFrom="SACOMAirdropPod"
+		Side="SACOM"
+		EditorSorting="UNIT"
+		EditorName="SACOMAirdropPod_Missileman">
+		<EquivalentTo>SACOMAirdropPod</EquivalentTo>
+		<Behaviors>
+			<CreateObjectDie
+				id="ModuleTag_CreateFallingAirdropPod"
+				xai:joinAction="Replace"
+				CreationList="OCL_SACOMFallingAirdropPod_Missileman">
+				<DieMuxData
+					DeathTypes="ALL"
+					RequiredStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			
+		</Behaviors>
+	</GameObject>
+	
+	<GameObject
+		id="SACOMAirdropPod_NationalPolice"
+		inheritFrom="SACOMAirdropPod"
+		Side="SACOM"
+		EditorSorting="UNIT"
+		EditorName="SACOMAirdropPod_NationalPolice">
+		<EquivalentTo>SACOMAirdropPod</EquivalentTo>
+		<Behaviors>
+			<CreateObjectDie
+				id="ModuleTag_CreateFallingAirdropPod"
+				xai:joinAction="Replace"
+				CreationList="OCL_SACOMFallingAirdropPod_NationalPolice">
+				<DieMuxData
+					DeathTypes="ALL"
+					RequiredStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			
+		</Behaviors>
+	</GameObject>
+	
+	<GameObject
+		id="SACOMFallingAirdropPod_Missileman"
+		inheritFrom="SACOMFallingAirdropPod"
+		Side="SACOM"
+		EditorSorting="UNIT"
+		EditorName="SACOMFallingAirdropPod_Missileman">
+		<EquivalentTo>SACOMFallingAirdropPod</EquivalentTo>
+				<Behaviors>
+			<CreateObjectDie
+				id="ModuleTag_CreateInfantry"
+				xai:joinAction="Replace"
+				CreationList="OCL_SACOMMissileman">
+				<DieMuxData
+					DeathTypes="ALL"
+					ExemptStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+
+		</Behaviors>
+	</GameObject>
+	
+	<GameObject
+		id="SACOMFallingAirdropPod_NationalPolice"
+		inheritFrom="SACOMFallingAirdropPod"
+		Side="SACOM"
+		EditorSorting="UNIT"
+		EditorName="SACOMFallingAirdropPod_NationalPolice">
+		<EquivalentTo>SACOMFallingAirdropPod</EquivalentTo>
+				<Behaviors>
+			<CreateObjectDie
+				id="ModuleTag_CreateInfantry"
+				xai:joinAction="Replace"
+				CreationList="OCL_SACOMNationalPolice">
+				<DieMuxData
+					DeathTypes="ALL"
+					ExemptStatus="AIRBORNE_TARGET"/>
+			</CreateObjectDie>
+			
+
+		</Behaviors>
+	</GameObject>
+</AssetDeclaration>

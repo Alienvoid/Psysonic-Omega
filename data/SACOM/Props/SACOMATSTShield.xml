@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXTESLASHIELD.w3x" />
+		<Include
+			type="all"
+			source="DATA:GlobalData/GlobalDefines.xml" />
+	</Includes>
+	<GameObject
+		id="SACOMATSTShield"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		TransportSlotCount="0"
+		IsTrainable="false"
+		KindOf="NO_COLLIDE SUMMONED VEHICLE NOT_AUTOACQUIRABLE UNATTACKABLE MONSTER"
+		EditorName="SACOMATSTShield">
+		<DisplayName>SACOMATSTShield</DisplayName>
+		<ArmorSet
+			Armor="SACOMATSTArmor" />
+		<LocomotorSet
+			Locomotor="JapanPointDefenseDroneLocomotor"
+			Condition="NORMAL"
+			Speed="200.0" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_Draw"
+				NoRotate="true">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXTESLASHIELD" />
+				</ModelConditionState>			
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<AttributeModifierPoolUpdate
+				id="DefaultAttributeModifierPoolUpdate"/>
+				
+			<!--<FireWeaponWhenDead
+				id="ModuleTag_JapanRazorDroneDeathWeapon"
+				DeathWeapon="SACOMATSTShieldDeathWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ALL"
+					DeathTypesForbidden="ERASED" />
+			</FireWeaponWhenDead>-->
+			
+			<FireWeaponWhenDead
+				id="ModuleTag_shieldfadeWeapon"
+				DeathWeapon="SACOMATSTShieldFadeWeapon"
+				InitiallyActive="true">
+				<DieMuxData
+					DeathTypes="ERASED"/>
+			</FireWeaponWhenDead>
+			
+			<AttachUpdate
+				id="ModuleTag_Attach"
+				Flags="DIE_WHEN_PARENT_DIES_FROM_NOT_ME STICK_TO_PARENT TELEPORT INSTANT_TELEPORT_ON_PARENT_TELEPORT ABSORB_ALL_DAMAGE LEECH_DAMAGE_FROM_PARENT DIE_WHEN_DETACH_ALWAYS DEFECT_WHEN_PARENT_DEFECTS"
+				CloseEnoughRange="1.0"
+				DamageTypesToNotLeech="CRUSH UNRESISTABLE PRISM TESLA"
+				DeathTypesToNotLeech="DETONATED"
+				ParentStatus="POINT_DEFENSE_DRONE_ATTACHED">
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted</ModifierToLeechFromParent>
+				<ModifierToLeechFromParent>AttributeMod_TargetPainted_HighTechnology</ModifierToLeechFromParent>
+			</AttachUpdate>
+
+			<AttributeModifierAuraUpdate
+				id="ModuleTag_AttributeModifierAuraUpdate"
+				InitiallyActive="true"
+				RefreshDelay="0.25s"
+				AffectAttacheeOnly="true"
+				AttributeModifierName="AttributeModifier_ATSTChargeMode"
+			/>
+			<LifetimeUpdate
+				id="ModuleTag_LifeTime"
+				MinLifetime="15s"
+				MaxLifetime="15s"
+				DeathType="ERASED" />
+			
+			
+			<DestroyDie
+				id="ModuleTag_DieDestroy">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+
+			<Physics
+				id="ModuleTag_Physics" />
+
+			<SecondaryDamageTracker
+				id="ModuleTag_SecondaryDamageTracker"
+				UpdateDuration="1s"
+				DissipateAmount="25"
+				MaxDamageClampScaler="=$MAX_SECONDARY_DAMAGE_SCALER">
+				<Color R="1.0" G="1.0" B="1.75"/>
+				<EffectInfo
+					Fraction="1.0"
+					Options="DIE_ON_ENTER" />
+				<ObjectStatusValidation
+					ForbiddenStatus="UNDER_IRON_CURTAIN" />
+			</SecondaryDamageTracker>	
+				
+			<AutoHealBehavior
+				id="Upgrade_PassiveHeal"
+				InitiallyActive="true"
+				HealOnlyIfNotInCombat="false"
+				HealOnlyIfNotUnderAttack="false"
+				StartHealingDelay="1s"
+				HealingAmount="20"
+				HealingDelay="1.0s">
+			</AutoHealBehavior>
+			
+		</Behaviors>
+		<AI>
+			<AIUpdate
+				id="ModuleTag_AIUpdate"
+				StateMachine="UnitAIStateMachine" />
+		</AI>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_Body"
+				MaxHealth="1500" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="10.0"
+				Height="10.0">
+			</Shape>
+		</Geometry>
+		<ShadowInfo
+			Type="NONE" />
+		<VisionInfo
+			VisionRange="10"
+			ShroudClearingRange="10" />
+		<CrusherInfo
+			id="id_CrusherInfo"
+			CrushableLevel="0" />
+	</GameObject>
+</AssetDeclaration>

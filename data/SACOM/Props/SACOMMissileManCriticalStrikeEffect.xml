@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- temp Magnetic Bomb -->
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:FXNodTankShell.w3x" />
+	</Includes>
+	<GameObject
+		id="SACOMMissileManCriticalStrikeEffect"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="HIDE_IF_FOGGED PASS_EXPERIENCE_TO_PRODUCER"
+		EditorName="SACOMMissileManCriticalStrikeEffect">
+		<ArmorSet
+			Armor="NoArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="FXNodTankShell" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="StingrayWepCharge"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<LifetimeUpdate
+			  id="ModuleTag_LifetimeUpdate"
+			  MinLifetime="0.1s"
+			  MaxLifetime="0.1s" />
+			<FireWeaponWhenDead
+				id="ModuleTag_FinalWeapon"
+				InitiallyActive="true"
+				DeathWeapon="SACOMMissileManCriticalStrikeWeapon">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<WeaponFireProbability
+					DeathType="ALL"
+					ChancePercentage="20" />
+			</FireWeaponWhenDead>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+					Index="onDeath"
+					FX="FX_NONE" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<!--<FireWeaponUpdate
+				id="ModuleTag_FireWeaponUpdate">
+				<FireWeaponNugget
+					WeaponName="SACOMMedicShotgunCriticalStrikeAttachWeapon"
+					FireDelay="0.0s">
+				</FireWeaponNugget>
+			</FireWeaponUpdate>
+			<AttachUpdate
+				id="ModuleTag_AttachUpdate"				
+				Range="10"
+				Flags="STICK_TO_PARENT USE_GEOMETRY TELEPORT">
+				<ObjectFilter
+					Rule="ANY"
+					Include=" INFANTRY VEHICLE STRUCTURE"/>
+			</AttachUpdate>-->
+			
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+</AssetDeclaration>

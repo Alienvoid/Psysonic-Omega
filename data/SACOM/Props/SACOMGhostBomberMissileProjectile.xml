@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:EXSACOMGhostMissile_SKN.w3x" />
+		<Include
+			type="all"
+			source="ART:EXSACOMGhostMissile_FLYA.w3x" />
+    <Include
+			type="all"
+			source="ART:exhellmis.xml" />
+	</Includes>
+	<GameObject
+		id="SACOMGhostBomberMissileProjectile"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SACOMGhostBomberMissileProjectile">
+		<ArmorSet
+			Armor="JapanFinalSquadronAircraftArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXSACOMGhostMissile_SKN" />
+          <ParticleSysBone
+                      BoneName="FX_Engine"
+                      FXParticleSystemTemplate="SACOMGhostMissileSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="SACOMGhostMissileTrailFire"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="SACOMGhostMissileTrailFireLight"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="EXSACOMGhostMissile_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_GhostMissileDetonation" />
+      </FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="5" 
+				FirstHeightMax="5" 
+				SecondHeightMin="5" 
+				SecondHeightMax="5" 
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="80.0"
+				MaxDistanceToTravel="20000.0"
+				GroundHitFX="FX_SOV_GhostMissileDetonation"
+			/>
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="140.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"></Shape>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	<GameObject
+		inheritFrom="SACOMGhostBomberMissileProjectile"
+		id="SACOMGhostBomberMissileProjectile_Veteran"
+		EditorName="SACOMGhostBomberMissileProjectile_Veteran">
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw"
+				xai:joinAction="Replace">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXSACOMGhostMissile_SKN" />
+          <ParticleSysBone
+                      BoneName="FX_Engine"
+                      FXParticleSystemTemplate="SACOMGhostMissileSmoke"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="SACOMGhostMissileTrailFire_Vet"
+						FollowBone="true"/>
+          <ParticleSysBone
+						BoneName="FX_Engine"
+						FXParticleSystemTemplate="SACOMGhostMissileTrailFireLight_Vet"
+						FollowBone="true"/>
+				</ModelConditionState>
+				<AnimationState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Animation
+						AnimationName="EXSACOMGhostMissile_FLYA"
+						AnimationMode="LOOP" />
+				</AnimationState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+      <FXListBehavior
+				id="ModuleTag_FXLists"
+        xai:joinAction="Replace">
+        <DieMuxData
+					DeathTypes="ALL" />
+        <Event
+					Index="onDeath"
+					FX="FX_SOV_GhostMissileDetonationVet" />
+      </FXListBehavior>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				xai:joinAction="Replace"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL"
+				FirstHeightMin="5" 
+				FirstHeightMax="5" 
+				SecondHeightMin="5" 
+				SecondHeightMax="5" 
+				FirstPercentIndent="33"
+				SecondPercentIndent="66"
+				FlightPathAdjustDistPerSecond="0.0"
+				MaxDistanceToTravel="20000.0"
+				Acceleration="1.0"
+				GroundHitFX="FX_SOV_GhostMissileDetonationVet"
+				/>
+		</Behaviors>
+	</GameObject>	
+</AssetDeclaration>

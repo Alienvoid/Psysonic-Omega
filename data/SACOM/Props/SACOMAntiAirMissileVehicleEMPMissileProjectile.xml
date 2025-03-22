@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xai="uri:ea.com:eala:asset:instance">
+	<Tags></Tags>
+	<Includes>
+		<Include
+			type="all"
+			source="ART:EXFoxMissile.w3x" />
+	</Includes>
+	<GameObject
+		id="SACOMAntiAirMissileVehicleEMPMissileProjectile"
+		Side="SACOM"
+		EditorSorting="SYSTEM"
+		KindOf="PROJECTILE SMALL_MISSILE DEFLECT_BY_SPECIAL_POWER NO_COLLIDE HIDE_IF_FOGGED"
+		EditorName="SACOMAntiAirMissileVehicleEMPMissileProjectile">
+		<ArmorSet
+			Armor="ProjectileArmor" />
+		<Draws>
+			<ScriptedModelDraw
+				id="ModuleTag_ScriptedModelDraw">
+				<ModelConditionState
+					ParseCondStateType="PARSE_DEFAULT">
+					<Model
+						Name="EXFoxMissile" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedMissleHitFire"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="SACOMAntiAirMissileVehicleFlakMissileSmoke"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="RailgunCenterGlow"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="BlueTeslaSpark"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="WhiteTeslaSpark"
+						FollowBone="true" />
+					<ParticleSysBone
+						BoneName="NONE"
+						FXParticleSystemTemplate="AlliedMissleLight"
+						FollowBone="true" />
+				</ModelConditionState>
+			</ScriptedModelDraw>
+		</Draws>
+		<Behaviors>
+			<FXListBehavior
+				id="ModuleTag_FXLists">
+				<DieMuxData
+					DeathTypes="ALL" />
+				<Event
+				Index="onDeath"
+				FX="FX_SOV_TeslaAirBombExplosion" />
+			</FXListBehavior>
+			<DestroyDie
+				id="ModuleTag_Die">
+				<DieMuxData
+					DeathTypes="ALL" />
+			</DestroyDie>
+			<BezierProjectile
+				id="ModuleTag_BezierProjectileBehavior"
+				Flags="ORIENT_TO_FLIGHT_PATH DETONATE_CALLS_KILL PING_PONG_SIDEWAYS_DRIFT"
+				FirstHeightMin="-25"
+				FirstHeightMax="-25"
+				SecondHeightMin="10"
+				SecondHeightMax="10"
+				FirstPercentIndent="45"
+				SecondPercentIndent="75"
+				SidewaysDrift="50"
+				MaxDistanceToTravel="1400"
+				FlightPathAdjustDistPerSecond="100"
+				GroundHitFX="FX_SOV_TeslaAirBombExplosion" />
+		</Behaviors>
+		<Body>
+			<ActiveBody
+				id="ModuleTag_ActiveBody"
+				MaxHealth="100.0" />
+		</Body>
+		<Geometry
+			IsSmall="true">
+			<Shape
+				Type="SPHERE"
+				MajorRadius="0.8"/>
+		</Geometry>
+		<VisionInfo
+			VisionRange="0" />
+	</GameObject>
+	
+</AssetDeclaration>
